@@ -1,0 +1,616 @@
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Rękopis Wojnicza w liczbach</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Alegreya:ital,wght@0,500;0,700;1,500&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;1,400&display=swap">
+<style>
+/* Layout: a single reading column (lab notebook) that widens for figures; findings first, method last. */
+:root {
+  --bg: #f4f5f1;          /* cool vellum under daylight */
+  --surface: #fbfcf9;
+  --fg: #1c211f;          /* iron-gall ink */
+  --muted: #59625d;
+  --faint: #8b938e;
+  --rule: #d8ddd5;
+  --accent: #2b6b5e;      /* verdigris, the herbal section's green */
+  --accent-soft: #dfeae5;
+  --voy: #eb6834;         /* chart mark: Voynich */
+  --sc: #6250d6;          /* chart mark: self-citation model */
+  --s1: #2a78d6;          /* chart mark: series 1 */
+  --s3: #1baf7a;          /* chart mark: series 3 */
+  --lang: #a4aca7;        /* chart mark: reference languages */
+  --ramp1: #86b6ef; --ramp2: #2a78d6; --ramp3: #104281;
+  --display: "Alegreya", "Iowan Old Style", Georgia, serif;
+  --body: "IBM Plex Sans", "Segoe UI", system-ui, sans-serif;
+  --mono: "IBM Plex Mono", ui-monospace, "SF Mono", Menlo, monospace;
+  --step-0: 1rem; --step-1: 1.2rem; --step-2: 1.55rem; --step-3: 2.1rem; --step-4: clamp(2.4rem, 6vw, 3.6rem);
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #131715; --surface: #191e1b; --fg: #e5e9e4; --muted: #a2aaa5; --faint: #7a837e; --rule: #2c332f;
+    --accent: #72c1ab; --accent-soft: #1f2d28; --voy: #d95926; --sc: #9085e9; --s1: #3987e5; --s3: #199e70;
+    --lang: #6c7570; --ramp1: #184f95; --ramp2: #3987e5; --ramp3: #9ec5f4; color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #131715; --surface: #191e1b; --fg: #e5e9e4; --muted: #a2aaa5; --faint: #7a837e; --rule: #2c332f;
+  --accent: #72c1ab; --accent-soft: #1f2d28; --voy: #d95926; --sc: #9085e9; --s1: #3987e5; --s3: #199e70;
+  --lang: #6c7570; --ramp1: #184f95; --ramp2: #3987e5; --ramp3: #9ec5f4; color-scheme: dark;
+}
+* { box-sizing: border-box; }
+body { background: var(--bg); color: var(--fg); font: 400 var(--step-0)/1.6 var(--body); }
+.wrap { max-width: 60rem; margin: 0 auto; padding-block: 2.5rem 4rem;
+  padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)); }
+.prose { max-width: 40rem; }
+h1, h2, h3 { font-family: var(--display); font-weight: 700; line-height: 1.15; text-wrap: balance; margin: 0; }
+h1 { font-size: var(--step-4); letter-spacing: -0.01em; }
+h2 { font-size: var(--step-3); }
+h3 { font-size: var(--step-1); font-family: var(--body); font-weight: 600; }
+p { margin: 0; }
+a { color: var(--accent); text-underline-offset: 2px; }
+a:focus-visible, button:focus-visible, select:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+.eyebrow { font: 500 0.78rem/1.3 var(--mono); letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); }
+.stack { display: flex; flex-direction: column; gap: 1rem; }
+.stack-lg { display: flex; flex-direction: column; gap: 4.5rem; }
+section { display: flex; flex-direction: column; gap: 1.25rem; }
+.lede { font-size: var(--step-1); color: var(--fg); max-width: 40rem; }
+.muted { color: var(--muted); }
+.small { font-size: 0.875rem; }
+.eva { font-family: var(--mono); font-size: 0.95em; }
+.num { font-variant-numeric: tabular-nums; }
+
+/* hero */
+.hero { display: grid; gap: 2rem; grid-template-columns: minmax(0, 1fr); padding-bottom: 1rem; border-bottom: 1px solid var(--rule); }
+.folio { font-family: var(--mono); font-size: 0.95rem; line-height: 1.9; background: var(--surface); border: 1px solid var(--rule);
+  border-radius: 6px; padding: 1rem 1.1rem; overflow-x: auto; }
+.folio .loc { color: var(--faint); margin-right: 0.75rem; user-select: none; }
+.folio .g { border-bottom: 2px solid var(--accent-soft); padding: 0 1px; }
+.folio .multi { border-bottom-color: var(--accent); }
+.facts { display: grid; grid-template-columns: repeat(auto-fit, minmax(9rem, 1fr)); gap: 1.25rem 2rem; }
+.fact b { display: block; font: 600 var(--step-2)/1.1 var(--body); font-variant-numeric: tabular-nums; }
+.fact span { color: var(--muted); font-size: 0.875rem; }
+
+/* findings list */
+.findings { list-style: none; margin: 0; padding: 0; display: grid; gap: 0; counter-reset: f; }
+.findings li { display: grid; grid-template-columns: 7.5rem minmax(0, 1fr); gap: 1.25rem; padding: 1rem 0; border-top: 1px solid var(--rule); }
+.findings li:last-child { border-bottom: 1px solid var(--rule); }
+.verdict { font: 500 0.75rem/1.2 var(--mono); letter-spacing: 0.06em; text-transform: uppercase; padding: 0.3rem 0.5rem;
+  border-radius: 4px; align-self: start; text-align: center; border: 1px solid currentColor; }
+.v-no { color: var(--voy); }
+.v-yes { color: var(--accent); }
+.v-part { color: var(--muted); }
+@media (max-width: 34rem) { .findings li { grid-template-columns: minmax(0, 1fr); gap: 0.5rem; } .verdict { justify-self: start; } }
+
+/* figures */
+figure { margin: 0; display: flex; flex-direction: column; gap: 0.75rem; }
+figcaption { color: var(--muted); font-size: 0.875rem; max-width: 40rem; }
+.legend { display: flex; flex-wrap: wrap; gap: 0.5rem 1.25rem; font-size: 0.85rem; color: var(--muted); }
+.legend i { display: inline-block; width: 0.8rem; height: 0.8rem; border-radius: 50%; margin-right: 0.4rem; vertical-align: -0.1rem; }
+.legend i.sq { border-radius: 2px; }
+.legend i.ring { background: transparent !important; border: 2px solid var(--fg); }
+.legend i.dia { border-radius: 1px; transform: rotate(45deg) scale(0.85); }
+svg { display: block; width: 100%; height: auto; overflow: visible; }
+svg text { fill: var(--muted); font: 11px var(--body); }
+svg .axis { stroke: var(--rule); stroke-width: 1; }
+svg .grid { stroke: var(--rule); stroke-width: 1; stroke-dasharray: 2 3; }
+.strip { display: grid; grid-template-columns: minmax(0, 15rem) minmax(0, 1fr); gap: 0.25rem 1.5rem; align-items: center;
+  padding: 0.75rem 0; border-top: 1px solid var(--rule); }
+.strip h3 { font-size: 0.95rem; }
+.strip p { font-size: 0.8rem; color: var(--muted); line-height: 1.4; }
+@media (max-width: 40rem) { .strip { grid-template-columns: minmax(0, 1fr); } }
+.two { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 24rem), 1fr)); gap: 2rem; }
+.two > * { min-width: 0; }
+
+/* tables */
+.tbl-wrap { overflow-x: auto; border: 1px solid var(--rule); border-radius: 6px; background: var(--surface); }
+table { border-collapse: collapse; width: 100%; font-size: 0.85rem; font-variant-numeric: tabular-nums; }
+th, td { padding: 0.45rem 0.7rem; text-align: right; white-space: nowrap; border-bottom: 1px solid var(--rule); }
+th:first-child, td:first-child { text-align: left; }
+thead th { font-weight: 600; color: var(--muted); font-size: 0.78rem; position: sticky; top: 0; background: var(--surface); }
+tbody tr:last-child td { border-bottom: 0; }
+tr.hl td { font-weight: 600; }
+tr.hl td:first-child::before { content: ""; display: inline-block; width: 0.55rem; height: 0.55rem; border-radius: 50%; background: var(--voy); margin-right: 0.45rem; }
+tr.sc td:first-child::before { content: ""; display: inline-block; width: 0.5rem; height: 0.5rem; background: var(--sc); transform: rotate(45deg); margin-right: 0.5rem; }
+details { border-top: 1px solid var(--rule); padding-top: 0.75rem; }
+summary { cursor: pointer; color: var(--accent); font-weight: 500; font-size: 0.9rem; }
+details[open] summary { margin-bottom: 0.75rem; }
+
+/* cipher panel */
+.panel { background: var(--surface); border: 1px solid var(--rule); border-radius: 6px; padding: 1rem 1.1rem; display: flex; flex-direction: column; gap: 0.75rem; }
+.row { display: flex; flex-wrap: wrap; gap: 0.75rem; align-items: center; }
+select { font: 500 0.9rem var(--body); padding: 0.35rem 0.6rem; border-radius: 4px; border: 1px solid var(--rule); background: var(--bg); color: var(--fg); }
+.pair { display: grid; grid-template-columns: 6.5rem minmax(0, 1fr); gap: 0.25rem 1rem; font-size: 0.9rem; }
+.pair dt { color: var(--muted); font-size: 0.8rem; padding-top: 0.15rem; }
+.pair dd { margin: 0; font-family: var(--mono); overflow-wrap: anywhere; }
+.chips { display: flex; flex-wrap: wrap; gap: 0.4rem; }
+.chip { font: 0.85rem var(--mono); padding: 0.15rem 0.5rem; border-radius: 3px; background: var(--accent-soft); color: var(--fg); }
+.chip small { color: var(--muted); font-size: 0.72rem; margin-left: 0.3rem; }
+.tabs { display: flex; flex-wrap: wrap; gap: 0.25rem; border-bottom: 1px solid var(--rule); }
+.tabs button { font: 500 0.85rem var(--body); background: none; border: 0; border-bottom: 2px solid transparent; color: var(--muted);
+  padding: 0.45rem 0.7rem; cursor: pointer; margin-bottom: -1px; }
+.tabs button[aria-selected="true"] { color: var(--fg); border-bottom-color: var(--accent); }
+.gen { font-family: var(--mono); font-size: 0.85rem; line-height: 1.8; overflow-wrap: anywhere; }
+.callout { border-left: 3px solid var(--accent); padding: 0.25rem 0 0.25rem 1rem; max-width: 40rem; }
+#tip { position: fixed; pointer-events: none; z-index: 20; background: var(--fg); color: var(--bg); font: 0.8rem/1.35 var(--body);
+  padding: 0.4rem 0.55rem; border-radius: 4px; max-width: 16rem; font-variant-numeric: tabular-nums; }
+code { font-family: var(--mono); font-size: 0.88em; background: var(--accent-soft); padding: 0.05rem 0.3rem; border-radius: 3px; }
+pre { font: 0.82rem/1.6 var(--mono); background: var(--surface); border: 1px solid var(--rule); border-radius: 6px; padding: 0.9rem 1rem; overflow-x: auto; margin: 0; }
+footer { border-top: 1px solid var(--rule); padding-top: 1.5rem; color: var(--muted); font-size: 0.85rem; }
+@media (prefers-reduced-motion: no-preference) { .tabs button, summary { transition: color 0.15s; } }
+</style>
+
+<div class="wrap stack-lg">
+
+<header class="hero">
+  <div class="stack">
+    <span class="eyebrow">MS 408 · Beinecke Library · transliteracja ZL 3b</span>
+    <h1>Rękopis Wojnicza w liczbach</h1>
+    <p class="lede">Nie odczytaliśmy go. Nikt jeszcze tego nie zrobił i uczciwy projekt musi to powiedzieć na początku. Zrobiliśmy coś, co da się sprawdzić: zmierzyliśmy cały tekst tymi samymi miarami co dwanaście języków, zaatakowaliśmy go łamaczem szyfrów, który na próbach kontrolnych odzyskuje 100% liter, i zobaczyliśmy, które hipotezy przetrwały.</p>
+  </div>
+  <div class="stack">
+    <div class="folio" aria-label="Pierwsze wiersze folio 1r w transliteracji EVA" id="folio"></div>
+    <p class="small muted">Folio 1r w alfabecie EVA. Podkreślenie pokazuje podział na glify; ciemniejsze to glify zapisywane w EVA kilkoma literami (<span class="eva">ch</span>, <span class="eva">sh</span>, <span class="eva">cth</span>, <span class="eva">ii</span>…), które liczymy jako jeden znak.</p>
+  </div>
+  <div class="facts" id="facts"></div>
+</header>
+
+<section>
+  <span class="eyebrow">Wyniki</span>
+  <h2>Co wiemy po tych eksperymentach</h2>
+  <ol class="findings">
+    <li><span class="verdict v-no">wykluczone</span><div><b>Prosty i homofoniczny szyfr podstawieniowy</b> dowolnego z <span data-v="okCount" data-f="int"></span> badanych języków. Łamacz odzyskuje szyfry kontrolne prawie w całości, a na rękopisie najlepszy klucz zostawia lukę <span data-v="gapMin" data-f="2"></span>–<span data-v="gapMax" data-f="2"></span> bita na znak. Tyle struktury tekstu język kandydujący nie umie wyjaśnić. Dla wietnamskiego (91 liter z tonami) łamacz nie radzi sobie nawet z kontrolą, więc tu werdyktu nie ma.</div></li>
+    <li><span class="verdict v-no">anomalia</span><div><b>Tekst jest zbyt przewidywalny jak na język.</b> Entropia warunkowa h₂ wynosi <span data-v="fingerprints.Voynich.h2" data-f="2"></span> bita na glif, w językach od <span data-v="langMin.h2" data-f="2"></span> do <span data-v="langMax.h2" data-f="2"></span>. Podstawienie znaków nie zmienia tej liczby, więc żaden szyfr podstawieniowy jej nie tłumaczy.</div></li>
+    <li><span class="verdict v-no">anomalia</span><div><b>Glify mają stałe miejsca w słowie.</b> <span class="eva">q</span> stoi na początku w <span data-v="slots.Voynich.q.initial" data-f="pct0"></span> wystąpień, <span class="eva">n</span> na końcu w <span data-v="slots.Voynich.n.final" data-f="pct0"></span>. Sztywność kolejności znaków: <span data-v="fingerprints.Voynich.order_consistency" data-f="2"></span>, w językach europejskich i semickich <span data-v="langMinEU.order_consistency" data-f="2"></span>–<span data-v="langMaxEU.order_consistency" data-f="2"></span>. Podobnie wysoko jest tylko wietnamski, zapisywany sylabami.</div></li>
+    <li><span class="verdict v-no">anomalia</span><div><b>Sąsiednie słowa są do siebie podobne.</b> Para kolejnych słów różniących się jednym glifem trafia się w <span data-v="permutation.Voynich.adjacent_near.observed" data-f="pct1"></span> przypadków, a po przetasowaniu słów w <span data-v="permutation.Voynich.adjacent_near.shuffled_mean" data-f="pct1"></span> (p ≤ <span data-v="permutation.Voynich.adjacent_near.p" data-f="3"></span>). W łacinie jest odwrotnie: tekst unika takich par.</div></li>
+    <li><span class="verdict v-no">anomalia</span><div><b>Wiersz jest jednostką.</b> Glif <span class="eva">m</span> pojawia się w ostatnim słowie wiersza <span data-v="line_position.m.line_last" data-f="1"></span> razy częściej niż przeciętnie, <span class="eva">g</span> <span data-v="line_position.g.line_last" data-f="1"></span> razy; <span class="eva">p</span> w pierwszym słowie <span data-v="line_position.p.line_first" data-f="1"></span> razy częściej. W zwykłym piśmie koniec wiersza nie zmienia słów.</div></li>
+    <li><span class="verdict v-yes">zgodne</span><div><b>Prawo Zipfa i słownictwo zależne od działu.</b> Nachylenie <span data-v="fingerprints.Voynich.zipf_slope" data-f="2"></span> mieści się w zakresie języków, a działy (zielnik, biologiczny, gwiazdy) mają własne charakterystyczne słowa. To jedyne cechy, które pasują do zwykłego tekstu.</div></li>
+    <li><span class="verdict v-part">częściowo</span><div><b>Hipoteza samocytowania</b> (Timm i Schinner: każde słowo to zmodyfikowana kopia słowa napisanego chwilę wcześniej). Nasz generator odtwarza gęstość słownika i lokalne podobieństwo słów (nawet z nadmiarem), ale daje h₂ = <span data-v="fingerprints.Self-citation model.h2" data-f="2"></span> zamiast <span data-v="fingerprints.Voynich.h2" data-f="2"></span>. Ani tego nie potwierdza, ani nie obala.</div></li>
+  </ol>
+</section>
+
+<section id="fingerprint">
+  <span class="eyebrow">Odcisk palca tekstu</span>
+  <h2>Rękopis na tle dwunastu języków</h2>
+  <p class="prose">Każdy tekst przycięto do <span data-v="n" data-f="int"></span> słów; języki to ten sam fragment Biblii (od Księgi Rodzaju), więc różni je tylko język. Rękopis liczony jest w glifach. Szare kropki to języki, najedź na kropkę, żeby zobaczyć który.</p>
+  <div class="legend">
+    <span><i style="background:var(--voy)"></i>Rękopis Wojnicza</span>
+    <span><i class="dia" style="background:var(--sc)"></i>model samocytowania (średnia z 5 przebiegów)</span>
+    <span><i class="ring"></i>rękopis z przetasowanymi słowami</span>
+    <span><i style="background:var(--lang)"></i>12 języków</span>
+  </div>
+  <div id="strips"></div>
+  <details>
+    <summary>Pełna tabela</summary>
+    <div class="tbl-wrap" id="fp-table"></div>
+  </details>
+</section>
+
+<section>
+  <span class="eyebrow">Morfologia</span>
+  <h2>Każdy glif ma swoje miejsce</h2>
+  <p class="prose">Dla każdego znaku: jaka część jego wystąpień przypada na początek, środek i koniec słowa. W łacinie większość liter chodzi wszędzie. W rękopisie wiele glifów prawie nigdy nie opuszcza swojej pozycji, jakby słowo było wypełnianym szablonem: przedrostek, rdzeń, końcówka.</p>
+  <div class="legend">
+    <span><i class="sq" style="background:var(--ramp1)"></i>początek</span>
+    <span><i class="sq" style="background:var(--ramp2)"></i>środek</span>
+    <span><i class="sq" style="background:var(--ramp3)"></i>koniec</span>
+    <span><i class="sq" style="background:var(--lang)"></i>słowo jednoznakowe</span>
+  </div>
+  <div class="two">
+    <figure><h3>Rękopis Wojnicza (glify)</h3><div id="slots-v"></div></figure>
+    <figure><h3>Łacina (litery)</h3><div id="slots-l"></div></figure>
+  </div>
+</section>
+
+<section>
+  <span class="eyebrow">Układ strony</span>
+  <h2>Początek i koniec wiersza zmieniają tekst</h2>
+  <p class="prose">Ile razy częściej glif występuje w pierwszym lub ostatnim słowie wiersza niż w całym tekście (skala logarytmiczna, 1× = bez różnicy). Liczone dla wierszy akapitów, z co najmniej trzema słowami.</p>
+  <div class="legend">
+    <span><i style="background:var(--s1)"></i>pierwsze słowo wiersza</span>
+    <span><i class="sq" style="background:var(--s3)"></i>ostatnie słowo wiersza</span>
+  </div>
+  <figure><div id="linepos"></div></figure>
+</section>
+
+<section>
+  <span class="eyebrow">Lokalność</span>
+  <h2>Słowa echem powtarzają sąsiadów</h2>
+  <p class="prose">Test permutacyjny: liczymy pary kolejnych słów różniących się jednym znakiem (np. <span class="eva">chedy</span> → <span class="eva">shedy</span>), potem tasujemy kolejność słów <span data-v="permutation.Voynich.adjacent_near.trials" data-f="int"></span> razy. Jeśli efekt wynika tylko ze słownika, tasowanie go nie zmieni.</p>
+  <div class="legend">
+    <span><i class="sq" style="background:var(--s1)"></i>prawdziwa kolejność</span>
+    <span><i class="sq" style="background:var(--lang)"></i>średnia po przetasowaniu</span>
+  </div>
+  <figure><div id="perm"></div>
+    <figcaption>W rękopisie podobni sąsiedzi występują dwa razy częściej niż przypadkiem. W łacinie i włoskim rzadziej niż przypadkiem, bo zdanie nie powtarza prawie tego samego słowa.</figcaption></figure>
+</section>
+
+<section id="cipher">
+  <span class="eyebrow">Kryptoanaliza</span>
+  <h2>Atak na szyfr podstawieniowy</h2>
+  <div class="prose stack">
+    <p>Łamacz zna tylko język docelowy (model trigramów liter z innej części Biblii). Wyżarzaniem symulowanym szuka klucza glif → litera, pozwalając wielu glifom na tę samą literę, więc obejmuje też szyfry homofoniczne. Ocenia klucz prawdopodobieństwem całego szyfrogramu, łącznie z kosztem rozbicia litery na homofony.</p>
+    <p class="callout">Pierwsza wersja oceniała tylko „tekst jawny” i oszukiwała: zwijała 30 glifów do kilku częstych liter i dostawała łacinopodobne <span class="eva">inesi sini ne ninus</span> z wynikiem prawie jak prawdziwa łacina. Dlatego kontrole są obowiązkowe.</p>
+    <p>Miara: luka między tym, ile bitów na znak kosztuje szyfrogram przy najlepszym kluczu i modelu języka, a tym, ile kosztuje przy modelu wyuczonym na samym szyfrogramie. Złamany szyfr danego języka ma lukę bliską zera.</p>
+  </div>
+  <div class="legend">
+    <span><i class="sq" style="background:var(--voy)"></i>rękopis Wojnicza</span>
+    <span><i class="sq" style="background:var(--s1)"></i>kontrola: szyfr prosty</span>
+    <span><i class="sq" style="background:var(--s3)"></i>kontrola: szyfr homofoniczny (2 znaki na literę)</span>
+  </div>
+  <figure><div id="gaps"></div>
+    <figcaption>Luka w bitach na znak. Słupki kontroli są przy zerze, a liczby po prawej to odsetek poprawnie odzyskanych liter. Wyjątek to wietnamski: tam kontrole też mają dużą lukę, więc wynik rękopisu nic nie rozstrzyga.</figcaption></figure>
+  <div class="panel">
+    <div class="row"><label for="lang-pick" class="small muted">„Odszyfrowanie” najlepszym kluczem dla języka</label><select id="lang-pick"></select></div>
+    <dl class="pair">
+      <dt>rękopis (EVA)</dt><dd id="dec-orig"></dd>
+      <dt>wynik</dt><dd id="dec-out"></dd>
+      <dt>klucz</dt><dd id="dec-key"></dd>
+    </dl>
+    <p class="small muted">Najlepszy znaleziony klucz daje tekst, który brzmi trochę jak język, ale nie zawiera jego słów. Tak wygląda porażka, gdy model języka jest dobry, a hipoteza błędna.</p>
+  </div>
+</section>
+
+<section>
+  <span class="eyebrow">Hipoteza generatora</span>
+  <h2>Czy skryba kopiował samego siebie?</h2>
+  <p class="prose">Timm i Schinner (Cryptologia, 2020) proponują, że każde nowe słowo powstawało przez skopiowanie słowa z wierszy powyżej i drobną zmianę: zamianę podobnego glifu (<span class="eva">o↔a↔y</span>, <span class="eva">ch↔sh</span>, <span class="eva">k↔t</span>), dodanie lub zdjęcie przedrostka, dopisanie <span class="eva">e</span>. Napisaliśmy własną, uproszczoną wersję tego algorytmu, zasianą trzema pierwszymi wierszami rękopisu.</p>
+  <div class="two">
+    <div class="panel"><h3>Wygenerowane</h3><div class="gen" id="gen-text"></div></div>
+    <div class="panel"><h3>Prawdziwe (f1r)</h3><div class="gen" id="real-text"></div></div>
+  </div>
+  <div class="tbl-wrap" id="sc-table"></div>
+  <p class="prose small muted">Wynik: model trafia w gęstość słownika i podobieństwo sąsiadów, ale jego tekst jest mniej przewidywalny na poziomie znaków niż rękopis, a słowa mają zbyt różną długość. Prostsze zasady mutacji nie wystarczą; prawdziwy skryba trzymał się ciaśniejszej „gramatyki” glifów. Parametry dobraliśmy ręcznie na kilku próbach, więc to wynik wstępny.</p>
+</section>
+
+<section>
+  <span class="eyebrow">Działy i skrybowie</span>
+  <h2>Dwa „języki” Curriera i słowa działów</h2>
+  <p class="prose">Prescott Currier zauważył w latach 70., że rękopis dzieli się na dwa dialekty, A i B. Lisa Fagin Davis wyróżniła pięciu skrybów. Poniżej słowa najbardziej charakterystyczne dla każdej grupy (log-iloraz szans z priorem Dirichleta; liczba to z-score).</p>
+  <div class="tabs" role="tablist" id="kw-tabs"></div>
+  <div class="chips" id="kw-chips" role="tabpanel"></div>
+  <details>
+    <summary>Currier A i B w liczbach (po <span data-v="currierN" data-f="int"></span> słów)</summary>
+    <div class="tbl-wrap" id="ab-table"></div>
+  </details>
+</section>
+
+<section>
+  <span class="eyebrow">Rozkłady</span>
+  <h2>Długość słów i prawo Zipfa</h2>
+  <div class="two">
+    <figure><h3>Długość słowa (w znakach)</h3>
+      <div class="legend"><span><i style="background:var(--voy)"></i>rękopis</span><span><i style="background:var(--s1)"></i>łacina</span><span><i style="background:var(--lang)"></i>włoski, niemiecki, polski, hebrajski</span></div>
+      <div id="lengths"></div>
+      <figcaption>Rozkład w rękopisie jest wąski i symetryczny, bez długich słów. Długi ogon to zwykle złożenia i fleksja.</figcaption></figure>
+    <figure><h3>Częstość a ranga słowa (log–log)</h3>
+      <div class="legend"><span><i style="background:var(--voy)"></i>rękopis</span><span><i style="background:var(--s1)"></i>łacina</span><span><i style="background:var(--lang)"></i>polski</span></div>
+      <div id="zipf"></div>
+      <figcaption>Tu rękopis wygląda jak język. Prawo Zipfa spełnia też wiele tekstów bez treści, więc ten test niewiele rozstrzyga.</figcaption></figure>
+  </div>
+</section>
+
+<section>
+  <span class="eyebrow">Metoda</span>
+  <h2>Jak to sprawdzić samemu</h2>
+  <div class="prose stack">
+    <p>Cały kod jest w repozytorium, w czystym Pythonie bez zależności. Transliteracja: plik ZL 3b René Zandbergena (IVTFF 2.0). Słowa z nieczytelnymi glifami (<span class="eva">?</span>) są pomijane, przy odczytach alternatywnych bierzemy pierwszy, przecinek (niepewna spacja) traktujemy jak spację.</p>
+<pre>python scripts/fetch_data.py      # korpusy porównawcze
+python scripts/run_analysis.py    # wszystkie eksperymenty → docs/results.json
+python scripts/build_report.py    # ta strona
+python -m unittest                # testy</pre>
+    <p class="small muted">Ograniczenia: porównujemy z jednym gatunkiem tekstu (Biblia), a nie z XV-wiecznymi zielnikami. Model trigramowy nie wychwyci szyfrów, które przestawiają litery, kodują sylaby albo całe słowa (nomenklatory). Hebrajski i arabski są tu bez samogłosek, więc abdżady są uwzględnione. Wykluczamy konkretne hipotezy, nie wszystkie.</p>
+  </div>
+</section>
+
+<footer class="stack">
+  <p>Dane: transliteracja ZL 3b (René Zandbergen, Gabriel Landini, <a href="https://www.voynich.nu/transcr.html">voynich.nu</a>); wielojęzyczny korpus Biblii Christosa Christodoulopoulosa (<a href="https://github.com/christos-c/bible-corpus">bible-corpus</a>). Hipoteza samocytowania: T. Timm, A. Schinner, „A possible generating algorithm of the Voynich manuscript”, Cryptologia 44 (2020).</p>
+  <p>Wygenerowano <span data-v="generated"></span>.</p>
+</footer>
+</div>
+<div id="tip" hidden></div>
+
+<script id="data" type="application/json">__DATA__</script>
+<script>
+(() => {
+const D = JSON.parse(document.getElementById("data").textContent);
+const FP = D.fingerprints;
+const LANGS = Object.keys(FP).filter(k => !["Voynich", "Voynich (EVA letters)", "Self-citation model", "Voynich, words shuffled"].includes(k));
+const PL = { Latin: "łacina", Italian: "włoski", German: "niemiecki", Polish: "polski", Czech: "czeski", English: "angielski",
+  Hungarian: "węgierski", Finnish: "fiński", Turkish: "turecki", Hebrew: "hebrajski", Arabic: "arabski", Vietnamese: "wietnamski",
+  Voynich: "rękopis Wojnicza", "Self-citation model": "model samocytowania", "Voynich, words shuffled": "rękopis, słowa przetasowane",
+  "Voynich (EVA letters)": "rękopis (litery EVA)" };
+const SECTIONS = { herbal: "zielnik", biological: "biologiczny", stars: "gwiazdy (receptury)", pharmaceutical: "farmaceutyczny",
+  zodiac: "zodiak", astronomical: "astronomiczny", cosmological: "kosmologiczny", text: "sam tekst" };
+const NS = "http://www.w3.org/2000/svg";
+const nf = (d) => new Intl.NumberFormat("pl-PL", { minimumFractionDigits: d, maximumFractionDigits: d });
+const fmt = (v, f) => {
+  f = f == null ? "" : String(f);
+  if (v == null || Number.isNaN(v)) return "–";
+  if (f === "int") return nf(0).format(v);
+  if (f && f.startsWith("pct")) return nf(+f.slice(3)).format(v * 100) + "%";
+  if (f && /^\d$/.test(f)) return nf(+f).format(v);
+  return String(v);
+};
+const get = (path) => path.split(".").reduce((o, k) => (o == null ? undefined : o[k]), DERIVED[path.split(".")[0]] !== undefined ? DERIVED : D);
+
+// Derived numbers referenced in the prose.
+const langVals = (k, set = LANGS) => set.map(l => FP[l][k]);
+const EU = LANGS.filter(l => l !== "Vietnamese");
+const DERIVED = { langMin: {}, langMax: {}, langMinEU: {}, langMaxEU: {} };
+for (const k of Object.keys(FP.Voynich)) {
+  DERIVED.langMin[k] = Math.min(...langVals(k)); DERIVED.langMax[k] = Math.max(...langVals(k));
+  DERIVED.langMinEU[k] = Math.min(...langVals(k, EU)); DERIVED.langMaxEU[k] = Math.max(...langVals(k, EU));
+}
+const okLangs = Object.values(D.cipher.languages).filter(r => r.control_h1.accuracy > 0.95);
+const gaps = okLangs.map(r => r.voynich.gap);
+DERIVED.okCount = okLangs.length;
+DERIVED.gapMin = Math.min(...gaps); DERIVED.gapMax = Math.max(...gaps);
+DERIVED.currierN = D.currier["Currier A"].tokens;
+for (const k of ["fingerprints", "slots", "permutation", "line_position", "n", "generated"]) DERIVED[k] = D[k];
+document.querySelectorAll("[data-v]").forEach(el => { el.textContent = fmt(get(el.dataset.v), el.dataset.f); });
+
+// Tooltip shared by every chart.
+const tip = document.getElementById("tip");
+document.addEventListener("pointermove", e => {
+  const t = e.target.closest && e.target.closest("[data-tip]");
+  if (!t) { tip.hidden = true; return; }
+  tip.textContent = t.dataset.tip; tip.hidden = false;
+  const r = tip.getBoundingClientRect();
+  let x = e.clientX + 14, y = e.clientY + 14;
+  if (x + r.width > innerWidth - 8) x = e.clientX - r.width - 14;
+  if (y + r.height > innerHeight - 8) y = e.clientY - r.height - 14;
+  tip.style.left = x + "px"; tip.style.top = y + "px";
+});
+document.addEventListener("pointerleave", () => { tip.hidden = true; });
+
+function el(tag, attrs = {}, parent) {
+  const n = document.createElementNS(NS, tag);
+  for (const [k, v] of Object.entries(attrs)) n.setAttribute(k, v);
+  if (parent) parent.appendChild(n);
+  return n;
+}
+function svg(w, h, parent, label) {
+  const s = el("svg", { viewBox: `0 0 ${w} ${h}`, role: "img", "aria-label": label || "" });
+  parent.appendChild(s); return s;
+}
+function text(s, x, y, str, attrs = {}) { const t = el("text", { x, y, ...attrs }, s); t.textContent = str; return t; }
+function niceTicks(lo, hi, n = 4) {
+  const span = hi - lo, step0 = span / n, mag = 10 ** Math.floor(Math.log10(step0));
+  const step = [1, 2, 2.5, 5, 10].map(m => m * mag).find(s => span / s <= n) || mag * 10;
+  const out = []; for (let v = Math.ceil(lo / step) * step; v <= hi + 1e-9; v += step) out.push(+v.toFixed(10));
+  return out;
+}
+
+// Hero: folio 1r, glyph-segmented.
+const MULTI = ["cth", "ckh", "cph", "cfh", "iii", "ch", "sh", "ii"];
+const glyphs = w => { const o = []; let i = 0; while (i < w.length) { const m = MULTI.find(g => w.startsWith(g, i)); o.push(m || w[i]); i += m ? m.length : 1; } return o; };
+const f1r = ["fachys.ykal.ar.ataiin.shol.shory.cthres.y.kor.sholdy", "sory.ckhar.or.y.kair.chtaiin.shar.ase.cthar.cthar.dan",
+  "syaiir.sheky.or.ykaiin.shod.cthoary.cthes.daraiin.sy", "soiin.oteey.oteos.roloty.cthiar.daiin.okaiin.or.okan"];
+const folio = document.getElementById("folio");
+f1r.forEach((line, i) => {
+  const div = document.createElement("div");
+  div.innerHTML = `<span class="loc">f1r.${i + 1}</span>` + line.split(".").map(w =>
+    glyphs(w).map(g => `<span class="g${g.length > 1 ? " multi" : ""}">${g}</span>`).join("")).join(" ");
+  folio.appendChild(div);
+});
+const C = D.corpus;
+document.getElementById("facts").innerHTML = [
+  [C.tokens, "słów (czytelnych)"], [C.types, "różnych słów"], [C.pages, "stron"], [C.glyph_inventory, "różnych glifów"],
+].map(([v, l]) => `<div class="fact"><b>${fmt(v, "int")}</b><span>${l}</span></div>`).join("");
+
+// Dot strips.
+const METRICS = [
+  ["h2", "Entropia warunkowa h₂", "Bity niepewności co do kolejnego znaku, gdy znany jest poprzedni.", 2],
+  ["h3", "Entropia warunkowa h₃", "To samo przy znajomości dwóch poprzednich znaków.", 2],
+  ["order_consistency", "Sztywność kolejności", "Jak stała jest kolejność dwóch znaków w słowie (0,5 = dowolna, 1 = zawsze ta sama).", 2],
+  ["positional_rigidity", "Sztywność pozycji", "Średni udział ulubionej pozycji znaku: początek, środek albo koniec słowa.", 2],
+  ["vocab_density", "Gęstość słownika", "Odsetek 2000 najczęstszych słów, które mają w słowniku sąsiada różniącego się jednym znakiem.", "pct0"],
+  ["adjacent_near", "Podobni sąsiedzi", "Odsetek par kolejnych słów różniących się dokładnie jednym znakiem.", "pct1"],
+  ["adjacent_repeat", "Powtórzenia", "Odsetek par kolejnych słów, które są identyczne.", "pct2"],
+  ["sd_word_len", "Rozrzut długości słów", "Odchylenie standardowe długości słowa w znakach.", 2],
+  ["hapax_ratio", "Hapaksy", "Odsetek różnych słów, które pojawiają się tylko raz.", "pct0"],
+  ["zipf_slope", "Nachylenie Zipfa", "Nachylenie log(częstość) względem log(ranga); języki są blisko −1.", 2],
+];
+const strips = document.getElementById("strips");
+for (const [k, name, desc, f] of METRICS) {
+  const row = document.createElement("div"); row.className = "strip";
+  row.innerHTML = `<div><h3>${name}</h3><p>${desc}</p></div><div class="plot"></div>`;
+  strips.appendChild(row);
+  const W = 520, H = 58, L = 10, R = 10, Y = 26;
+  const s = svg(W, H, row.querySelector(".plot"), name);
+  const pts = [...LANGS.map(l => [l, FP[l][k]]), ["Voynich", FP.Voynich[k]], ["Self-citation model", FP["Self-citation model"][k]], ["Voynich, words shuffled", FP["Voynich, words shuffled"][k]]];
+  let lo = Math.min(...pts.map(p => p[1])), hi = Math.max(...pts.map(p => p[1]));
+  const pad = (hi - lo) * 0.08 || 0.01; lo -= pad; hi += pad;
+  const x = v => L + (v - lo) / (hi - lo) * (W - L - R);
+  el("line", { x1: L, x2: W - R, y1: Y, y2: Y, class: "axis" }, s);
+  const ticks = niceTicks(lo, hi, 4), isPct = typeof f === "string" && f.startsWith("pct");
+  const step = ticks.length > 1 ? ticks[1] - ticks[0] : 1;
+  const dec = Math.max(0, -Math.floor(Math.log10(step * (isPct ? 100 : 1)) + 1e-9));
+  for (const t of ticks) {
+    el("line", { x1: x(t), x2: x(t), y1: Y - 4, y2: Y + 4, class: "axis" }, s);
+    text(s, x(t), H - 4, fmt(t, isPct ? "pct" + dec : dec), { "text-anchor": "middle" });
+  }
+  for (const [l, v] of pts.filter(p => LANGS.includes(p[0]))) {
+    el("circle", { cx: x(v), cy: Y, r: 5, fill: "var(--lang)", stroke: "var(--bg)", "stroke-width": 1.5 }, s);
+    el("circle", { cx: x(v), cy: Y, r: 10, fill: "transparent", "data-tip": `${PL[l]}: ${fmt(v, f)}` }, s);
+  }
+  const sh = FP["Voynich, words shuffled"][k];
+  el("circle", { cx: x(sh), cy: Y, r: 6, fill: "none", stroke: "var(--fg)", "stroke-width": 1.5 }, s);
+  el("circle", { cx: x(sh), cy: Y, r: 10, fill: "transparent", "data-tip": `${PL["Voynich, words shuffled"]}: ${fmt(sh, f)}` }, s);
+  const sc = FP["Self-citation model"][k], sd = D.selfcite_sd[k];
+  el("rect", { x: x(sc) - 5, y: Y - 5, width: 10, height: 10, fill: "var(--sc)", stroke: "var(--bg)", "stroke-width": 1.5, transform: `rotate(45 ${x(sc)} ${Y})` }, s);
+  el("circle", { cx: x(sc), cy: Y, r: 10, fill: "transparent", "data-tip": `${PL["Self-citation model"]}: ${fmt(sc, f)} (± ${fmt(sd, f)})` }, s);
+  const v = FP.Voynich[k];
+  el("circle", { cx: x(v), cy: Y, r: 7, fill: "var(--voy)", stroke: "var(--bg)", "stroke-width": 2 }, s);
+  el("circle", { cx: x(v), cy: Y, r: 11, fill: "transparent", "data-tip": `${PL.Voynich}: ${fmt(v, f)}` }, s);
+  const lx = Math.min(Math.max(x(v), 30), W - 30);
+  text(s, lx, Y - 12, fmt(v, f), { "text-anchor": "middle", style: "fill:var(--fg);font-weight:600" });
+}
+// Full table.
+const COLS = [["types", "typy", "int"], ["h1", "h₁", 2], ["h2", "h₂", 2], ["h3", "h₃", 2], ["mean_word_len", "śr. dł.", 2], ["sd_word_len", "odch. dł.", 2],
+  ["zipf_slope", "Zipf", 2], ["vocab_density", "gęstość", "pct0"], ["adjacent_near", "podobni sąs.", "pct1"], ["adjacent_repeat", "powt.", "pct2"],
+  ["order_consistency", "kolejność", 2], ["positional_rigidity", "pozycja", 2]];
+function table(rows, cols, hlKey) {
+  return `<table><thead><tr><th>tekst</th>${cols.map(c => `<th>${c[1]}</th>`).join("")}</tr></thead><tbody>` +
+    rows.map(([name, r, cls]) => `<tr class="${cls || ""}"><td>${PL[name] || name}</td>${cols.map(c => `<td>${fmt(r[c[0]], c[2])}</td>`).join("")}</tr>`).join("") + "</tbody></table>";
+}
+document.getElementById("fp-table").innerHTML = table([
+  ["Voynich", FP.Voynich, "hl"], ["Voynich (EVA letters)", FP["Voynich (EVA letters)"]], ["Voynich, words shuffled", FP["Voynich, words shuffled"]],
+  ["Self-citation model", FP["Self-citation model"], "sc"], ...LANGS.map(l => [l, FP[l]])], COLS);
+
+// Slot bars.
+const POS = [["initial", "początek", "var(--ramp1)"], ["medial", "środek", "var(--ramp2)"], ["final", "koniec", "var(--ramp3)"], ["alone", "samodzielnie", "var(--lang)"]];
+function slots(id, prof, mono) {
+  const keys = Object.keys(prof);
+  const W = 420, rowH = 17, L = 44, H = keys.length * rowH + 22;
+  const s = svg(W, H, document.getElementById(id), "Pozycje znaków w słowie");
+  keys.forEach((g, i) => {
+    const y = i * rowH;
+    text(s, L - 8, y + 12, g, { "text-anchor": "end", style: `fill:var(--fg);font-family:${mono ? "var(--mono)" : "var(--body)"}` });
+    let x0 = L;
+    for (const [p, pl, col] of POS) {
+      const w = prof[g][p] * (W - L);
+      if (w > 0.5) {
+        el("rect", { x: x0, y: y + 2, width: Math.max(0, w - 2), height: rowH - 5, fill: col, rx: 1.5, "data-tip": `${g} · ${pl}: ${fmt(prof[g][p], "pct0")}` }, s);
+      }
+      x0 += w;
+    }
+  });
+  for (const t of [0, 0.5, 1]) text(s, L + t * (W - L), H - 4, fmt(t, "pct0"), { "text-anchor": t === 0 ? "start" : t === 1 ? "end" : "middle" });
+}
+slots("slots-v", D.slots.Voynich, true);
+slots("slots-l", D.slots.Latin, true);
+
+// Line position enrichment (log scale).
+(() => {
+  const LP = D.line_position;
+  const keys = Object.keys(LP).sort((a, b) => Math.max(...Object.values(LP[b]).map(v => Math.abs(Math.log(v)))) - Math.max(...Object.values(LP[a]).map(v => Math.abs(Math.log(v))))).slice(0, 14);
+  const W = 640, rowH = 24, L = 48, R = 16, H = keys.length * rowH + 28;
+  const s = svg(W, H, document.getElementById("linepos"), "Wzbogacenie glifów na początku i końcu wiersza");
+  const lo = Math.log(0.05), hi = Math.log(10);
+  const x = v => L + (Math.log(Math.max(v, 0.05)) - lo) / (hi - lo) * (W - L - R);
+  for (const t of [0.1, 0.25, 0.5, 1, 2, 4, 8]) {
+    el("line", { x1: x(t), x2: x(t), y1: 0, y2: H - 20, class: t === 1 ? "axis" : "grid" }, s);
+    text(s, x(t), H - 6, fmt(t, t < 1 ? 2 : 0).replace(/,?0+$/, "") + "×", { "text-anchor": "middle" });
+  }
+  keys.forEach((g, i) => {
+    const y = i * rowH + 12, a = LP[g].line_first, b = LP[g].line_last;
+    text(s, L - 10, y + 4, g, { "text-anchor": "end", style: "fill:var(--fg);font-family:var(--mono)" });
+    el("line", { x1: x(a), x2: x(b), y1: y, y2: y, stroke: "var(--rule)", "stroke-width": 2 }, s);
+    el("circle", { cx: x(a), cy: y, r: 5.5, fill: "var(--s1)", stroke: "var(--bg)", "stroke-width": 1.5, "data-tip": `${g} w pierwszym słowie: ${fmt(a, 2)}×` }, s);
+    el("rect", { x: x(b) - 5, y: y - 5, width: 10, height: 10, rx: 1.5, fill: "var(--s3)", stroke: "var(--bg)", "stroke-width": 1.5, "data-tip": `${g} w ostatnim słowie: ${fmt(b, 2)}×` }, s);
+  });
+})();
+
+// Permutation bars.
+(() => {
+  const P = D.permutation, names = Object.keys(P);
+  const W = 640, rowH = 46, L = 92, R = 70, H = names.length * rowH + 22;
+  const s = svg(W, H, document.getElementById("perm"), "Test permutacyjny");
+  const max = Math.max(...names.flatMap(n => [P[n].adjacent_near.observed, P[n].adjacent_near.shuffled_mean])) * 1.05;
+  const x = v => L + v / max * (W - L - R);
+  for (const t of niceTicks(0, max, 4)) { el("line", { x1: x(t), x2: x(t), y1: 0, y2: H - 20, class: "grid" }, s); text(s, x(t), H - 6, fmt(t, "pct0"), { "text-anchor": "middle" }); }
+  names.forEach((n, i) => {
+    const y = i * rowH + 6, r = P[n].adjacent_near;
+    text(s, L - 10, y + 18, PL[n], { "text-anchor": "end", style: "fill:var(--fg)" });
+    el("rect", { x: L, y, width: Math.max(1, x(r.observed) - L), height: 15, rx: 2, fill: "var(--s1)", "data-tip": `${PL[n]}, prawdziwa kolejność: ${fmt(r.observed, "pct2")}` }, s);
+    el("rect", { x: L, y: y + 17, width: Math.max(1, x(r.shuffled_mean) - L), height: 15, rx: 2, fill: "var(--lang)", "data-tip": `${PL[n]}, po przetasowaniu: ${fmt(r.shuffled_mean, "pct2")} (p = ${fmt(r.p, 3)})` }, s);
+    text(s, Math.max(x(r.observed), x(r.shuffled_mean)) + 8, y + 21, `${fmt(r.observed / r.shuffled_mean, 1)}×`, { style: "fill:var(--fg);font-weight:600" });
+  });
+})();
+
+// Cipher gap bars + decryption picker.
+(() => {
+  const Lg = D.cipher.languages, names = Object.keys(Lg).sort((a, b) => Lg[a].voynich.gap - Lg[b].voynich.gap);
+  const W = 640, rowH = 30, L = 92, R = 90, T = 18, H = names.length * rowH + 24 + T;
+  const root = svg(W, H, document.getElementById("gaps"), "Luka bitowa ataku na szyfr");
+  text(root, W - 4, 10, "kontrole: odzyskane litery", { "text-anchor": "end" });
+  const s = el("g", { transform: `translate(0 ${T})` }, root);
+  const max = Math.max(...names.map(n => Lg[n].voynich.gap)) * 1.05, min = Math.min(0, ...names.flatMap(n => [Lg[n].control_h1.gap, Lg[n].control_h2.gap]));
+  const x = v => L + (v - min) / (max - min) * (W - L - R);
+  for (const t of niceTicks(0, max, 5)) { el("line", { x1: x(t), x2: x(t), y1: 0, y2: H - T - 20, class: t === 0 ? "axis" : "grid" }, s); text(s, x(t), H - T - 6, fmt(t, 1), { "text-anchor": "middle" }); }
+  names.forEach((n, i) => {
+    const y = i * rowH + 4, r = Lg[n];
+    text(s, L - 10, y + 14, PL[n], { "text-anchor": "end", style: "fill:var(--fg)" });
+    const bar = (v, yy, h, col, tipTxt) => el("rect", { x: Math.min(x(0), x(v)), y: yy, width: Math.max(2, Math.abs(x(v) - x(0))), height: h, rx: 2, fill: col, "data-tip": tipTxt }, s);
+    bar(r.voynich.gap, y, 12, "var(--voy)", `${PL[n]}: rękopis, luka ${fmt(r.voynich.gap, 2)} bita/znak`);
+    bar(r.control_h1.gap, y + 14, 4, "var(--s1)", `${PL[n]}: kontrola prosta, luka ${fmt(r.control_h1.gap, 3)}, odzyskano ${fmt(r.control_h1.accuracy, "pct1")}`);
+    bar(r.control_h2.gap, y + 20, 4, "var(--s3)", `${PL[n]}: kontrola homofoniczna, luka ${fmt(r.control_h2.gap, 3)}, odzyskano ${fmt(r.control_h2.accuracy, "pct1")}`);
+    text(s, x(r.voynich.gap) + 8, y + 11, fmt(r.voynich.gap, 2), { style: "fill:var(--fg);font-weight:600" });
+    text(s, W - 4, y + 23, `${fmt(r.control_h1.accuracy, "pct0")} · ${fmt(r.control_h2.accuracy, "pct0")}`, { "text-anchor": "end" });
+  });
+  const pick = document.getElementById("lang-pick");
+  pick.innerHTML = Object.keys(Lg).map(n => `<option value="${n}">${PL[n]}</option>`).join("");
+  const show = () => {
+    const r = Lg[pick.value].voynich;
+    document.getElementById("dec-orig").textContent = D.cipher.original;
+    document.getElementById("dec-out").textContent = r.decrypted;
+    document.getElementById("dec-key").textContent = Object.entries(r.key).map(([g, p]) => `${g}→${p}`).join("  ");
+  };
+  pick.value = Lg.Latin ? "Latin" : Object.keys(Lg)[0];
+  pick.addEventListener("change", show); show();
+})();
+
+// Self-citation sample and comparison.
+document.getElementById("gen-text").innerHTML = D.selfcite_sample.map(l => `<div>${l}</div>`).join("");
+document.getElementById("real-text").innerHTML = f1r.map(l => `<div>${l.replaceAll(".", " ")}</div>`).join("");
+const SC_COLS = [["h2", "h₂", 2], ["h3", "h₃", 2], ["sd_word_len", "odch. dł.", 2], ["zipf_slope", "Zipf", 2], ["vocab_density", "gęstość", "pct0"],
+  ["adjacent_near", "podobni sąs.", "pct1"], ["adjacent_repeat", "powt.", "pct2"], ["hapax_ratio", "hapaksy", "pct0"], ["order_consistency", "kolejność", 2]];
+document.getElementById("sc-table").innerHTML = table([["Voynich", FP.Voynich, "hl"], ["Self-citation model", FP["Self-citation model"], "sc"], ["Latin", FP.Latin]], SC_COLS);
+
+// Keyword tabs.
+(() => {
+  const groups = [...Object.keys(SECTIONS).filter(k => D.section_keywords[k]).map(k => [SECTIONS[k], D.section_keywords[k]]),
+    ["Currier A", D.currier_keywords.A], ["Currier B", D.currier_keywords.B]];
+  const tabs = document.getElementById("kw-tabs"), chips = document.getElementById("kw-chips");
+  const select = i => {
+    [...tabs.children].forEach((b, j) => b.setAttribute("aria-selected", i === j));
+    chips.innerHTML = groups[i][1].map(([w, z, n]) => `<span class="chip" data-tip="${w}: ${n}× w tej grupie, z = ${fmt(z, 1)}">${w}<small>${fmt(z, 0)}</small></span>`).join("");
+  };
+  groups.forEach(([name], i) => {
+    const b = document.createElement("button"); b.type = "button"; b.role = "tab"; b.textContent = name; b.addEventListener("click", () => select(i)); tabs.appendChild(b);
+  });
+  select(0);
+  const AB = D.currier;
+  document.getElementById("ab-table").innerHTML = table([["Currier A", AB["Currier A"]], ["Currier B", AB["Currier B"]], ["Latin", AB.Latin]], SC_COLS);
+})();
+
+// Line charts.
+function lineChart(id, series, { logx = false, logy = false, xlab = "", ylab = "", yf = "pct0" } = {}) {
+  const W = 420, H = 260, L = 44, R = 12, T = 10, B = 30;
+  const s = svg(W, H, document.getElementById(id), xlab);
+  const all = series.flatMap(sr => sr.pts);
+  const fx = v => logx ? Math.log10(v) : v, fy = v => logy ? Math.log10(v) : v;
+  const xs = all.map(p => fx(p[0])), ys = all.map(p => fy(p[1]));
+  const x0 = Math.min(...xs), x1 = Math.max(...xs), y0 = logy ? Math.min(...ys) : 0, y1 = Math.max(...ys) * (logy ? 1 : 1.08);
+  const X = v => L + (fx(v) - x0) / (x1 - x0) * (W - L - R), Y = v => T + (1 - (fy(v) - y0) / (y1 - y0)) * (H - T - B);
+  const xt = logx ? [1, 10, 100, 1000].filter(t => fx(t) <= x1 + 1e-9) : niceTicks(x0, x1, 7);
+  const yt = logy ? [1, 10, 100, 1000].filter(t => fy(t) >= y0 - 1e-9 && fy(t) <= y1 + 1e-9) : niceTicks(0, y1, 4);
+  for (const t of yt) { el("line", { x1: L, x2: W - R, y1: Y(t), y2: Y(t), class: "grid" }, s); text(s, L - 6, Y(t) + 4, logy ? fmt(t, "int") : fmt(t, yf), { "text-anchor": "end" }); }
+  for (const t of xt) text(s, X(t), H - B + 16, logx ? fmt(t, "int") : fmt(t, 0), { "text-anchor": "middle" });
+  el("line", { x1: L, x2: W - R, y1: H - B, y2: H - B, class: "axis" }, s);
+  text(s, W - R, H - 2, xlab, { "text-anchor": "end" });
+  for (const sr of series) {
+    el("path", { d: sr.pts.map((p, i) => `${i ? "L" : "M"}${X(p[0]).toFixed(1)},${Y(p[1]).toFixed(1)}`).join(""), fill: "none", stroke: sr.color,
+      "stroke-width": sr.bold ? 2.5 : 1.5, "stroke-linejoin": "round", opacity: sr.bold ? 1 : 0.9 }, s);
+    if (sr.markers) for (const p of sr.pts) {
+      el("circle", { cx: X(p[0]), cy: Y(p[1]), r: sr.bold ? 3.5 : 2.5, fill: sr.color, stroke: "var(--bg)", "stroke-width": 1 }, s);
+      el("circle", { cx: X(p[0]), cy: Y(p[1]), r: 8, fill: "transparent", "data-tip": `${sr.name}, ${p[0]} zn.: ${fmt(p[1], "pct1")}` }, s);
+    }
+    if (sr.label) { const p = sr.label; text(s, X(p[0]) + 6, Y(p[1]) - 6, sr.name, { style: "fill:var(--fg);font-weight:600" }); }
+  }
+}
+(() => {
+  const LD = D.length_distribution, pts = arr => arr.map((v, i) => [i + 1, v]).filter(p => p[0] <= 14);
+  const order = ["Italian", "German", "Polish", "Hebrew", "Latin", "Voynich"];
+  lineChart("lengths", order.filter(k => LD[k]).map(k => ({ name: PL[k], pts: pts(LD[k]), markers: true,
+    color: k === "Voynich" ? "var(--voy)" : k === "Latin" ? "var(--s1)" : "var(--lang)", bold: k === "Voynich" || k === "Latin",
+    label: k === "Voynich" ? pts(LD[k]).reduce((a, b) => b[1] > a[1] ? b : a) : null })), { xlab: "znaki w słowie" });
+  const RF = D.rank_frequency, rp = arr => arr.map((v, i) => [i + 1, v]).filter((p, i) => i < 10 || i % 5 === 0);
+  lineChart("zipf", ["Polish", "Latin", "Voynich"].filter(k => RF[k]).map(k => ({ name: PL[k], pts: rp(RF[k]),
+    color: k === "Voynich" ? "var(--voy)" : k === "Latin" ? "var(--s1)" : "var(--lang)", bold: k === "Voynich" })), { logx: true, logy: true, xlab: "ranga słowa" });
+})();
+})();
+</script>
