@@ -117,6 +117,17 @@ class Lab:
                 print("  przerwano:", res.council["error"])
                 break
 
+    # ---- the hunt
+
+    def hunt(self, rounds: int = 4, per_hound: int = 2, workers: int | None = None) -> dict:
+        """Council members as hounds: they invent recipes, the lab tests them with controls, repeat."""
+        from .hounds import Hunt
+        problems = corpus.data_problems()
+        if problems:
+            raise RuntimeError("Niekompletne dane – uruchom !python scripts/fetch_data.py:\n  " + "\n  ".join(problems))
+        self.hunt_result = Hunt(self, rounds, per_hound, workers).run()
+        return self.hunt_result
+
     # ---- report and git
 
     def report(self) -> Path:
@@ -133,6 +144,16 @@ class Lab:
                 lines += ["**Synteza rady:**", "", r.council["synthesis"], ""]
             lines.append(f"Szczegóły: [{name}.md]({name}.md)")
             lines.append("")
+        hunt = getattr(self, "hunt_result", None)
+        if hunt:
+            ranked = sorted((e for e in hunt["entries"] if "score" in e["result"]), key=lambda e: -e["result"]["score"])
+            lines += ["## Polowanie psów gończych", "",
+                      f"Przetestowano {len(hunt['entries'])} przepisów; tropy (TROP): "
+                      f"{sum(e['result']['verdict'] == 'TROP' for e in hunt['entries'])}.", "",
+                      "| przepis | pies | werdykt | score | luka rękopisu |", "|---|---|---|---|---|"]
+            lines += [f"| {e['recipe'].get('name')} | {e['hound']} | {e['result']['verdict']} | "
+                      f"{e['result']['score']:+.2f} | {e['result']['gap_voynich']:.2f} |" for e in ranked[:10]]
+            lines += ["", hunt.get("synthesis") or "", "", "Szczegóły: [hunt/hunt.md](hunt/hunt.md)", ""]
         if self.client:
             lines += [f"Koszt OpenRouter: {self.client.spent_usd:.2f} USD w {self.client.calls} wywołaniach. "
                       f"Rada: {', '.join(self.members)}; przewodniczący: {self.chair}."]

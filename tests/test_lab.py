@@ -157,3 +157,42 @@ class LiteratureTest(unittest.TestCase):
 
 if __name__ == "__main__":
     unittest.main()
+
+
+class RecipeTest(unittest.TestCase):
+    def test_key_streams(self):
+        from voynich.lab.recipes import digits_of, key_stream
+        self.assertEqual(digits_of("pi", 10), [3, 1, 4, 1, 5, 9, 2, 6, 5, 3])
+        self.assertEqual(digits_of("e", 6), [2, 7, 1, 8, 2, 8])
+        self.assertEqual(digits_of("sqrt2", 5), [1, 4, 1, 4, 2])
+        self.assertEqual(key_stream("digits:1404", None), [1, 4, 0, 4])
+        self.assertEqual(key_stream("word:agla", None), [0, 6, 11, 0])
+
+    def test_validation(self):
+        from voynich.lab.recipes import validate
+        ok = {"steps": [{"op": "keystream_shift", "key": "pi"}], "target": "Latin"}
+        self.assertEqual(validate(ok), [])
+        self.assertTrue(validate({"steps": [{"op": "drop_glyphs"}], "target": "Latin"}))   # missing glyphs
+        self.assertTrue(validate({"steps": [], "target": "Klingon"}))
+        self.assertTrue(validate({"steps": [{"op": "take_words", "every": 1}], "target": "Latin"}))
+
+    def test_every_step_is_undone_by_its_plant(self):
+        # The positive control rests on this: decoding a planted text must give back the plaintext.
+        from voynich.lab.recipes import OPS, Ctx, apply_steps, as_words, plant_steps
+        r = random.Random(4)
+        symbols = [f"s{i:02d}" for i in range(26)]
+        plain = [("p", [[r.choice(symbols) for _ in range(r.randint(1, 7))] for _ in range(9)]) for _ in range(20)]
+        params = {"rotate": {"k": 2}, "drop_glyphs": {"glyphs": ["q", "e"]}, "keep_every": {"n": 3, "offset": 1},
+                  "take_words": {"every": 2, "offset": 1}, "group_glyphs": {"size": 2},
+                  "keystream_shift": {"key": "pi", "restart": "line", "mode": "add"}}
+        for name, op in OPS.items():
+            if name == "sort_glyphs":
+                continue  # anagram hypotheses decode to sorted letters by design
+            recipe = {"steps": [{"op": name, **params.get(name, {})}], "target": "Latin"}
+            ctx = Ctx(r, alphabet=symbols)
+            back = apply_steps(plant_steps(plain, recipe, ctx), recipe, Ctx(r, alphabet=symbols))
+            got = as_words(back, op.spaceless)
+            if name == "group_glyphs":
+                got = [[g.split("+")[0] for g in w] for w in got]
+            want = as_words(plain, op.spaceless)
+            self.assertEqual(got, want, name)

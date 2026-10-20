@@ -81,6 +81,16 @@ Werdykt testu wynika tylko z liczb i kontroli; rada go komentuje. Przegląd lite
 | `hebrew_anagram` | hebrajskie anagramy (Hauer i Kondrak 2016) z kontrolą swoistości | metoda niewiarygodna |
 | `basque` | baskijski pod szyfrem podstawieniowym: Leizarraga 1571 i prasa współczesna | obalona (luka 0,96–0,99 bita) |
 
+**Psy gończe** (`voynich/lab/hounds.py`, `voynich/lab/recipes.py`): rada przestaje tylko oceniać i sama poluje.
+Każdy model dostaje rolę (kryptolog, lingwista, sceptyk, „dziki pies”) i w kolejnych rundach wymyśla przepisy odczytu
+z klocków: klucze z π, e, √2, φ, liczb pierwszych, dat i słów (jak szyfr Vigenère'a), nulle, co n-te słowo lub glif,
+grupy glifów, odwracanie, akrostychy, usuwanie spacji, 15 języków docelowych, pismo bez samogłosek. Każdy klocek ma
+dokładną odwrotność, więc każdy przepis dostaje automatycznie kontrolę dodatnią (tekst w języku docelowym zaszyfrowany
+tym samym przepisem musi wrócić) i kontrole ujemne (bełkot z generatora v4, rękopis z przetasowanymi słowami).
+Trop liczy się tylko, gdy rękopis wyraźnie wygrywa z bełkotem, a odczyt jest prawie tak przewidywalny jak prawdziwy
+język; najlepsze tropy są powtarzane na innej części rękopisu. Pomysły spoza klocków trafiają na listę życzeń.
+W notebooku: `lab.hunt(rounds=4, per_hound=2)`.
+
 Laboratorium porównuje z 13 językami (baskijski dołączył jako 13.); raport `docs/index.html` z etapów 1–2 liczono jeszcze na 12.
 `fetch_data.py` kończy się komunikatem „Dane kompletne.”, a laboratorium odmawia liczenia na niepełnych danych.
 
@@ -113,6 +123,7 @@ python -m unittest                # testy
 | `voynich/syllabic.py` | hipotezy sylabiczne, kod sylabiczny, niezmienniki na poziomie słów |
 | `voynich/cipher.py` | łamacz szyfrów podstawieniowych (wyżarzanie, kryterium MDL) |
 | `voynich/lab/` | laboratorium: konfiguracja, klient OpenRouter, rada modeli, skany IIIF, teorie, raport i push |
+| `voynich/lab/recipes.py`, `hounds.py` | język przepisów (klocki z odwrotnościami, kontrole) i polowanie psów gończych |
 | `colab/` | notebook Colab i skrypt, który go generuje |
 
 ## Dane i źródła

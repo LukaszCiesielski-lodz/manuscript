@@ -47,6 +47,22 @@ def trigram_counts(words: Sequence[Word]) -> Counter:
     return Counter(zip(s, s[1:], s[2:]))
 
 
+class _LazyLogP(dict):
+    """Trigram log-probabilities computed on first use; unknown symbols get the floor value."""
+
+    def __init__(self, fn, alphabet: set, unknown: float):
+        super().__init__()
+        self.fn, self.alphabet, self.unknown = fn, alphabet, unknown
+
+    def __missing__(self, key):
+        value = self.fn(*key) if all(k in self.alphabet for k in key) else self.unknown
+        self[key] = value
+        return value
+
+    def get(self, key, default=None):
+        return self[key]
+
+
 class TrigramModel:
     """Interpolated character trigram model over words separated by SPACE."""
 
@@ -59,14 +75,18 @@ class TrigramModel:
         n = len(s)
         l3, l2, l1 = weights
         self.unknown = math.log(floor)
-        self.logp: dict[tuple[str, str, str], float] = {}
-        for a in self.alphabet:
-            for b in self.alphabet:
-                c2, cb = ctx2.get((a, b), 0), ctx1.get(b, 0)
-                for c in self.alphabet:
-                    p3 = tri.get((a, b, c), 0) / c2 if c2 else 0.0
-                    p2 = bi.get((b, c), 0) / cb if cb else 0.0
-                    self.logp[(a, b, c)] = math.log(l3 * p3 + l2 * p2 + l1 * uni[c] / n + floor)
+
+        def logp(a: str, b: str, c: str) -> float:
+            c2, cb = ctx2.get((a, b), 0), ctx1.get(b, 0)
+            p3 = tri.get((a, b, c), 0) / c2 if c2 else 0.0
+            p2 = bi.get((b, c), 0) / cb if cb else 0.0
+            return math.log(l3 * p3 + l2 * p2 + l1 * uni[c] / n + floor)
+
+        if len(self.alphabet) <= 64:
+            self.logp: dict[tuple[str, str, str], float] = {
+                (a, b, c): logp(a, b, c) for a in self.alphabet for b in self.alphabet for c in self.alphabet}
+        else:  # large symbol sets (grouped glyphs): the full cube would hold millions of entries
+            self.logp = _LazyLogP(logp, set(self.alphabet), self.unknown)
         self.letters = [a for a in self.alphabet if a != SPACE]
 
     def bits_per_symbol(self, words: Sequence[Word]) -> float:

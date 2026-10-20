@@ -80,7 +80,15 @@ print(images.fetch(images.single_folio_canvases()["f1v"], 512, cfg.cache_dir / "
 print(f"Wydano: {lab.client.spent_usd:.2f} USD" if lab.client else "")"""),
     ("code", """from IPython.display import Markdown, display
 display(Markdown(lab.report().read_text()))"""),
-    ("md", "## 5. Zapis wyników na GitHubie\nWyniki trafiają na gałąź `lab-results` (osobną od kodu)."),
+    ("md", """## 5. Psy gończe
+Rada przestaje tylko oceniać: każdy model dostaje rolę (kryptolog, lingwista, sceptyk, dziki pies), wymyśla przepisy
+odczytu z klocków (klucze z π, e, dat; nulle; co n-te słowo; brak spacji; akrostychy; języki docelowe...),
+laboratorium testuje je z kontrolami, a modele widzą tabelę wyników i w kolejnych rundach poprawiają tropy.
+Najlepsze tropy są na końcu powtarzane na innej części rękopisu. Pomysły spoza klocków trafiają na listę życzeń."""),
+    ("code", """hunt = lab.hunt(rounds=4, per_hound=2)   # ok. 4 × 4 × 2 = 32 przepisy; quick=True skraca testy
+from IPython.display import Markdown, display
+display(Markdown((lab.cfg.results_dir / "hunt" / "hunt.md").read_text()))"""),
+    ("md", "## 6. Zapis wyników na GitHubie\nWyniki trafiają na gałąź `lab-results` (osobną od kodu)."),
     ("code", "lab.push()"),
 ]
 
