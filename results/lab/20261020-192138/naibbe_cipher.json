@@ -1,0 +1,171 @@
+{
+ "theory": "naibbe_cipher",
+ "hypothesis": "Rękopis to szyfr typu Naibbe: łacina pocięta na 1–2-literowe kawałki, szyfrowana sześcioma tabelami wybieranymi kartą.",
+ "method": "Rekonstrukcja szyfru z opisu Greshki (2025), tabele zbudowane z części słów rękopisu; szyfrogram Izydora porównany z rękopisem.",
+ "verdict": "nierozstrzygnięta",
+ "summary": "Szyfr Naibbe-podobny: odległość 0.63, różnica hapaksów 7%. Literatura: Naibbe odtwarza entropię i rozkład długości, ale nie hapaksy (41% wobec 70%).",
+ "metrics": {
+  "naibbe": {
+   "profile": {
+    "tokens": 8000,
+    "types": 2442,
+    "type_token_ratio": 0.30525,
+    "hapax_ratio": 0.6203931203931204,
+    "mean_word_len": 4.34825,
+    "sd_word_len": 1.6477930505679408,
+    "top10_coverage": 0.16325,
+    "zipf_slope": -0.8875717278181045,
+    "adjacent_repeat": 0.001375171896487061,
+    "adjacent_near": 0.025003125390673835,
+    "vocab_density": 0.9445,
+    "alphabet": 26,
+    "h0": 4.700439718141092,
+    "h1": 3.9021374597503393,
+    "h2": 2.2969760212234163,
+    "h3": 1.9974327156111222,
+    "positional_rigidity": 0.7852026579984466,
+    "order_consistency": 0.9032428621783575,
+    "edge_mi": 0.022528214951377128
+   },
+   "distance": 0.6274687644838071
+  },
+  "voynich": {
+   "tokens": 8000,
+   "types": 2446,
+   "type_token_ratio": 0.30575,
+   "hapax_ratio": 0.6860179885527392,
+   "mean_word_len": 3.893875,
+   "sd_word_len": 1.4614590258967235,
+   "top10_coverage": 0.16775,
+   "zipf_slope": -1.0094610395955188,
+   "adjacent_repeat": 0.009251156394549319,
+   "adjacent_near": 0.0547568446055757,
+   "vocab_density": 0.8745,
+   "alphabet": 34,
+   "h0": 5.087462841250339,
+   "h1": 3.884237443710116,
+   "h2": 2.36855342986624,
+   "h3": 2.1353647225884202,
+   "positional_rigidity": 0.7481624758220503,
+   "order_consistency": 0.8701014796235359,
+   "edge_mi": 0.16681039259111205
+  },
+  "hapax_gap": 0.06562486815961877
+ },
+ "controls": [
+  {
+   "name": "rozpoznanie języka",
+   "expectation": "druga próbka łaciny najbliżej pierwszej",
+   "observed": "najbliżej: Latin",
+   "passed": true
+  },
+  {
+   "name": "szyfr odwracalny",
+   "expectation": "odszyfrowanie tabelami odtwarza tekst jawny",
+   "observed": "deterministyczne tabele, sprawdzone na próbce",
+   "passed": true
+  }
+ ],
+ "evidence": [
+  "Naibbe-podobny (Izydor): odległość 0.63, h2=2.30 (rękopis 2.37), hapaksy 62% (69%), MI krawędzi 0.023 (0.167), podobni sąsiedzi 2.5% (5.5%)."
+ ],
+ "caveats": [
+  "To rekonstrukcja z opisu, nie oryginalne tabele Greshki; wynik dotyczy klasy szyfrów, nie konkretnej publikacji."
+ ],
+ "references": [
+  "M. A. Greshko, The Naibbe cipher, Cryptologia (2025), doi:10.1080/01611194.2025.2566408",
+  "Rozanova & Temerev, arXiv:2608.17096"
+ ],
+ "artifacts": [],
+ "seconds": 6.855334758758545,
+ "council": {
+  "members": [
+   "z-ai/glm-5.3-flash",
+   "openai/gpt-6-luna",
+   "tencent/hy3"
+  ],
+  "chair": "openai/gpt-6-luna",
+  "round1": {
+   "z-ai/glm-5.3-flash": {
+    "raw": "{\"werdykt\":\"nierozstrzygnięta\",\"pewność\":0.55,\"najmocniejszy_dowód\":\"Szyfrogram Naibbe-podobny odtwarza kilka statystyk rękopisu (h2 2.30 vs 2.37, hapaksy 62% vs 69%, type-token ratio niemal identyczny), a kontrole metody przeszły: język rozpoznany poprawnie, szyfr odwracalny zweryfikowany na próbce.\",\"słabości\":[\"Duże rozbieżności w kluczowych miarach: edge MI 0.023 vs 0.167 (ponad 7×), adjacent_repeat 0.0014 vs 0.0093, adjacent_near 0.025 vs 0.055 — szyfrogram jest znacznie bardziej 'płaski' niż rękopis\",\"Odległość 0.63 — brak podanej skali odniesienia (jaka odległość odróżnia klasy? brak linii bazowej dla tekstów kontrolnych)\",\"Brak kontroli negatywnej: nie pokazano, że metoda NIE dopasowuje szyfrogramów do niepowiązanych tekstów (kontrola przetasowana nie została wykonana)\",\"Test na 8000 tokenów z jednej próbki; brak analizy per-quirk (EVA, rozdziały, ilustracje)\",\"Zastrzeżenie autorów: rekonstrukcja z opisu, nie oryginalne tabele — wynik dotyczy klasy szyfrów, nie konkretnej implementacji\"],\"inne_wyjaśnienia\":[\"Inny szyfr wieloalfabetowy lub system tabel dający podobny profil statystyczny\",\"Sztuczny/konstruowany język lub tekst generowany proceduralnie\",\"Artefakt transkrypcji (EVA) zniekształcający MI krawędzi i powtórzenia\"],\"następny_test\":\"Kontrola negatywna z przetasowaniem: porównać odległość 0.63 z rozkładem odległości dla 1000 permutacji tokenów rękopisu i dla innych szyfrów (w tym losowych tabel Naibbe) — to ustali, czy 0.63 jest istotnie blisko, czy w szumie tła.\"}",
+    "json": {
+     "werdykt": "nierozstrzygnięta",
+     "pewność": 0.55,
+     "najmocniejszy_dowód": "Szyfrogram Naibbe-podobny odtwarza kilka statystyk rękopisu (h2 2.30 vs 2.37, hapaksy 62% vs 69%, type-token ratio niemal identyczny), a kontrole metody przeszły: język rozpoznany poprawnie, szyfr odwracalny zweryfikowany na próbce.",
+     "słabości": [
+      "Duże rozbieżności w kluczowych miarach: edge MI 0.023 vs 0.167 (ponad 7×), adjacent_repeat 0.0014 vs 0.0093, adjacent_near 0.025 vs 0.055 — szyfrogram jest znacznie bardziej 'płaski' niż rękopis",
+      "Odległość 0.63 — brak podanej skali odniesienia (jaka odległość odróżnia klasy? brak linii bazowej dla tekstów kontrolnych)",
+      "Brak kontroli negatywnej: nie pokazano, że metoda NIE dopasowuje szyfrogramów do niepowiązanych tekstów (kontrola przetasowana nie została wykonana)",
+      "Test na 8000 tokenów z jednej próbki; brak analizy per-quirk (EVA, rozdziały, ilustracje)",
+      "Zastrzeżenie autorów: rekonstrukcja z opisu, nie oryginalne tabele — wynik dotyczy klasy szyfrów, nie konkretnej implementacji"
+     ],
+     "inne_wyjaśnienia": [
+      "Inny szyfr wieloalfabetowy lub system tabel dający podobny profil statystyczny",
+      "Sztuczny/konstruowany język lub tekst generowany proceduralnie",
+      "Artefakt transkrypcji (EVA) zniekształcający MI krawędzi i powtórzenia"
+     ],
+     "następny_test": "Kontrola negatywna z przetasowaniem: porównać odległość 0.63 z rozkładem odległości dla 1000 permutacji tokenów rękopisu i dla innych szyfrów (w tym losowych tabel Naibbe) — to ustali, czy 0.63 jest istotnie blisko, czy w szumie tła."
+    }
+   },
+   "openai/gpt-6-luna": {
+    "raw": "{\n  \"werdykt\": \"metoda niewiarygodna\",\n  \"pewność\": 0.97,\n  \"najmocniejszy_dowód\": \"Podane kontrole sprawdzają rozpoznanie łaciny i odwracalność tabel, ale nie sprawdzają, czy pełna metoda wykrywa celowo podłożony efekt Naibbe i nie wykrywa go w danych przetasowanych — wymagane kontrole rozstrzygające nie zostały wykazane.\",\n  \"słabości\": [\n    \"Podobieństwo jest mieszane: h2 jest zbliżone (2,30 wobec 2,37), lecz MI krawędzi znacznie się różni (0,023 wobec 0,167), podobnie jak udział hapaksów (62% wobec 69%).\",\n    \"Rekonstrukcja używa tabel zbudowanych z części słów rękopisu, a nie oryginalnych tabel; raport zastrzega, że wynik dotyczy klasy szyfrów, nie konkretnej publikacji.\",\n    \"Nie podano wyników testu na danych przetasowanych ani testu odzyskania celowo podłożonego efektu.\"\n  ],\n  \"inne_wyjaśnienia\": [\n    \"Zbieżność części miar może wynikać z podobieństwa statystycznego, a nie z zastosowania szyfru Naibbe.\",\n    \"Różnice mogą być związane z rekonstrukcją tabel, a nie z oryginalnym wariantem metody.\"\n  ],\n  \"następny_test\": \"Przeprowadzić zaślepioną walidację pełnej procedury: sprawdzić, czy wykrywa efekt w syntetycznych danych zaszyfrowanych Naibbe i czy nie wykrywa go w odpowiednich danych przetasowanych, przed zastosowaniem jej do rękopisu.\"\n}",
+    "json": {
+     "werdykt": "metoda niewiarygodna",
+     "pewność": 0.97,
+     "najmocniejszy_dowód": "Podane kontrole sprawdzają rozpoznanie łaciny i odwracalność tabel, ale nie sprawdzają, czy pełna metoda wykrywa celowo podłożony efekt Naibbe i nie wykrywa go w danych przetasowanych — wymagane kontrole rozstrzygające nie zostały wykazane.",
+     "słabości": [
+      "Podobieństwo jest mieszane: h2 jest zbliżone (2,30 wobec 2,37), lecz MI krawędzi znacznie się różni (0,023 wobec 0,167), podobnie jak udział hapaksów (62% wobec 69%).",
+      "Rekonstrukcja używa tabel zbudowanych z części słów rękopisu, a nie oryginalnych tabel; raport zastrzega, że wynik dotyczy klasy szyfrów, nie konkretnej publikacji.",
+      "Nie podano wyników testu na danych przetasowanych ani testu odzyskania celowo podłożonego efektu."
+     ],
+     "inne_wyjaśnienia": [
+      "Zbieżność części miar może wynikać z podobieństwa statystycznego, a nie z zastosowania szyfru Naibbe.",
+      "Różnice mogą być związane z rekonstrukcją tabel, a nie z oryginalnym wariantem metody."
+     ],
+     "następny_test": "Przeprowadzić zaślepioną walidację pełnej procedury: sprawdzić, czy wykrywa efekt w syntetycznych danych zaszyfrowanych Naibbe i czy nie wykrywa go w odpowiednich danych przetasowanych, przed zastosowaniem jej do rękopisu."
+    }
+   },
+   "tencent/hy3": {
+    "raw": "",
+    "json": {}
+   }
+  },
+  "round2": {
+   "z-ai/glm-5.3-flash": {
+    "raw": "{\"ranking\": [\"B\"], \"uwagi\": \"Opinia B jest najlepiej uzasadniona: trafnie wskazuje, że kontrole metody (rozpoznanie łaciny, odwracalność tabel) nie obejmują wymaganych kontroli rozstrzygających — brak testu odzyskania podłożonego efektu i brak testu na danych przetasowanych. Zgodnie z zasadami rady test bez tych kontroli nie może być uznany za wiarygodny. B poprawnie też oddziela, co test pokazuje (h2 zbliżone: 2,30 vs 2,37), od tego, co mu przeczy (MI krawędzi 0,023 vs 0,167 — siedmiokrotna różnica; hapaksy 62% vs 69%; adjacent_near 0,025 vs 0,055; zipf_slope -0,89 vs -1,01). Zastrzeżenie o rekonstrukcji tabel z części słów rękopisu (ryzyko cykliczności — profil budowany z materiału źródłowego) jest zasadne. Werdykt automatyczny 'nierozstrzygnięta' jest zatem zgodny z danymi: podobieństwo częściowe, mieszane, bez rozstrzygających kontroli. Brak opinii C nie wpływa na ocenę. Werdykt ostateczny: nierozstrzygnięta — hipoteza pozostaje dopuszczalna, ale niewsparta wiarygodnym testem; kluczowy następny krok to zaślepiona walidacja procedury (syntetyczny szyfrogram Naibbe + dane przetasowane) oraz test z tabelami niezależnymi od słownictwa rękopisu.\", \"werdykt\": \"nierozstrzygnięta\", \"pewność\": 0.75, \"zmiana_zdania\": \"nie — werdykt automatyczny 'nierozstrzygnięta' pozostaje zasadny; brak kontroli rozstrzygających i mieszane profile statystyczne nie pozwalają ani potwierdzić, ani odrzucić hipotezy\"}",
+    "json": {
+     "ranking": [
+      "B"
+     ],
+     "uwagi": "Opinia B jest najlepiej uzasadniona: trafnie wskazuje, że kontrole metody (rozpoznanie łaciny, odwracalność tabel) nie obejmują wymaganych kontroli rozstrzygających — brak testu odzyskania podłożonego efektu i brak testu na danych przetasowanych. Zgodnie z zasadami rady test bez tych kontroli nie może być uznany za wiarygodny. B poprawnie też oddziela, co test pokazuje (h2 zbliżone: 2,30 vs 2,37), od tego, co mu przeczy (MI krawędzi 0,023 vs 0,167 — siedmiokrotna różnica; hapaksy 62% vs 69%; adjacent_near 0,025 vs 0,055; zipf_slope -0,89 vs -1,01). Zastrzeżenie o rekonstrukcji tabel z części słów rękopisu (ryzyko cykliczności — profil budowany z materiału źródłowego) jest zasadne. Werdykt automatyczny 'nierozstrzygnięta' jest zatem zgodny z danymi: podobieństwo częściowe, mieszane, bez rozstrzygających kontroli. Brak opinii C nie wpływa na ocenę. Werdykt ostateczny: nierozstrzygnięta — hipoteza pozostaje dopuszczalna, ale niewsparta wiarygodnym testem; kluczowy następny krok to zaślepiona walidacja procedury (syntetyczny szyfrogram Naibbe + dane przetasowane) oraz test z tabelami niezależnymi od słownictwa rękopisu.",
+     "werdykt": "nierozstrzygnięta",
+     "pewność": 0.75,
+     "zmiana_zdania": "nie — werdykt automatyczny 'nierozstrzygnięta' pozostaje zasadny; brak kontroli rozstrzygających i mieszane profile statystyczne nie pozwalają ani potwierdzić, ani odrzucić hipotezy"
+    }
+   },
+   "openai/gpt-6-luna": {
+    "raw": "{\"ranking\":[\"A\",\"C\"],\"uwagi\":\"A najlepiej uzasadnia ocenę: przytacza zarówno zbliżone miary (h2, hapaksy, type-token ratio), jak i wyraźne rozbieżności, oraz trafnie wskazuje brak kontroli negatywnej i brak skali odniesienia dla odległości 0,63. Myli się jednak, gdy przedstawia kontrole języka i odwracalności jako potwierdzenie wiarygodności testu statystycznego: nie wykazano, że metoda wykrywa efekt celowo podłożony ani że nie wykrywa go w danych przetasowanych. Kontrola przetasowana zaproponowana przez A jest potrzebna, ale sama nie zastępuje kontroli pozytywnej. C nie zawiera opinii, więc nie da się jej merytorycznie ocenić; umieszczam ją za A wyłącznie z powodu braku treści.\",\"werdykt\":\"Nierozstrzygnięta. Wynik wskazuje na częściowe podobieństwo statystyk, ale istotne różnice i brak wymaganych kontroli nie pozwalają uznać testu za wiarygodne potwierdzenie hipotezy. Test nie wyklucza szyfru Naibbe-podobnego, lecz nie rozstrzyga, czy podobieństwo jest swoiste dla tej klasy. Nie bada też konkretnych oryginalnych tabel ani innych wyjaśnień. Najbardziej zmieniłby ocenę test z kontrolą pozytywną (celowo podłożony efekt) oraz negatywną (dane przetasowane).\",\"pewność\":0.9,\"zmiana_zdania\":\"nie — opinia A wzmacnia uzasadnienie werdyktu nierozstrzygniętego, ale nie usuwa braku wymaganych kontroli; opinii C nie można ocenić.\"}",
+    "json": {
+     "ranking": [
+      "A",
+      "C"
+     ],
+     "uwagi": "A najlepiej uzasadnia ocenę: przytacza zarówno zbliżone miary (h2, hapaksy, type-token ratio), jak i wyraźne rozbieżności, oraz trafnie wskazuje brak kontroli negatywnej i brak skali odniesienia dla odległości 0,63. Myli się jednak, gdy przedstawia kontrole języka i odwracalności jako potwierdzenie wiarygodności testu statystycznego: nie wykazano, że metoda wykrywa efekt celowo podłożony ani że nie wykrywa go w danych przetasowanych. Kontrola przetasowana zaproponowana przez A jest potrzebna, ale sama nie zastępuje kontroli pozytywnej. C nie zawiera opinii, więc nie da się jej merytorycznie ocenić; umieszczam ją za A wyłącznie z powodu braku treści.",
+     "werdykt": "Nierozstrzygnięta. Wynik wskazuje na częściowe podobieństwo statystyk, ale istotne różnice i brak wymaganych kontroli nie pozwalają uznać testu za wiarygodne potwierdzenie hipotezy. Test nie wyklucza szyfru Naibbe-podobnego, lecz nie rozstrzyga, czy podobieństwo jest swoiste dla tej klasy. Nie bada też konkretnych oryginalnych tabel ani innych wyjaśnień. Najbardziej zmieniłby ocenę test z kontrolą pozytywną (celowo podłożony efekt) oraz negatywną (dane przetasowane).",
+     "pewność": 0.9,
+     "zmiana_zdania": "nie — opinia A wzmacnia uzasadnienie werdyktu nierozstrzygniętego, ale nie usuwa braku wymaganych kontroli; opinii C nie można ocenić."
+    }
+   },
+   "tencent/hy3": {
+    "raw": "",
+    "json": {}
+   }
+  },
+  "synthesis": "## Werdykt rady\n**Nierozstrzygnięta.** Poziom zgody jest wysoki: obie merytoryczne oceny końcowe uznają, że raport nie potwierdza ani nie wyklucza hipotezy.\n\n## Co test naprawdę pokazuje\nUzyskano **mieszane podobieństwo statystyczne**: entropia h2 jest zbliżona (2,30 wobec 2,37), podobnie jak udział hapaksów (62% wobec 69%). Zarazem MI krawędzi jest znacznie niższe (0,023 wobec 0,167), a miary sąsiedztwa również się różnią. Sama odległość 0,63 nie ma podanej skali porównawczej.\n\n## Główne zastrzeżenia\nKontrole rozpoznania łaciny i odwracalności tabel nie sprawdzają, czy pełna procedura wykrywa efekt celowo podłożony ani czy nie wykrywa go w danych przetasowanych. Te kluczowe kontrole nie zostały przedstawione, więc test nie spełnia kryteriów wiarygodności. Ponadto tabele zrekonstruowano z części słów rękopisu, a nie z oryginalnych tabel; wynik nie rozstrzyga zatem konkretnej implementacji. Test nie wyklucza szyfru Naibbe-podobnego, ale nie wykazuje, że obserwowane podobieństwo jest dla niego swoiste.\n\n## Rekomendowany następny eksperyment\nPrzeprowadzić **zaślepioną walidację pełnej procedury** na syntetycznych danych z celowo podłożonym efektem Naibbe oraz na danych przetasowanych, używając tabel niezależnych od słownictwa rękopisu.",
+  "failed": {},
+  "votes": {
+   "nierozstrzygnięta": 1,
+   "Nierozstrzygnięta. Wynik wskazuje na częściowe podobieństwo statystyk, ale istotne różnice i brak wymaganych kontroli nie pozwalają uznać testu za wiarygodne potwierdzenie hipotezy. Test nie wyklucza szyfru Naibbe-podobnego, lecz nie rozstrzyga, czy podobieństwo jest swoiste dla tej klasy. Nie bada też konkretnych oryginalnych tabel ani innych wyjaśnień. Najbardziej zmieniłby ocenę test z kontrolą pozytywną (celowo podłożony efekt) oraz negatywną (dane przetasowane).": 1
+  }
+ }
+}

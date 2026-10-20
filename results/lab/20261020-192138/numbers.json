@@ -1,0 +1,308 @@
+{
+ "theory": "numbers",
+ "hypothesis": "Znaki rękopisu zapisują liczby (cały tekst albo przynajmniej etykiety w dziale zodiakalnym).",
+ "method": "A: teksty liczb w 5 systemach liczbowych sprzed 1450 r. porównane z rękopisem i 12 językami na 10 miarach kształtu tekstu (niezależnych od podstawienia znaków). B: test permutacyjny podobieństwa sąsiednich etykiet zodiaku (czy wyglądają jak kolejne liczby 1–30).",
+ "verdict": "obalona",
+ "summary": "Cały tekst jako liczby: nie pasuje (najbliższy system: alfabetyczny (grecki/hebrajski), odległość 1.52; dopasowanie wymaga < 0.5, dwie próbki łaciny różnią się o ok. 0,2). Etykiety zodiaku jako kolejne liczby: nie (efekt 2.2% przy p = 0.027; liczby podłożone dają ≥ 16%, zwykły tekst rękopisu 1.3%).",
+ "metrics": {
+  "distance_systems": {
+   "dziesiętny pozycyjny": 2.872494284775926,
+   "dwudziestkowy pozycyjny": 2.6239236213532213,
+   "rzymski (z odejmowaniem)": 2.823567312811243,
+   "rzymski addytywny (IIII, VIIII)": 2.8695376340895637,
+   "alfabetyczny (grecki/hebrajski)": 1.5236441591296808
+  },
+  "distance_languages": {
+   "Arabic": 2.687076279094722,
+   "Basque": 2.314241463425676,
+   "Czech": 2.533247913515387,
+   "English": 2.203114237161193,
+   "Finnish": 2.3654166929005243,
+   "German": 2.113341475033172,
+   "Hebrew": 2.3926783758135572,
+   "Hungarian": 2.593989881397742,
+   "Italian": 2.4247186153112574,
+   "Latin": 2.4284714602931867,
+   "Polish": 2.4229317892349886,
+   "Turkish": 2.43794892821194,
+   "Vietnamese": 1.8372213945672191
+  },
+  "voynich": {
+   "tokens": 8000,
+   "types": 2446,
+   "type_token_ratio": 0.30575,
+   "hapax_ratio": 0.6860179885527392,
+   "mean_word_len": 3.893875,
+   "sd_word_len": 1.4614590258967235,
+   "top10_coverage": 0.16775,
+   "zipf_slope": -1.0094610395955188,
+   "adjacent_repeat": 0.009251156394549319,
+   "adjacent_near": 0.0547568446055757,
+   "vocab_density": 0.8745,
+   "alphabet": 34,
+   "h0": 5.087462841250339,
+   "h1": 3.884237443710116,
+   "h2": 2.36855342986624,
+   "h3": 2.1353647225884202,
+   "positional_rigidity": 0.7481624758220503,
+   "order_consistency": 0.8701014796235359,
+   "edge_mi": 0.16681039259111205
+  },
+  "systems": {
+   "dziesiętny pozycyjny": {
+    "tokens": 8000,
+    "types": 1064,
+    "type_token_ratio": 0.133,
+    "hapax_ratio": 0.6550751879699248,
+    "mean_word_len": 1.7175,
+    "sd_word_len": 0.8987178366984823,
+    "top10_coverage": 0.541,
+    "zipf_slope": -0.9341325704809158,
+    "adjacent_repeat": 0.04975621952744093,
+    "adjacent_near": 0.3580447555944493,
+    "vocab_density": 1.0,
+    "alphabet": 11,
+    "h0": 3.4594316186372973,
+    "h1": 2.8954772869949195,
+    "h2": 2.4393135999496343,
+    "h3": 2.3847061848847204,
+    "positional_rigidity": 0.4328966521106259,
+    "order_consistency": 0.7530469226081657,
+    "edge_mi": 0.007949211398389697
+   },
+   "dwudziestkowy pozycyjny": {
+    "tokens": 8000,
+    "types": 1064,
+    "type_token_ratio": 0.133,
+    "hapax_ratio": 0.6710526315789473,
+    "mean_word_len": 1.431625,
+    "sd_word_len": 0.6766275632687454,
+    "top10_coverage": 0.54025,
+    "zipf_slope": -0.9410366490706629,
+    "adjacent_repeat": 0.041755219402425305,
+    "adjacent_near": 0.4881860232529066,
+    "vocab_density": 1.0,
+    "alphabet": 21,
+    "h0": 4.392317422778761,
+    "h1": 3.27018585260112,
+    "h2": 2.7127796410655534,
+    "h3": 2.5775664935534044,
+    "positional_rigidity": 0.48886754562123463,
+    "order_consistency": 0.8358778625954199,
+    "edge_mi": 0.029524604849329734
+   },
+   "rzymski (z odejmowaniem)": {
+    "tokens": 8000,
+    "types": 1064,
+    "type_token_ratio": 0.133,
+    "hapax_ratio": 0.6513157894736842,
+    "mean_word_len": 3.171625,
+    "sd_word_len": 2.0995642070141605,
+    "top10_coverage": 0.54,
+    "zipf_slope": -0.9400638120680644,
+    "adjacent_repeat": 0.04838104763095387,
+    "adjacent_near": 0.19127390923865484,
+    "vocab_density": 0.9605263157894737,
+    "alphabet": 8,
+    "h0": 3.0,
+    "h1": 2.443258642807277,
+    "h2": 1.8552268406320844,
+    "h3": 1.6118489342312685,
+    "positional_rigidity": 0.4530406337445316,
+    "order_consistency": 0.9108868501529052,
+    "edge_mi": 0.0028822957467568855
+   },
+   "rzymski addytywny (IIII, VIIII)": {
+    "tokens": 8000,
+    "types": 1079,
+    "type_token_ratio": 0.134875,
+    "hapax_ratio": 0.6607970342910102,
+    "mean_word_len": 3.74275,
+    "sd_word_len": 2.6894836748900337,
+    "top10_coverage": 0.543875,
+    "zipf_slope": -0.9288870589953723,
+    "adjacent_repeat": 0.0498812351543943,
+    "adjacent_near": 0.16239529941242656,
+    "vocab_density": 0.9731232622798888,
+    "alphabet": 8,
+    "h0": 3.0,
+    "h1": 2.335575185470298,
+    "h2": 1.460420346812218,
+    "h3": 1.4326362205445164,
+    "positional_rigidity": 0.5337986774430565,
+    "order_consistency": 1.0,
+    "edge_mi": 0.002161555095507234
+   },
+   "alfabetyczny (grecki/hebrajski)": {
+    "tokens": 8000,
+    "types": 1086,
+    "type_token_ratio": 0.13575,
+    "hapax_ratio": 0.6703499079189686,
+    "mean_word_len": 1.70825,
+    "sd_word_len": 1.0299912317587951,
+    "top10_coverage": 0.538375,
+    "zipf_slope": -0.9366174180369001,
+    "adjacent_repeat": 0.047880985123140395,
+    "adjacent_near": 0.3377922240280035,
+    "vocab_density": 0.992633517495396,
+    "alphabet": 29,
+    "h0": 4.857980995127572,
+    "h1": 3.642493985376891,
+    "h2": 2.510906664135415,
+    "h3": 2.3419330305613455,
+    "positional_rigidity": 0.6356651543977755,
+    "order_consistency": 0.9026243093922652,
+    "edge_mi": 0.0431597691591237
+   }
+  },
+  "zodiac": {
+   "observed": 0.6579199159338529,
+   "shuffled": 0.672549310510112,
+   "p": 0.026578073089700997,
+   "pages": 12,
+   "effect": 0.021752151623147253,
+   "planted_min_effect": 0.15708969799140637,
+   "running_text_effect": 0.013403624442924422,
+   "planted": {
+    "rzymski addytywny (IIII, VIIII)": {
+     "observed": 0.4030529284884686,
+     "p": 0.0033222591362126247
+    },
+    "alfabetyczny (grecki/hebrajski)": {
+     "observed": 0.7142857142857143,
+     "p": 0.0033222591362126247
+    },
+    "dziesiętny pozycyjny": {
+     "observed": 0.7142857142857143,
+     "p": 0.0033222591362126247
+    }
+   }
+  },
+  "metrics_used": [
+   "h2",
+   "h3",
+   "mean_word_len",
+   "sd_word_len",
+   "vocab_density",
+   "order_consistency",
+   "positional_rigidity",
+   "hapax_ratio",
+   "zipf_slope",
+   "type_token_ratio"
+  ]
+ },
+ "controls": [
+  {
+   "name": "rozpoznanie języka",
+   "expectation": "druga próbka łaciny najbliżej pierwszej",
+   "observed": "najbliżej: Latin (odległość 0.21)",
+   "passed": true
+  },
+  {
+   "name": "podłożone liczby 1–30 (rzymski addytywny (IIII, VIIII))",
+   "expectation": "test wykrywa ciąg (p < 0,01)",
+   "observed": "p = 0.0033",
+   "passed": true
+  },
+  {
+   "name": "podłożone liczby 1–30 (alfabetyczny (grecki/hebrajski))",
+   "expectation": "test wykrywa ciąg (p < 0,01)",
+   "observed": "p = 0.0033",
+   "passed": true
+  },
+  {
+   "name": "podłożone liczby 1–30 (dziesiętny pozycyjny)",
+   "expectation": "test wykrywa ciąg (p < 0,01)",
+   "observed": "p = 0.0033",
+   "passed": true
+  },
+  {
+   "name": "kalibracja na losowych etykietach",
+   "expectation": "fałszywe alarmy (p < 0,05) w ok. 5% zestawów, najwyżej 20%",
+   "observed": "1/10",
+   "passed": true
+  }
+ ],
+ "evidence": [
+  "Najbliższy system liczbowy: alfabetyczny (grecki/hebrajski), odległość 1.52; najbliższy język: Vietnamese, 1.84 (jednostka: rozrzut między językami).",
+  "dziesiętny pozycyjny (rozkład counts): odległość 2.87, h2=2.44, sztywność kolejności=0.75, typy=1064, hapaksy=66%, średnia dł.=1.7",
+  "dwudziestkowy pozycyjny (rozkład counts): odległość 2.62, h2=2.71, sztywność kolejności=0.84, typy=1064, hapaksy=67%, średnia dł.=1.4",
+  "rzymski (z odejmowaniem) (rozkład counts): odległość 2.82, h2=1.86, sztywność kolejności=0.91, typy=1064, hapaksy=65%, średnia dł.=3.2",
+  "rzymski addytywny (IIII, VIIII) (rozkład counts): odległość 2.87, h2=1.46, sztywność kolejności=1.00, typy=1079, hapaksy=66%, średnia dł.=3.7",
+  "alfabetyczny (grecki/hebrajski) (rozkład counts): odległość 1.52, h2=2.51, sztywność kolejności=0.90, typy=1086, hapaksy=67%, średnia dł.=1.7",
+  "Rękopis: h2=2.37, sztywność=0.87, typy=2446, hapaksy=69%, średnia dł.=3.9",
+  "Zodiak: 12 stron, 299 etykiet. Niepodobieństwo sąsiadów 0.658 wobec 0.673 po przetasowaniu (efekt 2.2%), p = 0.0266.",
+  "Podłożone liczby 1–30 dają efekt co najmniej 16%; zwykłe wiersze tekstu rękopisu dają 1.3% (ogólny zwyczaj pisania podobnych słów obok siebie)."
+ ],
+ "caveats": [
+  "Rozkład liczb jest założony (dużo małych liczb, ogon do 3999); inny rozkład zmienia liczbę typów i hapaksów.",
+  "Test B zakłada, że kolejność etykiet w transliteracji odpowiada kolejności wokół pierścieni.",
+  "Szyfr homofoniczny zapisujący liczby rozmyłby podobieństwo kolejnych etykiet; test B go nie wykluczy."
+ ],
+ "references": [
+  "Bowern & Lindemann, The Linguistics of the Voynich Manuscript, Annual Review of Linguistics 7 (2021)",
+  "Wikipedia/Voynich: 'oror or' na f15v przypomina zaszyfrowane cyfry rzymskie"
+ ],
+ "artifacts": [],
+ "seconds": 17.025073766708374,
+ "council": {
+  "members": [
+   "z-ai/glm-5.3-flash",
+   "openai/gpt-6-luna",
+   "tencent/hy3"
+  ],
+  "chair": "openai/gpt-6-luna",
+  "round1": {
+   "z-ai/glm-5.3-flash": {
+    "raw": "",
+    "json": {}
+   },
+   "openai/gpt-6-luna": {
+    "raw": "{\n  \"werdykt\": \"obalona\",\n  \"pewność\": 0.78,\n  \"najmocniejszy_dowód\": \"Testy z kontrolami wykryły celowo podłożone liczby, a porównania nie wspierają badanych modeli: najbliższy system liczbowy ma odległość 1,52 wobec progu dopasowania <0,5. Etykiety zodiaku wykazują tylko 2,2% efektu podobieństwa sąsiadów, wobec co najmniej 16% dla podłożonych liczb.\",\n  \"słabości\": [\n    \"Test całego tekstu obejmuje pięć systemów liczbowych i założony rozkład liczb; inne zapisy lub rozkłady nie zostały sprawdzone.\",\n    \"Test etykiet zakłada, że kolejność transliteracji odpowiada kolejności wokół pierścieni i bada ciąg 1–30; kalibrację losowych etykiet wykonano na zaledwie 10 zestawach.\"\n  ],\n  \"inne_wyjaśnienia\": [\n    \"Słaby efekt podobieństwa sąsiednich etykiet może wynikać ze zwykłego sąsiedztwa podobnych słów; zwykły tekst daje efekt 1,3%.\",\n    \"Niewykluczone pozostają niebadane systemy zapisu liczb, inne niż ciągłe numerowanie etykiet, lub kodowanie liczb, które rozmywa ich podobieństwo.\"\n  ],\n  \"następny_test\": \"Powtórzyć test etykiet po niezależnym ustaleniu ich kolejności na stronach, porównując z góry określone warianty zapisu liczb i kontrolami dopasowanymi do zwykłego tekstu.\"\n}",
+    "json": {
+     "werdykt": "obalona",
+     "pewność": 0.78,
+     "najmocniejszy_dowód": "Testy z kontrolami wykryły celowo podłożone liczby, a porównania nie wspierają badanych modeli: najbliższy system liczbowy ma odległość 1,52 wobec progu dopasowania <0,5. Etykiety zodiaku wykazują tylko 2,2% efektu podobieństwa sąsiadów, wobec co najmniej 16% dla podłożonych liczb.",
+     "słabości": [
+      "Test całego tekstu obejmuje pięć systemów liczbowych i założony rozkład liczb; inne zapisy lub rozkłady nie zostały sprawdzone.",
+      "Test etykiet zakłada, że kolejność transliteracji odpowiada kolejności wokół pierścieni i bada ciąg 1–30; kalibrację losowych etykiet wykonano na zaledwie 10 zestawach."
+     ],
+     "inne_wyjaśnienia": [
+      "Słaby efekt podobieństwa sąsiednich etykiet może wynikać ze zwykłego sąsiedztwa podobnych słów; zwykły tekst daje efekt 1,3%.",
+      "Niewykluczone pozostają niebadane systemy zapisu liczb, inne niż ciągłe numerowanie etykiet, lub kodowanie liczb, które rozmywa ich podobieństwo."
+     ],
+     "następny_test": "Powtórzyć test etykiet po niezależnym ustaleniu ich kolejności na stronach, porównując z góry określone warianty zapisu liczb i kontrolami dopasowanymi do zwykłego tekstu."
+    }
+   },
+   "tencent/hy3": {
+    "raw": "",
+    "json": {}
+   }
+  },
+  "round2": {
+   "z-ai/glm-5.3-flash": {
+    "raw": "",
+    "json": {}
+   },
+   "openai/gpt-6-luna": {
+    "raw": "{\n  \"ranking\": [],\n  \"uwagi\": \"Opinie A i C są puste, więc nie ma czego rzetelnie uszeregować. Z raportu wynika, że kontrole metody formalnie przeszły: test wykrył podłożone ciągi liczb, a w 1/10 zestawów losowych wystąpił fałszywy alarm, zgodnie z przyjętym limitem. Jednak 10 zestawów to słaba kalibracja. Dla etykiet zodiaku p = 0,0266 wskazuje różnicę względem przetasowań, lecz efekt 2,2% jest niewielki, bliski 1,3% dla zwykłego tekstu i daleki od co najmniej 16% dla liczb podłożonych. To słaby sygnał przeciw prostemu zapisowi kolejnych liczb, nie dowód na jego niemożliwość. Cały tekst wyraźnie nie pasuje do pięciu zbadanych systemów liczbowych według przyjętych miar i rozkładu, ale wniosek zależy od tych założeń. Test nie bada wszystkich możliwych systemów, innych rozkładów liczb ani szyfru homofonicznego; raport sam zaznacza, że ten ostatni mógłby osłabić sąsiedztwo kolejnych etykiet.\",\n  \"werdykt\": \"Dane przemawiają przeciw temu, by cały tekst był zapisany jako jeden z pięciu testowanych systemów liczbowych, oraz słabo przeciw prostemu ciągowi liczb 1–30 w etykietach zodiaku. Automatyczny werdykt „obalona” jest zbyt szeroki: wyniki nie wykluczają wszystkich hipotez, joissa tekst koduje liczby.\",\n  \"pewność\": 0.84,\n  \"zmiana_zdania\": \"nie — raport dostarcza argumentów przeciw badanym, konkretnym wariantom hipotezy, ale nie uzasadnia odrzucenia wszystkich możliwych zapisów liczbowych.\"\n}",
+    "json": {
+     "ranking": [],
+     "uwagi": "Opinie A i C są puste, więc nie ma czego rzetelnie uszeregować. Z raportu wynika, że kontrole metody formalnie przeszły: test wykrył podłożone ciągi liczb, a w 1/10 zestawów losowych wystąpił fałszywy alarm, zgodnie z przyjętym limitem. Jednak 10 zestawów to słaba kalibracja. Dla etykiet zodiaku p = 0,0266 wskazuje różnicę względem przetasowań, lecz efekt 2,2% jest niewielki, bliski 1,3% dla zwykłego tekstu i daleki od co najmniej 16% dla liczb podłożonych. To słaby sygnał przeciw prostemu zapisowi kolejnych liczb, nie dowód na jego niemożliwość. Cały tekst wyraźnie nie pasuje do pięciu zbadanych systemów liczbowych według przyjętych miar i rozkładu, ale wniosek zależy od tych założeń. Test nie bada wszystkich możliwych systemów, innych rozkładów liczb ani szyfru homofonicznego; raport sam zaznacza, że ten ostatni mógłby osłabić sąsiedztwo kolejnych etykiet.",
+     "werdykt": "Dane przemawiają przeciw temu, by cały tekst był zapisany jako jeden z pięciu testowanych systemów liczbowych, oraz słabo przeciw prostemu ciągowi liczb 1–30 w etykietach zodiaku. Automatyczny werdykt „obalona” jest zbyt szeroki: wyniki nie wykluczają wszystkich hipotez, joissa tekst koduje liczby.",
+     "pewność": 0.84,
+     "zmiana_zdania": "nie — raport dostarcza argumentów przeciw badanym, konkretnym wariantom hipotezy, ale nie uzasadnia odrzucenia wszystkich możliwych zapisów liczbowych."
+    }
+   },
+   "tencent/hy3": {
+    "raw": "",
+    "json": {}
+   }
+  },
+  "synthesis": "## Werdykt rady\n\n**Nieuzasadnione jest odrzucenie całej teorii „numbers”.** Wyniki przemawiają przeciwko temu, by cały tekst odpowiadał któremukolwiek z pięciu testowanych systemów liczbowych, oraz przeciwko prostemu ciągowi 1–30 w etykietach zodiaku. Nie wykluczają jednak innych sposobów zapisu liczb.\n\n**Poziom zgody:** brak podstaw do oceny zgody całej rady — opinie A i C są puste. Dostępna opinia B trafnie podkreśla, że automatyczny werdykt jest szerszy niż zakres testu.\n\n## Co test naprawdę pokazuje\n\nKontrole metody przeszły: testy wykryły podłożone ciągi liczb, a odsetek fałszywych alarmów w próbie losowej mieścił się w przyjętym limicie. Dopasowanie całego tekstu jest słabe: najbliższy system ma odległość 1,52 wobec wymaganego progu poniżej 0,5. W etykietach zodiaku efekt wynosi 2,2% (p = 0,0266) — niewiele więcej niż 1,3% w zwykłym tekście i znacznie mniej niż co najmniej 16% dla podłożonych liczb.\n\n## Główne zastrzeżenia\n\nTest całego tekstu zależy od pięciu badanych systemów i założonego rozkładu liczb. Test etykiet zakłada, że kolejność transliteracji odpowiada kolejności na pierścieniach; bada tylko prosty ciąg i nie wyklucza kodowania rozmywającego podobieństwo. Kalibracja losowa opiera się zaledwie na 10 zestawach.\n\n## Rekomendowany następny eksperyment\n\nPowtórzyć test etykiet z kolejnością ustaloną niezależnie, z góry określonymi wariantami zapisu i większą liczbą losowych zestawów kontrolnych.",
+  "failed": {},
+  "votes": {
+   "Dane przemawiają przeciw temu, by cały tekst był zapisany jako jeden z pięciu testowanych systemów liczbowych, oraz słabo przeciw prostemu ciągowi liczb 1–30 w etykietach zodiaku. Automatyczny werdykt „obalona” jest zbyt szeroki: wyniki nie wykluczają wszystkich hipotez, joissa tekst koduje liczby.": 1
+  }
+ }
+}

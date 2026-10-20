@@ -1,0 +1,162 @@
+{
+ "theory": "hebrew_anagram",
+ "hypothesis": "Rękopis to hebrajski z przestawionymi literami w słowach (anagramy), zaszyfrowany podstawieniem (Hauer i Kondrak 2016).",
+ "method": "Atak słownikowy odporny na anagramy: klucz glif→litera dobierany tak, by jak najwięcej słów po posortowaniu liter było anagramem słowa z hebrajskiego słownika. Kontrola dodatnia: hebrajski zanagramowany i zaszyfrowany przez nas. Kontrola swoistości: ten sam atak na tekstach na pewno nie-hebrajskich (łacina, angielski, wietnamski...) i na bełkocie z szyfru Naibbe-podobnego.",
+ "verdict": "metoda niewiarygodna",
+ "summary": "Atak anagramowy daje rękopisowi 70.7%, ale NIE jest swoisty: tekst Vietnamese osiąga 91.3% przy 78.0% dla prawdziwego hebrajskiego. Wysokie pokrycie bierze się z powtarzalności krótkich słów, nie z hebrajskiego.",
+ "metrics": {
+  "coverage_hebrew_control": 0.78025,
+  "coverage_non_hebrew": {
+   "Latin": 0.514,
+   "English": 0.75025,
+   "Vietnamese": 0.9135,
+   "szyfr Naibbe-podobny": 0.61825
+  },
+  "coverage_voynich": 0.70725,
+  "key": {
+   "o": "י",
+   "y": "א",
+   "ch": "ל",
+   "a": "א",
+   "d": "ה",
+   "l": "ו",
+   "r": "ו",
+   "e": "ל",
+   "k": "ה",
+   "n": "ל",
+   "t": "ה",
+   "ii": "ו",
+   "sh": "ה",
+   "q": "ו",
+   "s": "ה",
+   "cth": "ה",
+   "i": "ו",
+   "m": "ו",
+   "p": "ה",
+   "ckh": "ל",
+   "cph": "ש",
+   "f": "ה",
+   "c": "ם",
+   "g": "צ",
+   "h": "ה",
+   "cfh": "ה",
+   "iii": "ב",
+   "b": "ק",
+   "j": "ה",
+   "v": "ם",
+   "u": "ז",
+   "z": "י"
+  }
+ },
+ "controls": [
+  {
+   "name": "hebrajski zanagramowany i zaszyfrowany",
+   "expectation": "pokrycie słownikiem ≥ 50%",
+   "observed": "78.0%",
+   "passed": true
+  },
+  {
+   "name": "swoistość: teksty na pewno nie-hebrajskie",
+   "expectation": "pokrycie co najmniej 10 pkt niższe niż hebrajskie",
+   "observed": "najwyżej Vietnamese: 91.3% wobec hebrajskiego 78.0%",
+   "passed": false
+  }
+ ],
+ "evidence": [
+  "Odsetek słów, które po odszyfrowaniu są anagramami słów hebrajskich: hebrajski (kontrola) 78.0%, rękopis 70.7%; teksty nie-hebrajskie: Latin 51.4%, English 75.0%, Vietnamese 91.3%, szyfr Naibbe-podobny 61.8%."
+ ],
+ "caveats": [
+  "Hebrajski korpus to Biblia, nie średniowieczny tekst; inna ortografia może zmienić wynik.",
+  "Krótkie słowa łatwo trafiają w słownik przypadkiem; dlatego porównujemy z bełkotem z tych samych glifów."
+ ],
+ "references": [
+  "B. Hauer, G. Kondrak, Decoding Anagrammed Texts Written in an Unknown Language and Script, TACL 4 (2016)"
+ ],
+ "artifacts": [],
+ "seconds": 62.18136548995972,
+ "council": {
+  "members": [
+   "z-ai/glm-5.3-flash",
+   "openai/gpt-6-luna",
+   "tencent/hy3"
+  ],
+  "chair": "openai/gpt-6-luna",
+  "round1": {
+   "z-ai/glm-5.3-flash": {
+    "raw": "{\"werdykt\": \"metoda niewiarygodna\",\n\"pewność\": 0.9,\n\"najmocniejszy_dowód\": \"Kontrola swoistości nie zaliczona: wietnamski (91.3%) przewyższa prawdziwy hebrajski (78.0%), więc wysokie pokrycie mierzy powtarzalność krótkich słów, nie hebrajskość.\",\n\"słabości\": [\"Atak nie odróżnia rękopisu (70.7%) od angielskiego (75.0%) i bełkotu (61.8%)\", \"Korpus kontrolny (Biblia) może nie odpowiadać ortografii średniowiecznego hebrajskiego\", \"Klucz ma wiele glifów mapowanych na te same litery — brak testu wariantów klucza\"],\n\"inne_wyjaśnienia\": [\"Pokrycie 70.7% w rękopisie wynika z krótkich, powtarzalnych słów typowych dla tego tekstu, niezależnie od języka\"],\n\"następny_test\": \"Powtórzyć atak na średniowiecznym hebrajskim korpusie z prozą i dłuższymi słowami oraz z uwzględnieniem morfologii (prefiksy/przyrostki), sprawdzając, czy swoistość wobec tekstów nie-hebrajskich zostaje zaliczona.\"}",
+    "json": {
+     "werdykt": "metoda niewiarygodna",
+     "pewność": 0.9,
+     "najmocniejszy_dowód": "Kontrola swoistości nie zaliczona: wietnamski (91.3%) przewyższa prawdziwy hebrajski (78.0%), więc wysokie pokrycie mierzy powtarzalność krótkich słów, nie hebrajskość.",
+     "słabości": [
+      "Atak nie odróżnia rękopisu (70.7%) od angielskiego (75.0%) i bełkotu (61.8%)",
+      "Korpus kontrolny (Biblia) może nie odpowiadać ortografii średniowiecznego hebrajskiego",
+      "Klucz ma wiele glifów mapowanych na te same litery — brak testu wariantów klucza"
+     ],
+     "inne_wyjaśnienia": [
+      "Pokrycie 70.7% w rękopisie wynika z krótkich, powtarzalnych słów typowych dla tego tekstu, niezależnie od języka"
+     ],
+     "następny_test": "Powtórzyć atak na średniowiecznym hebrajskim korpusie z prozą i dłuższymi słowami oraz z uwzględnieniem morfologii (prefiksy/przyrostki), sprawdzając, czy swoistość wobec tekstów nie-hebrajskich zostaje zaliczona."
+    }
+   },
+   "openai/gpt-6-luna": {
+    "raw": "{\"werdykt\":\"metoda niewiarygodna\",\"pewność\":0.99,\"najmocniejszy_dowód\":\"Kontrola dodatnia przeszła (78,0%), ale kontrola swoistości nie: tekst wietnamski osiągnął 91,3%, więcej niż hebrajski, a rękopis 70,7%. Wynik nie odróżnia więc wiarygodnie hebrajskiego od tekstów niehebrajskich.\",\"słabości\":[\"Atak dopasowuje klucz, maksymalizując pokrycie słownikiem, a wysokie wyniki dla krótkich słów mogą wynikać z przypadkowych trafień.\",\"Kontrolny korpus hebrajski pochodzi z Biblii, a nie ze średniowiecznego tekstu; raport wskazuje możliwy wpływ różnic ortograficznych.\"],\"inne_wyjaśnienia\":[\"Wysokie pokrycie może wynikać z powtarzalności krótkich słów i dopasowania klucza, nie z hebrajskiego podłoża.\",\"Wynik rękopisu niehebrajskiego może odzwierciedlać ograniczoną swoistość metody, a nie treść językową.\"],\"następny_test\":\"Powtórzyć test w zaślepionym, porównawczym eksperymencie z dopasowanymi średniowiecznymi tekstami hebrajskimi i różnorodnymi tekstami niehebrajskimi; klucz i kryteria ustalić przed oceną, a swoistość sprawdzić na danych niewykorzystanych do doboru klucza.\"}",
+    "json": {
+     "werdykt": "metoda niewiarygodna",
+     "pewność": 0.99,
+     "najmocniejszy_dowód": "Kontrola dodatnia przeszła (78,0%), ale kontrola swoistości nie: tekst wietnamski osiągnął 91,3%, więcej niż hebrajski, a rękopis 70,7%. Wynik nie odróżnia więc wiarygodnie hebrajskiego od tekstów niehebrajskich.",
+     "słabości": [
+      "Atak dopasowuje klucz, maksymalizując pokrycie słownikiem, a wysokie wyniki dla krótkich słów mogą wynikać z przypadkowych trafień.",
+      "Kontrolny korpus hebrajski pochodzi z Biblii, a nie ze średniowiecznego tekstu; raport wskazuje możliwy wpływ różnic ortograficznych."
+     ],
+     "inne_wyjaśnienia": [
+      "Wysokie pokrycie może wynikać z powtarzalności krótkich słów i dopasowania klucza, nie z hebrajskiego podłoża.",
+      "Wynik rękopisu niehebrajskiego może odzwierciedlać ograniczoną swoistość metody, a nie treść językową."
+     ],
+     "następny_test": "Powtórzyć test w zaślepionym, porównawczym eksperymencie z dopasowanymi średniowiecznymi tekstami hebrajskimi i różnorodnymi tekstami niehebrajskimi; klucz i kryteria ustalić przed oceną, a swoistość sprawdzić na danych niewykorzystanych do doboru klucza."
+    }
+   },
+   "tencent/hy3": {
+    "raw": "",
+    "json": {}
+   }
+  },
+  "round2": {
+   "z-ai/glm-5.3-flash": {
+    "raw": "{\"ranking\": [\"B\"], \"uwagi\": \"Opinia B jest w pełni zgodna z danymi raportu: poprawnie wskazuje, że kontrola dodatnia przeszła (78,0% ≥ 50%), ale kontrola swoistości nie — wietnamski (91,3%) przewyższa hebrajski, a angielski (75,0%) i rękopis (70,7%) są blisko siebie. To unieważnia zdolność metody do odróżniania hebrajskiego od nie-hebrajskiego. B trafnie identyfikuje też słabości wskazane w zastrzeżeniach (dopasowanie klucza maksymalizujące pokrycie, krótkie słowa, biblijny korpus kontrolny) i proponuje sensowny następny test: zaślepione porównanie ze średniowiecznymi tekstami hebrajskimi, z kluczem ustalonym przed oceną i walidacją na danych niewykorzystanych do doboru klucza. Opinia C jest pusta i nie wnosi nic. Test wyklucza jedynie wiarygodność TEJ metody (atak anagramowy z tym doborem klucza) jako dowodu na hebrajskie pochodzenie; nie rozstrzyga samej hipotezy o hebrajskim podłożu rękopisu — tej nie badano wiarygodnie. Werdykt automatyczny (metoda niewiarygodna) jest uzasadniony.\", \"werdykt\": \"metoda niewiarygodna\", \"pewność\": 0.95, \"zmiana_zdania\": \"nie — dane z kontroli swoistości jednoznacznie pokazują brak specyficzności metody; werdykt automatyczny i opinia B są spójne z dowodami\"}",
+    "json": {
+     "ranking": [
+      "B"
+     ],
+     "uwagi": "Opinia B jest w pełni zgodna z danymi raportu: poprawnie wskazuje, że kontrola dodatnia przeszła (78,0% ≥ 50%), ale kontrola swoistości nie — wietnamski (91,3%) przewyższa hebrajski, a angielski (75,0%) i rękopis (70,7%) są blisko siebie. To unieważnia zdolność metody do odróżniania hebrajskiego od nie-hebrajskiego. B trafnie identyfikuje też słabości wskazane w zastrzeżeniach (dopasowanie klucza maksymalizujące pokrycie, krótkie słowa, biblijny korpus kontrolny) i proponuje sensowny następny test: zaślepione porównanie ze średniowiecznymi tekstami hebrajskimi, z kluczem ustalonym przed oceną i walidacją na danych niewykorzystanych do doboru klucza. Opinia C jest pusta i nie wnosi nic. Test wyklucza jedynie wiarygodność TEJ metody (atak anagramowy z tym doborem klucza) jako dowodu na hebrajskie pochodzenie; nie rozstrzyga samej hipotezy o hebrajskim podłożu rękopisu — tej nie badano wiarygodnie. Werdykt automatyczny (metoda niewiarygodna) jest uzasadniony.",
+     "werdykt": "metoda niewiarygodna",
+     "pewność": 0.95,
+     "zmiana_zdania": "nie — dane z kontroli swoistości jednoznacznie pokazują brak specyficzności metody; werdykt automatyczny i opinia B są spójne z dowodami"
+    }
+   },
+   "openai/gpt-6-luna": {
+    "raw": "{\n  \"ranking\": [\"A\", \"C\"],\n  \"uwagi\": \"A jest najlepiej uzasadniona: kontrola dodatnia przeszła (78,0%), ale kontrola swoistości nie — wietnamski osiągnął 91,35%, a angielski 75,03%, wobec 70,73% dla rękopisu. To podważa zdolność testu do rozpoznawania hebrajskości. C jest pusta, więc nie przedstawia argumentu do oceny. A trafnie wskazuje problem krótkich, powtarzalnych słów, ale sformułowanie, że wynik mierzy ich powtarzalność, a nie hebrajskość, jest mocniejsze niż pozwalają stwierdzić same dane: wykazują one nieswoistość, nie dokładny mechanizm wyniku. Podobnie brak podstaw, by uznać wyniki rękopisu i angielskiego za statystycznie nierozróżnialne — raport nie podaje testu istotności. Najbardziej rozstrzygający następny test to powtórzenie ataku na niezależnym, reprezentatywnym korpusie średniowiecznego hebrajskiego, z dopasowanymi niehebrajskimi kontrolami i z góry ustalonymi kryteriami swoistości.\",\n  \"werdykt\": \"Metoda niewiarygodna jako test tej hipotezy, ponieważ nie przeszła kontroli swoistości. Wynik nie wspiera wiarygodnie hipotezy hebrajskiego tekstu z anagramami. Nie wyklucza jednak, że rękopis jest hebrajski ani nie rozstrzyga innych hipotez; tego test nie bada.\",\n  \"pewność\": 0.97,\n  \"zmiana_zdania\": \"nie — kontrola swoistości niezaliczona i werdykt automatyczny są zgodne z podanymi wynikami; raport nie dostarcza podstaw do silniejszego wniosku o samym rękopisie.\"\n}",
+    "json": {
+     "ranking": [
+      "A",
+      "C"
+     ],
+     "uwagi": "A jest najlepiej uzasadniona: kontrola dodatnia przeszła (78,0%), ale kontrola swoistości nie — wietnamski osiągnął 91,35%, a angielski 75,03%, wobec 70,73% dla rękopisu. To podważa zdolność testu do rozpoznawania hebrajskości. C jest pusta, więc nie przedstawia argumentu do oceny. A trafnie wskazuje problem krótkich, powtarzalnych słów, ale sformułowanie, że wynik mierzy ich powtarzalność, a nie hebrajskość, jest mocniejsze niż pozwalają stwierdzić same dane: wykazują one nieswoistość, nie dokładny mechanizm wyniku. Podobnie brak podstaw, by uznać wyniki rękopisu i angielskiego za statystycznie nierozróżnialne — raport nie podaje testu istotności. Najbardziej rozstrzygający następny test to powtórzenie ataku na niezależnym, reprezentatywnym korpusie średniowiecznego hebrajskiego, z dopasowanymi niehebrajskimi kontrolami i z góry ustalonymi kryteriami swoistości.",
+     "werdykt": "Metoda niewiarygodna jako test tej hipotezy, ponieważ nie przeszła kontroli swoistości. Wynik nie wspiera wiarygodnie hipotezy hebrajskiego tekstu z anagramami. Nie wyklucza jednak, że rękopis jest hebrajski ani nie rozstrzyga innych hipotez; tego test nie bada.",
+     "pewność": 0.97,
+     "zmiana_zdania": "nie — kontrola swoistości niezaliczona i werdykt automatyczny są zgodne z podanymi wynikami; raport nie dostarcza podstaw do silniejszego wniosku o samym rękopisie."
+    }
+   },
+   "tencent/hy3": {
+    "raw": "",
+    "json": {}
+   }
+  },
+  "synthesis": "## Werdykt rady\n\n**Metoda niewiarygodna jako test hipotezy.** Poziom zgody jest wysoki: obie merytoryczne opinie wskazują na niezaliczoną kontrolę swoistości; trzecia opinia była pusta.\n\n## Co test pokazuje\n\nKontrola dodatnia przeszła: zanagramowany i zaszyfrowany hebrajski uzyskał pokrycie 78,0%, powyżej progu 50%. Jednak kontrola swoistości nie przeszła: wietnamski osiągnął 91,3%, wobec 78,0% dla hebrajskiego i 70,7% dla rękopisu. Wynik nie pozwala więc uznać wysokiego pokrycia za swoisty dowód hebrajskiego podłoża.\n\nTest podważa wiarygodność **tej metody** jako dowodu na hipotezę; sam nie wyklucza, że hipoteza jest prawdziwa.\n\n## Główne zastrzeżenia\n\nRaport wskazuje ryzyko przypadkowych dopasowań krótkich słów oraz ograniczenie korpusu hebrajskiego do Biblii, który może nie odzwierciedlać średniowiecznej ortografii. Dane wykazują nieswoistość, ale nie dowodzą, jaki mechanizm ją powoduje. Nie przedstawiono też testu statystycznego porównującego wyniki.\n\n## Rekomendowany następny eksperyment\n\nPrzeprowadzić zaślepiony test na niezależnych, reprezentatywnych korpusach średniowiecznego hebrajskiego i tekstów niehebrajskich. Z góry ustalić kryteria i sposób doboru klucza, a swoistość ocenić na danych niewykorzystanych do jego dopasowania.",
+  "failed": {},
+  "votes": {
+   "Metoda niewiarygodna jako test tej hipotezy, ponieważ nie przeszła kontroli swoistości. Wynik nie wspiera wiarygodnie hipotezy hebrajskiego tekstu z anagramami. Nie wyklucza jednak, że rękopis jest hebrajski ani nie rozstrzyga innych hipotez; tego test nie bada.": 1,
+   "metoda niewiarygodna": 1
+  }
+ }
+}
