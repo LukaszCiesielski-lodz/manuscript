@@ -93,6 +93,22 @@ class OpenRouterTest(unittest.TestCase):
         self.assertIn("decisions/model", out["failed"])
 
 
+    def test_vote_labels_from_paragraphs(self):
+        from voynich.lab.council import _label
+        self.assertEqual(_label("Niepotwierdzona w wersji ogólnej."), "nierozstrzygnięta")
+        self.assertEqual(_label("Obalona dla badanego transformera"), "obalona")
+        self.assertEqual(_label("Test jest niewiarygodny jako wsparcie"), "metoda niewiarygodna")
+
+    def test_empty_answer_is_retried_then_fails(self):
+        from voynich.lab.openrouter import OpenRouter
+        client = OpenRouter("k")
+        replies = iter([{"choices": [{"message": {"content": ""}}]}, {"choices": [{"message": {"content": ""}}]}])
+        client._request = lambda path, body: next(replies)
+        with self.assertRaises(RuntimeError):
+            client.chat("tencent/hy3", [{"role": "user", "content": "x"}], max_tokens=1800)
+        self.assertEqual(client.calls, 2)
+
+
 class ImagesTest(unittest.TestCase):
     def test_folio_map(self):
         self.assertEqual(len(canvases()), 213)

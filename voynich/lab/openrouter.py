@@ -62,11 +62,24 @@ class OpenRouter:
         return self._request("/models")["data"]
 
     def chat(self, model: str, messages: list[dict], max_tokens: int = 1500, temperature: float = 0.3) -> str:
+        text = self._chat(model, messages, max_tokens, temperature)
+        if not text.strip() and max_tokens > 50:
+            # Reasoning models can spend the whole budget thinking and return no answer
+            # (tencent/hy3 in Colab: ~5000 tokens, empty content). Retry once with room and low effort.
+            text = self._chat(model, messages, max_tokens * 3, temperature, {"effort": "low"})
+            if not text.strip():
+                raise RuntimeError(f"OpenRouter: {model} zwrócił pustą odpowiedź (model rozumujący zużył limit tokenów)")
+        return text
+
+    def _chat(self, model: str, messages: list[dict], max_tokens: int, temperature: float,
+              reasoning: dict | None = None) -> str:
         if self.spent_usd >= self.budget_usd:
             raise BudgetExceeded(f"budżet {self.budget_usd:.2f} USD wyczerpany")
-        out = self._request("/chat/completions", {
-            "model": model, "messages": messages, "max_tokens": max_tokens, "temperature": temperature,
-            "usage": {"include": True}})
+        body = {"model": model, "messages": messages, "max_tokens": max_tokens, "temperature": temperature,
+                "usage": {"include": True}}
+        if reasoning:
+            body["reasoning"] = reasoning
+        out = self._request("/chat/completions", body)
         usage = out.get("usage") or {}
         cost = float(usage.get("cost") or 0.0)
         self.spent_usd += cost

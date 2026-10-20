@@ -106,6 +106,21 @@ def deliberate(result: TheoryResult, members: list[str], chair: str, chat: Chat,
         out["synthesis"] = ask(chair, prompt) or ask(next(iter(out["round1"])), prompt) or ""
     except BudgetExceeded as e:
         out["error"] = str(e)
-    verdicts = [r["json"].get("werdykt") for r in out["round2"].values() if r.get("json")]
+    verdicts = [_label(r["json"].get("werdykt")) for r in out["round2"].values() if r.get("json")]
     out["votes"] = {v: verdicts.count(v) for v in set(verdicts) if v}
     return out
+
+
+def _label(text) -> str:
+    """Models often answer the verdict field with a paragraph; count the first verdict it names."""
+    t = str(text or "").lower()
+    # Negated forms first: "niepotwierdzona" contains "potwierdzona".
+    keys = (("niewiarygod", "metoda niewiarygodna"), ("nierozstrzyg", "nierozstrzygnięta"),
+            ("niepotwierdz", "nierozstrzygnięta"), ("obalon", "obalona"), ("odrzucon", "obalona"),
+            ("potwierdzon", "potwierdzona"))
+    hits = []
+    for k, v in keys:
+        i = t.find(k)
+        if i != -1 and not (k == "potwierdzon" and t[max(0, i - 3):i].endswith("nie")):
+            hits.append((i, v))
+    return min(hits)[1] if hits else t[:40]

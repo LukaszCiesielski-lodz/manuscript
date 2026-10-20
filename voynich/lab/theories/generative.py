@@ -151,6 +151,12 @@ def train_gpt(train_ids: list[int], val_ids: list[int], vocab: Vocab, cfg: LabCo
     data = torch.tensor(train_ids, dtype=torch.long)
     val = torch.tensor(val_ids, dtype=torch.long)
     steps = 300 if cfg.quick else cfg.gpt_steps
+    # The corpus is small (~200k glyphs), so thousands of steps overfit (Colab: 1.73 -> 5.43 bit/glyph).
+    # Choose the checkpoint on one half of the held-out pages and report bits on the other half.
+    half = len(val) // 2
+    pick, test = val[:half], val[half:]
+    every = max(1, steps // 40)
+    best, best_state, stale = float("inf"), None, 0
     opt = torch.optim.AdamW(model.parameters(), lr=3e-4, weight_decay=0.1, betas=(0.9, 0.95))
     sched = torch.optim.lr_scheduler.OneCycleLR(opt, max_lr=6e-4, total_steps=steps, pct_start=0.05)
     amp = torch.autocast(device_type="cuda", dtype=torch.bfloat16) if device == "cuda" else torch.autocast("cpu", enabled=False)
@@ -168,11 +174,24 @@ def train_gpt(train_ids: list[int], val_ids: list[int], vocab: Vocab, cfg: LabCo
         torch.nn.utils.clip_grad_norm_(model.parameters(), 1.0)
         opt.step()
         sched.step()
-        if step % max(1, steps // 10) == 0 or step == steps - 1:
-            vb = evaluate_bits(model, val, block, device)
+        if step % every == 0 or step == steps - 1:
+            vb = evaluate_bits(model, pick, block, device)
             log.append({"step": step, "train_loss": float(loss), "val_bits": vb})
             print(f"  krok {step}: strata {float(loss):.3f}, walidacja {vb:.3f} bit/znak", flush=True)
-    return model, log
+            if vb < best:
+                best, stale = vb, 0
+                best_state = {k: v.detach().clone() for k, v in model.state_dict().items()}
+            else:
+                stale += 1
+                if stale >= 6:
+                    print(f"  wczesne zatrzymanie: walidacja nie poprawia się od {stale * every} kroków", flush=True)
+                    break
+    if best_state is not None:
+        model.load_state_dict(best_state)
+    best_step = min(log, key=lambda e: e["val_bits"])["step"]
+    test_bits = evaluate_bits(model, test, block, device)
+    print(f"  wybrano krok {best_step}; odłożona połowa testowa: {test_bits:.3f} bit/znak", flush=True)
+    return model, {"log": log, "best_step": best_step, "test_bits": test_bits}
 
 
 def evaluate_bits(model, val, block: int, device: str) -> float:
@@ -354,9 +373,9 @@ def run(cfg: LabConfig) -> TheoryResult:
         res.seconds = time.time() - t0
         return res
 
-    model, log = train_gpt(train_ids, val_ids, vocab, cfg)
-    gpt_bits = log[-1]["val_bits"]
-    metrics.update({"gpt_bits": gpt_bits, "training": log})
+    model, training = train_gpt(train_ids, val_ids, vocab, cfg)
+    gpt_bits = training["test_bits"]
+    metrics.update({"gpt_bits": gpt_bits, "gpt_best_step": training["best_step"], "training": training["log"]})
     res.evidence.append(f"Odłożone strony: transformer {gpt_bits:.3f} bit/znak, model trigramowy {tri_bits:.3f} "
                         f"(różnica {tri_bits - gpt_bits:+.3f}: tyle struktury leży dalej niż 2 znaki wstecz).")
 
