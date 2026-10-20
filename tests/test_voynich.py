@@ -1,7 +1,7 @@
 import random
 import unittest
 
-from voynich import cipher, corpus, eva, ivtff, selfcite, stats, structure
+from voynich import cipher, corpus, eva, ivtff, latin, selfcite, stats, structure, syllabic
 
 
 class EvaTest(unittest.TestCase):
@@ -86,6 +86,60 @@ class SelfCiteTest(unittest.TestCase):
         n = sum(len(l) for l in lines)
         self.assertGreaterEqual(n, 2000)
         self.assertTrue(all(1 <= len(w) <= 8 for l in lines[1:] for w in l))
+
+
+class LatinTest(unittest.TestCase):
+    def test_syllabify(self):
+        self.assertEqual(latin.syllabify("principio"), ["prin", "ci", "pi", "o"])
+        self.assertEqual(latin.syllabify("consequuntur"), ["con", "se", "quun", "tur"])
+        self.assertEqual(latin.syllabify("creavit"), ["cre", "a", "vit"])
+        self.assertEqual(latin.syllabify("aquae"), ["a", "quae"])
+
+    def test_normalize_merges_u_v(self):
+        self.assertEqual(latin.normalize(["Vivere", "Jesu"]), ["uiuere", "iesu"])
+        self.assertEqual(latin.normalize(["Vivere"], merge_uv=False), ["vivere"])
+
+    def test_abbreviate(self):
+        self.assertEqual(latin.abbreviate("et"), "⁊")
+        self.assertEqual(latin.abbreviate("dominus"), "dominꝰ")
+        self.assertEqual(latin.abbreviate("herbarum"), "herbaꝝ")
+        self.assertEqual(latin.abbreviate("consequuntur"), "ꝯsequūtᷣ")
+
+
+class SyllabicTest(unittest.TestCase):
+    def test_word_cipher_cannot_hide_repetition(self):
+        # A deterministic word-for-word code keeps every repeat and can only merge types.
+        raw = corpus.load_medieval("Kempis", 4000, merge_uv=False)
+        glyph_words = [eva.glyphs(w) for w in corpus.tokens(corpus.load_voynich())[:5000]]
+        enc = syllabic.SyllableCipher(raw, glyph_words).encode(raw)
+        plain, coded = syllabic.repeat_profile(raw), syllabic.repeat_profile(enc)
+        self.assertLessEqual(coded["types"], plain["types"])
+        self.assertGreaterEqual(coded["adjacent_repeat"], plain["adjacent_repeat"])
+
+    def test_split_onset_nucleus_coda(self):
+        self.assertEqual(syllabic.split_onc(list("prin"), syllabic._latin_vowel), (("p", "r"), ("i",), ("n",)))
+        self.assertEqual(syllabic.split_onc(["q", "o", "k", "e", "e", "d", "y"], syllabic._voynich_vowel),
+                         (("q",), ("o",), ("k", "e", "e", "d", "y")))
+
+
+class GeneratorModelTest(unittest.TestCase):
+    def test_edit_extraction(self):
+        op = selfcite.EditModel._op(("ch", "e", "d", "y"), ("sh", "e", "d", "y"))
+        self.assertEqual(op, ("sub", "^", "ch", "sh", "e"))
+        self.assertEqual(selfcite.EditModel._op(("o", "k", "y"), ("q", "o", "k", "y")), ("ins", "^", "", "q", "o"))
+
+    def test_edit_model_makes_single_edits(self):
+        words = [eva.glyphs(w) for w in corpus.tokens(corpus.load_voynich())[:6000]]
+        model = selfcite.EditModel(words)
+        rng = random.Random(2)
+        for w in words[:200]:
+            out = tuple(model.apply(w, rng))
+            self.assertTrue(out == tuple(w) or stats.is_near(tuple(w), out))
+
+    def test_word_grammar_prefers_real_shapes(self):
+        words = [eva.glyphs(w) for w in corpus.tokens(corpus.load_voynich())]
+        g = selfcite.WordGrammar(words)
+        self.assertGreater(g.per_glyph(eva.glyphs("qokedy")), g.per_glyph(eva.glyphs("yqekdo")))
 
 
 class CipherTest(unittest.TestCase):

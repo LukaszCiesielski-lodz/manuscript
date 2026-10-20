@@ -147,7 +147,7 @@ footer { border-top: 1px solid var(--rule); padding-top: 1.5rem; color: var(--mu
   <div class="stack">
     <span class="eyebrow">MS 408 · Beinecke Library · transliteracja ZL 3b</span>
     <h1>Rękopis Wojnicza w liczbach</h1>
-    <p class="lede">Nie odczytaliśmy go. Nikt jeszcze tego nie zrobił i uczciwy projekt musi to powiedzieć na początku. Zrobiliśmy coś, co da się sprawdzić: zmierzyliśmy cały tekst tymi samymi miarami co dwanaście języków, zaatakowaliśmy go łamaczem szyfrów, który na próbach kontrolnych odzyskuje 100% liter, i zobaczyliśmy, które hipotezy przetrwały.</p>
+    <p class="lede">Nie odczytaliśmy go. Nikt jeszcze tego nie zrobił i uczciwy projekt musi to powiedzieć na początku. Zrobiliśmy coś, co da się sprawdzić: zmierzyliśmy cały tekst tymi samymi miarami co dwanaście języków, zaatakowaliśmy go łamaczem szyfrów sprawdzonym na próbach kontrolnych, porównaliśmy go z dwunastoma tekstami średniowiecznej łaciny, przetestowaliśmy szyfry sylabiczne i zbudowaliśmy generator, który pisze tekst podobny do rękopisu. Poniżej to, które hipotezy przetrwały.</p>
   </div>
   <div class="stack">
     <div class="folio" aria-label="Pierwsze wiersze folio 1r w transliteracji EVA" id="folio"></div>
@@ -161,12 +161,15 @@ footer { border-top: 1px solid var(--rule); padding-top: 1.5rem; color: var(--mu
   <h2>Co wiemy po tych eksperymentach</h2>
   <ol class="findings">
     <li><span class="verdict v-no">wykluczone</span><div><b>Prosty i homofoniczny szyfr podstawieniowy</b> dowolnego z <span data-v="okCount" data-f="int"></span> badanych języków. Łamacz odzyskuje szyfry kontrolne prawie w całości, a na rękopisie najlepszy klucz zostawia lukę <span data-v="gapMin" data-f="2"></span>–<span data-v="gapMax" data-f="2"></span> bita na znak. Tyle struktury tekstu język kandydujący nie umie wyjaśnić. Dla wietnamskiego (91 liter z tonami) łamacz nie radzi sobie nawet z kontrolą, więc tu werdyktu nie ma.</div></li>
+    <li><span class="verdict v-no">wykluczone</span><div><b>Średniowieczna łacina, także zielnikowa.</b> Żaden z <span data-v="medCount" data-f="int"></span> tekstów z VII–XV wieku (Izydor, Hugo od św. Wiktora, Tomasz z Akwinu, Złota legenda, Kempis i inne) nie zbliża się do rękopisu. Łamacz z modelem łaciny średniowiecznej łamie kontrole w <span data-v="medCtrlAcc" data-f="pct0"></span>, a na zielniku zostawia lukę <span data-v="ext.medieval.cipher.zielnik.gap" data-f="2"></span> bita, na dialekcie B <span data-v="ext.medieval.cipher.Currier B.gap" data-f="2"></span>. Skróty skrybów nie pomagają: podnoszą h₂ łaciny z ok. <span data-v="medH2" data-f="1"></span> do <span data-v="abbrH2" data-f="1"></span>, czyli oddalają ją od rękopisu.</div></li>
+    <li><span class="verdict v-no">wykluczone</span><div><b>Słowo rękopisu jako jedna sylaba.</b> Łacina rozbita na sylaby ma na <span data-v="ext.syllabic.n" data-f="int"></span> jednostek tylko <span data-v="sylTypesMin" data-f="int"></span>–<span data-v="sylTypesMax" data-f="int"></span> różnych sylab, a rękopis <span data-v="ext.syllabic.word_is_syllable.Voynich (słowa).types" data-f="int"></span> różnych słów. Sylaba ma średnio <span data-v="sylLen" data-f="1"></span> litery, słowo rękopisu <span data-v="ext.syllabic.word_is_syllable.Voynich (słowa).mean_word_len" data-f="1"></span> glifu.</div></li>
+    <li><span class="verdict v-no">mało prawd.</span><div><b>Szyfr sylabiczny lub rozwlekły, słowo za słowem.</b> Każdy taki kod przenosi powtórzenia słów bez zmian. Rękopis pisze to samo słowo dwa razy z rzędu w <span data-v="ext.syllabic.invariants.Voynich.adjacent_repeat" data-f="pct2"></span> par (<span data-v="ext.syllabic.invariants.Voynich.repeat_types" data-f="int"></span> różnych słów), a najbardziej powtarzalny z <span data-v="invCount" data-f="int"></span> tekstów porównawczych w <span data-v="invMax" data-f="pct2"></span>. Kod tych powtórzeń nie stworzy, chyba że dokłada słowa-wypełniacze.</div></li>
     <li><span class="verdict v-no">anomalia</span><div><b>Tekst jest zbyt przewidywalny jak na język.</b> Entropia warunkowa h₂ wynosi <span data-v="fingerprints.Voynich.h2" data-f="2"></span> bita na glif, w językach od <span data-v="langMin.h2" data-f="2"></span> do <span data-v="langMax.h2" data-f="2"></span>. Podstawienie znaków nie zmienia tej liczby, więc żaden szyfr podstawieniowy jej nie tłumaczy.</div></li>
     <li><span class="verdict v-no">anomalia</span><div><b>Glify mają stałe miejsca w słowie.</b> <span class="eva">q</span> stoi na początku w <span data-v="slots.Voynich.q.initial" data-f="pct0"></span> wystąpień, <span class="eva">n</span> na końcu w <span data-v="slots.Voynich.n.final" data-f="pct0"></span>. Sztywność kolejności znaków: <span data-v="fingerprints.Voynich.order_consistency" data-f="2"></span>, w językach europejskich i semickich <span data-v="langMinEU.order_consistency" data-f="2"></span>–<span data-v="langMaxEU.order_consistency" data-f="2"></span>. Podobnie wysoko jest tylko wietnamski, zapisywany sylabami.</div></li>
     <li><span class="verdict v-no">anomalia</span><div><b>Sąsiednie słowa są do siebie podobne.</b> Para kolejnych słów różniących się jednym glifem trafia się w <span data-v="permutation.Voynich.adjacent_near.observed" data-f="pct1"></span> przypadków, a po przetasowaniu słów w <span data-v="permutation.Voynich.adjacent_near.shuffled_mean" data-f="pct1"></span> (p ≤ <span data-v="permutation.Voynich.adjacent_near.p" data-f="3"></span>). W łacinie jest odwrotnie: tekst unika takich par.</div></li>
     <li><span class="verdict v-no">anomalia</span><div><b>Wiersz jest jednostką.</b> Glif <span class="eva">m</span> pojawia się w ostatnim słowie wiersza <span data-v="line_position.m.line_last" data-f="1"></span> razy częściej niż przeciętnie, <span class="eva">g</span> <span data-v="line_position.g.line_last" data-f="1"></span> razy; <span class="eva">p</span> w pierwszym słowie <span data-v="line_position.p.line_first" data-f="1"></span> razy częściej. W zwykłym piśmie koniec wiersza nie zmienia słów.</div></li>
     <li><span class="verdict v-yes">zgodne</span><div><b>Prawo Zipfa i słownictwo zależne od działu.</b> Nachylenie <span data-v="fingerprints.Voynich.zipf_slope" data-f="2"></span> mieści się w zakresie języków, a działy (zielnik, biologiczny, gwiazdy) mają własne charakterystyczne słowa. To jedyne cechy, które pasują do zwykłego tekstu.</div></li>
-    <li><span class="verdict v-part">częściowo</span><div><b>Hipoteza samocytowania</b> (Timm i Schinner: każde słowo to zmodyfikowana kopia słowa napisanego chwilę wcześniej). Nasz generator odtwarza gęstość słownika i lokalne podobieństwo słów (nawet z nadmiarem), ale daje h₂ = <span data-v="fingerprints.Self-citation model.h2" data-f="2"></span> zamiast <span data-v="fingerprints.Voynich.h2" data-f="2"></span>. Ani tego nie potwierdza, ani nie obala.</div></li>
+    <li><span class="verdict v-part">częściowo</span><div><b>Samocytowanie z gramatyką słowa.</b> Samo kopiowanie słów ze zmianami, nawet ze zmianami podpatrzonymi u skryby, daje h₂ ≈ <span data-v="genV2h2" data-f="1"></span>. Dopiero dodanie gramatyki kształtu słowa daje <span data-v="genV4.h2" data-f="2"></span> (rękopis <span data-v="ext.generator.real.h2" data-f="2"></span>) i przy okazji trafia w h₃, sztywność glifów, gęstość słownika i powtórzenia. Nie odtwarza liczby hapaksów, długości słów, nachylenia Zipfa ani efektów końca wiersza.</div></li>
   </ol>
 </section>
 
@@ -176,7 +179,7 @@ footer { border-top: 1px solid var(--rule); padding-top: 1.5rem; color: var(--mu
   <p class="prose">Każdy tekst przycięto do <span data-v="n" data-f="int"></span> słów; języki to ten sam fragment Biblii (od Księgi Rodzaju), więc różni je tylko język. Rękopis liczony jest w glifach. Szare kropki to języki, najedź na kropkę, żeby zobaczyć który.</p>
   <div class="legend">
     <span><i style="background:var(--voy)"></i>Rękopis Wojnicza</span>
-    <span><i class="dia" style="background:var(--sc)"></i>model samocytowania (średnia z 5 przebiegów)</span>
+    <span><i class="dia" style="background:var(--sc)"></i>model samocytowania v1, reguły ręczne (średnia z 5 przebiegów; v4 niżej)</span>
     <span><i class="ring"></i>rękopis z przetasowanymi słowami</span>
     <span><i style="background:var(--lang)"></i>12 języków</span>
   </div>
@@ -252,16 +255,81 @@ footer { border-top: 1px solid var(--rule); padding-top: 1.5rem; color: var(--mu
   </div>
 </section>
 
+<section id="medieval">
+  <span class="eyebrow">Łacina średniowieczna</span>
+  <h2>Mapa tekstów</h2>
+  <p class="prose">Każdy tekst opisany <span data-v="mapMetricCount" data-f="int"></span> miarami (entropie, długość słów, gęstość słownika, powtórzenia, sztywność glifów, Zipf), wszystkie po <span data-v="ext.medieval.n" data-f="int"></span> słów, i rzutowany na płaszczyznę metodą składowych głównych. Bliskie punkty to teksty o podobnym odcisku palca.</p>
+  <div class="legend">
+    <span><i style="background:var(--voy)"></i>rękopis (całość, zielnik, dialekt B)</span>
+    <span><i class="dia" style="background:var(--sc)"></i>generator v4</span>
+    <span><i style="background:var(--s1)"></i>łacina średniowieczna i Wulgata</span>
+    <span><i class="ring" style="border-color:var(--s1)"></i>ta sama łacina ze skrótami skrybów</span>
+    <span><i style="background:var(--lang)"></i>Biblia w 11 innych językach</span>
+  </div>
+  <figure><div id="map"></div><figcaption id="map-cap"></figcaption></figure>
+  <details>
+    <summary>Teksty średniowieczne w liczbach</summary>
+    <div class="tbl-wrap" id="med-table"></div>
+  </details>
+  <div class="two">
+    <div class="panel">
+      <h3>Atak z modelem łaciny średniowiecznej</h3>
+      <p class="small muted">Model trigramowy z 10 autorów (bez Izydora i Kolumelli). Kontrola: zaszyfrowany Izydor.</p>
+      <div class="tbl-wrap" id="med-cipher"></div>
+    </div>
+    <div class="panel">
+      <h3>Łacina ze skrótami skrybów</h3>
+      <p class="small muted">Izydor, Etymologiae XVII, z regułami: <span class="eva">et→⁊</span>, <span class="eva">-us→ꝰ</span>, <span class="eva">-rum→ꝝ</span>, <span class="eva">con-→ꝯ</span>, <span class="eva">per→ꝑ</span>, kreska zamiast m/n.</p>
+      <div class="gen" id="abbr-sample"></div>
+    </div>
+  </div>
+</section>
+
+<section id="syllabic">
+  <span class="eyebrow">Hipoteza sylabiczna</span>
+  <h2>Sylaby zamiast liter</h2>
+  <div class="prose stack">
+    <p>Pod nazwą „szyfr sylabiczny” kryją się dwie różne hipotezy. Sprawdzamy obie na trzech tekstach łacińskich, dzieląc je na sylaby regułami gramatyki łacińskiej.</p>
+    <p><b>A. Każde słowo rękopisu to jedna sylaba</b>, jak w piśmie chińskim czy wietnamskim. Wtedy słowa rękopisu powinny wyglądać jak sylaby: mało różnych, krótkie, z powtarzalnym repertuarem.</p>
+  </div>
+  <div class="tbl-wrap" id="syl-a"></div>
+  <p class="prose">Nie wyglądają. Sylab jest kilka razy mniej rodzajów niż słów rękopisu i są dwa razy krótsze. Hipoteza A przetrwałaby tylko z masową homofonią, czyli wieloma zapisami tej samej sylaby.</p>
+  <div class="prose stack">
+    <p><b>B. Każde słowo rękopisu to jedno słowo tekstu</b>, zapisane sylaba po sylabie, z grupą glifów zamiast każdej sylaby (lub litery: wtedy to szyfr rozwlekły). Zbudowaliśmy taki kod: najczęstszym nagłosom, samogłoskom i wygłosom łacińskich sylab przypisaliśmy najczęstsze odpowiedniki w słowach rękopisu.</p>
+  </div>
+  <div class="panel" id="syl-sample"></div>
+  <div class="tbl-wrap" id="syl-b"></div>
+  <p class="prose">Taki kod obniża entropię łaciny i nadaje glifom stałe miejsca, więc te anomalie mógłby wyjaśnić. Ale słowa wychodzą za długie, a przede wszystkim <b>żaden kod słowo-za-słowo nie zmienia statystyk na poziomie słów</b>: liczby różnych słów, krzywej Zipfa ani tego, jak często słowo powtarza się zaraz po sobie. Poniżej ta ostatnia miara dla wszystkich tekstów.</p>
+  <div class="legend">
+    <span><i class="sq" style="background:var(--voy)"></i>rękopis</span>
+    <span><i class="sq" style="background:var(--s1)"></i>łacina średniowieczna</span>
+    <span><i class="sq" style="background:var(--lang)"></i>Biblia w 12 językach</span>
+  </div>
+  <figure><div id="repeats"></div>
+    <figcaption>Odsetek par kolejnych słów, w których słowo się powtarza, po <span data-v="ext.syllabic.n" data-f="int"></span> słów każdego tekstu. Najczęstsze powtórzenia w rękopisie: <span id="rep-words" class="eva"></span>.</figcaption></figure>
+</section>
+
 <section>
   <span class="eyebrow">Hipoteza generatora</span>
   <h2>Czy skryba kopiował samego siebie?</h2>
-  <p class="prose">Timm i Schinner (Cryptologia, 2020) proponują, że każde nowe słowo powstawało przez skopiowanie słowa z wierszy powyżej i drobną zmianę: zamianę podobnego glifu (<span class="eva">o↔a↔y</span>, <span class="eva">ch↔sh</span>, <span class="eva">k↔t</span>), dodanie lub zdjęcie przedrostka, dopisanie <span class="eva">e</span>. Napisaliśmy własną, uproszczoną wersję tego algorytmu, zasianą trzema pierwszymi wierszami rękopisu.</p>
-  <div class="two">
-    <div class="panel"><h3>Wygenerowane</h3><div class="gen" id="gen-text"></div></div>
-    <div class="panel"><h3>Prawdziwe (f1r)</h3><div class="gen" id="real-text"></div></div>
+  <div class="prose stack">
+    <p>Timm i Schinner (Cryptologia, 2020) proponują, że każde nowe słowo powstawało przez skopiowanie słowa z wierszy powyżej i drobną zmianę. Zbudowaliśmy cztery coraz lepsze wersje takiego generatora, każdą zasianą trzema pierwszymi wierszami rękopisu:</p>
+    <ul class="stack" style="padding-left:1.1rem;margin:0;gap:0.4rem">
+      <li><b>v1</b>: ręczne reguły podobieństwa glifów (<span class="eva">o↔a↔y</span>, <span class="eva">ch↔sh</span>, <span class="eva">k↔t</span>), przedrostki, dopisywanie <span class="eva">e</span>.</li>
+      <li><b>v2</b>: zmiany podpatrzone u skryby. Z <span data-v="ext.generator.edit_pairs" data-f="int"></span> par podobnych słów stojących blisko siebie spisaliśmy, co dokładnie się zmienia i w jakim otoczeniu, np. <span class="eva">^ ch→sh e</span>.</li>
+      <li><b>v3</b>: v2 plus zakaz par glifów, których w rękopisie nie ma (zostaje <span data-v="ext.generator.allowed_pairs" data-f="int"></span> par).</li>
+      <li><b>v4</b>: v2 plus gramatyka kształtu słowa: model trigramów glifów wyuczony na liście różnych słów rękopisu, każde słowo raz, więc bez ich częstości. Zmiana jest przyjmowana tym chętniej, im lepiej ukształtowane słowo daje.</li>
+    </ul>
   </div>
-  <div class="tbl-wrap" id="sc-table"></div>
-  <p class="prose small muted">Wynik: model trafia w gęstość słownika i podobieństwo sąsiadów, ale jego tekst jest mniej przewidywalny na poziomie znaków niż rękopis, a słowa mają zbyt różną długość. Prostsze zasady mutacji nie wystarczą; prawdziwy skryba trzymał się ciaśniejszej „gramatyki” glifów. Parametry dobraliśmy ręcznie na kilku próbach, więc to wynik wstępny.</p>
+  <div class="tbl-wrap" id="gen-table"></div>
+  <p class="prose small muted">Parametry v4 (siłę gramatyki β, częstość kopiowania bez zmian, okno źródłowe) wybraliśmy z siatki <span data-v="genGridN" data-f="int"></span> ustawień tylko po dwóch miarach oznaczonych °: h₂ i podobnych sąsiadach. Pozostałe kolumny to test poza próbą. Średnie z 3 przebiegów.</p>
+  <div class="panel">
+    <div class="row"><label for="gen-pick" class="small muted">Próbka tekstu z wersji</label><select id="gen-pick"></select></div>
+    <div class="gen" id="gen-text"></div>
+    <h3 style="margin-top:0.5rem">Prawdziwe (f1r)</h3>
+    <div class="gen" id="real-text"></div>
+  </div>
+  <p class="prose">Wniosek: kopiowanie z drobnymi zmianami wyjaśnia, dlaczego sąsiednie słowa są podobne i dlaczego słowa się powtarzają. Niska entropia potrzebuje osobnego składnika, czyli sztywnego szablonu słowa. Same lokalne zmiany, nawet te prawdziwe, rozjeżdżają się w formy, których w rękopisie nie ma. Model v4 wciąż ma za mało hapaksów, za długie słowa i nie zna końca wiersza, więc mechanizm skryby był jeszcze inny.</p>
 </section>
 
 <section>
@@ -349,6 +417,24 @@ DERIVED.okCount = okLangs.length;
 DERIVED.gapMin = Math.min(...gaps); DERIVED.gapMax = Math.max(...gaps);
 DERIVED.currierN = D.currier["Currier A"].tokens;
 for (const k of ["fingerprints", "slots", "permutation", "line_position", "n", "generated"]) DERIVED[k] = D[k];
+// Follow-up experiments (docs/results_ext.json).
+const E = D.ext;
+DERIVED.ext = E;
+const MED = E.medieval.fingerprints, medNames = Object.keys(E.medieval.info);
+const mean = a => a.reduce((x, y) => x + y, 0) / a.length;
+DERIVED.medCount = medNames.filter(n => n !== "Columella").length;
+DERIVED.medCtrlAcc = Math.min(E.medieval.cipher.control_h1.accuracy, E.medieval.cipher.control_h2.accuracy);
+DERIVED.medH2 = mean(["Isidorus", "Kempis", "Voragine"].map(n => MED[n].h2));
+DERIVED.abbrH2 = mean(["Isidorus", "Kempis", "Voragine"].map(n => MED[n + " (skróty)"].h2));
+const SYA = E.syllabic.word_is_syllable, latSyl = Object.keys(SYA).filter(n => n.includes("(sylaby)") && !n.startsWith("wietnamski"));
+DERIVED.sylTypesMin = Math.min(...latSyl.map(n => SYA[n].types)); DERIVED.sylTypesMax = Math.max(...latSyl.map(n => SYA[n].types));
+DERIVED.sylLen = mean(latSyl.map(n => SYA[n].mean_word_len));
+const INV = E.syllabic.invariants, invOthers = Object.keys(INV).filter(n => n !== "Voynich");
+DERIVED.invCount = invOthers.length; DERIVED.invMax = Math.max(...invOthers.map(n => INV[n].adjacent_repeat));
+const GV = E.generator.variants, gvNames = Object.keys(GV);
+DERIVED.genV4 = GV[gvNames[3]]; DERIVED.genV2h2 = mean([GV[gvNames[1]].h2, GV[gvNames[2]].h2]);
+DERIVED.genGridN = E.generator.grid.length;
+DERIVED.mapMetricCount = Object.keys(E.map.loadings).length;
 document.querySelectorAll("[data-v]").forEach(el => { el.textContent = fmt(get(el.dataset.v), el.dataset.f); });
 
 // Tooltip shared by every chart.
@@ -553,14 +639,102 @@ slots("slots-l", D.slots.Latin, true);
   pick.addEventListener("change", show); show();
 })();
 
-// Self-citation sample and comparison.
-document.getElementById("gen-text").innerHTML = D.selfcite_sample.map(l => `<div>${l}</div>`).join("");
-document.getElementById("real-text").innerHTML = f1r.map(l => `<div>${l.replaceAll(".", " ")}</div>`).join("");
-const SC_COLS = [["h2", "h₂", 2], ["h3", "h₃", 2], ["sd_word_len", "odch. dł.", 2], ["zipf_slope", "Zipf", 2], ["vocab_density", "gęstość", "pct0"],
-  ["adjacent_near", "podobni sąs.", "pct1"], ["adjacent_repeat", "powt.", "pct2"], ["hapax_ratio", "hapaksy", "pct0"], ["order_consistency", "kolejność", 2]];
-document.getElementById("sc-table").innerHTML = table([["Voynich", FP.Voynich, "hl"], ["Self-citation model", FP["Self-citation model"], "sc"], ["Latin", FP.Latin]], SC_COLS);
+// Generator versions.
+(() => {
+  const G = E.generator, pick = document.getElementById("gen-pick");
+  const cols = [["h2", "h₂°", 2], ["adjacent_near", "podobni sąs.°", "pct1"], ["h3", "h₃", 2], ["order_consistency", "kolejność", 2],
+    ["positional_rigidity", "pozycja", 2], ["vocab_density", "gęstość", "pct0"], ["adjacent_repeat", "powt.", "pct2"], ["types", "typy", "int"],
+    ["hapax_ratio", "hapaksy", "pct0"], ["mean_word_len", "śr. dł.", 2], ["sd_word_len", "odch. dł.", 2], ["zipf_slope", "Zipf", 2], ["m_line_last", "m na końcu wiersza", 1]];
+  document.getElementById("gen-table").innerHTML = table([["Voynich", G.real, "hl"], ...Object.keys(G.variants).map((n, i) => [n, G.variants[n], i === 3 ? "sc" : ""])], cols);
+  pick.innerHTML = Object.keys(G.samples).map(n => `<option value="${n}">${n}</option>`).join("");
+  pick.value = Object.keys(G.samples)[3];
+  const show = () => { document.getElementById("gen-text").innerHTML = G.samples[pick.value].map(l => `<div>${l}</div>`).join(""); };
+  pick.addEventListener("change", show); show();
+  document.getElementById("real-text").innerHTML = f1r.map(l => `<div>${l.replaceAll(".", " ")}</div>`).join("");
+})();
+
+// Map of texts (PCA).
+const MED_PL = Object.fromEntries(Object.entries(E.medieval.info).map(([k, [d, c]]) => [k, `${d} (${c} w.)`]));
+const nameOf = n => MED_PL[n] || (n.endsWith(" (skróty)") ? (MED_PL[n.slice(0, -9)] || n).replace(/ \(.*$/, "") + " ze skrótami" : null) || PL[n] || n;
+(() => {
+  const M = E.map, names = Object.keys(M.points);
+  const W = 640, H = 440, P = 44;
+  const s = svg(W, H, document.getElementById("map"), "Mapa tekstów według odcisku palca");
+  const xs = names.map(n => M.points[n][0]), ys = names.map(n => M.points[n][1]);
+  const x0 = Math.min(...xs), x1 = Math.max(...xs), y0 = Math.min(...ys), y1 = Math.max(...ys);
+  const X = v => P + (v - x0) / (x1 - x0) * (W - 2 * P), Y = v => H - P - (v - y0) / (y1 - y0) * (H - 2 * P);
+  el("line", { x1: P, x2: W - P, y1: Y(0), y2: Y(0), class: "grid" }, s);
+  el("line", { x1: X(0), x2: X(0), y1: P, y2: H - P, class: "grid" }, s);
+  text(s, W - P, H - 8, `składowa 1 (${fmt(M.explained[0], "pct0")} zmienności) →`, { "text-anchor": "end" });
+  text(s, 4, 14, `↑ składowa 2 (${fmt(M.explained[1], "pct0")})`);
+  const order = { bible: 0, medieval: 1, abbrev: 2, generator: 3, voynich: 4 };
+  names.sort((a, b) => order[M.groups[a]] - order[M.groups[b]]).forEach(n => {
+    const g = M.groups[n], cx = X(M.points[n][0]), cy = Y(M.points[n][1]);
+    if (g === "generator") el("rect", { x: cx - 6, y: cy - 6, width: 12, height: 12, fill: "var(--sc)", stroke: "var(--bg)", "stroke-width": 1.5, transform: `rotate(45 ${cx} ${cy})` }, s);
+    else if (g === "abbrev") el("circle", { cx, cy, r: 5, fill: "var(--bg)", stroke: "var(--s1)", "stroke-width": 2 }, s);
+    else el("circle", { cx, cy, r: g === "voynich" ? 7 : 5, fill: g === "voynich" ? "var(--voy)" : g === "bible" ? "var(--lang)" : "var(--s1)", stroke: "var(--bg)", "stroke-width": 1.5 }, s);
+    el("circle", { cx, cy, r: 11, fill: "transparent", "data-tip": nameOf(n) }, s);
+  });
+  // The three manuscript points sit on top of each other: one label for the cluster.
+  const vNames = names.filter(n => M.groups[n] === "voynich");
+  const vx = Math.max(...vNames.map(n => X(M.points[n][0]))), vy = Math.min(...vNames.map(n => Y(M.points[n][1])));
+  text(s, vx + 14, vy + 4, "rękopis: całość, zielnik, dialekt B", { style: "fill:var(--fg);font-weight:600" });
+  const labels = [["Generator v4", "generator v4"], ["Wulgata", "Wulgata"], ["Vietnamese", "wietnamski"], ["English", "angielski"]];
+  for (const [n, t] of labels) if (M.points[n]) {
+    const y = Y(M.points[n][1]) + 4;
+    text(s, X(M.points[n][0]) + 12, n === "Generator v4" ? Math.max(y, vy + 22) : y, t, { style: "fill:var(--fg)" });
+  }
+  const L = M.loadings, top = Object.keys(L).sort((a, b) => Math.abs(L[b][0]) - Math.abs(L[a][0])).slice(0, 4);
+  const MN = { h2: "entropia h₂", h3: "entropia h₃", mean_word_len: "średnia długość słowa", sd_word_len: "rozrzut długości", vocab_density: "gęstość słownika",
+    adjacent_near: "podobni sąsiedzi", adjacent_repeat: "powtórzenia", order_consistency: "sztywność kolejności", positional_rigidity: "sztywność pozycji",
+    hapax_ratio: "hapaksy", zipf_slope: "nachylenie Zipfa" };
+  document.getElementById("map-cap").textContent = `Składowa 1 to głównie: ${top.map(m => `${MN[m]} (${L[m][0] > 0 ? "w prawo rośnie" : "w lewo rośnie"})`).join(", ")}. Rękopis i generator v4 leżą razem, daleko od wszystkich języków; najbliżej z nich jest wietnamski. Średniowieczna łacina tworzy zwarte skupisko z Wulgatą.`;
+
+  const cols = [["h2", "h₂", 2], ["h3", "h₃", 2], ["mean_word_len", "śr. dł.", 2], ["sd_word_len", "odch. dł.", 2], ["vocab_density", "gęstość", "pct0"],
+    ["adjacent_near", "podobni sąs.", "pct1"], ["adjacent_repeat", "powt.", "pct2"], ["order_consistency", "kolejność", 2], ["positional_rigidity", "pozycja", 2]];
+  const F = E.medieval.fingerprints;
+  document.getElementById("med-table").innerHTML = table(Object.keys(F).map(n => [nameOf(n).replace("Voynich", "rękopis"), F[n], n.startsWith("Voynich") ? "hl" : ""]), cols);
+  const C = E.medieval.cipher;
+  document.getElementById("med-cipher").innerHTML = `<table><thead><tr><th>tekst</th><th>luka (bity/znak)</th><th>odzyskane litery</th></tr></thead><tbody>
+    <tr><td>kontrola: szyfr prosty</td><td>${fmt(C.control_h1.gap, 2)}</td><td>${fmt(C.control_h1.accuracy, "pct1")}</td></tr>
+    <tr><td>kontrola: homofoniczny</td><td>${fmt(C.control_h2.gap, 2)}</td><td>${fmt(C.control_h2.accuracy, "pct1")}</td></tr>
+    <tr class="hl"><td>rękopis: zielnik</td><td>${fmt(C.zielnik.gap, 2)}</td><td>–</td></tr>
+    <tr class="hl"><td>rękopis: dialekt B</td><td>${fmt(C["Currier B"].gap, 2)}</td><td>–</td></tr></tbody></table>
+    <dl class="pair" style="margin-top:0.75rem"><dt>zielnik (EVA)</dt><dd>${C.zielnik.original}</dd><dt>„odczyt”</dt><dd>${C.zielnik.decrypted}</dd></dl>`;
+  document.getElementById("abbr-sample").textContent = E.medieval.abbrev_sample;
+})();
+
+// Syllabic hypotheses.
+(() => {
+  const Y = E.syllabic;
+  const colsA = [["types", "różne jednostki", "int"], ["hapax_ratio", "hapaksy", "pct0"], ["mean_word_len", "śr. dł.", 2], ["sd_word_len", "odch. dł.", 2],
+    ["zipf_slope", "Zipf", 2], ["h2", "h₂", 2], ["order_consistency", "kolejność", 2]];
+  document.getElementById("syl-a").innerHTML = table(Object.keys(Y.word_is_syllable).map(n => [n.replace("Voynich", "rękopis"), Y.word_is_syllable[n], n.startsWith("Voynich") ? "hl" : ""]), colsA);
+  const colsB = [["mean_word_len", "śr. dł.", 2], ["sd_word_len", "odch. dł.", 2], ["h2", "h₂", 2], ["h3", "h₃", 2], ["positional_rigidity", "pozycja", 2],
+    ["order_consistency", "kolejność", 2], ["vocab_density", "gęstość", "pct0"], ["types", "typy", "int"], ["adjacent_repeat", "powt.", "pct2"]];
+  document.getElementById("syl-b").innerHTML = table(Object.keys(Y.syllable_cipher).map(n => [n.replace("Voynich", "rękopis"), Y.syllable_cipher[n], n === "Voynich" ? "hl" : ""]), colsB);
+  const sm = Y.samples.Kempis || Object.values(Y.samples)[0];
+  document.getElementById("syl-sample").innerHTML = `<h3>Przykład: Kempis</h3><dl class="pair"><dt>tekst</dt><dd>${sm.plain}</dd><dt>sylaby</dt><dd>${sm.syllables}</dd><dt>szyfr</dt><dd>${sm.cipher}</dd></dl>`;
+  const names = Object.keys(Y.invariants).sort((a, b) => Y.invariants[b].adjacent_repeat - Y.invariants[a].adjacent_repeat);
+  const W = 640, rowH = 19, L = 150, R = 60, H = names.length * rowH + 22;
+  const s = svg(W, H, document.getElementById("repeats"), "Powtórzenia słów w parach kolejnych słów");
+  const max = Math.max(...names.map(n => Y.invariants[n].adjacent_repeat)) * 1.05;
+  const x = v => L + v / max * (W - L - R);
+  for (const t of niceTicks(0, max, 4)) { el("line", { x1: x(t), x2: x(t), y1: 0, y2: H - 20, class: "grid" }, s); text(s, x(t), H - 6, fmt(t, "pct2"), { "text-anchor": "middle" }); }
+  const medSet = new Set(Object.keys(E.medieval.info));
+  names.forEach((n, i) => {
+    const v = Y.invariants[n].adjacent_repeat, y = i * rowH + 3;
+    const col = n === "Voynich" ? "var(--voy)" : medSet.has(n) ? "var(--s1)" : "var(--lang)";
+    text(s, L - 8, y + 11, (MED_PL[n] ? E.medieval.info[n][0].split(",")[0] : PL[n] || n), { "text-anchor": "end", style: n === "Voynich" ? "fill:var(--fg);font-weight:600" : "" });
+    el("rect", { x: L, y, width: Math.max(1.5, x(v) - L), height: rowH - 6, rx: 2, fill: col, "data-tip": `${nameOf(n)}: ${fmt(v, "pct2")} (${Y.invariants[n].repeat_types} różnych słów)` }, s);
+    if (n === "Voynich") text(s, x(v) + 6, y + 11, fmt(v, "pct2"), { style: "fill:var(--fg);font-weight:600" });
+  });
+  document.getElementById("rep-words").textContent = Y.voynich_repeats.slice(0, 8).map(([w, c]) => `${w} ×${c}`).join(", ");
+})();
 
 // Keyword tabs.
+const SC_COLS = [["h2", "h₂", 2], ["h3", "h₃", 2], ["sd_word_len", "odch. dł.", 2], ["zipf_slope", "Zipf", 2], ["vocab_density", "gęstość", "pct0"],
+  ["adjacent_near", "podobni sąs.", "pct1"], ["adjacent_repeat", "powt.", "pct2"], ["hapax_ratio", "hapaksy", "pct0"], ["order_consistency", "kolejność", 2]];
 (() => {
   const groups = [...Object.keys(SECTIONS).filter(k => D.section_keywords[k]).map(k => [SECTIONS[k], D.section_keywords[k]]),
     ["Currier A", D.currier_keywords.A], ["Currier B", D.currier_keywords.B]];

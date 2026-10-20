@@ -13,6 +13,7 @@ ROOT = Path(__file__).resolve().parent.parent
 DATA = ROOT / "data"
 ZL_FILE = DATA / "raw" / "ZL3b-n.txt"
 REFERENCE_DIR = DATA / "reference"
+MEDIEVAL_DIR = REFERENCE_DIR / "medieval"
 
 
 @dataclass
@@ -69,3 +70,16 @@ def load_reference(language: str, limit: int | None = None) -> list[str]:
         raise FileNotFoundError(f"{path} missing - run: python scripts/fetch_data.py")
     ws = path.read_text(encoding="utf-8").split()
     return ws[:limit] if limit else ws
+
+
+def medieval_texts() -> list[str]:
+    return sorted(p.stem for p in MEDIEVAL_DIR.glob("*.txt"))
+
+
+def load_medieval(name: str, limit: int | None = None, merge_uv: bool = True) -> list[str]:
+    """Medieval Latin sample; stored with v/j kept so it can be syllabified first."""
+    path = MEDIEVAL_DIR / f"{name}.txt"
+    if not path.exists():
+        raise FileNotFoundError(f"{path} missing - run: python scripts/fetch_data.py")
+    ws = path.read_text(encoding="utf-8").split()[:limit] if limit else path.read_text(encoding="utf-8").split()
+    return [w.replace("j", "i").replace("v", "u") for w in ws] if merge_uv else ws

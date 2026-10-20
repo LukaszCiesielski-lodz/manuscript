@@ -1,0 +1,1681 @@
+{
+ "generated": "2026-10-20",
+ "medieval": {
+  "n": 13000,
+  "info": {
+   "Isidorus": [
+    "Izydor z Sewilli, Etymologiae XVII, IV, XII (rośliny, medycyna, zwierzęta)",
+    "VII"
+   ],
+   "Hugo": [
+    "Hugo od św. Wiktora",
+    "XII"
+   ],
+   "Alfonsi": [
+    "Piotr Alfonsi, Disciplina clericalis",
+    "XII"
+   ],
+   "Conches": [
+    "Wilhelm z Conches, Dragmaticon i Philosophia",
+    "XII"
+   ],
+   "Aquinas": [
+    "Tomasz z Akwinu, Summa (I, q. 1–29) i opuscula",
+    "XIII"
+   ],
+   "Voragine": [
+    "Jakub de Voragine, Złota legenda",
+    "XIII"
+   ],
+   "Dante": [
+    "Dante, Monarchia i De vulgari eloquentia",
+    "XIV"
+   ],
+   "Petrarca": [
+    "Petrarka, Invectiva contra medicum",
+    "XIV"
+   ],
+   "Gesta": [
+    "Gesta Romanorum",
+    "XIV"
+   ],
+   "Kempis": [
+    "Tomasz à Kempis, O naśladowaniu Chrystusa",
+    "XV"
+   ],
+   "Poggio": [
+    "Poggio Bracciolini, Facetiae",
+    "XV"
+   ],
+   "Columella": [
+    "Kolumella, De re rustica (rolnictwo i ogrody)",
+    "I"
+   ]
+  },
+  "fingerprints": {
+   "Voynich": {
+    "tokens": 13000,
+    "types": 3800,
+    "type_token_ratio": 0.2923076923076923,
+    "hapax_ratio": 0.7031578947368421,
+    "mean_word_len": 4.014230769230769,
+    "sd_word_len": 1.5560395315250313,
+    "top10_coverage": 0.14546153846153845,
+    "zipf_slope": -0.9767771709728831,
+    "adjacent_repeat": 0.00830833141010847,
+    "adjacent_near": 0.05592737902915609,
+    "vocab_density": 0.903,
+    "alphabet": 34,
+    "h0": 5.087462841250339,
+    "h1": 3.882587780340795,
+    "h2": 2.4167219914273823,
+    "h3": 2.194474831952431,
+    "positional_rigidity": 0.7456288667717019,
+    "order_consistency": 0.8637280892652237
+   },
+   "Voynich: zielnik": {
+    "tokens": 11499,
+    "types": 3335,
+    "type_token_ratio": 0.29002521958431166,
+    "hapax_ratio": 0.6875562218890555,
+    "mean_word_len": 3.9950430472214977,
+    "sd_word_len": 1.5051500843977157,
+    "top10_coverage": 0.1526219671275763,
+    "zipf_slope": -0.9660671650685453,
+    "adjacent_repeat": 0.008349278135327882,
+    "adjacent_near": 0.050182640459210295,
+    "vocab_density": 0.895,
+    "alphabet": 34,
+    "h0": 5.087462841250339,
+    "h1": 3.888084723159306,
+    "h2": 2.379655641877233,
+    "h3": 2.157872096018483,
+    "positional_rigidity": 0.7516364112410543,
+    "order_consistency": 0.868360242482444
+   },
+   "Voynich: Currier B": {
+    "tokens": 13000,
+    "types": 2951,
+    "type_token_ratio": 0.227,
+    "hapax_ratio": 0.6797695696374111,
+    "mean_word_len": 4.387615384615384,
+    "sd_word_len": 1.5417224652197663,
+    "top10_coverage": 0.17076923076923076,
+    "zipf_slope": -1.0939112971670253,
+    "adjacent_repeat": 0.008769905377336719,
+    "adjacent_near": 0.03961843218709132,
+    "vocab_density": 0.8735,
+    "alphabet": 32,
+    "h0": 5.0,
+    "h1": 3.8545794541351177,
+    "h2": 2.088706648794837,
+    "h3": 1.8550414867271794,
+    "positional_rigidity": 0.793997223540162,
+    "order_consistency": 0.9011549882176407
+   },
+   "Alfonsi": {
+    "tokens": 13000,
+    "types": 4967,
+    "type_token_ratio": 0.3820769230769231,
+    "hapax_ratio": 0.7191463660157037,
+    "mean_word_len": 5.93823076923077,
+    "sd_word_len": 3.162708178708342,
+    "top10_coverage": 0.1296923076923077,
+    "zipf_slope": -0.8772586115327922,
+    "adjacent_repeat": 0.00015385798907608278,
+    "adjacent_near": 0.002538656819755366,
+    "vocab_density": 0.4415,
+    "alphabet": 24,
+    "h0": 4.584962500721156,
+    "h1": 3.970048949147726,
+    "h2": 3.3235340887380023,
+    "h3": 2.7442138023230607,
+    "positional_rigidity": 0.6793188798320525,
+    "order_consistency": 0.6326470143231794
+   },
+   "Aquinas": {
+    "tokens": 13000,
+    "types": 2318,
+    "type_token_ratio": 0.1783076923076923,
+    "hapax_ratio": 0.5392579810181191,
+    "mean_word_len": 5.735384615384615,
+    "sd_word_len": 3.0664903902685667,
+    "top10_coverage": 0.21446153846153845,
+    "zipf_slope": -1.0158957171107483,
+    "adjacent_repeat": 0.00015385798907608278,
+    "adjacent_near": 0.0040003077159781525,
+    "vocab_density": 0.4865,
+    "alphabet": 22,
+    "h0": 4.459431618637297,
+    "h1": 3.9412101046358803,
+    "h2": 3.2055063401870973,
+    "h3": 2.345258782719875,
+    "positional_rigidity": 0.6764792700925801,
+    "order_consistency": 0.6458449674245446
+   },
+   "Columella": {
+    "tokens": 13000,
+    "types": 4887,
+    "type_token_ratio": 0.3759230769230769,
+    "hapax_ratio": 0.6813996316758748,
+    "mean_word_len": 5.910846153846154,
+    "sd_word_len": 2.639896132751434,
+    "top10_coverage": 0.13330769230769232,
+    "zipf_slope": -0.8191386075505982,
+    "adjacent_repeat": 0.0,
+    "adjacent_near": 0.002538656819755366,
+    "vocab_density": 0.4285,
+    "alphabet": 24,
+    "h0": 4.584962500721156,
+    "h1": 3.963755920563174,
+    "h2": 3.3045092022221474,
+    "h3": 2.731256463395546,
+    "positional_rigidity": 0.6835012889617998,
+    "order_consistency": 0.6346609421343783
+   },
+   "Conches": {
+    "tokens": 13000,
+    "types": 5078,
+    "type_token_ratio": 0.39061538461538464,
+    "hapax_ratio": 0.7081528160693187,
+    "mean_word_len": 5.670076923076923,
+    "sd_word_len": 2.605703211198864,
+    "top10_coverage": 0.14784615384615385,
+    "zipf_slope": -0.8409971068932175,
+    "adjacent_repeat": 0.0013077929071467036,
+    "adjacent_near": 0.0026925148088314485,
+    "vocab_density": 0.4685,
+    "alphabet": 22,
+    "h0": 4.459431618637297,
+    "h1": 3.948054618787456,
+    "h2": 3.2821707339921744,
+    "h3": 2.709212351347917,
+    "positional_rigidity": 0.6716818841661127,
+    "order_consistency": 0.6409379579872985
+   },
+   "Dante": {
+    "tokens": 13000,
+    "types": 4003,
+    "type_token_ratio": 0.3079230769230769,
+    "hapax_ratio": 0.6500124906320259,
+    "mean_word_len": 5.6911538461538465,
+    "sd_word_len": 2.8363706860421214,
+    "top10_coverage": 0.18,
+    "zipf_slope": -0.8813307300346875,
+    "adjacent_repeat": 0.00046157396722824835,
+    "adjacent_near": 0.003384875759673821,
+    "vocab_density": 0.432,
+    "alphabet": 24,
+    "h0": 4.584962500721156,
+    "h1": 3.9669163930646834,
+    "h2": 3.2767629856767826,
+    "h3": 2.638469510621399,
+    "positional_rigidity": 0.6768336375312648,
+    "order_consistency": 0.6394214780678833
+   },
+   "Gesta": {
+    "tokens": 13000,
+    "types": 3446,
+    "type_token_ratio": 0.2650769230769231,
+    "hapax_ratio": 0.585896691816599,
+    "mean_word_len": 5.254538461538462,
+    "sd_word_len": 2.550667065551665,
+    "top10_coverage": 0.1703076923076923,
+    "zipf_slope": -0.8721545827972244,
+    "adjacent_repeat": 0.00015385798907608278,
+    "adjacent_near": 0.0034618047542118624,
+    "vocab_density": 0.434,
+    "alphabet": 24,
+    "h0": 4.584962500721156,
+    "h1": 3.930821159945358,
+    "h2": 3.275249443125064,
+    "h3": 2.6459436449930935,
+    "positional_rigidity": 0.6530137066541706,
+    "order_consistency": 0.6565191622343496
+   },
+   "Hugo": {
+    "tokens": 13000,
+    "types": 4401,
+    "type_token_ratio": 0.33853846153846157,
+    "hapax_ratio": 0.6703022040445353,
+    "mean_word_len": 5.964846153846154,
+    "sd_word_len": 2.9981909249554484,
+    "top10_coverage": 0.1663076923076923,
+    "zipf_slope": -0.8460604185641604,
+    "adjacent_repeat": 0.0012308639126086623,
+    "adjacent_near": 0.00330794676513578,
+    "vocab_density": 0.446,
+    "alphabet": 24,
+    "h0": 4.584962500721156,
+    "h1": 3.9628729781066943,
+    "h2": 3.2963901880755877,
+    "h3": 2.654718178482157,
+    "positional_rigidity": 0.6831272005055521,
+    "order_consistency": 0.6286986757232517
+   },
+   "Isidorus": {
+    "tokens": 13000,
+    "types": 4979,
+    "type_token_ratio": 0.383,
+    "hapax_ratio": 0.7148021691102631,
+    "mean_word_len": 5.729,
+    "sd_word_len": 2.5470083053834567,
+    "top10_coverage": 0.1666153846153846,
+    "zipf_slope": -0.8872486858667943,
+    "adjacent_repeat": 0.00030771597815216557,
+    "adjacent_near": 0.002384798830679283,
+    "vocab_density": 0.417,
+    "alphabet": 24,
+    "h0": 4.584962500721156,
+    "h1": 3.9975984262284205,
+    "h2": 3.3272130178029875,
+    "h3": 2.737860513961226,
+    "positional_rigidity": 0.6850555563019791,
+    "order_consistency": 0.6457137200554346
+   },
+   "Kempis": {
+    "tokens": 13000,
+    "types": 4114,
+    "type_token_ratio": 0.31646153846153846,
+    "hapax_ratio": 0.6635877491492465,
+    "mean_word_len": 5.487692307692308,
+    "sd_word_len": 2.7561962469097314,
+    "top10_coverage": 0.17923076923076922,
+    "zipf_slope": -0.8736320819707994,
+    "adjacent_repeat": 0.00023078698361412417,
+    "adjacent_near": 0.0036925917378259868,
+    "vocab_density": 0.462,
+    "alphabet": 23,
+    "h0": 4.523561956057013,
+    "h1": 3.9328653281755015,
+    "h2": 3.2891683256634257,
+    "h3": 2.617087694573514,
+    "positional_rigidity": 0.6627549947423764,
+    "order_consistency": 0.6399184554843659
+   },
+   "Petrarca": {
+    "tokens": 13000,
+    "types": 5019,
+    "type_token_ratio": 0.3860769230769231,
+    "hapax_ratio": 0.7168758716875872,
+    "mean_word_len": 5.655076923076923,
+    "sd_word_len": 2.7289525311298037,
+    "top10_coverage": 0.13123076923076923,
+    "zipf_slope": -0.8815519485036469,
+    "adjacent_repeat": 0.0,
+    "adjacent_near": 0.004154165705054235,
+    "vocab_density": 0.4525,
+    "alphabet": 24,
+    "h0": 4.584962500721156,
+    "h1": 3.96643932638113,
+    "h2": 3.3004107320309033,
+    "h3": 2.730859767162089,
+    "positional_rigidity": 0.6693963054656256,
+    "order_consistency": 0.6323786815882685
+   },
+   "Poggio": {
+    "tokens": 13000,
+    "types": 5131,
+    "type_token_ratio": 0.3946923076923077,
+    "hapax_ratio": 0.7023971935295265,
+    "mean_word_len": 5.866538461538462,
+    "sd_word_len": 2.7622655727997185,
+    "top10_coverage": 0.13030769230769232,
+    "zipf_slope": -0.8195341904617044,
+    "adjacent_repeat": 0.00023078698361412417,
+    "adjacent_near": 0.0020770828525271175,
+    "vocab_density": 0.4335,
+    "alphabet": 23,
+    "h0": 4.523561956057013,
+    "h1": 3.9715596210707518,
+    "h2": 3.308052852330578,
+    "h3": 2.742044797730107,
+    "positional_rigidity": 0.6837569843393405,
+    "order_consistency": 0.6492303151248372
+   },
+   "Voragine": {
+    "tokens": 13000,
+    "types": 4812,
+    "type_token_ratio": 0.37015384615384617,
+    "hapax_ratio": 0.6922277639235245,
+    "mean_word_len": 5.694692307692308,
+    "sd_word_len": 2.759030400608027,
+    "top10_coverage": 0.14646153846153845,
+    "zipf_slope": -0.8549733043608759,
+    "adjacent_repeat": 0.0,
+    "adjacent_near": 0.003384875759673821,
+    "vocab_density": 0.422,
+    "alphabet": 24,
+    "h0": 4.584962500721156,
+    "h1": 3.954806054205273,
+    "h2": 3.3245447488183375,
+    "h3": 2.7337909326985015,
+    "positional_rigidity": 0.6763537076586197,
+    "order_consistency": 0.651579898088485
+   },
+   "Isidorus (skróty)": {
+    "tokens": 13000,
+    "types": 4978,
+    "type_token_ratio": 0.3829230769230769,
+    "hapax_ratio": 0.7145439935717155,
+    "mean_word_len": 5.010769230769231,
+    "sd_word_len": 2.4737155533838675,
+    "top10_coverage": 0.1666153846153846,
+    "zipf_slope": -0.8872486858667943,
+    "adjacent_repeat": 0.00030771597815216557,
+    "adjacent_near": 0.005692745595815063,
+    "vocab_density": 0.4995,
+    "alphabet": 41,
+    "h0": 5.357552004618084,
+    "h1": 4.387223231061775,
+    "h2": 3.4746889584471257,
+    "h3": 2.87461676936642,
+    "positional_rigidity": 0.7058877786318217,
+    "order_consistency": 0.7008327692331912
+   },
+   "Kempis (skróty)": {
+    "tokens": 13000,
+    "types": 4112,
+    "type_token_ratio": 0.3163076923076923,
+    "hapax_ratio": 0.6634241245136187,
+    "mean_word_len": 4.838384615384616,
+    "sd_word_len": 2.5508587705820998,
+    "top10_coverage": 0.17923076923076922,
+    "zipf_slope": -0.8737746031209783,
+    "adjacent_repeat": 0.00023078698361412417,
+    "adjacent_near": 0.005846603584891146,
+    "vocab_density": 0.554,
+    "alphabet": 40,
+    "h0": 5.321928094887363,
+    "h1": 4.321921235324126,
+    "h2": 3.4043031897668694,
+    "h3": 2.722300073419282,
+    "positional_rigidity": 0.6875725900116144,
+    "order_consistency": 0.7061694847020934
+   },
+   "Voragine (skróty)": {
+    "tokens": 13000,
+    "types": 4812,
+    "type_token_ratio": 0.37015384615384617,
+    "hapax_ratio": 0.6922277639235245,
+    "mean_word_len": 5.021769230769231,
+    "sd_word_len": 2.563513804072184,
+    "top10_coverage": 0.14646153846153845,
+    "zipf_slope": -0.8549733043608759,
+    "adjacent_repeat": 0.0,
+    "adjacent_near": 0.004769597661358566,
+    "vocab_density": 0.4895,
+    "alphabet": 41,
+    "h0": 5.357552004618084,
+    "h1": 4.340232355602093,
+    "h2": 3.481407852835602,
+    "h3": 2.857894653273032,
+    "positional_rigidity": 0.6929975166324309,
+    "order_consistency": 0.708244196813436
+   },
+   "Wulgata": {
+    "tokens": 13000,
+    "types": 3262,
+    "type_token_ratio": 0.2509230769230769,
+    "hapax_ratio": 0.6088289393010423,
+    "mean_word_len": 5.2551538461538465,
+    "sd_word_len": 2.5963977218788177,
+    "top10_coverage": 0.1829230769230769,
+    "zipf_slope": -0.9076851319176154,
+    "adjacent_repeat": 0.0007692899453804139,
+    "adjacent_near": 0.00330794676513578,
+    "vocab_density": 0.4295,
+    "alphabet": 23,
+    "h0": 4.523561956057013,
+    "h1": 3.945498110971104,
+    "h2": 3.2956301025477788,
+    "h3": 2.6117047644905407,
+    "positional_rigidity": 0.6510306031262361,
+    "order_consistency": 0.6499371962208509
+   }
+  },
+  "abbrev_sample": "orator qui totū corpꝰ disciplinae eiusdē ꝯplexꝰ ÷ primū ad aratꝝ boues iunxisse ferūt quēdā priuatū hominē ⁊ fulminatū nomine homogiꝝ quidā autē osirim",
+  "cipher": {
+   "plain_bits": 3.0861975438028737,
+   "control_h1": {
+    "key_bits": 3.083107598800284,
+    "self_bits": 2.97816327954211,
+    "gap": 0.10494431925817427,
+    "accuracy": 0.9969409538062017
+   },
+   "control_h2": {
+    "key_bits": 3.9319022255058655,
+    "self_bits": 3.875805406565518,
+    "gap": 0.05609681894034768,
+    "accuracy": 0.9982393978740729
+   },
+   "zielnik": {
+    "key_bits": 3.5996694246795244,
+    "self_bits": 2.4470165409638738,
+    "gap": 1.1526528837156507,
+    "decrypted": "rsoa sacunt em e m rsia sut fut um ariia sut et esa cse mreca erecut seca cu fa fefa",
+    "original": "kchsy chydaiin ol o l tchey char cfhar am yteey char or ochy dcho lkody okodar chody da ckhy ckhockhy"
+   },
+   "Currier B": {
+    "key_bits": 3.402448290979995,
+    "self_bits": 2.0773247343673886,
+    "gap": 1.3251235566126063,
+    "decrypted": "nciers euagm pes enceu dsndis sndius alo dene dinbus udis auiieus sriuis dius snius us diuius tm eago cus uius",
+    "original": "psheoky odaiir qoy ofshod chypchey ypchedy ain chofo chephdy dchey adeeody ykecthey chedy ytedy dy checthedy ls oaiin shcthy cthedy"
+   }
+  }
+ },
+ "syllabic": {
+  "n": 13000,
+  "word_is_syllable": {
+   "Voynich (słowa)": {
+    "tokens": 13000,
+    "types": 3800,
+    "type_token_ratio": 0.2923076923076923,
+    "hapax_ratio": 0.7031578947368421,
+    "mean_word_len": 4.014230769230769,
+    "sd_word_len": 1.5560395315250313,
+    "top10_coverage": 0.14546153846153845,
+    "zipf_slope": -0.9767771709728831,
+    "adjacent_repeat": 0.00830833141010847,
+    "adjacent_near": 0.05592737902915609,
+    "vocab_density": 0.903,
+    "alphabet": 34,
+    "h0": 5.087462841250339,
+    "h1": 3.882587780340795,
+    "h2": 2.4167219914273823,
+    "h3": 2.194474831952431,
+    "positional_rigidity": 0.7456288667717019,
+    "order_consistency": 0.8637280892652237
+   },
+   "Isidorus (sylaby)": {
+    "tokens": 13000,
+    "types": 766,
+    "type_token_ratio": 0.058923076923076925,
+    "hapax_ratio": 0.25718015665796345,
+    "mean_word_len": 2.3737692307692306,
+    "sd_word_len": 0.7516574151982306,
+    "top10_coverage": 0.18638461538461537,
+    "zipf_slope": -1.419792234447212,
+    "adjacent_repeat": 0.0030771597815216554,
+    "adjacent_near": 0.08316024309562274,
+    "vocab_density": 0.9817232375979112,
+    "alphabet": 24,
+    "h0": 4.584962500721156,
+    "h1": 3.67579405323361,
+    "h2": 2.9165590780012263,
+    "h3": 2.288344301506678,
+    "positional_rigidity": 0.5749165072468467,
+    "order_consistency": 0.7550559919772689
+   },
+   "Kempis (sylaby)": {
+    "tokens": 13000,
+    "types": 621,
+    "type_token_ratio": 0.04776923076923077,
+    "hapax_ratio": 0.2463768115942029,
+    "mean_word_len": 2.3421538461538463,
+    "sd_word_len": 0.702418880742587,
+    "top10_coverage": 0.2383846153846154,
+    "zipf_slope": -1.4717748149088916,
+    "adjacent_repeat": 0.002615585814293407,
+    "adjacent_near": 0.08369874605738903,
+    "vocab_density": 0.9951690821256038,
+    "alphabet": 23,
+    "h0": 4.523561956057013,
+    "h1": 3.6221060765473565,
+    "h2": 2.8600773317166084,
+    "h3": 2.222396734951162,
+    "positional_rigidity": 0.5804946950037776,
+    "order_consistency": 0.7438486639033425
+   },
+   "Voragine (sylaby)": {
+    "tokens": 13000,
+    "types": 684,
+    "type_token_ratio": 0.05261538461538461,
+    "hapax_ratio": 0.23391812865497075,
+    "mean_word_len": 2.3195384615384613,
+    "sd_word_len": 0.7295223532595321,
+    "top10_coverage": 0.20861538461538462,
+    "zipf_slope": -1.4441900623749484,
+    "adjacent_repeat": 0.0024617278252173245,
+    "adjacent_near": 0.09431494730363874,
+    "vocab_density": 0.9926900584795322,
+    "alphabet": 24,
+    "h0": 4.584962500721156,
+    "h1": 3.6275190717623147,
+    "h2": 2.8957625735618744,
+    "h3": 2.2966789337262696,
+    "positional_rigidity": 0.5619461683979954,
+    "order_consistency": 0.7447074586869138
+   },
+   "wietnamski (sylaby)": {
+    "tokens": 13000,
+    "types": 1179,
+    "type_token_ratio": 0.0906923076923077,
+    "hapax_ratio": 0.3104325699745547,
+    "mean_word_len": 3.1243846153846153,
+    "sd_word_len": 0.9614840323056323,
+    "top10_coverage": 0.13346153846153846,
+    "zipf_slope": -1.2423280674336192,
+    "adjacent_repeat": 0.0022309408416032,
+    "adjacent_near": 0.01500115393491807,
+    "vocab_density": 0.9677692960135709,
+    "alphabet": 88,
+    "h0": 6.459431618637297,
+    "h1": 4.763861801508796,
+    "h2": 2.858735074166421,
+    "h3": 2.1581340377072777,
+    "positional_rigidity": 0.6899273053176658,
+    "order_consistency": 0.9033784423204315
+   }
+  },
+  "syllable_cipher": {
+   "Voynich": {
+    "tokens": 13000,
+    "types": 3800,
+    "type_token_ratio": 0.2923076923076923,
+    "hapax_ratio": 0.7031578947368421,
+    "mean_word_len": 4.014230769230769,
+    "sd_word_len": 1.5560395315250313,
+    "top10_coverage": 0.14546153846153845,
+    "zipf_slope": -0.9767771709728831,
+    "adjacent_repeat": 0.00830833141010847,
+    "adjacent_near": 0.05592737902915609,
+    "vocab_density": 0.903,
+    "alphabet": 34,
+    "h0": 5.087462841250339,
+    "h1": 3.882587780340795,
+    "h2": 2.4167219914273823,
+    "h3": 2.194474831952431,
+    "positional_rigidity": 0.7456288667717019,
+    "order_consistency": 0.8637280892652237
+   },
+   "Isidorus → szyfr sylabiczny": {
+    "tokens": 13000,
+    "types": 4996,
+    "type_token_ratio": 0.3843076923076923,
+    "hapax_ratio": 0.7169735788630904,
+    "mean_word_len": 6.97,
+    "sd_word_len": 3.0794892183857128,
+    "top10_coverage": 0.1663076923076923,
+    "zipf_slope": -0.890579560532612,
+    "adjacent_repeat": 0.00030771597815216557,
+    "adjacent_near": 0.0022309408416032,
+    "vocab_density": 0.367,
+    "alphabet": 26,
+    "h0": 4.700439718141092,
+    "h1": 3.936374656806788,
+    "h2": 2.9325999967019394,
+    "h3": 2.464524905128017,
+    "positional_rigidity": 0.7326303003533569,
+    "order_consistency": 0.6585570084296196
+   },
+   "Isidorus (jawny)": {
+    "tokens": 13000,
+    "types": 4979,
+    "type_token_ratio": 0.383,
+    "hapax_ratio": 0.7148021691102631,
+    "mean_word_len": 5.729,
+    "sd_word_len": 2.5470083053834567,
+    "top10_coverage": 0.1666153846153846,
+    "zipf_slope": -0.8872486858667943,
+    "adjacent_repeat": 0.00030771597815216557,
+    "adjacent_near": 0.002384798830679283,
+    "vocab_density": 0.417,
+    "alphabet": 24,
+    "h0": 4.584962500721156,
+    "h1": 3.9975984262284205,
+    "h2": 3.3272130178029875,
+    "h3": 2.737860513961226,
+    "positional_rigidity": 0.6850555563019791,
+    "order_consistency": 0.6457137200554346
+   },
+   "Kempis → szyfr sylabiczny": {
+    "tokens": 13000,
+    "types": 4104,
+    "type_token_ratio": 0.3156923076923077,
+    "hapax_ratio": 0.6639863547758285,
+    "mean_word_len": 6.609461538461538,
+    "sd_word_len": 3.4863496032688714,
+    "top10_coverage": 0.17992307692307694,
+    "zipf_slope": -0.8746564851045975,
+    "adjacent_repeat": 0.00023078698361412417,
+    "adjacent_near": 0.0013847219016847449,
+    "vocab_density": 0.3935,
+    "alphabet": 24,
+    "h0": 4.584962500721156,
+    "h1": 3.911962810324614,
+    "h2": 2.891566690462824,
+    "h3": 2.4089001621645876,
+    "positional_rigidity": 0.7175606291695288,
+    "order_consistency": 0.6529546106489552
+   },
+   "Kempis (jawny)": {
+    "tokens": 13000,
+    "types": 4114,
+    "type_token_ratio": 0.31646153846153846,
+    "hapax_ratio": 0.6635877491492465,
+    "mean_word_len": 5.487692307692308,
+    "sd_word_len": 2.7561962469097314,
+    "top10_coverage": 0.17923076923076922,
+    "zipf_slope": -0.8736320819707994,
+    "adjacent_repeat": 0.00023078698361412417,
+    "adjacent_near": 0.0036925917378259868,
+    "vocab_density": 0.462,
+    "alphabet": 23,
+    "h0": 4.523561956057013,
+    "h1": 3.9328653281755015,
+    "h2": 3.2891683256634257,
+    "h3": 2.617087694573514,
+    "positional_rigidity": 0.6627549947423764,
+    "order_consistency": 0.6399184554843659
+   },
+   "Voragine → szyfr sylabiczny": {
+    "tokens": 13000,
+    "types": 4805,
+    "type_token_ratio": 0.3696153846153846,
+    "hapax_ratio": 0.6928199791883455,
+    "mean_word_len": 6.813538461538461,
+    "sd_word_len": 3.6921540224432388,
+    "top10_coverage": 0.14692307692307693,
+    "zipf_slope": -0.8558989574578542,
+    "adjacent_repeat": 0.0,
+    "adjacent_near": 0.002923301792445573,
+    "vocab_density": 0.3605,
+    "alphabet": 25,
+    "h0": 4.643856189774724,
+    "h1": 3.917117949345005,
+    "h2": 2.940727529203156,
+    "h3": 2.5183879667226448,
+    "positional_rigidity": 0.7494549685406712,
+    "order_consistency": 0.6509184666902034
+   },
+   "Voragine (jawny)": {
+    "tokens": 13000,
+    "types": 4812,
+    "type_token_ratio": 0.37015384615384617,
+    "hapax_ratio": 0.6922277639235245,
+    "mean_word_len": 5.694692307692308,
+    "sd_word_len": 2.759030400608027,
+    "top10_coverage": 0.14646153846153845,
+    "zipf_slope": -0.8549733043608759,
+    "adjacent_repeat": 0.0,
+    "adjacent_near": 0.003384875759673821,
+    "vocab_density": 0.422,
+    "alphabet": 24,
+    "h0": 4.584962500721156,
+    "h1": 3.954806054205273,
+    "h2": 3.3245447488183375,
+    "h3": 2.7337909326985015,
+    "positional_rigidity": 0.6763537076586197,
+    "order_consistency": 0.651579898088485
+   }
+  },
+  "samples": {
+   "Isidorus": {
+    "plain": "graecia vertere terram instituit sed ferro qualicumque non specialiter vomere aut aratro",
+    "cipher": "pcheochoa dyqyshy qydyshar onpoqeokeey tyky chdydyshaii lakocherly daiin ckhychoakoqydy eecthyshy aikeey ashakchaii",
+    "syllables": "grae-ci-a ver-te-re ter-ram in-sti-tu-it sed fer-ro qua-li-cum-que non spe-ci-a-li-ter vo-me-re aut a-ra-tro"
+   },
+   "Kempis": {
+    "plain": "suam illi studeat conformare quid prodest tibi alta de trinitate disputare si",
+    "cipher": "shear yscthy pesoady kaiinlchaiikeeytado lykaiin tchaiisokeedy qylky asqa so kchychyqaqo sychckheqado shy",
+    "syllables": "su-am il-li stu-de-at con-for-ma-re quid pro-dest ti-bi al-ta de tri-ni-ta-te di-spu-ta-re si"
+   },
+   "Voragine": {
+    "plain": "floreret et iam ad puberem aetatem pervenisset puella sibi de domo imperiali",
+    "cipher": "shdaiichychyn yn oar aky relkychyr qaqyr rykeeyeysolkyn reysctha kolko dy daiitaii orrychoactho",
+    "syllables": "flo-re-ret et i-am ad pu-be-rem ae-ta-tem per-ve-nis-set pu-el-la si-bi de do-mo im-pe-ri-a-li"
+   }
+  },
+  "invariants": {
+   "Voynich": {
+    "types": 3800,
+    "hapax_ratio": 0.7031578947368421,
+    "adjacent_repeat": 0.00830833141010847,
+    "repeat_types": 55,
+    "repeat_within_10": 0.07330769230769231
+   },
+   "Alfonsi": {
+    "types": 4967,
+    "hapax_ratio": 0.7191463660157037,
+    "adjacent_repeat": 0.00015385798907608278,
+    "repeat_types": 2,
+    "repeat_within_10": 0.05261538461538461
+   },
+   "Aquinas": {
+    "types": 2318,
+    "hapax_ratio": 0.5392579810181191,
+    "adjacent_repeat": 0.00015385798907608278,
+    "repeat_types": 2,
+    "repeat_within_10": 0.095
+   },
+   "Columella": {
+    "types": 4887,
+    "hapax_ratio": 0.6813996316758748,
+    "adjacent_repeat": 0.0,
+    "repeat_types": 0,
+    "repeat_within_10": 0.038384615384615385
+   },
+   "Conches": {
+    "types": 5078,
+    "hapax_ratio": 0.7081528160693187,
+    "adjacent_repeat": 0.0013077929071467036,
+    "repeat_types": 16,
+    "repeat_within_10": 0.06269230769230769
+   },
+   "Dante": {
+    "types": 4003,
+    "hapax_ratio": 0.6500124906320259,
+    "adjacent_repeat": 0.00046157396722824835,
+    "repeat_types": 6,
+    "repeat_within_10": 0.08323076923076923
+   },
+   "Gesta": {
+    "types": 3446,
+    "hapax_ratio": 0.585896691816599,
+    "adjacent_repeat": 0.00015385798907608278,
+    "repeat_types": 2,
+    "repeat_within_10": 0.05415384615384616
+   },
+   "Hugo": {
+    "types": 4401,
+    "hapax_ratio": 0.6703022040445353,
+    "adjacent_repeat": 0.0012308639126086623,
+    "repeat_types": 15,
+    "repeat_within_10": 0.08730769230769231
+   },
+   "Isidorus": {
+    "types": 4979,
+    "hapax_ratio": 0.7148021691102631,
+    "adjacent_repeat": 0.00030771597815216557,
+    "repeat_types": 4,
+    "repeat_within_10": 0.05607692307692308
+   },
+   "Kempis": {
+    "types": 4114,
+    "hapax_ratio": 0.6635877491492465,
+    "adjacent_repeat": 0.00023078698361412417,
+    "repeat_types": 3,
+    "repeat_within_10": 0.07938461538461539
+   },
+   "Petrarca": {
+    "types": 5019,
+    "hapax_ratio": 0.7168758716875872,
+    "adjacent_repeat": 0.0,
+    "repeat_types": 0,
+    "repeat_within_10": 0.04361538461538462
+   },
+   "Poggio": {
+    "types": 5131,
+    "hapax_ratio": 0.7023971935295265,
+    "adjacent_repeat": 0.00023078698361412417,
+    "repeat_types": 2,
+    "repeat_within_10": 0.02623076923076923
+   },
+   "Voragine": {
+    "types": 4812,
+    "hapax_ratio": 0.6922277639235245,
+    "adjacent_repeat": 0.0,
+    "repeat_types": 0,
+    "repeat_within_10": 0.052384615384615384
+   },
+   "Arabic": {
+    "types": 3969,
+    "hapax_ratio": 0.6185437137818091,
+    "adjacent_repeat": 0.00046157396722824835,
+    "repeat_types": 5,
+    "repeat_within_10": 0.08169230769230769
+   },
+   "Czech": {
+    "types": 2816,
+    "hapax_ratio": 0.5458096590909091,
+    "adjacent_repeat": 0.00030771597815216557,
+    "repeat_types": 4,
+    "repeat_within_10": 0.1
+   },
+   "English": {
+    "types": 1318,
+    "hapax_ratio": 0.4241274658573596,
+    "adjacent_repeat": 0.00023078698361412417,
+    "repeat_types": 3,
+    "repeat_within_10": 0.21507692307692308
+   },
+   "Finnish": {
+    "types": 3363,
+    "hapax_ratio": 0.5958965209634255,
+    "adjacent_repeat": 0.00038464497269020693,
+    "repeat_types": 4,
+    "repeat_within_10": 0.11992307692307692
+   },
+   "German": {
+    "types": 1902,
+    "hapax_ratio": 0.48580441640378547,
+    "adjacent_repeat": 0.0012308639126086623,
+    "repeat_types": 13,
+    "repeat_within_10": 0.12792307692307692
+   },
+   "Hebrew": {
+    "types": 3506,
+    "hapax_ratio": 0.6003993154592128,
+    "adjacent_repeat": 0.0017693668743749519,
+    "repeat_types": 16,
+    "repeat_within_10": 0.10161538461538462
+   },
+   "Hungarian": {
+    "types": 3360,
+    "hapax_ratio": 0.6267857142857143,
+    "adjacent_repeat": 0.0008462189399184553,
+    "repeat_types": 7,
+    "repeat_within_10": 0.16638461538461538
+   },
+   "Italian": {
+    "types": 2188,
+    "hapax_ratio": 0.5402193784277879,
+    "adjacent_repeat": 0.0013077929071467036,
+    "repeat_types": 13,
+    "repeat_within_10": 0.10846153846153846
+   },
+   "Latin": {
+    "types": 3262,
+    "hapax_ratio": 0.6088289393010423,
+    "adjacent_repeat": 0.0007692899453804139,
+    "repeat_types": 8,
+    "repeat_within_10": 0.09038461538461538
+   },
+   "Polish": {
+    "types": 2846,
+    "hapax_ratio": 0.5604356992269852,
+    "adjacent_repeat": 0.00023078698361412417,
+    "repeat_types": 3,
+    "repeat_within_10": 0.12792307692307692
+   },
+   "Turkish": {
+    "types": 4151,
+    "hapax_ratio": 0.6131052758371477,
+    "adjacent_repeat": 0.0013847219016847449,
+    "repeat_types": 12,
+    "repeat_within_10": 0.055
+   },
+   "Vietnamese": {
+    "types": 1179,
+    "hapax_ratio": 0.3104325699745547,
+    "adjacent_repeat": 0.0022309408416032,
+    "repeat_types": 16,
+    "repeat_within_10": 0.09846153846153846
+   }
+  },
+  "voynich_repeats": [
+   [
+    "chol",
+    24
+   ],
+   [
+    "qokeedy",
+    19
+   ],
+   [
+    "qokedy",
+    15
+   ],
+   [
+    "daiin",
+    12
+   ],
+   [
+    "qokeey",
+    12
+   ],
+   [
+    "dy",
+    10
+   ],
+   [
+    "chedy",
+    10
+   ],
+   [
+    "ol",
+    9
+   ],
+   [
+    "shedy",
+    9
+   ],
+   [
+    "chor",
+    7
+   ],
+   [
+    "ar",
+    7
+   ],
+   [
+    "shol",
+    6
+   ],
+   [
+    "okaiin",
+    6
+   ],
+   [
+    "or",
+    6
+   ],
+   [
+    "dar",
+    5
+   ]
+  ]
+ },
+ "generator": {
+  "real": {
+   "tokens": 35000,
+   "types": 7430,
+   "type_token_ratio": 0.21228571428571427,
+   "hapax_ratio": 0.6895020188425303,
+   "mean_word_len": 4.331142857142857,
+   "sd_word_len": 1.6014819412541828,
+   "top10_coverage": 0.1253142857142857,
+   "zipf_slope": -1.0260875969275487,
+   "adjacent_repeat": 0.008343095517014771,
+   "adjacent_near": 0.04417269064830424,
+   "vocab_density": 0.986,
+   "alphabet": 34,
+   "h0": 5.087462841250339,
+   "h1": 3.87736521358553,
+   "h2": 2.302652974466834,
+   "h3": 2.082675763820684,
+   "positional_rigidity": 0.7742723252590588,
+   "order_consistency": 0.8818630845985725,
+   "m_line_last": 6.206846110170437,
+   "g_line_last": 6.920189160050965
+  },
+  "variants": {
+   "v1: reguły ręczne": {
+    "tokens": 35000,
+    "types": 8101.666666666667,
+    "type_token_ratio": 0.23147619047619047,
+    "hapax_ratio": 0.5102603895127726,
+    "mean_word_len": 4.251342857142857,
+    "sd_word_len": 1.9959029453756676,
+    "top10_coverage": 0.13158095238095238,
+    "zipf_slope": -0.8000896739722672,
+    "adjacent_repeat": 0.011486042458355952,
+    "adjacent_near": 0.05005857310208863,
+    "vocab_density": 0.9538333333333333,
+    "alphabet": 21.666666666666668,
+    "h0": 4.437060220017785,
+    "h1": 3.582551412516453,
+    "h2": 2.610042017521565,
+    "h3": 2.414305788228706,
+    "positional_rigidity": 0.7799591549559751,
+    "order_consistency": 0.8225577774521702,
+    "m_line_last": null,
+    "g_line_last": null
+   },
+   "v2: zmiany podpatrzone u skryby": {
+    "tokens": 35000,
+    "types": 10379.333333333334,
+    "type_token_ratio": 0.29655238095238096,
+    "hapax_ratio": 0.5486022163175438,
+    "mean_word_len": 4.302695238095239,
+    "sd_word_len": 2.0334120263607693,
+    "top10_coverage": 0.09805714285714286,
+    "zipf_slope": -0.7571638177966914,
+    "adjacent_repeat": 0.006752573883063326,
+    "adjacent_near": 0.04608703105803023,
+    "vocab_density": 0.9339999999999999,
+    "alphabet": 30,
+    "h0": 4.906890595608519,
+    "h1": 3.9852507473431453,
+    "h2": 3.04874218116622,
+    "h3": 2.7598423049880156,
+    "positional_rigidity": 0.6198512020286808,
+    "order_consistency": 0.7331653282545789,
+    "m_line_last": 0.9773422716751775,
+    "g_line_last": 0.9494863473401806
+   },
+   "v3: v2 + dozwolone pary glifów": {
+    "tokens": 35000,
+    "types": 9766.666666666666,
+    "type_token_ratio": 0.27904761904761904,
+    "hapax_ratio": 0.5446498662393428,
+    "mean_word_len": 4.255742857142857,
+    "sd_word_len": 1.9808303605776973,
+    "top10_coverage": 0.1426,
+    "zipf_slope": -0.7632324047599758,
+    "adjacent_repeat": 0.01743859348362334,
+    "adjacent_near": 0.04409649799518081,
+    "vocab_density": 0.929,
+    "alphabet": 30,
+    "h0": 4.906890595608519,
+    "h1": 3.918498074425505,
+    "h2": 2.9741583033525005,
+    "h3": 2.6709745257356983,
+    "positional_rigidity": 0.6237097431930267,
+    "order_consistency": 0.7426474882239029,
+    "m_line_last": 1.0181332542320713,
+    "g_line_last": 1.1396945750327323
+   },
+   "v4: v2 + gramatyka słowa": {
+    "tokens": 35000,
+    "types": 6715,
+    "type_token_ratio": 0.19185714285714284,
+    "hapax_ratio": 0.45066417325418123,
+    "mean_word_len": 5.1048857142857145,
+    "sd_word_len": 1.6020424544502556,
+    "top10_coverage": 0.10348571428571429,
+    "zipf_slope": -0.7904281915322491,
+    "adjacent_repeat": 0.009219311027934132,
+    "adjacent_near": 0.0392296922769222,
+    "vocab_density": 0.9788333333333333,
+    "alphabet": 28.333333333333332,
+    "h0": 4.823044339943197,
+    "h1": 3.8165635927141377,
+    "h2": 2.29514871290222,
+    "h3": 2.0426240833180245,
+    "positional_rigidity": 0.7663567389630253,
+    "order_consistency": 0.849408170612404,
+    "m_line_last": 1.1000080939903785,
+    "g_line_last": null
+   }
+  },
+  "samples": {
+   "v1: reguły ręczne": [
+    "oteaiyiil daken oteeeen dteor keeen oteel qackheeld tl qoteaiir oteeen sqacthls oker",
+    "ykel d keel atn",
+    "teoiyiir teeer skeen",
+    "teeen teer",
+    "ker sakeeen yteen steor"
+   ],
+   "v2: zmiany podpatrzone u skryby": [
+    "chckhds al ofchee dy solsy cthono",
+    "al sokl cheeckhe deeeolk cheeckhe cheeeok chdols r kal",
+    "kal okl shckhds c deealk y chdals ono",
+    "chdody p ldor sheeealk kam shd okl qonol kal dacheshs okchtee",
+    "lsheeckhe chols tacheshs dach o cheeeok"
+   ],
+   "v3: v2 + dozwolone pary glifów": [
+    "pchcthdg shods l r kchds otshckhe shckhsocphysy lopan cthods",
+    "kods sy d dam kchds chdly chckhsocphys",
+    "ods ltoe yshe ydolshol okshckhe olchseok",
+    "chods otoe l dyshdlp tshds dy dchds opan lshkyl cheds ltcoe",
+    "olopar dl cthy"
+   ],
+   "v4: v2 + gramatyka słowa": [
+    "cheody dchease shody sheease tam chokchesy",
+    "cheedy or lkaiin keedy lkain okchesy kchar otal qoltaiiin",
+    "sheody chey ol chdy okchal",
+    "sheody ol chcthor sheease taly okchesy shey okesy okchal lkain",
+    "sheody oeesy qol okeedy taly shed"
+   ]
+  },
+  "best": {
+   "beta": 5,
+   "p_copy": 0.22,
+   "window": 8,
+   "p_far": 0.05,
+   "loss": 1.0636422899225473,
+   "h2": 2.29514871290222,
+   "adjacent_near": 0.0392296922769222
+  },
+  "grid": [
+   {
+    "beta": 4,
+    "p_copy": 0.1,
+    "window": 4,
+    "p_far": 0.05,
+    "loss": 1.6486242790928438,
+    "h2": 2.4082756145726574,
+    "adjacent_near": 0.04713468003847729
+   },
+   {
+    "beta": 4,
+    "p_copy": 0.1,
+    "window": 4,
+    "p_far": 0.15,
+    "loss": 3.057345545120013,
+    "h2": 2.415239153310959,
+    "adjacent_near": 0.03451527186491043
+   },
+   {
+    "beta": 4,
+    "p_copy": 0.1,
+    "window": 8,
+    "p_far": 0.05,
+    "loss": 3.6248113373828206,
+    "h2": 2.442270597819105,
+    "adjacent_near": 0.033029515129003685
+   },
+   {
+    "beta": 4,
+    "p_copy": 0.1,
+    "window": 8,
+    "p_far": 0.15,
+    "loss": 4.31125880624945,
+    "h2": 2.3587205200917314,
+    "adjacent_near": 0.025419773898301856
+   },
+   {
+    "beta": 4,
+    "p_copy": 0.22,
+    "window": 4,
+    "p_far": 0.05,
+    "loss": 1.7278113718162547,
+    "h2": 2.388384005454949,
+    "adjacent_near": 0.04852519595797975
+   },
+   {
+    "beta": 4,
+    "p_copy": 0.22,
+    "window": 4,
+    "p_far": 0.15,
+    "loss": 2.8238303511389073,
+    "h2": 2.4364603359900507,
+    "adjacent_near": 0.036743906968770536
+   },
+   {
+    "beta": 4,
+    "p_copy": 0.22,
+    "window": 8,
+    "p_far": 0.05,
+    "loss": 2.8005851630447385,
+    "h2": 2.4251831804386317,
+    "adjacent_near": 0.03629627513167043
+   },
+   {
+    "beta": 4,
+    "p_copy": 0.22,
+    "window": 8,
+    "p_far": 0.15,
+    "loss": 4.090512349858949,
+    "h2": 2.377218462240904,
+    "adjacent_near": 0.02744840328771298
+   },
+   {
+    "beta": 5,
+    "p_copy": 0.1,
+    "window": 4,
+    "p_far": 0.05,
+    "loss": 2.807575345254039,
+    "h2": 2.2380920931791417,
+    "adjacent_near": 0.05498252331018982
+   },
+   {
+    "beta": 5,
+    "p_copy": 0.1,
+    "window": 4,
+    "p_far": 0.15,
+    "loss": 2.3320216238060416,
+    "h2": 2.2770757918475564,
+    "adjacent_near": 0.03379144166023791
+   },
+   {
+    "beta": 5,
+    "p_copy": 0.1,
+    "window": 8,
+    "p_far": 0.05,
+    "loss": 1.5933698503297282,
+    "h2": 2.2734149446421053,
+    "adjacent_near": 0.037667742887892035
+   },
+   {
+    "beta": 5,
+    "p_copy": 0.1,
+    "window": 8,
+    "p_far": 0.15,
+    "loss": 3.372248730116454,
+    "h2": 2.2795323139564982,
+    "adjacent_near": 0.028467480023238758
+   },
+   {
+    "beta": 5,
+    "p_copy": 0.22,
+    "window": 4,
+    "p_far": 0.05,
+    "loss": 2.8592614911772003,
+    "h2": 2.2845440010779443,
+    "adjacent_near": 0.05756354943474575
+   },
+   {
+    "beta": 5,
+    "p_copy": 0.22,
+    "window": 4,
+    "p_far": 0.15,
+    "loss": 1.4210120633166254,
+    "h2": 2.232553825336806,
+    "adjacent_near": 0.04057258778822252
+   },
+   {
+    "beta": 5,
+    "p_copy": 0.22,
+    "window": 8,
+    "p_far": 0.05,
+    "loss": 1.0636422899225473,
+    "h2": 2.29514871290222,
+    "adjacent_near": 0.0392296922769222
+   },
+   {
+    "beta": 5,
+    "p_copy": 0.22,
+    "window": 8,
+    "p_far": 0.15,
+    "loss": 3.425759817993731,
+    "h2": 2.323695960085364,
+    "adjacent_near": 0.028096040839262076
+   },
+   {
+    "beta": 6,
+    "p_copy": 0.1,
+    "window": 4,
+    "p_far": 0.05,
+    "loss": 6.454193250505332,
+    "h2": 2.077055168126359,
+    "adjacent_near": 0.06516376658380715
+   },
+   {
+    "beta": 6,
+    "p_copy": 0.1,
+    "window": 4,
+    "p_far": 0.15,
+    "loss": 2.2513866735408774,
+    "h2": 2.19313665822754,
+    "adjacent_near": 0.03839157309256455
+   },
+   {
+    "beta": 6,
+    "p_copy": 0.1,
+    "window": 8,
+    "p_far": 0.05,
+    "loss": 1.9460471988499664,
+    "h2": 2.1126198137692427,
+    "adjacent_near": 0.04394411268893397
+   },
+   {
+    "beta": 6,
+    "p_copy": 0.1,
+    "window": 8,
+    "p_far": 0.15,
+    "loss": 4.107591061281563,
+    "h2": 2.1458058848724835,
+    "adjacent_near": 0.03147708982161395
+   },
+   {
+    "beta": 6,
+    "p_copy": 0.22,
+    "window": 4,
+    "p_far": 0.05,
+    "loss": 8.0584538605398,
+    "h2": 2.062347556221458,
+    "adjacent_near": 0.07244968903873444
+   },
+   {
+    "beta": 6,
+    "p_copy": 0.22,
+    "window": 4,
+    "p_far": 0.15,
+    "loss": 2.1091438103443263,
+    "h2": 2.1694550996182924,
+    "adjacent_near": 0.040286865339009686
+   },
+   {
+    "beta": 6,
+    "p_copy": 0.22,
+    "window": 8,
+    "p_far": 0.05,
+    "loss": 1.7287906638491155,
+    "h2": 2.1509173693236723,
+    "adjacent_near": 0.04522986371039173
+   },
+   {
+    "beta": 6,
+    "p_copy": 0.22,
+    "window": 8,
+    "p_far": 0.15,
+    "loss": 3.7343190104062702,
+    "h2": 2.137988942984385,
+    "adjacent_near": 0.03373429717039535
+   }
+  ],
+  "edit_pairs": 14663,
+  "top_edits": [
+   [
+    [
+     "del",
+     "^",
+     "q",
+     "",
+     "o"
+    ],
+    356
+   ],
+   [
+    [
+     "ins",
+     "^",
+     "",
+     "q",
+     "o"
+    ],
+    354
+   ],
+   [
+    [
+     "del",
+     "e",
+     "d",
+     "",
+     "y"
+    ],
+    284
+   ],
+   [
+    [
+     "ins",
+     "e",
+     "",
+     "d",
+     "y"
+    ],
+    283
+   ],
+   [
+    [
+     "sub",
+     "o",
+     "r",
+     "l",
+     "$"
+    ],
+    211
+   ],
+   [
+    [
+     "sub",
+     "^",
+     "sh",
+     "ch",
+     "e"
+    ],
+    208
+   ],
+   [
+    [
+     "sub",
+     "o",
+     "l",
+     "r",
+     "$"
+    ],
+    201
+   ],
+   [
+    [
+     "sub",
+     "^",
+     "ch",
+     "sh",
+     "e"
+    ],
+    199
+   ],
+   [
+    [
+     "sub",
+     "a",
+     "ii",
+     "i",
+     "n"
+    ],
+    178
+   ],
+   [
+    [
+     "sub",
+     "a",
+     "i",
+     "ii",
+     "n"
+    ],
+    173
+   ],
+   [
+    [
+     "ins",
+     "^",
+     "",
+     "d",
+     "a"
+    ],
+    170
+   ],
+   [
+    [
+     "del",
+     "^",
+     "d",
+     "",
+     "a"
+    ],
+    162
+   ]
+  ],
+  "allowed_pairs": 382,
+  "tuned_on": [
+   "h2",
+   "adjacent_near"
+  ]
+ },
+ "map": {
+  "points": {
+   "Voynich": [
+    -5.439964757588822,
+    2.093903664306395
+   ],
+   "Voynich: zielnik": [
+    -5.462534386034556,
+    2.01354762450044
+   ],
+   "Voynich: Currier B": [
+    -6.297552211560323,
+    2.1577033194232866
+   ],
+   "Alfonsi": [
+    2.300908033790634,
+    1.1528038169967396
+   ],
+   "Aquinas": [
+    0.8248932768941535,
+    -0.35155877884792125
+   ],
+   "Columella": [
+    2.0446292516159263,
+    1.0155781367789611
+   ],
+   "Conches": [
+    1.6620511961177595,
+    0.968895981542512
+   ],
+   "Dante": [
+    1.6730593786827086,
+    0.5980478818735958
+   ],
+   "Gesta": [
+    1.3311325410906798,
+    -0.2769324616918921
+   ],
+   "Hugo": [
+    1.9010177204752954,
+    1.1421245775528588
+   ],
+   "Isidorus": [
+    1.8119624619259809,
+    0.857056659803194
+   ],
+   "Kempis": [
+    1.5923690148494387,
+    0.3977709478469728
+   ],
+   "Petrarca": [
+    1.9137795737563152,
+    0.7685455701211025
+   ],
+   "Poggio": [
+    2.0508130382213365,
+    1.153525393332898
+   ],
+   "Voragine": [
+    1.9449089533002732,
+    0.8063986809860347
+   ],
+   "Isidorus (skróty)": [
+    1.2721570164899958,
+    0.6774538916030401
+   ],
+   "Kempis (skróty)": [
+    0.8797964072130311,
+    0.2404061279809867
+   ],
+   "Voragine (skróty)": [
+    1.4294235928797911,
+    0.5250236170844658
+   ],
+   "Wulgata": [
+    1.2687348702476893,
+    -0.2446471560945337
+   ],
+   "Arabic": [
+    0.16089051126867612,
+    -1.8738559665983359
+   ],
+   "Czech": [
+    0.5080825353478166,
+    -1.7053442841059487
+   ],
+   "English": [
+    -1.549545557112294,
+    -3.667725914433873
+   ],
+   "Finnish": [
+    1.4375135739088487,
+    0.40259803225495744
+   ],
+   "German": [
+    -0.864549406165778,
+    -2.15032493182068
+   ],
+   "Hebrew": [
+    -0.9810041047805295,
+    -2.0283832077393473
+   ],
+   "Hungarian": [
+    1.3668034425529734,
+    -0.4160813035482538
+   ],
+   "Italian": [
+    -0.009171394980126667,
+    -1.776727738702722
+   ],
+   "Polish": [
+    0.8776233886999687,
+    -1.1470336910995775
+   ],
+   "Turkish": [
+    1.1663367548945494,
+    0.6625166299368082
+   ],
+   "Vietnamese": [
+    -5.230102433380594,
+    -3.607315881729217
+   ],
+   "Generator v4": [
+    -5.5844622826208195,
+    1.6120307624870647
+   ]
+  },
+  "loadings": {
+   "h2": [
+    0.34096654666316656,
+    -0.21517605642461424
+   ],
+   "h3": [
+    0.34022800591754493,
+    0.02119814208091348
+   ],
+   "mean_word_len": [
+    0.2827327905260703,
+    0.3591268639694997
+   ],
+   "sd_word_len": [
+    0.3183966426827043,
+    0.19938912105798784
+   ],
+   "vocab_density": [
+    -0.34913396098260435,
+    -0.00327183286924701
+   ],
+   "adjacent_near": [
+    -0.33757617310492616,
+    0.24778402012441528
+   ],
+   "adjacent_repeat": [
+    -0.34025962930022924,
+    0.26770055332785886
+   ],
+   "order_consistency": [
+    -0.3658255243970143,
+    -0.025965706510344775
+   ],
+   "positional_rigidity": [
+    -0.18289914401120758,
+    0.5058987291167037
+   ],
+   "hapax_ratio": [
+    0.15497880386718596,
+    0.49424080158926903
+   ],
+   "zipf_slope": [
+    0.20915260843724456,
+    0.3880320266802223
+   ]
+  },
+  "explained": [
+   0.623782307417214,
+   0.21126249639729885
+  ],
+  "groups": {
+   "Voynich": "voynich",
+   "Voynich: zielnik": "voynich",
+   "Voynich: Currier B": "voynich",
+   "Alfonsi": "medieval",
+   "Aquinas": "medieval",
+   "Columella": "medieval",
+   "Conches": "medieval",
+   "Dante": "medieval",
+   "Gesta": "medieval",
+   "Hugo": "medieval",
+   "Isidorus": "medieval",
+   "Kempis": "medieval",
+   "Petrarca": "medieval",
+   "Poggio": "medieval",
+   "Voragine": "medieval",
+   "Isidorus (skróty)": "abbrev",
+   "Kempis (skróty)": "abbrev",
+   "Voragine (skróty)": "abbrev",
+   "Wulgata": "medieval",
+   "Arabic": "bible",
+   "Czech": "bible",
+   "English": "bible",
+   "Finnish": "bible",
+   "German": "bible",
+   "Hebrew": "bible",
+   "Hungarian": "bible",
+   "Italian": "bible",
+   "Polish": "bible",
+   "Turkish": "bible",
+   "Vietnamese": "bible",
+   "Generator v4": "generator"
+  }
+ }
+}
