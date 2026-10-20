@@ -47,15 +47,32 @@ class Lab:
             return
         self.client = OpenRouter(key, budget_usd=self.cfg.budget_usd)
         models = self.client.models()
-        self.members = self.cfg.council_models or pick_models(models, self.cfg.council_vendors, self.cfg.council_size)
-        self.chair = self.cfg.chair_model or self.members[0]
-        self.vision = self.cfg.vision_model or (pick_models(models, self.cfg.council_vendors, 1, vision=True) or [""])[0]
+        members = self.cfg.council_models or pick_models(models, self.cfg.council_vendors, self.cfg.council_size)
+        # Probe every model once: OpenRouter lists some (e.g. "decisions" models) that cannot chat at all.
+        self.members = [m for m in members if self._probe(m)]
+        chair = self.cfg.chair_model or (self.members[0] if self.members else "")
+        self.chair = chair if chair in self.members or self._probe(chair) else (self.members[0] if self.members else "")
+        vision = self.cfg.vision_model or (pick_models(models, self.cfg.council_vendors, 1, vision=True) or [""])[0]
+        self.vision = vision if vision and self._probe(vision) else ""
+        if len(self.members) < 2:
+            print("UWAGA: mniej niż 2 działające modele w radzie; zmień council_models.")
         price = {m["id"]: m.get("pricing", {}) for m in models}
         print("Rada:", ", ".join(self.members), "| przewodniczący:", self.chair, "| model wizyjny:", self.vision or "brak")
         for m in self.members:
             p = price.get(m, {})
             print(f"  {m}: wejście {float(p.get('prompt') or 0) * 1e6:.2f} USD/M tok., wyjście "
                   f"{float(p.get('completion') or 0) * 1e6:.2f} USD/M tok.")
+
+    def _probe(self, model: str) -> bool:
+        """One tiny chat call; a model that refuses it is left out of the run with the reason shown."""
+        if not model:
+            return False
+        try:
+            self.client.chat(model, [{"role": "user", "content": "Odpowiedz jednym słowem: OK"}], max_tokens=5)
+            return True
+        except Exception as e:
+            print(f"  pomijam {model}: {str(e)[:200]}")
+            return False
 
     # ---- theories
 

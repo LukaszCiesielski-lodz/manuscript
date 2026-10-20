@@ -74,20 +74,36 @@ def deliberate(result: TheoryResult, members: list[str], chair: str, chat: Chat,
     system = SYSTEM.format(lang=language)
     brief = result.brief()
     out: dict = {"members": members, "chair": chair, "round1": {}, "round2": {}, "synthesis": ""}
+    out["failed"] = {}
+
+    def ask(m: str, user: str) -> str | None:
+        """A member that errors (bad model id, provider outage) is dropped; the council carries on."""
+        try:
+            return _ask(chat, m, system, user, max_tokens)
+        except BudgetExceeded:
+            raise
+        except Exception as e:
+            out["failed"][m] = str(e)[:300]
+            return None
+
     try:
         for m in members:
-            text = _ask(chat, m, system, ROUND1.format(brief=brief), max_tokens)
-            out["round1"][m] = {"raw": text, "json": parse_json(text)}
-        labels = dict(zip(members, string.ascii_uppercase))
-        for m in members:
+            text = ask(m, ROUND1.format(brief=brief))
+            if text is not None:
+                out["round1"][m] = {"raw": text, "json": parse_json(text)}
+        labels = dict(zip(out["round1"], string.ascii_uppercase))
+        for m in list(out["round1"]):
             others = "\n\n".join(f"Opinia {labels[o]}:\n{json.dumps(r['json'] or r['raw'], ensure_ascii=False)[:2500]}"
                                  for o, r in out["round1"].items() if o != m)
-            text = _ask(chat, m, system, ROUND2.format(brief=brief, others=others), max_tokens)
-            out["round2"][m] = {"raw": text, "json": parse_json(text)}
+            text = ask(m, ROUND2.format(brief=brief, others=others))
+            if text is not None:
+                out["round2"][m] = {"raw": text, "json": parse_json(text)}
+        if not out["round1"]:
+            raise RuntimeError("żaden członek rady nie odpowiedział: " + "; ".join(out["failed"].values()))
         fmt = lambda rnd: "\n".join(f"- {labels[m]}: {json.dumps(r['json'] or r['raw'], ensure_ascii=False)[:1500]}"
                                     for m, r in rnd.items())
-        out["synthesis"] = _ask(chat, chair, system, SYNTH.format(brief=brief, r1=fmt(out["round1"]),
-                                                                  r2=fmt(out["round2"])), max_tokens)
+        prompt = SYNTH.format(brief=brief, r1=fmt(out["round1"]), r2=fmt(out["round2"]))
+        out["synthesis"] = ask(chair, prompt) or ask(next(iter(out["round1"])), prompt) or ""
     except BudgetExceeded as e:
         out["error"] = str(e)
     verdicts = [r["json"].get("werdykt") for r in out["round2"].values() if r.get("json")]

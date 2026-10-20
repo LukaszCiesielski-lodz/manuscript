@@ -61,6 +61,20 @@ class OpenRouterTest(unittest.TestCase):
         self.assertEqual(out["votes"], {"obalona": 3})
 
 
+    def test_council_survives_a_model_that_cannot_chat(self):
+        def chat(model, messages, max_tokens):
+            if model == "decisions/model":
+                raise RuntimeError("OpenRouter 400: decisions model cannot be used with chat/completions")
+            if "przewodniczącym" in messages[-1]["content"]:
+                return "synteza"
+            return '{"werdykt": "obalona"}'
+
+        out = deliberate(TheoryResult("t", "h", "m"), ["a", "decisions/model", "b"], "decisions/model", chat)
+        self.assertEqual(out["votes"], {"obalona": 2})
+        self.assertEqual(out["synthesis"], "synteza")
+        self.assertIn("decisions/model", out["failed"])
+
+
 class ImagesTest(unittest.TestCase):
     def test_folio_map(self):
         self.assertEqual(len(canvases()), 213)
