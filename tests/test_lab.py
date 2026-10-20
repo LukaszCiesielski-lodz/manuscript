@@ -20,6 +20,24 @@ class ResultTest(unittest.TestCase):
         self.assertEqual(r.verdict, "metoda niewiarygodna")
 
 
+class DataTest(unittest.TestCase):
+    def test_reference_data_complete(self):
+        from voynich import corpus
+        self.assertEqual(corpus.data_problems(), [])
+        self.assertIn("Basque", corpus.reference_languages())
+
+    def test_truncated_file_is_reported(self):
+        import tempfile
+        from pathlib import Path
+        from unittest import mock
+        from voynich import corpus
+        with tempfile.TemporaryDirectory() as d:
+            with mock.patch.object(corpus, "REFERENCE_DIR", Path(d)):
+                (Path(d) / "Latin.txt").write_text("in principio")
+                problems = corpus.data_problems()
+        self.assertTrue(any(p.startswith("Latin.txt: 2 słów") for p in problems))
+
+
 class RegistryTest(unittest.TestCase):
     def test_aliases(self):
         self.assertEqual(registry.expand(["literature"]), ["naibbe_cipher", "cardan_grille", "hebrew_anagram"])

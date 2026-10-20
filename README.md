@@ -79,6 +79,10 @@ Werdykt testu wynika tylko z liczb i kontroli; rada go komentuje. Przegląd lite
 | `naibbe_cipher` | szyfr Naibbe (Greshko 2025), rekonstrukcja z opisu | nierozstrzygnięta |
 | `cardan_grille` | bełkot z kratki Cardana (Rugg 2004) | obalona |
 | `hebrew_anagram` | hebrajskie anagramy (Hauer i Kondrak 2016) z kontrolą swoistości | metoda niewiarygodna |
+| `basque` | baskijski pod szyfrem podstawieniowym: Leizarraga 1571 i prasa współczesna | obalona (luka 0,96–0,99 bita) |
+
+Laboratorium porównuje z 13 językami (baskijski dołączył jako 13.); raport `docs/index.html` z etapów 1–2 liczono jeszcze na 12.
+`fetch_data.py` kończy się komunikatem „Dane kompletne.”, a laboratorium odmawia liczenia na niepełnych danych.
 
 Sekrety Colaba: `GITHUB_TOKEN`, `OPENROUTER_API_KEY`. Wyniki trafiają na gałąź `lab-results`.
 Z wiersza poleceń: `python -m voynich.lab.runner --theories numbers,literature --quick --no-council`.

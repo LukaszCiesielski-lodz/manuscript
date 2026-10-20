@@ -26,6 +26,7 @@ THEORIES = {t.name: t for t in [
     Theory("naibbe_cipher", "Szyfr Naibbe (Greshko 2025)", (), "literature:run_naibbe"),
     Theory("cardan_grille", "Bełkot z kratki Cardana (Rugg 2004)", (), "literature:run_grille"),
     Theory("hebrew_anagram", "Hebrajskie anagramy (Hauer i Kondrak 2016)", (), "literature:run_hebrew_anagram"),
+    Theory("basque", "Baskijski pod szyfrem podstawieniowym", (), "basque:run"),
 ]}
 ALIASES = {"literature": ["naibbe_cipher", "cardan_grille", "hebrew_anagram"], "all": list(THEORIES)}
 

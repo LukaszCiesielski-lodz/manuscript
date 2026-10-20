@@ -16,6 +16,7 @@ Notebook uruchamia testy hipotez o rękopisie Wojnicza z repozytorium `lukaszcie
 | `illustrations` | czy tekst zależy od rysunków (układ przy rysunkach, CLIP + test Mantela, nazwy roślin jako „criby”) | GPU, OpenRouter (wizja) |
 | `generative` | czy transformer napisze brakujące strony nieodróżnialne od prawdziwych; opcjonalnie obrazy SDXL+LoRA | GPU |
 | `naibbe_cipher`, `cardan_grille`, `hebrew_anagram` | teorie z literatury (Greshko 2025, Rugg 2004, Hauer i Kondrak 2016) | CPU |
+| `basque` | baskijski pod szyfrem podstawieniowym (Leizarraga 1571 i prasa współczesna) | CPU |
 
 Każdy test ma **kontrole metody**: musi znaleźć efekt podłożony celowo i nie znajdować go w danych losowych. Gdy kontrola nie przejdzie, werdykt brzmi „metoda niewiarygodna”, niezależnie od wyniku. Rada modeli (OpenRouter) dyskutuje wyniki w trzech rundach, ale werdykt testu wynika tylko z liczb.
 
@@ -37,7 +38,7 @@ os.chdir("/content/manuscript")
 !git log --oneline -3"""),
     ("code", """# PyTorch, numpy, scikit-learn i Pillow są w Colabie; dokładamy CLIP.
 !pip install -q open_clip_torch
-!python scripts/fetch_data.py"""),
+!python scripts/fetch_data.py   # na końcu musi wypisać „Dane kompletne.”; jeśli nie, uruchom ponownie"""),
     ("code", """# Opcjonalnie: pamięć podręczna skanów na Dysku, żeby nie pobierać ich przy każdej sesji.
 USE_DRIVE = True
 if USE_DRIVE:
@@ -67,7 +68,7 @@ lab = Lab(cfg)
 lab.connect()   # pokaże wybraną radę, model wizyjny i ceny"""),
     ("md", "## 3. Testy\nKażdą komórkę można uruchomić osobno. Wyniki zapisują się w `results/lab/<data>/`."),
     ("code", 'lab.run("numbers");'),
-    ("code", 'lab.run("naibbe_cipher"); lab.run("cardan_grille"); lab.run("hebrew_anagram");'),
+    ("code", 'lab.run("naibbe_cipher"); lab.run("cardan_grille"); lab.run("hebrew_anagram"); lab.run("basque");'),
     ("code", """# Próba pobrania jednego skanu z Beinecke. Jeśli tu jest błąd 403, serwer Yale odrzuca adresy Colaba:
 # wgraj skany na Dysk (pliki f1r.jpg, f1v.jpg...) i ustaw images_dir w ustawieniach.
 from voynich.lab import images

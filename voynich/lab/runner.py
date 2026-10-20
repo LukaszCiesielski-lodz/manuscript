@@ -20,6 +20,7 @@ import subprocess
 import time
 from pathlib import Path
 
+from .. import corpus
 from .config import ROOT, LabConfig
 from .council import deliberate
 from .openrouter import OpenRouter, pick_models
@@ -78,6 +79,10 @@ class Lab:
 
     def run(self, name: str) -> TheoryResult:
         theory = THEORIES[name]
+        problems = corpus.data_problems()
+        if problems:
+            # Every theory compares against the reference texts; a gap would silently shift all distances.
+            raise RuntimeError("Niekompletne dane – uruchom !python scripts/fetch_data.py:\n  " + "\n  ".join(problems))
         print(f"\n=== {theory.title} ({name}) ===", flush=True)
         fn = theory.load()
         res = fn(self.cfg, self.client, self.vision) if name == "illustrations" else fn(self.cfg)
