@@ -1,0 +1,145 @@
+{
+ "theory": "naibbe_cipher",
+ "hypothesis": "Rękopis to szyfr typu Naibbe: łacina pocięta na 1–2-literowe kawałki, szyfrowana sześcioma tabelami wybieranymi kartą.",
+ "method": "Rekonstrukcja szyfru z opisu Greshki (2025), tabele zbudowane z części słów rękopisu; szyfrogram Izydora porównany z rękopisem.",
+ "verdict": "obalona",
+ "summary": "Szyfr Naibbe-podobny: odległość 0.83, różnica hapaksów 20%. Literatura: Naibbe odtwarza entropię i rozkład długości, ale nie hapaksy (41% wobec 70%).",
+ "metrics": {
+  "naibbe": {
+   "profile": {
+    "tokens": 20000,
+    "types": 4128,
+    "type_token_ratio": 0.2064,
+    "hapax_ratio": 0.4949127906976744,
+    "mean_word_len": 4.35,
+    "sd_word_len": 1.6514841809717706,
+    "top10_coverage": 0.15655,
+    "zipf_slope": -0.9556253346768482,
+    "adjacent_repeat": 0.0017500875043752187,
+    "adjacent_near": 0.023801190059502975,
+    "vocab_density": 0.9675,
+    "alphabet": 27,
+    "h0": 4.754887502163468,
+    "h1": 3.9033593917972262,
+    "h2": 2.298673630428729,
+    "h3": 2.011238838593801,
+    "positional_rigidity": 0.7854982114307404,
+    "order_consistency": 0.9028207258081404,
+    "edge_mi": 0.012497696090492658
+   },
+   "distance": 0.8321614203204504
+  },
+  "voynich": {
+   "tokens": 20000,
+   "types": 4996,
+   "type_token_ratio": 0.2498,
+   "hapax_ratio": 0.6977582065652522,
+   "mean_word_len": 4.17865,
+   "sd_word_len": 1.5924930698436335,
+   "top10_coverage": 0.12885,
+   "zipf_slope": -1.0143997045285058,
+   "adjacent_repeat": 0.009050452522626132,
+   "adjacent_near": 0.049852492624631234,
+   "vocab_density": 0.9375,
+   "alphabet": 34,
+   "h0": 5.087462841250339,
+   "h1": 3.874085406852563,
+   "h2": 2.3504806136630836,
+   "h3": 2.1258258320678918,
+   "positional_rigidity": 0.760856283766786,
+   "order_consistency": 0.8761355026674061,
+   "edge_mi": 0.1676006379439365
+  },
+  "hapax_gap": 0.20284541586757782
+ },
+ "controls": [
+  {
+   "name": "rozpoznanie języka",
+   "expectation": "druga próbka łaciny najbliżej pierwszej",
+   "observed": "najbliżej: Latin",
+   "passed": true
+  },
+  {
+   "name": "szyfr odwracalny",
+   "expectation": "odszyfrowanie tabelami odtwarza tekst jawny",
+   "observed": "deterministyczne tabele, sprawdzone na próbce",
+   "passed": true
+  }
+ ],
+ "evidence": [
+  "Naibbe-podobny (Izydor): odległość 0.83, h2=2.30 (rękopis 2.35), hapaksy 49% (70%), MI krawędzi 0.012 (0.168), podobni sąsiedzi 2.4% (5.0%)."
+ ],
+ "caveats": [
+  "To rekonstrukcja z opisu, nie oryginalne tabele Greshki; wynik dotyczy klasy szyfrów, nie konkretnej publikacji."
+ ],
+ "references": [
+  "M. A. Greshko, The Naibbe cipher, Cryptologia (2025), doi:10.1080/01611194.2025.2566408",
+  "Rozanova & Temerev, arXiv:2608.17096"
+ ],
+ "artifacts": [],
+ "seconds": 9.446301937103271,
+ "council": {
+  "members": [
+   "z-ai/glm-5.3-flash",
+   "openai/gpt-6-luna",
+   "tencent/hy3"
+  ],
+  "chair": "openai/gpt-6-luna",
+  "round1": {
+   "z-ai/glm-5.3-flash": {
+    "raw": "```json\n{\n  \"werdykt\": \"obalona\",\n  \"pewność\": 0.8,\n  \"najmocniejszy_dowód\": \"Obie kontrole metody przeszły (rozpoznanie języka, odwracalność szyfru), więc test jest",
+    "json": {}
+   },
+   "openai/gpt-6-luna": {
+    "raw": "{\n  \"werdykt\": \"metoda niewiarygodna\",\n  \"pewność\": 0.98,\n  \"najmocniejszy_dowód\": \"Kontrole sprawdzają rozpoznanie języka i odwracalność szyfru, ale nie wykazują, że metoda wykrywa celowo podłożony efekt Naibbe ani że nie wykrywa go w danych przetasowanych — wymagane kontrole wiarygodności nie przeszły.\",\n  \"słabości\": [\n    \"Mimo zbliżonego h2 (2,30 wobec 2,35), hapaksy różnią się o około 20 punktów procentowych (49% wobec 70%).\",\n    \"MI krawędzi wynosi 0,012 wobec 0,168, a podobni sąsiedzi 2,4% wobec 5,0%; raport nie podaje progów ani niepewności pozwalających ocenić te różnice.\",\n    \"Użyto rekonstrukcji z opisu i tabel zbudowanych z części słów rękopisu, nie oryginalnych tabel.\"\n  ],\n  \"inne_wyjaśnienia\": [\n    \"Rozbieżności mogą wynikać z różnic między rekonstrukcją a oryginalnym wariantem szyfru.\",\n    \"Wpływ na porównanie mogą mieć przyjęte tokenizacja i reprezentacja znaków; raport nie przedstawia kontroli tych czynników.\"\n  ],\n  \"następny_test\": \"Przeprowadzić ślepy test walidacyjny tym samym pipeline’em: sprawdzić, czy wykrywa sygnaturę w znanych, celowo zaszyfrowanych próbkach Naibbe i czy nie wykrywa jej w odpowiednio przetasowanych próbkach kontrolnych.\"\n}",
+    "json": {
+     "werdykt": "metoda niewiarygodna",
+     "pewność": 0.98,
+     "najmocniejszy_dowód": "Kontrole sprawdzają rozpoznanie języka i odwracalność szyfru, ale nie wykazują, że metoda wykrywa celowo podłożony efekt Naibbe ani że nie wykrywa go w danych przetasowanych — wymagane kontrole wiarygodności nie przeszły.",
+     "słabości": [
+      "Mimo zbliżonego h2 (2,30 wobec 2,35), hapaksy różnią się o około 20 punktów procentowych (49% wobec 70%).",
+      "MI krawędzi wynosi 0,012 wobec 0,168, a podobni sąsiedzi 2,4% wobec 5,0%; raport nie podaje progów ani niepewności pozwalających ocenić te różnice.",
+      "Użyto rekonstrukcji z opisu i tabel zbudowanych z części słów rękopisu, nie oryginalnych tabel."
+     ],
+     "inne_wyjaśnienia": [
+      "Rozbieżności mogą wynikać z różnic między rekonstrukcją a oryginalnym wariantem szyfru.",
+      "Wpływ na porównanie mogą mieć przyjęte tokenizacja i reprezentacja znaków; raport nie przedstawia kontroli tych czynników."
+     ],
+     "następny_test": "Przeprowadzić ślepy test walidacyjny tym samym pipeline’em: sprawdzić, czy wykrywa sygnaturę w znanych, celowo zaszyfrowanych próbkach Naibbe i czy nie wykrywa jej w odpowiednio przetasowanych próbkach kontrolnych."
+    }
+   },
+   "tencent/hy3": {
+    "raw": "",
+    "json": {}
+   }
+  },
+  "round2": {
+   "z-ai/glm-5.3-flash": {
+    "raw": "",
+    "json": {}
+   },
+   "openai/gpt-6-luna": {
+    "raw": "{\"ranking\":[\"A\",\"C\"],\"uwagi\":\"A jest jedyną opinią zawierającą ocenę, ale wniosek „obalona” nie wynika z podanych kontroli: sprawdzono rozpoznanie języka i odwracalność, nie wykazano, że procedura wykrywa celowo podłożony efekt ani że nie wykrywa go w danych przetasowanych. To wymagane kontrole wiarygodności. C jest pusta, więc nie da się ocenić jej uzasadnienia. Dane wskazują na rozbieżności badanej rekonstrukcji z rękopisem: hapaksy 49% wobec 70%, MI krawędzi 0,012 wobec 0,168 i podobni sąsiedzi 2,4% wobec 5,0%; h2 jest natomiast bliskie (2,30 wobec 2,35). Wynik przemawia przeciw tej rekonstrukcji szyfru, ale nie rozstrzyga całej hipotezy, zwłaszcza że użyto tabel zbudowanych z części słów rękopisu, a nie oryginalnych tabel. Test nie bada też innych możliwych wariantów ani nie uzasadnia wykluczenia hipotezy ogólnej.\",\"werdykt\":\"Nierozstrzygający; słaba przesłanka przeciw badanej rekonstrukcji Naibbe, nie podstawa do uznania hipotezy za obaloną.\",\"pewność\":0.9,\"zmiana_zdania\":\"tak — nie przyjmuję werdyktu automatycznego jako rozstrzygającego, ponieważ kluczowe kontrole wykrywalności efektu i odporności na przetasowanie nie zostały zgłoszone.\"}",
+    "json": {
+     "ranking": [
+      "A",
+      "C"
+     ],
+     "uwagi": "A jest jedyną opinią zawierającą ocenę, ale wniosek „obalona” nie wynika z podanych kontroli: sprawdzono rozpoznanie języka i odwracalność, nie wykazano, że procedura wykrywa celowo podłożony efekt ani że nie wykrywa go w danych przetasowanych. To wymagane kontrole wiarygodności. C jest pusta, więc nie da się ocenić jej uzasadnienia. Dane wskazują na rozbieżności badanej rekonstrukcji z rękopisem: hapaksy 49% wobec 70%, MI krawędzi 0,012 wobec 0,168 i podobni sąsiedzi 2,4% wobec 5,0%; h2 jest natomiast bliskie (2,30 wobec 2,35). Wynik przemawia przeciw tej rekonstrukcji szyfru, ale nie rozstrzyga całej hipotezy, zwłaszcza że użyto tabel zbudowanych z części słów rękopisu, a nie oryginalnych tabel. Test nie bada też innych możliwych wariantów ani nie uzasadnia wykluczenia hipotezy ogólnej.",
+     "werdykt": "Nierozstrzygający; słaba przesłanka przeciw badanej rekonstrukcji Naibbe, nie podstawa do uznania hipotezy za obaloną.",
+     "pewność": 0.9,
+     "zmiana_zdania": "tak — nie przyjmuję werdyktu automatycznego jako rozstrzygającego, ponieważ kluczowe kontrole wykrywalności efektu i odporności na przetasowanie nie zostały zgłoszone."
+    }
+   },
+   "tencent/hy3": {
+    "raw": "",
+    "json": {}
+   }
+  },
+  "synthesis": "## Werdykt rady\n\n**Nierozstrzygający; test nie uzasadnia werdyktu „obalona”.** Zgoda jest częściowa: raport pokazuje różnice między badaną rekonstrukcją a rękopisem, ale nie potwierdza wiarygodności metody w wymaganych kontrolach.\n\n## Co test naprawdę pokazuje\n\nW badanej rekonstrukcji h2 jest zbliżone do wyniku dla rękopisu (2,30 wobec 2,35), natomiast hapaksy wyraźnie się różnią (49% wobec 70%); różnią się też MI krawędzi (0,012 wobec 0,168) i odsetek podobnych sąsiadów (2,4% wobec 5,0%). To przemawia przeciw **tej rekonstrukcji**, nie rozstrzyga jednak całej hipotezy.\n\n## Główne zastrzeżenia\n\nZgłoszone kontrole sprawdzają rozpoznanie języka i odwracalność szyfru, ale nie wykazują, że metoda wykrywa celowo podłożoną sygnaturę Naibbe ani że nie wykrywa jej w danych przetasowanych. Ponadto użyto rekonstrukcji i tabel zbudowanych z części słów rękopisu, a nie oryginalnych tabel. Raport nie podaje też niepewności ani progów interpretacji różnic.\n\n## Następny eksperyment\n\nPrzeprowadzić ślepy test walidacyjny tym samym pipeline’em na znanych, celowo zaszyfrowanych próbkach Naibbe oraz na odpowiednio przetasowanych próbkach kontrolnych.",
+  "failed": {},
+  "votes": {
+   "Nierozstrzygający; słaba przesłanka przeciw badanej rekonstrukcji Naibbe, nie podstawa do uznania hipotezy za obaloną.": 1
+  }
+ }
+}

@@ -1,0 +1,137 @@
+{
+ "theory": "cardan_grille",
+ "hypothesis": "Tekst to bełkot ułożony kratką Cardana z tabeli przedrostków, środków i końcówek (Rugg 2004).",
+ "method": "Symulacja kratki z trzema otworami nad tabelą fragmentów wziętych z rękopisu; porównanie z rękopisem.",
+ "verdict": "obalona",
+ "summary": "Kratka Cardana: odległość 2.44, różnica hapaksów 51%.",
+ "metrics": {
+  "grille": {
+   "profile": {
+    "tokens": 20000,
+    "types": 1142,
+    "type_token_ratio": 0.0571,
+    "hapax_ratio": 0.18563922942206654,
+    "mean_word_len": 4.16695,
+    "sd_word_len": 1.2434539386322279,
+    "top10_coverage": 0.18535,
+    "zipf_slope": -1.2591078717037407,
+    "adjacent_repeat": 0.004550227511375569,
+    "adjacent_near": 0.04040202010100505,
+    "vocab_density": 1.0,
+    "alphabet": 18,
+    "h0": 4.169925001442312,
+    "h1": 3.7493474121600245,
+    "h2": 1.9187902271807369,
+    "h3": 1.677768725484447,
+    "positional_rigidity": 0.8263478083490323,
+    "order_consistency": 0.925574397137164,
+    "edge_mi": 0.0011268062752627205
+   },
+   "distance": 2.4386223758280345
+  },
+  "voynich": {
+   "tokens": 20000,
+   "types": 4996,
+   "type_token_ratio": 0.2498,
+   "hapax_ratio": 0.6977582065652522,
+   "mean_word_len": 4.17865,
+   "sd_word_len": 1.5924930698436335,
+   "top10_coverage": 0.12885,
+   "zipf_slope": -1.0143997045285058,
+   "adjacent_repeat": 0.009050452522626132,
+   "adjacent_near": 0.049852492624631234,
+   "vocab_density": 0.9375,
+   "alphabet": 34,
+   "h0": 5.087462841250339,
+   "h1": 3.874085406852563,
+   "h2": 2.3504806136630836,
+   "h3": 2.1258258320678918,
+   "positional_rigidity": 0.760856283766786,
+   "order_consistency": 0.8761355026674061,
+   "edge_mi": 0.1676006379439365
+  },
+  "hapax_gap": 0.5121189771431857
+ },
+ "controls": [
+  {
+   "name": "rozpoznanie języka",
+   "expectation": "druga próbka łaciny najbliżej pierwszej",
+   "observed": "najbliżej: Latin",
+   "passed": true
+  }
+ ],
+ "evidence": [
+  "Kratka Cardana: odległość 2.44, h2=1.92 (rękopis 2.35), hapaksy 19% (70%), MI krawędzi 0.001 (0.168), podobni sąsiedzi 4.0% (5.0%)."
+ ],
+ "caveats": [
+  "Wynik zależy od budowy tabeli fragmentów; tu fragmenty i ich częstości wzięto z samego rękopisu."
+ ],
+ "references": [
+  "G. Rugg, An elegant hoax? Cryptologia 28 (2004)",
+  "Zandbergen, arXiv:2104.12548",
+  "Evidence of Layered Positional and Directional Constraints, arXiv:2604.19762"
+ ],
+ "artifacts": [],
+ "seconds": 8.980436086654663,
+ "council": {
+  "members": [
+   "z-ai/glm-5.3-flash",
+   "openai/gpt-6-luna",
+   "tencent/hy3"
+  ],
+  "chair": "openai/gpt-6-luna",
+  "round1": {
+   "z-ai/glm-5.3-flash": {
+    "raw": "",
+    "json": {}
+   },
+   "openai/gpt-6-luna": {
+    "raw": "{\"werdykt\":\"metoda niewiarygodna\",\"pewność\":0.96,\"najmocniejszy_dowód\":\"Raport nie wykazuje wymaganych kontroli: czy metoda odzyskuje celowo podłożony efekt kratki Cardana i czy nie wykrywa go w danych przetasowanych. Kontrola rozpoznawania języka nie sprawdza tych warunków.\",\"słabości\":[\"Tabela fragmentów i ich częstości pochodzą z samego rękopisu, więc wynik zależy od konstrukcji modelu.\",\"Wyniki wskazują na rozbieżności — m.in. hapaksy 19% wobec 70% oraz MI krawędzi 0,001 wobec 0,168 — ale bez właściwych kontroli nie wiadomo, czy test je ocenia trafnie.\",\"Raport nie podaje niepewności ani wyników dla alternatywnych ustawień kratki.\"],\"inne_wyjaśnienia\":[\"Zastosowana tabela lub ustawienia kratki mogą nie odpowiadać wersji hipotezy, którą test miał sprawdzić.\",\"Rozbieżności mogą wynikać z doboru fragmentów i częstości z rękopisu, a nie z rozstrzygającego testu hipotezy.\"],\"następny_test\":\"Przeprowadzić ślepy, z góry określony test symulacyjny: sprawdzić, czy ta sama procedura odzyskuje efekt w danych celowo wygenerowanych kratką Cardana i nie wykrywa go w danych przetasowanych; tabelę i ustawienia ustalić niezależnie od rękopisu.\"}",
+    "json": {
+     "werdykt": "metoda niewiarygodna",
+     "pewność": 0.96,
+     "najmocniejszy_dowód": "Raport nie wykazuje wymaganych kontroli: czy metoda odzyskuje celowo podłożony efekt kratki Cardana i czy nie wykrywa go w danych przetasowanych. Kontrola rozpoznawania języka nie sprawdza tych warunków.",
+     "słabości": [
+      "Tabela fragmentów i ich częstości pochodzą z samego rękopisu, więc wynik zależy od konstrukcji modelu.",
+      "Wyniki wskazują na rozbieżności — m.in. hapaksy 19% wobec 70% oraz MI krawędzi 0,001 wobec 0,168 — ale bez właściwych kontroli nie wiadomo, czy test je ocenia trafnie.",
+      "Raport nie podaje niepewności ani wyników dla alternatywnych ustawień kratki."
+     ],
+     "inne_wyjaśnienia": [
+      "Zastosowana tabela lub ustawienia kratki mogą nie odpowiadać wersji hipotezy, którą test miał sprawdzić.",
+      "Rozbieżności mogą wynikać z doboru fragmentów i częstości z rękopisu, a nie z rozstrzygającego testu hipotezy."
+     ],
+     "następny_test": "Przeprowadzić ślepy, z góry określony test symulacyjny: sprawdzić, czy ta sama procedura odzyskuje efekt w danych celowo wygenerowanych kratką Cardana i nie wykrywa go w danych przetasowanych; tabelę i ustawienia ustalić niezależnie od rękopisu."
+    }
+   },
+   "tencent/hy3": {
+    "raw": "",
+    "json": {}
+   }
+  },
+  "round2": {
+   "z-ai/glm-5.3-flash": {
+    "raw": "",
+    "json": {}
+   },
+   "openai/gpt-6-luna": {
+    "raw": "{\"ranking\":[],\"uwagi\":\"Opinie A i C są puste, więc nie ma ich treści do porównania ani uzasadnionego rankingu. Raport pokazuje duże różnice między symulacją kratki a rękopisem: zwłaszcza hapaksy (19% wobec 70%) i MI krawędzi (0,001 wobec 0,168). Nie podano jednak kontroli wykazujących, że metoda wykrywa efekt celowo podłożony i nie wykrywa go w danych przetasowanych. Kontrola rozpoznawania łaciny tego nie zastępuje. Ponadto tabela fragmentów i ich częstości pochodzą z samego rękopisu, a wynik zależy od jej budowy.\",\"werdykt\":\"Wynik osłabia konkretną symulację kratki Cardana opisaną w raporcie, ale bez wymaganych kontroli nie uzasadnia wiarygodnego, ogólnego obalenia hipotezy. Nie bada też wszystkich możliwych wariantów tej metody. Najbardziej rozstrzygający następny test: z góry określona, niezależnie zbudowana tabela i procedura, sprawdzone na danych z celowo podłożonym efektem oraz danych przetasowanych.\",\"pewność\":0.93,\"zmiana_zdania\":\"nie — raport nie zawiera wystarczających kontroli, by uznać automatyczny werdykt za wiarygodny; opinie A i C są puste.\"}",
+    "json": {
+     "ranking": [],
+     "uwagi": "Opinie A i C są puste, więc nie ma ich treści do porównania ani uzasadnionego rankingu. Raport pokazuje duże różnice między symulacją kratki a rękopisem: zwłaszcza hapaksy (19% wobec 70%) i MI krawędzi (0,001 wobec 0,168). Nie podano jednak kontroli wykazujących, że metoda wykrywa efekt celowo podłożony i nie wykrywa go w danych przetasowanych. Kontrola rozpoznawania łaciny tego nie zastępuje. Ponadto tabela fragmentów i ich częstości pochodzą z samego rękopisu, a wynik zależy od jej budowy.",
+     "werdykt": "Wynik osłabia konkretną symulację kratki Cardana opisaną w raporcie, ale bez wymaganych kontroli nie uzasadnia wiarygodnego, ogólnego obalenia hipotezy. Nie bada też wszystkich możliwych wariantów tej metody. Najbardziej rozstrzygający następny test: z góry określona, niezależnie zbudowana tabela i procedura, sprawdzone na danych z celowo podłożonym efektem oraz danych przetasowanych.",
+     "pewność": 0.93,
+     "zmiana_zdania": "nie — raport nie zawiera wystarczających kontroli, by uznać automatyczny werdykt za wiarygodny; opinie A i C są puste."
+    }
+   },
+   "tencent/hy3": {
+    "raw": "",
+    "json": {}
+   }
+  },
+  "synthesis": "## Werdykt rady\n**Automatyczne „obalona” nie jest uzasadnione.** Raport nie wykazuje wymaganych kontroli metody, więc test należy uznać za niewiarygodny jako rozstrzygający.\n\n## Poziom zgody\nTylko członek B przedstawił opinię merytoryczną; opinie A i C są puste. Nie ma podstaw do stwierdzenia zgodnej oceny całej rady.\n\n## Co test naprawdę pokazuje\nW opisanej symulacji profil różni się od profilu rękopisu: hapaksy wynoszą ok. 19% wobec 70%, a MI krawędzi 0,001 wobec 0,168. To osłabia **ten konkretny wariant symulacji**, ale samo nie dowodzi, że test trafnie rozpoznaje hipotezę. Kontrola rozpoznawania łaciny nie sprawdza skuteczności kratki Cardana.\n\n## Główne zastrzeżenia\nNie wykazano, że procedura odzyskuje efekt celowo podłożony ani że nie wykrywa go w danych przetasowanych. Ponadto tabela fragmentów i ich częstości pochodzą z rękopisu, a wynik zależy od budowy tabeli. Raport nie podaje też niepewności ani wyników dla alternatywnych ustawień.\n\n## Rekomendowany następny eksperyment\nPrzeprowadzić z góry określony test z tabelą i ustawieniami ustalonymi niezależnie od rękopisu; sprawdzić tę samą procedurę zarówno na danych z celowo podłożonym efektem Cardana, jak i na danych przetasowanych.",
+  "failed": {},
+  "votes": {
+   "Wynik osłabia konkretną symulację kratki Cardana opisaną w raporcie, ale bez wymaganych kontroli nie uzasadnia wiarygodnego, ogólnego obalenia hipotezy. Nie bada też wszystkich możliwych wariantów tej metody. Najbardziej rozstrzygający następny test: z góry określona, niezależnie zbudowana tabela i procedura, sprawdzone na danych z celowo podłożonym efektem oraz danych przetasowanych.": 1
+  }
+ }
+}

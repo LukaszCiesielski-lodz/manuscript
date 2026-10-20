@@ -1,0 +1,330 @@
+# Brakujące strony – tekst wygenerowany przez model (SYNTETYCZNY)
+
+To nie jest rekonstrukcja zaginionej treści, tylko tekst o statystyce rękopisu.
+
+## f12 (herbal, język A, skryba 1)
+
+    tshor oporor orchy chpchol chpcheol ytol chopchar
+    ykchey chol cthoor qokchey chor cheteg
+    kcheor ol cheol qok odal lseeey keodam
+    ytcheoqo chos ckheos cheoy s cheol sal dain
+    ksheol qoar cfhs ykaiin saral aiim am
+    san ainy keol dair old ain atolg
+    yksho qos arolor or al daraiing
+    saiin olcthr
+
+## f59 (stars, język A, skryba 3)
+
+    kol sheol opchey shol opchey qotol chy daiin ol chor o raiin odain
+    okeey l keeody chotcheeody lkchedy okol lpchedy qotor lpaiin otaiin chedy qotaiin
+    oteedcheol daiin chokar qotol qotched chol chey qol chedy qoeeey qokeedy
+    dcheol chdeey oeeodain s airol chedal
+    solchd shol sheol qokchy qoka l chedy shedy qokain cheedy cpheo apchedy qotady
+    o scheo lchody cheey qocky cheo ain o chedy cheedy chedy sol cheodalol
+    tchodls cheeody cheeool ls air ykeedy chotedy qotchedy chedy qoeky qoteeo lo
+    ycheo lcheod otaiin qokeedy qokaiin cheor ol chedaiin qotar chedy qoty dal
+    shol cheedy qokaiin qoteedy otaiin oteedy qotedor okain cheos cheeo lchey
+    ycheedy qocthhy ykchedor cheeky qokchd qotol qokol qokol daiin
+    polchechy oteoy chotchs cheeta oteeey oteedy qoty ched l cheol par oltedy chedam
+    ycheol cheody qoeechdy qokeol qotaiin chedar cheo lkaiin cheetar aiin cheitaiin
+    ytohedy qokeeo lcheolshedy s aiin cheky daindl
+    tolkshey chocthy qokeochy qokchy qotcheo qotcheo dlchd chedy tchdy qotchdy ram
+    dcheedy qockheey chdor as aiin chcthhy dchdar chdy qokchedy olkchy qokain dadam
+    ycheechy cheey cheos ais otkchedy cholkchy qotchdy qotol sheedy or ain cheol
+    dcheeoy qokaiiin qokaiin lkar ytaiin otcheochy sarain
+    pcheor chol chpcheor cholkshedy qotol sheedy qokchy qotched sho fchor ols aiin chekal
+    or sheeo lcheedy qokeey qochey qotcheedy qotchedy qokol chor chorol chdar otam
+    yshor sheedy qokaiin shokchey qokeey chodain
+    ytchedy qokchedy qotchy qokchedy qokchd ls aiin qchor sheor ytaiin chey tal
+    tchey qokchey qochey qodeey qodaiin chodaiin chckhdy dairar otar
+    ykaiin cheor cheeey daiiin cheo dalaiin chockhedy chedaiin otor qokar ary
+    dsheey qoykeey lchedy qokedaiin ar chcthy daiin cheey sair ol aiin chedy
+    ysheor sheey qodaiin chodar chochs
+    pchoror shor sheol sheol sheol qokchedy chdor sho r aiin chpchs aiin al
+    olsho lsair olcheey qokeechy qokchy daiin chody qodaiin cheody
+    kche shodaiin qokeey cheokcheo lol kaiin qotchdy lcheo l chedy l cheed chaim
+    ycheol kaiin cheody shaiin qoeeol otair or cheeody okcheey lkair ar ar adam
+    y cheoraiin cthey chol sheody qokair qoeey cheey lkeedy
+    pchedy kchedy cheocphey or ain cheeos aiiiro lcheedy lcheedy qosaiin cfheo ar als am
+    yteeey cheeod ykeey kaiin qokaiin cheey or ol ar odar chedain etar ar air ary
+    ycheo lkeed qotain okaiin chokain okain cheol olcho
+    psheodar sheedy qotchedar oteedy qotaiin okaifhhy sheody qokedy topaiin am
+    sar aiir sheos qoiiin okeedy qokcheodaiin
+    posairy ytedar chedy shoefcheey kechy sar odl air shey qopcheey sol ain arodam
+    okechey chedy chchy qotain qokain chey or aiin cheo or aiin chedain okam
+    yshey a kain char lkeey roiir shey cheey kar ar lkchs ar y ais alod
+    qokeeey okchedy qokeey aiin odain orchedy qoky
+    tchedy qotechy otcheeo l keedy qoty raiin cheedy qotaiin otchdy qotain
+    oteedchey qoeeda lchal cheedy qoteey sheey teeeo dar cheed qotain chedy
+    chey keeey qockheey lkeey o keeedy qokeey okchey okain orom
+    daiin y cheeo chey okeeey qokeeey okeey okeey okeey
+
+## f60 (stars, język A, skryba 3)
+
+    fshor opchy chpaiin oldy shey qopchy oty daiin ol or ytor oky
+    ykeey qokaiin okain ol kaiin okar chedy qoka dar aiin okal dy
+    lolkor ol shedy ol aiin okal ol chdy ldaldy ytaiin or
+    okain sheky okar ol kaiin okar ar okal otal chckhy okairol otam
+    daiin shody shockhy okeey oleeckhy daiin ottedy kedy cheoly
+    saiin daiin otedy qokeey chey qokeedy okedy ror okeedy okal
+    salkeey sor shecthy daiin okor chpchedy cpchy oty olor otchy r alchl
+    s otain okain chcthedy qoteed y kedy okedy chedy otedy teyteg
+    qotees olkeey okeedy qoeeedy chckhey sheor aiin otar cheedy lchedy
+    doteey qo okaiin oteedy otedy cheolchdy okeedy otedy qokedy okedar da
+    qokeedy ochedy roiin sheedy qokeedy okeedy olor okeedy qolkchey r ol
+    sheor chey ral cheey r al cheedy
+    cphdor shedal qopchdy dshedy shedy tchedy lsheetal shecphy daiin dy
+    cheor sheedy daiin oekeedy qokeey qokedy oteedy shedy qokedy shedam
+    solsheol sheey lteedy qokeedy qotal chedy checthy otedeey qokol chedy deey
+    saiin sheedy qol sheedy okeeedy qoteedy chedy qotedy oleeedy qoteedy lo
+    qokeedy qol cheedy otedy cthedy otedy qoteedy shcthedy qoeekeedy deedy
+    tchedy lsheedy chedal chedy checthey
+    polshdal otedair opshedal qokedy shedy fschedal tsheokeedy oshepols
+    sar olkeey shokaiin sheolol otedy qekchdy qoeeedy qokedy lkedy chdy
+    lshey qockhedy qodeey qolkeedy qokedy chol chedchey daiin olkedy
+    or as sheey otar shedy otchedy checkhey olchedy checkhy checkhy lky
+    dol sheetey qokedy ol checkhy lshedy qokeedy cheedy qokeedy shl
+    cthedy oteol chdar chckhy chees salkchdy chey lcheedy lchedy qoteedy
+    sol shey qotedy chey dytey teedy lchey qokedy chedy lal chedy lchedy
+    dchedy qokeedy qotchy qokol shedy shedy chedy shetey saiin
+    qokeey lsheey dal lchedy olshey
+    psheoldy opalshedy qokshedy qokedy dor shey opchedy dal so fcham
+    dshol qokaiin ches daiin checkhy oteoldy qokeey chckhy lar aly
+    daiin shckhey qokeedy saiin chek ain r ain o kan chlaiiin
+    saiin sheckhy cheolchey qokedy sair sheckhy l keedy lchedy
+    sar sheedy qokeedy qolkey lchdy schees shees al ches okaiin alaldy
+    tchedy lshees aiin chees tchy rshed chkaiin sheky shtal cheedy lsan
+    sair shekaiiin shets aiiin shety otey okaiin otedy qotar chedy
+    tain sheey qotain chedy qokaiin chedy taiin chckhedy otol oty
+    saiin otaiin shckhedy
+    sakaiin okeedy chedy qotain cphey opcheey oty saiin otary
+    ychees alchedy qokeedy lshedy tolchedy lchedy qoky saiin olor
+    daiin cheol teey lshety okeey qeedy
+    qoeedy lchedy chees ol oiiin chchky shekeey qokey qoky saiin sy
+    saiin chedy shedy qokeedy lol saiiin qokain chey r al r aiin dl
+    sshey lshedy qokaiin shedy okedy san ol keedy sor qoky dedy
+    sol shedy qoky daiin shedy chey qokaiin cheedy qo char aiin
+    sol shey chedy qokedy chedy qol r aiin shedy
+
+## f61 (stars, język A, skryba 3)
+
+    psheol oteol orair olchor ol chey qoteol chotol sheol daiin sheol okeol chor chol okeol chotol okeol chosol shody qokol cheol s oiin ol cheol doleeody okeol ctheol qosaiin shockhy ol cheol okeol ctheol sheol qockhey soiin sol cheol eeeor qokeey ctheey yteeody qokeey shol cheol deody qokeody chor oeey qokeo choy chody s aiin okeeody chodaiin cthy okody dar
+    ycheor dain cheokal ykhody cheeods oraiin qoeey cthey dain dydy
+    ksear lol keeol otal or ol aiin okeod ykhey dain olcheol cthey qekeoldy qocthor sheody qockhhey odaiin shoytolaiin dy
+    yaiin ol olor daiin okeey qok ykeol daiin qockhy daiin qokeol dol oraiin oldaiin rch qokeeeor s ydy cheor okeey choldy dar
+    teeeol sheol qokeor ykhol olcho r chokey chor ctheey cheeody cheey keo cheol daiiin deeor cheedy
+    dcheol cheol dkqol chey cheol daiiin cteey cheor ykeey cheky
+
+## f62 (stars, język A, skryba 3)
+
+    kolkeedy oteedy lpchedey ofchedal par otealchedy qotar otar chedy qoky
+    sain cheol chol odaiin chey qokaiin ar akaiin cheey lkar ar okal
+    pairar al oro lkeey qotal cheotain dar okaiin otaiin otar opaim
+    daiin shl lkeeol lchedy qokor lkaiin chedy qotaiin al ol kaldaim
+    dar alchor kcheo rkeey chaiin al dal qokchey qokl chey lkaiin lkar
+    ychklkaiin chckhy cho l olkain
+    poaral orar ofchey qoteedy qotaiin opchedy qokchey otlchdain aly
+    tair cheol cheol kchekain cheear ol oiin cho lkain al oeedy chey
+    lolkaiin chey qokaiin chal aiin okaiin olkar otair okal okal
+    qokaiin ar ockhey qokal otal otam
+    pcholky sokeey aiin oteey ykchey paichy okeey tain ar arodl kairam
+    okeear aithy daiin sheody ykchedy chykaiin otal taiin chotaiir aram
+    ycheodain okeey qokeeody qokaiin
+    podky chedy qockhy qokeedy qokokil y chees opal kaiin otaiin otaram
+    sar cheey qodaiin qokaiin ol cheor aiin otal taiin qokaiin otal alkal
+    okain cheey lol loeey oiinal
+    fairal chkal lky otain ar kalkal qotain oty lky otaiin ytaiin om
+    o alain aikhy chkain okair chtl lkaiin okair chtl raithty
+    chain al lkeey chol taidy qotaiin y taiin lkl lfchal pchdy pal tar
+    sar ain chol ol cheey otal otal ol otchy qoky otaily
+
+## f63 (stars, język A, skryba 3)
+
+    fshar qofy chealkaiin opaichy oteal ar alkaiin opalkeedy qotar al kaiin oty
+    daiin shey qokeey okaiin ykal chody qokal chody lkaiin lkalody
+    dair cheky okechy qokain shocthy otaiin alkaiin
+    tol sheockhedy qotol chdor otechdy teol tedaiin opchedy qopchdy ytar aiiil
+    paiin okaiin qokaiy olkeedy qokeey qotaiin oky lkal otaiin aiin qokaldy
+    taiin cheockhy chain qokain
+    polcheolkain qokair okeol qokol qokaiin opcheol qotedy ltedy otedam
+    saiin shey kedy qokain qokedy qokaiin y lkaiin qoky lkal tar aty
+    shodaiin shey qokair qokaiin chokedy tain shedy
+    tshedy okal shedy qokchey chky qokeey qotaiin otol qoteedy qopchcfhy
+    qokeey lcheol chol kaiin olkal shedy qokaly odar choty qokaiin otam
+    ycheey qokain ockheody qokair otal qokaiin otal shocky qokaiin dalam
+    daiin shaiin okaiin qokar qokal qokal cheody qokain okchdy dlkal
+    solain qokal okeey lkaiin okain chkal otain chcthy tarairy
+    parair okal opchol okal opaiin otedy qokeody tolkol lkar aiiraly
+    saiin or ykeear chckhy okaiin okal qoklaiin cheol qokar chey lkam
+    qokain qokchey qekchdy okaiin lkl chol raiin otaiin alkaiin dal
+    soral olaiin chor okaiin chkain okaiin
+    palar or air kalkal okaiin chpal cheody qopchedy pcholkal opalkam
+    taiin ol kaiin chol kchedy qokol ain air kaiin okal otar otalal
+    dar alol olaiin olkal chol chdar
+    palchar ar akaiiky char raikchy opchain opalkar otal otar alky
+    dain olaiin chol olkain lkaiin
+    kaolkar kolkar okeol qokeor al tody opchey oty al ky pchey rag
+    oraiin sheor qokain cheody qokain otal okaiin olkeeo r ar al oldy
+    dal okain okchey qokshy okol lkshedy taraiin sho qokor cheey qokam
+    y cheor cheol lcheedy raraiin
+    tolkeeedy okeol cheody qokeey qokchedy qotyshey qcthhy lty ltam
+    okain ol okaiin lkeody otaiin chol lkaiin lkeeey qokaiin chey qoky
+    sokod chey lkaiin chedy qe okeody qokeedy rary
+    tay oaiin okeeody okaiin otaiin otchey qokaiin otedy qokam
+    orain chol qodaiin odain aiin okain chkaly raiin y kaiin aldy
+    dyair chey lkchy lchedy raiin sheey
+    polchedy olkeey lkey chcthy lkar shedy qokaiin chedy qokeedy lol
+    tol chey lcheor sheol qokaiin olkeedy okar ar olkain odain
+    poraiin o kal chedy qolkeey lpcheedy qokol rol keedy okaiin otary
+    dain okchey qokchey qokaiin olkeey qokol oteey oteey lkain
+    okain cheor olkaiin oain cheary raiin okoiin odaiin okaiin y
+    chokeey qokey qokaiii lor aiin aiily
+    pokar ar keey okeeo l cheey qokchey oteey lkeeo l lkeedy qokeey lkain
+    or ain oloeeey qokain
+    pol keeeo kaiisr qokeey chckhy lkchaly lkeey opchey rar aiin cheokaly
+    kaich o l air arody qokeey qokeey
+    porain okain okechdy dal keeedal shedy okeeolkcheey lkar aiin al
+    soain aiin chey qolaiin al chedy kedy qoteey oteey qokeeylkain
+    y cheey qokeey okeoteey qokey qokey qokeey daiin y okeey odain
+    oteedy qokey qokeedy chody chey qoky oteey otain chey aiinal
+
+## f64 (stars, język A, skryba 3)
+
+    kody shecphy qotedy fchdy opchedy qotchy r aiin chety saly
+    sshol qotchedy ykaiin chcthy oky r aiin chaiin
+    tshedy okal cheey qokain checkhy qokal checkhy qokal checkhdy qokal
+    qokaiin cheky rar chedy qokal dar y qotal dal rain
+    solkchedy shar ytal dy dychedy lkchey qokedy rched
+    tchor sheey qokain qokain sheol qokeedy qokal dary
+    qotchy qokal shedy qokedy lchedy qokedy qol raiin chey
+    schedy qotar sarolsheedy qokain cheey roiin daiin shey
+    toldal shedy qokedy qokain dolcheedy rolchedy qokedy
+    dcheol kchedy soikhey qokal qokal shedy sholdy qotal dar
+    qokeey rol chdor cheey qokaiin saiin shedy qokeedy qokam
+    chedy lchedy lkaiin dy qokal dar chdain ldchey ol raiin oldy
+    tcheey qokeey qokal lchedy cheolkaiin okol
+
+## f74 (cosmological, język ?, skryba 4)
+
+    tchor chor opcheol chy shol ol sheaiin chepchy shckhey cheo aiin cheol
+    dcheol ytchey daiin chokcheody chotam otchol shol otam
+    qooain sheor okeos cheol aiin oral sheo ksheey qokchey qokchy or l aiiin chey qokaiin okaiin
+    ar aiin dal qokar aiiin otal taiin qokaiin okar al olkaly
+    qokaiin ar aiin qokal chol kaiin okaiin okar al ochedy qokl olkal
+    qokaiin olkal ol keeol
+    paiir or olkal chedy dolkal otar or aiin okal otary
+
+## f91 (herbal, język A, skryba 1)
+
+    torshor or chpcheol chor ytol shor chy cthy
+    qotchey choty chor chody sho chol sho chdy
+    dchy chkchy sho choldy kor ol chy daiin
+    sho kos cheor chol dol chodaiin shokchy daiin
+    otol chol chor chol daiin chotaiin daiin
+    scho r cho kchol daiin shcfhy daiin dsho daiin
+    okchey daiin cphol daiin cphol daiin oty okol
+    soiin otaiin chokchey tchol daiin dain
+    qotol shol daiin otaiin
+
+## f92 (herbal, język A, skryba 1)
+
+    pchodaiin sho pchy oty odaiin chol chol chor kar cthy dy
+    dchy cho keey chol chodaiin shoo koeam
+    shoor chor chckhsd cheor shey qokeol daiin chetey cheo okeeody cheo lkeeody kcheeol daiin eteeos ctheody ctheo olchor
+    olaiin okeol cheo kol ches sheey qoor qokeody cheor okeo cheey cthey ory ctheey qokeey shol ody cheol oralar shey qokar ary
+    sal chol choly okeey dal qol shckheol chol cthear keeol ol chs oraiin qokeeey soiin qodaiin cheol qokeey daiin cheodam
+    teol cheol etchey r cheol cthol cholaiin chol qkar
+
+## f97 (herbal, język A, skryba 1)
+
+    pofchor oporody opy chor ody opydy cphy
+    qokor chol qodchy qoky chokor chkor choky daiin dy chol daiin
+    okchor r chey qokchy qotoral cho chain deeaiir s
+    qotor chy chol chor cthy daiin ctholdy
+    chotchol daiin cthom dy
+    dchor daiin chy kol daiin
+
+## f98 (herbal, język A, skryba 1)
+
+    okcheody choly r chor chey keody shy chey kchey cheoty choty shokaiin
+    olchey chokchol chey keey qokeey chokeey choksy
+    qot chor chor chokor chkor chy okar chdy
+    chochor cho chodaly daiin
+    ykcho dy dchey keey daiin y
+    sho kchol otchor choky dal
+    schol choy choky cheeckhody
+    tchoky kchol shol chotchey tchol
+    yt chor otchy chok y t chey r okaiin
+    shy kcheey daiin cthol chos chokor
+    sh cho kchey qokokchy
+    okchy chokcheo kchal
+
+## f109 (stars, język B, skryba 3)
+
+    tol shey qofchey opchey oty daiin y qokor oky daiin chol dain
+    oteodaiin otar cheey qotchy chody qotaiin oteeey dain
+    sho cheodaiin sheey tcheey taiin l kchey otain lfaiin y
+    chol cheol kchedy qokeey qokchedy qokl sheedy qokaiin chear alam
+    saiin ychear olsheey chetain chedy qokain okain al chan okalchey lkeeey
+    qokaiin sheckhy qokar chalkain chckhedy lcheol okaiin qokain cheol daiin lam
+    cheodain qokar otain chedy lkain chey shckhy qokl chedy qokar chctham
+    tair alchedar shykaiin
+    polar ar okshey qokain chey kal keedy qopchedy qopchey ltchs alpchdar
+    ol sheey tsheey alkar sheey otain ches shy qokl chey qoklcheor ldar llo
+    qorchain okain chear lkain
+    polkiin cheopaiin otain shedy pchedy opcheedy qokain chcfhey otchey lldy
+    shokar okeokain sheekain qokain chechey qokeey qetain otain ar lkain lky
+    pochey oteain chekain cheal lain chey qokain chey lkain chal ldy llm
+    tar chey tain chkar alkar chey qol chedy okain chey l cheey charan
+    y sheeil ain okan sheain y qokan chan aman cheal char
+    polar okar teody qokain talol tarol opchedy qotar otar chtal sam
+    oain okaiin chcthy lkain lchey lshekain qotal shedy chkeey lkeeed lkain y
+    shain okaiin chey qokar ar ar ain olr ar olor
+    polchey lkarshar ykain qokain shalky dy tor chey keedy lteedy r aldl
+    ycheey o aiin checkhey otain qotl chear chedy qokeey okeedy lkeey
+    dsheey qokal chedy chcthy qokain chedy lkeey shey qokain chedy lchdy
+    ykeeey lkain chckhy chokain chckhal sheckhedy qokeey qokeedy lchsl
+    oteey l chedy teeedy lkeey oteedy okedy chedy qokeey checthy qotal
+    cheeo l keey chear qokeain okeeor cheedy okain chedy chedy teedy lcheam
+    ycheo daiin sheeky chokeal sheekar okaiin otain chear alo laiin chotag
+    dain teeodain cheeal olaiin or
+    pollaiin okain sheal pchedain opchey polshy okshey opchedy qopchair alky
+    sol chey lkeey rolkeey chckhy okeeey lchedy lkeain checthy qotainaly
+    sain cheey qokeey cheytain olain ykeeedy chekain chckhey lchar
+    psalar cheey qekal cheykaiin tain chal al skaiin okchedy opchdal opchy
+    soiry cheey chkain chal lor sheey qokain okain chey qokain o keey
+    shaiin qoiiin okain chey qokeeey okain chees ar ol loeees otain or
+    sain cheal chckhy okain okal aiin choty chckhy
+
+## f110 (stars, język B, skryba 3)
+
+    pchedy or ain chcphey opchedy otedy okshed qotedy qotain otar oteey lol
+    dchedy shedy qokal ol chedy qotaldy qokain dal olchedy qotal
+    qokain or cheey qoteedy cheol qokeey cheal chedytehy okeedal aly
+    daiin chechy qokeedy sholchedy qokeedy qokeedy otedy qotedy
+    qokeedy shedy qoshol tedy chedy lkedy qokeey qokedy chedy raiin chey otar dar
+    dar sheor shcthy qokeor qotedy rshedy qolchey oteey qol shedy ol dain ol or
+    pol tar shedy qokedy okal shey qokar chckhy otchey qokchedy chey qokaiin
+    pchedy qotchedy otaiiin chcthy shedy otedy qoty qotedy ol okedy otedy ram
+    qotol shcthhy oty dar shcthy schdy qokeedy olkey
+    palchd shcthy olky dar opalkaiin o qofchedy or aiiin ofoly oroly
+    sar ol olaiin y qol y qor or ckhedy chkedy okain shedy qokolchedy olain
+    qokeedy okeey dar olchedy qsolkeedy rar checkhy otar chedy olchcthy lor
+    dchdy qokedy ol chckhy olchdy sar or ykeedy chetey rain shedy shekam
+    ykchdar or arar shedy qokal daiin shedy olkedy qokedy qoky chedy daiin
+    qotar ytedy tedy dar olkedy qotedy shckhy chtol tedy dar or oly
+    shol tchdy tedy ykain shey cheol y tedy ol kedy okedar ol keed ol ary
+    dsheyteey sor ol shedy daraldy otedaiin shckhchy chckhy daiin aryly
+    qokal daiin dain otey cheor air shckhy or air oro
+    shey dar shey dain aiin shedy orol ykar okedy qoky chedy okedar chey alol
+    qoteedy qokol otedy shedy qokeedy dal ol dam
+    s or olchdy lshedy qokchy dol otedy ytchor olky
+    dshedy sheedy qokedy chedy teedy qokeedy
+    qokeedy dkedy olshedy qokal shckhy olkeedy
+    dsheedy oteedy qotar chekar orshedy saiin
+    okaiin otchdy qokain shedy qokeey qotedy
+    qokain otchedy skeey rcheky dal okeedy
+    ykedy qotedy chcthy ol chcthy dar ar ory
+    yteolchedy qokor shekedy okedy cthhy dam
+    dchedy qokedy ar oror okedy okedy
+
