@@ -38,6 +38,7 @@ class LabConfig:
 
     # Images (Beinecke IIIF) and GPU work.
     image_width: int = 1024        # pixels; IIIF serves any size
+    images_dir: Path | None = None # optional folder of scans named f1r.jpg, f1v.jpg...; used before downloading
     clip_model: str = "ViT-L-14"   # open_clip architecture
     clip_pretrained: str = "openai"
     vlm_folios_limit: int = 0      # 0 = all herbal folios; set e.g. 20 to save money

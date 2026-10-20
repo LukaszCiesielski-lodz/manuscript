@@ -59,6 +59,7 @@ cfg = LabConfig(
     council_size=4,            # liczba modeli w radzie
     council_models=[],         # puste = najnowszy model każdego dostawcy z listy council_vendors
     vlm_folios_limit=0,        # 0 = wszystkie strony zielnika dla modelu wizyjnego (~130 obrazów)
+    images_dir=None,           # np. Path("/content/drive/MyDrive/voynich_skany"): pliki f1r.jpg, f1v.jpg...
     gpt_steps=6000,            # kroki uczenia transformera
     run_image_diffusion=False, # True: SDXL + LoRA dla brakujących stron (~1 h na A100)
 )
@@ -67,6 +68,10 @@ lab.connect()   # pokaże wybraną radę, model wizyjny i ceny"""),
     ("md", "## 3. Testy\nKażdą komórkę można uruchomić osobno. Wyniki zapisują się w `results/lab/<data>/`."),
     ("code", 'lab.run("numbers");'),
     ("code", 'lab.run("naibbe_cipher"); lab.run("cardan_grille"); lab.run("hebrew_anagram");'),
+    ("code", """# Próba pobrania jednego skanu z Beinecke. Jeśli tu jest błąd 403, serwer Yale odrzuca adresy Colaba:
+# wgraj skany na Dysk (pliki f1r.jpg, f1v.jpg...) i ustaw images_dir w ustawieniach.
+from voynich.lab import images
+print(images.fetch(images.single_folio_canvases()["f1v"], 512, cfg.cache_dir / "folios", cfg.images_dir))"""),
     ("code", 'lab.run("illustrations");   # pobiera skany z Beinecke (IIIF), liczy CLIP na GPU, pyta model wizyjny'),
     ("code", 'lab.run("generative");      # uczy transformer znakowy i generuje brakujące strony'),
     ("md", "## 4. Rada modeli\nTrzy rundy na każdy wynik: niezależne opinie, wzajemna recenzja anonimowych opinii, synteza przewodniczącego."),

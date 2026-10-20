@@ -70,6 +70,17 @@ class ImagesTest(unittest.TestCase):
         self.assertFalse(mapped & set(MISSING_FOLIOS))
 
 
+    def test_local_scans_come_first(self):
+        import tempfile
+        from pathlib import Path
+        from voynich.lab.images import fetch, image_urls
+        c = single_folio_canvases()["f1v"]
+        self.assertTrue(image_urls(c, 800)[0].endswith(f"{c['iiif']}/full/800,/0/default.jpg"))
+        with tempfile.TemporaryDirectory() as d:
+            (Path(d) / "f1v.jpg").write_bytes(b"x" * 2000)
+            self.assertEqual(fetch(c, 800, Path(d) / "cache", Path(d)), Path(d) / "f1v.jpg")
+
+
 class NumbersTest(unittest.TestCase):
     def test_numeral_systems(self):
         self.assertEqual("".join(numbers.roman(1444)), "MCDXLIV")

@@ -261,7 +261,7 @@ def train_image_lora(cfg: LabConfig, pages: list[dict], out_dir: Path) -> Path:
     data_dir = out_dir / "lora_data"
     data_dir.mkdir(parents=True, exist_ok=True)
     folios = sorted({base_folio(p["folio"]) for p in pages})
-    paths = fetch_folios(folios, 1024, cfg.cache_dir / "folios")
+    paths = fetch_folios(folios, 1024, cfg.cache_dir / "folios", cfg.images_dir)
     section = {base_folio(p["folio"]): p["section"] for p in pages}
     with open(data_dir / "metadata.jsonl", "w") as fh:
         for f, path in paths.items():

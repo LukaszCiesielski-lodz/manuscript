@@ -286,8 +286,12 @@ def run(cfg: LabConfig, client=None, vision_model: str = "") -> TheoryResult:
     if client is not None and vision_model:
         from ..images import fetch_folios
         target = herbal[: cfg.vlm_folios_limit] if cfg.vlm_folios_limit else herbal
-        paths = fetch_folios(target, cfg.image_width, cfg.cache_dir / "folios")
-        names = vlm_plant_names(paths, cfg, client, vision_model)
+        try:
+            paths = fetch_folios(target, cfg.image_width, cfg.cache_dir / "folios", cfg.images_dir)
+        except OSError as e:
+            paths = {}
+            res.evidence.append(f"C: pominięte, brak skanów ({e}).")
+        names = vlm_plant_names(paths, cfg, client, vision_model) if paths else {}
         (cfg.results_dir / "plant_names.json").parent.mkdir(parents=True, exist_ok=True)
         (cfg.results_dir / "plant_names.json").write_text(json.dumps(names, ensure_ascii=False, indent=1))
         res.artifacts.append("plant_names.json")
@@ -304,9 +308,9 @@ def run(cfg: LabConfig, client=None, vision_model: str = "") -> TheoryResult:
 
     try:
         import numpy as np
-        if not paths:
-            from ..images import fetch_folios
-            paths = fetch_folios(herbal, cfg.image_width, cfg.cache_dir / "folios")
+        from ..images import fetch_folios
+        # All herbal folios for the Mantel test; ones already fetched for part C come from the cache.
+        paths = {**paths, **fetch_folios(herbal, cfg.image_width, cfg.cache_dir / "folios", cfg.images_dir)}
         folios = [f for f in herbal if f in paths]
         img = clip_similarity([paths[f] for f in folios], cfg)
         fw = {f: [w for l in lines if l.folio == f and l.kind.startswith("P") for w in l.words] for f in folios}
