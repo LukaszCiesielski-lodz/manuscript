@@ -65,6 +65,24 @@ Biblii, rękopis liczony w glifach).
 Wykluczamy konkretne hipotezy, nie wszystkie. Model trigramowy nie wychwyci
 szyfrów przestawieniowych, sylabicznych ani nomenklatorów (kodów całych słów).
 
+## Etap 3: Voynich Lab na Colabie
+
+`colab/Voynich_Lab.ipynb` uruchamia na GPU (Colab Pro, High-RAM) testy hipotez z kontrolami metody,
+a każdy wynik omawia rada modeli przez OpenRouter (opinie → wzajemna recenzja → synteza przewodniczącego).
+Werdykt testu wynika tylko z liczb i kontroli; rada go komentuje. Przegląd literatury: [`docs/LITERATURA.md`](docs/LITERATURA.md).
+
+| teoria | test | wynik lokalny (CPU, tryb szybki) |
+|---|---|---|
+| `numbers` | 5 systemów liczbowych sprzed 1450 r.; etykiety zodiaku jako dni 1–30 | obalona |
+| `illustrations` | słowa przy rysunkach; CLIP + test Mantela; nazwy roślin od modelu wizyjnego jako criby | części B i C tylko na Colabie |
+| `generative` | transformer znakowy, brakujące strony, klasyfikator prawdziwe/wygenerowane; opcjonalnie SDXL+LoRA | tylko na Colabie |
+| `naibbe_cipher` | szyfr Naibbe (Greshko 2025), rekonstrukcja z opisu | nierozstrzygnięta |
+| `cardan_grille` | bełkot z kratki Cardana (Rugg 2004) | obalona |
+| `hebrew_anagram` | hebrajskie anagramy (Hauer i Kondrak 2016) z kontrolą swoistości | metoda niewiarygodna |
+
+Sekrety Colaba: `GITHUB_TOKEN`, `OPENROUTER_API_KEY`. Wyniki trafiają na gałąź `lab-results`.
+Z wiersza poleceń: `python -m voynich.lab.runner --theories numbers,literature --quick --no-council`.
+
 ## Uruchomienie
 
 ```bash
@@ -90,6 +108,8 @@ python -m unittest                # testy
 | `voynich/latin.py` | pisownia średniowieczna, podział na sylaby, skróty skrybów |
 | `voynich/syllabic.py` | hipotezy sylabiczne, kod sylabiczny, niezmienniki na poziomie słów |
 | `voynich/cipher.py` | łamacz szyfrów podstawieniowych (wyżarzanie, kryterium MDL) |
+| `voynich/lab/` | laboratorium: konfiguracja, klient OpenRouter, rada modeli, skany IIIF, teorie, raport i push |
+| `colab/` | notebook Colab i skrypt, który go generuje |
 
 ## Dane i źródła
 

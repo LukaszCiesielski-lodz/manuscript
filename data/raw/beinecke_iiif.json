@@ -1,0 +1,1915 @@
+{
+"source": "https://collections.library.yale.edu/manifests/2002046",
+"provider": "Yale University Library, Beinecke Rare Book and Manuscript Library, MS 408",
+"image_url": "https://collections.library.yale.edu/iiif/2/{iiif}/full/{width},/0/default.jpg",
+"canvases": [
+{
+"label": "[Front cover]",
+"iiif": "1006074",
+"width": 2931,
+"height": 3865,
+"folios": []
+},
+{
+"label": "[Inside front cover]",
+"iiif": "1006075",
+"width": 2812,
+"height": 3797,
+"folios": []
+},
+{
+"label": "1r",
+"iiif": "1006076",
+"width": 2972,
+"height": 3766,
+"folios": [
+"f1r"
+]
+},
+{
+"label": "1v",
+"iiif": "1006077",
+"width": 2804,
+"height": 3797,
+"folios": [
+"f1v"
+]
+},
+{
+"label": "2r",
+"iiif": "1006078",
+"width": 2691,
+"height": 3770,
+"folios": [
+"f2r"
+]
+},
+{
+"label": "2v",
+"iiif": "1006079",
+"width": 2771,
+"height": 3797,
+"folios": [
+"f2v"
+]
+},
+{
+"label": "3r",
+"iiif": "1006080",
+"width": 2691,
+"height": 3770,
+"folios": [
+"f3r"
+]
+},
+{
+"label": "3v",
+"iiif": "1006081",
+"width": 2762,
+"height": 3797,
+"folios": [
+"f3v"
+]
+},
+{
+"label": "4r",
+"iiif": "1006082",
+"width": 2682,
+"height": 3740,
+"folios": [
+"f4r"
+]
+},
+{
+"label": "4v",
+"iiif": "1006083",
+"width": 2768,
+"height": 3797,
+"folios": [
+"f4v"
+]
+},
+{
+"label": "5r",
+"iiif": "1006084",
+"width": 2636,
+"height": 3723,
+"folios": [
+"f5r"
+]
+},
+{
+"label": "5v",
+"iiif": "1006085",
+"width": 2759,
+"height": 3797,
+"folios": [
+"f5v"
+]
+},
+{
+"label": "6r",
+"iiif": "1006086",
+"width": 2662,
+"height": 3727,
+"folios": [
+"f6r"
+]
+},
+{
+"label": "6v",
+"iiif": "1006087",
+"width": 2753,
+"height": 3797,
+"folios": [
+"f6v"
+]
+},
+{
+"label": "7r",
+"iiif": "1006088",
+"width": 2656,
+"height": 3721,
+"folios": [
+"f7r"
+]
+},
+{
+"label": "7v",
+"iiif": "1006089",
+"width": 2806,
+"height": 3797,
+"folios": [
+"f7v"
+]
+},
+{
+"label": "8r",
+"iiif": "1006090",
+"width": 2660,
+"height": 3719,
+"folios": [
+"f8r"
+]
+},
+{
+"label": "8v",
+"iiif": "1006091",
+"width": 2791,
+"height": 3797,
+"folios": [
+"f8v"
+]
+},
+{
+"label": "9r",
+"iiif": "1006092",
+"width": 2691,
+"height": 3737,
+"folios": [
+"f9r"
+]
+},
+{
+"label": "9v",
+"iiif": "1006093",
+"width": 2812,
+"height": 3797,
+"folios": [
+"f9v"
+]
+},
+{
+"label": "10r",
+"iiif": "1006094",
+"width": 2691,
+"height": 3739,
+"folios": [
+"f10r"
+]
+},
+{
+"label": "10v",
+"iiif": "1006095",
+"width": 2839,
+"height": 3797,
+"folios": [
+"f10v"
+]
+},
+{
+"label": "11r",
+"iiif": "1006096",
+"width": 2672,
+"height": 3744,
+"folios": [
+"f11r"
+]
+},
+{
+"label": "11v",
+"iiif": "1006097",
+"width": 2825,
+"height": 3775,
+"folios": [
+"f11v"
+]
+},
+{
+"label": "13r",
+"iiif": "1006098",
+"width": 2601,
+"height": 3723,
+"folios": [
+"f13r"
+]
+},
+{
+"label": "13v",
+"iiif": "1006099",
+"width": 2812,
+"height": 3770,
+"folios": [
+"f13v"
+]
+},
+{
+"label": "14r",
+"iiif": "1006100",
+"width": 2662,
+"height": 3739,
+"folios": [
+"f14r"
+]
+},
+{
+"label": "14v",
+"iiif": "1006101",
+"width": 2812,
+"height": 3772,
+"folios": [
+"f14v"
+]
+},
+{
+"label": "15r",
+"iiif": "1006102",
+"width": 2648,
+"height": 3729,
+"folios": [
+"f15r"
+]
+},
+{
+"label": "15v",
+"iiif": "1006103",
+"width": 2835,
+"height": 3776,
+"folios": [
+"f15v"
+]
+},
+{
+"label": "16r",
+"iiif": "1006104",
+"width": 2658,
+"height": 3758,
+"folios": [
+"f16r"
+]
+},
+{
+"label": "16v",
+"iiif": "1006105",
+"width": 2840,
+"height": 3793,
+"folios": [
+"f16v"
+]
+},
+{
+"label": "17r",
+"iiif": "1006106",
+"width": 2649,
+"height": 3743,
+"folios": [
+"f17r"
+]
+},
+{
+"label": "17v",
+"iiif": "1006107",
+"width": 2843,
+"height": 3775,
+"folios": [
+"f17v"
+]
+},
+{
+"label": "18r",
+"iiif": "1006108",
+"width": 2649,
+"height": 3743,
+"folios": [
+"f18r"
+]
+},
+{
+"label": "18v",
+"iiif": "1006109",
+"width": 2846,
+"height": 3781,
+"folios": [
+"f18v"
+]
+},
+{
+"label": "19r",
+"iiif": "1006110",
+"width": 2649,
+"height": 3743,
+"folios": [
+"f19r"
+]
+},
+{
+"label": "19v",
+"iiif": "1006111",
+"width": 2849,
+"height": 3769,
+"folios": [
+"f19v"
+]
+},
+{
+"label": "20r",
+"iiif": "1006112",
+"width": 2649,
+"height": 3743,
+"folios": [
+"f20r"
+]
+},
+{
+"label": "20v",
+"iiif": "1006113",
+"width": 2849,
+"height": 3769,
+"folios": [
+"f20v"
+]
+},
+{
+"label": "21r",
+"iiif": "1006114",
+"width": 2649,
+"height": 3743,
+"folios": [
+"f21r"
+]
+},
+{
+"label": "21v",
+"iiif": "1006115",
+"width": 2849,
+"height": 3769,
+"folios": [
+"f21v"
+]
+},
+{
+"label": "22r",
+"iiif": "1006116",
+"width": 2649,
+"height": 3743,
+"folios": [
+"f22r"
+]
+},
+{
+"label": "22v",
+"iiif": "1006117",
+"width": 2849,
+"height": 3795,
+"folios": [
+"f22v"
+]
+},
+{
+"label": "23r",
+"iiif": "1006118",
+"width": 2650,
+"height": 3705,
+"folios": [
+"f23r"
+]
+},
+{
+"label": "23v",
+"iiif": "1006119",
+"width": 2849,
+"height": 3780,
+"folios": [
+"f23v"
+]
+},
+{
+"label": "24r",
+"iiif": "1006120",
+"width": 2688,
+"height": 3719,
+"folios": [
+"f24r"
+]
+},
+{
+"label": "24v",
+"iiif": "1006121",
+"width": 2864,
+"height": 3771,
+"folios": [
+"f24v"
+]
+},
+{
+"label": "25r",
+"iiif": "1006122",
+"width": 2709,
+"height": 3743,
+"folios": [
+"f25r"
+]
+},
+{
+"label": "25v",
+"iiif": "1006123",
+"width": 2863,
+"height": 3769,
+"folios": [
+"f25v"
+]
+},
+{
+"label": "26r",
+"iiif": "1006124",
+"width": 2727,
+"height": 3743,
+"folios": [
+"f26r"
+]
+},
+{
+"label": "26v",
+"iiif": "1006125",
+"width": 2849,
+"height": 3769,
+"folios": [
+"f26v"
+]
+},
+{
+"label": "27r",
+"iiif": "1006126",
+"width": 2708,
+"height": 3743,
+"folios": [
+"f27r"
+]
+},
+{
+"label": "27v",
+"iiif": "1006127",
+"width": 2849,
+"height": 3769,
+"folios": [
+"f27v"
+]
+},
+{
+"label": "28r",
+"iiif": "1006128",
+"width": 2727,
+"height": 3743,
+"folios": [
+"f28r"
+]
+},
+{
+"label": "28v",
+"iiif": "1006129",
+"width": 2885,
+"height": 3780,
+"folios": [
+"f28v"
+]
+},
+{
+"label": "29r",
+"iiif": "1006130",
+"width": 2718,
+"height": 3743,
+"folios": [
+"f29r"
+]
+},
+{
+"label": "29v",
+"iiif": "1006131",
+"width": 2876,
+"height": 3777,
+"folios": [
+"f29v"
+]
+},
+{
+"label": "30r",
+"iiif": "1006132",
+"width": 2742,
+"height": 3743,
+"folios": [
+"f30r"
+]
+},
+{
+"label": "30v",
+"iiif": "1006133",
+"width": 2849,
+"height": 3769,
+"folios": [
+"f30v"
+]
+},
+{
+"label": "31r",
+"iiif": "1006134",
+"width": 2717,
+"height": 3743,
+"folios": [
+"f31r"
+]
+},
+{
+"label": "31v",
+"iiif": "1006135",
+"width": 2849,
+"height": 3769,
+"folios": [
+"f31v"
+]
+},
+{
+"label": "32r",
+"iiif": "1006136",
+"width": 2734,
+"height": 3731,
+"folios": [
+"f32r"
+]
+},
+{
+"label": "32v",
+"iiif": "1006137",
+"width": 2849,
+"height": 3769,
+"folios": [
+"f32v"
+]
+},
+{
+"label": "33r",
+"iiif": "1006138",
+"width": 2766,
+"height": 3743,
+"folios": [
+"f33r"
+]
+},
+{
+"label": "33v",
+"iiif": "1006139",
+"width": 2871,
+"height": 3769,
+"folios": [
+"f33v"
+]
+},
+{
+"label": "34r",
+"iiif": "1006140",
+"width": 2777,
+"height": 3743,
+"folios": [
+"f34r"
+]
+},
+{
+"label": "34v",
+"iiif": "1006141",
+"width": 2881,
+"height": 3787,
+"folios": [
+"f34v"
+]
+},
+{
+"label": "35r",
+"iiif": "1006142",
+"width": 2793,
+"height": 3743,
+"folios": [
+"f35r"
+]
+},
+{
+"label": "35v",
+"iiif": "1006143",
+"width": 2853,
+"height": 3769,
+"folios": [
+"f35v"
+]
+},
+{
+"label": "36r",
+"iiif": "1006144",
+"width": 2793,
+"height": 3743,
+"folios": [
+"f36r"
+]
+},
+{
+"label": "36v",
+"iiif": "1006145",
+"width": 2849,
+"height": 3769,
+"folios": [
+"f36v"
+]
+},
+{
+"label": "37r",
+"iiif": "1006146",
+"width": 2793,
+"height": 3743,
+"folios": [
+"f37r"
+]
+},
+{
+"label": "37v",
+"iiif": "1006147",
+"width": 2882,
+"height": 3769,
+"folios": [
+"f37v"
+]
+},
+{
+"label": "38r",
+"iiif": "1006148",
+"width": 2793,
+"height": 3743,
+"folios": [
+"f38r"
+]
+},
+{
+"label": "38v",
+"iiif": "1006149",
+"width": 2882,
+"height": 3769,
+"folios": [
+"f38v"
+]
+},
+{
+"label": "39r",
+"iiif": "1006150",
+"width": 2793,
+"height": 3743,
+"folios": [
+"f39r"
+]
+},
+{
+"label": "39v",
+"iiif": "1006151",
+"width": 2882,
+"height": 3769,
+"folios": [
+"f39v"
+]
+},
+{
+"label": "40r",
+"iiif": "1006152",
+"width": 2793,
+"height": 3734,
+"folios": [
+"f40r"
+]
+},
+{
+"label": "40v",
+"iiif": "1006153",
+"width": 2882,
+"height": 3769,
+"folios": [
+"f40v"
+]
+},
+{
+"label": "41r",
+"iiif": "1006154",
+"width": 2840,
+"height": 3743,
+"folios": [
+"f41r"
+]
+},
+{
+"label": "41v",
+"iiif": "1006155",
+"width": 2882,
+"height": 3769,
+"folios": [
+"f41v"
+]
+},
+{
+"label": "42r",
+"iiif": "1006156",
+"width": 2843,
+"height": 3743,
+"folios": [
+"f42r"
+]
+},
+{
+"label": "42v",
+"iiif": "1006157",
+"width": 2882,
+"height": 3769,
+"folios": [
+"f42v"
+]
+},
+{
+"label": "43r",
+"iiif": "1006158",
+"width": 2837,
+"height": 3751,
+"folios": [
+"f43r"
+]
+},
+{
+"label": "43v",
+"iiif": "1006159",
+"width": 2882,
+"height": 3769,
+"folios": [
+"f43v"
+]
+},
+{
+"label": "44r",
+"iiif": "1006160",
+"width": 2799,
+"height": 3728,
+"folios": [
+"f44r"
+]
+},
+{
+"label": "44v",
+"iiif": "1006161",
+"width": 2882,
+"height": 3769,
+"folios": [
+"f44v"
+]
+},
+{
+"label": "45r",
+"iiif": "1006162",
+"width": 2823,
+"height": 3706,
+"folios": [
+"f45r"
+]
+},
+{
+"label": "45v",
+"iiif": "1006163",
+"width": 2900,
+"height": 3769,
+"folios": [
+"f45v"
+]
+},
+{
+"label": "46r",
+"iiif": "1006164",
+"width": 2865,
+"height": 3719,
+"folios": [
+"f46r"
+]
+},
+{
+"label": "46v",
+"iiif": "1006165",
+"width": 2938,
+"height": 3769,
+"folios": [
+"f46v"
+]
+},
+{
+"label": "47r",
+"iiif": "1006166",
+"width": 2826,
+"height": 3716,
+"folios": [
+"f47r"
+]
+},
+{
+"label": "47v",
+"iiif": "1006167",
+"width": 2932,
+"height": 3769,
+"folios": [
+"f47v"
+]
+},
+{
+"label": "48r",
+"iiif": "1006168",
+"width": 2859,
+"height": 3719,
+"folios": [
+"f48r"
+]
+},
+{
+"label": "48v",
+"iiif": "1006169",
+"width": 2950,
+"height": 3769,
+"folios": [
+"f48v"
+]
+},
+{
+"label": "49r",
+"iiif": "1006170",
+"width": 2837,
+"height": 3762,
+"folios": [
+"f49r"
+]
+},
+{
+"label": "49v",
+"iiif": "1006171",
+"width": 2935,
+"height": 3769,
+"folios": [
+"f49v"
+]
+},
+{
+"label": "50r",
+"iiif": "1006172",
+"width": 2840,
+"height": 3751,
+"folios": [
+"f50r"
+]
+},
+{
+"label": "50v",
+"iiif": "1006173",
+"width": 2942,
+"height": 3769,
+"folios": [
+"f50v"
+]
+},
+{
+"label": "51r",
+"iiif": "1006174",
+"width": 2835,
+"height": 3764,
+"folios": [
+"f51r"
+]
+},
+{
+"label": "51v",
+"iiif": "1006175",
+"width": 2927,
+"height": 3769,
+"folios": [
+"f51v"
+]
+},
+{
+"label": "52r",
+"iiif": "1006176",
+"width": 2826,
+"height": 3757,
+"folios": [
+"f52r"
+]
+},
+{
+"label": "52v",
+"iiif": "1006177",
+"width": 2935,
+"height": 3769,
+"folios": [
+"f52v"
+]
+},
+{
+"label": "53r",
+"iiif": "1006178",
+"width": 2793,
+"height": 3707,
+"folios": [
+"f53r"
+]
+},
+{
+"label": "53v",
+"iiif": "1006179",
+"width": 2940,
+"height": 3769,
+"folios": [
+"f53v"
+]
+},
+{
+"label": "54r",
+"iiif": "1006180",
+"width": 2793,
+"height": 3718,
+"folios": [
+"f54r"
+]
+},
+{
+"label": "54v",
+"iiif": "1006181",
+"width": 2999,
+"height": 3769,
+"folios": [
+"f54v"
+]
+},
+{
+"label": "55r",
+"iiif": "1006182",
+"width": 2793,
+"height": 3738,
+"folios": [
+"f55r"
+]
+},
+{
+"label": "55v",
+"iiif": "1006183",
+"width": 2979,
+"height": 3769,
+"folios": [
+"f55v"
+]
+},
+{
+"label": "56r",
+"iiif": "1006184",
+"width": 2793,
+"height": 3707,
+"folios": [
+"f56r"
+]
+},
+{
+"label": "56v",
+"iiif": "1006185",
+"width": 2979,
+"height": 3769,
+"folios": [
+"f56v"
+]
+},
+{
+"label": "57r",
+"iiif": "1006186",
+"width": 2823,
+"height": 3733,
+"folios": [
+"f57r"
+]
+},
+{
+"label": "57v",
+"iiif": "1006187",
+"width": 3028,
+"height": 3769,
+"folios": [
+"f57v"
+]
+},
+{
+"label": "58r",
+"iiif": "1006188",
+"width": 2793,
+"height": 3749,
+"folios": [
+"f58r"
+]
+},
+{
+"label": "58v",
+"iiif": "1006189",
+"width": 2986,
+"height": 3769,
+"folios": [
+"f58v"
+]
+},
+{
+"label": "65r",
+"iiif": "1006190",
+"width": 2793,
+"height": 3707,
+"folios": [
+"f65r"
+]
+},
+{
+"label": "65v",
+"iiif": "1006191",
+"width": 3010,
+"height": 3769,
+"folios": [
+"f65v"
+]
+},
+{
+"label": "66r",
+"iiif": "1006192",
+"width": 2793,
+"height": 3707,
+"folios": [
+"f66r"
+]
+},
+{
+"label": "66v",
+"iiif": "1006193",
+"width": 2997,
+"height": 3769,
+"folios": [
+"f66v"
+]
+},
+{
+"label": "67r",
+"iiif": "1006194",
+"width": 4972,
+"height": 3738,
+"folios": [
+"f67r"
+]
+},
+{
+"label": "67v",
+"iiif": "1006195",
+"width": 5059,
+"height": 3753,
+"folios": [
+"f67v"
+]
+},
+{
+"label": "68r",
+"iiif": "1006196",
+"width": 7993,
+"height": 3828,
+"folios": [
+"f68r"
+]
+},
+{
+"label": "68v",
+"iiif": "1006197",
+"width": 8135,
+"height": 3843,
+"folios": [
+"f68v"
+]
+},
+{
+"label": "69r",
+"iiif": "1006198",
+"width": 2793,
+"height": 3763,
+"folios": [
+"f69r"
+]
+},
+{
+"label": "69v and 70r",
+"iiif": "1006199",
+"width": 8886,
+"height": 3876,
+"folios": [
+"f69v",
+"f70r"
+]
+},
+{
+"label": "70v (part)",
+"iiif": "1006200",
+"width": 3945,
+"height": 3772,
+"folios": [
+"f70v"
+]
+},
+{
+"label": "70v (part)",
+"iiif": "1006201",
+"width": 2979,
+"height": 3700,
+"folios": [
+"f70v"
+]
+},
+{
+"label": "71r",
+"iiif": "1006202",
+"width": 2793,
+"height": 3762,
+"folios": [
+"f71r"
+]
+},
+{
+"label": "71v and 72r",
+"iiif": "1006203",
+"width": 8865,
+"height": 3018,
+"folios": [
+"f71v",
+"f72r"
+]
+},
+{
+"label": "72v (part)",
+"iiif": "1006204",
+"width": 5976,
+"height": 3794,
+"folios": [
+"f72v"
+]
+},
+{
+"label": "72v (part)",
+"iiif": "1006205",
+"width": 2979,
+"height": 3712,
+"folios": [
+"f72v"
+]
+},
+{
+"label": "73r",
+"iiif": "1006206",
+"width": 2834,
+"height": 3761,
+"folios": [
+"f73r"
+]
+},
+{
+"label": "73v",
+"iiif": "1006207",
+"width": 2979,
+"height": 3724,
+"folios": [
+"f73v"
+]
+},
+{
+"label": "75r",
+"iiif": "1006208",
+"width": 2852,
+"height": 3759,
+"folios": [
+"f75r"
+]
+},
+{
+"label": "75v",
+"iiif": "1006209",
+"width": 2868,
+"height": 3735,
+"folios": [
+"f75v"
+]
+},
+{
+"label": "76r",
+"iiif": "1006210",
+"width": 2793,
+"height": 3769,
+"folios": [
+"f76r"
+]
+},
+{
+"label": "76v",
+"iiif": "1006211",
+"width": 2823,
+"height": 3712,
+"folios": [
+"f76v"
+]
+},
+{
+"label": "77r",
+"iiif": "1006212",
+"width": 2793,
+"height": 3752,
+"folios": [
+"f77r"
+]
+},
+{
+"label": "77v",
+"iiif": "1006213",
+"width": 2861,
+"height": 3697,
+"folios": [
+"f77v"
+]
+},
+{
+"label": "78r",
+"iiif": "1006214",
+"width": 2793,
+"height": 3761,
+"folios": [
+"f78r"
+]
+},
+{
+"label": "78v",
+"iiif": "1006215",
+"width": 2841,
+"height": 3706,
+"folios": [
+"f78v"
+]
+},
+{
+"label": "79r",
+"iiif": "1006216",
+"width": 2784,
+"height": 3755,
+"folios": [
+"f79r"
+]
+},
+{
+"label": "79v",
+"iiif": "1006217",
+"width": 2811,
+"height": 3714,
+"folios": [
+"f79v"
+]
+},
+{
+"label": "80r",
+"iiif": "1006218",
+"width": 2793,
+"height": 3733,
+"folios": [
+"f80r"
+]
+},
+{
+"label": "80v",
+"iiif": "1006219",
+"width": 2837,
+"height": 3712,
+"folios": [
+"f80v"
+]
+},
+{
+"label": "81r",
+"iiif": "1006220",
+"width": 2776,
+"height": 3737,
+"folios": [
+"f81r"
+]
+},
+{
+"label": "81v",
+"iiif": "1006221",
+"width": 2835,
+"height": 3705,
+"folios": [
+"f81v"
+]
+},
+{
+"label": "82r",
+"iiif": "1006222",
+"width": 2753,
+"height": 3745,
+"folios": [
+"f82r"
+]
+},
+{
+"label": "82v",
+"iiif": "1006223",
+"width": 2821,
+"height": 3709,
+"folios": [
+"f82v"
+]
+},
+{
+"label": "83r",
+"iiif": "1006224",
+"width": 2753,
+"height": 3745,
+"folios": [
+"f83r"
+]
+},
+{
+"label": "83v",
+"iiif": "1006225",
+"width": 2858,
+"height": 3693,
+"folios": [
+"f83v"
+]
+},
+{
+"label": "84r",
+"iiif": "1006226",
+"width": 2753,
+"height": 3745,
+"folios": [
+"f84r"
+]
+},
+{
+"label": "84v",
+"iiif": "1006227",
+"width": 2838,
+"height": 3697,
+"folios": [
+"f84v"
+]
+},
+{
+"label": "85r (part) (part of 85-86 foldout)",
+"iiif": "1006228",
+"width": 2775,
+"height": 3745,
+"folios": [
+"f85r"
+]
+},
+{
+"label": "85r (part) 86v (part) (part of 85-86 foldout)",
+"iiif": "1006229",
+"width": 7754,
+"height": 3890,
+"folios": [
+"f85r",
+"f86v"
+]
+},
+{
+"label": "86v (part) (part of 85-86 foldout)",
+"iiif": "1006230",
+"width": 4897,
+"height": 3788,
+"folios": [
+"f86v"
+]
+},
+{
+"label": "85v and 86r (foldout)",
+"iiif": "1006231",
+"width": 7925,
+"height": 7268,
+"folios": [
+"f85v",
+"f86r"
+]
+},
+{
+"label": "87r",
+"iiif": "1006232",
+"width": 2753,
+"height": 3745,
+"folios": [
+"f87r"
+]
+},
+{
+"label": "87v",
+"iiif": "1043429",
+"width": 2893,
+"height": 3697,
+"folios": [
+"f87v"
+]
+},
+{
+"label": "88r",
+"iiif": "1037112",
+"width": 2714,
+"height": 3735,
+"folios": [
+"f88r"
+]
+},
+{
+"label": "88v and 89r",
+"iiif": "1006233",
+"width": 9078,
+"height": 3777,
+"folios": [
+"f88v",
+"f89r"
+]
+},
+{
+"label": "89v (part)",
+"iiif": "1006234",
+"width": 4204,
+"height": 3809,
+"folios": [
+"f89v"
+]
+},
+{
+"label": "89v (part) and 90r",
+"iiif": "1006235",
+"width": 7796,
+"height": 3761,
+"folios": [
+"f89v",
+"f90r"
+]
+},
+{
+"label": "90r",
+"iiif": "1006236",
+"width": 2737,
+"height": 3752,
+"folios": [
+"f90r"
+]
+},
+{
+"label": "90v (part)",
+"iiif": "1006237",
+"width": 2838,
+"height": 3697,
+"folios": [
+"f90v"
+]
+},
+{
+"label": "93r",
+"iiif": "1006238",
+"width": 2718,
+"height": 3758,
+"folios": [
+"f93r"
+]
+},
+{
+"label": "93v",
+"iiif": "1006239",
+"width": 2838,
+"height": 3697,
+"folios": [
+"f93v"
+]
+},
+{
+"label": "94r",
+"iiif": "1006240",
+"width": 2728,
+"height": 3754,
+"folios": [
+"f94r"
+]
+},
+{
+"label": "94v and 95r",
+"iiif": "1006241",
+"width": 7642,
+"height": 3801,
+"folios": [
+"f94v",
+"f95r"
+]
+},
+{
+"label": "95v (part)",
+"iiif": "1006242",
+"width": 2731,
+"height": 3750,
+"folios": [
+"f95v"
+]
+},
+{
+"label": "95v",
+"iiif": "1006243",
+"width": 2838,
+"height": 3697,
+"folios": [
+"f95v"
+]
+},
+{
+"label": "96r",
+"iiif": "1006244",
+"width": 2699,
+"height": 3745,
+"folios": [
+"f96r"
+]
+},
+{
+"label": "96v",
+"iiif": "1006245",
+"width": 2858,
+"height": 3697,
+"folios": [
+"f96v"
+]
+},
+{
+"label": "99r",
+"iiif": "1006246",
+"width": 2702,
+"height": 3765,
+"folios": [
+"f99r"
+]
+},
+{
+"label": "99v",
+"iiif": "1006247",
+"width": 2802,
+"height": 3697,
+"folios": [
+"f99v"
+]
+},
+{
+"label": "100r",
+"iiif": "1006248",
+"width": 2676,
+"height": 3756,
+"folios": [
+"f100r"
+]
+},
+{
+"label": "100v and 101r",
+"iiif": "1006249",
+"width": 7486,
+"height": 3715,
+"folios": [
+"f100v",
+"f101r"
+]
+},
+{
+"label": "101v (part)",
+"iiif": "1006250",
+"width": 2698,
+"height": 3779,
+"folios": [
+"f101v"
+]
+},
+{
+"label": "101v (part) and 102r",
+"iiif": "1006251",
+"width": 8176,
+"height": 3864,
+"folios": [
+"f101v",
+"f102r"
+]
+},
+{
+"label": "102v (part)",
+"iiif": "1006252",
+"width": 2981,
+"height": 3795,
+"folios": [
+"f102v"
+]
+},
+{
+"label": "102v (part)",
+"iiif": "1006253",
+"width": 2838,
+"height": 3697,
+"folios": [
+"f102v"
+]
+},
+{
+"label": "103r",
+"iiif": "1006254",
+"width": 2688,
+"height": 3805,
+"folios": [
+"f103r"
+]
+},
+{
+"label": "103v",
+"iiif": "1006255",
+"width": 2762,
+"height": 3697,
+"folios": [
+"f103v"
+]
+},
+{
+"label": "104r",
+"iiif": "1006256",
+"width": 2677,
+"height": 3811,
+"folios": [
+"f104r"
+]
+},
+{
+"label": "104v",
+"iiif": "1006257",
+"width": 2744,
+"height": 3704,
+"folios": [
+"f104v"
+]
+},
+{
+"label": "105r",
+"iiif": "1006258",
+"width": 2662,
+"height": 3771,
+"folios": [
+"f105r"
+]
+},
+{
+"label": "105v",
+"iiif": "1006259",
+"width": 2663,
+"height": 3701,
+"folios": [
+"f105v"
+]
+},
+{
+"label": "106r",
+"iiif": "1006260",
+"width": 2635,
+"height": 3787,
+"folios": [
+"f106r"
+]
+},
+{
+"label": "106v",
+"iiif": "1006261",
+"width": 2670,
+"height": 3697,
+"folios": [
+"f106v"
+]
+},
+{
+"label": "107r",
+"iiif": "1006262",
+"width": 2641,
+"height": 3787,
+"folios": [
+"f107r"
+]
+},
+{
+"label": "107v",
+"iiif": "1006263",
+"width": 2689,
+"height": 3697,
+"folios": [
+"f107v"
+]
+},
+{
+"label": "108r",
+"iiif": "1006264",
+"width": 2641,
+"height": 3787,
+"folios": [
+"f108r"
+]
+},
+{
+"label": "108v",
+"iiif": "1006265",
+"width": 2649,
+"height": 3706,
+"folios": [
+"f108v"
+]
+},
+{
+"label": "111r",
+"iiif": "1006266",
+"width": 2622,
+"height": 3783,
+"folios": [
+"f111r"
+]
+},
+{
+"label": "111v",
+"iiif": "1006267",
+"width": 2666,
+"height": 3697,
+"folios": [
+"f111v"
+]
+},
+{
+"label": "112r",
+"iiif": "1006268",
+"width": 2602,
+"height": 3787,
+"folios": [
+"f112r"
+]
+},
+{
+"label": "112v",
+"iiif": "1006269",
+"width": 2664,
+"height": 3697,
+"folios": [
+"f112v"
+]
+},
+{
+"label": "113r",
+"iiif": "1006270",
+"width": 2582,
+"height": 3787,
+"folios": [
+"f113r"
+]
+},
+{
+"label": "113v",
+"iiif": "1006271",
+"width": 2666,
+"height": 3697,
+"folios": [
+"f113v"
+]
+},
+{
+"label": "114r",
+"iiif": "1006272",
+"width": 2599,
+"height": 3787,
+"folios": [
+"f114r"
+]
+},
+{
+"label": "114v",
+"iiif": "1006273",
+"width": 2671,
+"height": 3697,
+"folios": [
+"f114v"
+]
+},
+{
+"label": "115r",
+"iiif": "1006274",
+"width": 2584,
+"height": 3786,
+"folios": [
+"f115r"
+]
+},
+{
+"label": "115v",
+"iiif": "1006275",
+"width": 2676,
+"height": 3697,
+"folios": [
+"f115v"
+]
+},
+{
+"label": "116r",
+"iiif": "1006276",
+"width": 2559,
+"height": 3787,
+"folios": [
+"f116r"
+]
+},
+{
+"label": "116v",
+"iiif": "1006277",
+"width": 2686,
+"height": 3697,
+"folios": [
+"f116v"
+]
+},
+{
+"label": "[Back flyleaf recto]",
+"iiif": "1037113",
+"width": 2570,
+"height": 3787,
+"folios": []
+},
+{
+"label": "[Back flyleaf verso-inside back cover]",
+"iiif": "1006278",
+"width": 5342,
+"height": 3822,
+"folios": []
+},
+{
+"label": "[Head]",
+"iiif": "11868207",
+"width": 2829,
+"height": 1221,
+"folios": []
+},
+{
+"label": "[Tail]",
+"iiif": "11868208",
+"width": 2875,
+"height": 1237,
+"folios": []
+},
+{
+"label": "[Fore-edge]",
+"iiif": "11868209",
+"width": 1255,
+"height": 3838,
+"folios": []
+},
+{
+"label": "[Spine]",
+"iiif": "11868210",
+"width": 1030,
+"height": 3833,
+"folios": []
+},
+{
+"label": "[Back cover]",
+"iiif": "1006279",
+"width": 2889,
+"height": 3861,
+"folios": []
+}
+]
+}
