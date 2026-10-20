@@ -1,0 +1,533 @@
+{
+ "f12": {
+  "attributes": {
+   "section": "herbal",
+   "language": "A",
+   "hand": "1",
+   "neighbours": [
+    "f11r",
+    "f13r"
+   ]
+  },
+  "lines": [
+   "toeey.sheor.ol.chol.sheol.cheol.sheodaiin",
+   "odr.shor.chko.chear.chey.sol.cheeo.l.keol.dar",
+   "sheol.qokeol.cheol.sheo.qokeol.so.chol.chol.cheol.cheey.cheody.sar",
+   "r.cheol.dar.ol.chey.ckheol.chom.choos.cheor.or.chos.cheol.key",
+   "yoeeol.chokor.choor.or.cheol.s.cheeos.chodar",
+   "ykeol.cheol.deey"
+  ]
+ },
+ "f59": {
+  "attributes": {
+   "section": "stars",
+   "language": "A",
+   "hand": "3",
+   "neighbours": [
+    "f58r",
+    "f65v"
+   ]
+  },
+  "lines": [
+   "pchedy.qokechy.chcph.ol.ar.olkeey.lkeedy.rolchedy.chedy.chor.alchedy",
+   "teeol.qoedaiin.cheor.kedy.qokeedy.qokeeo.chol.shedy.qoeey.chdy",
+   "shol.cheey.otechody.qokaiin.checkhy.okchey.qoaiin.chearam",
+   "dair.qokedy.sheol.qoeedy.qokaiin.char.chedy.lchy.chedam",
+   "ychey"
+  ]
+ },
+ "f60": {
+  "attributes": {
+   "section": "stars",
+   "language": "A",
+   "hand": "3",
+   "neighbours": [
+    "f58r",
+    "f65v"
+   ]
+  },
+  "lines": [
+   "pol.olchey.qokeedy.shedy.qokedy.lchdy.rches.or.aiin.cheey.teey.shedy",
+   "y.chedy.qokeol.olshedy.lshedy.lkeedy.chedy.ched.qokeedy.lshedy.qokeedy.oldedy.of",
+   "daiin.shey.lshedy.dar.ain.qokain.chckhy.chal.shedaiin.chey.sheeky.ly.rair",
+   "qokaiin.cheky.lkeedy.qolkeedy.okeedy.lain.shedy.otal.oteedy",
+   "qol.l.cheedy.lkeedy.qokedy.lshedy.qokal.ol.chedy",
+   "pchedy.lchedy.rchedy.qokal.lkeedy.qokaiin.shedy.qol.qokaiin.aly",
+   "okain.shedy.lchedy.qokeedy.qor.chey.qoteey.qoty.ltaiin",
+   "qokeedy.qokey.lchey.qokain.qokain.shedy.qokal.okeedy.rol",
+   "qokain.shedy.qokedy.qoky.lchedy.qokar.shedy.qokain.teedy.lol",
+   "qckhey.lchedy.lsheedy.qol.shedy.qoky.ror",
+   "qol.rain.sheey.qokey.qokal.lchey.pchey.pchdy.ry",
+   "qokaiin.olcheey.qokeey.qoky.qokeey",
+   "ol.lkaiiin.shey.qokain.qokaiin.checkhy.lkain.qokar",
+   "lshey.qokain.qokaiin.cheal.qokaiin.chey.r.aiiin.lchky.ral",
+   "dain.sheey.kol.r.shesor.okaiin.qokchey.cheain",
+   "qokcheey.lkain.chckhy.lkaiin.chal.okain.chckhey.lkeeep.alkal.okaiin.ar.loeedal",
+   "saiin.cheody.qokaiin.aral.chodaiin.shey.qokain.cheo.l.l.kain.char.chdy",
+   "tarain.lchor.chedy.chkal.odal.olaiin.olkal.shedy.qokal.olkeedy.qokaiin.sheedal",
+   "tal.keedy.shkey.qokechdy.qokeey.qoky.oteedy.qokedy.qokedy.cthy.chey",
+   "lcheol.okeedy.qokeedy.chekain.shedy.qokaiin.cheey.ral.sheey.qokeedy.lkedy",
+   "qoraiir.akain.chedy.chedy.qokain.cheor.al.tedy.qol.chedy.qokain.lkain",
+   "chey.lkeey.qokain.char.chokar.shcthy.qokal.chedy.qokain.shedy.qokain",
+   "qoky.oly.dain.sheky.qokain.chedy.dalkeey",
+   "pchedar.okain.ofaiin.shey.qokeedy.qokedy.qokeey.lshedy.qoty",
+   "sholol.qokedy.qokeedy.qokedy.lchedy.otal.shedy",
+   "qokeey.qokey.qokedy.lshedy.otar.shedy.rol",
+   "qokal.shedy.qoky.olkedy.chedy.qotas.qokar.ol",
+   "otal.qokain.shedy.qokain.chey.qol.shedy.qokain",
+   "qokeey.qotey.qotal.okeedy.lkchdy.rol",
+   "qorchey.l.or.shedy.lkeey.qol.cheey.roiin.chear.ol.lor",
+   "lkal.shain.qokaiin.qokal.shedy.qokal.qoeedy",
+   "qokey.qokaiin.chedy.qotaiin.shedy.shckhy.qolkaiin.chey.ry",
+   "qokaiin.heey.qokeey.tal.chey.qokal.keeedy.shey.qoky",
+   "qokeey.qokaiin.ol.shey.qokaiin.salchedy.dalpchedy.rol",
+   "qal.oiin.chedain.qokey.qoteedy.qokaiin.checthey.lor",
+   "qokeedy.shey.qokal.chedy.qokaiin.okal.shedy.qoky.qoky",
+   "qokair.shar.ol.qokey.lshedy.qokal.qotey.qokaly.chedy.qokedy.lar",
+   "qokedy.shedy.rol.qokaiin.shedy.qokain.checkhy.dar.dar.qokaly.qoly",
+   "qokaiin.shedy.qokeedy.qolchedy.qotal.dar.ol.qotal.lchedy.qokar.sheol.qoky",
+   "ol.shedy.qokaiin.chckhy.okal.okaiin",
+   "tshedy.qotar.shedy.okaly.qokal.qokedy.qokey.qoky.dal.chedy",
+   "qokal.shedy.qokaiin.s.shedy.qokal.shedy.qokaiin.ol",
+   "qokair.ol.kain.shey.scheol.qokar.cheol.dar.chedy",
+   "polar.shedy.okain.dar.shedy.qokaiin.chcthols.sheol.qotaiin.cheedy.okeey.qokeedy.teey.dar",
+   "sain.sheol.chedy.qokal.otedy.dar.otedy.dar.shcthy.chey.qokeedy.okal.ol",
+   "tal.shy.qokaicin.shed.tshedy.shckhy.qokal.oty.chedy.qoky.okain.ol",
+   "solshedy.okaiin.shedy.qockhey.ol.ol.kaiin.oky.lchedydy.qoky"
+  ]
+ },
+ "f61": {
+  "attributes": {
+   "section": "stars",
+   "language": "A",
+   "hand": "3",
+   "neighbours": [
+    "f58r",
+    "f65v"
+   ]
+  },
+  "lines": [
+   "taiin.chepol.shedy.okedy.otshedal.shedy.qokedy.checkhedy.chedal.otam",
+   "daiin.shckhy.okedy.chdy.qokchedy.okedy.qokedy.qokeedy.qoky.okam",
+   "qotedy.chedal.chedy.qokal.okedy.chedy.lchedar.ar.otain.aly",
+   "chey.okedy.chdy.kedal.oteedy.qokedy.otedy.qokal.okar.or.alchedy",
+   "qokedy.qokedy.otedy.qokedy.qokaiin.checkhey.otedy.qody.qoky.daiin.otedy.olam",
+   "qokeedy.qokal.olkal.qokedy.chedy.lkeedy.chedy.otal.chedy.lky.chedy.lchedy",
+   "sokeeol.lkar.chey.lkeey.lkeody.qokedy.shedy.shckhy.okal.lkedy.qokedy.roshdy",
+   "shey.lkeedy.qokeed.ykeedy.dal.okedy.okeedy.ram",
+   "tol.keedy.qokeedy.sheody.qokey.qokaly.qokaldy.lqoky",
+   "ol.kal.shedy.qoky.qokedy.qokeedy.chedy.lshedy.lol.chedy",
+   "qokeedy.qokeey.lshedy.rol.shedy.qol.okeedy.oteedy.dam",
+   "qokeey.lshedy.r.shedy.okey.qotey.qokeedy.shescthy",
+   "sam.shckhy.qokeey.kedy.qokal.qokedy.qokedy.qokeedy.qokedy.lsl",
+   "soir.sheedy.tedy.okedy.shdy.sol.chedy.shedal.ytedy.qoky.qokedy.qotar.dar",
+   "sshedy.qokeedy.qokedy.qokedy.qokaiin.chdy.qokar.otal.okain",
+   "qoteedy.qoteey.shey.qol.alkeedy.chy.qoky.sal.shedy.qoky",
+   "sol.shey.qokedy.qolkaiin.shey.qokain.shedy.qokedy.qokeedy.dar.ol.dary",
+   "sain.okain.shckhy.qokeedy.sal.qokaiy.chedy.qolkeedy.qoky.lshedy",
+   "oteedy.shedy.shey.qokeedy.otedy.qokar.chedy.dal.shedy.okeedy.lshedy.dar",
+   "qokain.shedy.lsheey.qokain.chey.qokain.chedal.qokal.shedy.chedy.qokedy.lo",
+   "pchedy.lshedy.lshedy.chekar.shedy.qol.shedy.qokal.qokal.or.chedy.lky",
+   "olchedy.qokar.ol.dain.shedy.lshed.qokedy.qokedy.qoky.lchedy",
+   "qokedy.cheey.qoshedy.qokal.chdy.lol.qokal.dar.qol",
+   "qol.lchdy.lsheedy.olkey.qokey.dy.lchey.roly",
+   "or.chey.qotal.shey.qor.oltaly",
+   "kal.shedy.qokain.qepy.lolkedy.qopchedy.qoky",
+   "otaiin.solkeedy.qokedy.qokal.lchedy.qokal.qokain.qokeedy",
+   "qokedy.qokey.qokal.qopchey.qokedy.qokol.okl.qotedy.qoky",
+   "qokey.lchedy.qokaiin.otar.olkedy.qoky.otaly",
+   "qokedy.chedy.qokain.otedy.qokal.dykal.dar.olol",
+   "dain.chedal.lchedy.qol.okeedy.qoteey.qokeey.qotyl",
+   "sol.chey.l.shedy.qokain.sheedy.qor.shedy.qokeedy.dol.ltey.qol.qol",
+   "ycheey.qolkain.qokal.chedy.qokal.shckhy.ol.oty.chedam",
+   "qokedy.chey.qokeedy.lshedy.qokey.lchedy",
+   "tchedy.lchdy.qoty.l.okeedy.chedy.qokedy.qotedy.rain",
+   "qol.shedy.qol.qey.qoky.qokal.r.shdy.qol.qotedy.rol",
+   "qokeedy.qokal.chedy.qokal.ol.qol.dalchdy",
+   "chedy.qokedy.qokal.shedy.qokedy.lchedy.l.shedy",
+   "qokey.qokal.das.shey.qolkal.sheedy.okedy.lchdy.lchedy",
+   "qokeeckhy.dal.shdy.qolshedy.qokedy.qokedy.lor.shey",
+   "qokain.shear.ody.lchey.qol.qeedy.qedy.lshedy.qokedy.qoty.qoky.rchedy",
+   "or.shedy.qol.rain.chedy.qol.chedy.lshedy.chee.laiin.olo",
+   "r.cheedy.lcheor.shedy.qokedy.sheedy.qokaiin.ol.r.lal",
+   "qor.chey.kechey.okain.chekeey.qokeedy.lchedy",
+   "pchedy.qoteed.ykeey.r.aiin.cheedy.qees.sheey.qokeey.ldy",
+   "sar.or.aiin.chedy",
+   "pol.chedy.qokedy.kedy.shees.al.dain.cpheedy.saiin.chedy"
+  ]
+ },
+ "f62": {
+  "attributes": {
+   "section": "stars",
+   "language": "A",
+   "hand": "3",
+   "neighbours": [
+    "f58r",
+    "f65v"
+   ]
+  },
+  "lines": [
+   "fchedy.daiin.shed.qoteeea.r.al.chedy.otol.chedy.qokedy.rair.ain.otam",
+   "daiin.ol.cheedy.dair.ar.oteedy.qokaiin.rair.al.otar.o.kedar.odal.okar.l.ram",
+   "ykeedy.chdeedy.qokaiin.okeeody.chckhedy.qoeey.lkeey.aiin.am.chey.taiin.am",
+   "air.ches.al.aiin.chey.okain.qokaiin.chey.air.ain.y.otain.al.al.laiir.ol.olo.r.al.dar.arokaiin",
+   "ykeeedy.shedy.qokedaiin.qokeedy.qokchedy.qokedy.qokar.otedy.y",
+   "daiin.al.ain.al.chedy.otar.ol.key.qoky.qokaiin.chedy.qotal.otal.chey",
+   "otey.lkaiin.shey.qokeedy.qol.cheeolkeey.qokaiin.okeedy.qokaiin",
+   "y.checkhedy.qolkeey.okeedy.oteear.chey.teedy.qokal.or.arolod",
+   "olkeey.qokain.chckhey.okedy.okeey.ykain.okeey.okaiin.otain.otaiin.olkain",
+   "dchey.qoky.qokain.otain.y.chedy.okaiin.chey.chedy.qokal.otary",
+   "saiin.chedy.qokaiin.cheol.sheedy.qokeedy.qotain.okeeedy.chey.tal.lotaiin",
+   "shedain.lkeey.qokaiin.chey.okair.cheey.lkaiin.okal.chedy.qokain.alam",
+   "saiin.cheol.kaiin.qokaiin.cheody.qokal.chty.o.kaiin.chear.ol.chedy.qokain.alor",
+   "y.cheey.lkain.cheol.lkaiin.chol.lkal.chedy.lkain.chty.lkaiin.sheal.otam",
+   "sasaiin.okaiin.sheol.tchey.lkaiin.shcthy.qokain.arlkaiin.otaiin.chey.teedy",
+   "cheokaiin.checkhy.cheotaiin.cheol.lkaiin.olkeedy.qotal.chedain.sal.otain",
+   "taiin.cheody.qoteedy.lkeey.qokain.sheey.ykeey.qokain",
+   "sain.ain.or.ain.chey.okain.cheain.qoal.qokaiin.ykeedy.chal.lal.l.ral.cheod.qotain.lar.ar",
+   "sho.cheey.lkeey.qotain.chckhey.qedain.cheal.qokedy.okal.al.okain.chedam",
+   "ol.cheedy.qokeeo.r.lkeey.lkeey.qokaiin.chey.qokal.chedain.chedy.otey.qokain.ol",
+   "qotor.cheey.qokeey.chey.lchey.qoteedy.olshedy.chey.l.keedy.sam",
+   "qotedy.okal.teey.qokeedain.chey.qokey.lchey.rchey.qokaiin.okain.checkhy",
+   "poctheol.okeey.qokeol.okeeey.oteedy.chedy.keedy.qokedy.qokeedy.qotedy.she",
+   "kedaiin.okeeey.qokey.okeeol.ky.keedy.okeey.chey.okeey.shey.teol.okey.qykeey",
+   "ykeedy.okeedy.qokeey.qokchol.chor.okechy.daiin.okeey.keey",
+   "qokeey.chey.qokeol.qokeey.okeey.okeey.okeody.okodaly",
+   "ykeey.o.lkeedy.okeey.okeey.otes.aiin.otaiin.otees.am",
+   "pokeeodar.qokeedy.sheey.pchey.cphey.s.aiin.al.arain",
+   "sor.aiin.sheol.qoaiin.chey.qokeedy.cheody.qokedy.cheoaiin.alody.karaiir.oly",
+   "saiin.okeey.okaiin.okeey.lteedy.aiin.y.kair.okeey.r.aiin.y.okeey.lkain.aiin.al",
+   "aiin.okeeey.qoekeey.qoeey.okaiin.y.y.sheey.qetaiin.oky",
+   "okaiin.ar.cheey.qokaiin.or.aiin.okaiin.ykedy.dalkeey.y.kald",
+   "ychey.aiin.aiin.okaiin.okaiin.ar.al.okar.olkeey.okaiiin.ald",
+   "saiin.ar.okaiin.okaiin.al.ol.okar.oaiiin.ykal.lkain.qokain.oky",
+   "ykar.al.l.kaiin.sheey.qokey.qokal.okar.otaiin.ory",
+   "eeol.iin.cheol.okeey.qokain.otain.otal.otedy.otal.okal",
+   "dair.airar.aiin.cheolaiin.lkaly.cheody.chockhy.okaiin",
+   "ydaiin.al.chey.qokaiin.otar.okal.otar.opaiin.chedy",
+   "yshol.kalal.okaiin.ykain.okal.chey.okaiin.olkaiin.odain.al",
+   "otair.olkaiin.chody.okain.al.qokal.okal.kar.okal.oky.kaly.oky",
+   "tal.okalos.kal.keodar.al.air.okaiiin.qokal.otal.otal.chodam",
+   "ycheeol.al.okaiin.okaiin.ol.karcheeoy.cheal.chockheody.qokeod.lkeod.lkar.aiin",
+   "ykail.olkar.chey.kaiin.al.cheo.lkaiin.chekaiin.cheody.qokaiin",
+   "shodaiin.aiin.o.tair.lkeeey",
+   "ykeey.rlor.aiin.qos.aiin.cheodam.shodal.qopchedaiin",
+   "saiin.chedaiin.chedy.qokaiir.olkaiin.opaiin.qotaiin.opchey.ol.or.aiin",
+   "saiiin.cheey.qokaiin.okeey.lkeey.lkair.alodal.ol.kaiin.okchdam"
+  ]
+ },
+ "f63": {
+  "attributes": {
+   "section": "stars",
+   "language": "A",
+   "hand": "3",
+   "neighbours": [
+    "f58r",
+    "f65v"
+   ]
+  },
+  "lines": [
+   "kches.ody.otedairodar.shckheody.otar.y.teedy.ykeey.s.ain.ykeedy.alam",
+   "tchedy.ytchey.cheykeey.chkeey.qod.cheey.ckhey.s.aiin.okal.daiin.ckheey.ody",
+   "ykcheo.l.cheey.daiin.ykaiin.otal.qokal.cheody.okal.lsy",
+   "ol.chey.qokey.qokedy.choky.cheody.keedy.kchody.chedy",
+   "pcheedy.shedy.fchedy.qokchdy.lfar.opchedy.qotaiin.qopchdy",
+   "okeeod.al.cheocthey.qockhy.qokedar.chear.ar.air.ar.al",
+   "tar.aiin.chodal.odair.al.keedy.qokaiin.qokain.ar.ol",
+   "y.cheol.ey.qokeey.chey.qokeedy.rol",
+   "tchey.sheoal.qokaiin.chedy.otalshedy.tshedy.qotain.sam",
+   "y.shedy.teey.qoteey.otal.shedy.otaiin.shey.qokeedy.keey.qotaiin.otal.ain.ol",
+   "sain.shey.tar.okar.chedy.otaiin.taiir.otaram",
+   "tchedaiin.al.al.otal.shody.qokaiin",
+   "pchopaiin.shoty.otar.otar.opal.tsheal.qykshol.qotalshedy.qokaiin.lod",
+   "okaiin.okar.cheol.tal.chedy.chey.lkain.chedal.otaiin.otalchy",
+   "ytaiin.sheaiin.cthy.olkain.char.alkal.okaiin.opas.al.xal.sheody.otal.otal",
+   "dain.sheoky.qotaiin.yteey.qokaiin.sheol.qokaiin.chedy.qokar.al.okaiir",
+   "tain.aiin.chaiin.al.kair.chkal.okaiin.oefal.cheodaiin.otar.al.otcham",
+   "tair.aiin.chaiin.ytal.otar.al.kol.kal.okal.chey.dal.otaly",
+   "shey.keey.teey.qokain.cheykain.chotal.qotain.otedy.qokchedy.otar.als",
+   "qokain.olkaiiin.cheey.ol.kaiiin.ar.otaiin.cheody.qokeeody.tshdy.otam",
+   "dchey.aiin.alkeey.lkal.kaiin.okaiin.qokaiin.cheey.taiin.al.kal.okain",
+   "kaiin.okaiin.sheey.qokeeodaiin.chkaiiin.alkal.okaiin.otey",
+   "tolcheey.qokeody.alkal.okeedy.cheody.kaiin.okaiin.otair.okchedy.qokar.chey",
+   "taiin.otchedy.okir.cheaiin.al.kar.aiin.cheody.qokeey.otain.cheoy.taiin.al.otaiin.alkal",
+   "daiin.olkain.okaiin.chodalkeedy",
+   "pchoain.kaiin.okched.opcheeo.tchey.daiin.okaiin.kodaiin.otaiin.ar",
+   "sal.shar.al.ain.okaiin.o.keedy.okedy.qokaiin.lkar.or.aiin.okaiin.oty",
+   "oeeokaiin.olkaiin.alkeedy.okaiin.alo.l.kaiin.cheody.kaiin.ykal",
+   "daiin.olkeey.shees.ykedy.chey.ol.keedy.qokeedaiin.chedy.okaiin.chedaiin.akaiin.qokam",
+   "dain.cheekaiin.okaiin.okeedy.qokal.al.okam"
+  ]
+ },
+ "f64": {
+  "attributes": {
+   "section": "stars",
+   "language": "A",
+   "hand": "3",
+   "neighbours": [
+    "f58r",
+    "f65v"
+   ]
+  },
+  "lines": [
+   "pchey.shey.tchod.y.keody.desey.qopchedy.sheody.qopchsdy.qodchdy.chekchy.tadam",
+   "y.kchy.s.cheok.cheol.cheodar.s.cheos.olkeal.cho.s.al.sho.karam",
+   "dsheo.ckheor.cheo.rol.chey.okeeey.cheekchey.dar.oeey.sal",
+   "ocho.ches.olaiin.alchl.ol.char.choty.okar.or.oly.rar.aiin.oly.okal.cheos.oek.aiin.am",
+   "daiin.olkeeeey.okeedaiin.okal.chol.kol.okeeody.chedy.lkeey",
+   "yokeees.y.keeo.m.okeey.cheo.r.cheey.cheey.key.keedy.lk",
+   "ykeey.lkeo.r.shey.qoekey.rar.aiin.oteor.shol.qokchedy.shey.checkhy",
+   "s.aiin.okeey.r.okaiin.okeey.laiin.okeey.qoeeey",
+   "qokeey.qokaiin.okain.chey.okaiin.o.raiin.otor.o.keey.lkaiin.chey",
+   "otain.chedy.lkain.okeey.odaiin.chey.qey.cheey.qokal.otaiin.olaiin.o.raly",
+   "y.keeo.r.aiin.chedy.qooiin.cheolkeedain.qokaiin.okaiin.oetaiin.am",
+   "ykaiin.aiin.ykaiin.o.lkeey.lkcheey.ror.aiin.al.okal",
+   "lcheeydal.qokal.okain.chekaiin",
+   "parolkeeo.kaioral.tal.arar.kar.ofalkaiin.chty.qokar.kal.opchey.okr.aiir.alchy.dain",
+   "yaiin.chedal.chotaiin.dal.okal.sheey.otaiin.otal.qokalain",
+   "y.aiirody",
+   "kyaiin.okchey.taiin.shaiy.tair.ar.olkal.kal.par.chedy.pal.otal.dalalar",
+   "y.ol.ar.ol.lkaiin.okeedy.lchedy.lkaiin.olkaiin.olom",
+   "saiin.alchedy.lor.aiin.shaiin.qotal.shedy.lkar.otchdy.qokar.otaiin",
+   "ycheod.lkaiin.chey.qokal.chol.qokeedy.qokain.chedy.taiin.okair.otal.ram",
+   "dain.shey.lkeey.lshey.qokaiin.chedy.qokain.sheokchedaiin.chal.lky",
+   "schey.lkaiin.chedaiin.cheol.olkeor.shedy.qokeey.lchedam",
+   "tolchey.qokcheedy.qoeey.chkain.chotain.otain.olkal.cheey.r.aiin.al",
+   "ychey.okchey.cheey.qotain.okeedy",
+   "por.cheey.qotchedy.sheedy.qokeey.lkeedaiin.cheokal.kal.chey.lkal.lkaiin.chedam",
+   "okeedaiin.opaiin.cheodaiin.al.kair.otal.chedo.lkar.okohdy",
+   "ykeeos.air.cheo.lchedy.keeody.okedy.lkain.otar.ar.al.otod.aiin.chedam",
+   "okar.sheo.lkair.olkeey.cheody.cheody.okar.shedain.qokeedy.qokar.okeedy.chedar.olkam",
+   "ar.ar.lkeed.chey.cheokees.aiin.chedair.olkaiin.chedy.qokeey.okeedam",
+   "ycheeo.chor.cheody.okeey.qokaiin.chod.chodaiin.cheey.otam",
+   "daiin.ar.okeeody.chedy.qokeey.chedy.cheey.chody.chedy.qokain.chedy.darchy",
+   "shodar.chey.shedy.kseey.okeey.ykeeody.qoeey.okeol.okeey.lkairchedy.qokor.opar.otaiin.aly",
+   "tcheody.qoechso.l.cheeo.lkeey.checkhy.daiin.oteedy.o.lkaiin",
+   "okeedar.olkeeod.y.keey.okeody.chol.kal.chey.kaiin.o.raiin.ar.am",
+   "aiin.chol.chey.eain.okey.chckhy.daiin.okeey.lkeeey.okear.okody",
+   "yteeo.r.aiin.okeodol.qokeedy",
+   "kedalpchedy.qokeed.qotedy.qoteeo.lkchedy.qotain.otaiin.opal",
+   "sar.ar.chedy.qokeedy.daiin.ol.keedy.yteeo.l.cheol.yky.qokar.ar.ooky",
+   "yteey.keedy.qokeor.chedy.dal.shey.okeedy.qokeey.dam",
+   "tchdy.shey.qotedy.lchedy.qokeedy.r.oteedy.qoteedy",
+   "poraiin.okeedy.qokchedy.qokchy.ches.aiin.chedy.chedy.teey.daiin",
+   "oeear.chody.keedy.oteey.sey.qody.qodair.chal.okchedy.qotar.otoain.chols",
+   "qoeteey.okshedy.dair.okchdar.olkain.ykol.olchedy.s.aiin.ol.kair.alchedy",
+   "pol.shedal.qokedy.okedy.qokeey.lchedy.okal.okeedy.qokal.okedar.chedy",
+   "tcheol.otechy.ofchedy.lked.qotedy.qokedy.lkain.chdy.otalshedy.ofchdy",
+   "ytedy.qokeedy.qokedy.daiin.chedy.chedy.qokal.chedy.lod.lkeedy.lkedy.y",
+   "dal.okain.cheor.ol.chedy.qokchedy.lkain.chedy"
+  ]
+ },
+ "f74": {
+  "attributes": {
+   "section": "cosmological",
+   "language": "?",
+   "hand": "4",
+   "neighbours": [
+    "f70r2",
+    "f75r"
+   ]
+  },
+  "lines": [
+   "pcheor.ypcheodar.olaiin.cthody.ykeey.otaraiin.cheey.otar",
+   "ytos.ar.cheey.sheody.solchey.cheytaiin.okar.okaiin",
+   "shoar.air.ody.chy.kcheody.oteody.oteodar.chey.kar",
+   "odaiin.shkair.olkeeey.cheey.keody.s.aiin.cheo.kol.chey.keam",
+   "oekeo.dar.dal.cheo.ckheey.oeey.koekey",
+   "daiin.chol.s.aiin.okeey.qokol.okcheody.dol.daiin",
+   "dal.shkol.qodaiin.chkos.o.aiiir.otol.daiir.okeod.daiin",
+   "toekoekaiin.otol.qokom.okaiin.otol.s.otorody"
+  ]
+ },
+ "f91": {
+  "attributes": {
+   "section": "herbal",
+   "language": "A",
+   "hand": "1",
+   "neighbours": [
+    "f90r1",
+    "f93r"
+   ]
+  },
+  "lines": [
+   "pchor.dshar.ol.cphol.opchol.dy.s.chear.qofchar.s.opcheead.otchdy.qotar",
+   "dshor.qot.chor.qokor.chor.chy.s.chy.dain.chey.chom",
+   "qotchy.chey.tchey.cheey.kchy..to.old",
+   "soiin.chey.kar.chy.tchdy.kechor.chey.kchod.s",
+   "dsheey.dor.char.qookchey.keedal.dar.ol.dol.dcheeody",
+   "tcheo.lkchor.qoeeol.daiin.otor.ol.so.ykol.saiin.okal",
+   "sor.shees.ol.daiin.cheo.dy.keol.chol.daiin.al",
+   "qoeey.chey.keeol.chol.cheodar.chey.daiin",
+   "tol.chey.k.chckhey.chey.ckheol.okeey.keol.cheo.lchckhy.chol.cheeol.qokeey.cheol.cheody.keodal",
+   "oeeey.qokeey.okey.sheey.qokol.chey.qoekeey.cheor.ol.okeey.okeeody",
+   "kchey.okeeey.oteey.daiin.cheosekeos.okeey.okeey.okey",
+   "kcheosa..aiin.odeey"
+  ]
+ },
+ "f92": {
+  "attributes": {
+   "section": "herbal",
+   "language": "A",
+   "hand": "1",
+   "neighbours": [
+    "f90r1",
+    "f93r"
+   ]
+  },
+  "lines": [
+   "toiin.shokchy.qofchor.ory.shopchy.opchordy.qoky.qotchy.qotchor.chor.ypchy.dy",
+   "qotaiiin.chky.ykchy.okchy.chkchy.ty.daiin.qoty.chotchy.daiin.dam",
+   "ytcho.chol.dchom.chaiin.otol.qoty.qotchor.chy.ty.chy.chor.dlor",
+   "dcho.r.ar.chy.kchaiin.cthey",
+   "tcho.tcho.chol.chor.qotchor.choiin.qotor.cho.r.ar",
+   "chy.tchor.ytor.chey.cthyd.chor.otchy.dy.tor.dar",
+   "otaiin.chor.ctho.l.kol.daiin.dy.kom",
+   "dor.chor.choly.okaiin.chtam",
+   "or.cheor.oky.cheol.chol.saiin",
+   "oy.kor.chol.daiin.qkar.chor.chol.dar.oaiin"
+  ]
+ },
+ "f97": {
+  "attributes": {
+   "section": "herbal",
+   "language": "A",
+   "hand": "1",
+   "neighbours": [
+    "f96r",
+    "f99r"
+   ]
+  },
+  "lines": [
+   "pchey.qokaiin.sheodal.ches.o.kair.sheeky.qokeedy.qopar.otar.opchdy.qotchdy.qokar.oty.shedy.okar.am",
+   "okeodar.ykechy.tain.okar.shkain.chedy.qokeey.chcthy.qokeey.rain.aly",
+   "todaiin.cheytody.daiin.okeedy.qoep.chedy.qotaiin.ches.ain.al.ol.tain.otam",
+   "ychey.okey.cheokaiin.qokaiin.checkhy.otair.aiin.al.otal.okeodar.otaiin.oty",
+   "y.l.aiin.chkaiin.olkain.chy",
+   "poskaiin.aiin.otair.shedy.qopcheeody.otaiin.chedy.teeodaiin.cheackhy",
+   "polkeeody.ckhey.saiin.yteeody.qoteeody.otair.okaiin.otaldaiin.arain",
+   "ytedain.cheey.qokeed.oteey.lor.aiin.otchedain",
+   "pcheol.keeo.lkeeol.ckheody.lr.ydair.oteeody.qodair.okchey.qokedar.chedy.otair.al",
+   "saiin.odaiin.shedy.taiin.chelal.okeedy.qokeo.l.keody.qotain",
+   "tshedy.qokar.shed.oteedy.qoteeody.qotchdy.otain.shedy.qokeedy.dain.ol.oeeedy",
+   "qokeedy.chedy.dar.okain.chedar.checthy.qokeeg"
+  ]
+ },
+ "f98": {
+  "attributes": {
+   "section": "herbal",
+   "language": "A",
+   "hand": "1",
+   "neighbours": [
+    "f96r",
+    "f99r"
+   ]
+  },
+  "lines": [
+   "pdar.chay.t.y.chcfhol.daiir.chy.kchar.otar.ytar.sho.daiin.dg",
+   "ychol.chody.chky.cthy.sor.dal.y.s.aiin.shod.yty",
+   "otol.chody.chotchy.daiin.shy.ko.cthy.oty.chol.daiin",
+   "qoor.chey.chor.chockhy.ches.chodaiin.cheu",
+   "dees.cheey.kol.chkeol.chockol.ychey.sor.chotol.daiin",
+   "sor.chor.cheo.arol.sheol.daiin.cheol.cheol.ckhaiin"
+  ]
+ },
+ "f109": {
+  "attributes": {
+   "section": "stars",
+   "language": "B",
+   "hand": "3",
+   "neighbours": [
+    "f108r",
+    "f111r"
+   ]
+  },
+  "lines": [
+   "pchodody.ofol.shedy.pches.alkeedy.opchdy",
+   "y.sheoedy.qotar.aldy.y.dy.shal.qokchedy.okeey.ramy",
+   "sheey.odal.shcthy.oty.chcthy.okedy.dal.olkeedy.shdy.daram",
+   "tshedy.qokar.olal.qotal.okedy.cheky.otal.otedar.otedytar.shedy.otam",
+   "tshodedy.ytchdy.ykol.ykal.sheody.sheedy.daiin",
+   "tod.qokaiin.shckhey.qokal.otaiin.shedy.qokchdy.lchdy",
+   "daiin.sheesy.tedy.dalshdy.qokeey.dal.chdy.tchdair.ol.chedy",
+   "tchedy.chedal.ain.sheody.qokaiin.chdy.qokedy.qokedy.qokedy.dain",
+   "chedy.ykees.ol.chedy.qokaiin.shedy.qokedar.ar.chedy.qokey.qoy",
+   "tedolshedy.qokal.cheeos.dain.chedy.qokar.sheol.daiin.chcthy",
+   "daiin.qoain.chetol.dalar.ody.kedy.dolkchdy",
+   "qokedy.otar.shedy.qokedy.qokedy.qotchedy.qokar.kaiin.otalchy",
+   "tchededy.qotaiin.olchedy.qotaiin.dain.chedy.qokeey.qokedy.lo",
+   "daiin.chedy.tar.chepchy.daiin.chdalkaiin.otal.qokar.okar.ol.ky.qotam",
+   "qokaiin.otar.ar.y.chdal.s.o.daiin.chedy.ychckhy.aldy",
+   "yoiin.chdain.okey.lchedy.chedy.daiin.chedaiin",
+   "ytshedy.qokaiin.shedy.otaiin.shedy.qokaldy.qokedy",
+   "odal.chedy.qokedy.shedy.okedar.chckhy.otedy.qokaly.qotaiin.otaiin.cheky",
+   "aiin.sain.shedy.qokal.shedy.qokal.shedy.qokeedy.chedy.qokal.cheedy",
+   "ssain.shedy.qokeey.qol.qokeedy.chedy.qokal.chedy.shedy.qokal.shedy",
+   "sain.chckhey.qokal.sheedy.qotar.shedy.qokal.shdy.qoky.shckhal.cholom",
+   "sar.al.chedy.orain.cheol.sheey.olseedy.qokaly.otchdy.qokal.chedy.chcthy.qokaly",
+   "yshey.chey.qokeedy.qolkeedy.qokedy.qody.qokeedy.qoky.dar",
+   "lor.shedy.qokchesl.okal.shedy.qokal.cheedy.qokar.chedy.qokar.chcthy.schey.kar.ar.chedy.qokedy.qoky",
+   "qokeey.qokeey.qokeey.shdy.qokaiin.shdy.dy.teey.lkar.shedy",
+   "qokain.qokar.chedy.rol.key.keedy.qokeedy.chedy.qokeedy.r",
+   "ykain.chckhy.qokaiin.chees.shedy.qokal.oky.qokar.okain",
+   "qokain.sheey.qolaiin.olkal.qokain.qokain.chedy.lchdar.chcthy",
+   "dal.shedy.qokain.shedy.qokain.qokal.qotar.shdy.qokol.oldy",
+   "shedy.qol.aiiin.sheedy.sheedy.qokey.qol.shedy.qolain.shedy.qoky.lol",
+   "lchedy.tchdy.ol.shedy.leedy.qokedy.shedy.lshedy",
+   "qokar.shey.qokaiin.qokal.r.shedy",
+   "polchdy.rqokal.shedy.qokar.shedy.qokaiin.shedy.qoky",
+   "qotal.chdar.shedy.qokal.qotain.shdy.dalchs.qokain",
+   "qol.chedy.lshed.qokar.chckhy.okchedy.qolchedy",
+   "qotain.chedy.qokain.cheol.qokedy.qol.lol.kain",
+   "okl.chedy.qokal.tchedy.qokchy.lshedy.qokchy.lkechy.rchdy",
+   "qol.shedy.qotain.ol.ral.shed.qokar.ar.qoky.lchedy.qol",
+   "qoiin.shedalol.qokal.qoikhedy.dal.qokain.shedy.qokeey.qoky",
+   "chedy.qokain.okal.r.chey.lkeedy.ry.taiin.qokain.qokar.charo.loiro",
+   "dain.chckhy.ldal.kedy.qodal.lcthdy",
+   "pchdy.qotaiin.chety.qokal.shedykal.qokaiin.shey.qokedy.loky.lkeedy.qoky",
+   "chedy.qokal.shedy.qokain.dal.chedal.lkaiin.lshedy.qokl.lshedy.qoky",
+   "qokal.chedy.qol.r.shedy.qokal.shedy.qotar.otar.qokol.qotal.otar.lom",
+   "sain.shedy.qokal.qokain.chdy.qokar.oty.qotal.shedy.qoky.lor",
+   "qokedy.lshedy.qokedy.qokain.olkeedy.lchedy.ral.rar.oraiin",
+   "qokain.cheal.shy.oqokain.y.dalal.chdy.otal.tshdy.dal"
+  ]
+ },
+ "f110": {
+  "attributes": {
+   "section": "stars",
+   "language": "B",
+   "hand": "3",
+   "neighbours": [
+    "f108r",
+    "f111r"
+   ]
+  },
+  "lines": [
+   "pchar.alor.chedy.qokeey.lcheedy.raiin",
+   "taiin.sheo.lchedy.lkeor.cheedy.chckhy.lkaiin.okar.chey.okalam",
+   "tain.chey.lkaiin.cheey.lkain.s.ain.okal.shedy.taiin",
+   "okal.cheodaiin.sheokaiin.cheey.okeeo.r.alkaiin.otar",
+   "tkchey.okeey.choty.chokaiin.chedaiin.okain.chl.lkal.lkaraiin.okaiin.aldy",
+   "ykaiin.cheeeaiin.ain.al.kain.qokal.chedaiin.cheokaiin.chal.chey.qotail.ain.chdy",
+   "oeeor.chey.okeey.cheodaiin.ar.al.kaiiin.olkaiin.okar.ol.or.kcheedy.chedy",
+   "okar.okeol.okar.or.air.aiin.okal.kain.otal.otaiin.okaiin.okain.al",
+   "ykaiin.cheoaiin.oteedy.air.okeey.olkeeey",
+   "daiin.okaiin.okaiin.okar.sheo.daiin",
+   "pchedaiin.okaiin.or.kaiin.sheody.okeey.cheokaiin.otaiin.opaldaiin.opchey",
+   "daiin.chody.kedy.oeey.cheey.keey.kaiin.okaiin.okaiin.chokeedy.qokeedy.qokeedy.al.lkar.lkal",
+   "aiin.al.okeey.lor.kar.okaiin",
+   "pychey.okeedy.okeey.qokeedy.chekchedy.chedal.lkeedy.roiin.chedy.kchedy.okam",
+   "lor.ain.okain.ar.otain.chedy.okaiin.chedy.qotaiin.oteey.taiin.chedy",
+   "dchedy.qokaiin.chckhy.chey.ol.keedy.lkain",
+   "pchedy.qokaiin.cheedy.daiin.okchedy.cheey.paiin.chedy.qokaiin.chdaral",
+   "daiin.chey.lkaiin.chedy.okeedy.lkeedy.qokeor.chedor.cheey.lchedy.oldy.qokeedy",
+   "kar.oldaiin.cheeol.chy.chokcheey.daiin.chdaiin.chdy.kaiir.okal.okechey.checky",
+   "par.aiin.olkeeod.qokedy.shedal.aiin.aldy",
+   "daiin.ched.aiin.okal.cheedy.qoain.cheodaiin.or.lkaiin.okal",
+   "y.cheoal.chdy.cheedy",
+   "taiin.chedy.ockhedy.shedy.lchedy.otaiin.otchdy.qotail.kaly",
+   "ychedy.alkeedy.cheockhey.olkeedy.okaiin.okain.cheokam",
+   "ykar.air.alkain.okain.chedy"
+  ]
+ }
+}

@@ -1,0 +1,302 @@
+[
+ {
+  "model": "z-ai/glm-5.3-flash",
+  "cost": 2.298e-06,
+  "tokens": 27
+ },
+ {
+  "model": "openai/gpt-6-luna",
+  "cost": 4.1e-06,
+  "tokens": 21
+ },
+ {
+  "model": "tencent/hy3",
+  "cost": 6.95e-06,
+  "tokens": 30
+ },
+ {
+  "model": "qwen/qwen2.5-vl-72b-instruct",
+  "cost": 2.12e-05,
+  "tokens": 26
+ },
+ {
+  "model": "z-ai/glm-5.3-flash",
+  "cost": 0.0009497,
+  "tokens": 4481
+ },
+ {
+  "model": "openai/gpt-6-luna",
+  "cost": 0.0010113,
+  "tokens": 4473
+ },
+ {
+  "model": "tencent/hy3",
+  "cost": 0.0021596,
+  "tokens": 5398
+ },
+ {
+  "model": "tencent/hy3",
+  "cost": 0.001758,
+  "tokens": 4920
+ },
+ {
+  "model": "z-ai/glm-5.3-flash",
+  "cost": 0.0013143,
+  "tokens": 5843
+ },
+ {
+  "model": "openai/gpt-6-luna",
+  "cost": 0.00115705,
+  "tokens": 5585
+ },
+ {
+  "model": "tencent/hy3",
+  "cost": 0.0024508,
+  "tokens": 6854
+ },
+ {
+  "model": "tencent/hy3",
+  "cost": 0.0019812,
+  "tokens": 6291
+ },
+ {
+  "model": "openai/gpt-6-luna",
+  "cost": 0.001091175,
+  "tokens": 6690
+ },
+ {
+  "model": "z-ai/glm-5.3-flash",
+  "cost": 0.000178065,
+  "tokens": 1902
+ },
+ {
+  "model": "openai/gpt-6-luna",
+  "cost": 0.0005163,
+  "tokens": 2001
+ },
+ {
+  "model": "tencent/hy3",
+  "cost": 0.00125656,
+  "tokens": 3248
+ },
+ {
+  "model": "tencent/hy3",
+  "cost": 0.00103128,
+  "tokens": 2742
+ },
+ {
+  "model": "z-ai/glm-5.3-flash",
+  "cost": 0.000219425,
+  "tokens": 2701
+ },
+ {
+  "model": "openai/gpt-6-luna",
+  "cost": 0.000708675,
+  "tokens": 3006
+ },
+ {
+  "model": "tencent/hy3",
+  "cost": 0.00139624,
+  "tokens": 4320
+ },
+ {
+  "model": "tencent/hy3",
+  "cost": 0.00100904,
+  "tokens": 3715
+ },
+ {
+  "model": "openai/gpt-6-luna",
+  "cost": 0.000715925,
+  "tokens": 4165
+ },
+ {
+  "model": "z-ai/glm-5.3-flash",
+  "cost": 0.0010956,
+  "tokens": 3104
+ },
+ {
+  "model": "z-ai/glm-5.3-flash",
+  "cost": 0.0004091,
+  "tokens": 1731
+ },
+ {
+  "model": "openai/gpt-6-luna",
+  "cost": 0.000451675,
+  "tokens": 1781
+ },
+ {
+  "model": "tencent/hy3",
+  "cost": 0.00123541,
+  "tokens": 3107
+ },
+ {
+  "model": "tencent/hy3",
+  "cost": 0.00178453,
+  "tokens": 3811
+ },
+ {
+  "model": "z-ai/glm-5.3-flash",
+  "cost": 0.0012,
+  "tokens": 3800
+ },
+ {
+  "model": "z-ai/glm-5.3-flash",
+  "cost": 0.000533,
+  "tokens": 2466
+ },
+ {
+  "model": "openai/gpt-6-luna",
+  "cost": 0.000688925,
+  "tokens": 2785
+ },
+ {
+  "model": "tencent/hy3",
+  "cost": 0.0014979,
+  "tokens": 4106
+ },
+ {
+  "model": "tencent/hy3",
+  "cost": 0.00105438,
+  "tokens": 3435
+ },
+ {
+  "model": "openai/gpt-6-luna",
+  "cost": 0.000645175,
+  "tokens": 3815
+ },
+ {
+  "model": "z-ai/glm-5.3-flash",
+  "cost": 0.000158012,
+  "tokens": 1684
+ },
+ {
+  "model": "openai/gpt-6-luna",
+  "cost": 0.000517675,
+  "tokens": 1937
+ },
+ {
+  "model": "tencent/hy3",
+  "cost": 0.0006462225,
+  "tokens": 3201
+ },
+ {
+  "model": "tencent/hy3",
+  "cost": 0.0005468925,
+  "tokens": 2744
+ },
+ {
+  "model": "z-ai/glm-5.3-flash",
+  "cost": 0.000231594,
+  "tokens": 2685
+ },
+ {
+  "model": "openai/gpt-6-luna",
+  "cost": 0.000770425,
+  "tokens": 3080
+ },
+ {
+  "model": "tencent/hy3",
+  "cost": 0.00079365,
+  "tokens": 4220
+ },
+ {
+  "model": "tencent/hy3",
+  "cost": 0.0005544,
+  "tokens": 3519
+ },
+ {
+  "model": "openai/gpt-6-luna",
+  "cost": 0.000773675,
+  "tokens": 4330
+ },
+ {
+  "model": "z-ai/glm-5.3-flash",
+  "cost": 0.000213917,
+  "tokens": 2524
+ },
+ {
+  "model": "openai/gpt-6-luna",
+  "cost": 0.000636925,
+  "tokens": 2741
+ },
+ {
+  "model": "tencent/hy3",
+  "cost": 0.0011378,
+  "tokens": 4006
+ },
+ {
+  "model": "tencent/hy3",
+  "cost": 0.0011393,
+  "tokens": 3661
+ },
+ {
+  "model": "z-ai/glm-5.3-flash",
+  "cost": 0.000376207356,
+  "tokens": 4977
+ },
+ {
+  "model": "openai/gpt-6-luna",
+  "cost": 0.001003175,
+  "tokens": 4162
+ },
+ {
+  "model": "tencent/hy3",
+  "cost": 0.0015004,
+  "tokens": 5060
+ },
+ {
+  "model": "tencent/hy3",
+  "cost": 0.0011175,
+  "tokens": 4423
+ },
+ {
+  "model": "openai/gpt-6-luna",
+  "cost": 0.000874925,
+  "tokens": 5143
+ },
+ {
+  "model": "z-ai/glm-5.3-flash",
+  "cost": 0.000213379,
+  "tokens": 2252
+ },
+ {
+  "model": "openai/gpt-6-luna",
+  "cost": 0.000678675,
+  "tokens": 2493
+ },
+ {
+  "model": "tencent/hy3",
+  "cost": 0.00128046,
+  "tokens": 3489
+ },
+ {
+  "model": "tencent/hy3",
+  "cost": 0.00104256,
+  "tokens": 3102
+ },
+ {
+  "model": "z-ai/glm-5.3-flash",
+  "cost": 0.00027705,
+  "tokens": 3183
+ },
+ {
+  "model": "openai/gpt-6-luna",
+  "cost": 0.0009983,
+  "tokens": 3877
+ },
+ {
+  "model": "tencent/hy3",
+  "cost": 0.00128718,
+  "tokens": 4641
+ },
+ {
+  "model": "tencent/hy3",
+  "cost": 0.00087886,
+  "tokens": 3937
+ },
+ {
+  "model": "openai/gpt-6-luna",
+  "cost": 0.000898675,
+  "tokens": 4931
+ }
+]

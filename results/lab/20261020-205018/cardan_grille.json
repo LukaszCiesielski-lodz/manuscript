@@ -1,0 +1,185 @@
+{
+ "theory": "cardan_grille",
+ "hypothesis": "Tekst to bełkot ułożony kratką Cardana z tabeli przedrostków, środków i końcówek (Rugg 2004).",
+ "method": "Symulacja kratki z trzema otworami nad tabelą fragmentów wziętych z rękopisu; porównanie z rękopisem.",
+ "verdict": "obalona",
+ "summary": "Kratka Cardana: odległość 2.44, różnica hapaksów 51%.",
+ "metrics": {
+  "grille": {
+   "profile": {
+    "tokens": 20000,
+    "types": 1142,
+    "type_token_ratio": 0.0571,
+    "hapax_ratio": 0.18563922942206654,
+    "mean_word_len": 4.16695,
+    "sd_word_len": 1.2434539386322279,
+    "top10_coverage": 0.18535,
+    "zipf_slope": -1.2591078717037407,
+    "adjacent_repeat": 0.004550227511375569,
+    "adjacent_near": 0.04040202010100505,
+    "vocab_density": 1.0,
+    "alphabet": 18,
+    "h0": 4.169925001442312,
+    "h1": 3.7493474121600245,
+    "h2": 1.9187902271807369,
+    "h3": 1.677768725484447,
+    "positional_rigidity": 0.8263478083490323,
+    "order_consistency": 0.925574397137164,
+    "edge_mi": 0.0011268062752627205
+   },
+   "distance": 2.4386223758280345
+  },
+  "voynich": {
+   "tokens": 20000,
+   "types": 4996,
+   "type_token_ratio": 0.2498,
+   "hapax_ratio": 0.6977582065652522,
+   "mean_word_len": 4.17865,
+   "sd_word_len": 1.5924930698436335,
+   "top10_coverage": 0.12885,
+   "zipf_slope": -1.0143997045285058,
+   "adjacent_repeat": 0.009050452522626132,
+   "adjacent_near": 0.049852492624631234,
+   "vocab_density": 0.9375,
+   "alphabet": 34,
+   "h0": 5.087462841250339,
+   "h1": 3.874085406852563,
+   "h2": 2.3504806136630836,
+   "h3": 2.1258258320678918,
+   "positional_rigidity": 0.760856283766786,
+   "order_consistency": 0.8761355026674061,
+   "edge_mi": 0.1676006379439365
+  },
+  "hapax_gap": 0.5121189771431857
+ },
+ "controls": [
+  {
+   "name": "rozpoznanie języka",
+   "expectation": "druga próbka łaciny najbliżej pierwszej",
+   "observed": "najbliżej: Latin",
+   "passed": true
+  }
+ ],
+ "evidence": [
+  "Kratka Cardana: odległość 2.44, h2=1.92 (rękopis 2.35), hapaksy 19% (70%), MI krawędzi 0.001 (0.168), podobni sąsiedzi 4.0% (5.0%)."
+ ],
+ "caveats": [
+  "Wynik zależy od budowy tabeli fragmentów; tu fragmenty i ich częstości wzięto z samego rękopisu."
+ ],
+ "references": [
+  "G. Rugg, An elegant hoax? Cryptologia 28 (2004)",
+  "Zandbergen, arXiv:2104.12548",
+  "Evidence of Layered Positional and Directional Constraints, arXiv:2604.19762"
+ ],
+ "artifacts": [],
+ "seconds": 8.997298240661621,
+ "council": {
+  "members": [
+   "z-ai/glm-5.3-flash",
+   "openai/gpt-6-luna",
+   "tencent/hy3"
+  ],
+  "chair": "openai/gpt-6-luna",
+  "round1": {
+   "z-ai/glm-5.3-flash": {
+    "raw": "{\"werdykt\": \"obalona\",\n \"pewność\": 0.75,\n \"najmocniejszy_dowód\": \"Symulacja kratki daje edge_MI = 0.001 wobec 0.168 w rękopisie oraz hapaksy 19% wobec 70% — tekst z kratki Cardana nie odtwarza kluczowych statystyk rękopisu (odległość 2.44, różnica hapaksów 51%).\",\n \"słabości\": [\"Jedna kontrola metody (rozpoznanie języka) — brak kontroli pozytywnej, czy metoda wykrywa efekt podłożony celowo, i negatywnej na danych przetasowanych.\", \"Tabela fragmentów zbudowana z samego rękopisu, więc test może nie odpowiadać oryginalnej konstrukcji Rugga (zastrzeżenie autorów).\", \"Symulacja tylko jednej konfiguracji kratki (trzy otwory); brak przeszukania przestrzeni parametrów kratki.\"],\n \"inne_wyjaśnienia\": [\"Zła parametryzacja kratki lub tabeli fragmentów mogła sztucznie pogorszyć dopasowanie — obalenie dotyczy tej konkretnej symulacji, nie każdej wersji hipotezy.\", \"Niska struktura bigramowa (edge_MI≈0) może wynikać z niezależnego losowania fragmentów, a nie z samej idei kratki.\"],\n \"następny_test\": \"Kalibracja metody: wygenerować teksty kratką Cardana z tabeli Rugga (nie z rękopisu), potwierdzić że metoda je rozpoznaje jako kratkę (kontrola pozytywna) i że nie rozpoznaje jej w danych przetasowanych; dopiero potem ponowna ocena odległości.\"}",
+    "json": {
+     "werdykt": "obalona",
+     "pewność": 0.75,
+     "najmocniejszy_dowód": "Symulacja kratki daje edge_MI = 0.001 wobec 0.168 w rękopisie oraz hapaksy 19% wobec 70% — tekst z kratki Cardana nie odtwarza kluczowych statystyk rękopisu (odległość 2.44, różnica hapaksów 51%).",
+     "słabości": [
+      "Jedna kontrola metody (rozpoznanie języka) — brak kontroli pozytywnej, czy metoda wykrywa efekt podłożony celowo, i negatywnej na danych przetasowanych.",
+      "Tabela fragmentów zbudowana z samego rękopisu, więc test może nie odpowiadać oryginalnej konstrukcji Rugga (zastrzeżenie autorów).",
+      "Symulacja tylko jednej konfiguracji kratki (trzy otwory); brak przeszukania przestrzeni parametrów kratki."
+     ],
+     "inne_wyjaśnienia": [
+      "Zła parametryzacja kratki lub tabeli fragmentów mogła sztucznie pogorszyć dopasowanie — obalenie dotyczy tej konkretnej symulacji, nie każdej wersji hipotezy.",
+      "Niska struktura bigramowa (edge_MI≈0) może wynikać z niezależnego losowania fragmentów, a nie z samej idei kratki."
+     ],
+     "następny_test": "Kalibracja metody: wygenerować teksty kratką Cardana z tabeli Rugga (nie z rękopisu), potwierdzić że metoda je rozpoznaje jako kratkę (kontrola pozytywna) i że nie rozpoznaje jej w danych przetasowanych; dopiero potem ponowna ocena odległości."
+    }
+   },
+   "openai/gpt-6-luna": {
+    "raw": "{\n  \"werdykt\": \"metoda niewiarygodna\",\n  \"pewność\": 0.97,\n  \"najmocniejszy_dowód\": \"Raport nie podaje kluczowych kontroli: czy metoda wykrywa efekt w danych celowo wygenerowanych kratką Cardana i czy nie wykrywa go w danych przetasowanych. Sama kontrola rozpoznawania języka tego nie zastępuje.\",\n  \"słabości\": [\n    \"Tabela fragmentów i ich częstości pochodzą z badanego rękopisu, więc wynik zależy od konstrukcji dobranej na tych samych danych.\",\n    \"Wyniki pokazują duże różnice — m.in. hapaksy 19% wobec 70% i MI krawędzi 0,001 wobec 0,168 — ale bez kontroli nie wiadomo, jak diagnostyczne są te miary ani odległość 2,44.\"\n  ],\n  \"inne_wyjaśnienia\": [\n    \"Różnice mogą wskazywać, że ta konkretna symulacja nie odtwarza badanych cech rękopisu, ale nie dowodzą, że tekst nie powstał żadną metodą kratki Cardana.\",\n    \"Wynik zależny od tabeli może odzwierciedlać jej konstrukcję, a nie samą hipotezę.\"\n  ],\n  \"następny_test\": \"Przeprowadzić ślepy, skalibrowany test na niezależnie ustalonej tabeli: sprawdzić, czy metoda wykrywa teksty celowo wygenerowane kratką Cardana i nie wykrywa efektu w danych przetasowanych, a następnie zastosować ją do rękopisu.\"\n}",
+    "json": {
+     "werdykt": "metoda niewiarygodna",
+     "pewność": 0.97,
+     "najmocniejszy_dowód": "Raport nie podaje kluczowych kontroli: czy metoda wykrywa efekt w danych celowo wygenerowanych kratką Cardana i czy nie wykrywa go w danych przetasowanych. Sama kontrola rozpoznawania języka tego nie zastępuje.",
+     "słabości": [
+      "Tabela fragmentów i ich częstości pochodzą z badanego rękopisu, więc wynik zależy od konstrukcji dobranej na tych samych danych.",
+      "Wyniki pokazują duże różnice — m.in. hapaksy 19% wobec 70% i MI krawędzi 0,001 wobec 0,168 — ale bez kontroli nie wiadomo, jak diagnostyczne są te miary ani odległość 2,44."
+     ],
+     "inne_wyjaśnienia": [
+      "Różnice mogą wskazywać, że ta konkretna symulacja nie odtwarza badanych cech rękopisu, ale nie dowodzą, że tekst nie powstał żadną metodą kratki Cardana.",
+      "Wynik zależny od tabeli może odzwierciedlać jej konstrukcję, a nie samą hipotezę."
+     ],
+     "następny_test": "Przeprowadzić ślepy, skalibrowany test na niezależnie ustalonej tabeli: sprawdzić, czy metoda wykrywa teksty celowo wygenerowane kratką Cardana i nie wykrywa efektu w danych przetasowanych, a następnie zastosować ją do rękopisu."
+    }
+   },
+   "tencent/hy3": {
+    "raw": "{\n  \"werdykt\": \"metoda niewiarygodna\",\n  \"pewność\": 0.4,\n  \"najmocniejszy_dowód\": \"Duża różnica między symulacją kratki a rękopisem: hapaksy 19% vs 70%, MI krawędzi 0.001 vs 0.168, przy poprawnej kontroli rozpoznania języka (łacina najbliżej łacinie).\",\n  \"słabości\": [\n    \"Brak kontroli metody na celowo podłożonym efekcie kratki i danych przetasowanych (wymagane do wiarygodności)\",\n    \"Tabela fragmentów zbudowana z samego rękopisu, co nie testuje niezależności hipotezy\"\n  ],\n  \"inne_wyjaśnienia\": [\n    \"Rękopis może być tekstem w nieznanym języku lub szyfrem, a nie bełkotem z kratki (test tego nie bada)\",\n    \"Inna wersja kratki Cardana lub inna tabela fragmentów mogłaby dać inny wynik\"\n  ],\n  \"następny_test\": \"Symulacja z kontrolą pozytywną: wygenerowanie tekstu znaną kratką Cardana z niezależnej tabeli i sprawdzenie wykrywalności przez metodę oraz brak wykrycia w przetasowanym rękopisie.\"\n}",
+    "json": {
+     "werdykt": "metoda niewiarygodna",
+     "pewność": 0.4,
+     "najmocniejszy_dowód": "Duża różnica między symulacją kratki a rękopisem: hapaksy 19% vs 70%, MI krawędzi 0.001 vs 0.168, przy poprawnej kontroli rozpoznania języka (łacina najbliżej łacinie).",
+     "słabości": [
+      "Brak kontroli metody na celowo podłożonym efekcie kratki i danych przetasowanych (wymagane do wiarygodności)",
+      "Tabela fragmentów zbudowana z samego rękopisu, co nie testuje niezależności hipotezy"
+     ],
+     "inne_wyjaśnienia": [
+      "Rękopis może być tekstem w nieznanym języku lub szyfrem, a nie bełkotem z kratki (test tego nie bada)",
+      "Inna wersja kratki Cardana lub inna tabela fragmentów mogłaby dać inny wynik"
+     ],
+     "następny_test": "Symulacja z kontrolą pozytywną: wygenerowanie tekstu znaną kratką Cardana z niezależnej tabeli i sprawdzenie wykrywalności przez metodę oraz brak wykrycia w przetasowanym rękopisie."
+    }
+   }
+  },
+  "round2": {
+   "z-ai/glm-5.3-flash": {
+    "raw": "{\"ranking\": [\"B\", \"C\"], \"uwagi\": \"Obie opinie trafnie wskazują brak kontroli pozytywnej (tekst wygenerowany kratką) i negatywnej (przetasowania), których raport nie zawiera — jest tylko kontrola rozpoznania języka, która tego nie zastępuje. Opinia B jest precyzyjniejsza: dodatkowo podkreśla cyrkularność (tabela fragmentów zbudowana z badanego rękopisu) i to, że bez kalibracji nie wiadomo, jak diagnostyczna jest odległość 2,44 ani poszczególne miary. Opinia C jest zasadniczo zgodna, ale słabiej rozwija problem zależności wyniku od konstrukcji tabeli i przypisuje niższą pewność mimo identycznych podstaw merytorycznych. Nikt się nie myli co do faktów; drobna uwaga do C: jego 'najmocniejszy dowód' (duże różnice miar) sam w sobie nie przesądza, dopóki brak kalibracji — to B formułuje wprost. Werdykt automatyczny 'obalona' jest przedwczesny: dane pokazują, że ta konkretna symulacja nie odtwarza profilu rękopisu, ale nie pozwalają odrzucić hipotezy kratki w ogóle.\", \"werdykt\": \"metoda niewiarygodna — hipoteza nieobalona i niepotwierdzona; wymagany skalibrowany test z niezależną tabelą, kontrolą pozytywną (wygenerowany tekst kratką) i negatywną (dane przetasowane)\", \"pewność\": 0.9, \"zmiana_zdania\": \"nie — opinie B i C są zbieżne z oceną, że raport nie spełnia wymogów kontroli metody; jedyna korekta to złagodzenie werdyktu z 'obalona' na 'nierostrzygnięta'\"}",
+    "json": {
+     "ranking": [
+      "B",
+      "C"
+     ],
+     "uwagi": "Obie opinie trafnie wskazują brak kontroli pozytywnej (tekst wygenerowany kratką) i negatywnej (przetasowania), których raport nie zawiera — jest tylko kontrola rozpoznania języka, która tego nie zastępuje. Opinia B jest precyzyjniejsza: dodatkowo podkreśla cyrkularność (tabela fragmentów zbudowana z badanego rękopisu) i to, że bez kalibracji nie wiadomo, jak diagnostyczna jest odległość 2,44 ani poszczególne miary. Opinia C jest zasadniczo zgodna, ale słabiej rozwija problem zależności wyniku od konstrukcji tabeli i przypisuje niższą pewność mimo identycznych podstaw merytorycznych. Nikt się nie myli co do faktów; drobna uwaga do C: jego 'najmocniejszy dowód' (duże różnice miar) sam w sobie nie przesądza, dopóki brak kalibracji — to B formułuje wprost. Werdykt automatyczny 'obalona' jest przedwczesny: dane pokazują, że ta konkretna symulacja nie odtwarza profilu rękopisu, ale nie pozwalają odrzucić hipotezy kratki w ogóle.",
+     "werdykt": "metoda niewiarygodna — hipoteza nieobalona i niepotwierdzona; wymagany skalibrowany test z niezależną tabelą, kontrolą pozytywną (wygenerowany tekst kratką) i negatywną (dane przetasowane)",
+     "pewność": 0.9,
+     "zmiana_zdania": "nie — opinie B i C są zbieżne z oceną, że raport nie spełnia wymogów kontroli metody; jedyna korekta to złagodzenie werdyktu z 'obalona' na 'nierostrzygnięta'"
+    }
+   },
+   "openai/gpt-6-luna": {
+    "raw": "{\"ranking\":[\"C\",\"A\"],\"uwagi\":\"C najlepiej oddziela duże rozbieżności opisowe od wiarygodności testu: kontrola rozpoznawania łaciny nie sprawdza wykrywania kratki, a wymaganych kontroli pozytywnej i negatywnej brak. A trafnie wskazuje te braki i zastrzeżenie dotyczące tabeli zbudowanej z rękopisu, ale werdykt „obalona” jest zbyt mocny: wyniki dotyczą tylko opisanej symulacji. Raport wskazuje rozbieżności — m.in. hapaksy 19% wobec 70% i MI krawędzi 0,001 wobec 0,168 — lecz nie podaje progów ani kontroli pozwalających uznać je za rozstrzygające. Obie opinie słusznie zauważają, że test nie wyklucza innych wariantów kratki ani nie bada, czy rękopis jest językiem lub szyfrem. Opinii B nie dostarczono. Najbardziej zmieniłby ocenę test na niezależnej tabeli Rugga z kontrolą pozytywną (metoda wykrywa efekt kratki) i negatywną (nie wykrywa go w danych przetasowanych).\",\"werdykt\":\"Test nie uzasadnia obalenia hipotezy; jego kontrole nie spełniają wymaganych warunków wiarygodności. Wykazuje niedopasowanie konkretnej symulacji z trzema otworami i tabelą fragmentów opartą na rękopisie, nie zaś wszystkich wersji hipotezy.\",\"pewność\":0.93,\"zmiana_zdania\":\"nie — same wyniki symulacji są wyraźnie odmienne od rękopisu, ale bez wymaganych kontroli nie pozwalają na wiarygodny werdykt o hipotezie.\"}",
+    "json": {
+     "ranking": [
+      "C",
+      "A"
+     ],
+     "uwagi": "C najlepiej oddziela duże rozbieżności opisowe od wiarygodności testu: kontrola rozpoznawania łaciny nie sprawdza wykrywania kratki, a wymaganych kontroli pozytywnej i negatywnej brak. A trafnie wskazuje te braki i zastrzeżenie dotyczące tabeli zbudowanej z rękopisu, ale werdykt „obalona” jest zbyt mocny: wyniki dotyczą tylko opisanej symulacji. Raport wskazuje rozbieżności — m.in. hapaksy 19% wobec 70% i MI krawędzi 0,001 wobec 0,168 — lecz nie podaje progów ani kontroli pozwalających uznać je za rozstrzygające. Obie opinie słusznie zauważają, że test nie wyklucza innych wariantów kratki ani nie bada, czy rękopis jest językiem lub szyfrem. Opinii B nie dostarczono. Najbardziej zmieniłby ocenę test na niezależnej tabeli Rugga z kontrolą pozytywną (metoda wykrywa efekt kratki) i negatywną (nie wykrywa go w danych przetasowanych).",
+     "werdykt": "Test nie uzasadnia obalenia hipotezy; jego kontrole nie spełniają wymaganych warunków wiarygodności. Wykazuje niedopasowanie konkretnej symulacji z trzema otworami i tabelą fragmentów opartą na rękopisie, nie zaś wszystkich wersji hipotezy.",
+     "pewność": 0.93,
+     "zmiana_zdania": "nie — same wyniki symulacji są wyraźnie odmienne od rękopisu, ale bez wymaganych kontroli nie pozwalają na wiarygodny werdykt o hipotezie."
+    }
+   },
+   "tencent/hy3": {
+    "raw": "{\n  \"ranking\": [\"B\", \"A\"],\n  \"uwagi\": \"Opinia B poprawnie identyfikuje brak kluczowych kontroli metody (pozytywnej na wygenerowanym tekście i negatywnej na przetasowanych danych), co zgodnie z zasadami czyni test niewiarygodnym. Opinia A błędnie akceptuje werdykt 'obalona' mimo przyznania w słabościach, że metoda nie przeszła wymaganych kontroli; różnice statystyczne (hapaksy 19% vs 70%, MI 0.001 vs 0.168) są ciekawe, ale bez kalibracji nie wiadomo, czy miary te są diagnostyczne. Obie opinie słusznie wskazują na błąd użycia tabeli z samego rękopisu.\",\n  \"werdykt\": \"metoda niewiarygodna (brak kontroli pozytywnej i negatywnej; test nie może obalić hipotezy)\",\n  \"pewność\": 0.95,\n  \"zmiana_zdania\": \"nie, raport od początku nie spełniał kryterium kontroli metody wymaganego przez regulamin rady\"\n}",
+    "json": {
+     "ranking": [
+      "B",
+      "A"
+     ],
+     "uwagi": "Opinia B poprawnie identyfikuje brak kluczowych kontroli metody (pozytywnej na wygenerowanym tekście i negatywnej na przetasowanych danych), co zgodnie z zasadami czyni test niewiarygodnym. Opinia A błędnie akceptuje werdykt 'obalona' mimo przyznania w słabościach, że metoda nie przeszła wymaganych kontroli; różnice statystyczne (hapaksy 19% vs 70%, MI 0.001 vs 0.168) są ciekawe, ale bez kalibracji nie wiadomo, czy miary te są diagnostyczne. Obie opinie słusznie wskazują na błąd użycia tabeli z samego rękopisu.",
+     "werdykt": "metoda niewiarygodna (brak kontroli pozytywnej i negatywnej; test nie może obalić hipotezy)",
+     "pewność": 0.95,
+     "zmiana_zdania": "nie, raport od początku nie spełniał kryterium kontroli metody wymaganego przez regulamin rady"
+    }
+   }
+  },
+  "synthesis": "## Werdykt rady\n**Test niewiarygodny; hipoteza pozostaje nierozstrzygnięta.** Zgodność opinii jest wysoka: wszystkie oceny końcowe wskazują, że brak wymaganych kontroli uniemożliwia uznanie werdyktu „obalona”.\n\n## Co test pokazuje\nOpisana symulacja kratki z trzema otworami nie odtwarza kilku cech rękopisu: hapaksy stanowią 19% wobec 70%, a MI krawędzi wynosi 0,001 wobec 0,168. Pokazuje to niedopasowanie **tej konkretnej symulacji**, nie zaś obalenie wszystkich wersji hipotezy.\n\n## Główne zastrzeżenia\nKontrola rozpoznawania języka nie sprawdza, czy metoda wykrywa efekt kratki. Brakuje kontroli pozytywnej na danych celowo wygenerowanych kratką i negatywnej na danych przetasowanych. Ponadto tabela fragmentów i ich częstości pochodzą z samego rękopisu, więc wynik zależy od jej konstrukcji. Test nie rozstrzyga innych wariantów kratki ani kwestii, których nie bada.\n\n## Rekomendowany następny eksperyment\nPrzeprowadzić ślepy test z **niezależnie ustaloną tabelą**: sprawdzić, czy metoda wykrywa kratkę w tekście wygenerowanym celowo i nie wykrywa jej w danych przetasowanych; dopiero po przejściu obu kontroli zastosować ją do rękopisu.",
+  "failed": {},
+  "votes": {
+   "test nie uzasadnia obalenia hipotezy; je": 1,
+   "metoda niewiarygodna": 2
+  }
+ }
+}

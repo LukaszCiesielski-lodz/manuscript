@@ -1,0 +1,215 @@
+{
+ "theory": "illustrations",
+ "hypothesis": "Klucz do tekstu kryje się w ilustracjach: tekst zależy od rysunków (np. pierwsze słowo strony zielnika to zaszyfrowana nazwa rośliny).",
+ "method": "A: długość słów przy przerwach na rysunek (test permutacyjny). B: test Mantela – podobieństwo obrazów CLIP a podobieństwo słownictwa stron zielnika, permutacje w obrębie skryby i języka Curriera. C: atak z nazwami roślin od modelu wizyjnego jako 'cribami' (wyżarzanie klucza glif→litera) wobec nazw przetasowanych.",
+ "verdict": "nierozstrzygnięta",
+ "summary": "Test sprawdza warunek konieczny klucza w ilustracjach: czy tekst w ogóle zależy od rysunku. C: pominięte, brak skanów (nie udało się pobrać skanu 1v: 403 https://collections.library.yale.edu/iiif/2/1006077/full/1024,/0/default.jpg; 403 https://collections.library.yale.edu/iiif/2/1006077/full/!1024,1024/0/default.jpg; 403 https://collections.library.yale.edu/iiif/2/1006077/full/pct:50/0/default.jpg; 403 https://collections.library.yale.edu/iiif/2/1006077/full/full/0/default.jpg. Wgraj skany do folderu i ustaw LabConfig(images_dir=...), pliki nazwane np. f1r.jpg). B: pominięte (nie udało się pobrać skanów: nie udało się pobrać skanu 1v: 403 https://collections.library.yale.edu/iiif/2/1006077/full/1024,/0/default.jpg; 403 https://collections.library.yale.edu/iiif/2/1006077/full/!1024,1024/0/default.jpg; 403 https://collections.library.yale.edu/iiif/2/1006077/full/pct:50/0/default.jpg; 403 https://collections.library.yale.edu/iiif/2/1006077/full/full/0/default.jpg. Wgraj skany do folderu i ustaw LabConfig(images_dir=...), pliki nazwane np. f1r.jpg).",
+ "metrics": {
+  "layout": {
+   "lines": 613,
+   "length_difference": -0.24154388354044132,
+   "p": 0.0003332222592469177,
+   "p_planted": 0.0003332222592469177
+  },
+  "crib_control": {
+   "observed": 0.475,
+   "null": [
+    0.1325,
+    0.1575,
+    0.13,
+    0.135,
+    0.16,
+    0.155,
+    0.1375,
+    0.13,
+    0.15,
+    0.15,
+    0.1475,
+    0.155,
+    0.135,
+    0.1525,
+    0.1525,
+    0.1425,
+    0.155,
+    0.16,
+    0.1425,
+    0.1325,
+    0.1225,
+    0.1625,
+    0.155,
+    0.145,
+    0.1325,
+    0.16,
+    0.15,
+    0.1275,
+    0.1525,
+    0.165,
+    0.1425,
+    0.1425,
+    0.15,
+    0.17,
+    0.145,
+    0.1475,
+    0.15,
+    0.15,
+    0.1425,
+    0.1375,
+    0.135,
+    0.1325,
+    0.145,
+    0.1375,
+    0.1325,
+    0.155,
+    0.1325,
+    0.1475,
+    0.155
+   ],
+   "p": 0.02
+  }
+ },
+ "controls": [
+  {
+   "name": "A: podłożone skrócenie słów przed rysunkiem",
+   "expectation": "wykryte (p < 0,01)",
+   "observed": "p = 0.0003",
+   "passed": true
+  },
+  {
+   "name": "C: nazwy podłożone znanym kluczem",
+   "expectation": "atak je znajduje (p ≤ 0,05)",
+   "observed": "wynik 0.47 wobec 0.17 (max dla przetasowanych), p = 0.020",
+   "passed": true
+  }
+ ],
+ "evidence": [
+  "A: 613 wierszy przerwanych rysunkiem. Słowo przed rysunkiem różni się długością o -0.24 glifu od słów w środku wiersza, p = 0.0003.",
+  "C: pominięte, brak skanów (nie udało się pobrać skanu 1v: 403 https://collections.library.yale.edu/iiif/2/1006077/full/1024,/0/default.jpg; 403 https://collections.library.yale.edu/iiif/2/1006077/full/!1024,1024/0/default.jpg; 403 https://collections.library.yale.edu/iiif/2/1006077/full/pct:50/0/default.jpg; 403 https://collections.library.yale.edu/iiif/2/1006077/full/full/0/default.jpg. Wgraj skany do folderu i ustaw LabConfig(images_dir=...), pliki nazwane np. f1r.jpg).",
+  "B: pominięte (nie udało się pobrać skanów: nie udało się pobrać skanu 1v: 403 https://collections.library.yale.edu/iiif/2/1006077/full/1024,/0/default.jpg; 403 https://collections.library.yale.edu/iiif/2/1006077/full/!1024,1024/0/default.jpg; 403 https://collections.library.yale.edu/iiif/2/1006077/full/pct:50/0/default.jpg; 403 https://collections.library.yale.edu/iiif/2/1006077/full/full/0/default.jpg. Wgraj skany do folderu i ustaw LabConfig(images_dir=...), pliki nazwane np. f1r.jpg)."
+ ],
+ "caveats": [
+  "Związek tekstu z rysunkiem (B) byłby warunkiem koniecznym, ale nie dowodem klucza: tekst o roślinie też zależy od rośliny.",
+  "Identyfikacje roślin przez model wizyjny są niepewne; botanicy nie zgadzają się co do większości roślin rękopisu.",
+  "Atak C zakłada, że pierwsze słowo strony to nazwa rośliny zapisana szyfrem podstawieniowym od początku słowa.",
+  "CLIP widzi całą stronę razem z pismem; podobny układ tekstu może podbijać podobieństwo obrazów."
+ ],
+ "references": [
+  "Subtle Signs of Scribal Intent in the Voynich Manuscript, arXiv:2404.13069",
+  "Topic Modeling in the Voynich Manuscript, arXiv:2107.02858",
+  "A Generative Grammar Underlying the Voynich Manuscript (pastiche hypothesis), arXiv:2609.20835",
+  "Bax, A proposed partial decoding of the Voynich script (2014)"
+ ],
+ "artifacts": [
+  "plant_names.json"
+ ],
+ "seconds": 92.04296445846558,
+ "council": {
+  "members": [
+   "z-ai/glm-5.3-flash",
+   "openai/gpt-6-luna",
+   "tencent/hy3"
+  ],
+  "chair": "openai/gpt-6-luna",
+  "round1": {
+   "z-ai/glm-5.3-flash": {
+    "raw": "```json\n{\n  \"werdykt\": \"nierozstrzygnięta\",\n  \"pewność\": 0.55,\n  \"najmocniejszy_dowód\": \"Test A: słowo przed rysunkiem krótsze o 0,24 glifu (n=613, p=0.0003), z kontrolą podłożonego efektu (p=0.0003) — tekst statystycznie zależy od obecności ilustracji.\",\n  \"słabości\": [\n    \"Dwa z trzech testów (B, C) pominięte z powodu braku skanów (403) — kluczowe dowody zależności treści od obrazu nie istnieją.\",\n    \"Test A bada tylko długość słów przy przerwach, nie treść; efekt -0,24 glifu jest mały i może wynikać z układu strony, nie klucza w ilustracjach.\",\n    \"Kontrola C przeszła, ale atak C nie został uruchomiony na rzeczywistych danych — kontrola dotyczy mechanizmu, nie hipotezy.\"\n  ],\n  \"inne_wyjaśnienia\": [\n    \"Krótsze słowa przed rysunkiem mogą wynikać z formatowania wierszy (wypełnienie linii przed blokiem obrazu), a nie z semantycznego związku tekst–rysunek.\",\n    \"Efekt może odzwierciedlać konwencje skryby/struktury sekcji, nie szyfr zależny od ilustracji.\"\n  ],\n  \"następny_test\": \"Ponowne pobranie skanów (alternatywne źródło/mirror Beinecke) i wykonanie testu B (Mantel: CLIP vs słownictwo stron zielnika, permutacje w obrębie skryby i Currier) — to bezpośrednio przetestuje warunek konieczny zależności słownictwa od obrazu.\"\n}\n```",
+    "json": {
+     "werdykt": "nierozstrzygnięta",
+     "pewność": 0.55,
+     "najmocniejszy_dowód": "Test A: słowo przed rysunkiem krótsze o 0,24 glifu (n=613, p=0.0003), z kontrolą podłożonego efektu (p=0.0003) — tekst statystycznie zależy od obecności ilustracji.",
+     "słabości": [
+      "Dwa z trzech testów (B, C) pominięte z powodu braku skanów (403) — kluczowe dowody zależności treści od obrazu nie istnieją.",
+      "Test A bada tylko długość słów przy przerwach, nie treść; efekt -0,24 glifu jest mały i może wynikać z układu strony, nie klucza w ilustracjach.",
+      "Kontrola C przeszła, ale atak C nie został uruchomiony na rzeczywistych danych — kontrola dotyczy mechanizmu, nie hipotezy."
+     ],
+     "inne_wyjaśnienia": [
+      "Krótsze słowa przed rysunkiem mogą wynikać z formatowania wierszy (wypełnienie linii przed blokiem obrazu), a nie z semantycznego związku tekst–rysunek.",
+      "Efekt może odzwierciedlać konwencje skryby/struktury sekcji, nie szyfr zależny od ilustracji."
+     ],
+     "następny_test": "Ponowne pobranie skanów (alternatywne źródło/mirror Beinecke) i wykonanie testu B (Mantel: CLIP vs słownictwo stron zielnika, permutacje w obrębie skryby i Currier) — to bezpośrednio przetestuje warunek konieczny zależności słownictwa od obrazu."
+    }
+   },
+   "openai/gpt-6-luna": {
+    "raw": "{\n  \"werdykt\": \"nierozstrzygnięta\",\n  \"pewność\": 0.94,\n  \"najmocniejszy_dowód\": \"Test A wykrył różnicę długości słów przed przerwą na rysunek: średnio o 0,24 glifu krótsze, w 613 wierszach, p = 0,0003. Kontrola z podłożonym skróceniem zadziałała.\",\n  \"słabości\": [\n    \"Test B, który miał sprawdzić związek treści stron z obrazami, pominięto z powodu braku skanów; test C również nie został wykonany na rękopisie.\",\n    \"Wynik A wskazuje na różnicę długości przy przerwach na rysunek, ale nie dowodzi, że tekst zależy od treści ilustracji.\",\n    \"Kontrola C z podłożonym kluczem zadziałała względem przetasowanych nazw, lecz sprawdza działanie ataku syntetycznego, nie hipotezę na danych rękopisu.\"\n  ],\n  \"inne_wyjaśnienia\": [\n    \"Krótsze słowa przy rysunkach mogą wynikać z układu wiersza lub praktyk skryby, a nie z odniesień do ilustracji.\",\n    \"Nawet wykryty związek tekstu z ilustracjami nie rozstrzygałby, czy chodzi o szyfr; tekst opisujący temat rysunku również mógłby z nim współwystępować.\"\n  ],\n  \"następny_test\": \"Wykonać test B na skanach: porównać podobieństwo obrazów z podobieństwem słownictwa stron, z permutacjami w obrębie skryby i języka Curriera oraz kontrolą, która usuwa wpływ pisma widocznego na obrazach.\"\n}",
+    "json": {
+     "werdykt": "nierozstrzygnięta",
+     "pewność": 0.94,
+     "najmocniejszy_dowód": "Test A wykrył różnicę długości słów przed przerwą na rysunek: średnio o 0,24 glifu krótsze, w 613 wierszach, p = 0,0003. Kontrola z podłożonym skróceniem zadziałała.",
+     "słabości": [
+      "Test B, który miał sprawdzić związek treści stron z obrazami, pominięto z powodu braku skanów; test C również nie został wykonany na rękopisie.",
+      "Wynik A wskazuje na różnicę długości przy przerwach na rysunek, ale nie dowodzi, że tekst zależy od treści ilustracji.",
+      "Kontrola C z podłożonym kluczem zadziałała względem przetasowanych nazw, lecz sprawdza działanie ataku syntetycznego, nie hipotezę na danych rękopisu."
+     ],
+     "inne_wyjaśnienia": [
+      "Krótsze słowa przy rysunkach mogą wynikać z układu wiersza lub praktyk skryby, a nie z odniesień do ilustracji.",
+      "Nawet wykryty związek tekstu z ilustracjami nie rozstrzygałby, czy chodzi o szyfr; tekst opisujący temat rysunku również mógłby z nim współwystępować."
+     ],
+     "następny_test": "Wykonać test B na skanach: porównać podobieństwo obrazów z podobieństwem słownictwa stron, z permutacjami w obrębie skryby i języka Curriera oraz kontrolą, która usuwa wpływ pisma widocznego na obrazach."
+    }
+   },
+   "tencent/hy3": {
+    "raw": "{\n  \"werdykt\": \"nierozstrzygnięta\",\n  \"pewność\": 0.3,\n  \"najmocniejszy_dowód\": \"Test A (kontrola przeszła: p=0.0003) wykazał istotną statystycznie różnicę długości słów przed przerwą na rysunek (-0.24 glifu, p=0.0003) na 613 liniach, co potwierdza istnienie strukturalnej zależności tekstu od obecności rysunku.\",\n  \"słabości\": [\n    \"Testy B (Mantel/CLIP) i C (atak z cribami) zostały całkowicie pominięte z powodu braku pobrania skanów (błąd 403); nie zweryfikowano zatem głównej hipotezy o powiązaniu treści słów z konkretnymi ilustracjami.\",\n    \"Kontrola C podano wynik (p=0.02), ale w sekcji dowodów i podsumowaniu stwierdzono pominięcie przez brak skanów – sprzeczność w raporcie obniża wiarygodność modułu C.\",\n    \"Test A bada tylko długość słów, a nie ich znaczenie ani zgodność z rysunkiem; nie testuje hipotezy o 'kluczu' w ilustracjach.\"\n  ],\n  \"inne_wyjaśnienia\": [\n    \"Tekst może naturalnie opisywać rysunek (np. zwięzłe etykiety), co skraca słowa przy przerwach, bez ukrytego szyfru.\",\n    \"Układ strony (pozycja rysunku) może dyktować długość wierszy niezależnie od semantyki (pastiche/gramatyka generatywna).\"\n  ],\n  \"następny_test\": \"Ponowne uruchomienie testu B (Mantela między embeddingami CLIP a dystrybucją słów z podziałem na skrybów) i C (wyżarzanie klucza z nazwami roślin jako crib) po poprawnym wgraniu skanów do LabConfig, z kontrolą na przetasowanych parach strona-obraz.\"\n}",
+    "json": {
+     "werdykt": "nierozstrzygnięta",
+     "pewność": 0.3,
+     "najmocniejszy_dowód": "Test A (kontrola przeszła: p=0.0003) wykazał istotną statystycznie różnicę długości słów przed przerwą na rysunek (-0.24 glifu, p=0.0003) na 613 liniach, co potwierdza istnienie strukturalnej zależności tekstu od obecności rysunku.",
+     "słabości": [
+      "Testy B (Mantel/CLIP) i C (atak z cribami) zostały całkowicie pominięte z powodu braku pobrania skanów (błąd 403); nie zweryfikowano zatem głównej hipotezy o powiązaniu treści słów z konkretnymi ilustracjami.",
+      "Kontrola C podano wynik (p=0.02), ale w sekcji dowodów i podsumowaniu stwierdzono pominięcie przez brak skanów – sprzeczność w raporcie obniża wiarygodność modułu C.",
+      "Test A bada tylko długość słów, a nie ich znaczenie ani zgodność z rysunkiem; nie testuje hipotezy o 'kluczu' w ilustracjach."
+     ],
+     "inne_wyjaśnienia": [
+      "Tekst może naturalnie opisywać rysunek (np. zwięzłe etykiety), co skraca słowa przy przerwach, bez ukrytego szyfru.",
+      "Układ strony (pozycja rysunku) może dyktować długość wierszy niezależnie od semantyki (pastiche/gramatyka generatywna)."
+     ],
+     "następny_test": "Ponowne uruchomienie testu B (Mantela między embeddingami CLIP a dystrybucją słów z podziałem na skrybów) i C (wyżarzanie klucza z nazwami roślin jako crib) po poprawnym wgraniu skanów do LabConfig, z kontrolą na przetasowanych parach strona-obraz."
+    }
+   }
+  },
+  "round2": {
+   "z-ai/glm-5.3-flash": {
+    "raw": "{\"ranking\": [\"C\", \"B\"], \"uwagi\": \"Obie opinie są rzetelne, ale opinia C jest lepiej uzasadniona, bo jako jedyna wychwyciła wewnętrzną sprzeczność raportu: sekcja KONTROLE METODY podaje kontrolę testu C jako zaliczoną (p = 0.02, observed 0.475 vs max 0.17 dla przetasowanych), podczas gdy sekcja DOWODY i podsumowanie deklarują pominięcie C z powodu braku skanów (403). Ta niespójność realnie obniża wiarygodność modułu C i wymaga wyjaśnienia (możliwe, że kontrola działała na danych syntetycznych bez skanów, ale raport tego nie mówi). C słusznie też obniżył pewność do 0.3 — przy dwóch z trzech testów pominiętych wysoka pewność byłaby nieuzasadniona. Opinia B jest merytorycznie poprawna (dokładnie opisuje jedyny przeprowadzony test A i jego ograniczenia), ale jej pewność 0.94 wydaje się zawyżona wobec skali pominięć; za to jej propozycja następnego testu jest najlepsza, bo uwzględnia kontrolę eliminującą wpływ pisma widocznego na obrazach (zastrzeżenie z raportu o CLIP widzącym całą stronę). Obie opinie poprawnie oddzielają to, co test wyklucza (A: brak statystycznej niezależności tekstu od obecności rysunku — efekt -0.24 glifu, p = 0.0003, kontrola podłożona przeszła), od tego, czego nie bada (zależność treści słów od treści ilustracji — testy B i C niewykonane; hipoteza klucza w ilustracjach nieweryfikowalna na tym materiale). Obie słusznie wskazują alternatywne wyjaśnienia: układ strony/praktyki skryby oraz opis rysunku bez szyfru.\", \"werdykt\": \"nierozstrzygnięta\", \"pewność\": 0.75, \"zmiana_zdania\": \"nie — werdykt automatyczny (nierozstrzygnięta) jest poprawny: jedyny wykonany test A miał zaliczone kontrole i wykrył realny efekt strukturalny, ale bada jedynie warunek konieczny (zależność długości słów od przerwy na rysunek), nie samą hipotezę o kluczu w ilustracjach; testy B i C, które mogłyby ją rozstrzygnąć, nie zostały wykonane z powodu błędu 403 przy pobieraniu skanów. Następny test: ponowne uruchomienie testu B (Mantel CLIP vs słownictwo, permutacje w obrębie skryby i języka Curriera) po wgraniu skanów, z kontrolą maskującą pismo na obrazach — to najbardziej zmieniłoby ocenę, bo bezpośrednio testuje zależność treści tekstu od treści ilustracji.\"}",
+    "json": {
+     "ranking": [
+      "C",
+      "B"
+     ],
+     "uwagi": "Obie opinie są rzetelne, ale opinia C jest lepiej uzasadniona, bo jako jedyna wychwyciła wewnętrzną sprzeczność raportu: sekcja KONTROLE METODY podaje kontrolę testu C jako zaliczoną (p = 0.02, observed 0.475 vs max 0.17 dla przetasowanych), podczas gdy sekcja DOWODY i podsumowanie deklarują pominięcie C z powodu braku skanów (403). Ta niespójność realnie obniża wiarygodność modułu C i wymaga wyjaśnienia (możliwe, że kontrola działała na danych syntetycznych bez skanów, ale raport tego nie mówi). C słusznie też obniżył pewność do 0.3 — przy dwóch z trzech testów pominiętych wysoka pewność byłaby nieuzasadniona. Opinia B jest merytorycznie poprawna (dokładnie opisuje jedyny przeprowadzony test A i jego ograniczenia), ale jej pewność 0.94 wydaje się zawyżona wobec skali pominięć; za to jej propozycja następnego testu jest najlepsza, bo uwzględnia kontrolę eliminującą wpływ pisma widocznego na obrazach (zastrzeżenie z raportu o CLIP widzącym całą stronę). Obie opinie poprawnie oddzielają to, co test wyklucza (A: brak statystycznej niezależności tekstu od obecności rysunku — efekt -0.24 glifu, p = 0.0003, kontrola podłożona przeszła), od tego, czego nie bada (zależność treści słów od treści ilustracji — testy B i C niewykonane; hipoteza klucza w ilustracjach nieweryfikowalna na tym materiale). Obie słusznie wskazują alternatywne wyjaśnienia: układ strony/praktyki skryby oraz opis rysunku bez szyfru.",
+     "werdykt": "nierozstrzygnięta",
+     "pewność": 0.75,
+     "zmiana_zdania": "nie — werdykt automatyczny (nierozstrzygnięta) jest poprawny: jedyny wykonany test A miał zaliczone kontrole i wykrył realny efekt strukturalny, ale bada jedynie warunek konieczny (zależność długości słów od przerwy na rysunek), nie samą hipotezę o kluczu w ilustracjach; testy B i C, które mogłyby ją rozstrzygnąć, nie zostały wykonane z powodu błędu 403 przy pobieraniu skanów. Następny test: ponowne uruchomienie testu B (Mantel CLIP vs słownictwo, permutacje w obrębie skryby i języka Curriera) po wgraniu skanów, z kontrolą maskującą pismo na obrazach — to najbardziej zmieniłoby ocenę, bo bezpośrednio testuje zależność treści tekstu od treści ilustracji."
+    }
+   },
+   "openai/gpt-6-luna": {
+    "raw": "{\n  \"ranking\": [\"A\", \"C\"],\n  \"uwagi\": \"Opinia A jest lepiej uzasadniona: trafnie odróżnia kontrolę C na danych sztucznych od testu C na rękopisie, który pominięto, i wskazuje, że A mierzy długość słów, nie ich treść. Obie opinie przeceniają jednak A, nazywając wynik dowodem zależności tekstu od ilustracji: wykryto różnicę długości przy przerwie na rysunek (−0,24 glifu, n=613, p=0,0003), co może wynikać z układu strony. Opinia C błędnie uznaje wyniki C za sprzeczne: kontrola z podstawionym kluczem (p=0,02 wobec przetasowanych nazw) została wykonana, ale atak na rzeczywisty rękopis — nie. Raport nie podaje dla A osobnej kontroli na danych przetasowanych, więc pełnego wymogu kontroli tej metody nie da się potwierdzić. B i rzeczywisty C nie dostarczają dowodów; test nie rozstrzyga, czy ilustracje kodują treść, ani tego nie wyklucza. Najbardziej zmieniłoby ocenę wykonanie B na uzyskanych skanach, z kontrolą podobieństwa wynikającego z układu tekstu.\",\n  \"werdykt\": \"Nierozstrzygnięta. A wskazuje na niewielką różnicę długości słów przy przerwach na ilustracje, lecz nie wykazuje związku treści słów z konkretnymi rysunkami. Testy dotyczące tego związku pominięto.\",\n  \"pewność\": 0.8,\n  \"zmiana_zdania\": \"nie — dane nie rozstrzygają hipotezy; wynik A jest zgodny zarówno z pewnym związkiem z ilustracjami, jak i z wyjaśnieniem opartym na układzie strony.\"\n}",
+    "json": {
+     "ranking": [
+      "A",
+      "C"
+     ],
+     "uwagi": "Opinia A jest lepiej uzasadniona: trafnie odróżnia kontrolę C na danych sztucznych od testu C na rękopisie, który pominięto, i wskazuje, że A mierzy długość słów, nie ich treść. Obie opinie przeceniają jednak A, nazywając wynik dowodem zależności tekstu od ilustracji: wykryto różnicę długości przy przerwie na rysunek (−0,24 glifu, n=613, p=0,0003), co może wynikać z układu strony. Opinia C błędnie uznaje wyniki C za sprzeczne: kontrola z podstawionym kluczem (p=0,02 wobec przetasowanych nazw) została wykonana, ale atak na rzeczywisty rękopis — nie. Raport nie podaje dla A osobnej kontroli na danych przetasowanych, więc pełnego wymogu kontroli tej metody nie da się potwierdzić. B i rzeczywisty C nie dostarczają dowodów; test nie rozstrzyga, czy ilustracje kodują treść, ani tego nie wyklucza. Najbardziej zmieniłoby ocenę wykonanie B na uzyskanych skanach, z kontrolą podobieństwa wynikającego z układu tekstu.",
+     "werdykt": "Nierozstrzygnięta. A wskazuje na niewielką różnicę długości słów przy przerwach na ilustracje, lecz nie wykazuje związku treści słów z konkretnymi rysunkami. Testy dotyczące tego związku pominięto.",
+     "pewność": 0.8,
+     "zmiana_zdania": "nie — dane nie rozstrzygają hipotezy; wynik A jest zgodny zarówno z pewnym związkiem z ilustracjami, jak i z wyjaśnieniem opartym na układzie strony."
+    }
+   },
+   "tencent/hy3": {
+    "raw": "{\n  \"ranking\": [\"A\", \"B\"],\n  \"uwagi\": \"Opinia A jest lepiej uzasadniona: poprawnie wskazuje, że test A bada tylko długość (nie treść) i że kontrola C dotyczy mechanizmu, a nie hipotezy na danych rękopisu. Opinia B błędnie przypisuje sobie bardzo wysoką pewność (0.94) przy całkowitym braku testów B i C na rzeczywistych danych – to nieuzasadnione. Obie opinie słusznie oceniają werdykt jako nierozstrzygnięty. Test A wyklucza brak zależności długości słów od przerw na rysunek, ale nie bada zależności treści od ilustracji (B, C pominięte). Słabość: efekt -0.24 glifu może być formatowaniem, a nie kluczem.\",\n  \"werdykt\": \"nierozstrzygnięta\",\n  \"pewność\": 0.6,\n  \"zmiana_zdania\": \"nie, bo z raportu jasno wynika, że 2 z 3 testów (B, C) nie wykonano na danych rękopisu z powodu braku skanów, więc hipoteza o kluczu w ilustracjach nie została zbadana; test A tylko wykrył drobną zależność długości, co nie dowodzi szyfru.\"\n}",
+    "json": {
+     "ranking": [
+      "A",
+      "B"
+     ],
+     "uwagi": "Opinia A jest lepiej uzasadniona: poprawnie wskazuje, że test A bada tylko długość (nie treść) i że kontrola C dotyczy mechanizmu, a nie hipotezy na danych rękopisu. Opinia B błędnie przypisuje sobie bardzo wysoką pewność (0.94) przy całkowitym braku testów B i C na rzeczywistych danych – to nieuzasadnione. Obie opinie słusznie oceniają werdykt jako nierozstrzygnięty. Test A wyklucza brak zależności długości słów od przerw na rysunek, ale nie bada zależności treści od ilustracji (B, C pominięte). Słabość: efekt -0.24 glifu może być formatowaniem, a nie kluczem.",
+     "werdykt": "nierozstrzygnięta",
+     "pewność": 0.6,
+     "zmiana_zdania": "nie, bo z raportu jasno wynika, że 2 z 3 testów (B, C) nie wykonano na danych rękopisu z powodu braku skanów, więc hipoteza o kluczu w ilustracjach nie została zbadana; test A tylko wykrył drobną zależność długości, co nie dowodzi szyfru."
+    }
+   }
+  },
+  "synthesis": "## Werdykt rady: nierozstrzygnięta\n\n**Poziom zgody:** wysoki — oceniający zgodnie uznali, że raport nie rozstrzyga, czy ilustracje zawierają klucz do tekstu.\n\n**Co test naprawdę pokazuje:** Test A wykrył, że w 613 wierszach słowa przed przerwą na rysunek były średnio krótsze o 0,24 glifu (p = 0,0003). Kontrola z celowo podłożonym skróceniem zadziałała. To wskazuje na różnicę długości w określonym układzie strony, nie na związek treści słów z konkretnymi ilustracjami. Nie wyklucza więc hipotezy klucza, ale jej też nie potwierdza.\n\n**Główne zastrzeżenia:** Testy B i C na danych rękopisu pominięto z powodu braku skanów. Kontrola C sprawdzała działanie ataku na danych z podłożonym kluczem, a nie sam rękopis; raport nie wyjaśnia tego rozróżnienia. Ponadto A nie ma podanej kontroli na danych przetasowanych, więc pełna wiarygodność metody nie jest wykazana. Mały efekt może wynikać z formatowania lub praktyk skryby. CLIP może też reagować na układ pisma, a identyfikacje roślin i założenia ataku C są niepewne.\n\n**Rekomendowany następny eksperyment:** Wykonać test B na skanach, z permutacjami w obrębie skryby i języka Curriera oraz kontrolami wykrywającymi efekt w danych podłożonych, ale nie w danych przetasowanych. Należy też ograniczyć wpływ widocznego pisma i układu strony na podobieństwo obrazów.",
+  "failed": {},
+  "votes": {
+   "nierozstrzygnięta": 3
+  }
+ }
+}

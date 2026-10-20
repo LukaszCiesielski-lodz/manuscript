@@ -1,0 +1,360 @@
+{
+ "theory": "numbers",
+ "hypothesis": "Znaki rękopisu zapisują liczby (cały tekst albo przynajmniej etykiety w dziale zodiakalnym).",
+ "method": "A: teksty liczb w 5 systemach liczbowych sprzed 1450 r. porównane z rękopisem i 12 językami na 10 miarach kształtu tekstu (niezależnych od podstawienia znaków). B: test permutacyjny podobieństwa sąsiednich etykiet zodiaku (czy wyglądają jak kolejne liczby 1–30).",
+ "verdict": "obalona",
+ "summary": "Cały tekst jako liczby: nie pasuje (najbliższy system: alfabetyczny (grecki/hebrajski), odległość 1.73; dopasowanie wymaga < 0.5, dwie próbki łaciny różnią się o ok. 0,2). Etykiety zodiaku jako kolejne liczby: nie (efekt 2.1% przy p = 0.051; liczby podłożone dają ≥ 16%, zwykły tekst rękopisu 1.3%).",
+ "metrics": {
+  "distance_systems": {
+   "dziesiętny pozycyjny": 2.930098622017025,
+   "dwudziestkowy pozycyjny": 2.77336971750354,
+   "rzymski (z odejmowaniem)": 2.8189116368633256,
+   "rzymski addytywny (IIII, VIIII)": 2.846401743598494,
+   "alfabetyczny (grecki/hebrajski)": 1.7345851213645793
+  },
+  "distance_languages": {
+   "Arabic": 2.915732197979042,
+   "Basque": 2.3595250538074457,
+   "Czech": 2.702437411908058,
+   "English": 2.4228707391944724,
+   "Finnish": 2.434822395332824,
+   "German": 2.219961660363798,
+   "Hebrew": 2.5770357993369792,
+   "Hungarian": 2.7088454227671277,
+   "Italian": 2.477012272153729,
+   "Latin": 2.589224309212032,
+   "Polish": 2.5451728121139414,
+   "Turkish": 2.499638942995463,
+   "Vietnamese": 2.0507343832559006
+  },
+  "voynich": {
+   "tokens": 20000,
+   "types": 4996,
+   "type_token_ratio": 0.2498,
+   "hapax_ratio": 0.6977582065652522,
+   "mean_word_len": 4.17865,
+   "sd_word_len": 1.5924930698436335,
+   "top10_coverage": 0.12885,
+   "zipf_slope": -1.0143997045285058,
+   "adjacent_repeat": 0.009050452522626132,
+   "adjacent_near": 0.049852492624631234,
+   "vocab_density": 0.9375,
+   "alphabet": 34,
+   "h0": 5.087462841250339,
+   "h1": 3.874085406852563,
+   "h2": 2.3504806136630836,
+   "h3": 2.1258258320678918,
+   "positional_rigidity": 0.760856283766786,
+   "order_consistency": 0.8761355026674061,
+   "edge_mi": 0.1676006379439365
+  },
+  "systems": {
+   "dziesiętny pozycyjny": {
+    "tokens": 20000,
+    "types": 1881,
+    "type_token_ratio": 0.09405,
+    "hapax_ratio": 0.5412014885699096,
+    "mean_word_len": 1.7214,
+    "sd_word_len": 0.903981216619018,
+    "top10_coverage": 0.5429,
+    "zipf_slope": -1.075503019686786,
+    "adjacent_repeat": 0.048052402620131,
+    "adjacent_near": 0.35956797839891996,
+    "vocab_density": 1.0,
+    "alphabet": 11,
+    "h0": 3.4594316186372973,
+    "h1": 2.899151244480451,
+    "h2": 2.44424297682538,
+    "h3": 2.414654529686226,
+    "positional_rigidity": 0.43362960381085164,
+    "order_consistency": 0.7570469798657719,
+    "edge_mi": 0.0028581989675980656
+   },
+   "dwudziestkowy pozycyjny": {
+    "tokens": 20000,
+    "types": 1900,
+    "type_token_ratio": 0.095,
+    "hapax_ratio": 0.5447368421052632,
+    "mean_word_len": 1.43895,
+    "sd_word_len": 0.6867844621859176,
+    "top10_coverage": 0.53895,
+    "zipf_slope": -1.0775952907534925,
+    "adjacent_repeat": 0.05025251262563128,
+    "adjacent_near": 0.47412370618530925,
+    "vocab_density": 1.0,
+    "alphabet": 21,
+    "h0": 4.392317422778761,
+    "h1": 3.275291439006492,
+    "h2": 2.723321058370303,
+    "h3": 2.636943441663121,
+    "positional_rigidity": 0.48535390388825184,
+    "order_consistency": 0.818308388444135,
+    "edge_mi": 0.013812147343059751
+   },
+   "rzymski (z odejmowaniem)": {
+    "tokens": 20000,
+    "types": 1881,
+    "type_token_ratio": 0.09405,
+    "hapax_ratio": 0.557150451887294,
+    "mean_word_len": 3.20385,
+    "sd_word_len": 2.130280539623831,
+    "top10_coverage": 0.53675,
+    "zipf_slope": -1.1077605119555036,
+    "adjacent_repeat": 0.047652382619130955,
+    "adjacent_near": 0.19460973048652433,
+    "vocab_density": 0.9978734715576821,
+    "alphabet": 8,
+    "h0": 3.0,
+    "h1": 2.4505199967296583,
+    "h2": 1.8525051486069657,
+    "h3": 1.6108051392754712,
+    "positional_rigidity": 0.453126706930724,
+    "order_consistency": 0.9125128376603214,
+    "edge_mi": 0.0009227961063193406
+   },
+   "rzymski addytywny (IIII, VIIII)": {
+    "tokens": 20000,
+    "types": 1886,
+    "type_token_ratio": 0.0943,
+    "hapax_ratio": 0.5418875927889714,
+    "mean_word_len": 3.77165,
+    "sd_word_len": 2.704016693273176,
+    "top10_coverage": 0.539,
+    "zipf_slope": -1.066957193067477,
+    "adjacent_repeat": 0.04820241012050602,
+    "adjacent_near": 0.16545827291364568,
+    "vocab_density": 0.9994697773064687,
+    "alphabet": 8,
+    "h0": 3.0,
+    "h1": 2.3387169425685648,
+    "h2": 1.4583620689050245,
+    "h3": 1.4311546114988811,
+    "positional_rigidity": 0.534779208038922,
+    "order_consistency": 1.0,
+    "edge_mi": 0.0014479886404207103
+   },
+   "alfabetyczny (grecki/hebrajski)": {
+    "tokens": 20000,
+    "types": 1892,
+    "type_token_ratio": 0.0946,
+    "hapax_ratio": 0.5517970401691332,
+    "mean_word_len": 1.71125,
+    "sd_word_len": 1.0287727822507748,
+    "top10_coverage": 0.53595,
+    "zipf_slope": -1.0879314597404521,
+    "adjacent_repeat": 0.048102405120256014,
+    "adjacent_near": 0.33426671333566677,
+    "vocab_density": 1.0,
+    "alphabet": 29,
+    "h0": 4.857980995127572,
+    "h1": 3.638206451012992,
+    "h2": 2.518331017246002,
+    "h3": 2.382343277083998,
+    "positional_rigidity": 0.6313221329437546,
+    "order_consistency": 0.9071380079526719,
+    "edge_mi": 0.021789511549363445
+   }
+  },
+  "zodiac": {
+   "observed": 0.6579199159338529,
+   "shuffled": 0.6720216779123575,
+   "p": 0.05064978340553149,
+   "pages": 12,
+   "effect": 0.020984087927508277,
+   "planted_min_effect": 0.1568441292701902,
+   "running_text_effect": 0.013041893512662384,
+   "planted": {
+    "rzymski addytywny (IIII, VIIII)": {
+     "observed": 0.4030529284884686,
+     "p": 0.0003332222592469177
+    },
+    "alfabetyczny (grecki/hebrajski)": {
+     "observed": 0.7142857142857143,
+     "p": 0.0003332222592469177
+    },
+    "dziesiętny pozycyjny": {
+     "observed": 0.7142857142857143,
+     "p": 0.0003332222592469177
+    }
+   }
+  },
+  "metrics_used": [
+   "h2",
+   "h3",
+   "mean_word_len",
+   "sd_word_len",
+   "vocab_density",
+   "order_consistency",
+   "positional_rigidity",
+   "hapax_ratio",
+   "zipf_slope",
+   "type_token_ratio"
+  ]
+ },
+ "controls": [
+  {
+   "name": "rozpoznanie języka",
+   "expectation": "druga próbka łaciny najbliżej pierwszej",
+   "observed": "najbliżej: Latin (odległość 0.12)",
+   "passed": true
+  },
+  {
+   "name": "podłożone liczby 1–30 (rzymski addytywny (IIII, VIIII))",
+   "expectation": "test wykrywa ciąg (p < 0,01)",
+   "observed": "p = 0.0003",
+   "passed": true
+  },
+  {
+   "name": "podłożone liczby 1–30 (alfabetyczny (grecki/hebrajski))",
+   "expectation": "test wykrywa ciąg (p < 0,01)",
+   "observed": "p = 0.0003",
+   "passed": true
+  },
+  {
+   "name": "podłożone liczby 1–30 (dziesiętny pozycyjny)",
+   "expectation": "test wykrywa ciąg (p < 0,01)",
+   "observed": "p = 0.0003",
+   "passed": true
+  },
+  {
+   "name": "kalibracja na losowych etykietach",
+   "expectation": "fałszywe alarmy (p < 0,05) w ok. 5% zestawów, najwyżej 20%",
+   "observed": "0/20",
+   "passed": true
+  }
+ ],
+ "evidence": [
+  "Najbliższy system liczbowy: alfabetyczny (grecki/hebrajski), odległość 1.73; najbliższy język: Vietnamese, 2.05 (jednostka: rozrzut między językami).",
+  "dziesiętny pozycyjny (rozkład counts): odległość 2.93, h2=2.44, sztywność kolejności=0.76, typy=1881, hapaksy=54%, średnia dł.=1.7",
+  "dwudziestkowy pozycyjny (rozkład counts): odległość 2.77, h2=2.72, sztywność kolejności=0.82, typy=1900, hapaksy=54%, średnia dł.=1.4",
+  "rzymski (z odejmowaniem) (rozkład counts): odległość 2.82, h2=1.85, sztywność kolejności=0.91, typy=1881, hapaksy=56%, średnia dł.=3.2",
+  "rzymski addytywny (IIII, VIIII) (rozkład counts): odległość 2.85, h2=1.46, sztywność kolejności=1.00, typy=1886, hapaksy=54%, średnia dł.=3.8",
+  "alfabetyczny (grecki/hebrajski) (rozkład counts): odległość 1.73, h2=2.52, sztywność kolejności=0.91, typy=1892, hapaksy=55%, średnia dł.=1.7",
+  "Rękopis: h2=2.35, sztywność=0.88, typy=4996, hapaksy=70%, średnia dł.=4.2",
+  "Zodiak: 12 stron, 299 etykiet. Niepodobieństwo sąsiadów 0.658 wobec 0.672 po przetasowaniu (efekt 2.1%), p = 0.0506.",
+  "Podłożone liczby 1–30 dają efekt co najmniej 16%; zwykłe wiersze tekstu rękopisu dają 1.3% (ogólny zwyczaj pisania podobnych słów obok siebie)."
+ ],
+ "caveats": [
+  "Rozkład liczb jest założony (dużo małych liczb, ogon do 3999); inny rozkład zmienia liczbę typów i hapaksów.",
+  "Test B zakłada, że kolejność etykiet w transliteracji odpowiada kolejności wokół pierścieni.",
+  "Szyfr homofoniczny zapisujący liczby rozmyłby podobieństwo kolejnych etykiet; test B go nie wykluczy."
+ ],
+ "references": [
+  "Bowern & Lindemann, The Linguistics of the Voynich Manuscript, Annual Review of Linguistics 7 (2021)",
+  "Wikipedia/Voynich: 'oror or' na f15v przypomina zaszyfrowane cyfry rzymskie"
+ ],
+ "artifacts": [],
+ "seconds": 39.874990701675415,
+ "council": {
+  "members": [
+   "z-ai/glm-5.3-flash",
+   "openai/gpt-6-luna",
+   "tencent/hy3"
+  ],
+  "chair": "openai/gpt-6-luna",
+  "round1": {
+   "z-ai/glm-5.3-flash": {
+    "raw": "```json\n{\n  \"werdykt\": \"obalona\",\n  \"pewność\": 0.7,\n  \"najmocniejszy_dowód\": \"Test B na etykietach zodiakalnych: podłożone liczby 1–30 dają efekt ≥16% (wykrywalne, p=0.0003 we wszystkich trzech systemach), a w rękopisie efekt wynosi 2,1% przy p=0,0506 — czyli etykiety nie wyglądają jak kolejne liczby, choć wykazują typowy dla tekstu margines (1,3% w zwykłych wierszach). Do tego cały tekst jako liczby: najbliższy system (alfabetyczny) ma odległość 1,73, podczas gdy wymagane dopasowanie to <0,5 (rozrzut między językami tej samej rodziny tekstów ~0,2).\",\n  \"słabości\": [\n    \"Test B jest na granicy istotności (p=0,0506) — sam w sobie by nie wystarczył, ale wspólnie z kontrolami (0/20 fałszywych alarmów, wykrywalność podłożonych liczb) wnosi wiarygodny dowód negatywny.\",\n    \"Rozkład liczb w symulacjach jest założony (dużo małych wartości, ogon do 3999); inny rozkład mógłby zmienić odległości w teście A.\",\n    \"Test A porównuje cały tekst, a hipoteza dopuszcza też wariant częściowy (tylko etykiety) — pokrycie wariantów jest niepełne.\",\n    \"Test B bada wyłącznie hipotezę kolejnych liczb 1–30; innych układów liczb na etykietach nie sprawdza.\",\n    \"Test B zakłada, że kolejność etykiet w transliteracji odpowiada kolejności na pierścieniach — błąd w tym założeniu osłabia wynik.\"\n  ],\n  \"inne_wyjaśnienia\": [\n    \"Szyfr homofoniczny zapisujący liczby rozmyłby podobieństwo kolejnych etykiet — test B go nie wyklucza (zgodnie z zastrzeżeniem raportu).\",\n    \"Etykiety mogą być liczbami nieuporządkowanymi sekwencyjnie (np. wartości astronomiczne, nie dzień miesiąca).\",\n    \"Ewentualny system liczbowy spoza pięciu testowanych (np. mieszany, z separatorami lub cyframi nieznanymi z korpusu).\"\n  ],\n  \"następny_test\": \"Test wariantu częściowego: wyodrębnić krótkie sekwencje o strukturze etykiet (np. na rysunkach i marginesach) i porównać je z rozkładami liczb przy kilku różnych założonych rozkładach wartości (uniform, zipfowski, ograniczony zakres) — to sprawdzi, czy negatywny wynik testu A nie wynika z zastosowania go do całego tekstu i z założonego rozkładu liczb.\"\n}\n```",
+    "json": {
+     "werdykt": "obalona",
+     "pewność": 0.7,
+     "najmocniejszy_dowód": "Test B na etykietach zodiakalnych: podłożone liczby 1–30 dają efekt ≥16% (wykrywalne, p=0.0003 we wszystkich trzech systemach), a w rękopisie efekt wynosi 2,1% przy p=0,0506 — czyli etykiety nie wyglądają jak kolejne liczby, choć wykazują typowy dla tekstu margines (1,3% w zwykłych wierszach). Do tego cały tekst jako liczby: najbliższy system (alfabetyczny) ma odległość 1,73, podczas gdy wymagane dopasowanie to <0,5 (rozrzut między językami tej samej rodziny tekstów ~0,2).",
+     "słabości": [
+      "Test B jest na granicy istotności (p=0,0506) — sam w sobie by nie wystarczył, ale wspólnie z kontrolami (0/20 fałszywych alarmów, wykrywalność podłożonych liczb) wnosi wiarygodny dowód negatywny.",
+      "Rozkład liczb w symulacjach jest założony (dużo małych wartości, ogon do 3999); inny rozkład mógłby zmienić odległości w teście A.",
+      "Test A porównuje cały tekst, a hipoteza dopuszcza też wariant częściowy (tylko etykiety) — pokrycie wariantów jest niepełne.",
+      "Test B bada wyłącznie hipotezę kolejnych liczb 1–30; innych układów liczb na etykietach nie sprawdza.",
+      "Test B zakłada, że kolejność etykiet w transliteracji odpowiada kolejności na pierścieniach — błąd w tym założeniu osłabia wynik."
+     ],
+     "inne_wyjaśnienia": [
+      "Szyfr homofoniczny zapisujący liczby rozmyłby podobieństwo kolejnych etykiet — test B go nie wyklucza (zgodnie z zastrzeżeniem raportu).",
+      "Etykiety mogą być liczbami nieuporządkowanymi sekwencyjnie (np. wartości astronomiczne, nie dzień miesiąca).",
+      "Ewentualny system liczbowy spoza pięciu testowanych (np. mieszany, z separatorami lub cyframi nieznanymi z korpusu)."
+     ],
+     "następny_test": "Test wariantu częściowego: wyodrębnić krótkie sekwencje o strukturze etykiet (np. na rysunkach i marginesach) i porównać je z rozkładami liczb przy kilku różnych założonych rozkładach wartości (uniform, zipfowski, ograniczony zakres) — to sprawdzi, czy negatywny wynik testu A nie wynika z zastosowania go do całego tekstu i z założonego rozkładu liczb."
+    }
+   },
+   "openai/gpt-6-luna": {
+    "raw": "{\n  \"werdykt\": \"nierozstrzygnięta\",\n  \"pewność\": 0.82,\n  \"najmocniejszy_dowód\": \"Kontrole metody przeszły: test wykrył trzy rodzaje podłożonych ciągów 1–30 (p = 0,0003), a w 20 zestawach losowych etykiet nie dał fałszywego alarmu. Mimo to tekst nie pasuje do żadnego z pięciu badanych systemów liczbowych według przyjętego progu (najmniejsza odległość 1,73 wobec wymaganego < 0,5). Etykiety zodiaku wykazują tylko efekt 2,1% przy p = 0,0506, znacznie słabszy niż dla podłożonych liczb (co najmniej 16%).\",\n  \"słabości\": [\n    \"Wniosek o całym tekście zależy od pięciu zbadanych systemów i założonego rozkładu liczb; raport zastrzega, że inny rozkład zmieniłby wyniki.\",\n    \"Test etykiet zakłada, że ich kolejność w transliteracji odpowiada kolejności na pierścieniach; wynik jest ponadto graniczny i nie osiąga progu p < 0,05.\"\n  ],\n  \"inne_wyjaśnienia\": [\n    \"W badanych ujęciach podobieństwo etykiet może wynikać ze zwykłej skłonności do umieszczania podobnych słów obok siebie; raport podaje dla zwykłych wierszy efekt 1,3%.\",\n    \"Test B nie wyklucza kodowania liczb szyfrem homofonicznym ani innych reprezentacji, których nie uwzględniono w teście A.\"\n  ],\n  \"następny_test\": \"Przeprowadzić z góry określony test alternatywnego kodowania liczb, w tym wariantu homofonicznego, z kontrolami na podłożonych danych i przetasowanych etykietach; to sprawdzi, czy wniosek wykracza poza pięć systemów i założenia obecnego testu.\"\n}",
+    "json": {
+     "werdykt": "nierozstrzygnięta",
+     "pewność": 0.82,
+     "najmocniejszy_dowód": "Kontrole metody przeszły: test wykrył trzy rodzaje podłożonych ciągów 1–30 (p = 0,0003), a w 20 zestawach losowych etykiet nie dał fałszywego alarmu. Mimo to tekst nie pasuje do żadnego z pięciu badanych systemów liczbowych według przyjętego progu (najmniejsza odległość 1,73 wobec wymaganego < 0,5). Etykiety zodiaku wykazują tylko efekt 2,1% przy p = 0,0506, znacznie słabszy niż dla podłożonych liczb (co najmniej 16%).",
+     "słabości": [
+      "Wniosek o całym tekście zależy od pięciu zbadanych systemów i założonego rozkładu liczb; raport zastrzega, że inny rozkład zmieniłby wyniki.",
+      "Test etykiet zakłada, że ich kolejność w transliteracji odpowiada kolejności na pierścieniach; wynik jest ponadto graniczny i nie osiąga progu p < 0,05."
+     ],
+     "inne_wyjaśnienia": [
+      "W badanych ujęciach podobieństwo etykiet może wynikać ze zwykłej skłonności do umieszczania podobnych słów obok siebie; raport podaje dla zwykłych wierszy efekt 1,3%.",
+      "Test B nie wyklucza kodowania liczb szyfrem homofonicznym ani innych reprezentacji, których nie uwzględniono w teście A."
+     ],
+     "następny_test": "Przeprowadzić z góry określony test alternatywnego kodowania liczb, w tym wariantu homofonicznego, z kontrolami na podłożonych danych i przetasowanych etykietach; to sprawdzi, czy wniosek wykracza poza pięć systemów i założenia obecnego testu."
+    }
+   },
+   "tencent/hy3": {
+    "raw": "{\n  \"werdykt\": \"obalona\",\n  \"pewność\": 0.9,\n  \"najmocniejszy_dowód\": \"Odległość całego tekstu od najbliższego systemu liczbowego (alfabetyczny grecki/hebrajski) wynosi 1.73 przy wymaganym progu <0.5; efekt sąsiedztwa etykiet zodiaku (2.1%) jest bliski zeru wobec 16% dla celowo podłożonych liczb, a kontrole metody przeszły poprawnie (wykrycie podłożonych liczb p=0.0003, brak fałszywych alarmów).\",\n  \"słabości\": [\n    \"Rozkład liczb w systemach porównawczych był założony (ogon do 3999); inny rozkład zmieniłby miary (typy/hapaksy).\",\n    \"Test B zakłada poprawność kolejności etykiet w transliteracji względem układu na stronie.\",\n    \"Metoda nie uwzględnia szyfru homofonicznego rozmywającego podobieństwo sąsiadów.\"\n  ],\n  \"inne_wyjaśnienia\": [\n    \"Tekst jako szyfr homofoniczny zapisujący liczby (test tego nie wyklucza)\",\n    \"Tekst jako język naturalny o strukturze zbliżonej do alfabetycznych systemów liczbowych (odległość 1.73)\"\n  ],\n  \"następny_test\": \"Test częstości i par znaków etykiet zodiaku pod kątem mapowania homofonicznego na liczby (czy rozkład znaków odpowiada rozkładowi cyfr w tekstach źródłowych po dowolnej permutacji znaków).\"\n}",
+    "json": {
+     "werdykt": "obalona",
+     "pewność": 0.9,
+     "najmocniejszy_dowód": "Odległość całego tekstu od najbliższego systemu liczbowego (alfabetyczny grecki/hebrajski) wynosi 1.73 przy wymaganym progu <0.5; efekt sąsiedztwa etykiet zodiaku (2.1%) jest bliski zeru wobec 16% dla celowo podłożonych liczb, a kontrole metody przeszły poprawnie (wykrycie podłożonych liczb p=0.0003, brak fałszywych alarmów).",
+     "słabości": [
+      "Rozkład liczb w systemach porównawczych był założony (ogon do 3999); inny rozkład zmieniłby miary (typy/hapaksy).",
+      "Test B zakłada poprawność kolejności etykiet w transliteracji względem układu na stronie.",
+      "Metoda nie uwzględnia szyfru homofonicznego rozmywającego podobieństwo sąsiadów."
+     ],
+     "inne_wyjaśnienia": [
+      "Tekst jako szyfr homofoniczny zapisujący liczby (test tego nie wyklucza)",
+      "Tekst jako język naturalny o strukturze zbliżonej do alfabetycznych systemów liczbowych (odległość 1.73)"
+     ],
+     "następny_test": "Test częstości i par znaków etykiet zodiaku pod kątem mapowania homofonicznego na liczby (czy rozkład znaków odpowiada rozkładowi cyfr w tekstach źródłowych po dowolnej permutacji znaków)."
+    }
+   }
+  },
+  "round2": {
+   "z-ai/glm-5.3-flash": {
+    "raw": "```json\n{\n  \"ranking\": [\"C\", \"B\"],\n  \"uwagi\": \"Obie opinie poprawnie oddzielają to, co test pokazuje, od tego, czego nie bada, i obie wskazują te same słabości (założony rozkład liczb, założenie o kolejności etykiet, luka homofoniczna). Różnica jest w werdykcie. C trafnie ocenia siłę dowodu przeciwko hipotezie w jej badanej postaci: (1) cały tekst nie pasuje do żadnego z 5 systemów (najbliższy 1,73 przy progu <0,5, a rozrzut między językami naturalnymi to jednostka ~1, więc 1,73 to wyraźny dystans, nie szum); (2) etykiety zodiaku dają efekt 2,1% przy p=0,0506, podczas gdy podłożone liczby dają ≥16% — to ponad 7-krotna różnica rzędu wielkości, nie kwestia progu istotności; (3) wszystkie kontrole przeszły, w tym kalibracja 0/20 fałszywych alarmów. Słabość C: pewność 0,9 jest zawyżona, bo hipoteza sformułowana szeroko ('liczby') pozostawia nieprzetestowane kodowania, w tym homofoniczne, które raport wprost wymienia jako niewykluczone. B ma rację, że to ogranicza zasięg wniosku, ale werdykt 'nierozstrzygnięta' nie jest najlepiej uzasadniony danymi: test przeszedł kontrole i dał jednoznacznie negatywny wynik dla obu wariantów hipotezy (cały tekst i etykiety) w pięciu realnych systemach sprzed 1450 r. Trudno uznać test za nierozstrzygnięty, skoro wykrył podłożone efekty tam, gdzie były, a w danych rękopisu ich nie znalazł. B ponadto nieco niekonsekwentnie opisuje własny najmocniejszy dowód — sam przyznaje, że efekt 2,1% jest 'znacznie słabszy' niż dla podłożonych liczb, co jest argumentem za obaleniem, nie za wstrzymaniem się. Oba wskazują sensowny następny test; propozycja C (mapowanie homofoniczne etykiet na liczby) jest bardziej konkretna i celuje dokładnie w główną lukę.\",\n  \"werdykt\": \"obalona (w zakresie testowanym: zapis liczb w 5 systemach sprzed 1450 r. dla całego tekstu oraz sekwencyjne liczby 1–30 w etykietach zodiaku). Hipoteza w szerszym sensie ('jakoś zakodowane liczby', np. szyfr homofoniczny) pozostaje nieprzetestowana i wymaga wskazanego następnego testu.\",\n  \"pewność\": 0.75,\n  \"zmiana_zdania\": \"nie — automatyczny werdykt 'obalona' jest uzasadniony: kontrole przeszły, a negatywny wynik jest konsekwentny w obu wariantach hipotezy i na obu niezależnych testach (A i B); obniżam jedynie pewność względem opinii C z uwagi na nieprzetestowane kodowania homofoniczne i założony rozkład liczb.\"\n}\n```",
+    "json": {
+     "ranking": [
+      "C",
+      "B"
+     ],
+     "uwagi": "Obie opinie poprawnie oddzielają to, co test pokazuje, od tego, czego nie bada, i obie wskazują te same słabości (założony rozkład liczb, założenie o kolejności etykiet, luka homofoniczna). Różnica jest w werdykcie. C trafnie ocenia siłę dowodu przeciwko hipotezie w jej badanej postaci: (1) cały tekst nie pasuje do żadnego z 5 systemów (najbliższy 1,73 przy progu <0,5, a rozrzut między językami naturalnymi to jednostka ~1, więc 1,73 to wyraźny dystans, nie szum); (2) etykiety zodiaku dają efekt 2,1% przy p=0,0506, podczas gdy podłożone liczby dają ≥16% — to ponad 7-krotna różnica rzędu wielkości, nie kwestia progu istotności; (3) wszystkie kontrole przeszły, w tym kalibracja 0/20 fałszywych alarmów. Słabość C: pewność 0,9 jest zawyżona, bo hipoteza sformułowana szeroko ('liczby') pozostawia nieprzetestowane kodowania, w tym homofoniczne, które raport wprost wymienia jako niewykluczone. B ma rację, że to ogranicza zasięg wniosku, ale werdykt 'nierozstrzygnięta' nie jest najlepiej uzasadniony danymi: test przeszedł kontrole i dał jednoznacznie negatywny wynik dla obu wariantów hipotezy (cały tekst i etykiety) w pięciu realnych systemach sprzed 1450 r. Trudno uznać test za nierozstrzygnięty, skoro wykrył podłożone efekty tam, gdzie były, a w danych rękopisu ich nie znalazł. B ponadto nieco niekonsekwentnie opisuje własny najmocniejszy dowód — sam przyznaje, że efekt 2,1% jest 'znacznie słabszy' niż dla podłożonych liczb, co jest argumentem za obaleniem, nie za wstrzymaniem się. Oba wskazują sensowny następny test; propozycja C (mapowanie homofoniczne etykiet na liczby) jest bardziej konkretna i celuje dokładnie w główną lukę.",
+     "werdykt": "obalona (w zakresie testowanym: zapis liczb w 5 systemach sprzed 1450 r. dla całego tekstu oraz sekwencyjne liczby 1–30 w etykietach zodiaku). Hipoteza w szerszym sensie ('jakoś zakodowane liczby', np. szyfr homofoniczny) pozostaje nieprzetestowana i wymaga wskazanego następnego testu.",
+     "pewność": 0.75,
+     "zmiana_zdania": "nie — automatyczny werdykt 'obalona' jest uzasadniony: kontrole przeszły, a negatywny wynik jest konsekwentny w obu wariantach hipotezy i na obu niezależnych testach (A i B); obniżam jedynie pewność względem opinii C z uwagi na nieprzetestowane kodowania homofoniczne i założony rozkład liczb."
+    }
+   },
+   "openai/gpt-6-luna": {
+    "raw": "{\n  \"ranking\": [\"A\", \"C\"],\n  \"uwagi\": \"A jest lepiej uzasadniona: uwzględnia założony rozkład liczb, ograniczony zakres testu B i założenie o kolejności etykiet. C trafnie wskazuje dużą odległość całego tekstu od testowanych systemów i udane kontrole, ale jej pewność 0,9 jest nadmierna, a opis efektu 2,1% jako bliskiego zeru nie oddaje granicznego wyniku p=0,0506. Kontrole wykazują, że metoda wykrywa podłożone ciągi w sprawdzonych warunkach; nie dowodzą, że wyklucza inne sposoby zapisu liczb. A również wyciąga z testu B nieco zbyt mocny wniosek: wynik wraz z kontrolami osłabia hipotezę o kolejnych liczbach 1–30, lecz nie wyklucza szerzej rozumianych liczb na etykietach. Kontrola 0/20 przetasowanych zestawów jest zgodna z kryterium raportu, ale ma ograniczoną liczebność. W dostarczonych opiniach nie ma opinii B, więc ranking obejmuje tylko A i C.\",\n  \"werdykt\": \"Dane mocno przemawiają przeciwko temu, by cały tekst był zapisem liczb w którymś z pięciu testowanych systemów, przy przyjętych założeniach i miarach. Test etykiet nie wykazał przekonującego podobieństwa do kolejnych liczb 1–30, ale nie rozstrzyga, czy etykiety zawierają liczby zapisane inaczej ani czy liczby występują tylko w części tekstu. Ogólna hipoteza, że rękopis zapisuje liczby, nie została więc w pełni obalona; jest niepotwierdzona, a jej sprawdzone warianty są osłabione.\",\n  \"pewność\": 0.82,\n  \"zmiana_zdania\": \"tak — od werdyktu „obalona” do „niepotwierdzona, z mocnym wynikiem negatywnym dla sprawdzonych wariantów”, ponieważ raport bada tylko pięć systemów i sekwencje kolejnych liczb 1–30 na etykietach.\"\n}",
+    "json": {
+     "ranking": [
+      "A",
+      "C"
+     ],
+     "uwagi": "A jest lepiej uzasadniona: uwzględnia założony rozkład liczb, ograniczony zakres testu B i założenie o kolejności etykiet. C trafnie wskazuje dużą odległość całego tekstu od testowanych systemów i udane kontrole, ale jej pewność 0,9 jest nadmierna, a opis efektu 2,1% jako bliskiego zeru nie oddaje granicznego wyniku p=0,0506. Kontrole wykazują, że metoda wykrywa podłożone ciągi w sprawdzonych warunkach; nie dowodzą, że wyklucza inne sposoby zapisu liczb. A również wyciąga z testu B nieco zbyt mocny wniosek: wynik wraz z kontrolami osłabia hipotezę o kolejnych liczbach 1–30, lecz nie wyklucza szerzej rozumianych liczb na etykietach. Kontrola 0/20 przetasowanych zestawów jest zgodna z kryterium raportu, ale ma ograniczoną liczebność. W dostarczonych opiniach nie ma opinii B, więc ranking obejmuje tylko A i C.",
+     "werdykt": "Dane mocno przemawiają przeciwko temu, by cały tekst był zapisem liczb w którymś z pięciu testowanych systemów, przy przyjętych założeniach i miarach. Test etykiet nie wykazał przekonującego podobieństwa do kolejnych liczb 1–30, ale nie rozstrzyga, czy etykiety zawierają liczby zapisane inaczej ani czy liczby występują tylko w części tekstu. Ogólna hipoteza, że rękopis zapisuje liczby, nie została więc w pełni obalona; jest niepotwierdzona, a jej sprawdzone warianty są osłabione.",
+     "pewność": 0.82,
+     "zmiana_zdania": "tak — od werdyktu „obalona” do „niepotwierdzona, z mocnym wynikiem negatywnym dla sprawdzonych wariantów”, ponieważ raport bada tylko pięć systemów i sekwencje kolejnych liczb 1–30 na etykietach."
+    }
+   },
+   "tencent/hy3": {
+    "raw": "{\n  \"ranking\": [\"A\", \"B\"],\n  \"uwagi\": \"Opinia A poprawnie wyciąga wniosek 'obalona' dla testowanych wariantów (5 systemów + ciąg 1–30), opierając się na twardych progach z raportu (odległość 1.73 vs <0.5; efekt 2.1% vs ≥16%). Opinia B błędnie uznaje wynik za 'nierozstrzygnięty' – kontrole metody przeszły, więc brak dopasowania w testach A i B obala hipotezę w ramach przyjętych założeń, a nie pozostawia ją otwartą. B pomija fakt, że raport celowo testował konkretne systemy i ciągi, a ich wykluczenie to merytoryczne obalenie, a nie brak danych. Słabości wskazane w A (założony rozkład, tylko ciąg 1–30, kolejność transliteracji) są zgodne z zastrzeżeniami raportu.\",\n  \"werdykt\": \"obalona (dla całego tekstu jako 5 testowanych systemów liczbowych oraz etykiet zodiaku jako kolejnych liczb 1–30)\",\n  \"pewność\": 0.85,\n  \"zmiana_zdania\": \"nie, raport i kontrole metody jednoznacznie wskazują na obalenie testowanych wersji hipotezy; słabości dotyczą uogólnień poza testem, a nie samego wyniku testu\"\n}",
+    "json": {
+     "ranking": [
+      "A",
+      "B"
+     ],
+     "uwagi": "Opinia A poprawnie wyciąga wniosek 'obalona' dla testowanych wariantów (5 systemów + ciąg 1–30), opierając się na twardych progach z raportu (odległość 1.73 vs <0.5; efekt 2.1% vs ≥16%). Opinia B błędnie uznaje wynik za 'nierozstrzygnięty' – kontrole metody przeszły, więc brak dopasowania w testach A i B obala hipotezę w ramach przyjętych założeń, a nie pozostawia ją otwartą. B pomija fakt, że raport celowo testował konkretne systemy i ciągi, a ich wykluczenie to merytoryczne obalenie, a nie brak danych. Słabości wskazane w A (założony rozkład, tylko ciąg 1–30, kolejność transliteracji) są zgodne z zastrzeżeniami raportu.",
+     "werdykt": "obalona (dla całego tekstu jako 5 testowanych systemów liczbowych oraz etykiet zodiaku jako kolejnych liczb 1–30)",
+     "pewność": 0.85,
+     "zmiana_zdania": "nie, raport i kontrole metody jednoznacznie wskazują na obalenie testowanych wersji hipotezy; słabości dotyczą uogólnień poza testem, a nie samego wyniku testu"
+    }
+   }
+  },
+  "synthesis": "## Werdykt rady\n**Niepotwierdzona; mocny wynik negatywny dla sprawdzonych wariantów.** Cały tekst słabo pasuje do pięciu badanych systemów liczbowych, a etykiety zodiaku nie wykazują przekonującego podobieństwa do kolejnych liczb 1–30. Nie uzasadnia to jednak obalenia szerokiej hipotezy o dowolnym zapisie liczb.\n\n**Poziom zgody:** Wysoka co do negatywnych wyników testów i ich ograniczonego zakresu; umiarkowana co do werdyktu. Opinie różnią się głównie tym, czy wynik uznać za „obalenie” testowanych wariantów, czy za mocne osłabienie hipotezy ogólnej.\n\n## Co test naprawdę pokazuje\nDla całego tekstu najbliższy system ma odległość **1,73**, daleką od wymaganego dopasowania **<0,5**. Test etykiet daje efekt **2,1%** przy **p = 0,0506**, wobec co najmniej **16%** dla podłożonych ciągów. Kontrole wykryły podłożone liczby we wszystkich trzech sprawdzonych zapisach; kalibracja przetasowań dała **0/20** fałszywych alarmów.\n\n## Główne zastrzeżenia\nTest całego tekstu obejmuje pięć systemów i przyjęty rozkład liczb; nie rozstrzyga wariantu ograniczonego do etykiet. Test etykiet sprawdza tylko ciąg 1–30, zakłada poprawną kolejność transliteracji względem układu na stronach, a jego wynik jest graniczny. Kontrola 0/20 ma ograniczoną liczebność. Raport zastrzega też, że kodowanie homofoniczne nie zostało wykluczone.\n\n## Rekomendowany następny eksperyment\nPrzeprowadzić z góry określony test **homofonicznego kodowania liczb**, z podłożonymi danymi jako kontrolą wykrywalności oraz przetasowanymi etykietami jako kontrolą fałszywych trafień.",
+  "failed": {},
+  "votes": {
+   "obalona": 3
+  }
+ }
+}
