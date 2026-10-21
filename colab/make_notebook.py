@@ -60,9 +60,16 @@ cfg = LabConfig(
     theories=["all"],          # albo np. ["numbers", "literature"]
     quick=False,               # True: szybki przebieg próbny (~5 min)
     budget_usd=5.0,            # twardy limit wydatków na OpenRouter w tym przebiegu
-    council_size=4,            # liczba modeli w radzie
-    council_models=[],         # puste = najnowszy model każdego dostawcy z listy council_vendors
-    vlm_folios_limit=0,        # 0 = wszystkie strony zielnika dla modelu wizyjnego (~130 obrazów)
+    council_size=4,            # liczba modeli w radzie (gdy council_models puste)
+    council_models=[           # puste = najnowszy model każdego dostawcy z listy council_vendors
+        "z-ai/glm-5.3-flash",
+        "openai/gpt-6-luna",
+        "inception/mercury-3",
+        "tencent/hy3",
+    ],
+    chair_model="openai/gpt-6-luna",           # opcjonalnie; bez tego przewodniczy pierwszy z listy
+    vision_model="qwen/qwen2.5-vl-72b-instruct",
+    vlm_folios_limit=20,       # 0 = wszystkie strony zielnika dla modelu wizyjnego (~130 obrazów)
     images_dir=None,           # np. Path("/content/drive/MyDrive/voynich_skany"): pliki f1r.jpg, f1v.jpg...
     gpt_steps=6000,            # kroki uczenia transformera
     run_image_diffusion=False, # True: SDXL + LoRA dla brakujących stron (~1 h na A100)
@@ -89,6 +96,7 @@ odczytu z klocków (klucze z π, e, dat; nulle; co n-te słowo; brak spacji; akr
 laboratorium testuje je z kontrolami, a modele widzą tabelę wyników i w kolejnych rundach poprawiają tropy.
 Najlepsze tropy są na końcu powtarzane na innej części rękopisu. Pomysły spoza klocków trafiają na listę życzeń."""),
     ("code", """hunt = lab.hunt(rounds=4, per_hound=2)   # ok. 4 × 4 × 2 = 32 przepisy; quick=True skraca testy
+lab.report(); lab.push()                 # od razu na GitHub, nawet gdy nikt nie pilnuje sesji
 from IPython.display import Markdown, display
 display(Markdown((lab.cfg.results_dir / "hunt" / "hunt.md").read_text()))"""),
     ("md", "## 6. Zapis wyników na GitHubie\nWyniki trafiają na gałąź `lab-results` (osobną od kodu)."),
