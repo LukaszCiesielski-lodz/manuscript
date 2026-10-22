@@ -1,0 +1,373 @@
+{
+ "theory": "illustrations",
+ "hypothesis": "Klucz do tekstu kryje się w ilustracjach: tekst zależy od rysunków (np. pierwsze słowo strony zielnika to zaszyfrowana nazwa rośliny).",
+ "method": "A: długość słów przy przerwach na rysunek (test permutacyjny). B: test Mantela – podobieństwo obrazów CLIP a podobieństwo słownictwa stron zielnika, permutacje w obrębie skryby i języka Curriera. C: atak z nazwami roślin od modelu wizyjnego jako 'cribami' (wyżarzanie klucza glif→litera) wobec nazw przetasowanych.",
+ "verdict": "metoda niewiarygodna",
+ "summary": "Test sprawdza warunek konieczny klucza w ilustracjach: czy tekst w ogóle zależy od rysunku. C (powtórka na 103 nowych stronach, nazwy od qwen/qwen2.5-vl-72b-instruct): dopasowanie 0.29 wobec średnio 0.27 dla nazw przetasowanych, p = 0.260. Wcześniej na 20 stronach f1v–f11r: 0,40 wobec 0,33, p = 0,04. B: 123 stron zielnika. Korelacja podobieństwa obrazów i słownictwa r = 0.084, p = 0.0528 (permutacje w obrębie skryby i języka).",
+ "metrics": {
+  "layout": {
+   "lines": 613,
+   "length_difference": -0.24154388354044132,
+   "p": 0.0003332222592469177,
+   "p_planted": 0.0003332222592469177
+  },
+  "crib_control": {
+   "observed": 0.475,
+   "null": [
+    0.1325,
+    0.1575,
+    0.13,
+    0.135,
+    0.16,
+    0.155,
+    0.1375,
+    0.13,
+    0.15,
+    0.15,
+    0.1475,
+    0.155,
+    0.135,
+    0.1525,
+    0.1525,
+    0.1425,
+    0.155,
+    0.16,
+    0.1425,
+    0.1325,
+    0.1225,
+    0.1625,
+    0.155,
+    0.145,
+    0.1325,
+    0.16,
+    0.15,
+    0.1275,
+    0.1525,
+    0.165,
+    0.1425,
+    0.1425,
+    0.15,
+    0.17,
+    0.145,
+    0.1475,
+    0.15,
+    0.15,
+    0.1425,
+    0.1375,
+    0.135,
+    0.1325,
+    0.145,
+    0.1375,
+    0.1325,
+    0.155,
+    0.1325,
+    0.1475,
+    0.155
+   ],
+   "p": 0.02
+  },
+  "crib": {
+   "folios": 103,
+   "observed": 0.28640776699029125,
+   "null": [
+    0.26941747572815533,
+    0.2354368932038835,
+    0.25728155339805825,
+    0.3106796116504854,
+    0.2766990291262136,
+    0.279126213592233,
+    0.27184466019417475,
+    0.2669902912621359,
+    0.2912621359223301,
+    0.28640776699029125,
+    0.2645631067961165,
+    0.28398058252427183,
+    0.25728155339805825,
+    0.25970873786407767,
+    0.2912621359223301,
+    0.2669902912621359,
+    0.3179611650485437,
+    0.279126213592233,
+    0.28398058252427183,
+    0.25728155339805825,
+    0.25,
+    0.26941747572815533,
+    0.2961165048543689,
+    0.2961165048543689,
+    0.2645631067961165,
+    0.2669902912621359,
+    0.2669902912621359,
+    0.27427184466019416,
+    0.25485436893203883,
+    0.25,
+    0.2621359223300971,
+    0.25728155339805825,
+    0.2815533980582524,
+    0.2621359223300971,
+    0.2961165048543689,
+    0.2669902912621359,
+    0.2961165048543689,
+    0.3058252427184466,
+    0.2912621359223301,
+    0.28398058252427183,
+    0.2645631067961165,
+    0.26941747572815533,
+    0.26941747572815533,
+    0.27184466019417475,
+    0.27427184466019416,
+    0.29854368932038833,
+    0.28640776699029125,
+    0.24514563106796117,
+    0.25728155339805825,
+    0.2669902912621359,
+    0.24029126213592233,
+    0.24029126213592233,
+    0.28883495145631066,
+    0.25970873786407767,
+    0.24514563106796117,
+    0.25728155339805825,
+    0.25970873786407767,
+    0.23786407766990292,
+    0.27184466019417475,
+    0.28398058252427183,
+    0.279126213592233,
+    0.25970873786407767,
+    0.25728155339805825,
+    0.28883495145631066,
+    0.2669902912621359,
+    0.2669902912621359,
+    0.24757281553398058,
+    0.23786407766990292,
+    0.27184466019417475,
+    0.2815533980582524,
+    0.2669902912621359,
+    0.2936893203883495,
+    0.22815533980582525,
+    0.29854368932038833,
+    0.28398058252427183,
+    0.2669902912621359,
+    0.279126213592233,
+    0.25728155339805825,
+    0.2645631067961165,
+    0.2766990291262136,
+    0.2815533980582524,
+    0.29854368932038833,
+    0.23786407766990292,
+    0.25728155339805825,
+    0.2936893203883495,
+    0.26941747572815533,
+    0.2645631067961165,
+    0.2645631067961165,
+    0.27184466019417475,
+    0.2621359223300971,
+    0.30339805825242716,
+    0.3058252427184466,
+    0.279126213592233,
+    0.2936893203883495,
+    0.2936893203883495,
+    0.2645631067961165,
+    0.2815533980582524,
+    0.2936893203883495,
+    0.2912621359223301
+   ],
+   "p": 0.26,
+   "model": "qwen/qwen2.5-vl-72b-instruct",
+   "set": "potwierdzający (bez 20 stron z odkrycia)"
+  },
+  "mantel": {
+   "folios": 123,
+   "r": 0.08350659436433286,
+   "p": 0.052789442111577684,
+   "control_r": 0.30321103548717454,
+   "noise_p": 0.02519496100779844
+  }
+ },
+ "controls": [
+  {
+   "name": "A: podłożone skrócenie słów przed rysunkiem",
+   "expectation": "wykryte (p < 0,01)",
+   "observed": "p = 0.0003",
+   "passed": true
+  },
+  {
+   "name": "C: nazwy podłożone znanym kluczem",
+   "expectation": "atak je znajduje (p ≤ 0,05)",
+   "observed": "wynik 0.47 wobec 0.17 (max dla przetasowanych), p = 0.020",
+   "passed": true
+  },
+  {
+   "name": "B: połowy tekstu tej samej strony",
+   "expectation": "zgodne (p < 0,01)",
+   "observed": "r = 0.30, p = 0.0002",
+   "passed": true
+  },
+  {
+   "name": "B: losowe podobieństwa obrazów",
+   "expectation": "brak związku (p > 0,05)",
+   "observed": "p = 0.025",
+   "passed": false
+  }
+ ],
+ "evidence": [
+  "A: 613 wierszy przerwanych rysunkiem. Słowo przed rysunkiem różni się długością o -0.24 glifu od słów w środku wiersza, p = 0.0003.",
+  "C (powtórka na 103 nowych stronach, nazwy od qwen/qwen2.5-vl-72b-instruct): dopasowanie 0.29 wobec średnio 0.27 dla nazw przetasowanych, p = 0.260. Wcześniej na 20 stronach f1v–f11r: 0,40 wobec 0,33, p = 0,04.",
+  "B: 123 stron zielnika. Korelacja podobieństwa obrazów i słownictwa r = 0.084, p = 0.0528 (permutacje w obrębie skryby i języka)."
+ ],
+ "caveats": [
+  "Związek tekstu z rysunkiem (B) byłby warunkiem koniecznym, ale nie dowodem klucza: tekst o roślinie też zależy od rośliny.",
+  "Identyfikacje roślin przez model wizyjny są niepewne; botanicy nie zgadzają się co do większości roślin rękopisu.",
+  "Atak C zakłada, że pierwsze słowo strony to nazwa rośliny zapisana szyfrem podstawieniowym od początku słowa.",
+  "CLIP widzi całą stronę razem z pismem; podobny układ tekstu może podbijać podobieństwo obrazów."
+ ],
+ "references": [
+  "Subtle Signs of Scribal Intent in the Voynich Manuscript, arXiv:2404.13069",
+  "Topic Modeling in the Voynich Manuscript, arXiv:2107.02858",
+  "A Generative Grammar Underlying the Voynich Manuscript (pastiche hypothesis), arXiv:2609.20835",
+  "Bax, A proposed partial decoding of the Voynich script (2014)"
+ ],
+ "artifacts": [
+  "plant_names.json"
+ ],
+ "seconds": 1282.6731452941895,
+ "council": {
+  "members": [
+   "z-ai/glm-5.3-flash",
+   "openai/gpt-6-luna",
+   "inception/mercury-3",
+   "tencent/hy3"
+  ],
+  "chair": "openai/gpt-6-luna",
+  "round1": {
+   "z-ai/glm-5.3-flash": {
+    "raw": "```json\n{\n  \"werdykt\": \"nierozstrzygnięta\",\n  \"pewność\": 0.55,\n  \"najmocniejszy_dowód\": \"Test A: słowo przed rysunkiem jest krótsze o 0,24 glifu (p = 0,0003) z kontrolą podłożonego efektu zaliczoną (p = 0,0003) — tekst wykazuje zależność od układu ilustracji, warunek konieczny hipotezy.\",\n  \"słabości\": [\n    \"Kontrola B z losowymi podobieństwami obrazów nie przeszła (p = 0,025 zamiast >0,05) — test Mantela może łapać artefakt układu strony (CLIP widzi pismo razem z rysunkiem), a nie związek treści.\",\n    \"Wynik Mantela r = 0,084, p = 0,0528 — efekt marginalny, nieistotny po korekcie.\",\n    \"Atak C nie powtórzył się na zbiorze potwierdzającym (103 strony: p = 0,26) — pierwotny wynik (p = 0,04 na 20 stronach) wygląda na fluktuację lub przeuczenie.\",\n    \"C opiera się na niepewnych identyfikacjach roślin przez model wizyjny i silnym założeniu, że pierwsze słowo strony to zaszyfrowana nazwa rośliny.\"\n  ],\n  \"inne_wyjaśnienia\": [\n    \"Efekt A może odzwierciedlać konwencję skryby (np. kończenie frazy przed rysunkiem), a nie szyfrowanie nazw w ilustracjach.\",\n    \"Podobieństwo obrazów w B może być napędzane wspólnym układem tekstu i strony, nie treścią botaniczną.\",\n    \"Tekst mógłby zależeć od rośliny bez tego, by nazwa była zaszyfrowana w pierwszym słowie (opis, nie klucz).\"\n  ],\n  \"następny_test\": \"Powtórka testu Mantela z maskowaniem obszarów pisma na stronach (CLIP tylko na rysunku) — rozstrzygnie, czy sygnał pochodzi z ilustracji czy z układu tekstu; jednocześnie zwiększenie próby ataku C o kolejne strony, by potwierdzić lub odrzucić wynik z 20 stron.\"\n}\n```",
+    "json": {
+     "werdykt": "nierozstrzygnięta",
+     "pewność": 0.55,
+     "najmocniejszy_dowód": "Test A: słowo przed rysunkiem jest krótsze o 0,24 glifu (p = 0,0003) z kontrolą podłożonego efektu zaliczoną (p = 0,0003) — tekst wykazuje zależność od układu ilustracji, warunek konieczny hipotezy.",
+     "słabości": [
+      "Kontrola B z losowymi podobieństwami obrazów nie przeszła (p = 0,025 zamiast >0,05) — test Mantela może łapać artefakt układu strony (CLIP widzi pismo razem z rysunkiem), a nie związek treści.",
+      "Wynik Mantela r = 0,084, p = 0,0528 — efekt marginalny, nieistotny po korekcie.",
+      "Atak C nie powtórzył się na zbiorze potwierdzającym (103 strony: p = 0,26) — pierwotny wynik (p = 0,04 na 20 stronach) wygląda na fluktuację lub przeuczenie.",
+      "C opiera się na niepewnych identyfikacjach roślin przez model wizyjny i silnym założeniu, że pierwsze słowo strony to zaszyfrowana nazwa rośliny."
+     ],
+     "inne_wyjaśnienia": [
+      "Efekt A może odzwierciedlać konwencję skryby (np. kończenie frazy przed rysunkiem), a nie szyfrowanie nazw w ilustracjach.",
+      "Podobieństwo obrazów w B może być napędzane wspólnym układem tekstu i strony, nie treścią botaniczną.",
+      "Tekst mógłby zależeć od rośliny bez tego, by nazwa była zaszyfrowana w pierwszym słowie (opis, nie klucz)."
+     ],
+     "następny_test": "Powtórka testu Mantela z maskowaniem obszarów pisma na stronach (CLIP tylko na rysunku) — rozstrzygnie, czy sygnał pochodzi z ilustracji czy z układu tekstu; jednocześnie zwiększenie próby ataku C o kolejne strony, by potwierdzić lub odrzucić wynik z 20 stron."
+    }
+   },
+   "openai/gpt-6-luna": {
+    "raw": "{\n  \"werdykt\": \"metoda niewiarygodna\",\n  \"pewność\": 0.97,\n  \"najmocniejszy_dowód\": \"Kontrola B z losowymi podobieństwami obrazów nie przeszła: uzyskano p = 0,025, choć oczekiwano braku związku (p > 0,05). Zgodnie z kryterium raportu podważa to wiarygodność metody. Dodatkowo powtórka C na 103 nowych stronach nie wykazała przewagi nad nazwami przetasowanymi (0,29 wobec średnio 0,27; p = 0,260).\",\n  \"słabości\": [\n    \"Nieudana kontrola B oznacza, że wynik tego testu nie jest wiarygodnym dowodem zależności tekstu od ilustracji.\",\n    \"CLIP analizował całą stronę razem z pismem, więc podobieństwo układu tekstu mogło wpływać na podobieństwo obrazów.\",\n    \"Test C zakłada, że pierwsze słowo strony jest nazwą rośliny zaszyfrowaną podstawieniowo od początku słowa; identyfikacje roślin przez model są niepewne.\",\n    \"Wynik C z 20 stron jest wstępny, a brak efektu w większej powtórce osłabia jego znaczenie.\"\n  ],\n  \"inne_wyjaśnienia\": [\n    \"Różnice długości słów przy rysunkach mogą wynikać z układu strony, a nie z zależności tekstu od treści ilustracji.\",\n    \"Związek tematyczny między tekstem a rośliną mógłby dać korelację bez того, aby ilustracja kryła klucz.\",\n    \"Wynik B mógł być podbity przez układ pisma, а не przez treść obrazów.\"\n  ],\n  \"następny_test\": \"Powtórzyć test B na niezależnym zbiorze, używając obrazów roślin po zamaskowaniu tekstu i układu strony; wcześniej sprawdzić, czy kontrola losowych podobieństw nie daje fałszywych korelacji.\"\n}",
+    "json": {
+     "werdykt": "metoda niewiarygodna",
+     "pewność": 0.97,
+     "najmocniejszy_dowód": "Kontrola B z losowymi podobieństwami obrazów nie przeszła: uzyskano p = 0,025, choć oczekiwano braku związku (p > 0,05). Zgodnie z kryterium raportu podważa to wiarygodność metody. Dodatkowo powtórka C na 103 nowych stronach nie wykazała przewagi nad nazwami przetasowanymi (0,29 wobec średnio 0,27; p = 0,260).",
+     "słabości": [
+      "Nieudana kontrola B oznacza, że wynik tego testu nie jest wiarygodnym dowodem zależności tekstu od ilustracji.",
+      "CLIP analizował całą stronę razem z pismem, więc podobieństwo układu tekstu mogło wpływać na podobieństwo obrazów.",
+      "Test C zakłada, że pierwsze słowo strony jest nazwą rośliny zaszyfrowaną podstawieniowo od początku słowa; identyfikacje roślin przez model są niepewne.",
+      "Wynik C z 20 stron jest wstępny, a brak efektu w większej powtórce osłabia jego znaczenie."
+     ],
+     "inne_wyjaśnienia": [
+      "Różnice długości słów przy rysunkach mogą wynikać z układu strony, a nie z zależności tekstu od treści ilustracji.",
+      "Związek tematyczny między tekstem a rośliną mógłby dać korelację bez того, aby ilustracja kryła klucz.",
+      "Wynik B mógł być podbity przez układ pisma, а не przez treść obrazów."
+     ],
+     "następny_test": "Powtórzyć test B na niezależnym zbiorze, używając obrazów roślin po zamaskowaniu tekstu i układu strony; wcześniej sprawdzić, czy kontrola losowych podobieństw nie daje fałszywych korelacji."
+    }
+   },
+   "inception/mercury-3": {
+    "raw": "{\n  \"werdykt\": \"metoda niewiarygodna\",\n  \"pewność\": 0.85,\n  \"najmocniejszy_dowód\": \"Kontrola B dla losowych podobieństw obrazów nie przeszła (p=0.025 przy oczekiwaniu p>0.05), co wskazuje, że metoda produkuje sygnał nawet tam, gdzie nie powinno go być.\",\n  \"słabości\": [\n    \"Kontrola B (losowe podobieństwa obrazów) daje p=0.025, czyli fałszywy pozytyw.\",\n    \"CLIP widzi całą stronę z pismem; podobny układ tekstu może podbijać podobieństwo obrazów niezależnie od ilustracji.\",\n    \"Identyfikacje roślin przez model wizyjny są niepewne (botanicy nie zgadzają się co do większości roślin rękopisu).\",\n    \"Atak C zakłada silne, nieudowodnione warunki: pierwsze słowo strony to nazwa rośliny zapisana szyfrem podstawieniowym.\",\n    \"Wynik C nie zreplikował się: p=0.04 na 20 stronach vs p=0.26 na 103 nowych stronach.\"\n  ],\n  \"inne_wyjaśnienia\": [\n    \"Korelacja Mantela może wynikać z podobieństwa układów tekstu, a nie z treści ilustracji.\",\n    \"Losowe podobieństwa obrazów wskazują, że statystyka B jest wrażliwa na konfigurację strony.\",\n    \"Brak replikacji ataku C sugeruje, że wcześniejszy wynik mógł być przypadkowy.\"\n  ],\n  \"następny_test\": \"Zbadać, czy korelacja Mantela znika, gdy obrazy są maskowane tak, aby usunąć tekst (widoczna tylko grafika). Dodatkowo powtórzyć atak C na całej próbce z losowym doborem słów początkowych i wieloma modelami wizyjnymi, z poprawką na wielokrotne testowanie.\"\n}",
+    "json": {
+     "werdykt": "metoda niewiarygodna",
+     "pewność": 0.85,
+     "najmocniejszy_dowód": "Kontrola B dla losowych podobieństw obrazów nie przeszła (p=0.025 przy oczekiwaniu p>0.05), co wskazuje, że metoda produkuje sygnał nawet tam, gdzie nie powinno go być.",
+     "słabości": [
+      "Kontrola B (losowe podobieństwa obrazów) daje p=0.025, czyli fałszywy pozytyw.",
+      "CLIP widzi całą stronę z pismem; podobny układ tekstu może podbijać podobieństwo obrazów niezależnie od ilustracji.",
+      "Identyfikacje roślin przez model wizyjny są niepewne (botanicy nie zgadzają się co do większości roślin rękopisu).",
+      "Atak C zakłada silne, nieudowodnione warunki: pierwsze słowo strony to nazwa rośliny zapisana szyfrem podstawieniowym.",
+      "Wynik C nie zreplikował się: p=0.04 na 20 stronach vs p=0.26 na 103 nowych stronach."
+     ],
+     "inne_wyjaśnienia": [
+      "Korelacja Mantela może wynikać z podobieństwa układów tekstu, a nie z treści ilustracji.",
+      "Losowe podobieństwa obrazów wskazują, że statystyka B jest wrażliwa na konfigurację strony.",
+      "Brak replikacji ataku C sugeruje, że wcześniejszy wynik mógł być przypadkowy."
+     ],
+     "następny_test": "Zbadać, czy korelacja Mantela znika, gdy obrazy są maskowane tak, aby usunąć tekst (widoczna tylko grafika). Dodatkowo powtórzyć atak C na całej próbce z losowym doborem słów początkowych i wieloma modelami wizyjnymi, z poprawką na wielokrotne testowanie."
+    }
+   },
+   "tencent/hy3": {
+    "raw": "{\n  \"werdykt\": \"metoda niewiarygodna\",\n  \"pewność\": 0.95,\n  \"najmocniejszy_dowód\": \"Kontrola metody B (test Mantela) niezaliczona: przy losowych podobieństwach obrazów zaobserwowano p = 0.025 (oczekiwano > 0.05), co oznacza, że metoda wykrywa związek w szumie. Test C na 103 stronach dał p = 0.260 (brak efektu), mimo że kontrola C przeszła.\",\n  \"słabości\": [\n    \"Metoda B nie przeszła kontroli na danych przetasowanych (p = 0.025 < 0.05), co unieważnia jej wyniki korelacji (r = 0.084, p = 0.0528).\",\n    \"Test C opiera się na niepewnych identyfikacjach roślin przez model qwen2.5-vl i założeniu, że pierwsze słowo to nazwa zapisana prostym szyfrem; w dużej próbce (103 strony) efekt zniknął (p = 0.260).\",\n    \"CLIP analizuje całą stronę z tekstem, co może sztucznie podbijać podobieństwo obrazów przez układ pisma, a nie treść rysunku.\"\n  ],\n  \"inne_wyjaśnienia\": [\n    \"Tekst zależy od rośliny (tematu strony), ale niekoniecznie od rysunku jako klucza szyfrującego (warunek konieczny niespełniony dla hipotezy klucza).\",\n    \"Krótsze słowa przy rysunkach (test A, p = 0.0003) mogą wynikać z formatowania strony, a nie zaszyfrowanych nazw.\"\n  ],\n  \"następny_test\": \"Powtórzenie testu Mantela (B) po usunięciu warstwy tekstu z obrazów wejściowych do CLIP, aby wyeliminować wpływ układu pisma na podobieństwo wizualne, oraz weryfikacja nazw roślin przez botaników przed kolejnym atakiem typu C.\"\n}",
+    "json": {
+     "werdykt": "metoda niewiarygodna",
+     "pewność": 0.95,
+     "najmocniejszy_dowód": "Kontrola metody B (test Mantela) niezaliczona: przy losowych podobieństwach obrazów zaobserwowano p = 0.025 (oczekiwano > 0.05), co oznacza, że metoda wykrywa związek w szumie. Test C na 103 stronach dał p = 0.260 (brak efektu), mimo że kontrola C przeszła.",
+     "słabości": [
+      "Metoda B nie przeszła kontroli na danych przetasowanych (p = 0.025 < 0.05), co unieważnia jej wyniki korelacji (r = 0.084, p = 0.0528).",
+      "Test C opiera się na niepewnych identyfikacjach roślin przez model qwen2.5-vl i założeniu, że pierwsze słowo to nazwa zapisana prostym szyfrem; w dużej próbce (103 strony) efekt zniknął (p = 0.260).",
+      "CLIP analizuje całą stronę z tekstem, co może sztucznie podbijać podobieństwo obrazów przez układ pisma, a nie treść rysunku."
+     ],
+     "inne_wyjaśnienia": [
+      "Tekst zależy od rośliny (tematu strony), ale niekoniecznie od rysunku jako klucza szyfrującego (warunek konieczny niespełniony dla hipotezy klucza).",
+      "Krótsze słowa przy rysunkach (test A, p = 0.0003) mogą wynikać z formatowania strony, a nie zaszyfrowanych nazw."
+     ],
+     "następny_test": "Powtórzenie testu Mantela (B) po usunięciu warstwy tekstu z obrazów wejściowych do CLIP, aby wyeliminować wpływ układu pisma na podobieństwo wizualne, oraz weryfikacja nazw roślin przez botaników przed kolejnym atakiem typu C."
+    }
+   }
+  },
+  "round2": {
+   "z-ai/glm-5.3-flash": {
+    "raw": "{\"ranking\": [\"B\", \"C\", \"D\"], \"uwagi\": \"Wszystkie trzy opinie trafnie wskazują ten sam kluczowy problem: niezaliczona kontrola B (p=0.025 przy oczekiwaniu p>0.05) oraz brak replikacji testu C (p=0.04 na 20 stronach vs p=0.26 na 103 nowych). Opinia B jest najlepiej uzasadniona: jako jedyna dodaje istotne wyjaśnienie alternatywne dla testu A (układ strony zamiast zależności od treści ilustracji), co jest ważne, bo A przeszło kontrolę, ale mierzy efekt słaby (-0.24 glifa) i niekoniecznie związany z hipotezą klucza. Opinie C i D są merytorycznie poprawne i niemal identyczne; D dodaje sensowny postulat weryfikacji nazw roślin przez botaników, ale C lepiej rozwija następny test (maskowanie tekstu + poprawka na wielokrotne testowanie). Nikt nie popełnia błędu merytorycznego; drobna uwaga: wszystkie opinie słabo oddzielają to, co test wyklucza (klucz w ilustracjach jako szyfr podstawieniowy pierwszego słowa — mocno osłabione), od tego, czego nie bada (np. inne formy zależności tekstu od ilustracji, inne typy szyfrów). Warto też podkreślić, że kontrola metody C przeszła (0.47 vs 0.17, p=0.02), więc atak C jest metodologicznie sprawny — to hipoteza, nie metoda, zawiodła w replikacji.\", \"werdykt\": \"metoda niewiarygodna\", \"pewność\": 0.95, \"zmiana_zdania\": \"nie — dane jednoznacznie wskazują na niewiarygodność: kontrola B wykrywa sygnał w szumie (p=0.025), a jedyny wstępnie pozytywny wynik C (p=0.04) nie zreplikował się na 3-krotnie większej próbie (p=0.26). Test A, choć kontrola przeszła, bada warunek konieczny, nie samą hipotezę klucza, a jego efekt może wynikać z układu strony.\"}",
+    "json": {
+     "ranking": [
+      "B",
+      "C",
+      "D"
+     ],
+     "uwagi": "Wszystkie trzy opinie trafnie wskazują ten sam kluczowy problem: niezaliczona kontrola B (p=0.025 przy oczekiwaniu p>0.05) oraz brak replikacji testu C (p=0.04 na 20 stronach vs p=0.26 na 103 nowych). Opinia B jest najlepiej uzasadniona: jako jedyna dodaje istotne wyjaśnienie alternatywne dla testu A (układ strony zamiast zależności od treści ilustracji), co jest ważne, bo A przeszło kontrolę, ale mierzy efekt słaby (-0.24 glifa) i niekoniecznie związany z hipotezą klucza. Opinie C i D są merytorycznie poprawne i niemal identyczne; D dodaje sensowny postulat weryfikacji nazw roślin przez botaników, ale C lepiej rozwija następny test (maskowanie tekstu + poprawka na wielokrotne testowanie). Nikt nie popełnia błędu merytorycznego; drobna uwaga: wszystkie opinie słabo oddzielają to, co test wyklucza (klucz w ilustracjach jako szyfr podstawieniowy pierwszego słowa — mocno osłabione), od tego, czego nie bada (np. inne formy zależności tekstu od ilustracji, inne typy szyfrów). Warto też podkreślić, że kontrola metody C przeszła (0.47 vs 0.17, p=0.02), więc atak C jest metodologicznie sprawny — to hipoteza, nie metoda, zawiodła w replikacji.",
+     "werdykt": "metoda niewiarygodna",
+     "pewność": 0.95,
+     "zmiana_zdania": "nie — dane jednoznacznie wskazują na niewiarygodność: kontrola B wykrywa sygnał w szumie (p=0.025), a jedyny wstępnie pozytywny wynik C (p=0.04) nie zreplikował się na 3-krotnie większej próbie (p=0.26). Test A, choć kontrola przeszła, bada warunek konieczny, nie samą hipotezę klucza, a jego efekt może wynikać z układu strony."
+    }
+   },
+   "openai/gpt-6-luna": {
+    "raw": "{\n  \"ranking\": [\"A\", \"C\", \"D\"],\n  \"uwagi\": \"A jest najlepiej wyważona: uwzględnia niezaliczoną kontrolę B i brak replikacji C, choć związek długości słowa z przerwą przy rysunku (A) wskazuje tylko na zależność układu, nie na zależność treści od ilustracji. C słusznie podkreśla, że B nie przechodzi kontroli na losowych podobieństwach (p=0,025), ale zbyt szeroko przenosi ten problem na całą metodę: kontrole A i C przeszły, więc ich wyniki można oceniać osobno. D trafnie wskazuje słabość B i wynik C na 103 stronach, lecz nadmiernie wnioskuje, że warunek konieczny hipotezy nie został spełniony; C bada tylko wąskie założenie o pierwszym słowie i nazwie rośliny, a wynik p=0,260 nie rozstrzyga całej hipotezy. Najbardziej zmieniłaby ocenę powtórka B z CLIP analizującym wyłącznie rysunki, z kontrolami losowymi, które nie generują fałszywego związku. A i C mają zaliczone kontrole, ale A mierzy efekt układu, a C nie znajduje potwierdzenia w większej próbie. B pozostaje niewiarygodny.\",\n  \"werdykt\": \"Brak wiarygodnego wsparcia dla hipotezy klucza w ilustracjach w tych danych. Test B należy odrzucić jako niewiarygodny z powodu niezaliczonej kontroli; A pokazuje tylko różnicę długości słów przy przerwach na rysunki, a C nie potwierdza dopasowania w próbie 103 stron. To nie wyklucza szerszej hipotezy, której testy A–C badają jedynie w ograniczonym zakresie.\",\n  \"pewność\": 0.85,\n  \"zmiana_zdania\": \"nie — na podstawie raportu A jest najlepiej uzasadniona, ale jego wniosek trzeba ograniczyć do układu; niezaliczona kontrola B podważa ten test, nie wszystkie wyniki.\"\n}",
+    "json": {
+     "ranking": [
+      "A",
+      "C",
+      "D"
+     ],
+     "uwagi": "A jest najlepiej wyważona: uwzględnia niezaliczoną kontrolę B i brak replikacji C, choć związek długości słowa z przerwą przy rysunku (A) wskazuje tylko na zależność układu, nie na zależność treści od ilustracji. C słusznie podkreśla, że B nie przechodzi kontroli na losowych podobieństwach (p=0,025), ale zbyt szeroko przenosi ten problem na całą metodę: kontrole A i C przeszły, więc ich wyniki można oceniać osobno. D trafnie wskazuje słabość B i wynik C na 103 stronach, lecz nadmiernie wnioskuje, że warunek konieczny hipotezy nie został spełniony; C bada tylko wąskie założenie o pierwszym słowie i nazwie rośliny, a wynik p=0,260 nie rozstrzyga całej hipotezy. Najbardziej zmieniłaby ocenę powtórka B z CLIP analizującym wyłącznie rysunki, z kontrolami losowymi, które nie generują fałszywego związku. A i C mają zaliczone kontrole, ale A mierzy efekt układu, a C nie znajduje potwierdzenia w większej próbie. B pozostaje niewiarygodny.",
+     "werdykt": "Brak wiarygodnego wsparcia dla hipotezy klucza w ilustracjach w tych danych. Test B należy odrzucić jako niewiarygodny z powodu niezaliczonej kontroli; A pokazuje tylko różnicę długości słów przy przerwach na rysunki, a C nie potwierdza dopasowania w próbie 103 stron. To nie wyklucza szerszej hipotezy, której testy A–C badają jedynie w ograniczonym zakresie.",
+     "pewność": 0.85,
+     "zmiana_zdania": "nie — na podstawie raportu A jest najlepiej uzasadniona, ale jego wniosek trzeba ograniczyć do układu; niezaliczona kontrola B podważa ten test, nie wszystkie wyniki."
+    }
+   },
+   "tencent/hy3": {
+    "raw": "{\n  \"ranking\": [\"B\", \"C\", \"A\"],\n  \"uwagi\": \"Opinia A błędnie uznaje test A (różnica długości słów -0.24 glifu, p=0.0003) za dowód hipotezy, podczas gdy raport wyraźnie zastrzega, że jest to tylko warunek konieczny (tekst może zależeć od rośliny bez szyfru w ilustracji). A ignoruje też krytyczną wadę: kontrola B nie przeszła (p=0.025 < 0.05), co automatycznie dyskwalifikuje metodę wg zasad raportu. Opinie B i C słusznie wskazują na niewiarygodność metody przez niezaliczoną kontrolę B (fałszywy sygnał w danych przetasowanych) oraz brak replikacji ataku C (p=0.26 na 103 stronach vs p=0.04 na 20). B jest najbardziej stanowcza i poparta pełnymi danymi z raportu.\",\n  \"werdykt\": \"metoda niewiarygodna\",\n  \"pewność\": 0.95,\n  \"zmiana_zdania\": \"nie, raport i kontrole jednoznacznie wskazują na niewiarygodność metody przez nieprzejście kontroli B oraz brak powtórzenia efektu C; werdykt pokrywa się z automatycznym z raportu.\"\n}",
+    "json": {
+     "ranking": [
+      "B",
+      "C",
+      "A"
+     ],
+     "uwagi": "Opinia A błędnie uznaje test A (różnica długości słów -0.24 glifu, p=0.0003) za dowód hipotezy, podczas gdy raport wyraźnie zastrzega, że jest to tylko warunek konieczny (tekst może zależeć od rośliny bez szyfru w ilustracji). A ignoruje też krytyczną wadę: kontrola B nie przeszła (p=0.025 < 0.05), co automatycznie dyskwalifikuje metodę wg zasad raportu. Opinie B i C słusznie wskazują na niewiarygodność metody przez niezaliczoną kontrolę B (fałszywy sygnał w danych przetasowanych) oraz brak replikacji ataku C (p=0.26 na 103 stronach vs p=0.04 na 20). B jest najbardziej stanowcza i poparta pełnymi danymi z raportu.",
+     "werdykt": "metoda niewiarygodna",
+     "pewność": 0.95,
+     "zmiana_zdania": "nie, raport i kontrole jednoznacznie wskazują na niewiarygodność metody przez nieprzejście kontroli B oraz brak powtórzenia efektu C; werdykt pokrywa się z automatycznym z raportu."
+    }
+   }
+  },
+  "synthesis": "## Werdykt rady\n\n**Brak wiarygodnego wsparcia dla hipotezy, że ilustracje zawierają klucz do tekstu.** Zgodność opinii jest wysoka: rada zgadza się, że test B nie przechodzi kontroli, a test C nie potwierdził wcześniejszego wyniku. Nie oznacza to jednak, że wszystkie składowe metody są niewiarygodne: kontrole A i C przeszły.\n\n## Co test naprawdę pokazuje\n\nTest A wykrył krótsze słowa przy przerwach na rysunki (różnica −0,24 glifu; p = 0,0003), ale świadczy to o związku z układem strony, nie o zaszyfrowanej treści. Test B uzyskał słabą, graniczną korelację (r = 0,084; p = 0,0528), lecz kontrola z losowymi podobieństwami obrazów dała p = 0,025, mimo oczekiwanego braku związku. Wyniku B nie należy więc traktować jako wiarygodnego dowodu. Test C wykrył celowo podłożony klucz, ale w powtórce na 103 stronach nie wykazał przewagi nad nazwami przetasowanymi (p = 0,260).\n\nWyniki osłabiają wąską hipotezę testowaną przez C, ale **nie wykluczają** innych form zależności tekstu od ilustracji ani innych typów klucza.\n\n## Główne zastrzeżenia i następny eksperyment\n\nIdentyfikacje roślin są niepewne, C opiera się na założeniu dotyczącym pierwszego słowa, a CLIP w B analizował także pismo i układ strony. Najbardziej rozstrzygająca byłaby niezależna powtórka testu B z CLIP analizującym wyłącznie zamaskowane rysunki oraz z kontrolami losowymi, które nie generują fałszywej korelacji.",
+  "failed": {
+   "inception/mercury-3": "OpenRouter: inception/mercury-3 zwrócił pustą odpowiedź (model rozumujący zużył limit tokenów)"
+  },
+  "votes": {
+   "metoda niewiarygodna": 3
+  }
+ }
+}

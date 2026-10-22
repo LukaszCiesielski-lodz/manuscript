@@ -1,0 +1,1233 @@
+{
+ "f1v": [
+  "quercus",
+  "leccio",
+  "eicheleiche",
+  "arbutus",
+  "corbezzolo",
+  "strauchersteineiche",
+  "laurus",
+  "alloro",
+  "lorbeer"
+ ],
+ "f2r": [
+  "cirsium",
+  "cardo",
+  "kleiner",
+  "gemeiner",
+  "onopordum",
+  "groer"
+ ],
+ "f2v": [
+  "nelumbo",
+  "loto",
+  "lotusblume",
+  "uictoria",
+  "uittoria",
+  "amazonenlilie",
+  "trapa",
+  "trappa",
+  "wasserkastanie"
+ ],
+ "f3r": [
+  "aloe",
+  "agaue",
+  "yucca"
+ ],
+ "f3v": [
+  "daucus",
+  "carota",
+  "karotte",
+  "pastinaca",
+  "pasquaia",
+  "pastinake",
+  "beta",
+  "barbabietola",
+  "rote"
+ ],
+ "f4r": [
+  "rosmarinus",
+  "rosmarino",
+  "rosmarin",
+  "saluia",
+  "salbei",
+  "thymus",
+  "timiano",
+  "thymian"
+ ],
+ "f4v": [
+  "digitalis",
+  "digitale",
+  "fingerhut",
+  "aconitum",
+  "aconito",
+  "blauer",
+  "hyoscyamus",
+  "beleno",
+  "schwarzer"
+ ],
+ "f5r": [
+  "aristolochia",
+  "pianta",
+  "wurmsame",
+  "asarum",
+  "asaro",
+  "haselwurz",
+  "lysimachia",
+  "lisimachia",
+  "geldkraut"
+ ],
+ "f5v": [
+  "geranium",
+  "geranio",
+  "storchschnabel",
+  "ranunculus",
+  "ranuncolo",
+  "hahnenfu",
+  "aquilegia",
+  "adlerfuss"
+ ],
+ "f6r": [
+  "pteridium",
+  "fegato",
+  "gemeiner",
+  "dryopteris",
+  "felce",
+  "mannliche",
+  "polypodium",
+  "gewohnlicher"
+ ],
+ "f6v": [
+  "arctium",
+  "barba",
+  "kleiner",
+  "cencio",
+  "wolliger"
+ ],
+ "f7r": [
+  "aloe",
+  "agaue",
+  "yucca"
+ ],
+ "f7v": [
+  "semperuiuum",
+  "uerde",
+  "hauswurz",
+  "aeonium",
+  "palmella",
+  "baumsternblume",
+  "echeueria"
+ ],
+ "f8r": [
+  "quercus",
+  "quercia",
+  "eiche",
+  "fagus",
+  "faggio",
+  "buche",
+  "carpinus",
+  "corno",
+  "hainbuche"
+ ],
+ "f8v": [
+  "digitalis",
+  "digitale",
+  "fingerhut",
+  "uerbascum",
+  "uerbasco",
+  "barenohr",
+  "lupinus",
+  "lupino",
+  "wolfsmilch"
+ ],
+ "f9r": [
+  "geranium",
+  "crano",
+  "storchschnabel",
+  "ranunculus",
+  "ranuncolo",
+  "wasserhahnenfu",
+  "alchemilla",
+  "acetosa",
+  "zwergfingerkraut"
+ ],
+ "f9v": [
+  "geranium",
+  "geranio",
+  "storchschnabel",
+  "uiola",
+  "uioletta",
+  "ueilchen",
+  "echinacea",
+  "sonnenhut"
+ ],
+ "f10r": [
+  "daucus",
+  "carota",
+  "mohre",
+  "beta",
+  "barbabietola",
+  "rote",
+  "pastinaca",
+  "petersilierube"
+ ],
+ "f10v": [
+  "digitalis",
+  "digitale",
+  "fingerhut",
+  "campanula",
+  "glockenblume",
+  "hyacinthoides",
+  "campanella",
+  "blauer"
+ ],
+ "f11r": [
+  "hyacinthus",
+  "giacinto",
+  "hyazinthe",
+  "muscari",
+  "traubenhyazinthe",
+  "scilla",
+  "sibirische"
+ ],
+ "f11v": [
+  "ananas",
+  "pinus",
+  "pino",
+  "weitanne",
+  "cedrus",
+  "cedro",
+  "zedernussbaum"
+ ],
+ "f13r": [
+  "arctium",
+  "bardana",
+  "groe",
+  "daucus",
+  "carota",
+  "wildkarotte",
+  "pastinaca",
+  "petersilie"
+ ],
+ "f13v": [
+  "aloe",
+  "echte",
+  "agaue",
+  "century",
+  "yucca",
+  "gewohnliche"
+ ],
+ "f14r": [
+  "aloe",
+  "echte",
+  "dracaena",
+  "dracena",
+  "randdrachenbaum",
+  "sanseuieria",
+  "schwertlilie"
+ ],
+ "f14v": [
+  "cichorium",
+  "cicoria",
+  "ganseblumchen",
+  "taraxacum",
+  "dente",
+  "lowenzahn",
+  "arctium",
+  "barba",
+  "klette"
+ ],
+ "f15r": [
+  "ranunculus",
+  "ranuncolo",
+  "wasserhahnenfu",
+  "nasturtium",
+  "cauolo",
+  "wasserkresse",
+  "myriophyllum",
+  "millefoglie",
+  "spitznelke"
+ ],
+ "f15v": [
+  "arum",
+  "calceola",
+  "italienisches",
+  "aristolochia",
+  "pipa",
+  "rauchpfeife",
+  "caltha",
+  "calta",
+  "sumpfgoldauge"
+ ],
+ "f16r": [
+  "arctium",
+  "bardana",
+  "groe",
+  "dipsacus",
+  "scabiosa",
+  "kratzer",
+  "aralia",
+  "iapanischer"
+ ],
+ "f16v": [
+  "dianthus",
+  "garofano",
+  "nelke",
+  "aster",
+  "asteroide",
+  "chrysanthemum",
+  "crisantemo",
+  "chrysantheme"
+ ],
+ "f17r": [
+  "echinops",
+  "pomponia",
+  "blauer",
+  "centaurea",
+  "cardo",
+  "bergflockenblume",
+  "cynara",
+  "dornige"
+ ],
+ "f17v": [
+  "daucus",
+  "carota",
+  "mohre",
+  "pastinaca",
+  "pastinake",
+  "angelica",
+  "angelo",
+  "engelwurz"
+ ],
+ "f18r": [
+  "echium",
+  "patersonia",
+  "purpurflockenblume",
+  "borago",
+  "borragine",
+  "boretsch",
+  "anchusa",
+  "kornanker"
+ ],
+ "f18v": [
+  "geranium",
+  "geranio",
+  "storchschnabel",
+  "aquilegia",
+  "cimico",
+  "adlerfuss",
+  "ranunculus",
+  "ranuncolo",
+  "hahnenfu"
+ ],
+ "f19r": [
+  "delphinium",
+  "fiordaliso",
+  "storchschnabel",
+  "aconitum",
+  "aconito",
+  "wolfsmilch",
+  "clematis",
+  "clematide",
+  "kletterweber"
+ ],
+ "f19v": [
+  "allium",
+  "cipolla",
+  "zwiebel",
+  "aglio",
+  "knoblauch",
+  "porro",
+  "lauch"
+ ],
+ "f20r": [
+  "cicer",
+  "ceci",
+  "kichererbsen",
+  "uicia",
+  "faue",
+  "bohnen",
+  "lens",
+  "lenticchie",
+  "linsen"
+ ],
+ "f20v": [
+  "echium",
+  "patersonia",
+  "pattersonsfluch",
+  "cichorium",
+  "cicoria",
+  "ganseblumchen",
+  "taraxacum",
+  "dente",
+  "lowenzahn"
+ ],
+ "f21r": [
+  "saluia",
+  "gartensalbei",
+  "rosmarinus",
+  "rosmarino",
+  "rosmarin",
+  "thymus",
+  "timiano",
+  "thymian"
+ ],
+ "f21v": [
+  "foeniculum",
+  "finocchio",
+  "fenchel",
+  "anethum",
+  "aneto",
+  "dill",
+  "coriandrum",
+  "cilantro",
+  "koriander"
+ ],
+ "f22r": [
+  "digitalis",
+  "digitale",
+  "fingerhut",
+  "aconitum",
+  "aconito",
+  "wolfsmilch",
+  "delphinium",
+  "delphinio",
+  "rittersporn"
+ ],
+ "f22v": [
+  "arum",
+  "calce",
+  "italienisches",
+  "fleckaronstab",
+  "dracunculus",
+  "dragone",
+  "teufelsfinger"
+ ],
+ "f23r": [
+  "aconitum",
+  "acquilegia",
+  "blaue",
+  "ranunculus",
+  "ranuncolo",
+  "wasserhahnenfu",
+  "aquilegia",
+  "columbina",
+  "gemeine"
+ ],
+ "f23v": [
+  "arctium",
+  "barba",
+  "klette",
+  "cencio",
+  "kleiner",
+  "wollige"
+ ],
+ "f24r": [
+  "taraxacum",
+  "dente",
+  "lowenzahn",
+  "cichorium",
+  "cicoria",
+  "zichorie",
+  "sonchus",
+  "lattuga",
+  "gansefu"
+ ],
+ "f24v": [
+  "digitalis",
+  "digitale",
+  "fingerhut",
+  "primula",
+  "kuhfu",
+  "aquilegia",
+  "eisenhut"
+ ],
+ "f25r": [
+  "aristolochia",
+  "pianta",
+  "pfeifenwinde",
+  "lonicera",
+  "caprifoglio",
+  "iapanische",
+  "actinidia",
+  "kletteraktinidie"
+ ],
+ "f25v": [
+  "cannabis",
+  "canapa",
+  "hanf",
+  "aralia",
+  "iapanischer",
+  "datura",
+  "stramonio",
+  "stechapfel"
+ ],
+ "f26r": [
+  "raphanus",
+  "rafano",
+  "radieschen",
+  "arctium",
+  "barba",
+  "klette",
+  "daucus",
+  "carota",
+  "mohre"
+ ],
+ "f26v": [
+  "quercus",
+  "quercia",
+  "eiche",
+  "fagus",
+  "faggio",
+  "buche",
+  "carpinus",
+  "betulla",
+  "hainbuche"
+ ],
+ "f27r": [
+  "aloe",
+  "dracaena",
+  "drachenbaum",
+  "sanseuieria",
+  "schwertschilfe"
+ ],
+ "f27v": [
+  "daucus",
+  "carota",
+  "mohre",
+  "pastinaca",
+  "petersilie",
+  "angelica",
+  "angelo",
+  "engelwurz"
+ ],
+ "f28r": [
+  "arum",
+  "calce",
+  "italienisches",
+  "gefleckter",
+  "dracunculus",
+  "drago",
+  "teufelsfinger"
+ ],
+ "f28v": [
+  "daucus",
+  "carota",
+  "mohre",
+  "pastinaca",
+  "petersilie",
+  "angelica",
+  "angelo",
+  "engelwurz"
+ ],
+ "f29r": [
+  "aloe",
+  "wahrer",
+  "agaue",
+  "century",
+  "yucca",
+  "gewohnliche"
+ ],
+ "f29v": [
+  "arctium",
+  "bardana",
+  "groe",
+  "kleiner",
+  "cirsium",
+  "cardo",
+  "kanadischer"
+ ],
+ "f30r": [
+  "iris",
+  "giaggiolo",
+  "deutsche",
+  "gelbe",
+  "sibirische"
+ ],
+ "f30v": [
+  "aegopodium",
+  "gatta",
+  "barenklau",
+  "ranunculus",
+  "ranuncolo",
+  "wasserhahnenfu",
+  "alchemilla",
+  "erba",
+  "zwergfingerkraut"
+ ],
+ "f31r": [
+  "arctium",
+  "barba",
+  "klette",
+  "taraxacum",
+  "dente",
+  "lowenzahn",
+  "cichorium",
+  "cicoria",
+  "zichorie"
+ ],
+ "f31v": [
+  "allium",
+  "aglio",
+  "knoblauch",
+  "cipolla",
+  "zwiebel",
+  "porro",
+  "lauch"
+ ],
+ "f32r": [
+  "uitis",
+  "uite",
+  "rebe",
+  "humulus",
+  "luppolo",
+  "hopfen",
+  "clematis",
+  "clematide",
+  "alte"
+ ],
+ "f32v": [
+  "digitalis",
+  "digitale",
+  "fingerhut",
+  "aconitum",
+  "aconito",
+  "wolfsmilch",
+  "delphinium",
+  "delphinio",
+  "rittersporn"
+ ],
+ "f33r": [
+  "datura",
+  "stramonio",
+  "stechapfel",
+  "hyoscyamus",
+  "beleno",
+  "schwarzer",
+  "atropa",
+  "belladonna"
+ ],
+ "f33v": [
+  "asteraceae",
+  "margherita",
+  "kamille",
+  "echinacea",
+  "sonnenhut",
+  "dahlia",
+  "dalia",
+  "dahlie"
+ ],
+ "f34r": [
+  "angelica",
+  "angelo",
+  "engelwurz",
+  "aralia",
+  "gemeine",
+  "heracleum",
+  "finocchione",
+  "staudenknoterich"
+ ],
+ "f34v": [
+  "quercus",
+  "quercia",
+  "eiche",
+  "fagus",
+  "faggio",
+  "buche",
+  "carpinus",
+  "corno",
+  "horn"
+ ],
+ "f35r": [
+  "aloe",
+  "echte",
+  "agaue",
+  "centurypflanze",
+  "yucca",
+  "gewohnliche"
+ ],
+ "f35v": [
+  "arctium",
+  "barba",
+  "klette",
+  "daucus",
+  "carota",
+  "wildkarotte",
+  "angelica",
+  "angelo",
+  "engelwurz"
+ ],
+ "f36r": [
+  "aconitum",
+  "acquauite",
+  "blauer",
+  "digitalis",
+  "digitale",
+  "fingerhut",
+  "atropa",
+  "belladonna",
+  "schwarzer"
+ ],
+ "f36v": [
+  "aralia",
+  "aralie",
+  "echinacea",
+  "sonnenhut",
+  "dipsacus",
+  "dipsaco",
+  "kerbel"
+ ],
+ "f37r": [
+  "arum",
+  "calceola",
+  "italienisches",
+  "daucus",
+  "carota",
+  "wildkarotte",
+  "digitalis",
+  "digitale",
+  "fingerhut"
+ ],
+ "f37v": [
+  "arctium",
+  "barba",
+  "klette",
+  "inula",
+  "elicriso",
+  "helmkraut",
+  "angelica",
+  "angelo",
+  "engelwurz"
+ ],
+ "f38r": [
+  "foeniculum",
+  "finocchio",
+  "fenchel",
+  "anethum",
+  "aneto",
+  "dill",
+  "coriandrum",
+  "coriandolo",
+  "koriander"
+ ],
+ "f38v": [
+  "quercus",
+  "quercia",
+  "stieleiche",
+  "fagus",
+  "faggio",
+  "buche",
+  "carpinus",
+  "betulla",
+  "hainbuche"
+ ],
+ "f39r": [
+  "allium",
+  "aglio",
+  "barlauch",
+  "knoblauch",
+  "porro",
+  "lauch"
+ ],
+ "f39v": [
+  "taraxacum",
+  "dente",
+  "lowenzahn",
+  "cichorium",
+  "cicoria",
+  "zichorie",
+  "arctium",
+  "barba",
+  "klette"
+ ],
+ "f40r": [
+  "taraxacum",
+  "dente",
+  "lowenzahn",
+  "cichorium",
+  "cicoria",
+  "zichorie",
+  "arctium",
+  "barba",
+  "klette"
+ ],
+ "f40v": [
+  "datura",
+  "beluedere",
+  "stechapfel",
+  "hyoscyamus",
+  "beleno",
+  "bilsenkraut",
+  "atropa",
+  "belladonna",
+  "schwarzer"
+ ],
+ "f41r": [
+  "artemisia",
+  "assenzio",
+  "wermut",
+  "mugwort",
+  "beifu",
+  "tanacetum",
+  "tanaceto",
+  "krauterschafgarbe"
+ ],
+ "f41v": [
+  "daucus",
+  "carota",
+  "mohre",
+  "pastinaca",
+  "pastinake",
+  "beta",
+  "barbabietola",
+  "rote"
+ ],
+ "f42r": [
+  "ranunculus",
+  "ranuncolo",
+  "wasserhahnenfu",
+  "alchemilla",
+  "acetosa",
+  "gartenfukraut",
+  "geranium",
+  "geranio",
+  "sumpfstorchschnabel"
+ ],
+ "f42v": [
+  "aristolochia",
+  "calceola",
+  "monchspfeife",
+  "saururus",
+  "drago",
+  "wasserschlangenwurz",
+  "asarum",
+  "asaro",
+  "haselwurz"
+ ],
+ "f43r": [
+  "daucus",
+  "carota",
+  "mohre",
+  "pastinaca",
+  "petersilie",
+  "angelica",
+  "angelo",
+  "engelwurz"
+ ],
+ "f43v": [
+  "cichorium",
+  "cicoria",
+  "ganseblumchen",
+  "taraxacum",
+  "dente",
+  "lowenzahn",
+  "arctium",
+  "barba",
+  "klette"
+ ],
+ "f44r": [
+  "aloe",
+  "agaue",
+  "yucca"
+ ],
+ "f44v": [
+  "euphorbia",
+  "euforbia",
+  "wolfsmilch",
+  "ficus",
+  "fico",
+  "feige",
+  "aloe"
+ ],
+ "f45r": [
+  "digitalis",
+  "digitale",
+  "fingerhut",
+  "aconitum",
+  "aconito",
+  "blauer",
+  "delphinium",
+  "delphinio",
+  "bienenschwanz"
+ ],
+ "f45v": [
+  "symphytum",
+  "consolida",
+  "echte",
+  "borago",
+  "borragine",
+  "borretsch",
+  "uerbascum",
+  "tiglio",
+  "groer"
+ ],
+ "f46r": [
+  "taraxacum",
+  "dente",
+  "lowenzahn",
+  "cichorium",
+  "cicoria",
+  "zichorie",
+  "arctium",
+  "barba",
+  "klette"
+ ],
+ "f46v": [
+  "artemisia",
+  "assenzio",
+  "wermut",
+  "mugwort",
+  "beifu",
+  "tanacetum",
+  "ganseblumchen"
+ ],
+ "f47r": [
+  "ranunculus",
+  "ranuncolo",
+  "wasserhahnenfu",
+  "nymphaea",
+  "ninfea",
+  "weie",
+  "alisma",
+  "wasserplantain"
+ ],
+ "f47v": [
+  "digitalis",
+  "digitale",
+  "fingerhut",
+  "aconitum",
+  "aconito",
+  "wolfsmilch",
+  "ueratrum",
+  "ueratro",
+  "weier"
+ ],
+ "f48r": [
+  "arctium",
+  "barba",
+  "kleiner",
+  "dipsacus",
+  "cardo",
+  "kratzdistel",
+  "cirsium",
+  "kanadischer"
+ ],
+ "f48v": [
+  "artemisia",
+  "assenzio",
+  "wermut",
+  "beifu",
+  "tanacetum",
+  "cammomilla",
+  "krauterschafgarbe"
+ ],
+ "f49r": [
+  "arbutus",
+  "corbezzolo",
+  "baumheidelbeere",
+  "crataegus",
+  "sorbo",
+  "einzapfeliger",
+  "fagus",
+  "faggio",
+  "buche"
+ ],
+ "f49v": [
+  "aristolochia",
+  "wurmfrauenfinger",
+  "passiflora",
+  "fiore",
+  "leidenschaftsblume",
+  "clematis",
+  "caprifoglio",
+  "schlinge"
+ ],
+ "f50r": [
+  "asteraceae",
+  "margherita",
+  "korbblumen",
+  "daisy",
+  "fiore",
+  "ganseblumchen",
+  "chrysanthemum",
+  "crisantemo",
+  "chrysantheme"
+ ],
+ "f50v": [
+  "digitalis",
+  "digitale",
+  "fingerhut",
+  "aconitum",
+  "aconito",
+  "wolfsmilch",
+  "helleborus",
+  "elicriso",
+  "schwarze"
+ ],
+ "f51r": [
+  "mandragora",
+  "mandragola",
+  "mannikraut",
+  "datura",
+  "stramone",
+  "stechapfel",
+  "atropa",
+  "belladonna",
+  "schwarzer"
+ ],
+ "f51v": [
+  "digitalis",
+  "digitale",
+  "fingerhut",
+  "uerbascum",
+  "tasso",
+  "groer",
+  "aconitum",
+  "aconito",
+  "wolfsblume"
+ ],
+ "f52r": [
+  "daucus",
+  "carota",
+  "karotte",
+  "pastinaca",
+  "petersilie",
+  "angelica",
+  "angelo",
+  "engelwurz"
+ ],
+ "f52v": [
+  "datura",
+  "stramonio",
+  "stechapfel",
+  "hyoscyamus",
+  "beleno",
+  "hexenblume",
+  "atropa",
+  "belladonna",
+  "schwarzer"
+ ],
+ "f53r": [
+  "arctium",
+  "cardo",
+  "kleiner",
+  "barba",
+  "kleine",
+  "cirsium",
+  "kanadischer"
+ ],
+ "f53v": [
+  "taraxacum",
+  "dente",
+  "lowenzahn",
+  "cichorium",
+  "cicoria",
+  "zichorie",
+  "arctium",
+  "barba",
+  "klette"
+ ],
+ "f54r": [
+  "digitalis",
+  "digitale",
+  "fingerhut",
+  "uerbascum",
+  "uerbasco",
+  "wollfu",
+  "aconitum",
+  "aconito",
+  "wolfsmilch"
+ ],
+ "f54v": [
+  "digitalis",
+  "digitale",
+  "fingerhut",
+  "uerbascum",
+  "bordone",
+  "gemeiner",
+  "echium",
+  "patersonskraut"
+ ],
+ "f55r": [
+  "aconitum",
+  "acquilegia",
+  "blauer",
+  "digitalis",
+  "digitale",
+  "fingerhut",
+  "ranunculus",
+  "ranuncolo",
+  "wasserhahnenfu"
+ ],
+ "f55v": [
+  "allium",
+  "aglio",
+  "knoblauch",
+  "cipolla",
+  "zwiebel",
+  "cipollino",
+  "schnittlauch"
+ ],
+ "f56r": [
+  "helianthus",
+  "girasole",
+  "sonnenblume",
+  "cynara",
+  "cardo",
+  "artischocke",
+  "echinops",
+  "finferlo",
+  "blauer"
+ ],
+ "f56v": [
+  "acorus",
+  "calamo",
+  "gewohnlicher",
+  "iris",
+  "giaggiolo",
+  "gelbe",
+  "butomus",
+  "butomo",
+  "knoblauchblume"
+ ],
+ "f57r": [
+  "geranium",
+  "geranio",
+  "storchschnabel",
+  "artemisia",
+  "assenzio",
+  "beifu",
+  "astragalus",
+  "locusta",
+  "erdraute"
+ ],
+ "f65v": [
+  "artemisia",
+  "assenzio",
+  "wermut",
+  "beifu",
+  "tanacetum",
+  "tanaceto",
+  "krahenfu"
+ ],
+ "f66v": [
+  "papauer",
+  "morfio",
+  "mohn",
+  "digitalis",
+  "digitale",
+  "fingerhut",
+  "aconitum",
+  "aconito",
+  "wolfsmilch"
+ ],
+ "f87r": [
+  "daucus",
+  "carota",
+  "mohrrube",
+  "pastinaca",
+  "pastinake",
+  "beta",
+  "barbabietola",
+  "rote"
+ ],
+ "f87v": [
+  "daucus",
+  "carota",
+  "mohre",
+  "angelica",
+  "angelo",
+  "engelwurz",
+  "pastinaca",
+  "petersilie"
+ ],
+ "f90r1": [
+  "artemisia",
+  "assenzio",
+  "wermut",
+  "tanacetum",
+  "cammomilla",
+  "krauterseide",
+  "chamaemelum",
+  "camomilla",
+  "romische"
+ ],
+ "f90r2": [
+  "genista",
+  "farbergeiklee",
+  "cytisus",
+  "scoparia",
+  "ginster",
+  "chamaecytisus",
+  "russischer"
+ ],
+ "f93r": [
+  "aloe",
+  "yucca",
+  "agaue"
+ ],
+ "f93v": [
+  "datura",
+  "belladonna",
+  "stechapfel",
+  "digitalis",
+  "digitale",
+  "fingerhut",
+  "atropa",
+  "blaubeere"
+ ],
+ "f94r": [
+  "aristolochia",
+  "calceola",
+  "teufelsmaul",
+  "helleborus",
+  "nerissimo",
+  "schwarze",
+  "digitalis",
+  "digitale",
+  "fingerhut"
+ ],
+ "f95v2": [
+  "digitalis",
+  "digitale",
+  "fingerhut",
+  "aconitum",
+  "aconito",
+  "wolfskehl",
+  "delphinium",
+  "delphinio",
+  "storchschnabel"
+ ],
+ "f95v1": [
+  "uiola",
+  "fiore",
+  "waldueilchen",
+  "euphorbia",
+  "euforbia",
+  "sonnige",
+  "geranium",
+  "geranio",
+  "wiesenstorchschnabel"
+ ],
+ "f96r": [
+  "arctium",
+  "barba",
+  "klette",
+  "dipsacus",
+  "cardo",
+  "kratze",
+  "inula",
+  "elisir",
+  "alant"
+ ],
+ "f96v": [
+  "rhus",
+  "sumacchio",
+  "barenklau",
+  "berberis",
+  "barbarossa",
+  "gemeine",
+  "ribes",
+  "rote"
+ ]
+}

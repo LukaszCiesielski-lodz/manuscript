@@ -1,0 +1,717 @@
+[
+ {
+  "model": "z-ai/glm-5.3-flash",
+  "cost": 1.1069e-06,
+  "tokens": 27
+ },
+ {
+  "model": "openai/gpt-6-luna",
+  "cost": 4.1e-06,
+  "tokens": 21
+ },
+ {
+  "model": "inception/mercury-3",
+  "cost": 3.01e-06,
+  "tokens": 16
+ },
+ {
+  "model": "tencent/hy3",
+  "cost": 6.95e-06,
+  "tokens": 30
+ },
+ {
+  "model": "qwen/qwen2.5-vl-72b-instruct",
+  "cost": 2.12e-05,
+  "tokens": 26
+ },
+ {
+  "model": "qwen/qwen2.5-vl-72b-instruct",
+  "cost": 0.0017446,
+  "tokens": 2138
+ },
+ {
+  "model": "qwen/qwen2.5-vl-72b-instruct",
+  "cost": 0.0017404,
+  "tokens": 2186
+ },
+ {
+  "model": "qwen/qwen2.5-vl-72b-instruct",
+  "cost": 0.0017078,
+  "tokens": 2146
+ },
+ {
+  "model": "qwen/qwen2.5-vl-72b-instruct",
+  "cost": 0.0017324,
+  "tokens": 2178
+ },
+ {
+  "model": "qwen/qwen2.5-vl-72b-instruct",
+  "cost": 0.0016948,
+  "tokens": 2133
+ },
+ {
+  "model": "qwen/qwen2.5-vl-72b-instruct",
+  "cost": 0.0017244,
+  "tokens": 2170
+ },
+ {
+  "model": "qwen/qwen2.5-vl-72b-instruct",
+  "cost": 0.0017128,
+  "tokens": 2151
+ },
+ {
+  "model": "qwen/qwen2.5-vl-72b-instruct",
+  "cost": 0.001776,
+  "tokens": 2229
+ },
+ {
+  "model": "qwen/qwen2.5-vl-72b-instruct",
+  "cost": 0.0016948,
+  "tokens": 2133
+ },
+ {
+  "model": "qwen/qwen2.5-vl-72b-instruct",
+  "cost": 0.0017474,
+  "tokens": 2193
+ },
+ {
+  "model": "qwen/qwen2.5-vl-72b-instruct",
+  "cost": 0.0017168,
+  "tokens": 2155
+ },
+ {
+  "model": "qwen/qwen2.5-vl-72b-instruct",
+  "cost": 0.0017294,
+  "tokens": 2175
+ },
+ {
+  "model": "qwen/qwen2.5-vl-72b-instruct",
+  "cost": 0.0017078,
+  "tokens": 2146
+ },
+ {
+  "model": "qwen/qwen2.5-vl-72b-instruct",
+  "cost": 0.0017264,
+  "tokens": 2172
+ },
+ {
+  "model": "qwen/qwen2.5-vl-72b-instruct",
+  "cost": 0.0017038,
+  "tokens": 2142
+ },
+ {
+  "model": "qwen/qwen2.5-vl-72b-instruct",
+  "cost": 0.0017414,
+  "tokens": 2187
+ },
+ {
+  "model": "qwen/qwen2.5-vl-72b-instruct",
+  "cost": 0.0016602,
+  "tokens": 2091
+ },
+ {
+  "model": "qwen/qwen2.5-vl-72b-instruct",
+  "cost": 0.0017294,
+  "tokens": 2175
+ },
+ {
+  "model": "qwen/qwen2.5-vl-72b-instruct",
+  "cost": 0.0016812,
+  "tokens": 2112
+ },
+ {
+  "model": "qwen/qwen2.5-vl-72b-instruct",
+  "cost": 0.0017394,
+  "tokens": 2185
+ },
+ {
+  "model": "qwen/qwen2.5-vl-72b-instruct",
+  "cost": 0.0016702,
+  "tokens": 2101
+ },
+ {
+  "model": "qwen/qwen2.5-vl-72b-instruct",
+  "cost": 0.00176,
+  "tokens": 2213
+ },
+ {
+  "model": "qwen/qwen2.5-vl-72b-instruct",
+  "cost": 0.0016722,
+  "tokens": 2103
+ },
+ {
+  "model": "qwen/qwen2.5-vl-72b-instruct",
+  "cost": 0.0017394,
+  "tokens": 2185
+ },
+ {
+  "model": "qwen/qwen2.5-vl-72b-instruct",
+  "cost": 0.0016802,
+  "tokens": 2111
+ },
+ {
+  "model": "qwen/qwen2.5-vl-72b-instruct",
+  "cost": 0.00178,
+  "tokens": 2233
+ },
+ {
+  "model": "qwen/qwen2.5-vl-72b-instruct",
+  "cost": 0.0016822,
+  "tokens": 2113
+ },
+ {
+  "model": "qwen/qwen2.5-vl-72b-instruct",
+  "cost": 0.001766,
+  "tokens": 2219
+ },
+ {
+  "model": "qwen/qwen2.5-vl-72b-instruct",
+  "cost": 0.0016632,
+  "tokens": 2094
+ },
+ {
+  "model": "qwen/qwen2.5-vl-72b-instruct",
+  "cost": 0.001774,
+  "tokens": 2227
+ },
+ {
+  "model": "qwen/qwen2.5-vl-72b-instruct",
+  "cost": 0.0016662,
+  "tokens": 2097
+ },
+ {
+  "model": "qwen/qwen2.5-vl-72b-instruct",
+  "cost": 0.001768,
+  "tokens": 2221
+ },
+ {
+  "model": "qwen/qwen2.5-vl-72b-instruct",
+  "cost": 0.0016652,
+  "tokens": 2096
+ },
+ {
+  "model": "qwen/qwen2.5-vl-72b-instruct",
+  "cost": 0.001756,
+  "tokens": 2209
+ },
+ {
+  "model": "qwen/qwen2.5-vl-72b-instruct",
+  "cost": 0.0016326,
+  "tokens": 2056
+ },
+ {
+  "model": "qwen/qwen2.5-vl-72b-instruct",
+  "cost": 0.001754,
+  "tokens": 2207
+ },
+ {
+  "model": "qwen/qwen2.5-vl-72b-instruct",
+  "cost": 0.0016536,
+  "tokens": 2077
+ },
+ {
+  "model": "qwen/qwen2.5-vl-72b-instruct",
+  "cost": 0.001758,
+  "tokens": 2211
+ },
+ {
+  "model": "qwen/qwen2.5-vl-72b-instruct",
+  "cost": 0.0016396,
+  "tokens": 2063
+ },
+ {
+  "model": "qwen/qwen2.5-vl-72b-instruct",
+  "cost": 0.001767,
+  "tokens": 2220
+ },
+ {
+  "model": "qwen/qwen2.5-vl-72b-instruct",
+  "cost": 0.0016782,
+  "tokens": 2109
+ },
+ {
+  "model": "qwen/qwen2.5-vl-72b-instruct",
+  "cost": 0.0017494,
+  "tokens": 2195
+ },
+ {
+  "model": "qwen/qwen2.5-vl-72b-instruct",
+  "cost": 0.0016742,
+  "tokens": 2105
+ },
+ {
+  "model": "qwen/qwen2.5-vl-72b-instruct",
+  "cost": 0.0017414,
+  "tokens": 2187
+ },
+ {
+  "model": "qwen/qwen2.5-vl-72b-instruct",
+  "cost": 0.0016426,
+  "tokens": 2066
+ },
+ {
+  "model": "qwen/qwen2.5-vl-72b-instruct",
+  "cost": 0.0017484,
+  "tokens": 2194
+ },
+ {
+  "model": "qwen/qwen2.5-vl-72b-instruct",
+  "cost": 0.0016406,
+  "tokens": 2064
+ },
+ {
+  "model": "qwen/qwen2.5-vl-72b-instruct",
+  "cost": 0.0016968,
+  "tokens": 2135
+ },
+ {
+  "model": "qwen/qwen2.5-vl-72b-instruct",
+  "cost": 0.0016356,
+  "tokens": 2059
+ },
+ {
+  "model": "qwen/qwen2.5-vl-72b-instruct",
+  "cost": 0.0017374,
+  "tokens": 2183
+ },
+ {
+  "model": "qwen/qwen2.5-vl-72b-instruct",
+  "cost": 0.0016376,
+  "tokens": 2061
+ },
+ {
+  "model": "qwen/qwen2.5-vl-72b-instruct",
+  "cost": 0.0017098,
+  "tokens": 2148
+ },
+ {
+  "model": "qwen/qwen2.5-vl-72b-instruct",
+  "cost": 0.0016376,
+  "tokens": 2061
+ },
+ {
+  "model": "qwen/qwen2.5-vl-72b-instruct",
+  "cost": 0.0017028,
+  "tokens": 2141
+ },
+ {
+  "model": "qwen/qwen2.5-vl-72b-instruct",
+  "cost": 0.0016516,
+  "tokens": 2075
+ },
+ {
+  "model": "qwen/qwen2.5-vl-72b-instruct",
+  "cost": 0.0017168,
+  "tokens": 2155
+ },
+ {
+  "model": "qwen/qwen2.5-vl-72b-instruct",
+  "cost": 0.0016596,
+  "tokens": 2083
+ },
+ {
+  "model": "qwen/qwen2.5-vl-72b-instruct",
+  "cost": 0.0017068,
+  "tokens": 2145
+ },
+ {
+  "model": "qwen/qwen2.5-vl-72b-instruct",
+  "cost": 0.0016326,
+  "tokens": 2056
+ },
+ {
+  "model": "qwen/qwen2.5-vl-72b-instruct",
+  "cost": 0.0016988,
+  "tokens": 2137
+ },
+ {
+  "model": "qwen/qwen2.5-vl-72b-instruct",
+  "cost": 0.0016486,
+  "tokens": 2072
+ },
+ {
+  "model": "qwen/qwen2.5-vl-72b-instruct",
+  "cost": 0.0017038,
+  "tokens": 2142
+ },
+ {
+  "model": "qwen/qwen2.5-vl-72b-instruct",
+  "cost": 0.0016376,
+  "tokens": 2061
+ },
+ {
+  "model": "qwen/qwen2.5-vl-72b-instruct",
+  "cost": 0.0016832,
+  "tokens": 2114
+ },
+ {
+  "model": "qwen/qwen2.5-vl-72b-instruct",
+  "cost": 0.0016246,
+  "tokens": 2048
+ },
+ {
+  "model": "qwen/qwen2.5-vl-72b-instruct",
+  "cost": 0.0016752,
+  "tokens": 2106
+ },
+ {
+  "model": "qwen/qwen2.5-vl-72b-instruct",
+  "cost": 0.0016396,
+  "tokens": 2063
+ },
+ {
+  "model": "qwen/qwen2.5-vl-72b-instruct",
+  "cost": 0.0016772,
+  "tokens": 2108
+ },
+ {
+  "model": "qwen/qwen2.5-vl-72b-instruct",
+  "cost": 0.0016316,
+  "tokens": 2055
+ },
+ {
+  "model": "qwen/qwen2.5-vl-72b-instruct",
+  "cost": 0.0016752,
+  "tokens": 2106
+ },
+ {
+  "model": "qwen/qwen2.5-vl-72b-instruct",
+  "cost": 0.0016406,
+  "tokens": 2064
+ },
+ {
+  "model": "qwen/qwen2.5-vl-72b-instruct",
+  "cost": 0.0016702,
+  "tokens": 2101
+ },
+ {
+  "model": "qwen/qwen2.5-vl-72b-instruct",
+  "cost": 0.0016366,
+  "tokens": 2060
+ },
+ {
+  "model": "qwen/qwen2.5-vl-72b-instruct",
+  "cost": 0.0016712,
+  "tokens": 2102
+ },
+ {
+  "model": "qwen/qwen2.5-vl-72b-instruct",
+  "cost": 0.0016456,
+  "tokens": 2069
+ },
+ {
+  "model": "qwen/qwen2.5-vl-72b-instruct",
+  "cost": 0.0016772,
+  "tokens": 2108
+ },
+ {
+  "model": "qwen/qwen2.5-vl-72b-instruct",
+  "cost": 0.0016356,
+  "tokens": 2059
+ },
+ {
+  "model": "qwen/qwen2.5-vl-72b-instruct",
+  "cost": 0.0016436,
+  "tokens": 2067
+ },
+ {
+  "model": "qwen/qwen2.5-vl-72b-instruct",
+  "cost": 0.0016366,
+  "tokens": 2060
+ },
+ {
+  "model": "qwen/qwen2.5-vl-72b-instruct",
+  "cost": 0.0016606,
+  "tokens": 2084
+ },
+ {
+  "model": "qwen/qwen2.5-vl-72b-instruct",
+  "cost": 0.0016566,
+  "tokens": 2080
+ },
+ {
+  "model": "qwen/qwen2.5-vl-72b-instruct",
+  "cost": 0.0016376,
+  "tokens": 2061
+ },
+ {
+  "model": "qwen/qwen2.5-vl-72b-instruct",
+  "cost": 0.0016506,
+  "tokens": 2074
+ },
+ {
+  "model": "qwen/qwen2.5-vl-72b-instruct",
+  "cost": 0.0016702,
+  "tokens": 2101
+ },
+ {
+  "model": "qwen/qwen2.5-vl-72b-instruct",
+  "cost": 0.0016286,
+  "tokens": 2052
+ },
+ {
+  "model": "qwen/qwen2.5-vl-72b-instruct",
+  "cost": 0.0016536,
+  "tokens": 2077
+ },
+ {
+  "model": "qwen/qwen2.5-vl-72b-instruct",
+  "cost": 0.0016526,
+  "tokens": 2076
+ },
+ {
+  "model": "qwen/qwen2.5-vl-72b-instruct",
+  "cost": 0.001618,
+  "tokens": 2034
+ },
+ {
+  "model": "qwen/qwen2.5-vl-72b-instruct",
+  "cost": 0.001614,
+  "tokens": 2030
+ },
+ {
+  "model": "qwen/qwen2.5-vl-72b-instruct",
+  "cost": 0.0016576,
+  "tokens": 2081
+ },
+ {
+  "model": "qwen/qwen2.5-vl-72b-instruct",
+  "cost": 0.00162,
+  "tokens": 2036
+ },
+ {
+  "model": "qwen/qwen2.5-vl-72b-instruct",
+  "cost": 0.0016556,
+  "tokens": 2079
+ },
+ {
+  "model": "qwen/qwen2.5-vl-72b-instruct",
+  "cost": 0.001617,
+  "tokens": 2033
+ },
+ {
+  "model": "qwen/qwen2.5-vl-72b-instruct",
+  "cost": 0.0016506,
+  "tokens": 2074
+ },
+ {
+  "model": "qwen/qwen2.5-vl-72b-instruct",
+  "cost": 0.001613,
+  "tokens": 2029
+ },
+ {
+  "model": "qwen/qwen2.5-vl-72b-instruct",
+  "cost": 0.0016416,
+  "tokens": 2065
+ },
+ {
+  "model": "qwen/qwen2.5-vl-72b-instruct",
+  "cost": 0.001623,
+  "tokens": 2039
+ },
+ {
+  "model": "qwen/qwen2.5-vl-72b-instruct",
+  "cost": 0.0016752,
+  "tokens": 2106
+ },
+ {
+  "model": "qwen/qwen2.5-vl-72b-instruct",
+  "cost": 0.001621,
+  "tokens": 2037
+ },
+ {
+  "model": "qwen/qwen2.5-vl-72b-instruct",
+  "cost": 0.0016662,
+  "tokens": 2097
+ },
+ {
+  "model": "qwen/qwen2.5-vl-72b-instruct",
+  "cost": 0.001613,
+  "tokens": 2029
+ },
+ {
+  "model": "qwen/qwen2.5-vl-72b-instruct",
+  "cost": 0.0016772,
+  "tokens": 2108
+ },
+ {
+  "model": "qwen/qwen2.5-vl-72b-instruct",
+  "cost": 0.001618,
+  "tokens": 2034
+ },
+ {
+  "model": "qwen/qwen2.5-vl-72b-instruct",
+  "cost": 0.0016742,
+  "tokens": 2105
+ },
+ {
+  "model": "qwen/qwen2.5-vl-72b-instruct",
+  "cost": 0.0015924,
+  "tokens": 2001
+ },
+ {
+  "model": "qwen/qwen2.5-vl-72b-instruct",
+  "cost": 0.0016872,
+  "tokens": 2118
+ },
+ {
+  "model": "qwen/qwen2.5-vl-72b-instruct",
+  "cost": 0.0015804,
+  "tokens": 1989
+ },
+ {
+  "model": "qwen/qwen2.5-vl-72b-instruct",
+  "cost": 0.0016702,
+  "tokens": 2101
+ },
+ {
+  "model": "qwen/qwen2.5-vl-72b-instruct",
+  "cost": 0.0015994,
+  "tokens": 2008
+ },
+ {
+  "model": "qwen/qwen2.5-vl-72b-instruct",
+  "cost": 0.0016316,
+  "tokens": 2055
+ },
+ {
+  "model": "qwen/qwen2.5-vl-72b-instruct",
+  "cost": 0.0015834,
+  "tokens": 1992
+ },
+ {
+  "model": "qwen/qwen2.5-vl-72b-instruct",
+  "cost": 0.0015864,
+  "tokens": 1995
+ },
+ {
+  "model": "qwen/qwen2.5-vl-72b-instruct",
+  "cost": 0.0016968,
+  "tokens": 2135
+ },
+ {
+  "model": "qwen/qwen2.5-vl-72b-instruct",
+  "cost": 0.001608,
+  "tokens": 2024
+ },
+ {
+  "model": "qwen/qwen2.5-vl-72b-instruct",
+  "cost": 0.0017068,
+  "tokens": 2145
+ },
+ {
+  "model": "qwen/qwen2.5-vl-72b-instruct",
+  "cost": 0.0009788,
+  "tokens": 2153
+ },
+ {
+  "model": "qwen/qwen2.5-vl-72b-instruct",
+  "cost": 0.0017284,
+  "tokens": 2174
+ },
+ {
+  "model": "qwen/qwen2.5-vl-72b-instruct",
+  "cost": 0.0016416,
+  "tokens": 2065
+ },
+ {
+  "model": "qwen/qwen2.5-vl-72b-instruct",
+  "cost": 0.0017118,
+  "tokens": 2150
+ },
+ {
+  "model": "qwen/qwen2.5-vl-72b-instruct",
+  "cost": 0.0016556,
+  "tokens": 2079
+ },
+ {
+  "model": "qwen/qwen2.5-vl-72b-instruct",
+  "cost": 0.0009452,
+  "tokens": 2079
+ },
+ {
+  "model": "qwen/qwen2.5-vl-72b-instruct",
+  "cost": 0.0017294,
+  "tokens": 2175
+ },
+ {
+  "model": "qwen/qwen2.5-vl-72b-instruct",
+  "cost": 0.001619,
+  "tokens": 2035
+ },
+ {
+  "model": "z-ai/glm-5.3-flash",
+  "cost": 0.0003742624,
+  "tokens": 5062
+ },
+ {
+  "model": "z-ai/glm-5.3-flash",
+  "cost": 0.0001348714,
+  "tokens": 3856
+ },
+ {
+  "model": "openai/gpt-6-luna",
+  "cost": 0.0007023,
+  "tokens": 3492
+ },
+ {
+  "model": "inception/mercury-3",
+  "cost": 0.00085223,
+  "tokens": 4395
+ },
+ {
+  "model": "inception/mercury-3",
+  "cost": 0.00086574,
+  "tokens": 4448
+ },
+ {
+  "model": "tencent/hy3",
+  "cost": 0.0020488,
+  "tokens": 4844
+ },
+ {
+  "model": "tencent/hy3",
+  "cost": 0.0016672,
+  "tokens": 4391
+ },
+ {
+  "model": "z-ai/glm-5.3-flash",
+  "cost": 0.0003820208,
+  "tokens": 6554
+ },
+ {
+  "model": "z-ai/glm-5.3-flash",
+  "cost": 0.0001364763,
+  "tokens": 5317
+ },
+ {
+  "model": "openai/gpt-6-luna",
+  "cost": 0.0012433,
+  "tokens": 5705
+ },
+ {
+  "model": "inception/mercury-3",
+  "cost": 0.00105811,
+  "tokens": 6112
+ },
+ {
+  "model": "inception/mercury-3",
+  "cost": 0.00231105,
+  "tokens": 9693
+ },
+ {
+  "model": "tencent/hy3",
+  "cost": 0.0018897,
+  "tokens": 6718
+ },
+ {
+  "model": "tencent/hy3",
+  "cost": 0.0016348,
+  "tokens": 6260
+ },
+ {
+  "model": "openai/gpt-6-luna",
+  "cost": 0.001067175,
+  "tokens": 6696
+ }
+]
