@@ -1,8 +1,13 @@
-"""Folio images from the Beinecke Library IIIF server.
+"""Folio images from the Beinecke Library IIIF server, or its mirror on the Internet Archive.
 
 `data/raw/beinecke_iiif.json` maps each digitised canvas to its folios
 (foldouts hold several). Images are fetched at the requested width and
 cached, so a second run (or a Drive-backed cache) costs nothing.
+
+Yale's server answers 403 to Colab. archive.org/details/voynich holds the
+library's 2014 scans as 001.jpg ... 213.jpg, one per canvas in manifest order
+(213 files, 213 canvases); every mirrored image is checked against the
+canvas's aspect ratio so a shifted numbering cannot pass silently.
 """
 
 from __future__ import annotations
@@ -22,7 +27,9 @@ MISSING_FOLIOS = [12, 59, 60, 61, 62, 63, 64, 74, 91, 92, 97, 98, 109, 110]
 
 
 def canvases() -> list[dict]:
-    return json.loads(IIIF_MAP.read_text(encoding="utf-8"))["canvases"]
+    """Canvases in manifest order; `seq` is the 1-based position (the mirror's file number)."""
+    cs = json.loads(IIIF_MAP.read_text(encoding="utf-8"))["canvases"]
+    return [{**c, "seq": i + 1} for i, c in enumerate(cs)]
 
 
 def base_folio(zl_folio: str) -> str:
@@ -57,6 +64,40 @@ def image_urls(canvas: dict, width: int) -> list[str]:
             f"{base}/full/pct:50/0/default.jpg", f"{base}/full/full/0/default.jpg"]
 
 
+_yale_refused: list[str] = []
+MIRROR = "voynich"  # archive.org item with the Beinecke 2014 scans
+
+
+def mirror_urls(canvas: dict, width: int) -> list[tuple[str, bool]]:
+    """(url, needs_resize): the Archive's IIIF service at the wanted width, then the full original (~9 MB)."""
+    name = f"{canvas['seq']:03d}.jpg"
+    return [(f"https://iiif.archive.org/iiif/3/{MIRROR}%2F{name}/full/{width},/0/default.jpg", False),
+            (f"https://archive.org/download/{MIRROR}/{name}", True)]
+
+
+def _check_and_size(data: bytes, canvas: dict, width: int, resize: bool) -> bytes:
+    """Reject an image whose shape does not match the canvas; shrink full-size originals."""
+    try:
+        from io import BytesIO
+        from PIL import Image
+    except ImportError:
+        return data
+    img = Image.open(BytesIO(data))
+    want, got = canvas["width"] / canvas["height"], img.width / img.height
+    if abs(got - want) > 0.06 * want:
+        raise ValueError(f"proporcje {got:.3f} zamiast {want:.3f} dla {canvas['label']}: zły plik lustra")
+    if resize and img.width > width:
+        out = BytesIO()
+        img.convert("RGB").resize((width, round(img.height * width / img.width))).save(out, "JPEG", quality=90)
+        return out.getvalue()
+    return data
+
+
+def _get(url: str, headers: dict) -> bytes:
+    with urllib.request.urlopen(urllib.request.Request(url, headers=headers), timeout=300) as resp:
+        return resp.read()
+
+
 def fetch(canvas: dict, width: int, cache_dir: Path, local_dir: Path | None = None) -> Path:
     """Path to the folio image: user-supplied folder first, then cache, then the IIIF server."""
     if local_dir:
@@ -69,13 +110,25 @@ def fetch(canvas: dict, width: int, cache_dir: Path, local_dir: Path | None = No
     if path.exists() and path.stat().st_size > 1000:
         return path
     errors = []
-    for url in image_urls(canvas, width):
+    sources = [(u, False, HEADERS) for u in image_urls(canvas, width)]
+    if "seq" in canvas:
+        sources += [(u, r, {"User-Agent": HEADERS["User-Agent"]}) for u, r in mirror_urls(canvas, width)]
+    for url, resize, headers in sources:
+        if url.startswith("https://collections.library.yale.edu") and _yale_refused:
+            continue
         for attempt in range(3):
             try:
-                with urllib.request.urlopen(urllib.request.Request(url, headers=HEADERS), timeout=120) as resp:
-                    path.write_bytes(resp.read())
+                data = _get(url, headers)
+                if "archive.org" in url:
+                    data = _check_and_size(data, canvas, width, resize)
+                path.write_bytes(data)
                 return path
+            except ValueError as e:
+                errors.append(str(e))
+                break
             except urllib.error.HTTPError as e:
+                if e.code == 403 and "yale.edu" in url:
+                    _yale_refused.append(url)  # one refusal is enough: skip Yale for the rest of the run
                 errors.append(f"{e.code} {url}")
                 if e.code in (403, 404):
                     break  # a refusal will not change on retry; try the next URL form

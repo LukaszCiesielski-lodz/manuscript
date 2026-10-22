@@ -79,10 +79,13 @@ lab.connect()   # pokaże wybraną radę, model wizyjny i ceny"""),
     ("md", "## 3. Testy\nKażdą komórkę można uruchomić osobno. Wyniki zapisują się w `results/lab/<data>/`."),
     ("code", 'lab.run("numbers");'),
     ("code", 'lab.run("naibbe_cipher"); lab.run("cardan_grille"); lab.run("hebrew_anagram"); lab.run("basque");'),
-    ("code", """# Próba pobrania jednego skanu z Beinecke. Jeśli tu jest błąd 403, serwer Yale odrzuca adresy Colaba:
-# wgraj skany na Dysk (pliki f1r.jpg, f1v.jpg...) i ustaw images_dir w ustawieniach.
+    ("code", """# Próba pobrania jednego skanu. Yale zwykle odrzuca Colaba (403); wtedy kod bierze te same skany
+# Beinecke z Internet Archive (archive.org/details/voynich) i sprawdza proporcje każdej strony.
 from voynich.lab import images
-print(images.fetch(images.single_folio_canvases()["f1v"], 512, cfg.cache_dir / "folios", cfg.images_dir))"""),
+try:
+    print("OK:", images.fetch(images.single_folio_canvases()["f1v"], 512, cfg.cache_dir / "folios", cfg.images_dir))
+except OSError as e:
+    print("Brak skanów – części B i C testu ilustracji zostaną pominięte.\n", e)"""),
     ("code", 'lab.run("illustrations");   # pobiera skany z Beinecke (IIIF), liczy CLIP na GPU, pyta model wizyjny'),
     ("code", 'lab.run("generative");      # uczy transformer znakowy i generuje brakujące strony'),
     ("md", "## 4. Rada modeli\nTrzy rundy na każdy wynik: niezależne opinie, wzajemna recenzja anonimowych opinii, synteza przewodniczącego."),

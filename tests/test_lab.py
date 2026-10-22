@@ -129,6 +129,25 @@ class ImagesTest(unittest.TestCase):
             self.assertEqual(fetch(c, 800, Path(d) / "cache", Path(d)), Path(d) / "f1v.jpg")
 
 
+    def test_mirror_numbering_and_shape_check(self):
+        from voynich.lab import images
+        cs = images.canvases()
+        self.assertEqual(cs[2]["label"], "1r")
+        self.assertTrue(images.mirror_urls(cs[2], 800)[1][0].endswith("/voynich/003.jpg"))
+        try:
+            from io import BytesIO
+            from PIL import Image
+        except ImportError:
+            self.skipTest("brak Pillow")
+        c = cs[2]
+        def jpeg(w, h):
+            b = BytesIO(); Image.new("RGB", (w, h)).save(b, "JPEG"); return b.getvalue()
+        ok = images._check_and_size(jpeg(c["width"] // 4, c["height"] // 4), c, 300, resize=True)
+        self.assertEqual(Image.open(BytesIO(ok)).width, 300)
+        with self.assertRaises(ValueError):
+            images._check_and_size(jpeg(c["height"], c["width"]), c, 300, resize=True)  # a foldout-shaped file
+
+
 class NumbersTest(unittest.TestCase):
     def test_numeral_systems(self):
         self.assertEqual("".join(numbers.roman(1444)), "MCDXLIV")
