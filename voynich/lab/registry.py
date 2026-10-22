@@ -27,6 +27,7 @@ THEORIES = {t.name: t for t in [
     Theory("cardan_grille", "Bełkot z kratki Cardana (Rugg 2004)", (), "literature:run_grille"),
     Theory("hebrew_anagram", "Hebrajskie anagramy (Hauer i Kondrak 2016)", (), "literature:run_hebrew_anagram"),
     Theory("basque", "Baskijski pod szyfrem podstawieniowym", (), "basque:run"),
+    Theory("nomenclator", "Nomenklator: słowo = kod z księgi", (), "nomenclator:run"),
 ]}
 ALIASES = {"literature": ["naibbe_cipher", "cardan_grille", "hebrew_anagram"], "all": list(THEORIES)}
 

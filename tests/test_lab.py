@@ -236,6 +236,20 @@ class RecipeTest(unittest.TestCase):
             self.assertEqual(got, want, name)
 
 
+class NomenclatorTest(unittest.TestCase):
+    def test_codebook_text_gains_from_word_order(self):
+        # The theory rests on this: a real text under a random codebook reads better in order than shuffled.
+        from collections import Counter
+        from voynich import cipher, corpus
+        from voynich.lab.theories.nomenclator import _units, order_gain, plant
+        r = random.Random(5)
+        words = corpus.load_reference("Latin")
+        top = {w for w, _ in Counter(words[20000:]).most_common(30)}
+        model = cipher.TrigramModel(_units(words[20000:], top))
+        gain, _ = order_gain(plant(words[:2500], top, 1, r), model, r, restarts=2, steps=20000, seed=1)
+        self.assertGreater(gain, 0.05)
+
+
 class NotebookTest(unittest.TestCase):
     def test_every_code_cell_compiles(self):
         # A syntax error in a cell stops "Run all" in Colab; shell (!) and magic (%) lines are not Python.
