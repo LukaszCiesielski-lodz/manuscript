@@ -267,3 +267,170 @@ def generate(
             lines.append(line)
             history.extend(line)
     return lines
+
+
+class ScribeRules:
+    """Rules a scribe could keep on one sheet, learned as ratios from the text.
+
+    edge   after a word ending in glyph a, how much likelier a word starting with b is (vs. its usual rate)
+    first  how much likelier a word's first glyph is when the word opens a line
+    last   how much likelier a word's last glyph is when the word closes a line
+    length the share of words of each length
+
+    These are tendencies, not a cipher: a scribe filling a page with meaningless
+    text could follow them by habit ("after -y start with q", "end lines in -m").
+    """
+
+    def __init__(self, lines: Sequence[Sequence[Word]]):
+        pairs, first_all, first_line, last_all, last_line, lengths = Counter(), Counter(), Counter(), Counter(), Counter(), Counter()
+        for l in lines:
+            ws = [w for w in l if w]
+            for a, b in zip(ws, ws[1:]):
+                pairs[(a[-1], b[0])] += 1
+            for i, w in enumerate(ws):
+                first_all[w[0]] += 1
+                last_all[w[-1]] += 1
+                lengths[len(w)] += 1
+                if i == 0 and len(ws) >= 3:
+                    first_line[w[0]] += 1
+                if i == len(ws) - 1 and len(ws) >= 3:
+                    last_line[w[-1]] += 1
+        a_tot, b_tot = Counter(), Counter()
+        for (a, b), n in pairs.items():
+            a_tot[a] += n
+            b_tot[b] += n
+        n_pairs = sum(pairs.values())
+        self.edge = {(a, b): (n / a_tot[a]) / (b_tot[b] / n_pairs) for (a, b), n in pairs.items() if n >= 5}
+        nf, nl, na, nz = sum(first_line.values()), sum(last_line.values()), sum(first_all.values()), sum(last_all.values())
+        self.first = {g: (first_line[g] / nf) / (c / na) for g, c in first_all.items() if c >= 20}
+        self.last = {g: (last_line[g] / nl) / (c / nz) for g, c in last_all.items() if c >= 20}
+        # The other side of the same habit: glyphs that belong at a line edge are rarer elsewhere
+        # (without this, words copied from line ends spread 'm' and 'g' into the middle of lines).
+        self.first_mid = {g: ((c - first_line[g]) / (na - nf)) / (c / na) for g, c in first_all.items() if c >= 20}
+        self.last_mid = {g: ((c - last_line[g]) / (nz - nl)) / (c / nz) for g, c in last_all.items() if c >= 20}
+        n_len = sum(lengths.values())
+        self.length = {k: v / n_len for k, v in lengths.items()}
+
+    def weight(self, w: Word, prev: Word | None, at_start: bool, at_end: bool) -> float:
+        x = 1.0
+        if prev:
+            x *= self.edge.get((prev[-1], w[0]), 0.3)
+        x *= self.first.get(w[0], 0.3) if at_start else self.first_mid.get(w[0], 1.0)
+        x *= self.last.get(w[-1], 0.3) if at_end else self.last_mid.get(w[-1], 1.0)
+        return x
+
+
+def sample_word(grammar: WordGrammar, rng: random.Random, max_len: int = 10) -> Word:
+    """A new word from the word-shape grammar (glyph trigrams of distinct words)."""
+    nxt: dict[tuple, list] = getattr(grammar, "_next", None)
+    if nxt is None:
+        nxt = {}
+        for (a, b, c), n in grammar.tri.items():
+            nxt.setdefault((a, b), []).append((c, n))
+        grammar._next = nxt
+    w, ctx = [], ("^", "^")
+    while len(w) <= max_len:
+        opts = nxt.get(ctx)
+        if not opts:
+            break
+        g = rng.choices([c for c, _ in opts], [n for _, n in opts])[0]
+        if g == "$":
+            return w
+        w.append(g)
+        ctx = (ctx[1], g)
+    return []
+
+
+def generate_v5(
+    seed_lines: Sequence[Sequence[Word]],
+    n_words: int,
+    line_lengths: Sequence[int],
+    rules: ScribeRules,
+    edits: EditModel,
+    grammar: WordGrammar,
+    p_copy: float = 0.22,
+    p_same_column: float = 0.55,
+    p_far: float = 0.05,
+    p_new: float = 0.1,
+    p_hot: float = 0.0,
+    hot_power: float = 1.5,
+    p_repeat: float = 0.0,
+    window: int = 8,
+    candidates: int = 6,
+    gamma: float = 1.0,
+    length_gamma: float = 1.0,
+    max_len: int = 9,
+    seed: int = 1,
+) -> list[list[Word]]:
+    """Copy-and-modify like `generate`, but the scribe writes each word by choosing among a few candidates.
+
+    Candidates come from the same sources as before (copied or edited words from
+    recent lines, rarely from far back) plus, with probability `p_new` each, a
+    fresh word from the shape grammar. The chosen one is drawn with weight
+    rules.weight(...)^gamma times a length factor that steers the length
+    distribution towards the scribe's habit.
+    """
+    rng = random.Random(seed)
+    lines: list[list[Word]] = [list(map(list, l)) for l in seed_lines]
+    history = [w for l in lines for w in l]
+    proposed = Counter({k: 1 for k in rules.length})  # running length distribution of candidates
+
+    counts = Counter(tuple(w) for w in history)
+    hot: list = []
+
+    def refresh_hot():
+        top = counts.most_common(300)
+        hot[:] = [[list(w) for w, _ in top], [c ** hot_power for _, c in top]]
+
+    refresh_hot()
+
+    def candidate(pool, above, prev) -> Word:
+        x = rng.random()
+        if x < p_new:
+            return sample_word(grammar, rng, max_len)
+        if x < p_new + p_hot and hot[0]:
+            return list(rng.choices(hot[0], hot[1])[0])
+        if prev and x < p_new + p_hot + p_repeat:
+            return list(prev)
+        r = rng.random()
+        if r < p_far:
+            src = rng.choice(history)
+        elif above and r < p_far + p_same_column:
+            src = rng.choice(above)
+        else:
+            src = rng.choice(pool)
+        if rng.random() < p_copy:
+            return list(src)
+        for _ in range(10):
+            cand = list(src)
+            for _ in range(1 + (rng.random() < 0.35)):
+                cand = edits.apply(cand, rng)
+            if grammar.accept(src, cand, rng):
+                return cand
+        return list(src)
+
+    while len(history) < n_words:
+        recent = lines[-window:]
+        pool = [w for l in recent for w in l]
+        n = rng.choice(line_lengths)
+        line: list[Word] = []
+        for col in range(n):
+            above = [l[col] for l in recent if col < len(l)]
+            prev = line[-1] if line else None
+            cands = [c for c in (candidate(pool, above, prev) for _ in range(candidates)) if 1 <= len(c) <= max_len]
+            if not cands:
+                continue
+            total_prop = sum(proposed.values())
+            weights = []
+            for c in cands:
+                proposed[len(c)] += 1
+                lw = (rules.length.get(len(c), 1e-4) / (proposed[len(c)] / total_prop)) ** length_gamma
+                weights.append(rules.weight(c, line[-1] if line else None, col == 0, col == n - 1) ** gamma * lw)
+            line.append(rng.choices(cands, weights)[0])
+        if line:
+            lines.append(line)
+            history.extend(line)
+            counts.update(tuple(w) for w in line)
+            if len(lines) % 10 == 0:
+                refresh_hot()
+    return lines

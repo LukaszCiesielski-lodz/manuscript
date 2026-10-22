@@ -153,3 +153,23 @@ class CipherTest(unittest.TestCase):
 
 if __name__ == "__main__":
     unittest.main()
+
+
+class HoaxTest(unittest.TestCase):
+    def test_scribe_rules_and_v5_generator(self):
+        import random
+        from voynich import corpus, eva, hoax, selfcite
+        lines = [[eva.glyphs(w) for w in l.words] for l in corpus.load_voynich() if l.kind.startswith("P")][:900]
+        words = [w for l in lines for w in l]
+        rules = selfcite.ScribeRules(lines)
+        self.assertLess(rules.last_mid["m"], 0.6)            # 'm' belongs at line ends
+        self.assertGreater(rules.last["m"], 2.0)
+        grammar = selfcite.WordGrammar(words)
+        new = selfcite.sample_word(grammar, random.Random(1))
+        self.assertTrue(all(isinstance(g, str) for g in new))
+        gen = selfcite.generate_v5(lines[:3], 5000, [len(l) for l in lines], rules, selfcite.EditModel(words),
+                                   grammar, seed=2, p_new=0.2, p_hot=0.1)
+        self.assertGreaterEqual(sum(len(l) for l in gen), 5000)
+        m = hoax.measure(hoax.blocks(gen)[0])
+        self.assertEqual(set(m), set(hoax.MEASURES))
+
