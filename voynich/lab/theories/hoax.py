@@ -32,8 +32,8 @@ V5_PARAMS = dict(p_new=0.185, p_far=0.775, p_copy=0.047, p_same_column=0.559, ga
                  p_hot=0.235, hot_power=1.208, p_repeat=0.001, window=4, candidates=3)
 
 
-V5_SECTION_PARAMS = dict(p_new=0.408, p_far=0.9, p_copy=0.0, p_same_column=0.478, gamma=3.665, length_gamma=1.051,
-                         p_hot=0.129, hot_power=1.561, p_repeat=0.003, window=4, candidates=3)
+V5_SECTION_PARAMS = dict(p_new=0.6, p_far=0.9, p_copy=0.0, p_same_column=0.565, gamma=4.892, length_gamma=1.427,
+                         p_hot=0.004, hot_power=1.762, p_repeat=0.0, window=12, candidates=3, p_fav=0.063)
 
 
 def _folio_number(folio: str) -> int:
