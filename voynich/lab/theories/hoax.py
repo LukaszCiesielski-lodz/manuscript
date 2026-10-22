@@ -26,8 +26,13 @@ from ..config import LabConfig
 from ..results import TheoryResult
 
 # Found by a local search on odd folios only (scorecard + classifier); the even folios never took part.
+# V5_PARAMS: one run through the whole text; V5_SECTION_PARAMS: written section by section.
 V5_PARAMS = dict(p_new=0.185, p_far=0.775, p_copy=0.047, p_same_column=0.559, gamma=3.364, length_gamma=0.736,
                  p_hot=0.235, hot_power=1.208, p_repeat=0.001, window=4, candidates=3)
+
+
+V5_SECTION_PARAMS = dict(p_new=0.408, p_far=0.9, p_copy=0.0, p_same_column=0.478, gamma=3.665, length_gamma=1.051,
+                         p_hot=0.129, hot_power=1.561, p_repeat=0.003, window=4, candidates=3)
 
 
 def _folio_number(folio: str) -> int:
@@ -111,7 +116,7 @@ def run(cfg: LabConfig) -> TheoryResult:
                                 edits=edits, grammar=grammar),
         "v5": selfcite.generate_v5(odd[:3], n, lengths, selfcite.ScribeRules(odd), edits, grammar,
                                    seed=cfg.seed, **V5_PARAMS),
-        "v5 działami": generate_by_section(odd_runs(), V5_PARAMS, cfg.seed),
+        "v5 działami": generate_by_section(odd_runs(), V5_SECTION_PARAMS, cfg.seed),
     }
 
     # Controls: the odd folios are real text, so they must pass the bar; Latin must fail it.
@@ -142,10 +147,13 @@ def run(cfg: LabConfig) -> TheoryResult:
             best = name
     b = metrics[best]
     passed = not b["misses"] and b["auc"] <= 0.6
+    hardest = min((k for k in gens), key=lambda k: metrics[k]["auc"])
     res.metrics = metrics
     res.decide(True if passed else None)  # one failed recipe does not refute meaningless text in general
     res.summary = (f"Najlepszy generator ({best}) trafia w {len(hoax.MEASURES) - len(b['misses'])} z {len(hoax.MEASURES)} "
-                   f"miar, klasyfikator odróżnia jego wiersze z AUC {b['auc']:.2f}. "
+                   f"miar, klasyfikator odróżnia jego wiersze z AUC {b['auc']:.2f}; najtrudniejszy do odróżnienia "
+                   f"({hardest}) ma AUC {metrics[hardest]['auc']:.2f} przy {len(hoax.MEASURES) - len(metrics[hardest]['misses'])} "
+                   "miarach. "
                    + ("Tekst bez treści, wytworzony prostymi regułami, jest nieodróżnialny od rękopisu w tych testach."
                       if passed else "Nie udało się jeszcze wytworzyć tekstu nieodróżnialnego od rękopisu; "
                                      "to nie obala hipotezy, pokazuje, czego prosty przepis nie odtwarza."))
