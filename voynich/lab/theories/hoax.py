@@ -22,9 +22,9 @@ from ... import corpus, eva, hoax, selfcite
 from ..config import LabConfig
 from ..results import TheoryResult
 
-# Found by a local search on the scorecard (odd folios only; see docs and the commit message).
-V5_PARAMS = dict(p_new=0.217, p_far=0.67, p_copy=0.062, p_same_column=0.632, gamma=1.407, length_gamma=0.736,
-                 p_hot=0.107, hot_power=1.331, p_repeat=0.0, window=4, candidates=10)
+# Found by a local search on odd folios only (scorecard + classifier); the even folios never took part.
+V5_PARAMS = dict(p_new=0.185, p_far=0.775, p_copy=0.047, p_same_column=0.559, gamma=3.364, length_gamma=0.736,
+                 p_hot=0.235, hot_power=1.208, p_repeat=0.001, window=4, candidates=3)
 
 
 def _folio_number(folio: str) -> int:
