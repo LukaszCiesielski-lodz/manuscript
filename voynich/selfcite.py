@@ -361,22 +361,27 @@ class WordMaker:
     """
 
     def __init__(self, words: Sequence[Word], power: float = 1.0):
-        fronts, ends, seams = Counter(), Counter(), Counter()
+        fronts, ends, after = Counter(), Counter(), {}
         for w in words:
             if len(w) > 1:
                 a, b = split_word(w)
                 fronts[a] += 1
                 ends[b] += 1
-            seams.update(zip(w, w[1:]))
-        self.seams = {p for p, n in seams.items() if n >= 3}
+                after.setdefault(a[-1], Counter())[b] += 1
         self.fronts = [list(a) for a in fronts], [n ** power for n in fronts.values()]
         self.ends = [list(b) for b in ends], [n ** power for n in ends.values()]
+        # An ending is joined only after a front that ends in a glyph it really follows, in proportion
+        # (the first version allowed any seam seen inside words and coined "chaiin", "oedy", "dedy").
+        self.after = {g: ([list(b) for b in c], [n ** power for n in c.values()]) for g, c in after.items()}
 
     def make(self, rng: random.Random, max_len: int = 10) -> Word:
         for _ in range(20):
             a = rng.choices(*self.fronts)[0]
-            b = rng.choices(*self.ends)[0]
-            if (a[-1], b[0]) in self.seams and len(a) + len(b) <= max_len:
+            options = self.after.get(a[-1])
+            if not options:
+                continue
+            b = rng.choices(*options)[0]
+            if len(a) + len(b) <= max_len:
                 return a + b
         return []
 
@@ -395,6 +400,8 @@ def generate_v5(
     p_hot: float = 0.0,
     hot_power: float = 1.5,
     p_repeat: float = 0.0,
+    p_fav: float = 0.0,
+    favourites: Sequence[tuple[Word, float]] = (),
     window: int = 8,
     candidates: int = 6,
     gamma: float = 1.0,
@@ -417,6 +424,8 @@ def generate_v5(
     history = [w for l in lines for w in l]
     proposed = Counter({k: 1 for k in rules.length})  # running length distribution of candidates
 
+    fav_words = [list(w) for w, _ in favourites]
+    fav_weights = [x for _, x in favourites]
     counts = Counter(tuple(w) for w in history)
     hot: list = []
 
@@ -434,6 +443,8 @@ def generate_v5(
             return list(rng.choices(hot[0], hot[1])[0])
         if prev and x < p_new + p_hot + p_repeat:
             return list(prev)
+        if fav_words and x < p_new + p_hot + p_repeat + p_fav:
+            return list(rng.choices(fav_words, fav_weights)[0])
         r = rng.random()
         if r < p_far:
             src = rng.choice(history)

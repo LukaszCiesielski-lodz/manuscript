@@ -20,6 +20,7 @@ folios; the yardstick and the line classifier use only the even ones.
 from __future__ import annotations
 
 import time
+from collections import Counter
 
 from ... import corpus, eva, hoax, selfcite
 from ..config import LabConfig
@@ -61,7 +62,7 @@ def odd_runs() -> list[tuple[tuple, list]]:
     return runs
 
 
-def generate_by_section(runs, params: dict, seed: int, min_words: int = 1500) -> list:
+def generate_by_section(runs, params: dict, seed: int, min_words: int = 1500, fav_n: int = 40) -> list:
     """v5 run by run: each section and dialect written with habits learned from that part alone.
 
     A forger filling a herbal, then a 'stars' section in another hand, would not keep one
@@ -79,16 +80,17 @@ def generate_by_section(runs, params: dict, seed: int, min_words: int = 1500) ->
         if k not in models:
             lines = pooled[k]
             words = [w for l in lines for w in l]
+            favs = Counter(tuple(w) for w in words).most_common(fav_n)
             models[k] = (selfcite.ScribeRules(lines), selfcite.EditModel(words), selfcite.WordGrammar(words, beta=5),
-                         selfcite.WordMaker(words), [len(l) for l in lines])
+                         selfcite.WordMaker(words), [len(l) for l in lines], [(list(w), c) for w, c in favs])
         return models[k]
 
     out = []
     for i, (key, lines) in enumerate(runs):
-        rules, edits, grammar, maker, lengths = model(key)
+        rules, edits, grammar, maker, lengths, favs = model(key)
         n = sum(map(len, lines))
         gen = selfcite.generate_v5(lines[:2], n + sum(map(len, lines[:2])), lengths, rules, edits, grammar,
-                                   seed=seed + i, maker=maker, **params)
+                                   seed=seed + i, maker=maker, favourites=favs, **params)
         out.extend(gen[2:])
     return out
 
