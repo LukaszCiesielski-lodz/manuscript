@@ -108,6 +108,23 @@ display(Markdown((lab.cfg.results_dir / "hunt" / "hunt.md").read_text()))"""),
 ]
 
 
+# A short notebook for one task: the illustration test on all herbal pages, then council and push.
+illustrations_cells = [
+    ("md", """# Voynich Lab – ilustracje (powtórka testu C na wszystkich stronach zielnika)
+
+Uruchom: Środowisko wykonawcze → Uruchom wszystko. Wymaga GPU (L4 albo A100) i sekretów `GITHUB_TOKEN`, `OPENROUTER_API_KEY`.
+Wynik trafia sam na gałąź `lab-results`."""),
+    cells[3], cells[4], cells[5],
+    ("code", cells[7][1].replace('theories=["all"],          # albo np. ["numbers", "literature"]',
+                                 'theories=["illustrations"],')),
+    ("code", """lab.run("illustrations")
+lab.convene(["illustrations"])
+lab.report(); lab.push()
+from IPython.display import Markdown, display
+display(Markdown((lab.cfg.results_dir / "illustrations.md").read_text()))"""),
+]
+
+
 def cell(kind, text):
     src = text.splitlines(keepends=True)
     if kind == "md":
@@ -119,6 +136,7 @@ nb = {"nbformat": 4, "nbformat_minor": 0,
       "metadata": {"accelerator": "GPU", "colab": {"provenance": [], "gpuType": "A100", "machine_shape": "hm"},
                    "kernelspec": {"name": "python3", "display_name": "Python 3"}, "language_info": {"name": "python"}},
       "cells": [cell(k, t) for k, t in cells]}
-out = Path(__file__).with_name("Voynich_Lab.ipynb")
-out.write_text(json.dumps(nb, indent=1, ensure_ascii=False), encoding="utf-8")
-print("wrote", out)
+for name, cs in (("Voynich_Lab.ipynb", cells), ("Voynich_Ilustracje.ipynb", illustrations_cells)):
+    out = Path(__file__).with_name(name)
+    out.write_text(json.dumps({**nb, "cells": [cell(k, t) for k, t in cs]}, indent=1, ensure_ascii=False), encoding="utf-8")
+    print("wrote", out)

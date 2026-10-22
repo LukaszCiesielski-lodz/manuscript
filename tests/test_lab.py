@@ -241,11 +241,12 @@ class NotebookTest(unittest.TestCase):
         # A syntax error in a cell stops "Run all" in Colab; shell (!) and magic (%) lines are not Python.
         import json
         from pathlib import Path
-        nb = json.loads((Path(__file__).resolve().parent.parent / "colab" / "Voynich_Lab.ipynb").read_text(encoding="utf-8"))
-        for i, c in enumerate(nb["cells"]):
-            if c["cell_type"] == "code":
-                src = "".join(l for l in c["source"] if not l.lstrip().startswith(("!", "%")))
-                compile(src, f"komórka {i}", "exec")
+        for name in ("Voynich_Lab.ipynb", "Voynich_Ilustracje.ipynb"):
+            nb = json.loads((Path(__file__).resolve().parent.parent / "colab" / name).read_text(encoding="utf-8"))
+            for i, c in enumerate(nb["cells"]):
+                if c["cell_type"] == "code":
+                    src = "".join(l for l in c["source"] if not l.lstrip().startswith(("!", "%")))
+                    compile(src, f"{name} komórka {i}", "exec")
 
 
 class HuntTest(unittest.TestCase):
