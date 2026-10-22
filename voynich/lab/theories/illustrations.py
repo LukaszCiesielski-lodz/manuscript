@@ -341,11 +341,17 @@ def run(cfg: LabConfig, client=None, vision_model: str = "") -> TheoryResult:
         obs_ctrl, p_ctrl = mantel(ta, tb, strata, trials, r)
         res.control("B: połowy tekstu tej samej strony", "zgodne (p < 0,01)", f"r = {obs_ctrl:.2f}, p = {p_ctrl:.4f}",
                     p_ctrl < 0.01)
-        noise = np.array([[r.random() for _ in folios] for _ in folios])
-        noise = (noise + noise.T) / 2
-        obs_n, p_n = mantel(noise, txt, strata, trials, r)
-        res.control("B: losowe podobieństwa obrazów", "brak związku (p > 0,05)", f"p = {p_n:.3f}", p_n > 0.05)
-        metrics["mantel"] = {"folios": len(folios), "r": obs, "p": p, "control_r": obs_ctrl, "noise_p": p_n}
+        # One random matrix reaches p < 0.05 one time in twenty by design (Colab: p = 0.025 once), so calibrate
+        # over 20 random matrices: the false-alarm rate should stay near 5%.
+        noise_ps = []
+        for _ in range(20):
+            noise = np.array([[r.random() for _ in folios] for _ in folios])
+            noise_ps.append(mantel((noise + noise.T) / 2, txt, strata, 200, r)[1])
+        alarms = sum(q < 0.05 for q in noise_ps)
+        p_n = alarms / len(noise_ps)
+        res.control("B: losowe podobieństwa obrazów", "fałszywe alarmy (p < 0,05) w najwyżej 3 z 20 losowych macierzy",
+                    f"{alarms}/20", alarms <= 3)
+        metrics["mantel"] = {"folios": len(folios), "r": obs, "p": p, "control_r": obs_ctrl, "noise_false_alarm_rate": p_n}
         res.evidence.append(f"B: {len(folios)} stron zielnika. Korelacja podobieństwa obrazów i słownictwa r = {obs:.3f}, "
                             f"p = {p:.4f} (permutacje w obrębie skryby i języka).")
         supported |= p < 0.01
