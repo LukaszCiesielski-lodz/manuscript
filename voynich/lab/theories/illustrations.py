@@ -143,9 +143,14 @@ def crib_attack(words: dict, names: dict, r, steps: int) -> float:
     return best
 
 
-def crib_test(words: dict, names: dict, cfg: LabConfig, r) -> tuple[float, list[float], float]:
+# Run 20261022-175027 found a weak crib signal (p = 0.04) on these pages; they are left out of the repeat.
+CRIB_DISCOVERY = {"f1v", "f2r", "f2v", "f3r", "f3v", "f4r", "f4v", "f5r", "f5v", "f6r", "f6v", "f7r", "f7v",
+                  "f8r", "f8v", "f9r", "f9v", "f10r", "f10v", "f11r"}
+
+
+def crib_test(words: dict, names: dict, cfg: LabConfig, r, shuffles: int | None = None) -> tuple[float, list[float], float]:
     steps = 1200 if cfg.quick else 6000
-    shuffles = 19 if cfg.quick else 49  # 19 is the fewest that can reach p < 0.05
+    shuffles = shuffles or (19 if cfg.quick else 49)  # 19 is the fewest that can reach p < 0.05
     obs = crib_attack(words, names, r, steps)
     folios = list(names)
     null = []
@@ -296,7 +301,18 @@ def run(cfg: LabConfig, client=None, vision_model: str = "") -> TheoryResult:
         (cfg.results_dir / "plant_names.json").write_text(json.dumps(names, ensure_ascii=False, indent=1))
         res.artifacts.append("plant_names.json")
         w = {f: words[f] for f in names if f in words and names[f]}
-        if len(w) >= 15:
+        fresh = {f: v for f, v in w.items() if f not in CRIB_DISCOVERY}
+        if len(fresh) >= 30:
+            # Confirmatory test: only pages the earlier run never saw, so the p = 0.04 there cannot carry over.
+            obs, null, p = crib_test(fresh, {f: names[f] for f in fresh}, cfg, r, shuffles=99)
+            metrics["crib"] = {"folios": len(fresh), "observed": obs, "null": null, "p": p, "model": vision_model,
+                               "set": "potwierdzający (bez 20 stron z odkrycia)"}
+            res.evidence.append(f"C (powtórka na {len(fresh)} nowych stronach, nazwy od {vision_model}): dopasowanie "
+                                f"{obs:.2f} wobec średnio {sum(null) / len(null):.2f} dla nazw przetasowanych, p = {p:.3f}. "
+                                f"Wcześniej na 20 stronach f1v–f11r: 0,40 wobec 0,33, p = 0,04.")
+            supported |= p <= 0.01
+            refuted = p > 0.2
+        elif len(w) >= 15:
             obs, null, p = crib_test(w, {f: names[f] for f in w}, cfg, r)
             metrics["crib"] = {"folios": len(w), "observed": obs, "null": null, "p": p, "model": vision_model}
             res.evidence.append(f"C: {len(w)} stron, nazwy od {vision_model}. Dopasowanie {obs:.2f} wobec średnio "
@@ -342,7 +358,7 @@ def run(cfg: LabConfig, client=None, vision_model: str = "") -> TheoryResult:
     res.metrics = metrics
     res.decide(True if supported else False if refuted else None)
     res.summary = ("Test sprawdza warunek konieczny klucza w ilustracjach: czy tekst w ogóle zależy od rysunku. "
-                   + " ".join(e for e in res.evidence if e.startswith(("B:", "C:"))))
+                   + " ".join(e for e in res.evidence if e.startswith(("B:", "C:", "C ("))))
     res.caveats += [
         "Związek tekstu z rysunkiem (B) byłby warunkiem koniecznym, ale nie dowodem klucza: tekst o roślinie też zależy od rośliny.",
         "Identyfikacje roślin przez model wizyjny są niepewne; botanicy nie zgadzają się co do większości roślin rękopisu.",
