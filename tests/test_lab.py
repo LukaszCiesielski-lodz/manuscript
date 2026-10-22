@@ -231,3 +231,15 @@ class RecipeTest(unittest.TestCase):
                 got = [[g.split("+")[0] for g in w] for w in got]
             want = as_words(plain, op.spaceless)
             self.assertEqual(got, want, name)
+
+
+class NotebookTest(unittest.TestCase):
+    def test_every_code_cell_compiles(self):
+        # A syntax error in a cell stops "Run all" in Colab; shell (!) and magic (%) lines are not Python.
+        import json
+        from pathlib import Path
+        nb = json.loads((Path(__file__).resolve().parent.parent / "colab" / "Voynich_Lab.ipynb").read_text(encoding="utf-8"))
+        for i, c in enumerate(nb["cells"]):
+            if c["cell_type"] == "code":
+                src = "".join(l for l in c["source"] if not l.lstrip().startswith(("!", "%")))
+                compile(src, f"komórka {i}", "exec")

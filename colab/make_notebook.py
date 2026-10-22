@@ -85,7 +85,8 @@ from voynich.lab import images
 try:
     print("OK:", images.fetch(images.single_folio_canvases()["f1v"], 512, cfg.cache_dir / "folios", cfg.images_dir))
 except OSError as e:
-    print("Brak skanów – części B i C testu ilustracji zostaną pominięte.\n", e)"""),
+    print("Brak skanów – części B i C testu ilustracji zostaną pominięte.")
+    print(e)"""),
     ("code", 'lab.run("illustrations");   # pobiera skany z Beinecke (IIIF), liczy CLIP na GPU, pyta model wizyjny'),
     ("code", 'lab.run("generative");      # uczy transformer znakowy i generuje brakujące strony'),
     ("md", "## 4. Rada modeli\nTrzy rundy na każdy wynik: niezależne opinie, wzajemna recenzja anonimowych opinii, synteza przewodniczącego."),
