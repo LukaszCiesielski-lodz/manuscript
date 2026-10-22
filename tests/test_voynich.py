@@ -173,3 +173,16 @@ class HoaxTest(unittest.TestCase):
         m = hoax.measure(hoax.blocks(gen)[0])
         self.assertEqual(set(m), set(hoax.MEASURES))
 
+    def test_word_maker_joins_known_parts(self):
+        import random
+        from voynich import corpus, eva, selfcite
+        words = [eva.glyphs(w) for w in corpus.tokens(corpus.load_voynich(), paragraphs_only=True)[:5000]]
+        maker = selfcite.WordMaker(words)
+        fronts = {tuple(f) for f in maker.fronts[0]}
+        ends = {tuple(e) for e in maker.ends[0]}
+        r = random.Random(3)
+        for _ in range(50):
+            w = maker.make(r)
+            if w:
+                self.assertTrue(any(tuple(w[:i]) in fronts and tuple(w[i:]) in ends for i in range(1, len(w))))
+

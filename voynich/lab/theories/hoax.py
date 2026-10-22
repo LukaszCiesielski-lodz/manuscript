@@ -8,7 +8,10 @@ measured property of the manuscript at once. Two generators are judged:
 - v5 "scribe's table": the same, but each word is chosen among a few
   candidates by habits a scribe could keep on one sheet (which word start
   follows which word end, what opens and closes a line, word length), with
-  some fresh words from the shape table and heavier reuse of favourite words.
+  some fresh words from the shape table and heavier reuse of favourite words;
+- v5 by section: the same, written section by section and dialect by dialect
+  (Currier A/B), each with habits learned from that part, new words made of a
+  known front and a known ending.
 
 Fair play: every rule, edit and table is learned from the odd-numbered
 folios; the yardstick and the line classifier use only the even ones.
@@ -41,6 +44,50 @@ def split_lines() -> tuple[list, list]:
     return odd, even
 
 
+def odd_runs() -> list[tuple[tuple, list]]:
+    """Odd-folio paragraph lines as contiguous runs of one (section, Currier language), in manuscript order."""
+    runs: list[tuple[tuple, list]] = []
+    for l in corpus.load_voynich():
+        if l.kind.startswith("P") and l.words and _folio_number(l.folio) % 2:
+            key = (l.section, l.language)
+            if not runs or runs[-1][0] != key:
+                runs.append((key, []))
+            runs[-1][1].append([eva.glyphs(w) for w in l.words])
+    return runs
+
+
+def generate_by_section(runs, params: dict, seed: int, min_words: int = 1500) -> list:
+    """v5 run by run: each section and dialect written with habits learned from that part alone.
+
+    A forger filling a herbal, then a 'stars' section in another hand, would not keep one
+    style throughout; the manuscript does not either (Currier A and B). Parts with too
+    little text borrow the habits of their dialect, or of the whole text.
+    """
+    pooled: dict = {}
+    for key, lines in runs:
+        for k in (key, ("*", key[1]), ("*", "*")):
+            pooled.setdefault(k, []).extend(lines)
+    models: dict = {}
+
+    def model(key):
+        k = next(k for k in (key, ("*", key[1]), ("*", "*")) if sum(map(len, pooled.get(k, []))) >= min_words)
+        if k not in models:
+            lines = pooled[k]
+            words = [w for l in lines for w in l]
+            models[k] = (selfcite.ScribeRules(lines), selfcite.EditModel(words), selfcite.WordGrammar(words, beta=5),
+                         selfcite.WordMaker(words), [len(l) for l in lines])
+        return models[k]
+
+    out = []
+    for i, (key, lines) in enumerate(runs):
+        rules, edits, grammar, maker, lengths = model(key)
+        n = sum(map(len, lines))
+        gen = selfcite.generate_v5(lines[:2], n + sum(map(len, lines[:2])), lengths, rules, edits, grammar,
+                                   seed=seed + i, maker=maker, **params)
+        out.extend(gen[2:])
+    return out
+
+
 def run(cfg: LabConfig) -> TheoryResult:
     t0 = time.time()
     res = TheoryResult(
@@ -64,6 +111,7 @@ def run(cfg: LabConfig) -> TheoryResult:
                                 edits=edits, grammar=grammar),
         "v5": selfcite.generate_v5(odd[:3], n, lengths, selfcite.ScribeRules(odd), edits, grammar,
                                    seed=cfg.seed, **V5_PARAMS),
+        "v5 działami": generate_by_section(odd_runs(), V5_PARAMS, cfg.seed),
     }
 
     # Controls: the odd folios are real text, so they must pass the bar; Latin must fail it.

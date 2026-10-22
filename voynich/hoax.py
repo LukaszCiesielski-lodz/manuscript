@@ -88,8 +88,8 @@ def yardstick(real_lines: Sequence[Line]) -> dict[str, tuple[float, float]]:
     return out
 
 
-def scorecard(gen_lines: Sequence[Line], stick: dict[str, tuple[float, float]], n_blocks: int = 3) -> dict[str, dict]:
-    """z-score of the generated text on every measure (mean over `n_blocks` blocks)."""
+def scorecard(gen_lines: Sequence[Line], stick: dict[str, tuple[float, float]], n_blocks: int | None = None) -> dict[str, dict]:
+    """z-score of the generated text on every measure (mean over its first `n_blocks` blocks, default all)."""
     ms = [measure(b) for b in blocks(gen_lines)[:n_blocks]]
     out = {}
     for k in MEASURES:

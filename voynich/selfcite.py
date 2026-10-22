@@ -341,6 +341,46 @@ def sample_word(grammar: WordGrammar, rng: random.Random, max_len: int = 10) -> 
     return []
 
 
+# Glyphs that close the "front" of a word (gallows and benches); what follows them is the ending.
+FRONT_END = {"k", "t", "p", "f", "cth", "ckh", "cph", "cfh", "ch", "sh"}
+
+
+def split_word(w: Word) -> tuple[tuple, tuple]:
+    """Front up to and including the last gallows or bench glyph, and the ending after it."""
+    cut = max((i + 1 for i, g in enumerate(w) if g in FRONT_END), default=1)
+    cut = min(max(cut, 1), len(w) - 1) if len(w) > 1 else 1
+    return tuple(w[:cut]), tuple(w[cut:])
+
+
+class WordMaker:
+    """New words as a scribe would coin them: a known front joined to a known ending.
+
+    Fronts and endings are counted over the scribe's words (tokens, so common parts
+    come up often); a join is kept only if the glyph pair at the seam occurs inside
+    real words, so the result looks like the scribe's other words.
+    """
+
+    def __init__(self, words: Sequence[Word], power: float = 1.0):
+        fronts, ends, seams = Counter(), Counter(), Counter()
+        for w in words:
+            if len(w) > 1:
+                a, b = split_word(w)
+                fronts[a] += 1
+                ends[b] += 1
+            seams.update(zip(w, w[1:]))
+        self.seams = {p for p, n in seams.items() if n >= 3}
+        self.fronts = [list(a) for a in fronts], [n ** power for n in fronts.values()]
+        self.ends = [list(b) for b in ends], [n ** power for n in ends.values()]
+
+    def make(self, rng: random.Random, max_len: int = 10) -> Word:
+        for _ in range(20):
+            a = rng.choices(*self.fronts)[0]
+            b = rng.choices(*self.ends)[0]
+            if (a[-1], b[0]) in self.seams and len(a) + len(b) <= max_len:
+                return a + b
+        return []
+
+
 def generate_v5(
     seed_lines: Sequence[Sequence[Word]],
     n_words: int,
@@ -361,12 +401,14 @@ def generate_v5(
     length_gamma: float = 1.0,
     max_len: int = 9,
     seed: int = 1,
+    maker: WordMaker | None = None,
 ) -> list[list[Word]]:
     """Copy-and-modify like `generate`, but the scribe writes each word by choosing among a few candidates.
 
     Candidates come from the same sources as before (copied or edited words from
     recent lines, rarely from far back) plus, with probability `p_new` each, a
-    fresh word from the shape grammar. The chosen one is drawn with weight
+    fresh word (from `maker` if given: a known front joined to a known ending;
+    else glyph by glyph from the shape grammar). The chosen one is drawn with weight
     rules.weight(...)^gamma times a length factor that steers the length
     distribution towards the scribe's habit.
     """
@@ -387,7 +429,7 @@ def generate_v5(
     def candidate(pool, above, prev) -> Word:
         x = rng.random()
         if x < p_new:
-            return sample_word(grammar, rng, max_len)
+            return maker.make(rng, max_len) if maker else sample_word(grammar, rng, max_len)
         if x < p_new + p_hot and hot[0]:
             return list(rng.choices(hot[0], hot[1])[0])
         if prev and x < p_new + p_hot + p_repeat:
