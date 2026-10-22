@@ -306,8 +306,8 @@ class ScribeRules:
         self.last = {g: (last_line[g] / nl) / (c / nz) for g, c in last_all.items() if c >= 20}
         # The other side of the same habit: glyphs that belong at a line edge are rarer elsewhere
         # (without this, words copied from line ends spread 'm' and 'g' into the middle of lines).
-        self.first_mid = {g: ((c - first_line[g]) / (na - nf)) / (c / na) for g, c in first_all.items() if c >= 20}
-        self.last_mid = {g: ((c - last_line[g]) / (nz - nl)) / (c / nz) for g, c in last_all.items() if c >= 20}
+        self.first_mid = {g: max(0.02, ((c - first_line[g]) / (na - nf)) / (c / na)) for g, c in first_all.items() if c >= 20}
+        self.last_mid = {g: max(0.02, ((c - last_line[g]) / (nz - nl)) / (c / nz)) for g, c in last_all.items() if c >= 20}
         n_len = sum(lengths.values())
         self.length = {k: v / n_len for k, v in lengths.items()}
 
@@ -426,7 +426,7 @@ def generate_v5(
                 proposed[len(c)] += 1
                 lw = (rules.length.get(len(c), 1e-4) / (proposed[len(c)] / total_prop)) ** length_gamma
                 weights.append(rules.weight(c, line[-1] if line else None, col == 0, col == n - 1) ** gamma * lw)
-            line.append(rng.choices(cands, weights)[0])
+            line.append(rng.choices(cands, [max(x, 1e-12) for x in weights])[0])
         if line:
             lines.append(line)
             history.extend(line)
