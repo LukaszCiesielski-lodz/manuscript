@@ -1,0 +1,241 @@
+{
+ "theory": "generative",
+ "hypothesis": "Model generatywny potrafi napisać brakujące strony (f12, f59–64, f74, f91–92, f97–98, f109–110) nieodróżnialne statystycznie od prawdziwych.",
+ "method": "Transformer znakowy uczony stronami z tokenami działu, języka Curriera i skryby; walidacja na odłożonych stronach; strony brakujące generowane z atrybutami sąsiadów; wierność: odległość miar kształtu, klasyfikator prawdziwe/wygenerowane (AUC), kopiowanie całych wierszy.",
+ "verdict": "obalona",
+ "summary": "Transformer: 1.70 bit/znak wobec 2.02 dla trigramów. Wygenerowane strony nie są nieodróżnialne od prawdziwych (AUC 0.83, odległość 1.00). Brakujące strony zapisano jako SYNTETYCZNE.",
+ "metrics": {
+  "trigram_bits": 2.015829151324582,
+  "auc_real_vs_real": 0.49162410722308436,
+  "auc_real_vs_selfcite_v1": 0.9995449949443883,
+  "gpt_bits": 1.7021079857039865,
+  "gpt_best_step": 900,
+  "training": [
+   {
+    "step": 0,
+    "train_loss": 3.940922260284424,
+    "val_bits": 5.539020106233534
+   },
+   {
+    "step": 150,
+    "train_loss": 1.4789682626724243,
+    "val_bits": 2.1503436547614942
+   },
+   {
+    "step": 300,
+    "train_loss": 1.3746817111968994,
+    "val_bits": 1.9606400800967796
+   },
+   {
+    "step": 450,
+    "train_loss": 1.207582712173462,
+    "val_bits": 1.787041332341384
+   },
+   {
+    "step": 600,
+    "train_loss": 1.1697947978973389,
+    "val_bits": 1.742214933225339
+   },
+   {
+    "step": 750,
+    "train_loss": 1.1701463460922241,
+    "val_bits": 1.728424222314357
+   },
+   {
+    "step": 900,
+    "train_loss": 1.1650277376174927,
+    "val_bits": 1.72590729061551
+   },
+   {
+    "step": 1050,
+    "train_loss": 1.107487440109253,
+    "val_bits": 1.7456013008578783
+   },
+   {
+    "step": 1200,
+    "train_loss": 1.0412230491638184,
+    "val_bits": 1.7892723893184874
+   },
+   {
+    "step": 1350,
+    "train_loss": 0.9803694486618042,
+    "val_bits": 1.8793519934555711
+   },
+   {
+    "step": 1500,
+    "train_loss": 0.893621563911438,
+    "val_bits": 2.0324864911882705
+   },
+   {
+    "step": 1650,
+    "train_loss": 0.7924286723136902,
+    "val_bits": 2.2169412808959876
+   },
+   {
+    "step": 1800,
+    "train_loss": 0.6528254747390747,
+    "val_bits": 2.479667629703921
+   }
+  ],
+  "distance_generated_vs_real": 0.9950831616184581,
+  "auc_real_vs_generated": 0.8255188607786699,
+  "copied_lines": 0.0,
+  "new_word_share": 0.07225691347011597,
+  "generated_words": 3363
+ },
+ "controls": [
+  {
+   "name": "klasyfikator: prawdziwe vs prawdziwe",
+   "expectation": "AUC ≈ 0,5 (najwyżej 0,6)",
+   "observed": "AUC = 0.492",
+   "passed": true
+  },
+  {
+   "name": "klasyfikator: prawdziwe vs prosty generator samocytowania",
+   "expectation": "AUC wyraźnie > 0,5 (≥ 0,7)",
+   "observed": "AUC = 1.000",
+   "passed": true
+  }
+ ],
+ "evidence": [
+  "Odłożone strony: transformer 1.702 bit/znak, model trigramowy 2.016 (różnica +0.314: tyle struktury leży dalej niż 2 znaki wstecz).",
+  "Wygenerowane strony: odległość od prawdziwych 1.00 (dwie próbki łaciny ~0,2), AUC klasyfikatora 0.826, skopiowane całe wiersze 0.0%, nowe słowa 7.2%."
+ ],
+ "caveats": [
+  "Wygenerowana strona nie zawiera zaginionej treści; pokazuje tylko, jak statystycznie wyglądałaby strona tego działu i skryby.",
+  "Niskie AUC oznacza, że prosty klasyfikator nie odróżnia wierszy; mocniejszy klasyfikator może odróżnić.",
+  "Atrybuty brakujących stron (dział, skryba) przyjęto od poprzedniej zachowanej strony."
+ ],
+ "references": [
+  "A Glyph Is Not a Letter... What the Units of Voynichese Are Not, arXiv:2608.17096",
+  "Timm & Schinner, Cryptologia 44 (2020)"
+ ],
+ "artifacts": [
+  "generative/SYNTETYCZNE_brakujace_strony.md",
+  "generative/SYNTETYCZNE_brakujace_strony.json"
+ ],
+ "seconds": 243.65663409233093,
+ "council": {
+  "members": [
+   "z-ai/glm-5.3-flash",
+   "openai/gpt-6-luna",
+   "inception/mercury-3",
+   "tencent/hy3"
+  ],
+  "chair": "openai/gpt-6-luna",
+  "round1": {
+   "z-ai/glm-5.3-flash": {
+    "raw": "```json\n{\n  \"werdykt\": \"obalona\",\n  \"pewność\": 0.85,\n  \"najmocniejszy_dowód\": \"Klasyfikator prawdziwe vs wygenerowane osiąga AUC 0.826 przy prawidłowo przeprowadzonych kontrolach (prawdziwe vs prawdziwe AUC 0.492; prawdziwe vs samocytowanie AUC 1.000), a odległość miar kształtu 1.00 jest wielokrotnie większa niż między próbkami łaciny (~0.2).\",\n  \"słabości\": [\n    \"Klasyfikator może być zbyt słaby — zastrzeżenie raportu, że mocniejszy klasyfikator mógłby dać inne wyniki, działa w obie strony; AUC 0.83 to dolna granica odróżnialności.\",\n    \"Atrybuty brakujących stron (dział, skryba) przyjęto od sąsiada — hipoteza testowana tylko pod tym założeniem.\",\n    \"Odległość 1.00 porównywana z dwiema próbkami łaciny — mała baza odniesienia.\",\n    \"Test nie bada, czy brakujące strony w ogóle miały istnieć ani jakiej treści — wyklucza tylko statystyczną nieodróżnialność.\"\n  ],\n  \"inne_wyjaśnienia\": [\n    \"Transformer mógł być niedotrenowany lub zbyt mały — lepszy model mógłby zbliżyć się do nieodróżnialności.\",\n    \"Wygenerowane strony mogły być statystycznie poprawne na poziomie znaków, ale odróżnialne na poziomie słów/wierszy, co klasyfikator wykrywa.\"\n  ],\n  \"następny_test\": \"Powtórzyć generację z mocniejszym modelem (większy transformer, dłuższe trenowanie z early stopping na val_bits — krzywa pokazuje przeuczenie po kroku 900) i mocniejszym klasyfikatorem (np. na embeddingach), aby ustalić, czy AUC 0.83 to limit danych czy limit modelu.\"\n}\n```",
+    "json": {
+     "werdykt": "obalona",
+     "pewność": 0.85,
+     "najmocniejszy_dowód": "Klasyfikator prawdziwe vs wygenerowane osiąga AUC 0.826 przy prawidłowo przeprowadzonych kontrolach (prawdziwe vs prawdziwe AUC 0.492; prawdziwe vs samocytowanie AUC 1.000), a odległość miar kształtu 1.00 jest wielokrotnie większa niż między próbkami łaciny (~0.2).",
+     "słabości": [
+      "Klasyfikator może być zbyt słaby — zastrzeżenie raportu, że mocniejszy klasyfikator mógłby dać inne wyniki, działa w obie strony; AUC 0.83 to dolna granica odróżnialności.",
+      "Atrybuty brakujących stron (dział, skryba) przyjęto od sąsiada — hipoteza testowana tylko pod tym założeniem.",
+      "Odległość 1.00 porównywana z dwiema próbkami łaciny — mała baza odniesienia.",
+      "Test nie bada, czy brakujące strony w ogóle miały istnieć ani jakiej treści — wyklucza tylko statystyczną nieodróżnialność."
+     ],
+     "inne_wyjaśnienia": [
+      "Transformer mógł być niedotrenowany lub zbyt mały — lepszy model mógłby zbliżyć się do nieodróżnialności.",
+      "Wygenerowane strony mogły być statystycznie poprawne na poziomie znaków, ale odróżnialne na poziomie słów/wierszy, co klasyfikator wykrywa."
+     ],
+     "następny_test": "Powtórzyć generację z mocniejszym modelem (większy transformer, dłuższe trenowanie z early stopping na val_bits — krzywa pokazuje przeuczenie po kroku 900) i mocniejszym klasyfikatorem (np. na embeddingach), aby ustalić, czy AUC 0.83 to limit danych czy limit modelu."
+    }
+   },
+   "openai/gpt-6-luna": {
+    "raw": "{\n  \"werdykt\": \"obalona\",\n  \"pewność\": 0.82,\n  \"najmocniejszy_dowód\": \"Wygenerowane strony odróżniał od prawdziwych klasyfikator z AUC 0,826, a ich odległość wyniosła 1,00. Obie kontrole klasyfikatora przeszły, więc w ramach zastosowanych miar wynik wspiera wniosek, że strony nie są statystycznie nieodróżnialne.\",\n  \"słabości\": [\n    \"Kontrole potwierdzają działanie klasyfikatora na danych prawdziwych i prostym generatorze samocytowania, ale nie pokazują, jak dobrze wykrywa on różne rodzaje różnic między stronami prawdziwymi a wygenerowanymi.\",\n    \"Raport nie objaśnia skali ani niepewności miary odległości 1,00 ani nie podaje przedziałów ufności dla AUC.\",\n    \"Atrybuty działu i skryby stron brakujących przypisano na podstawie poprzedniej zachowanej strony.\"\n  ],\n  \"inne_wyjaśnienia\": [\n    \"Różnicę mogły wytworzyć ograniczenia transformera lub sposób generowania, a nie niemożność modelowania statystycznych cech stron.\",\n    \"Klasyfikator mógł wykrywać artefakty generowania; wynik nie wskazuje, które konkretne cechy odpowiadają za rozróżnienie.\"\n  ],\n  \"następny_test\": \"Powtórzyć test na wielu odłożonych stronach, z dopasowaniem atrybutów działu i skryby oraz z wcześniej ustalonym zespołem klasyfikatorów i przedziałami ufności; sprawdzić także, czy kontrole przechodzą dla różnych generatorów, nie tylko samocytowania.\"\n}",
+    "json": {
+     "werdykt": "obalona",
+     "pewność": 0.82,
+     "najmocniejszy_dowód": "Wygenerowane strony odróżniał od prawdziwych klasyfikator z AUC 0,826, a ich odległość wyniosła 1,00. Obie kontrole klasyfikatora przeszły, więc w ramach zastosowanych miar wynik wspiera wniosek, że strony nie są statystycznie nieodróżnialne.",
+     "słabości": [
+      "Kontrole potwierdzają działanie klasyfikatora na danych prawdziwych i prostym generatorze samocytowania, ale nie pokazują, jak dobrze wykrywa on różne rodzaje różnic między stronami prawdziwymi a wygenerowanymi.",
+      "Raport nie objaśnia skali ani niepewności miary odległości 1,00 ani nie podaje przedziałów ufności dla AUC.",
+      "Atrybuty działu i skryby stron brakujących przypisano na podstawie poprzedniej zachowanej strony."
+     ],
+     "inne_wyjaśnienia": [
+      "Różnicę mogły wytworzyć ograniczenia transformera lub sposób generowania, a nie niemożność modelowania statystycznych cech stron.",
+      "Klasyfikator mógł wykrywać artefakty generowania; wynik nie wskazuje, które konkretne cechy odpowiadają za rozróżnienie."
+     ],
+     "następny_test": "Powtórzyć test na wielu odłożonych stronach, z dopasowaniem atrybutów działu i skryby oraz z wcześniej ustalonym zespołem klasyfikatorów i przedziałami ufności; sprawdzić także, czy kontrole przechodzą dla różnych generatorów, nie tylko samocytowania."
+    }
+   },
+   "inception/mercury-3": {
+    "raw": "{\"werdykt\": \"obalona\",\n  \"pewność\": 0.84,\n  \"najmocniejszy_dowód\": \"Klasyfikator odróżnia strony prawdziwe od wygenerowanych z AUC=0.826, a odległość miar kształtu wynosi 1.00 (podczas gdy próbki łaciny to ~0.2), więc generowane strony nie są nieodróżnialne statystycznie.\",\n  \"słabości\": [\"Miara odległości jest opisana tylko ogólnie jako 'miary kształtu'; brakuje szczegółów o tym, co dokładnie mierzy i czy jest skalibrowana.\", \"Atrybuty brakujących stron przyjęto od poprzedniej zachowanej strony; jeśli są błędne, wygenerowane strony mogłyby być mniej podobne niezależnie od hipotezy.\", \"Raport nazywa AUC=0.826 'niskim', choć to wartość wskazująca na wyraźną rozróżnialność; opis może być nieprecyzy",
+    "json": {}
+   },
+   "tencent/hy3": {
+    "raw": "{\n  \"werdykt\": \"obalona\",\n  \"pewność\": 0.9,\n  \"najmocniejszy_dowód\": \"Wygenerowane strony osiągnęły AUC klasyfikatora 0.826 (wyraźnie powyżej 0.5) i odległość statystyczną 1.00 wobec prawdziwych (dla łaciny ~0.2), co bezpośrednio przeczy założeniu o nieodróżnialności.\",\n  \"słabości\": [\n    \"Użyto relatywnie słabego klasyfikatora do oceny; autor zastrzega, że mocniejszy model mógłby odróżniać wygenerowane od prawdziwych jeszcze lepiej, ale i tak próg 0.83 jest wysoki.\",\n    \"Atrybuty działu i skryby dla brakujących stron przyjęto arbitralnie od sąsiadów, co może zniekształcać statystykę generacji.\",\n    \"Test nie bada sensu semantycznego ani zgodności z ewentualnymi ilustracjami, lecz wyłącznie statystykę sekwencji znaków.\"\n  ],\n  \"inne_wyjaśnienia\": [\n    \"Różnica bitrate (1.70 transformer vs 2.02 trigramy) sugeruje, że w rękopisie występują zależności dłuższe niż 2 znaki, których model znakowy nie uchwycił.\",\n    \"Model mógł być za mały lub za krótko trenowany (val_bits rośnie po kroku 900, co świadczy o przeuczeniu na treningu, ale niedojrzałości reprezentacji).\"\n  ],\n  \"następny_test\": \"Powtórzenie generacji z wykorzystaniem modelu z jawnym kontekstem wizualnym strony (np. multimodalnego) i silniejszym klasyfikatorem (np. BERT-owym dla ciągów znaków), by sprawdzić, czy dystans statystyczny spadnie poniżej 0.3.\"\n}",
+    "json": {
+     "werdykt": "obalona",
+     "pewność": 0.9,
+     "najmocniejszy_dowód": "Wygenerowane strony osiągnęły AUC klasyfikatora 0.826 (wyraźnie powyżej 0.5) i odległość statystyczną 1.00 wobec prawdziwych (dla łaciny ~0.2), co bezpośrednio przeczy założeniu o nieodróżnialności.",
+     "słabości": [
+      "Użyto relatywnie słabego klasyfikatora do oceny; autor zastrzega, że mocniejszy model mógłby odróżniać wygenerowane od prawdziwych jeszcze lepiej, ale i tak próg 0.83 jest wysoki.",
+      "Atrybuty działu i skryby dla brakujących stron przyjęto arbitralnie od sąsiadów, co może zniekształcać statystykę generacji.",
+      "Test nie bada sensu semantycznego ani zgodności z ewentualnymi ilustracjami, lecz wyłącznie statystykę sekwencji znaków."
+     ],
+     "inne_wyjaśnienia": [
+      "Różnica bitrate (1.70 transformer vs 2.02 trigramy) sugeruje, że w rękopisie występują zależności dłuższe niż 2 znaki, których model znakowy nie uchwycił.",
+      "Model mógł być za mały lub za krótko trenowany (val_bits rośnie po kroku 900, co świadczy o przeuczeniu na treningu, ale niedojrzałości reprezentacji)."
+     ],
+     "następny_test": "Powtórzenie generacji z wykorzystaniem modelu z jawnym kontekstem wizualnym strony (np. multimodalnego) i silniejszym klasyfikatorem (np. BERT-owym dla ciągów znaków), by sprawdzić, czy dystans statystyczny spadnie poniżej 0.3."
+    }
+   }
+  },
+  "round2": {
+   "z-ai/glm-5.3-flash": {
+    "raw": "{\"ranking\": [\"B\", \"D\", \"C\"], \"uwagi\": \"Opinia B jest najlepiej uzasadniona: poprawnie wskazuje, że kontrole klasyfikatora przeszły (AUC 0.492 prawdziwe-vs-prawdziwe; 1.000 vs generator samocytujący), więc wynik AUC=0.826 jest wiarygodny w ramach zastosowanych miar, a jednocześnie dostrzega realne słabości: brak niepewności/CI dla AUC i odległości, nieopisaną kalibrację miary odległości oraz arbitralne przypisanie atrybutów (dział, skryba) brakującym stron od sąsiada. Opinia D też jest solidna, ale częściowo spekulacyjna: wniosek o 'przeuczeniu/niedojrzałości' z krzywej walidacji jest nadinterpretacją (val_bits rośnie po kroku 900, co wskazuje na przeuczenie, ale nie umniejsza wyniku 1.726 przy kroku 900); propozycja multimodalnego modelu wykracza poza dane raportu. Opinia C jest poprawna merytorycznie, ale najuboższa: jej tekst jest ucięty, a najmocniejszy dowód powiela liczby bez dodatkowej analizy kontroli. Wspólny błąd: nikt nie wyraźnie oddzielił, że test obala tylko wersję 'statystycznie nieodróżnialne' — nie mówi nic o treści zaginionych stron (zastrzeżenie raportu), a wygenerowane strony zapisano jako SYNTETYCZNE, co jest właściwą konsekwencją.\", \"werdykt\": \"obalona — wygenerowane strony są rozróżnialne od prawdziwych (AUC 0.826, odległość ~1.00), przy poprawnie działających kontrolach metody; hipoteza nieodróżnialności statystycznej nie została potwierdzona.\", \"pewność\": 0.85, \"zmiana_zdania\": \"nie — automatyczny werdykt 'obalona' jest spójny z danymi i kontrolami; opinie nie dostarczyły powodu do zmiany, jedynie doprecyzowały słabości (brak CI, arbitralne atrybuty brakujących stron, ograniczenia klasyfikatora).\"}",
+    "json": {
+     "ranking": [
+      "B",
+      "D",
+      "C"
+     ],
+     "uwagi": "Opinia B jest najlepiej uzasadniona: poprawnie wskazuje, że kontrole klasyfikatora przeszły (AUC 0.492 prawdziwe-vs-prawdziwe; 1.000 vs generator samocytujący), więc wynik AUC=0.826 jest wiarygodny w ramach zastosowanych miar, a jednocześnie dostrzega realne słabości: brak niepewności/CI dla AUC i odległości, nieopisaną kalibrację miary odległości oraz arbitralne przypisanie atrybutów (dział, skryba) brakującym stron od sąsiada. Opinia D też jest solidna, ale częściowo spekulacyjna: wniosek o 'przeuczeniu/niedojrzałości' z krzywej walidacji jest nadinterpretacją (val_bits rośnie po kroku 900, co wskazuje na przeuczenie, ale nie umniejsza wyniku 1.726 przy kroku 900); propozycja multimodalnego modelu wykracza poza dane raportu. Opinia C jest poprawna merytorycznie, ale najuboższa: jej tekst jest ucięty, a najmocniejszy dowód powiela liczby bez dodatkowej analizy kontroli. Wspólny błąd: nikt nie wyraźnie oddzielił, że test obala tylko wersję 'statystycznie nieodróżnialne' — nie mówi nic o treści zaginionych stron (zastrzeżenie raportu), a wygenerowane strony zapisano jako SYNTETYCZNE, co jest właściwą konsekwencją.",
+     "werdykt": "obalona — wygenerowane strony są rozróżnialne od prawdziwych (AUC 0.826, odległość ~1.00), przy poprawnie działających kontrolach metody; hipoteza nieodróżnialności statystycznej nie została potwierdzona.",
+     "pewność": 0.85,
+     "zmiana_zdania": "nie — automatyczny werdykt 'obalona' jest spójny z danymi i kontrolami; opinie nie dostarczyły powodu do zmiany, jedynie doprecyzowały słabości (brak CI, arbitralne atrybuty brakujących stron, ograniczenia klasyfikatora)."
+    }
+   },
+   "openai/gpt-6-luna": {
+    "raw": "{\n  \"ranking\": [\"A\", \"C\", \"D\"],\n  \"uwagi\": \"A jest najlepiej uzasadniona: wskazuje główny wynik (AUC 0,826) i zaliczone kontrole klasyfikatora (0,492 dla prawdziwe–prawdziwe; 1,000 dla prawdziwe–samocytowanie). Trafnie zauważa też, że atrybuty brakujących stron przyjęto od sąsiadów, a odległość porównano z zaledwie dwiema próbkami łaciny. Jej słabością jest sugestia dłuższego trenowania: walidacyjny wynik był najlepszy przy kroku 900, po czym się pogarszał, co wskazuje na przeuczenie, nie na potrzebę dalszego trenowania. C trafnie zwraca uwagę, że raport nie opisuje dokładnie miary odległości, ale błędnie przypisuje raportowi nazwanie AUC 0,826 „niskim” — zastrzeżenie o niskim AUC dotyczy sytuacji, gdy klasyfikator nie rozróżnia danych. D słusznie wskazuje ograniczenia testu, lecz myli pogorszenie wyniku walidacyjnego po kroku 900 z niedojrzałością modelu; test multimodalny nie wynika z przedstawionych danych. Najbardziej rozstrzygający następny test: ponowić generację z silniejszym modelem, wybierając zatrzymanie na walidacji (nie przez dłuższe trenowanie), i ponownie sprawdzić rozróżnialność przy zaliczonych kontrolach. Wniosek dotyczy badanego modelu i założeń; test nie ustala treści ani semantycznej poprawności stron, ani nie wyklucza każdej możliwej metody",
+    "json": {}
+   },
+   "inception/mercury-3": {
+    "raw": "{\n  \"ranking\": [\"A\", \"D\", \"B\"],\n  \"uwagi\": \"Opinia A jest najlepiej uzasadniona, bo właściwie oddaje znaczenie kontroli: AUC 0.826 przy kontrolach 0.492 i 1.000 daje mocny dowód przeciw hipotezie, ale poprawnie wskazuje, że słabszy klasyfikator może niedoszacowywać różnic (co działa w obie strony). Opinia D trafnie dostrzega przeuczenie na krzywej walidacji, ale błędnie je tłumaczy jako 'za krótko trenowany' – przeuczenie oznacza trenowanie zbyt długie, a nie niedostateczne. Opinia B jest poprawna, lecz mniej wnikliwa; wskazuje na brak przedziałów ufności, co jest mniej istotne wobec tak dużej rozbieżności, i dodaje postulaty o testowaniu różnych generatorów, które nie są konieczne do oceny tej hipotezy. Wszystkie trzy zgadzają się co do werdyktu, ale A najpełniej oddaje zarówno siłę dowodu, jak i ograniczenia metody.\",\n  \"werdykt\": \"obalona\",\n  \"pewność\": 0.85,\n  \"zmiana_zdania\": \"nie – raport wystarczająco obala hipotezę w ramach swojej metody: kontrole przeszły, a AUC 0.826 oraz odległość 1.00 wobec ~0.2 dla łaciny wskazują na statystyczną odróżnialność. Słabości (słaby klasyfikator, założone atrybuty stron) mogą wpływać na skalę różnicy, ale nie odwracają wniosku.\"\n}",
+    "json": {
+     "ranking": [
+      "A",
+      "D",
+      "B"
+     ],
+     "uwagi": "Opinia A jest najlepiej uzasadniona, bo właściwie oddaje znaczenie kontroli: AUC 0.826 przy kontrolach 0.492 i 1.000 daje mocny dowód przeciw hipotezie, ale poprawnie wskazuje, że słabszy klasyfikator może niedoszacowywać różnic (co działa w obie strony). Opinia D trafnie dostrzega przeuczenie na krzywej walidacji, ale błędnie je tłumaczy jako 'za krótko trenowany' – przeuczenie oznacza trenowanie zbyt długie, a nie niedostateczne. Opinia B jest poprawna, lecz mniej wnikliwa; wskazuje na brak przedziałów ufności, co jest mniej istotne wobec tak dużej rozbieżności, i dodaje postulaty o testowaniu różnych generatorów, które nie są konieczne do oceny tej hipotezy. Wszystkie trzy zgadzają się co do werdyktu, ale A najpełniej oddaje zarówno siłę dowodu, jak i ograniczenia metody.",
+     "werdykt": "obalona",
+     "pewność": 0.85,
+     "zmiana_zdania": "nie – raport wystarczająco obala hipotezę w ramach swojej metody: kontrole przeszły, a AUC 0.826 oraz odległość 1.00 wobec ~0.2 dla łaciny wskazują na statystyczną odróżnialność. Słabości (słaby klasyfikator, założone atrybuty stron) mogą wpływać na skalę różnicy, ale nie odwracają wniosku."
+    }
+   },
+   "tencent/hy3": {
+    "raw": "{\n  \"ranking\": [\"A\", \"B\", \"C\"],\n  \"uwagi\": \"Opinia A najlepiej wykorzystuje dane: poprawnie wskazuje, że AUC 0.826 to rozróżnialność (nie 'niska' w sensie braku efektu), zauważa przeuczenie modelu po kroku 900 (val_bits rośnie, a wybrano ten krok) oraz precyzyjnie oddziela brak testowania istnienia stron od ich statystycznej nieodróżnialności. Opinia B jest poprawna, ale mniej precyzyjna w analizie krzywej uczenia. Opinia C błędnie sugeruje, że raport nazywa AUC 0.826 'niskim' jako wynik słaby – raport pisze o 'niskim AUC' klasyfikatora jako zastrzeżeniu metodycznym, a sam wynik 0.826 uznaje za dowód odróżnialności; C też urywa analizę miary odległości. Wszystkie trzymy się faktów: kontrole przeszły (real/real 0.49, real/selfcite 1.0), więc test jest wiarygodny dla tej architektury.\",\n  \"werdykt\": \"obalona (dla testowanego modelu transformera znakowego przy założonych atrybutach)\",\n  \"pewność\": 0.86,\n  \"zmiana_zdania\": \"nie, raport i kontrole jednoznacznie wykazują statystyczną odróżnialność wygenerowanych stron (AUC 0.826, dystans 1.00) od prawdziwych; test wyklucza nieodróżnialność w ramach użytej metody, nie badając przyczyn braku stron ani innych architektur.\"\n}",
+    "json": {
+     "ranking": [
+      "A",
+      "B",
+      "C"
+     ],
+     "uwagi": "Opinia A najlepiej wykorzystuje dane: poprawnie wskazuje, że AUC 0.826 to rozróżnialność (nie 'niska' w sensie braku efektu), zauważa przeuczenie modelu po kroku 900 (val_bits rośnie, a wybrano ten krok) oraz precyzyjnie oddziela brak testowania istnienia stron od ich statystycznej nieodróżnialności. Opinia B jest poprawna, ale mniej precyzyjna w analizie krzywej uczenia. Opinia C błędnie sugeruje, że raport nazywa AUC 0.826 'niskim' jako wynik słaby – raport pisze o 'niskim AUC' klasyfikatora jako zastrzeżeniu metodycznym, a sam wynik 0.826 uznaje za dowód odróżnialności; C też urywa analizę miary odległości. Wszystkie trzymy się faktów: kontrole przeszły (real/real 0.49, real/selfcite 1.0), więc test jest wiarygodny dla tej architektury.",
+     "werdykt": "obalona (dla testowanego modelu transformera znakowego przy założonych atrybutach)",
+     "pewność": 0.86,
+     "zmiana_zdania": "nie, raport i kontrole jednoznacznie wykazują statystyczną odróżnialność wygenerowanych stron (AUC 0.826, dystans 1.00) od prawdziwych; test wyklucza nieodróżnialność w ramach użytej metody, nie badając przyczyn braku stron ani innych architektur."
+    }
+   }
+  },
+  "synthesis": "## Werdykt rady\n\n**Hipoteza obalona w odniesieniu do badanego transformera i przyjętych atrybutów stron.** Wygenerowane strony nie były statystycznie nieodróżnialne od prawdziwych: klasyfikator osiągnął AUC **0,826**, a miara odległości wyniosła **0,995**. Opinie są zgodne co do werdyktu.\n\n## Co test pokazuje\n\nObie kontrole klasyfikatora przeszły: prawdziwe–prawdziwe dało AUC **0,492**, a prawdziwe–prosty generator samocytowania **1,000**. Wspiera to wiarygodność wyniku dla zastosowanego testu, ale nie dowodzi, że klasyfikator wykrywa każdy rodzaj różnicy. Transformer uzyskał też lepszy wynik predykcji od trigramów (**1,702 wobec 2,016 bitu/znak**), co nie wystarczyło do uzyskania stron nieodróżnialnych.\n\nTest **nie ustala treści ani istnienia zaginionych stron** i nie wyklucza, że inny model generatywny poradziłby sobie lepiej.\n\n## Główne zastrzeżenia\n\nAtrybuty działu i skryby przypisano na podstawie sąsiednich stron. Raport nie podaje przedziałów ufności dla AUC ani szczegółowej kalibracji miary odległości; porównanie z łaciną opiera się tylko na dwóch próbkach. Kontrole sprawdzają klasyfikator na określonych przypadkach, nie na wszystkich możliwych różnicach.\n\n## Rekomendowany następny eksperyment\n\nPowtórzyć generację z **mocniejszym modelem**, dobierając zatrzymanie na walidacji, przy lepiej uzasadnionych atrybutach stron. Ocenić wyniki z przedziałami ufności i kontrolami klasyfikatora na wielu odłożonych stronach.",
+  "failed": {},
+  "votes": {
+   "obalona": 3
+  }
+ }
+}

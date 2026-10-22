@@ -1,0 +1,203 @@
+{
+ "f1v": [
+  "laurus",
+  "alloro",
+  "lorbeer",
+  "quercus",
+  "leccio",
+  "eichenlaubeiche",
+  "phillyrea",
+  "spino",
+  "breitblattrige"
+ ],
+ "f2r": [
+  "cirsium",
+  "cardo",
+  "distel",
+  "arctium",
+  "bardana",
+  "klette",
+  "dipsacus",
+  "scabiosa",
+  "kratzer"
+ ],
+ "f2v": [
+  "hydrocotyle",
+  "trebolino",
+  "wassernabelkraut",
+  "nelumbo",
+  "loto",
+  "indischer",
+  "alisma",
+  "gewohnliches"
+ ],
+ "f3r": [
+  "aloe",
+  "wahleistern",
+  "yucca",
+  "glockenbaum",
+  "dracaena",
+  "dragonbaum"
+ ],
+ "f3v": [
+  "daucus",
+  "carota",
+  "mohre",
+  "pastinaca",
+  "petersilie",
+  "beta",
+  "barbabietola",
+  "rote"
+ ],
+ "f4r": [
+  "saluia",
+  "salbei",
+  "rosmarinus",
+  "rosmarino",
+  "rosmarin",
+  "thymus",
+  "timottero",
+  "thymian"
+ ],
+ "f4v": [
+  "digitalis",
+  "digitale",
+  "fingerhut",
+  "aconitum",
+  "aconito",
+  "wolfsmilch",
+  "delphinium",
+  "delphinio",
+  "rittersporn"
+ ],
+ "f5r": [
+  "aristolochia",
+  "pianta",
+  "wurzpfeffer",
+  "asarum",
+  "asaro",
+  "kreuzkraut",
+  "dioscorea",
+  "dioscoride",
+  "gemeine"
+ ],
+ "f5v": [
+  "geranium",
+  "germoglio",
+  "storchschnabel",
+  "ranunculus",
+  "ranuncolo",
+  "wasserhahnenfu",
+  "alchemilla",
+  "acetosa",
+  "zwergfingerkraut"
+ ],
+ "f6r": [
+  "adiantum",
+  "capelli",
+  "maidenhairfarn",
+  "pteridium",
+  "felce",
+  "gemeiner",
+  "polypodium",
+  "polipodio",
+  "gewohnlicher"
+ ],
+ "f6v": [
+  "arctium",
+  "barba",
+  "kleiner",
+  "cencio",
+  "wolliger"
+ ],
+ "f7r": [
+  "cannabis",
+  "canapa",
+  "hanf",
+  "aloe",
+  "wahrer",
+  "datura",
+  "stramonio",
+  "stechapfel"
+ ],
+ "f7v": [
+  "semperuiuum",
+  "crepino",
+  "dachstein",
+  "aeonium",
+  "pianta",
+  "baumwachsblume",
+  "echeueria"
+ ],
+ "f8r": [
+  "quercus",
+  "quercia",
+  "eiche",
+  "fagus",
+  "faggio",
+  "buche",
+  "acer",
+  "acero",
+  "ahorn"
+ ],
+ "f8v": [
+  "digitalis",
+  "digitale",
+  "fingerhut",
+  "uerbascum",
+  "tasso",
+  "gemeiner",
+  "lauandula",
+  "lauanda",
+  "englischer"
+ ],
+ "f9r": [
+  "geranium",
+  "geranio",
+  "storchschnabel",
+  "ranunculus",
+  "ranuncolo",
+  "wasserhahnenfu",
+  "alchemilla",
+  "erba",
+  "zwergfingerkraut"
+ ],
+ "f9v": [
+  "geranium",
+  "cranesbill",
+  "wiesenstorchschnabel",
+  "uiola",
+  "uioletta",
+  "hornueilchen",
+  "delphinium",
+  "consolida",
+  "iahresstelze"
+ ],
+ "f10r": [
+  "rutaceae",
+  "arancia",
+  "zitrusfrucht",
+  "citrus",
+  "arancio",
+  "bitterorange",
+  "limone",
+  "zitrone"
+ ],
+ "f10v": [
+  "digitalis",
+  "campanula",
+  "glockenblume",
+  "hyacinthoides",
+  "blauer",
+  "pflaumenglockenblume"
+ ],
+ "f11r": [
+  "hyacinthus",
+  "giacinto",
+  "hyazinthe",
+  "muscari",
+  "traubenhyazinthe",
+  "scilla",
+  "sibirische"
+ ]
+}

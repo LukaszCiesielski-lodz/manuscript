@@ -1,0 +1,732 @@
+[
+ {
+  "model": "z-ai/glm-5.3-flash",
+  "cost": 2.628e-06,
+  "tokens": 27
+ },
+ {
+  "model": "openai/gpt-6-luna",
+  "cost": 4.1e-06,
+  "tokens": 21
+ },
+ {
+  "model": "inception/mercury-3",
+  "cost": 3.01e-06,
+  "tokens": 16
+ },
+ {
+  "model": "tencent/hy3",
+  "cost": 6.95e-06,
+  "tokens": 30
+ },
+ {
+  "model": "qwen/qwen2.5-vl-72b-instruct",
+  "cost": 2.12e-05,
+  "tokens": 26
+ },
+ {
+  "model": "qwen/qwen2.5-vl-72b-instruct",
+  "cost": 0.0017516,
+  "tokens": 2145
+ },
+ {
+  "model": "qwen/qwen2.5-vl-72b-instruct",
+  "cost": 0.0017164,
+  "tokens": 2162
+ },
+ {
+  "model": "qwen/qwen2.5-vl-72b-instruct",
+  "cost": 0.0017198,
+  "tokens": 2158
+ },
+ {
+  "model": "qwen/qwen2.5-vl-72b-instruct",
+  "cost": 0.0017304,
+  "tokens": 2176
+ },
+ {
+  "model": "qwen/qwen2.5-vl-72b-instruct",
+  "cost": 0.0016968,
+  "tokens": 2135
+ },
+ {
+  "model": "qwen/qwen2.5-vl-72b-instruct",
+  "cost": 0.0017264,
+  "tokens": 2172
+ },
+ {
+  "model": "qwen/qwen2.5-vl-72b-instruct",
+  "cost": 0.0017078,
+  "tokens": 2146
+ },
+ {
+  "model": "qwen/qwen2.5-vl-72b-instruct",
+  "cost": 0.001775,
+  "tokens": 2228
+ },
+ {
+  "model": "qwen/qwen2.5-vl-72b-instruct",
+  "cost": 0.0017138,
+  "tokens": 2152
+ },
+ {
+  "model": "qwen/qwen2.5-vl-72b-instruct",
+  "cost": 0.0017474,
+  "tokens": 2193
+ },
+ {
+  "model": "qwen/qwen2.5-vl-72b-instruct",
+  "cost": 0.0017128,
+  "tokens": 2151
+ },
+ {
+  "model": "qwen/qwen2.5-vl-72b-instruct",
+  "cost": 0.0017254,
+  "tokens": 2171
+ },
+ {
+  "model": "qwen/qwen2.5-vl-72b-instruct",
+  "cost": 0.0017148,
+  "tokens": 2153
+ },
+ {
+  "model": "qwen/qwen2.5-vl-72b-instruct",
+  "cost": 0.0017264,
+  "tokens": 2172
+ },
+ {
+  "model": "qwen/qwen2.5-vl-72b-instruct",
+  "cost": 0.0017108,
+  "tokens": 2149
+ },
+ {
+  "model": "qwen/qwen2.5-vl-72b-instruct",
+  "cost": 0.0017414,
+  "tokens": 2187
+ },
+ {
+  "model": "qwen/qwen2.5-vl-72b-instruct",
+  "cost": 0.0016782,
+  "tokens": 2109
+ },
+ {
+  "model": "qwen/qwen2.5-vl-72b-instruct",
+  "cost": 0.0017244,
+  "tokens": 2170
+ },
+ {
+  "model": "qwen/qwen2.5-vl-72b-instruct",
+  "cost": 0.0016912,
+  "tokens": 2122
+ },
+ {
+  "model": "qwen/qwen2.5-vl-72b-instruct",
+  "cost": 0.0017394,
+  "tokens": 2185
+ },
+ {
+  "model": "z-ai/glm-5.3-flash",
+  "cost": 0.000387112,
+  "tokens": 4259
+ },
+ {
+  "model": "openai/gpt-6-luna",
+  "cost": 0.0009808,
+  "tokens": 4412
+ },
+ {
+  "model": "inception/mercury-3",
+  "cost": 0.00092416,
+  "tokens": 4945
+ },
+ {
+  "model": "inception/mercury-3",
+  "cost": 0.00205395,
+  "tokens": 8212
+ },
+ {
+  "model": "tencent/hy3",
+  "cost": 0.0021596,
+  "tokens": 5398
+ },
+ {
+  "model": "tencent/hy3",
+  "cost": 0.0017116,
+  "tokens": 4862
+ },
+ {
+  "model": "z-ai/glm-5.3-flash",
+  "cost": 0.000493894,
+  "tokens": 5639
+ },
+ {
+  "model": "openai/gpt-6-luna",
+  "cost": 0.001184425,
+  "tokens": 5852
+ },
+ {
+  "model": "inception/mercury-3",
+  "cost": 0.0008276,
+  "tokens": 6505
+ },
+ {
+  "model": "inception/mercury-3",
+  "cost": 0.00137086,
+  "tokens": 7971
+ },
+ {
+  "model": "tencent/hy3",
+  "cost": 0.0025138,
+  "tokens": 7169
+ },
+ {
+  "model": "tencent/hy3",
+  "cost": 0.0022826,
+  "tokens": 6904
+ },
+ {
+  "model": "openai/gpt-6-luna",
+  "cost": 0.00128705,
+  "tokens": 7711
+ },
+ {
+  "model": "z-ai/glm-5.3-flash",
+  "cost": 0.0003648608,
+  "tokens": 3254
+ },
+ {
+  "model": "openai/gpt-6-luna",
+  "cost": 0.0004438,
+  "tokens": 1856
+ },
+ {
+  "model": "inception/mercury-3",
+  "cost": 0.00074276,
+  "tokens": 3066
+ },
+ {
+  "model": "inception/mercury-3",
+  "cost": 0.00036204,
+  "tokens": 2001
+ },
+ {
+  "model": "tencent/hy3",
+  "cost": 0.0013692,
+  "tokens": 3248
+ },
+ {
+  "model": "tencent/hy3",
+  "cost": 0.00096856,
+  "tokens": 2644
+ },
+ {
+  "model": "z-ai/glm-5.3-flash",
+  "cost": 0.0003708876,
+  "tokens": 4413
+ },
+ {
+  "model": "openai/gpt-6-luna",
+  "cost": 0.000872925,
+  "tokens": 3693
+ },
+ {
+  "model": "inception/mercury-3",
+  "cost": 0.00088756,
+  "tokens": 4409
+ },
+ {
+  "model": "inception/mercury-3",
+  "cost": 0.00128035,
+  "tokens": 5531
+ },
+ {
+  "model": "tencent/hy3",
+  "cost": 0.0016131,
+  "tokens": 4874
+ },
+ {
+  "model": "tencent/hy3",
+  "cost": 0.00125598,
+  "tokens": 4338
+ },
+ {
+  "model": "openai/gpt-6-luna",
+  "cost": 0.000819925,
+  "tokens": 4985
+ },
+ {
+  "model": "z-ai/glm-5.3-flash",
+  "cost": 0.0010956,
+  "tokens": 3104
+ },
+ {
+  "model": "z-ai/glm-5.3-flash",
+  "cost": 0.0005006,
+  "tokens": 1914
+ },
+ {
+  "model": "openai/gpt-6-luna",
+  "cost": 0.000421675,
+  "tokens": 1721
+ },
+ {
+  "model": "inception/mercury-3",
+  "cost": 0.00074721,
+  "tokens": 3003
+ },
+ {
+  "model": "inception/mercury-3",
+  "cost": 0.00200619,
+  "tokens": 6605
+ },
+ {
+  "model": "tencent/hy3",
+  "cost": 0.0007018275,
+  "tokens": 3107
+ },
+ {
+  "model": "tencent/hy3",
+  "cost": 0.0005450775,
+  "tokens": 2656
+ },
+ {
+  "model": "z-ai/glm-5.3-flash",
+  "cost": 0.000368012,
+  "tokens": 3860
+ },
+ {
+  "model": "openai/gpt-6-luna",
+  "cost": 0.000794175,
+  "tokens": 3075
+ },
+ {
+  "model": "tencent/hy3",
+  "cost": 0.00079002,
+  "tokens": 4176
+ },
+ {
+  "model": "tencent/hy3",
+  "cost": 0.00058608,
+  "tokens": 3582
+ },
+ {
+  "model": "openai/gpt-6-luna",
+  "cost": 0.000699175,
+  "tokens": 4043
+ },
+ {
+  "model": "z-ai/glm-5.3-flash",
+  "cost": 0.0003639924,
+  "tokens": 3087
+ },
+ {
+  "model": "openai/gpt-6-luna",
+  "cost": 0.000441675,
+  "tokens": 1785
+ },
+ {
+  "model": "inception/mercury-3",
+  "cost": 0.00075571,
+  "tokens": 3068
+ },
+ {
+  "model": "inception/mercury-3",
+  "cost": 0.00035905,
+  "tokens": 1933
+ },
+ {
+  "model": "tencent/hy3",
+  "cost": 0.00124014,
+  "tokens": 3201
+ },
+ {
+  "model": "tencent/hy3",
+  "cost": 0.00155092,
+  "tokens": 3760
+ },
+ {
+  "model": "z-ai/glm-5.3-flash",
+  "cost": 0.000361117,
+  "tokens": 4244
+ },
+ {
+  "model": "openai/gpt-6-luna",
+  "cost": 0.0009868,
+  "tokens": 3836
+ },
+ {
+  "model": "inception/mercury-3",
+  "cost": 0.00077803,
+  "tokens": 4279
+ },
+ {
+  "model": "inception/mercury-3",
+  "cost": 0.00068899,
+  "tokens": 3813
+ },
+ {
+  "model": "tencent/hy3",
+  "cost": 0.00145252,
+  "tokens": 4862
+ },
+ {
+  "model": "tencent/hy3",
+  "cost": 0.00111322,
+  "tokens": 4277
+ },
+ {
+  "model": "openai/gpt-6-luna",
+  "cost": 0.0010298,
+  "tokens": 5506
+ },
+ {
+  "model": "z-ai/glm-5.3-flash",
+  "cost": 0.0003701388,
+  "tokens": 4269
+ },
+ {
+  "model": "openai/gpt-6-luna",
+  "cost": 0.0006433,
+  "tokens": 2909
+ },
+ {
+  "model": "inception/mercury-3",
+  "cost": 0.00082616,
+  "tokens": 3900
+ },
+ {
+  "model": "inception/mercury-3",
+  "cost": 0.0008084,
+  "tokens": 3864
+ },
+ {
+  "model": "tencent/hy3",
+  "cost": 0.00079365,
+  "tokens": 4220
+ },
+ {
+  "model": "tencent/hy3",
+  "cost": 0.0008052,
+  "tokens": 4279
+ },
+ {
+  "model": "z-ai/glm-5.3-flash",
+  "cost": 0.0003765972,
+  "tokens": 5511
+ },
+ {
+  "model": "openai/gpt-6-luna",
+  "cost": 0.000862675,
+  "tokens": 4418
+ },
+ {
+  "model": "inception/mercury-3",
+  "cost": 0.00096491,
+  "tokens": 5260
+ },
+ {
+  "model": "inception/mercury-3",
+  "cost": 0.00083434,
+  "tokens": 4834
+ },
+ {
+  "model": "tencent/hy3",
+  "cost": 0.0009333225,
+  "tokens": 6057
+ },
+ {
+  "model": "tencent/hy3",
+  "cost": 0.0008277225,
+  "tokens": 5737
+ },
+ {
+  "model": "openai/gpt-6-luna",
+  "cost": 0.000984425,
+  "tokens": 6049
+ },
+ {
+  "model": "z-ai/glm-5.3-flash",
+  "cost": 0.000258896,
+  "tokens": 2620
+ },
+ {
+  "model": "openai/gpt-6-luna",
+  "cost": 0.0007238,
+  "tokens": 2926
+ },
+ {
+  "model": "inception/mercury-3",
+  "cost": 0.00078931,
+  "tokens": 3614
+ },
+ {
+  "model": "inception/mercury-3",
+  "cost": 0.00126299,
+  "tokens": 5033
+ },
+ {
+  "model": "tencent/hy3",
+  "cost": 0.00148455,
+  "tokens": 4017
+ },
+ {
+  "model": "tencent/hy3",
+  "cost": 0.00111847,
+  "tokens": 3467
+ },
+ {
+  "model": "z-ai/glm-5.3-flash",
+  "cost": 0.000376142,
+  "tokens": 4264
+ },
+ {
+  "model": "openai/gpt-6-luna",
+  "cost": 0.0012338,
+  "tokens": 5173
+ },
+ {
+  "model": "inception/mercury-3",
+  "cost": 0.00080895,
+  "tokens": 5161
+ },
+ {
+  "model": "inception/mercury-3",
+  "cost": 0.0012972,
+  "tokens": 6511
+ },
+ {
+  "model": "tencent/hy3",
+  "cost": 0.00178563,
+  "tokens": 6165
+ },
+ {
+  "model": "tencent/hy3",
+  "cost": 0.00142595,
+  "tokens": 5603
+ },
+ {
+  "model": "openai/gpt-6-luna",
+  "cost": 0.0010648,
+  "tokens": 6269
+ },
+ {
+  "model": "z-ai/glm-5.3-flash",
+  "cost": 0.0003660412,
+  "tokens": 3481
+ },
+ {
+  "model": "z-ai/glm-5.3-flash",
+  "cost": 0.0001099762,
+  "tokens": 2191
+ },
+ {
+  "model": "openai/gpt-6-luna",
+  "cost": 0.0005313,
+  "tokens": 2196
+ },
+ {
+  "model": "inception/mercury-3",
+  "cost": 0.00076231,
+  "tokens": 3264
+ },
+ {
+  "model": "tencent/hy3",
+  "cost": 0.000733095,
+  "tokens": 3486
+ },
+ {
+  "model": "tencent/hy3",
+  "cost": 0.000604395,
+  "tokens": 3120
+ },
+ {
+  "model": "z-ai/glm-5.3-flash",
+  "cost": 0.0003720628,
+  "tokens": 4639
+ },
+ {
+  "model": "z-ai/glm-5.3-flash",
+  "cost": 0.0001273123,
+  "tokens": 3406
+ },
+ {
+  "model": "openai/gpt-6-luna",
+  "cost": 0.001237925,
+  "tokens": 4504
+ },
+ {
+  "model": "inception/mercury-3",
+  "cost": 0.00078084,
+  "tokens": 4531
+ },
+ {
+  "model": "inception/mercury-3",
+  "cost": 0.00126389,
+  "tokens": 5602
+ },
+ {
+  "model": "tencent/hy3",
+  "cost": 0.00085107,
+  "tokens": 4916
+ },
+ {
+  "model": "tencent/hy3",
+  "cost": 0.00067518,
+  "tokens": 4407
+ },
+ {
+  "model": "openai/gpt-6-luna",
+  "cost": 0.000921425,
+  "tokens": 5434
+ },
+ {
+  "model": "z-ai/glm-5.3-flash",
+  "cost": 0.0003668264,
+  "tokens": 3632
+ },
+ {
+  "model": "z-ai/glm-5.3-flash",
+  "cost": 0.0001923449,
+  "tokens": 2753
+ },
+ {
+  "model": "openai/gpt-6-luna",
+  "cost": 0.0011218,
+  "tokens": 3575
+ },
+ {
+  "model": "inception/mercury-3",
+  "cost": 0.00079336,
+  "tokens": 3537
+ },
+ {
+  "model": "inception/mercury-3",
+  "cost": 0.0020412,
+  "tokens": 7112
+ },
+ {
+  "model": "tencent/hy3",
+  "cost": 0.0007694775,
+  "tokens": 3927
+ },
+ {
+  "model": "tencent/hy3",
+  "cost": 0.0006566175,
+  "tokens": 3585
+ },
+ {
+  "model": "z-ai/glm-5.3-flash",
+  "cost": 0.0003692964,
+  "tokens": 4107
+ },
+ {
+  "model": "z-ai/glm-5.3-flash",
+  "cost": 0.0001430064,
+  "tokens": 2967
+ },
+ {
+  "model": "openai/gpt-6-luna",
+  "cost": 0.00117455,
+  "tokens": 3997
+ },
+ {
+  "model": "openai/gpt-6-luna",
+  "cost": 0.00060605,
+  "tokens": 2860
+ },
+ {
+  "model": "inception/mercury-3",
+  "cost": 0.00081386,
+  "tokens": 3857
+ },
+ {
+  "model": "inception/mercury-3",
+  "cost": 0.00201455,
+  "tokens": 7288
+ },
+ {
+  "model": "tencent/hy3",
+  "cost": 0.00141794,
+  "tokens": 4471
+ },
+ {
+  "model": "tencent/hy3",
+  "cost": 0.0010189,
+  "tokens": 3783
+ },
+ {
+  "model": "z-ai/glm-5.3-flash",
+  "cost": 0.0003720888,
+  "tokens": 4644
+ },
+ {
+  "model": "z-ai/glm-5.3-flash",
+  "cost": 0.0001525478,
+  "tokens": 3538
+ },
+ {
+  "model": "openai/gpt-6-luna",
+  "cost": 0.000784425,
+  "tokens": 3621
+ },
+ {
+  "model": "inception/mercury-3",
+  "cost": 0.00088561,
+  "tokens": 4452
+ },
+ {
+  "model": "inception/mercury-3",
+  "cost": 0.00210585,
+  "tokens": 7926
+ },
+ {
+  "model": "tencent/hy3",
+  "cost": 0.0012897,
+  "tokens": 5091
+ },
+ {
+  "model": "tencent/hy3",
+  "cost": 0.00110816,
+  "tokens": 4778
+ },
+ {
+  "model": "z-ai/glm-5.3-flash",
+  "cost": 0.0003755624,
+  "tokens": 5312
+ },
+ {
+  "model": "z-ai/glm-5.3-flash",
+  "cost": 0.0001548304,
+  "tokens": 4200
+ },
+ {
+  "model": "openai/gpt-6-luna",
+  "cost": 0.001222425,
+  "tokens": 4989
+ },
+ {
+  "model": "inception/mercury-3",
+  "cost": 0.00094126,
+  "tokens": 5036
+ },
+ {
+  "model": "inception/mercury-3",
+  "cost": 0.0021303,
+  "tokens": 8393
+ },
+ {
+  "model": "tencent/hy3",
+  "cost": 0.00161016,
+  "tokens": 5844
+ },
+ {
+  "model": "tencent/hy3",
+  "cost": 0.00138628,
+  "tokens": 5458
+ },
+ {
+  "model": "openai/gpt-6-luna",
+  "cost": 0.00100605,
+  "tokens": 5379
+ }
+]

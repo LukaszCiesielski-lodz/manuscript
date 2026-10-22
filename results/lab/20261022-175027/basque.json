@@ -1,0 +1,316 @@
+{
+ "theory": "basque",
+ "hypothesis": "Rękopis to tekst baskijski zapisany szyfrem podstawieniowym (prostym lub homofonicznym).",
+ "method": "Dwa teksty baskijskie: Nowy Testament Leizarragi (1571, oryginalna pisownia) i współczesna prasa (UD Basque-BDT). Dla każdego: łamacz szyfru z kontrolami na zaszyfrowanym baskijskim, odległość odcisku palca od rękopisu na tle 13 języków, powtórzenia słów.",
+ "verdict": "obalona",
+ "summary": "Szyfr podstawieniowy z baskijskiego: luka 0.95–1.12 bita/znak przy kontrolach bliskich zera; baskijski 3. na 13 języków pod względem podobieństwa do rękopisu.",
+ "metrics": {
+  "ranking": [
+   [
+    "Vietnamese",
+    2.1044412699770128
+   ],
+   [
+    "German",
+    2.29873768169184
+   ],
+   [
+    "Basque",
+    2.496282426808264
+   ],
+   [
+    "English",
+    2.5316424135391693
+   ],
+   [
+    "Finnish",
+    2.5476529139969726
+   ],
+   [
+    "Italian",
+    2.594455319094399
+   ],
+   [
+    "Turkish",
+    2.6723417699784764
+   ],
+   [
+    "Latin",
+    2.6951287998951847
+   ],
+   [
+    "Polish",
+    2.7085474346600082
+   ],
+   [
+    "Hebrew",
+    2.786537147657878
+   ],
+   [
+    "Hungarian",
+    2.8608031177184237
+   ],
+   [
+    "Czech",
+    2.8706940158847996
+   ],
+   [
+    "Arabic",
+    3.100007604528809
+   ]
+  ],
+  "voynich_repeat": 0.008343095517014771,
+  "Leizarraga 1571": {
+   "control_h1": {
+    "gap": -0.0006381782973936545,
+    "accuracy": 0.9999793869684415
+   },
+   "control_h2": {
+    "gap": -0.025252847276481916,
+    "accuracy": 0.9996289654319461
+   },
+   "voynich_gap": 1.118708110347216,
+   "decrypted": "çioac arin in igitz hen hena lnrc a ren henda cena sin en a rién ogitz hin icr lin lin",
+   "distance": 2.496282426808264,
+   "profile": {
+    "tokens": 35000,
+    "types": 6165,
+    "type_token_ratio": 0.17614285714285716,
+    "hapax_ratio": 0.49115977291159774,
+    "mean_word_len": 6.103342857142857,
+    "sd_word_len": 2.5984897200693564,
+    "top10_coverage": 0.1740857142857143,
+    "zipf_slope": -0.8640616918980405,
+    "adjacent_repeat": 0.00045715591874053547,
+    "adjacent_near": 0.0009143118374810709,
+    "vocab_density": 0.441,
+    "alphabet": 34,
+    "h0": 5.087462841250339,
+    "h1": 4.011548952836907,
+    "h2": 3.168577022592073,
+    "h3": 2.5539920434172254,
+    "positional_rigidity": 0.7048528688812417,
+    "order_consistency": 0.6832894522555779,
+    "edge_mi": 0.07850513049491727
+   },
+   "repeat": 0.00045715591874053547
+  },
+  "prasa współczesna": {
+   "control_h1": {
+    "gap": 0.0013435098499585685,
+    "accuracy": 0.9997457809413928
+   },
+   "control_h2": {
+    "gap": -0.015710430593268487,
+    "accuracy": 0.9991786768875766
+   },
+   "voynich_gap": 0.945731566557841,
+   "decrypted": "ladas aran an alako zen zena hnis a ren zenta sena man en a ragn dlako zan asi han han",
+   "distance": 2.816723480359861,
+   "profile": {
+    "tokens": 35000,
+    "types": 11623,
+    "type_token_ratio": 0.33208571428571426,
+    "hapax_ratio": 0.6603286586939688,
+    "mean_word_len": 6.3938,
+    "sd_word_len": 2.841987506758506,
+    "top10_coverage": 0.13774285714285714,
+    "zipf_slope": -0.8081485888646586,
+    "adjacent_repeat": 0.0006571616331895197,
+    "adjacent_near": 0.0012000342866939056,
+    "vocab_density": 0.45,
+    "alphabet": 29,
+    "h0": 4.857980995127572,
+    "h1": 3.9635919777056934,
+    "h2": 3.218287398402965,
+    "h3": 2.782067696173347,
+    "positional_rigidity": 0.7087095274703663,
+    "order_consistency": 0.6575314494535289,
+    "edge_mi": 0.06068177550799067
+   },
+   "repeat": 0.0006571616331895197
+  }
+ },
+ "controls": [
+  {
+   "name": "Leizarraga 1571: szyfr prosty",
+   "expectation": "łamacz odzyskuje ≥ 90% liter",
+   "observed": "100.0%, luka -0.00",
+   "passed": true
+  },
+  {
+   "name": "Leizarraga 1571: szyfr homofoniczny",
+   "expectation": "łamacz odzyskuje ≥ 90% liter",
+   "observed": "100.0%, luka -0.03",
+   "passed": true
+  },
+  {
+   "name": "prasa współczesna: szyfr prosty",
+   "expectation": "łamacz odzyskuje ≥ 90% liter",
+   "observed": "100.0%, luka +0.00",
+   "passed": true
+  },
+  {
+   "name": "prasa współczesna: szyfr homofoniczny",
+   "expectation": "łamacz odzyskuje ≥ 90% liter",
+   "observed": "99.9%, luka -0.02",
+   "passed": true
+  }
+ ],
+ "evidence": [
+  "Leizarraga 1571: rękopis zostawia lukę +1.12 bita/znak (kontrole ~0); odległość od rękopisu 2.50; h2 3.17 (rękopis 2.30), średnia długość słowa 6.1 (4.3), hapaksy 49% (69%), powtórzenia słów 0.05% (0.83%).",
+  "prasa współczesna: rękopis zostawia lukę +0.95 bita/znak (kontrole ~0); odległość od rękopisu 2.82; h2 3.22 (rękopis 2.30), średnia długość słowa 6.4 (4.3), hapaksy 66% (69%), powtórzenia słów 0.07% (0.83%).",
+  "Ranking odległości od rękopisu wśród 13 języków: baskijski na miejscu 3 (Vietnamese 2.10, German 2.30, Basque 2.50, English 2.53...)."
+ ],
+ "caveats": [
+  "Wyklucza tylko szyfr podstawieniowy litera-za-glif; nie bada szyfrów sylabicznych ani zapisu gubiącego rozróżnienia głosek.",
+  "Baskijski z XV wieku nie zachował się w piśmie (pierwsza książka: 1545); Leizarraga 1571 to najbliższe dostępne przybliżenie.",
+  "Tekst biblijny baskijski to Nowy Testament, inne języki zaczynają się od Księgi Rodzaju."
+ ],
+ "references": [
+  "Leizarraga, Iesus Christ gure Iaunaren Testamentu Berria (La Rochelle, 1571), via christos-c/bible-corpus",
+  "Universal Dependencies Basque BDT treebank (Aranzabe i in.)",
+  "Bowern & Lindemann, Annual Review of Linguistics 7 (2021)"
+ ],
+ "artifacts": [],
+ "seconds": 279.7386109828949,
+ "council": {
+  "members": [
+   "z-ai/glm-5.3-flash",
+   "openai/gpt-6-luna",
+   "inception/mercury-3",
+   "tencent/hy3"
+  ],
+  "chair": "openai/gpt-6-luna",
+  "round1": {
+   "z-ai/glm-5.3-flash": {
+    "raw": "```json\n{\n  \"werdykt\": \"obalona\",\n  \"pewność\": 0.85,\n  \"najmocniejszy_dowód\": \"Kontrole metody przeszły w 4/4 przypadków (łamacz odzyskuje 99,9–100% liter na zaszyfrowanym baskijskim, luka ~0 bita/znak), a na rękopisie ta sama procedura zostawia lukę +0,95–1,12 bita/znak — szyfr podstawieniowy z baskijskiego nie jest odczytywalny, podczas gdy metoda bezbłędnie odczytuje podłożone szyfry.\",\n  \"słabości\": [\n    \"Test wyklucza wyłącznie szyfr podstawieniowy litera-za-glif (prosty i homofoniczny); nie bada szyfrów sylabicznych, polialfabetycznych ani zapisu gubiącego rozróżnienia głosek.\",\n    \"Brak baskijskiego z XV w. — Leizarraga (1571) i współczesna prasa to przybliżenia oddalone o 100+ lat od hipotetycznej daty rękopisu; pisownia i statystyki mogły się istotnie różnić.\",\n    \"Niezgodność korpusów: baskijski testowany na Nowym Testamencie, inne języki od Księgi Rodzaju — ranking 13 języków może być zaburzony różnicą gatunkową.\",\n    \"Ranking odległości (baskijski 3./13, 2.50) nie jest sam w sobie silnym dowodem — Vietnamese (2.10) i German (2.30) są bliżej rękopisu, co sugeruje, że odległość słabo dyskryminuje języki.\"\n  ],\n  \"inne_wyjaśnienia\": [\n    \"Tekst baskijski zapisany szyfrem sylabicznym lub innym niż podstawieniowy litera-za-glif — test tego nie bada.\",\n    \"Zapis baskijski z XV w. o konwencjach ortograficznych tak odmiennych od Leizarragi, że profil statystyczny (h2, długość słów, powtórzenia) nie pasuje do dostępnych korpusów.\",\n    \"Wielokrotna warstwa szyfrowania lub zapis gubiący samogłoski/spółgłoski, wykraczający poza homofonikę.\"\n  ],\n  \"następny_test\": \"Powtórzyć procedurę łamacza dla szyfru sylabicznego (glif-za-sylabę) na tych samych kontrolach baskijskich i zmierzyć lukę na rękopisie — to bezpośrednio adresuje największą lukę w pokryciu metody i najbardziej zmieniłoby ocenę hipotezy baskijskiej.\"\n}\n```",
+    "json": {
+     "werdykt": "obalona",
+     "pewność": 0.85,
+     "najmocniejszy_dowód": "Kontrole metody przeszły w 4/4 przypadków (łamacz odzyskuje 99,9–100% liter na zaszyfrowanym baskijskim, luka ~0 bita/znak), a na rękopisie ta sama procedura zostawia lukę +0,95–1,12 bita/znak — szyfr podstawieniowy z baskijskiego nie jest odczytywalny, podczas gdy metoda bezbłędnie odczytuje podłożone szyfry.",
+     "słabości": [
+      "Test wyklucza wyłącznie szyfr podstawieniowy litera-za-glif (prosty i homofoniczny); nie bada szyfrów sylabicznych, polialfabetycznych ani zapisu gubiącego rozróżnienia głosek.",
+      "Brak baskijskiego z XV w. — Leizarraga (1571) i współczesna prasa to przybliżenia oddalone o 100+ lat od hipotetycznej daty rękopisu; pisownia i statystyki mogły się istotnie różnić.",
+      "Niezgodność korpusów: baskijski testowany na Nowym Testamencie, inne języki od Księgi Rodzaju — ranking 13 języków może być zaburzony różnicą gatunkową.",
+      "Ranking odległości (baskijski 3./13, 2.50) nie jest sam w sobie silnym dowodem — Vietnamese (2.10) i German (2.30) są bliżej rękopisu, co sugeruje, że odległość słabo dyskryminuje języki."
+     ],
+     "inne_wyjaśnienia": [
+      "Tekst baskijski zapisany szyfrem sylabicznym lub innym niż podstawieniowy litera-za-glif — test tego nie bada.",
+      "Zapis baskijski z XV w. o konwencjach ortograficznych tak odmiennych od Leizarragi, że profil statystyczny (h2, długość słów, powtórzenia) nie pasuje do dostępnych korpusów.",
+      "Wielokrotna warstwa szyfrowania lub zapis gubiący samogłoski/spółgłoski, wykraczający poza homofonikę."
+     ],
+     "następny_test": "Powtórzyć procedurę łamacza dla szyfru sylabicznego (glif-za-sylabę) na tych samych kontrolach baskijskich i zmierzyć lukę na rękopisie — to bezpośrednio adresuje największą lukę w pokryciu metody i najbardziej zmieniłoby ocenę hipotezy baskijskiej."
+    }
+   },
+   "openai/gpt-6-luna": {
+    "raw": "{\n  \"werdykt\": \"metoda niewiarygodna\",\n  \"pewność\": 0.91,\n  \"najmocniejszy_dowód\": \"Kontrole szyfrów baskijskich odzyskują 99,9–100% liter, podczas gdy dla rękopisu luka wynosi 0,95–1,12 bita/znak, a miary powtórzeń słów i h2 wyraźnie się różnią. Jednak raport nie podaje kontroli na danych przetasowanych, więc nie wykazuje, że metoda nie znajduje pozornego efektu w takich danych.\",\n  \"słabości\": [\n    \"Brak wyników kontroli na danych przetasowanych; pełna wiarygodność metody nie została zatem wykazana.\",\n    \"Porównano ograniczone korpusy: tekst biblijny z 1571 r. i współczesną prasę; różnią się epoką, gatunkiem i zakresem tekstu.\"\n  ],\n  \"inne_wyjaśnienia\": [\n    \"Rozbieżności mogą wynikać z różnic między rękopisem a użytymi korpusami baskijskimi, a nie wyłącznie z języka.\",\n    \"Test dotyczy tylko szyfru podstawieniowego litera–glif; nie ocenia szyfrów sylabicznych ani zapisu zlewającego rozróżnienia głosek.\"\n  ],\n  \"następny_test\": \"Przepuścić tę samą, niezmienioną procedurę przez kontrolę negatywną z przetasowanymi danymi rękopisu i wykazać, że nie wykrywa w nich efektu; równolegle zachować kontrolę pozytywną z szyfrem baskijskim.\"\n}",
+    "json": {
+     "werdykt": "metoda niewiarygodna",
+     "pewność": 0.91,
+     "najmocniejszy_dowód": "Kontrole szyfrów baskijskich odzyskują 99,9–100% liter, podczas gdy dla rękopisu luka wynosi 0,95–1,12 bita/znak, a miary powtórzeń słów i h2 wyraźnie się różnią. Jednak raport nie podaje kontroli na danych przetasowanych, więc nie wykazuje, że metoda nie znajduje pozornego efektu w takich danych.",
+     "słabości": [
+      "Brak wyników kontroli na danych przetasowanych; pełna wiarygodność metody nie została zatem wykazana.",
+      "Porównano ograniczone korpusy: tekst biblijny z 1571 r. i współczesną prasę; różnią się epoką, gatunkiem i zakresem tekstu."
+     ],
+     "inne_wyjaśnienia": [
+      "Rozbieżności mogą wynikać z różnic między rękopisem a użytymi korpusami baskijskimi, a nie wyłącznie z języka.",
+      "Test dotyczy tylko szyfru podstawieniowego litera–glif; nie ocenia szyfrów sylabicznych ani zapisu zlewającego rozróżnienia głosek."
+     ],
+     "następny_test": "Przepuścić tę samą, niezmienioną procedurę przez kontrolę negatywną z przetasowanymi danymi rękopisu i wykazać, że nie wykrywa w nich efektu; równolegle zachować kontrolę pozytywną z szyfrem baskijskim."
+    }
+   },
+   "inception/mercury-3": {
+    "raw": "{\"werdykt\": \"obalona\",\n \"pewność\": 0.78,\n \"najmocniejszy_dowód\": \"Kontrole metody przeszły: łamacz szyfru odzyskał 99.9–100% liter dla obu baskijskich korpusów, przy szyfrze prostym i homofonicznym, a dla rękopisu luka wynosi +0.95–1.12 bita/znak wobec kontroli bliskich zeru. To wyklucza proste podstawienie literowe z baskijskiego.\",\n \"słabości\": [\n   \"Test nie bada szyfrów sylabicznych, polialfabetycznych ani zapisu gubiącego rozróżnienia głosek.\",\n   \"Baskijski z okresu powstania rękopisu nie zachował się w piśmie; Leizarraga 1571 jest jedynie przybliżeniem.\",\n   \"Korpusy różnią się gatunkiem i epoką, a miejsce 3. baskijskiego w rankingu odległości nie jest mocnym dowodem podobieństwa, bo bliższe są wietnamski i niemiecki.\"\n ],\n \"inne_wyjaśnienia\": [\n   \"Rękopis może być zapisany innym typem szyfru niż podstawieniowy, np. sylabicznym lub zmieniającym wartość glifów w zależności od kontekstu.\",\n   \"Autor mógł celowo zaburzać statystykę tekstu, np. przez pomijanie samogłosek lub stosowanie nieregularnej fonetyki.\",\n   \"Językiem rękopisu może być zupełnie inny język; wynik rankingu nie dowodzi baskijskiego pochodzenia.\"\n ],\n \"następny_test\": \"Należy przetestować analogicznymi kontrolami hipotezę o szyfrze sylabicznym lub zapisie gubiącym samogłoski, używając zaszyfrowanego baskijskiego jako kontroli oraz sprawdzając, czy jakikolwiek taki system daje lukę bliską zeru dla rękopisu.\"}",
+    "json": {
+     "werdykt": "obalona",
+     "pewność": 0.78,
+     "najmocniejszy_dowód": "Kontrole metody przeszły: łamacz szyfru odzyskał 99.9–100% liter dla obu baskijskich korpusów, przy szyfrze prostym i homofonicznym, a dla rękopisu luka wynosi +0.95–1.12 bita/znak wobec kontroli bliskich zeru. To wyklucza proste podstawienie literowe z baskijskiego.",
+     "słabości": [
+      "Test nie bada szyfrów sylabicznych, polialfabetycznych ani zapisu gubiącego rozróżnienia głosek.",
+      "Baskijski z okresu powstania rękopisu nie zachował się w piśmie; Leizarraga 1571 jest jedynie przybliżeniem.",
+      "Korpusy różnią się gatunkiem i epoką, a miejsce 3. baskijskiego w rankingu odległości nie jest mocnym dowodem podobieństwa, bo bliższe są wietnamski i niemiecki."
+     ],
+     "inne_wyjaśnienia": [
+      "Rękopis może być zapisany innym typem szyfru niż podstawieniowy, np. sylabicznym lub zmieniającym wartość glifów w zależności od kontekstu.",
+      "Autor mógł celowo zaburzać statystykę tekstu, np. przez pomijanie samogłosek lub stosowanie nieregularnej fonetyki.",
+      "Językiem rękopisu może być zupełnie inny język; wynik rankingu nie dowodzi baskijskiego pochodzenia."
+     ],
+     "następny_test": "Należy przetestować analogicznymi kontrolami hipotezę o szyfrze sylabicznym lub zapisie gubiącym samogłoski, używając zaszyfrowanego baskijskiego jako kontroli oraz sprawdzając, czy jakikolwiek taki system daje lukę bliską zeru dla rękopisu."
+    }
+   },
+   "tencent/hy3": {
+    "raw": "{\n  \"werdykt\": \"obalona\",\n  \"pewność\": 0.95,\n  \"najmocniejszy_dowód\": \"Luka 0.95–1.12 bita/znak dla rękopisu przy kontrolach metody bliskich zeru (łamacz odzyskiwał 99.9–100% zaszyfrowanego baskijskiego), co wyklucza prosty/homofoniczny szyfr podstawieniowy z badanych korpusów baskijskich.\",\n  \"słabości\": [\n    \"Metoda bada tylko szyfr podstawieniowy litera-za-glif, nie sylabiczny ani gubiący rozróżnienia głosek\",\n    \"Brak korpusu baskijskiego z XV w. (użyto 1571 i współczesnego)\",\n    \"Tekst biblijny baskijski vs inne języki zaczynające od Księgi Rodzaju – niejednorodność gatunkowa\"\n  ],\n  \"inne_wyjaśnienia\": [\n    \"Rękopis może być baskijski w szyfrze sylabicznym\",\n    \"Rękopis może być językiem z wyższym rankingiem (vietnamese, german)\",\n    \"Rękopis może być zapisem nieludzkim lub sztucznym\"\n  ],\n  \"następny_test\": \"Test łamacza szyfru sylabicznego na Leizarraga 1571 i prasie współczesnej z kontrolami, oceniający lukę dla rękopisu.\"\n}",
+    "json": {
+     "werdykt": "obalona",
+     "pewność": 0.95,
+     "najmocniejszy_dowód": "Luka 0.95–1.12 bita/znak dla rękopisu przy kontrolach metody bliskich zeru (łamacz odzyskiwał 99.9–100% zaszyfrowanego baskijskiego), co wyklucza prosty/homofoniczny szyfr podstawieniowy z badanych korpusów baskijskich.",
+     "słabości": [
+      "Metoda bada tylko szyfr podstawieniowy litera-za-glif, nie sylabiczny ani gubiący rozróżnienia głosek",
+      "Brak korpusu baskijskiego z XV w. (użyto 1571 i współczesnego)",
+      "Tekst biblijny baskijski vs inne języki zaczynające od Księgi Rodzaju – niejednorodność gatunkowa"
+     ],
+     "inne_wyjaśnienia": [
+      "Rękopis może być baskijski w szyfrze sylabicznym",
+      "Rękopis może być językiem z wyższym rankingiem (vietnamese, german)",
+      "Rękopis może być zapisem nieludzkim lub sztucznym"
+     ],
+     "następny_test": "Test łamacza szyfru sylabicznego na Leizarraga 1571 i prasie współczesnej z kontrolami, oceniający lukę dla rękopisu."
+    }
+   }
+  },
+  "round2": {
+   "z-ai/glm-5.3-flash": {
+    "raw": "{\"ranking\": [\"B\", \"C\", \"D\"], \"uwagi\": \"Opinia B jest najtrafniejsza, bo jako jedyna stosuje kryterium wiarygodności metody rygorystycznie: raport zawiera wyłącznie kontrole pozytywne (łamacz odzyskuje 99,9–100% liter z zaszyfrowanego baskijskiego), ale brak kontroli negatywnej na danych przetasowanych, więc pełna wiarygodność metody nie została wykazana. Zastrzeżenie B o niejednorodności korpusów (epoka, gatunek, zakres) jest również zasadne. Słabość B: werdykt 'metoda niewiarygodna' z pewnością 0,91 przesadza — kontrole pozytywne przeszły z luką bliską zeru, co samo w sobie jest mocnym dowodem, że łamacz działa; brak kontroli negatywnej obniża pewność, ale nie unieważnia wyniku. Opinie C i D poprawnie oceniają dowody pozytywne (luka 0,95–1,12 bita/znak dla rękopisu vs ~0 dla kontroli, dodatkowo rozbieżności h2: 3,17–3,22 vs 2,30; długość słowa 6,1–6,4 vs 4,3; powtórzenia 0,05–0,07% vs 0,83%) i słusznie ograniczają zakres wniosku do szyfru podstawieniowego litera-za-glif. Jednak obie ignorują brak kontroli przetasowanych, a D dodatkowo deklaruje pewność 0,95, co jest nieuzasadnione przy braku kontroli negatywnej i przy tak ograniczonych korpusach (tekst z 1571 r. jako jedyny dostępny przybliżony odpowiednik baskijskiego z epoki; różnice gatunkowe vs Księga Rodzaja w innych językach). Ranking odległości (baskijski 3. za wietnamskim i niemieckim) nie jest dowodem na rzecz baskijskiego — C słusznie to zauważa. Żadna opinia nie wydobywa mocnego punktu uzupełniającego: nawet bez łamacza, profil statystyczny rękopisu (wysokie h2, krótkie słowa, wysokie powtórzenia) jest sprzeczny z profilem obu korpusów baskijskich, co niezależnie od mechaniki szyfru osłabia hipotezę.\", \"werdykt\": \"obalona (w zawężonym zakresie): hipoteza 'baskijski zapisany szyfrem podstawieniowym prostym lub homofonicznym' jest nie do utrzymania dla badanych korpusów — luka 0,95–1,12 bita/znak przy kontrolach pozytywnych ~0 oraz sprzeczny profil statystyczny. Test NIE wyklucza: szyfrów sylabicznych, polialfabetycznych, zapisu gubiącego rozróżnienia głosek, ani baskijskiego z XV w. nieznanego z korpusów. Pewność obniżona względem opinii C/D z powodu braku kontroli negatywnej na danych przetasowanych.\", \"pewność\": 0.78, \"zmiana_zdania\": \"nie — ocena oparta wyłącznie na danych raportu; względem opinii C/D koryguję w górę wagę braku kontroli przetasowanych (za B), a względem",
+    "json": {}
+   },
+   "openai/gpt-6-luna": {
+    "raw": "{\n  \"ranking\": [\"A\", \"C\", \"D\"],\n  \"uwagi\": \"A jest najlepiej uzasadniona: poprawnie opiera ocenę na kontrolach 4/4 oraz luce 0,95–1,12 bita/znak dla rękopisu, a także zauważa, że ranking odległości sam nie wskazuje baskijskiego. C jest zwięzła i zasadniczo trafna, ale część proponowanych wyjaśnień, np. celowe zaburzanie statystyk, nie wynika z raportu. D trafnie podaje główny wynik, lecz pewność 0,95 jest zbyt wysoka, a sugestia, że rękopis może być językiem wyżej sklasyfikowanym, nie wynika z rankingu: ten mierzy odległość, nie identyfikuje języka. Wszystkie opinie należy rozumieć wąsko: test przemawia przeciw badanemu szyfrowi podstawieniowemu na podstawie dostępnych korpusów, nie wyklucza ogólnie baskijskiego jako języka rękopisu. Nie przedstawiono opinii B, więc nie można jej ocenić ani umieścić w rankingu.\",\n  \"werdykt\": \"Hipoteza w podanej postaci — baskijski zapisany prostym lub homofonicznym szyfrem podstawieniowym — jest mocno osłabiona i można ją uznać za obaloną w zakresie zbadanym testem. Kontrole pokazują, że metoda odzyskuje tekst z zaszyfrowanego baskijskiego, a na rękopisie pozostawia dużą lukę. Test nie rozstrzyga o innych sposobach zapisu ani szyfrowania. Najbardziej zmieniłby ocenę analogiczny test szyfru sylabicznego z kontrolami baskijskimi.\",\n  \"pewność\": 0.85,\n  \"zmiana_zdania\": \"nie — kontrole przeszły, a wyniki dla rękopisu wyraźnie odbiegają od kontrolnych; zastrzeżenia ograniczają jednak wniosek do badanego rodzaju szyfru i dostępnych korpusów.\"\n}",
+    "json": {
+     "ranking": [
+      "A",
+      "C",
+      "D"
+     ],
+     "uwagi": "A jest najlepiej uzasadniona: poprawnie opiera ocenę na kontrolach 4/4 oraz luce 0,95–1,12 bita/znak dla rękopisu, a także zauważa, że ranking odległości sam nie wskazuje baskijskiego. C jest zwięzła i zasadniczo trafna, ale część proponowanych wyjaśnień, np. celowe zaburzanie statystyk, nie wynika z raportu. D trafnie podaje główny wynik, lecz pewność 0,95 jest zbyt wysoka, a sugestia, że rękopis może być językiem wyżej sklasyfikowanym, nie wynika z rankingu: ten mierzy odległość, nie identyfikuje języka. Wszystkie opinie należy rozumieć wąsko: test przemawia przeciw badanemu szyfrowi podstawieniowemu na podstawie dostępnych korpusów, nie wyklucza ogólnie baskijskiego jako języka rękopisu. Nie przedstawiono opinii B, więc nie można jej ocenić ani umieścić w rankingu.",
+     "werdykt": "Hipoteza w podanej postaci — baskijski zapisany prostym lub homofonicznym szyfrem podstawieniowym — jest mocno osłabiona i można ją uznać za obaloną w zakresie zbadanym testem. Kontrole pokazują, że metoda odzyskuje tekst z zaszyfrowanego baskijskiego, a na rękopisie pozostawia dużą lukę. Test nie rozstrzyga o innych sposobach zapisu ani szyfrowania. Najbardziej zmieniłby ocenę analogiczny test szyfru sylabicznego z kontrolami baskijskimi.",
+     "pewność": 0.85,
+     "zmiana_zdania": "nie — kontrole przeszły, a wyniki dla rękopisu wyraźnie odbiegają od kontrolnych; zastrzeżenia ograniczają jednak wniosek do badanego rodzaju szyfru i dostępnych korpusów."
+    }
+   },
+   "inception/mercury-3": {
+    "raw": "{\"ranking\": [\"A\", \"D\", \"B\"], \"uwagi\": \"Opinia A najlepiej oddziela dowody pozytywne (przejście 4/4 kontroli, luka 0.95–1.12 bita/znak) od słabości i wskazuje jeden konkretny następny test (szyfr sylabiczny). Opinia D jest podobna, ale mniej wnikliwa w słabości. Opinia B ma rację co do braku kontroli na danych przetasowanych, jednak nazywanie metody całkowicie niewiarygodną jest zbyt daleko idące, ponieważ kontrole pozytywne przeszły, a luka na rękopisie jest o rząd wielkości większa niż w kontrolach.\", \"werdykt\": \"Hipoteza obalona dla prostego/homofonicznego szyfru podstawieniowego z baskijskiego na podstawie badanych korpusów; nie wyklucza innych typów szyfrów.\", \"pewność\": 0.85, \"zmiana_zdania\": \"nie, dopóki nie pojawi się test dla szyfru sylabicznego oraz kontrola na danych przetasowanych\" }",
+    "json": {
+     "ranking": [
+      "A",
+      "D",
+      "B"
+     ],
+     "uwagi": "Opinia A najlepiej oddziela dowody pozytywne (przejście 4/4 kontroli, luka 0.95–1.12 bita/znak) od słabości i wskazuje jeden konkretny następny test (szyfr sylabiczny). Opinia D jest podobna, ale mniej wnikliwa w słabości. Opinia B ma rację co do braku kontroli na danych przetasowanych, jednak nazywanie metody całkowicie niewiarygodną jest zbyt daleko idące, ponieważ kontrole pozytywne przeszły, a luka na rękopisie jest o rząd wielkości większa niż w kontrolach.",
+     "werdykt": "Hipoteza obalona dla prostego/homofonicznego szyfru podstawieniowego z baskijskiego na podstawie badanych korpusów; nie wyklucza innych typów szyfrów.",
+     "pewność": 0.85,
+     "zmiana_zdania": "nie, dopóki nie pojawi się test dla szyfru sylabicznego oraz kontrola na danych przetasowanych"
+    }
+   },
+   "tencent/hy3": {
+    "raw": "{\n  \"ranking\": [\"A\", \"C\", \"B\"],\n  \"uwagi\": \"Opinia A jest najlepiej uzasadniona: trafnie stwierdza, że kontrole metody przeszły (4/4, odzysk 99,9–100%, luka ~0), co potwierdza wiarygodność procedury w wykrywaniu podłożonego szyfru, a na rękopisie luka +0,95–1,12 bita/znak wyklucza hipotezę. C poprawnie wskazuje obalenie, ale z niższą pewnością nieuzasadnioną danymi. B myli się co do niewiarygodności metody: raport podaje kontrole na zaszyfrowanym baskijskim (pozytywne, luka ~0), co spełnia wymóg kontroli metody z zasad; brak osobnej kontroli 'przetasowanej' nie niweluje faktu, że metoda znalazła efekt w danych testowych, a nie znalazła w kontrolnych korpusach baskijskich.\",\n  \"werdykt\": \"obalona (dla szyfru podstawieniowego litera-za-glif z tekstem baskijskim)\",\n  \"pewność\": 0.9,\n  \"zmiana_zdania\": \"nie, dane z raportu jednoznacznie wskazują na przejście kontroli pozytywnych i dużą lukę dla rękopisu, co obala testowaną wersję hipotezy baskijskiej\"\n}",
+    "json": {
+     "ranking": [
+      "A",
+      "C",
+      "B"
+     ],
+     "uwagi": "Opinia A jest najlepiej uzasadniona: trafnie stwierdza, że kontrole metody przeszły (4/4, odzysk 99,9–100%, luka ~0), co potwierdza wiarygodność procedury w wykrywaniu podłożonego szyfru, a na rękopisie luka +0,95–1,12 bita/znak wyklucza hipotezę. C poprawnie wskazuje obalenie, ale z niższą pewnością nieuzasadnioną danymi. B myli się co do niewiarygodności metody: raport podaje kontrole na zaszyfrowanym baskijskim (pozytywne, luka ~0), co spełnia wymóg kontroli metody z zasad; brak osobnej kontroli 'przetasowanej' nie niweluje faktu, że metoda znalazła efekt w danych testowych, a nie znalazła w kontrolnych korpusach baskijskich.",
+     "werdykt": "obalona (dla szyfru podstawieniowego litera-za-glif z tekstem baskijskim)",
+     "pewność": 0.9,
+     "zmiana_zdania": "nie, dane z raportu jednoznacznie wskazują na przejście kontroli pozytywnych i dużą lukę dla rękopisu, co obala testowaną wersję hipotezy baskijskiej"
+    }
+   }
+  },
+  "synthesis": "## Werdykt rady\n**Wynik nie wystarcza do uznania hipotezy za obaloną**, ponieważ raport nie przedstawia kontroli na danych przetasowanych. Test dostarcza jednak wyraźnych przesłanek przeciw **prostemu lub homofonicznemu szyfrowi podstawieniowemu** z badanych korpusów baskijskich.\n\n## Poziom zgody\nZgoda jest **wysoka co do wyników i ograniczonego zakresu wniosku**, lecz umiarkowana co do werdyktu: część ocen uznaje hipotezę za obaloną w zbadanym zakresie, część podkreśla brak pełnej walidacji metody.\n\n## Co test naprawdę pokazuje\nKontrole pozytywne przeszły we wszystkich czterech wariantach: odzyskano 99,9–100% liter, przy lukach bliskich zeru. Dla rękopisu luka wynosiła 0,95–1,12 bita/znak. To przemawia przeciw badanemu typowi szyfru. Ranking odległości nie stanowi mocnego argumentu za baskijskim: zajmuje on 3. miejsce na 13 języków.\n\n## Główne zastrzeżenia\nBrakuje kontroli negatywnej na danych przetasowanych, wymaganej do pełnego potwierdzenia wiarygodności metody. Korpusy są ograniczone: tekst z 1571 r. i współczesna prasa nie zastępują baskijskiego z epoki rękopisu, a porównania mogą być obciążone różnicami gatunkowymi. Test nie obejmuje innych sposobów szyfrowania ani zapisu.\n\n## Następny eksperyment\nPowtórzyć **niezmienioną procedurę** z kontrolą negatywną na przetasowanych danych, zachowując kontrolę pozytywną z zaszyfrowanym baskijskim.",
+  "failed": {},
+  "votes": {
+   "obalona": 3
+  }
+ }
+}

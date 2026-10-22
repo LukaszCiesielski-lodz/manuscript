@@ -1,0 +1,899 @@
+{
+ "entries": [
+  {
+   "round": 1,
+   "hound": "kryptolog",
+   "model": "z-ai/glm-5.3-flash",
+   "recipe": {
+    "name": "q i n jako nulle, pismo od prawej",
+    "idea": "q na początku i n na końcu to znaki puste (nulle) wymuszające kształt słowa; po ich usunięciu zostaje szyfr podstawieniowy tekstu czytanego od prawej — to tłumaczy sztywne pozycje glifów i krótkie słowa",
+    "scope": {
+     "section": "text"
+    },
+    "steps": [
+     {
+      "op": "drop_glyphs",
+      "glyphs": [
+       "q",
+       "n"
+      ],
+      "rate": 0.25
+     },
+     {
+      "op": "reverse_words"
+     }
+    ],
+    "target": "Latin",
+    "target_ops": []
+   },
+   "result": {
+    "fingerprint": "ea009dcb85",
+    "verdict": "obalony",
+    "score": -0.257834674799875,
+    "gap_voynich": 1.271202580555272,
+    "bits_voynich": 3.499331065158603,
+    "bits_plain_target": 2.8462878186209277,
+    "excess_over_language": 0.6530432465376754,
+    "gap_null_generator": 1.013367905755397,
+    "gap_null_shuffled": 1.1840322839023627,
+    "gap_positive": 0.06483792833756752,
+    "positive_accuracy": 0.9998313090418354,
+    "words": 1144,
+    "decoded": "semob done co poro dis ecis sucr e cin etdis ecis coa ci e clon porm cos uso",
+    "seconds": 29.0
+   }
+  },
+  {
+   "round": 1,
+   "hound": "kryptolog",
+   "model": "z-ai/glm-5.3-flash",
+   "recipe": {
+    "name": "co drugie słowo wypełniaczem",
+    "idea": "nomenklator/szyfr słowo-za-słowo z obfitymi wypełniaczami: tylko co drugie słowo niesie treść, reszta to bezsensowne wtrącenia. To wyjaśniałoby powtórzenia bezpośrednie (0,83%), podobieństwo sąsiednich słów i niską entropię — bełkot wypełniaczy rozcieńcza statystykę języka",
+    "scope": {
+     "section": "text"
+    },
+    "steps": [
+     {
+      "op": "take_words",
+      "every": 2,
+      "offset": 0
+     }
+    ],
+    "target": "Latin",
+    "target_ops": []
+   },
+   "result": {
+    "fingerprint": "06e25df42b",
+    "verdict": "obalony",
+    "score": -0.4476244023509479,
+    "gap_voynich": 1.338444982490644,
+    "bits_voynich": 3.5246362150896386,
+    "bits_plain_target": 2.8462878186209277,
+    "excess_over_language": 0.6783483964687109,
+    "gap_null_generator": 0.890820580139696,
+    "gap_null_shuffled": 1.3235750262015205,
+    "gap_positive": 0.06483792833756752,
+    "positive_accuracy": 0.9998313090418354,
+    "words": 572,
+    "decoded": "guats us aem csns res sest es ruos aus cus iud anrt truod ceust iusuod seod ernes cous",
+    "seconds": 23.6
+   }
+  },
+  {
+   "round": 1,
+   "hound": "dziki pies",
+   "model": "tencent/hy3",
+   "recipe": {
+    "name": "Szablonowe wypełnianie (co 3. glif to rdzeń)",
+    "idea": "Glify na sztywnych pozycjach (q na początku, n na końcu) sugerują szablon słowa. Zostawiamy co 3. glif jako treść, reszta to wypełniacz maskujący statystyki. Wyjaśnia to krótkie słowa i brak powtórzeń (rdzenie są unikalne, wypełniacz zmienny).",
+    "scope": {
+     "section": "herbal"
+    },
+    "steps": [
+     {
+      "op": "keep_every",
+      "n": 3,
+      "offset": 0
+     }
+    ],
+    "target": "Latin",
+    "target_ops": []
+   },
+   "result": {
+    "fingerprint": "beaaf7e304",
+    "verdict": "obalony",
+    "score": -0.01890731360030662,
+    "gap_voynich": 0.9844216943009068,
+    "bits_voynich": 3.6962933429118814,
+    "bits_plain_target": 2.8737536004279174,
+    "excess_over_language": 0.822539742483964,
+    "gap_null_generator": 1.0384419077966478,
+    "gap_null_shuffled": 0.9655143807006001,
+    "gap_positive": 0.026568896653415663,
+    "positive_accuracy": 0.9999046983703421,
+    "words": 4002,
+    "decoded": "ca st i i o la s q t an s i i e oe ie sa e",
+    "seconds": 35.8
+   }
+  },
+  {
+   "round": 1,
+   "hound": "dziki pies",
+   "model": "tencent/hy3",
+   "recipe": {
+    "name": "Fibonacci jako klucz stronicowy (reset co stronę)",
+    "idea": "Ciąg Fibonacciego jako klucz Vigenère'a na poziomie słowa, resetowany na początku każdej strony (zgodnie z kalendarzami/astrologią). Przesunięcie słowa o kolejną liczbę z ciągu tłumaczy powiązania na styku słów (0,17 bita) i podobieństwo sąsiedztw.",
+    "scope": {
+     "section": "zodiac"
+    },
+    "steps": [
+     {
+      "op": "keystream_shift",
+      "key": "fibonacci",
+      "mode": "sub",
+      "unit": "word",
+      "restart": "page"
+     }
+    ],
+    "target": "MedievalLatin",
+    "target_ops": []
+   },
+   "result": {
+    "fingerprint": "2c31ca94cc",
+    "verdict": "błąd przepisu",
+    "error": "za mało tekstu w zakresie (0 słów)",
+    "seconds": 0.7
+   }
+  },
+  {
+   "round": 2,
+   "hound": "kryptolog",
+   "model": "z-ai/glm-5.3-flash",
+   "recipe": {
+    "name": "Szyfr rozwlekły: pary glifów jako znaki",
+    "idea": "Szyfr rozwlekły (digrafowy) XV wieku: skryba koduje pary glifów jako jednostki, co naturalnie obniża entropię warunkową do poziomu bigramów języka i może wyjaśnić sztywne pozycje glifów",
+    "scope": {
+     "section": "text"
+    },
+    "steps": [
+     {
+      "op": "group_glyphs",
+      "size": 2
+     }
+    ],
+    "target": "Latin",
+    "target_ops": []
+   },
+   "result": {
+    "fingerprint": "1feb883d73",
+    "verdict": "obalony",
+    "score": -0.685645016814171,
+    "gap_voynich": 1.073276964761575,
+    "bits_voynich": 4.470347212979533,
+    "bits_plain_target": 2.8462878186209277,
+    "excess_over_language": 1.6240593943586052,
+    "gap_null_generator": 0.38763194794740397,
+    "gap_null_shuffled": 0.9792996291680032,
+    "gap_positive": -0.40493374355438494,
+    "positive_accuracy": 0.9996626180836707,
+    "words": 1144,
+    "decoded": "com pa o din et ex el s et ers ex mt m s ur ain st ex",
+    "seconds": 26.5
+   }
+  },
+  {
+   "round": 2,
+   "hound": "kryptolog",
+   "model": "z-ai/glm-5.3-flash",
+   "recipe": {
+    "name": "Rozwlekły bez fałszywych spacji",
+    "idea": "Odstępy między słowami są fałszywe: prawdziwy tekst jest ciągły, a jednostką szyfru są pary glifów liczone przez granice słów — to powinno odtworzyć zaobserwowane powiązania glifów na styku słów (0,17 bita)",
+    "scope": {
+     "section": "text"
+    },
+    "steps": [
+     {
+      "op": "join_words"
+     },
+     {
+      "op": "group_glyphs",
+      "size": 2
+     }
+    ],
+    "target": "Latin",
+    "target_ops": []
+   },
+   "result": {
+    "fingerprint": "bc4b04bbd4",
+    "verdict": "obalony",
+    "score": -1.734942477534788,
+    "gap_voynich": 0.7031299795482342,
+    "bits_voynich": 6.143527787523171,
+    "bits_plain_target": 3.2799295272237887,
+    "excess_over_language": 2.863598260299382,
+    "gap_null_generator": -1.0318124979865537,
+    "gap_null_shuffled": 0.3170074400261651,
+    "gap_positive": -0.6606871795196021,
+    "positive_accuracy": 0.9998313090418354,
+    "words": 62,
+    "decoded": "fusieeasplaazstleosesceiszabeeremnosalis eispauelpeapussmestictaleismancidnstipah exsdeaarexpuggilluspietapomusdeuuiuitusi isplepoititrudahaanhpratpaxihimpagmacnte mopitiaisppatisexiivapeitiitmderadradoma btristalivecteubetvepulroatusvrabmeitmrt iabiveooadazgrfectfapedeadamdilelanigrae ptzypeardamameiexuspeeterrescadeteredade itmfeceisilamquispantfanesfabeiqtestamda neatisiolipotcaseatataibsqubmuautuladman tisvitgrutervauramieinsctumeicittontiume miumetcoroqumeresertietitieumitorontibpa tadentteentiontrumioniliumerstotietertet amiortrumedttscasfitiscradspasruontruman esistremdfeigirtenecisuaictaertonreldeec oralifmavodeipliileoneiusunarigrainunean igreilisilitipicttoeridaveiahetdadvlphai snacatyrovideracfenibeitifacoretitsetliv",
+    "seconds": 34.2
+   }
+  },
+  {
+   "round": 2,
+   "hound": "lingwista",
+   "model": "openai/gpt-6-luna",
+   "recipe": {
+    "name": "Odwrócenie kolejności słów w wierszu",
+    "idea": "Sprawdzić, czy słowa zapisano w odwrotnej kolejności; zachować kolejność glifów wewnątrz słów.",
+    "scope": {
+     "section": "text"
+    },
+    "steps": [
+     {
+      "op": "reverse_lines"
+     }
+    ],
+    "target": "Latin",
+    "target_ops": []
+   },
+   "result": {
+    "fingerprint": "b96812df20",
+    "verdict": "obalony",
+    "score": -0.3459709155572517,
+    "gap_voynich": 1.279735035248288,
+    "bits_voynich": 3.4566284099699245,
+    "bits_plain_target": 2.8462878186209277,
+    "excess_over_language": 0.6103405913489968,
+    "gap_null_generator": 0.9337641196910362,
+    "gap_null_shuffled": 1.3397935856631435,
+    "gap_positive": 0.06483792833756752,
+    "positive_accuracy": 0.9998313090418354,
+    "words": 1144,
+    "decoded": "qetam res m lsud qesm qet irion is mrit bicmd ain lis lis idu qis crion rios m",
+    "seconds": 27.6
+   }
+  },
+  {
+   "round": 2,
+   "hound": "lingwista",
+   "model": "openai/gpt-6-luna",
+   "recipe": {
+    "name": "Pary glifów jako znaki szyfru rozwlekłego",
+    "idea": "Sprawdzić, czy każdy znak tekstu jawnego jest kodowany przez stałą parę kolejnych glifów.",
+    "scope": {
+     "section": "herbal"
+    },
+    "steps": [
+     {
+      "op": "group_glyphs",
+      "size": 2
+     }
+    ],
+    "target": "Latin",
+    "target_ops": []
+   },
+   "result": {
+    "fingerprint": "07e1b04835",
+    "verdict": "obalony",
+    "score": -0.053429421473313976,
+    "gap_voynich": 0.7466504620210292,
+    "bits_voynich": 4.685302597136615,
+    "bits_plain_target": 2.8737536004279174,
+    "excess_over_language": 1.8115489967086975,
+    "gap_null_generator": 0.7821134087057962,
+    "gap_null_shuffled": 0.6932210405477153,
+    "gap_positive": -0.1497888997149719,
+    "positive_accuracy": 0.9998093967406843,
+    "words": 4002,
+    "decoded": "ns aet i o t li et it i vao et i co do rro pre es e",
+    "seconds": 61.0
+   }
+  },
+  {
+   "round": 2,
+   "hound": "dziki pies",
+   "model": "tencent/hy3",
+   "recipe": {
+    "name": "sqrt2 jako klucz Vigenère'a z resetem wiersza",
+    "idea": "Przesunięcie glifów o cyfry rozwinięcia sqrt2 (odejmowanie), reset licznika na początku każdego wiersza, by zachować specyficzne entropie końcowe (m, g) i początkowe (p).",
+    "scope": {
+     "section": "zodiac"
+    },
+    "steps": [
+     {
+      "op": "keystream_shift",
+      "key": "sqrt2",
+      "mode": "sub",
+      "unit": "glyph",
+      "restart": "line"
+     }
+    ],
+    "target": "MedievalLatin",
+    "target_ops": []
+   },
+   "result": {
+    "fingerprint": "49b4b988c2",
+    "verdict": "błąd przepisu",
+    "error": "za mało tekstu w zakresie (0 słów)",
+    "seconds": 0.7
+   }
+  },
+  {
+   "round": 2,
+   "hound": "dziki pies",
+   "model": "tencent/hy3",
+   "recipe": {
+    "name": "Grupowanie 2-glifowe z kluczem pierwszym",
+    "idea": "Łączenie glifów w pary (szyfr rozwlekły), a następnie przesunięcie o liczby pierwsze (jako klucz strumienia) by złamać sztywność pozycji wewnątrz słowa.",
+    "scope": {
+     "section": "astronomical"
+    },
+    "steps": [
+     {
+      "op": "group_glyphs",
+      "size": 2
+     },
+     {
+      "op": "keystream_shift",
+      "key": "primes",
+      "mode": "sub",
+      "unit": "glyph",
+      "restart": "none"
+     }
+    ],
+    "target": "Latin",
+    "target_ops": []
+   },
+   "result": {
+    "fingerprint": "5f32f57795",
+    "verdict": "błąd przepisu",
+    "error": "za mało tekstu w zakresie (279 słów)",
+    "seconds": 0.4
+   }
+  },
+  {
+   "round": 3,
+   "hound": "kryptolog",
+   "model": "z-ai/glm-5.3-flash",
+   "recipe": {
+    "name": "Klucz słowny 'agla' na poziomie słów",
+    "idea": "Klasyczny nomenklatorowy klucz słowny (agla to znane zawołanie z XV w.); jedna cyfra klucza przesuwa cały słowo, licznik od nowa w każdym wierszu — to mogłoby wyjaśnić sztywne pozycje q i n oraz jednostkę wiersza",
+    "scope": {
+     "section": "herbal"
+    },
+    "steps": [
+     {
+      "op": "keystream_shift",
+      "key": "word:agla",
+      "mode": "sub",
+      "unit": "word",
+      "restart": "line"
+     }
+    ],
+    "target": "Latin",
+    "target_ops": []
+   },
+   "result": {
+    "fingerprint": "5fd59fd617",
+    "verdict": "obalony",
+    "score": -0.7132762660991441,
+    "gap_voynich": 0.6233412710994459,
+    "bits_voynich": 4.150625009518158,
+    "bits_plain_target": 2.8737536004279174,
+    "excess_over_language": 1.2768714090902402,
+    "gap_null_generator": -0.08993499499969815,
+    "gap_null_shuffled": 0.5062542394616778,
+    "gap_positive": 0.026568896653415663,
+    "positive_accuracy": 0.9999046983703421,
+    "words": 4002,
+    "decoded": "crle etinde os a m aent las nit io egtte enm os are dra miuit opocas rade di",
+    "seconds": 64.9
+   }
+  },
+  {
+   "round": 3,
+   "hound": "kryptolog",
+   "model": "z-ai/glm-5.3-flash",
+   "recipe": {
+    "name": "Nulle q i e, potem rotacja słowa",
+    "idea": "q i e jako znaki puste (q wyjaśnia pozycję początkową, e jest wszędzie), a pozostały rdzeń przesunięty cyklicznie o 1 glif — pismo od prawej w wersji rotacyjnej, co zachowuje strukturę wewnątrz słowa",
+    "scope": {
+     "section": "text"
+    },
+    "steps": [
+     {
+      "op": "drop_glyphs",
+      "glyphs": [
+       "q",
+       "e"
+      ],
+      "rate": 0.25
+     },
+     {
+      "op": "rotate",
+      "k": 1
+     }
+    ],
+    "target": "Latin",
+    "target_ops": []
+   },
+   "result": {
+    "fingerprint": "885595ea37",
+    "verdict": "obalony",
+    "score": -0.2681333768479979,
+    "gap_voynich": 1.1792888495817784,
+    "bits_voynich": 3.599174288103494,
+    "bits_plain_target": 2.8462878186209277,
+    "excess_over_language": 0.7528864694825663,
+    "gap_null_generator": 0.9111554727337805,
+    "gap_null_shuffled": 1.1711421771881332,
+    "gap_positive": 0.06483792833756752,
+    "positive_accuracy": 0.9998313090418354,
+    "words": 1144,
+    "decoded": "rniob erai er prqur sam seim eod i see satim seio red es i rcee prqun rem or",
+    "seconds": 30.6
+   }
+  },
+  {
+   "round": 3,
+   "hound": "lingwista",
+   "model": "openai/gpt-6-luna",
+   "recipe": {
+    "name": "Odwrócenie glifów w każdym słowie",
+    "idea": "Sprawdzenie, czy zapis odwraca kolejność znaków wewnątrz słów, bez zmiany kolejności słów w wierszu.",
+    "scope": {
+     "section": "text"
+    },
+    "steps": [
+     {
+      "op": "reverse_words"
+     }
+    ],
+    "target": "Latin",
+    "target_ops": []
+   },
+   "result": {
+    "fingerprint": "e303f87f34",
+    "verdict": "obalony",
+    "score": -0.2023402459188537,
+    "gap_voynich": 1.2869127764000696,
+    "bits_voynich": 3.464291573329514,
+    "bits_plain_target": 2.8462878186209277,
+    "excess_over_language": 0.6180037547085862,
+    "gap_null_generator": 1.084572530481216,
+    "gap_null_shuffled": 1.2710917568153373,
+    "gap_positive": 0.06483792833756752,
+    "positive_accuracy": 0.9998313090418354,
+    "words": 1144,
+    "decoded": "semab dane ca prala dis ecis suco e cin etdis ecis cao ci e cran pralm cas usa",
+    "seconds": 28.1
+   }
+  },
+  {
+   "round": 3,
+   "hound": "lingwista",
+   "model": "openai/gpt-6-luna",
+   "recipe": {
+    "name": "Hebrajski zapis spółgłoskowy",
+    "idea": "Sprawdzenie, czy tekst odpowiada hebrajskiemu zapisowi spółgłoskowemu, w którym samogłoski nie są zapisywane.",
+    "scope": {
+     "section": "text"
+    },
+    "steps": [],
+    "target": "Hebrew",
+    "target_ops": [
+     "drop_vowels"
+    ]
+   },
+   "result": {
+    "fingerprint": "4a24a35093",
+    "verdict": "obalony",
+    "score": -0.4180337184350327,
+    "gap_voynich": 1.363933893116112,
+    "bits_voynich": 3.518499109691465,
+    "bits_plain_target": 3.114746457045569,
+    "excess_over_language": 0.4037526526458959,
+    "gap_null_generator": 0.9459001746810793,
+    "gap_null_shuffled": 1.4175272468510776,
+    "gap_positive": 0.018054380211397714,
+    "positive_accuracy": 1.0,
+    "words": 1144,
+    "decoded": "טשמתב תעשה שר שעשים כוה כורת נרלב ת עור כוהאת בורת פשר ור ת עשיר מעשים כשר שבל",
+    "seconds": 27.2
+   }
+  },
+  {
+   "round": 3,
+   "hound": "dziki pies",
+   "model": "tencent/hy3",
+   "recipe": {
+    "name": "Złoty podział jako strumień klucza Vigenère'a",
+    "idea": "Przesunięcie glifów o cyfry rozwinięcia liczby phi (złoty podział), co sugeruje estetyka renesansowa/astrologiczna. Reset klucza w każdym wierszu, by zniwelować dryft entropii.",
+    "scope": {
+     "section": "cosmological"
+    },
+    "steps": [
+     {
+      "op": "keystream_shift",
+      "key": "phi",
+      "mode": "sub",
+      "unit": "glyph",
+      "restart": "line"
+     }
+    ],
+    "target": "MedievalLatin",
+    "target_ops": []
+   },
+   "result": {
+    "fingerprint": "95bc2fea25",
+    "verdict": "obalony",
+    "score": -2.277916672274828,
+    "gap_voynich": -0.3992521436552794,
+    "bits_voynich": 4.632047673274011,
+    "bits_plain_target": 2.9959474029810673,
+    "excess_over_language": 1.6361002702929435,
+    "gap_null_generator": -2.6771688159301075,
+    "gap_null_shuffled": -0.38587158918613973,
+    "gap_positive": -0.21182089066339405,
+    "positive_accuracy": 1.0,
+    "words": 331,
+    "decoded": "ina et utt et rposd iesm s ntro uuluele in enam stcui rlos apris utumenus espriii aiit itss",
+    "seconds": 38.4
+   }
+  },
+  {
+   "round": 3,
+   "hound": "dziki pies",
+   "model": "tencent/hy3",
+   "recipe": {
+    "name": "Akrostych inicjałów z korektą e-ulerowską",
+    "idea": "Wyciągnięcie pierwszych glifów słów (akrostych) i przesunięcie ich o cyfry liczby e. Testuje hipotezę, że 'p' na początku wiersza to zaszyfrowany inicjał ważnego słowa, a reszta to wypełniacz.",
+    "scope": {
+     "section": "zodiac"
+    },
+    "steps": [
+     {
+      "op": "word_initials"
+     },
+     {
+      "op": "keystream_shift",
+      "key": "e",
+      "mode": "sub",
+      "unit": "glyph",
+      "restart": "none"
+     }
+    ],
+    "target": "Latin",
+    "target_ops": []
+   },
+   "result": {
+    "fingerprint": "465476bb43",
+    "verdict": "błąd przepisu",
+    "error": "za mało tekstu w zakresie (0 słów)",
+    "seconds": 0.2
+   }
+  },
+  {
+   "round": 4,
+   "hound": "kryptolog",
+   "model": "z-ai/glm-5.3-flash",
+   "recipe": {
+    "name": "Akrostych inicjałów, cały tekst",
+    "idea": "tylko pierwszy glif każdego słowa jest prawdziwy, reszta to ozdobniki; tekst czytany bez spacji",
+    "scope": {
+     "section": "text"
+    },
+    "steps": [
+     {
+      "op": "word_initials"
+     }
+    ],
+    "target": "Latin",
+    "target_ops": []
+   },
+   "result": {
+    "fingerprint": "3f5736e929",
+    "verdict": "obalony",
+    "score": -0.15311392252344147,
+    "gap_voynich": 0.5330282743931067,
+    "bits_voynich": 4.123094465075899,
+    "bits_plain_target": 3.2799295272237887,
+    "excess_over_language": 0.84316493785211,
+    "gap_null_generator": 0.37991435186966527,
+    "gap_null_shuffled": 0.44290259225860495,
+    "gap_positive": 0.031030948969491323,
+    "positive_accuracy": 0.9998313090418354,
+    "words": 29,
+    "decoded": "xommiilonirgeontimllurieoillurreedlueeer otlphoebipeirhioieetetutnuihiueropepoiph eneeeiruignpplieuuetettelnuibdtinttntiti nnuetinorticuluoiinpumuguietluittugeupii trictduotuluinuiltnieuxluloeeuenuuinletn nutttttuceettioteriseessesotlsteutttistt stousnmssssisenotetsutdueirunsssueuuisit ueiostiutdiituiiisssttnsstuuuitaeeetutmm voucisextueeuiutioaaituieintuxtmdiiuismi chiesoiiureuuuutumuuurseensueerntniitiin urtnituistnreoieaatttossstiuttuoieerasue rieaemmeaideuissasisesmestotisaumiaatiua ieaecnspuisdiiasuaatiictesttesermousltue sismisossseiseisetmsseeetesatsstrsssdisi emmtustessitaeumteimidmtmeameatuussetetd tutrerssisenurrmisestteeieeuontrtsemmmmm taiststisentssstttistaisetesussstsiiaseu stassstiaemseaseeisurieisttsteamietsusis",
+    "seconds": 39.9
+   }
+  },
+  {
+   "round": 4,
+   "hound": "kryptolog",
+   "model": "z-ai/glm-5.3-flash",
+   "recipe": {
+    "name": "Drugi glif rdzeniem, reszta wypełniaczem",
+    "idea": "jak szablonowe wypełnianie, ale rdzeń na pozycji 1 z 2 — sztywne miejsca (q na początku) sugerują, że informacja siedzi na stałych pozycjach słowa",
+    "scope": {
+     "section": "herbal"
+    },
+    "steps": [
+     {
+      "op": "keep_every",
+      "n": 2,
+      "offset": 1
+     }
+    ],
+    "target": "Latin",
+    "target_ops": []
+   },
+   "result": {
+    "fingerprint": "6051644e4d",
+    "verdict": "obalony",
+    "score": 0.03772573236508636,
+    "gap_voynich": 0.9181218867338945,
+    "bits_voynich": 3.534697202461345,
+    "bits_plain_target": 2.8737536004279174,
+    "excess_over_language": 0.6609436020334276,
+    "gap_null_generator": 0.9926679564501901,
+    "gap_null_shuffled": 0.9558476190989809,
+    "gap_positive": 0.026568896653415663,
+    "positive_accuracy": 0.9999046983703421,
+    "words": 3805,
+    "decoded": "ut tin r ut i i m ee i m u u ao aom st i t st",
+    "seconds": 35.6
+   }
+  },
+  {
+   "round": 4,
+   "hound": "lingwista",
+   "model": "openai/gpt-6-luna",
+   "recipe": {
+    "name": "Usunięcie skrajnych glifów q i n bez odwracania",
+    "idea": "Sprawdź, czy częste początkowe q i końcowe n są znakami pustymi lub elementami ramowymi, niezależnie od kierunku czytania.",
+    "scope": {
+     "section": "text"
+    },
+    "steps": [
+     {
+      "op": "drop_glyphs",
+      "glyphs": [
+       "q",
+       "n"
+      ],
+      "rate": 0.25
+     }
+    ],
+    "target": "Latin",
+    "target_ops": []
+   },
+   "result": {
+    "fingerprint": "e0da35d324",
+    "verdict": "obalony",
+    "score": -0.4456656274556825,
+    "gap_voynich": 1.289539306717928,
+    "bits_voynich": 3.499789986727575,
+    "bits_plain_target": 2.8462878186209277,
+    "excess_over_language": 0.6535021681066473,
+    "gap_null_generator": 0.8438736792622454,
+    "gap_null_shuffled": 1.2893497770452642,
+    "gap_positive": 0.06483792833756752,
+    "positive_accuracy": 0.9998313090418354,
+    "words": 1144,
+    "decoded": "vuetn tcus um udum pas pamt emrn t cam pasit namt oum am t cumm edum pum unr",
+    "seconds": 28.7
+   }
+  },
+  {
+   "round": 4,
+   "hound": "dziki pies",
+   "model": "tencent/hy3",
+   "recipe": {
+    "name": "Szkielet co 4. z offsetem 1 i abdżad łaciński",
+    "idea": "Słowa mają średnio 4,3 glifu; zostawiamy co 4. glif (offset 1), by trafić w 'miękkie' rdzenie, a samogłoski docelowe kasujemy, by symulować pismo spółgłoskowe (jak hebrajski, ale na łacinie).",
+    "scope": {
+     "section": "herbal"
+    },
+    "steps": [
+     {
+      "op": "keep_every",
+      "n": 4,
+      "offset": 1
+     }
+    ],
+    "target": "Latin",
+    "target_ops": [
+     "drop_vowels"
+    ]
+   },
+   "result": {
+    "fingerprint": "722203e2f2",
+    "verdict": "obalony",
+    "score": -0.01398397073209745,
+    "gap_voynich": 0.6008041819732046,
+    "bits_voynich": 2.7625321853486615,
+    "bits_plain_target": 2.8762463225764496,
+    "excess_over_language": -0.11371413722778811,
+    "gap_null_generator": 0.605590796709067,
+    "gap_null_shuffled": 0.5868202112411072,
+    "gap_positive": 0.003496428167429233,
+    "positive_accuracy": 1.0,
+    "words": 3805,
+    "decoded": "d mr s d n n h s n r d d q qr t n m t",
+    "seconds": 25.9
+   }
+  },
+  {
+   "round": 4,
+   "hound": "dziki pies",
+   "model": "tencent/hy3",
+   "recipe": {
+    "name": "Czyszczenie q/n i przesunięcie e co wiersz",
+    "idea": "q i n to sztywne kotwice brzegowe (nulle); po ich usunięciu stosujemy strumień cyfr e (2.718...) jako klucz Vigenère'a na glifach, resetując licznik w każdym wierszu, by wykorzystać specyficzną entropię linii.",
+    "scope": {
+     "section": "astronomical"
+    },
+    "steps": [
+     {
+      "op": "drop_glyphs",
+      "glyphs": [
+       "q",
+       "n"
+      ],
+      "rate": 0.25
+     },
+     {
+      "op": "keystream_shift",
+      "key": "e",
+      "mode": "sub",
+      "unit": "glyph",
+      "restart": "line"
+     }
+    ],
+    "target": "MedievalLatin",
+    "target_ops": []
+   },
+   "result": {
+    "fingerprint": "dfe3aa3c52",
+    "verdict": "błąd przepisu",
+    "error": "za mało tekstu w zakresie (279 słów)",
+    "seconds": 0.7
+   }
+  }
+ ],
+ "confirm": [],
+ "wishes": [
+  {
+   "hound": "kryptolog",
+   "model": "z-ai/glm-5.3-flash",
+   "round": 1,
+   "idea": "Nomenklator słowo-za-słowo: każde słowo rękopisu to osobny kod z księgi kodowej (liczba → całe słowo/krótkie wyrażenie). Tłumaczyłoby to niską h2 (słowa-kody nie mają wewnętrznej struktury językowej), sztywne pozycje glifów (kody o podobnych wartościach zaczynają się podobnie), powtórzenia bezpośrednie (powtórzone liczby w kluczu) i podobieństwo sąsiednich słów (sąsiednie liczby w tekście jawnym d"
+  },
+  {
+   "hound": "kryptolog",
+   "model": "z-ai/glm-5.3-flash",
+   "round": 1,
+   "idea": "Szyfr z licznikiem wiersza: ostatnie słowo wiersza jako wskaźnik/klucz dla następnego wiersza (autokey międzywierszowy) — tłumaczyłoby wiersz jako jednostkę i nadreprezentację m, g, p na końcach. Wymaga operacji 'przesuń wiersz n o klucz z wiersza n-1', której nie ma w klockach."
+  },
+  {
+   "hound": "dziki pies",
+   "model": "tencent/hy3",
+   "round": 1,
+   "idea": "Hipoteza 'logografów matematycznych': glify to nie litery, lecz wskaźniki do tablicy stałych (np. pierwiastki wielomianów Cremony) – pozycja w słowie to argument funkcji, a samogłoski EVA to tylko separatory dziesiętne."
+  },
+  {
+   "hound": "dziki pies",
+   "model": "tencent/hy3",
+   "round": 1,
+   "idea": "Steganografia w kształcie glifów: różnice w minimalnych wariacjach znaków (np. 'o' vs '9') mogą kodować bity niezależnie od szyfru podstawieniowego, co tłumaczyłoby entropię 2,30 bita przy 13 językach."
+  },
+  {
+   "hound": "dziki pies",
+   "model": "tencent/hy3",
+   "round": 1,
+   "idea": "Kalendarz tryleuitny: słowa to nie zdania, lecz pary (dzień, faza) z cyklu Metona; 'm' i 'g' na końcu wiersza to markery przesileń, a 'p' na początku to nowie księżyca."
+  },
+  {
+   "hound": "kryptolog",
+   "model": "z-ai/glm-5.3-flash",
+   "round": 2,
+   "idea": "Szyfr z kluczem słownikowym typu nomenklator: częste słowa łacińskie (et, in, quod, dicit) mają własne stałe 'kody-słowa' w rękopisie, a rzadkie są pisane litera po literze prostym podstawieniem. Wyjaśniałoby to 69% hapaks legomena (każde rzadkie słowo szyfrowane osobno daje unikatowy ciąg) oraz powtórzenia sąsiednich słów (to samo słowo jawne w kluczu). Klocki nie mają operacji 'słownik częstych "
+  },
+  {
+   "hound": "kryptolog",
+   "model": "z-ai/glm-5.3-flash",
+   "round": 2,
+   "idea": "Szyfr kolumnowy Trithemiusa: kolejne słowa wiersza przesuwane są o rosnącą liczbę pozycji w alfabecie (słowo 1 o 1, słowo 2 o 2...), licznik od nowa w każdym wierszu — wymagałoby keystream_shift z unit: word i rosnącym (nie cyklicznym) kluczem."
+  },
+  {
+   "hound": "dziki pies",
+   "model": "tencent/hy3",
+   "round": 2,
+   "idea": "Hipoteza kalendarza liturgicznego: glify to nie litery, lecz kody dni świąt ruchomych (np. p = Niedziela Wielkanocna, q = początek Adwentu) wymagające mapowania na tabelę świąt zamiast alfabetu."
+  },
+  {
+   "hound": "dziki pies",
+   "model": "tencent/hy3",
+   "round": 2,
+   "idea": "Steganografia w interpunkcji wizualnej: glify EVA to tak naprawdę znaki diakrytyczne nakładane na niewidoczny szkielet słów w języku baskijskim, gdzie 'puste' glify są nośnikami informacji o rodzaju gramatycznym."
+  },
+  {
+   "hound": "kryptolog",
+   "model": "z-ai/glm-5.3-flash",
+   "round": 3,
+   "idea": "Szyfr 'dwóch alfabetów' Albertiego z przełączaniem co wiersz: glify z pierwszego słowa wiersza wybierają, który z dwóch alfabetów szyfruje resztę wiersza — klocki nie mają operacji przełączania alfabetu ani warunkowego wyboru."
+  },
+  {
+   "hound": "kryptolog",
+   "model": "z-ai/glm-5.3-flash",
+   "round": 3,
+   "idea": "Nulle pozycyjne: glif jest pusty tylko na określonej pozycji w słowie (np. 'o' puste wszędzie poza pozycją 2) — drop_glyphs usuwa glify globalnie, a sztywna pozycja q/n sugeruje, że nullem może być glif tylko w pewnym miejscu."
+  },
+  {
+   "hound": "kryptolog",
+   "model": "z-ai/glm-5.3-flash",
+   "round": 3,
+   "idea": "Sylabariusz o zmiennej długości: słowo = jeden znak nomenklatora (4,3 glifu średnio pasuje do sylab łacińskich), ale klocki nie mają operacji 'całe słowo jako jeden symbol' — take_words zostawia co n-te słowo, a nie mapuje słowo na znak."
+  },
+  {
+   "hound": "dziki pies",
+   "model": "tencent/hy3",
+   "round": 3,
+   "idea": "Hipoteza kalendarzowa: glify to nie litery, lecz kody dni w roku (np. q=1 stycznia, n=31 grudnia). Słowa to przedziały czasu, a ich długość (4,3) to średnia liczba tygodni w miesiącu. Wymagałoby to mapowania glifów na liczby porządkowe i odczytu jako listy świąt/planet."
+  },
+  {
+   "hound": "dziki pies",
+   "model": "tencent/hy3",
+   "round": 3,
+   "idea": "Hipoteza 'sztywnych miejsc' jako gramatyki: q i n to markery przypadków (nominativus/accusativus), a m/g na końcu wiersza to enclitiki lub rymy w języku, który nie jest podstawieniem, lecz aglutynacją glifów (np. glif = morfem, nie fonem)."
+  },
+  {
+   "hound": "kryptolog",
+   "model": "z-ai/glm-5.3-flash",
+   "round": 4,
+   "idea": "Szyfr słowo-w-wierszu: każde słowo wiersza szyfrowane innym alfabetem nomenklatora (klucz = numer słowa w wierszu) — klocki nie mają per-słowa zmiany alfabetu, a to tłumaczyłoby sztywne pozycje q/n przy jednoczesnej wysokiej entropii."
+  },
+  {
+   "hound": "kryptolog",
+   "model": "z-ai/glm-5.3-flash",
+   "round": 4,
+   "idea": "Szyfr karteliany 'dwie kratki': słowo dzielone na dwie połówki i przeplatane (glify 1,3,5... potem 2,4,6...) — tłumaczyłoby podobieństwa sąsiednich słów i powiązania na styku; brak operacji przeplatania."
+  },
+  {
+   "hound": "kryptolog",
+   "model": "z-ai/glm-5.3-flash",
+   "round": 4,
+   "idea": "Redundancja rytualna: każde prawdziwe słowo zapisane dwukrotnie z drobną wariacją (jak w modlitwach) — wyjaśniałoby 0,83% natychmiastowych powtórzeń; brak klocka 'wstaw kopię poprzedniego słowa'."
+  },
+  {
+   "hound": "dziki pies",
+   "model": "tencent/hy3",
+   "round": 4,
+   "idea": "Hipoteza fraktalna: glify to nie litery, lecz współrzędne wektorów w przestrzeni 2D (np. q=start, n=koniec ścieżki), a słowa to rzuty rzutów na siatkę kalendarza astrologicznego (domyślnie: 28-30 dni)."
+  },
+  {
+   "hound": "dziki pies",
+   "model": "tencent/hy3",
+   "round": 4,
+   "idea": "Kodowanie różnicowe: słowo to nie ciąg znaków, lecz delta pozycji gwiazd względem poprzedniego słowa (stąd podobieństwo sąsiedztw 2x wyższe niż losowe)."
+  },
+  {
+   "hound": "dziki pies",
+   "model": "tencent/hy3",
+   "round": 4,
+   "idea": "Steganografia w długości: liczba glifów w słowie to kod binarny (4,3 glifu ≈ 2 bity), a same glify to tylko szum maskujący (stąd 69% unikalnych słów)."
+  }
+ ],
+ "synthesis": "## Podsumowanie czterech rund\n\nSfora sprawdziła podstawienia i liczne proste przekształcenia glifów, słów oraz wierszy, głównie z celem odczytu w językach naturalnych. Wyniki zestawiano z bełkotem o podobnych statystykach i wymagano także przejścia kontroli dodatniej.\n\n**Żaden trop nie przetrwał kontroli jako wiarygodny odczyt.** Najwyższy wynik ma przewagę zaledwie **+0,04 bita/znak** nad bełkotem, lukę 0,92 i nieudany wynik kontroli dodatniej. To daleko od progu TROP. Powtórka najlepszych tropów na innej części rękopisu nie dała żadnych wyników: `[]`.\n\n## Co można uznać za martwe\n\n- Proste i homofoniczne podstawienia badanych języków — obalone przez dużą lukę entropii.\n- Testowane warianty: wyciąganie glifów, usuwanie q/n, odwracanie, akrostychy, grupowanie par, klucze strumieniowe i praca na słowach — nie wykazały przewagi nad bełkotem albo nie przeszły kontroli dodatniej.\n- Kratka Cardana została obalona; atak anagramowy z hebrajskim okazał się nieswoisty.\n- Naibbe-podobny szyfr odtwarza entropię, ale nie wyjaśnia zależności na styku słów.\n\nNie oznacza to obalenia wszystkich szyfrów ani wszystkich hipotez o niejęzykowym zapisie.\n\n## Co warto rozwijać\n\nDane wskazują na zjawiska, których dotychczasowe przepisy słabo obejmowały: sztywne pozycje glifów, zależności między sąsiednimi słowami i ich stykami oraz strukturę wiersza. Nowe testy powinny mierzyć te cechy, a nie tylko dopasowywać entropię.\n\n## Klocki do dodania najpierw\n\n1. **Nomenklator słowo-za-słowo** oraz wariant hybrydowy: stałe kody częstych słów, osobny mechanizm dla reszty.\n2. **Mapowanie całego słowa na symbol** i operacje warunkowe zależne od pozycji glifu lub jego miejsca w wierszu.\n3. **Transformacje międzywierszowe** z kluczem pochodzącym z poprzedniego wiersza; testować szczególnie bezpośrednio zależności końcówek i początków wierszy.\n\nHipotezy o kształcie glifów wymagają danych obrazowych; kalendarze i logografy warto odłożyć, dopóki nie da się sformułować dla nich testów rozróżniających je od bełkotu.",
+ "settings": {
+  "n_words": 4000,
+  "steps": 25000,
+  "restarts": 6,
+  "slice": 0
+ },
+ "spent_usd": 0.14641827380000005
+}

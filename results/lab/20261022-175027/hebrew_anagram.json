@@ -1,0 +1,229 @@
+{
+ "theory": "hebrew_anagram",
+ "hypothesis": "Rękopis to hebrajski z przestawionymi literami w słowach (anagramy), zaszyfrowany podstawieniem (Hauer i Kondrak 2016).",
+ "method": "Atak słownikowy odporny na anagramy: klucz glif→litera dobierany tak, by jak najwięcej słów po posortowaniu liter było anagramem słowa z hebrajskiego słownika. Kontrola dodatnia: hebrajski zanagramowany i zaszyfrowany przez nas. Kontrola swoistości: ten sam atak na tekstach na pewno nie-hebrajskich (łacina, angielski, wietnamski...) i na bełkocie z szyfru Naibbe-podobnego.",
+ "verdict": "metoda niewiarygodna",
+ "summary": "Atak anagramowy daje rękopisowi 69.0%, ale NIE jest swoisty: tekst Vietnamese osiąga 90.8% przy 72.2% dla prawdziwego hebrajskiego. Wysokie pokrycie bierze się z powtarzalności krótkich słów, nie z hebrajskiego.",
+ "metrics": {
+  "coverage_hebrew_control": 0.721625,
+  "coverage_non_hebrew": {
+   "Latin": 0.490375,
+   "Polish": 0.4355,
+   "English": 0.737375,
+   "Finnish": 0.421,
+   "Vietnamese": 0.908125,
+   "szyfr Naibbe-podobny": 0.651875
+  },
+  "coverage_voynich": 0.69025,
+  "key": {
+   "o": "י",
+   "y": "ו",
+   "ch": "ר",
+   "d": "א",
+   "a": "ת",
+   "e": "ת",
+   "k": "ב",
+   "l": "ש",
+   "r": "ש",
+   "n": "ש",
+   "t": "ב",
+   "ii": "ו",
+   "sh": "ב",
+   "q": "ת",
+   "s": "ב",
+   "cth": "ב",
+   "i": "ו",
+   "p": "ה",
+   "m": "ש",
+   "ckh": "א",
+   "f": "מ",
+   "cph": "ב",
+   "c": "ש",
+   "h": "י",
+   "g": "ו",
+   "iii": "ר",
+   "cfh": "ב",
+   "b": "כ",
+   "j": "ש",
+   "x": "ש",
+   "u": "ת",
+   "v": "ש",
+   "z": "צ"
+  }
+ },
+ "controls": [
+  {
+   "name": "hebrajski zanagramowany i zaszyfrowany",
+   "expectation": "pokrycie słownikiem ≥ 50%",
+   "observed": "72.2%",
+   "passed": true
+  },
+  {
+   "name": "swoistość: teksty na pewno nie-hebrajskie",
+   "expectation": "pokrycie co najmniej 10 pkt niższe niż hebrajskie",
+   "observed": "najwyżej Vietnamese: 90.8% wobec hebrajskiego 72.2%",
+   "passed": false
+  }
+ ],
+ "evidence": [
+  "Odsetek słów, które po odszyfrowaniu są anagramami słów hebrajskich: hebrajski (kontrola) 72.2%, rękopis 69.0%; teksty nie-hebrajskie: Latin 49.0%, Polish 43.5%, English 73.7%, Finnish 42.1%, Vietnamese 90.8%, szyfr Naibbe-podobny 65.2%."
+ ],
+ "caveats": [
+  "Hebrajski korpus to Biblia, nie średniowieczny tekst; inna ortografia może zmienić wynik.",
+  "Krótkie słowa łatwo trafiają w słownik przypadkiem; dlatego porównujemy z bełkotem z tych samych glifów."
+ ],
+ "references": [
+  "B. Hauer, G. Kondrak, Decoding Anagrammed Texts Written in an Unknown Language and Script, TACL 4 (2016)"
+ ],
+ "artifacts": [],
+ "seconds": 810.1091763973236,
+ "council": {
+  "members": [
+   "z-ai/glm-5.3-flash",
+   "openai/gpt-6-luna",
+   "inception/mercury-3",
+   "tencent/hy3"
+  ],
+  "chair": "openai/gpt-6-luna",
+  "round1": {
+   "z-ai/glm-5.3-flash": {
+    "raw": "{\"werdykt\": \"metoda niewiarygodna\",\n  \"pewność\": 0.9,\n  \"najmocniejszy_dowód\": \"Kontrola swoistości nie została zaliczona: tekst wietnamski (na pewno nie-hebrajski) osiąga 90.8% pokrycia słownikiem, wyraźnie więcej niż prawdziwy hebrajski w kontroli (72.2%) i niż rękopis (69.0%). Wysoki wynik rękopisu jest więc niewyróżniający.\",\n  \"słabości\": [\n    \"Atak nie odróżnia hebrajskiego od języków o podobnej strukturze krótkich, powtarzalnych słów — pokrycie bierze się z powtarzalności, nie z treści językowej.\",\n    \"Kontrola dodatnia (72.2%) i wynik rękopisu (69.0%) są blisko siebie, ale bez działającej kontroli swoistości nie da się tego zinterpretować.\",\n    \"Korpus referencyjny to Biblia, nie tekst średniowieczny — możliwe zaniżenie kontroli hebrajskiej przez różnice ortograficzne.\",\n    \"Klucz przypisuje wiele glifów do tej samej litery (np. wiele glifów → ש, ב, ת), co zwiększa szansę przypadkowych trafień anagramowych.\"\n  ],\n  \"inne_wyjaśnienia\": [\n    \"Rękopis może być bełkotem lub szyfrem bez języka naturalnego — wynik 69.0% jest zbliżony do bełkotu Naibbe-podobnego (65.2%).\",\n    \"Pokrycie słownikiem może odzwierciedlać dowolny język o krótkich, powtarzalnych słowach, niekoniecznie hebrajski.\"\n  ],\n  \"następny_test\": \"Powtórzyć atak anagramowy z kontrolą długości słów: porównać pokrycie osobno dla słów długich (np. ≥5 glifów), gdzie przypadkowe trafienia w słownik są rzadkie, i wymusić, by klucz był injektywny (różne glify → różne litery). Jeśli rękopis nie przewyższa wtedy bełkotu Naibbe-podobnego, hipoteza hebrajska można uznać za obaloną; jeśli przewyższa — metoda zyska wiarygodność.\"}",
+    "json": {
+     "werdykt": "metoda niewiarygodna",
+     "pewność": 0.9,
+     "najmocniejszy_dowód": "Kontrola swoistości nie została zaliczona: tekst wietnamski (na pewno nie-hebrajski) osiąga 90.8% pokrycia słownikiem, wyraźnie więcej niż prawdziwy hebrajski w kontroli (72.2%) i niż rękopis (69.0%). Wysoki wynik rękopisu jest więc niewyróżniający.",
+     "słabości": [
+      "Atak nie odróżnia hebrajskiego od języków o podobnej strukturze krótkich, powtarzalnych słów — pokrycie bierze się z powtarzalności, nie z treści językowej.",
+      "Kontrola dodatnia (72.2%) i wynik rękopisu (69.0%) są blisko siebie, ale bez działającej kontroli swoistości nie da się tego zinterpretować.",
+      "Korpus referencyjny to Biblia, nie tekst średniowieczny — możliwe zaniżenie kontroli hebrajskiej przez różnice ortograficzne.",
+      "Klucz przypisuje wiele glifów do tej samej litery (np. wiele glifów → ש, ב, ת), co zwiększa szansę przypadkowych trafień anagramowych."
+     ],
+     "inne_wyjaśnienia": [
+      "Rękopis może być bełkotem lub szyfrem bez języka naturalnego — wynik 69.0% jest zbliżony do bełkotu Naibbe-podobnego (65.2%).",
+      "Pokrycie słownikiem może odzwierciedlać dowolny język o krótkich, powtarzalnych słowach, niekoniecznie hebrajski."
+     ],
+     "następny_test": "Powtórzyć atak anagramowy z kontrolą długości słów: porównać pokrycie osobno dla słów długich (np. ≥5 glifów), gdzie przypadkowe trafienia w słownik są rzadkie, i wymusić, by klucz był injektywny (różne glify → różne litery). Jeśli rękopis nie przewyższa wtedy bełkotu Naibbe-podobnego, hipoteza hebrajska można uznać za obaloną; jeśli przewyższa — metoda zyska wiarygodność."
+    }
+   },
+   "openai/gpt-6-luna": {
+    "raw": "{\n  \"werdykt\": \"metoda niewiarygodna\",\n  \"pewność\": 0.99,\n  \"najmocniejszy_dowód\": \"Kontrola dodatnia przeszła (72,2%), ale test swoistości nie: tekst wietnamski osiągnął 90,8%, angielski 73,7%, a szyfr Naibbe-podobny 65,2%, wobec 69,0% dla rękopisu. Wynik rękopisu nie wyróżnia więc go jako hebrajskiego.\",\n  \"słabości\": [\n    \"Wysokie pokrycie uzyskują również teksty niehebrajskie, co wskazuje, że metoda może reagować na krótkie, powtarzalne słowa zamiast na język hebrajski.\",\n    \"Kontrolą hebrajską była Biblia, a nie tekst średniowieczny; różnice ortograficzne mogły wpłynąć na wynik.\",\n    \"Raport nie podaje niepewności statystycznej ani wyników na niezależnym, odłożonym zbiorze danych.\"\n  ],\n  \"inne_wyjaśnienia\": [\n    \"Wysoki wynik może wynikać z przypadkowego dopasowania krótkich słów do słownika.\",\n    \"Elastyczność dopasowania klucza może dawać wysokie pokrycie także dla tekstów o innej strukturze lub dla bełkotu.\"\n  ],\n  \"następny_test\": \"Powtórzyć test na niezależnych, dopasowanych długością i strukturą korpusach średniowiecznego hebrajskiego oraz wielu języków niehebrajskich, z kluczem i słownikiem ocenianymi na danych odłożonych; wymagać wykrycia celowo zaszyfrowanego hebrajskiego i braku efektu w tekstach przetasowanych.\"\n}",
+    "json": {
+     "werdykt": "metoda niewiarygodna",
+     "pewność": 0.99,
+     "najmocniejszy_dowód": "Kontrola dodatnia przeszła (72,2%), ale test swoistości nie: tekst wietnamski osiągnął 90,8%, angielski 73,7%, a szyfr Naibbe-podobny 65,2%, wobec 69,0% dla rękopisu. Wynik rękopisu nie wyróżnia więc go jako hebrajskiego.",
+     "słabości": [
+      "Wysokie pokrycie uzyskują również teksty niehebrajskie, co wskazuje, że metoda może reagować na krótkie, powtarzalne słowa zamiast na język hebrajski.",
+      "Kontrolą hebrajską była Biblia, a nie tekst średniowieczny; różnice ortograficzne mogły wpłynąć na wynik.",
+      "Raport nie podaje niepewności statystycznej ani wyników na niezależnym, odłożonym zbiorze danych."
+     ],
+     "inne_wyjaśnienia": [
+      "Wysoki wynik może wynikać z przypadkowego dopasowania krótkich słów do słownika.",
+      "Elastyczność dopasowania klucza może dawać wysokie pokrycie także dla tekstów o innej strukturze lub dla bełkotu."
+     ],
+     "następny_test": "Powtórzyć test na niezależnych, dopasowanych długością i strukturą korpusach średniowiecznego hebrajskiego oraz wielu języków niehebrajskich, z kluczem i słownikiem ocenianymi na danych odłożonych; wymagać wykrycia celowo zaszyfrowanego hebrajskiego i braku efektu w tekstach przetasowanych."
+    }
+   },
+   "inception/mercury-3": {
+    "raw": "{\n  \"werdykt\": \"metoda niewiarygodna\",\n  \"pewność\": 0.9,\n  \"najmocniejszy_dowód\": \"Kontrola swoistości niezaliczona: tekst wietnamski osiąga 90.8% pokrycia, więcej niż hebrajski (72.2%), co pokazuje, że wysoka wartość dla rękopisu (69.0%) nie jest specyficzna dla hebrajskiego.\",\n  \"słabości\": [\n    \"Hebrajski korpus to Biblia, nie tekst średniowieczny; różna ortografia może wpływać na wynik.\",\n    \"Krótkie słowa łatwo trafiają w słownik przypadkowo, co zawyża pokrycie w wielu językach.\",\n    \"Brak kontroli na tekstach o podobnym rozkładzie długości słów do rękopisu.\"\n  ],\n  \"inne_wyjaśnienia\": [\n    \"Wysokie pokrycie może wynikać z uniwersalnej własności krótkich słów, a nie z hebrajskiego podłoża.\",\n    \"Metoda może faworyzować języki z dużą liczbą krótkich, powtarzalnych słów (np. wietnamski).\"\n  ],\n  \"następny_test\": \"Przeprowadzić atak anagramowy na korpusie średniowiecznej hebrajszczyzny o podobnej strukturze słów do rękopisu oraz na tekstach nie-hebrajskich dobranych pod względem rozkładu długości słów i częstości glifów.\"\n}",
+    "json": {
+     "werdykt": "metoda niewiarygodna",
+     "pewność": 0.9,
+     "najmocniejszy_dowód": "Kontrola swoistości niezaliczona: tekst wietnamski osiąga 90.8% pokrycia, więcej niż hebrajski (72.2%), co pokazuje, że wysoka wartość dla rękopisu (69.0%) nie jest specyficzna dla hebrajskiego.",
+     "słabości": [
+      "Hebrajski korpus to Biblia, nie tekst średniowieczny; różna ortografia może wpływać na wynik.",
+      "Krótkie słowa łatwo trafiają w słownik przypadkowo, co zawyża pokrycie w wielu językach.",
+      "Brak kontroli na tekstach o podobnym rozkładzie długości słów do rękopisu."
+     ],
+     "inne_wyjaśnienia": [
+      "Wysokie pokrycie może wynikać z uniwersalnej własności krótkich słów, a nie z hebrajskiego podłoża.",
+      "Metoda może faworyzować języki z dużą liczbą krótkich, powtarzalnych słów (np. wietnamski)."
+     ],
+     "następny_test": "Przeprowadzić atak anagramowy na korpusie średniowiecznej hebrajszczyzny o podobnej strukturze słów do rękopisu oraz na tekstach nie-hebrajskich dobranych pod względem rozkładu długości słów i częstości glifów."
+    }
+   },
+   "tencent/hy3": {
+    "raw": "{\n  \"werdykt\": \"metoda niewiarygodna\",\n  \"pewność\": 1.0,\n  \"najmocniejszy_dowód\": \"Niezaliczona kontrola swoistości: tekst wietnamski uzyskał 90.8% pokrycia, wyższego niż hebrajski (72.2%) i MS (69.0%), co pokazuje, że metoda nie wykrywa specyficznie hebrajskiego.\",\n  \"słabości\": [\n    \"Kontrola swoistości nie przeszła: metoda daje wysokie wyniki dla nie-hebrajskich języków (Vietnamese 90.8%, English 73.7%)\",\n    \"Wysokie pokrycie wynika z powtarzalności krótkich słów, o czym świadczy 65.2% dla szyfru Naibbe-podobnego\",\n    \"Korpus hebrajski ograniczony do Biblii, nie uwzględnia średniowiecznej ortografii\"\n  ],\n  \"inne_wyjaśnienia\": [\n    \"MS może być hebrajskim anagramem, ale zastosowana metoda nie ma swoistości, by to potwierdzić\",\n    \"Wynik MS (69%) może odzwierciedlać strukturę glifów krótkich słów, a nie język\",\n    \"Inny słownik hebrajski (średniowieczny) mógłby zmienić wynik kontroli pozytywnej\"\n  ],\n  \"następny_test\": \"Powtórzyć atak anagramowy ze średniowiecznym słownikiem hebrajskim i jako kontrolę swoistości użyć przetasowanych glifów samego MS (bełkot o statystyce MS), zamiast obcych języków naturalnych.\"\n}",
+    "json": {
+     "werdykt": "metoda niewiarygodna",
+     "pewność": 1.0,
+     "najmocniejszy_dowód": "Niezaliczona kontrola swoistości: tekst wietnamski uzyskał 90.8% pokrycia, wyższego niż hebrajski (72.2%) i MS (69.0%), co pokazuje, że metoda nie wykrywa specyficznie hebrajskiego.",
+     "słabości": [
+      "Kontrola swoistości nie przeszła: metoda daje wysokie wyniki dla nie-hebrajskich języków (Vietnamese 90.8%, English 73.7%)",
+      "Wysokie pokrycie wynika z powtarzalności krótkich słów, o czym świadczy 65.2% dla szyfru Naibbe-podobnego",
+      "Korpus hebrajski ograniczony do Biblii, nie uwzględnia średniowiecznej ortografii"
+     ],
+     "inne_wyjaśnienia": [
+      "MS może być hebrajskim anagramem, ale zastosowana metoda nie ma swoistości, by to potwierdzić",
+      "Wynik MS (69%) może odzwierciedlać strukturę glifów krótkich słów, a nie język",
+      "Inny słownik hebrajski (średniowieczny) mógłby zmienić wynik kontroli pozytywnej"
+     ],
+     "następny_test": "Powtórzyć atak anagramowy ze średniowiecznym słownikiem hebrajskim i jako kontrolę swoistości użyć przetasowanych glifów samego MS (bełkot o statystyce MS), zamiast obcych języków naturalnych."
+    }
+   }
+  },
+  "round2": {
+   "z-ai/glm-5.3-flash": {
+    "raw": "{\"ranking\": [\"D\", \"B\", \"C\"], \"uwagi\": \"Wszyscy trzej recenzenci poprawnie identyfikują kluczowy fakt: kontrola swoistości nie została zaliczona (Vietnamese 90,8% > hebrajski 72,2% > rękopis 69,0%), więc wysoki wynik rękopisu nie dowodzi hebrajskiego podłoża. To prawidłowe i zgodne z danymi raportu.\\n\\nD jest najlepszy, bo jako jedyny wyeksponował najbardziej obciążający porównanie w danych: bełkot z szyfru Naibbe-podobnego osiąga 65,2%, czyli zaledwie ~4 pkt poniżej rękopisu (69,0%). To pokazuje, że wynik rękopisu jest niemal nieodróżnialny od struktury samych glifów bez języka. Proponowany przez D następny test (kontrola swoistości na przetasowanych glifach samego rękopisu, o jego statystyce) jest najbardziej precyzyjny i bezpośrednio adresuje zastrzeżenie o krótkich, powtarzalnych słowach. Drobna uwaga: pewność 1.0 jest nieco nadmierna, bo zastrzeżenie o korpusie biblijnym (inna ortografia niż średniowieczna) pozostawia margines niepewności co do kontroli dodatniej.\\n\\nB jest solidny: poprawnie zestawia liczby, wskazuje brak niepewności statystycznej i brak odłożonego zbioru, a jego następny test jest sensowny, choć mniej ukierunkowany niż u D.\\n\\nC jest poprawny, ale wnosi najmniej ponad to, co mówią B i D; jego unikalny wkład (brak kontroli dopasowanej pod względem rozkładu długości słów) jest trafny, lecz częściowo pokrywa się z zastrzeżeniami raportu.\\n\\nTest wyklucza: swoistość metody anagramowej jako detektora hebrajskiego w obecnej formie — metoda daje wyższe pokrycie dla tekstu na pewno nie-hebrajskiego (wietnamski) i niemal takie samo dla bełkotu. Test NIE wyklucza: samej hipotezy hebrajskiego anagramu; ani nie bada ortografii średniowiecznej, niepewności statystycznej ani dopasowania długości słów.\", \"werdykt\": \"metoda niewiarygodna\", \"pewność\": 0.95, \"zmiana_zdania\": \"nie — kontrola swoistości jest niezaliczona wprost w raporcie (Vietnamese 90,8% wobec hebrajskiego 72,2%), a wynik rękopisu (69,0%) jest bliski bełkotowi Naibbe-podobnemu (65,2%), więc dane jednoznacznie dyskwalifikują metodę jako dowód, choć nie samą hipotezę.\"}",
+    "json": {
+     "ranking": [
+      "D",
+      "B",
+      "C"
+     ],
+     "uwagi": "Wszyscy trzej recenzenci poprawnie identyfikują kluczowy fakt: kontrola swoistości nie została zaliczona (Vietnamese 90,8% > hebrajski 72,2% > rękopis 69,0%), więc wysoki wynik rękopisu nie dowodzi hebrajskiego podłoża. To prawidłowe i zgodne z danymi raportu.\n\nD jest najlepszy, bo jako jedyny wyeksponował najbardziej obciążający porównanie w danych: bełkot z szyfru Naibbe-podobnego osiąga 65,2%, czyli zaledwie ~4 pkt poniżej rękopisu (69,0%). To pokazuje, że wynik rękopisu jest niemal nieodróżnialny od struktury samych glifów bez języka. Proponowany przez D następny test (kontrola swoistości na przetasowanych glifach samego rękopisu, o jego statystyce) jest najbardziej precyzyjny i bezpośrednio adresuje zastrzeżenie o krótkich, powtarzalnych słowach. Drobna uwaga: pewność 1.0 jest nieco nadmierna, bo zastrzeżenie o korpusie biblijnym (inna ortografia niż średniowieczna) pozostawia margines niepewności co do kontroli dodatniej.\n\nB jest solidny: poprawnie zestawia liczby, wskazuje brak niepewności statystycznej i brak odłożonego zbioru, a jego następny test jest sensowny, choć mniej ukierunkowany niż u D.\n\nC jest poprawny, ale wnosi najmniej ponad to, co mówią B i D; jego unikalny wkład (brak kontroli dopasowanej pod względem rozkładu długości słów) jest trafny, lecz częściowo pokrywa się z zastrzeżeniami raportu.\n\nTest wyklucza: swoistość metody anagramowej jako detektora hebrajskiego w obecnej formie — metoda daje wyższe pokrycie dla tekstu na pewno nie-hebrajskiego (wietnamski) i niemal takie samo dla bełkotu. Test NIE wyklucza: samej hipotezy hebrajskiego anagramu; ani nie bada ortografii średniowiecznej, niepewności statystycznej ani dopasowania długości słów.",
+     "werdykt": "metoda niewiarygodna",
+     "pewność": 0.95,
+     "zmiana_zdania": "nie — kontrola swoistości jest niezaliczona wprost w raporcie (Vietnamese 90,8% wobec hebrajskiego 72,2%), a wynik rękopisu (69,0%) jest bliski bełkotowi Naibbe-podobnemu (65,2%), więc dane jednoznacznie dyskwalifikują metodę jako dowód, choć nie samą hipotezę."
+    }
+   },
+   "openai/gpt-6-luna": {
+    "raw": "{\n  \"ranking\": [\"D\", \"C\", \"A\"],\n  \"uwagi\": \"Wszystkie trzy opinie trafnie uznają metodę za niewiarygodną: kontrola dodatnia przeszła (72,2%), ale swoistość nie — wietnamski osiąga 90,8%, a angielski 73,7%, wobec 69,0% dla rękopisu. D jest najlepiej uzasadniona, bo proponuje kontrolę na przetasowanych danych samego rękopisu, bezpośrednio sprawdzającą wymóg, by efekt nie pojawiał się w danych losowych. Błąd D: taka kontrola powinna uzupełniać, a nie zastępować teksty niehebrajskie; przetasowanie trzeba też zaprojektować tak, by zachować istotne cechy danych. C sensownie wskazuje na potrzebę korpusu średniowiecznego i dopasowanych kontroli, ale nie proponuje kontroli przetasowanej. A trafnie wskazuje krótkie słowa i wielokrotne przypisania glifów do liter, lecz próg długości i wymuszenie injektywności nie wynikają z raportu; ponadto niepowodzenie testu nie obala samo w sobie hipotezy. Raport osłabia swoistość tej metody, nie rozstrzyga, czy rękopis ma hebrajskie podłoże. Nie bada m.in. tego, czy inny korpus lub ortografia zmieniłyby wynik.\",\n  \"werdykt\": \"Metoda nie dostarcza wiarygodnego, swoistego wsparcia dla hipotezy hebrew_anagram: kontrola dodatnia przeszła, lecz swoistość nie. Najbardziej zmieniłaby ocenę nowa próba obejmująca przetasowane wersje rękopisu zachowujące odpowiednie statystyki, a także średniowieczny korpus hebrajski i dopasowane kontrole niehebrajskie.\",\n  \"pewność\": 0.96,\n  \"zmiana_zdania\": \"nie — opinie nie zmieniają oceny wynikającej z raportu; D najlepiej wskazuje następny test, choć przetasowane dane powinny uzupełniać, nie zastępować, kontrole niehebrajskie.\"\n}",
+    "json": {
+     "ranking": [
+      "D",
+      "C",
+      "A"
+     ],
+     "uwagi": "Wszystkie trzy opinie trafnie uznają metodę za niewiarygodną: kontrola dodatnia przeszła (72,2%), ale swoistość nie — wietnamski osiąga 90,8%, a angielski 73,7%, wobec 69,0% dla rękopisu. D jest najlepiej uzasadniona, bo proponuje kontrolę na przetasowanych danych samego rękopisu, bezpośrednio sprawdzającą wymóg, by efekt nie pojawiał się w danych losowych. Błąd D: taka kontrola powinna uzupełniać, a nie zastępować teksty niehebrajskie; przetasowanie trzeba też zaprojektować tak, by zachować istotne cechy danych. C sensownie wskazuje na potrzebę korpusu średniowiecznego i dopasowanych kontroli, ale nie proponuje kontroli przetasowanej. A trafnie wskazuje krótkie słowa i wielokrotne przypisania glifów do liter, lecz próg długości i wymuszenie injektywności nie wynikają z raportu; ponadto niepowodzenie testu nie obala samo w sobie hipotezy. Raport osłabia swoistość tej metody, nie rozstrzyga, czy rękopis ma hebrajskie podłoże. Nie bada m.in. tego, czy inny korpus lub ortografia zmieniłyby wynik.",
+     "werdykt": "Metoda nie dostarcza wiarygodnego, swoistego wsparcia dla hipotezy hebrew_anagram: kontrola dodatnia przeszła, lecz swoistość nie. Najbardziej zmieniłaby ocenę nowa próba obejmująca przetasowane wersje rękopisu zachowujące odpowiednie statystyki, a także średniowieczny korpus hebrajski i dopasowane kontrole niehebrajskie.",
+     "pewność": 0.96,
+     "zmiana_zdania": "nie — opinie nie zmieniają oceny wynikającej z raportu; D najlepiej wskazuje następny test, choć przetasowane dane powinny uzupełniać, nie zastępować, kontrole niehebrajskie."
+    }
+   },
+   "inception/mercury-3": {
+    "raw": "{\"ranking\": [\"A\", \"B\", \"D\"], \"uwagi\": \"Opinia A najlepiej wykorzystuje dane z raportu: pokazuje niezaliczenie kontroli swoistości (Vietnamese 90.8% wobec 69.0% dla rękopisu), wiąże wynik ze strukturą krótkich powtarzalnych słów i proponuje precyzyjny następny test (kontrola długości słów, injektywność klucza). Opinia B poprawnie wskazuje główny problem, ale dodaje kryteria, których raport nie bada (niepewność statystyczna, zbiór odłożony), słabiej opierając się na konkretnych liczbach. Opinia D jest przyzwoita, ale pewność 1.0 jest przeszacowana — raport nie daje podstaw do całkowitej pewności; poza tym proponowany test z przetasowanymi glifami MS jest zasadny, lecz nie jedyny i nie najważniejszy. Wszyscy zgadzają się, że kontrola swoistości nie została zaliczona, ale A najbardziej konsekwentnie łączy to z liczbami i proponuje wykonalną korektę.\", \"werdykt\": \"Metoda niewiarygodna dla hipotezy hebrajskiego anagramu: nie przeszedł testu swoistości, a wynik rękopisu (69.0%) jest bliski bełkotowi Naibbe-podobnemu (65.2%) i daleki od wykresania hebrajskiego spośród innych języków.\", \"pewność\": 0.95, \"zmiana_zdania\": \"tak — wcześniej dopuszczałem możliwość hebrajskiego anagramu, ale niezaliczenie kontroli swoistości (Vietnamese 90.8%) dowodzi, że wysoka wartość pokrycia nie jest specyficzna dla hebrajskiego.\"}",
+    "json": {
+     "ranking": [
+      "A",
+      "B",
+      "D"
+     ],
+     "uwagi": "Opinia A najlepiej wykorzystuje dane z raportu: pokazuje niezaliczenie kontroli swoistości (Vietnamese 90.8% wobec 69.0% dla rękopisu), wiąże wynik ze strukturą krótkich powtarzalnych słów i proponuje precyzyjny następny test (kontrola długości słów, injektywność klucza). Opinia B poprawnie wskazuje główny problem, ale dodaje kryteria, których raport nie bada (niepewność statystyczna, zbiór odłożony), słabiej opierając się na konkretnych liczbach. Opinia D jest przyzwoita, ale pewność 1.0 jest przeszacowana — raport nie daje podstaw do całkowitej pewności; poza tym proponowany test z przetasowanymi glifami MS jest zasadny, lecz nie jedyny i nie najważniejszy. Wszyscy zgadzają się, że kontrola swoistości nie została zaliczona, ale A najbardziej konsekwentnie łączy to z liczbami i proponuje wykonalną korektę.",
+     "werdykt": "Metoda niewiarygodna dla hipotezy hebrajskiego anagramu: nie przeszedł testu swoistości, a wynik rękopisu (69.0%) jest bliski bełkotowi Naibbe-podobnemu (65.2%) i daleki od wykresania hebrajskiego spośród innych języków.",
+     "pewność": 0.95,
+     "zmiana_zdania": "tak — wcześniej dopuszczałem możliwość hebrajskiego anagramu, ale niezaliczenie kontroli swoistości (Vietnamese 90.8%) dowodzi, że wysoka wartość pokrycia nie jest specyficzna dla hebrajskiego."
+    }
+   },
+   "tencent/hy3": {
+    "raw": "{\n  \"ranking\": [\"A\", \"B\", \"C\"],\n  \"uwagi\": \"Opinia A jest najlepiej uzasadniona danymi: precyzyjnie wskazuje na niezaliczoną kontrolę swoistości (wietnamski 90.8% > hebrajski 72.2%) oraz identyfikuje konkretną wadę metody z raportu – nieinjektywny klucz (wiele glifów → ש, ב, ת), co sprzyja przypadkowym trafieniom. Proponuje test naprawczy adresujący te słabości (długie słowa, klucz injektywny). Opinia B słusznie podsumowuje dane, ale błędnie zarzuca brak 'niepewności statystycznej' i 'odłożonego zbioru' – raport nie podaje takich wymogów, a test porównawczy z bełkotem pełni rolę kontroli. Opinia C jest poprawna, lecz powierzchowna; pomija kwestię nieinjektywności klucza, a jej sugestia o 'podobnym rozkładzie długości' nie rozwiązuje problemu krótkich słów tak skutecznie jak propozycja A.\",\n  \"werdykt\": \"metoda niewiarygodna\",\n  \"pewność\": 0.95,\n  \"zmiana_zdania\": \"nie, raport jednoznacznie wykazuje niezaliczenie kontroli swoistości (warunek konieczny wg zasad rady), co dyskwalifikuje test niezależnie od wyniku dla rękopisu (69.0%)\"\n}",
+    "json": {
+     "ranking": [
+      "A",
+      "B",
+      "C"
+     ],
+     "uwagi": "Opinia A jest najlepiej uzasadniona danymi: precyzyjnie wskazuje na niezaliczoną kontrolę swoistości (wietnamski 90.8% > hebrajski 72.2%) oraz identyfikuje konkretną wadę metody z raportu – nieinjektywny klucz (wiele glifów → ש, ב, ת), co sprzyja przypadkowym trafieniom. Proponuje test naprawczy adresujący te słabości (długie słowa, klucz injektywny). Opinia B słusznie podsumowuje dane, ale błędnie zarzuca brak 'niepewności statystycznej' i 'odłożonego zbioru' – raport nie podaje takich wymogów, a test porównawczy z bełkotem pełni rolę kontroli. Opinia C jest poprawna, lecz powierzchowna; pomija kwestię nieinjektywności klucza, a jej sugestia o 'podobnym rozkładzie długości' nie rozwiązuje problemu krótkich słów tak skutecznie jak propozycja A.",
+     "werdykt": "metoda niewiarygodna",
+     "pewność": 0.95,
+     "zmiana_zdania": "nie, raport jednoznacznie wykazuje niezaliczenie kontroli swoistości (warunek konieczny wg zasad rady), co dyskwalifikuje test niezależnie od wyniku dla rękopisu (69.0%)"
+    }
+   }
+  },
+  "synthesis": "## Werdykt rady\n**Metoda niewiarygodna jako swoisty test hipotezy „hebrew_anagram”.** Zgoda jest pełna: wszyscy czterej recenzenci uznali, że kontrola swoistości nie przeszła.\n\n## Co test naprawdę pokazuje\nKontrola dodatnia zadziałała: zaszyfrowany, zanagramowany hebrajski osiągnął 72,2% przy wymaganym minimum 50%. Swoistość jednak zawiodła: wietnamski uzyskał 90,8%, angielski 73,7%, a rękopis 69,0%. Wynik rękopisu jest też bliski wynikowi szyfru Naibbe-podobnego (65,2%). Zatem ta metoda nie odróżnia wiarygodnie hebrajskiego od danych niehebrajskich. **Nie rozstrzyga to, czy rękopis ma hebrajskie podłoże** — podważa wartość dowodową tego testu.\n\n## Główne zastrzeżenia\nKontrolę hebrajską oparto na Biblii, nie na tekście średniowiecznym. Raport wskazuje też na przypadkowe trafienia krótkich słów; dodatkowo klucz przypisuje wiele różnych glifów do tych samych liter. Te ograniczenia mogą wpływać na pokrycie słownikiem.\n\n## Rekomendowany następny eksperyment\nPrzeprowadzić z góry określony test porównawczy, zachowując w kontrolach rozkład glifów i długości słów rękopisu, ale losowo zmieniając ich przyporządkowanie do słów. Sprawdzić, czy oryginał wyraźnie przewyższa takie kontrole, zachowując kontrolę dodatnią z celowo zaszyfrowanym hebrajskim.",
+  "failed": {},
+  "votes": {
+   "metoda niewiarygodna": 3,
+   "metoda nie dostarcza wiarygodnego, swois": 1
+  }
+ }
+}
