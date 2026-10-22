@@ -69,7 +69,7 @@ cfg = LabConfig(
     ],
     chair_model="openai/gpt-6-luna",           # opcjonalnie; bez tego przewodniczy pierwszy z listy
     vision_model="qwen/qwen2.5-vl-72b-instruct",
-    vlm_folios_limit=20,       # 0 = wszystkie strony zielnika dla modelu wizyjnego (~130 obrazów)
+    vlm_folios_limit=0,        # 0 = wszystkie strony zielnika dla modelu wizyjnego (~120 obrazów); 20 = szybka próba
     images_dir=None,           # np. Path("/content/drive/MyDrive/voynich_skany"): pliki f1r.jpg, f1v.jpg...
     gpt_steps=6000,            # kroki uczenia transformera
     run_image_diffusion=False, # True: SDXL + LoRA dla brakujących stron (~1 h na A100)

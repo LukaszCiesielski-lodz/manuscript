@@ -138,6 +138,7 @@ class Hunt:
         self.entries: list[dict] = []
         self.wishes: list[dict] = []
         self.seen: set[str] = set()
+        self.silent: list[dict] = []   # replies with no parsable recipe, kept to diagnose a model
         self.out_dir: Path = lab.cfg.results_dir / "hunt"
         self.out_dir.mkdir(parents=True, exist_ok=True)
 
@@ -150,8 +151,19 @@ class Hunt:
             for e in own)) if own else "To Twoja pierwsza runda."
         prompt = ASK.format(persona=persona, known=KNOWN, doc=dsl_doc(), board=board_text(self.entries), own=own_txt,
                             round=round_no, rounds=self.rounds, k=self.per_hound)
-        text = self.lab.client.chat(model, [{"role": "user", "content": prompt}], self.lab.cfg.max_tokens)
+        messages = [{"role": "user", "content": prompt}]
+        text = self.lab.client.chat(model, messages, self.lab.cfg.max_tokens)
         data = parse_json(text)
+        if not data.get("recipes"):
+            # inception/mercury-3 (sceptyk) answered every round without a parsable recipe in Colab; ask once more.
+            messages += [{"role": "assistant", "content": text},
+                         {"role": "user", "content": 'Nie znalazłem przepisów. Odpowiedz wyłącznie obiektem JSON '
+                                                     '{"recipes": [...], "poza_klockami": [...]}, bez komentarza.'}]
+            text = self.lab.client.chat(model, messages, self.lab.cfg.max_tokens)
+            data = parse_json(text)
+            if not data.get("recipes"):
+                self.silent.append({"hound": name, "model": model, "round": round_no, "reply": text[:600]})
+                print(f"  {model} ({name}): brak przepisu w odpowiedzi: {text[:120]!r}")
         for w in data.get("poza_klockami") or []:
             self.wishes.append({"hound": name, "model": model, "round": round_no, "idea": str(w)[:400]})
         recipes = data.get("recipes") or []
@@ -221,7 +233,7 @@ class Hunt:
                     self.lab.cfg.max_tokens)
             except Exception as e:
                 synthesis = f"(synteza niedostępna: {e})"
-        self.summary = {"entries": self.entries, "confirm": confirm, "wishes": self.wishes, "synthesis": synthesis,
+        self.summary = {"entries": self.entries, "confirm": confirm, "wishes": self.wishes, "silent": self.silent, "synthesis": synthesis,
                         "settings": self.settings.__dict__, "spent_usd": self.lab.client.spent_usd if self.lab.client else 0}
         self._save()
         return self.summary
@@ -231,8 +243,12 @@ class Hunt:
         (self.out_dir / "hunt.json").write_text(json.dumps(data, ensure_ascii=False, indent=1, default=str), encoding="utf-8")
         md = ["# Polowanie psów gończych", "", board_text(self.entries, 40), ""]
         if getattr(self, "summary", None):
-            md += ["## Powtórka", ""] + [f"- {c['name']}: {c['first']['verdict']} → {c['repeat']['verdict']}"
-                                        for c in self.summary["confirm"]]
+            md += ["## Powtórka", ""] + ([f"- {c['name']}: {c['first']['verdict']} → {c['repeat']['verdict']}"
+                                         for c in self.summary["confirm"]]
+                                        or ["Brak kandydatów: żaden przepis nie dostał werdyktu TROP ani „niejasny”."])
+            if self.silent:
+                md += ["", "## Psy bez przepisów", ""] + [f"- {x['model']} ({x['hound']}, runda {x['round']}): "
+                                                          f"{x['reply'][:200]!r}" for x in self.silent]
             md += ["", "## Lista życzeń (nowe klocki)", ""] + [f"- ({w['hound']}) {w['idea']}" for w in self.wishes]
             md += ["", "## Synteza przewodniczącego", "", self.summary["synthesis"]]
         (self.out_dir / "hunt.md").write_text("\n".join(md), encoding="utf-8")

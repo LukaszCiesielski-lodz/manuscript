@@ -210,6 +210,9 @@ class RecipeTest(unittest.TestCase):
         self.assertTrue(validate({"steps": [{"op": "drop_glyphs"}], "target": "Latin"}))   # missing glyphs
         self.assertTrue(validate({"steps": [], "target": "Klingon"}))
         self.assertTrue(validate({"steps": [{"op": "take_words", "every": 1}], "target": "Latin"}))
+        # Zodiac pages hold labels and ring text only: no running text for a recipe (Colab hunt wasted 3 recipes).
+        self.assertTrue(validate({"steps": [], "target": "Latin", "scope": {"section": "zodiac"}}))
+        self.assertEqual(validate({"steps": [], "target": "Latin", "scope": {"section": "herbal"}}), [])
 
     def test_every_step_is_undone_by_its_plant(self):
         # The positive control rests on this: decoding a planted text must give back the plaintext.
@@ -243,3 +246,23 @@ class NotebookTest(unittest.TestCase):
             if c["cell_type"] == "code":
                 src = "".join(l for l in c["source"] if not l.lstrip().startswith(("!", "%")))
                 compile(src, f"komórka {i}", "exec")
+
+
+class HuntTest(unittest.TestCase):
+    def test_hound_without_recipe_is_asked_again_then_logged(self):
+        import tempfile
+        from pathlib import Path
+        from types import SimpleNamespace
+        from voynich.lab.hounds import Hunt
+        replies = iter(["Uważam, że to bełkot.", "Nadal sądzę, że to bełkot.",
+                        "Za drugim razem nic.", '{"recipes": [{"name": "x", "steps": [], "target": "Latin"}]}'])
+        calls = []
+        client = SimpleNamespace(chat=lambda m, msgs, t: (calls.append(len(msgs)), next(replies))[1])
+        with tempfile.TemporaryDirectory() as d:
+            lab = SimpleNamespace(client=client, cfg=SimpleNamespace(quick=True, results_dir=Path(d), max_tokens=100))
+            hunt = Hunt(lab, rounds=1, per_hound=1, workers=1)
+            self.assertEqual(hunt._ask(0, "m", 1), [])
+            self.assertEqual(len(hunt.silent), 1)
+            self.assertEqual(calls, [1, 3])  # the retry carries the first answer and a reminder
+            self.assertEqual([r["name"] for r in hunt._ask(0, "m", 1)], ["x"])  # the reminder worked
+            self.assertEqual(len(hunt.silent), 1)

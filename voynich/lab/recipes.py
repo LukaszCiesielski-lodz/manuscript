@@ -25,6 +25,7 @@ genuine target-language text ("excess" < 0.6 bit/symbol), which noise never is.
 
 from __future__ import annotations
 
+import functools
 import hashlib
 import json
 import math
@@ -314,6 +315,20 @@ TARGET_OPS = {
 SECTIONS = ["herbal", "astronomical", "cosmological", "zodiac", "biological", "pharmaceutical", "stars", "text"]
 
 
+MIN_SCOPE_WORDS = 1500  # half goes to the test; below ~700 words the gap estimate is noise (cosmological gave negative gaps)
+
+
+@functools.lru_cache(maxsize=1)
+def section_words() -> dict[str, int]:
+    """Words of running text (paragraph lines) per section: what a recipe's scope can draw on."""
+    from collections import Counter
+    c = Counter()
+    for l in corpus.load_voynich():
+        if l.kind.startswith("P"):
+            c[l.section] += len(l.words)
+    return dict(c)
+
+
 def targets() -> list[str]:
     return corpus.reference_languages() + ["MedievalLatin", "BasqueNews"]
 
@@ -328,8 +343,10 @@ def dsl_doc() -> str:
     lines.append("Operacje na języku docelowym (pole 'target_ops'): "
                  + "; ".join(f"{k}: {v}" for k, v in TARGET_OPS.items()))
     lines.append("Języki docelowe ('target'): " + ", ".join(targets()))
-    lines.append("Zakres ('scope', opcjonalny): section ∈ " + ", ".join(SECTIONS)
-                 + "; language ∈ A, B (dialekty Curriera).")
+    counts = section_words()
+    lines.append("Zakres ('scope', opcjonalny): section ∈ " + ", ".join(f"{k} ({counts.get(k, 0)} słów)" for k in SECTIONS)
+                 + "; language ∈ A, B (dialekty Curriera). Liczy się tylko tekst ciągły (bez etykiet i napisów "
+                 f"na okręgach); przepis potrzebuje co najmniej {MIN_SCOPE_WORDS} słów w zakresie.")
     lines.append("Uwaga: łamacz trigramowy nie radzi sobie z posortowanymi literami, więc przepisy z sort_glyphs zwykle "
                  "kończą się werdyktem 'metoda niewiarygodna' (kontrola dodatnia nie przechodzi).")
     lines.append("Na końcu zawsze działa łamacz szyfru podstawieniowego (wiele glifów może dać tę samą literę), "
@@ -349,6 +366,9 @@ def validate(recipe: dict) -> list[str]:
     sc = recipe.get("scope") or {}
     if sc.get("section") not in (None, *SECTIONS):
         errs.append(f"nieznany dział {sc.get('section')!r}")
+    elif sc.get("section") and section_words().get(sc["section"], 0) < MIN_SCOPE_WORDS:
+        errs.append(f"dział {sc['section']!r} ma tylko {section_words().get(sc['section'], 0)} słów tekstu ciągłego "
+                    f"(potrzeba {MIN_SCOPE_WORDS}); wybierz inny dział albo cały tekst")
     if sc.get("language") not in (None, "A", "B"):
         errs.append(f"nieznany język Curriera {sc.get('language')!r}")
     steps = recipe.get("steps")
@@ -498,7 +518,7 @@ def run_recipe(recipe: dict, shared: Shared, s: Settings) -> dict:
                  and (not sc.get("section") or l.section == sc["section"])
                  and (not sc.get("language") or l.language == sc["language"])]
         total = sum(len(l.words) for l in scope)
-        if total < 600:
+        if total < MIN_SCOPE_WORDS:
             return {**out, "verdict": "błąd przepisu", "error": f"za mało tekstu w zakresie ({total} słów)"}
         n_v = min(n, total // 2)
         start = s.slice * n_v if (s.slice + 1) * n_v <= total else 0
