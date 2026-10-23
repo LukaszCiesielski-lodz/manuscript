@@ -295,12 +295,10 @@ class ScribeRules:
                     first_line[w[0]] += 1
                 if i == len(ws) - 1 and len(ws) >= 3:
                     last_line[w[-1]] += 1
-        a_tot, b_tot = Counter(), Counter()
-        for (a, b), n in pairs.items():
-            a_tot[a] += n
-            b_tot[b] += n
-        n_pairs = sum(pairs.values())
-        self.edge = {(a, b): (n / a_tot[a]) / (b_tot[b] / n_pairs) for (a, b), n in pairs.items() if n >= 5}
+        self.edge = self._ratios(pairs)
+        # The same with two glyphs on each side of the seam ("-dy" then "qo-"), used where seen often enough.
+        self.edge2 = self._ratios(Counter((tuple(a[-2:]), tuple(b[:2])) for l in lines for a, b in zip(
+            [w for w in l if w], [w for w in l if w][1:])))
         nf, nl, na, nz = sum(first_line.values()), sum(last_line.values()), sum(first_all.values()), sum(last_all.values())
         self.first = {g: (first_line[g] / nf) / (c / na) for g, c in first_all.items() if c >= 20}
         self.last = {g: (last_line[g] / nl) / (c / nz) for g, c in last_all.items() if c >= 20}
@@ -311,13 +309,27 @@ class ScribeRules:
         n_len = sum(lengths.values())
         self.length = {k: v / n_len for k, v in lengths.items()}
 
+    @staticmethod
+    def _ratios(pairs: Counter, min_count: int = 5) -> dict:
+        a_tot, b_tot = Counter(), Counter()
+        for (a, b), n in pairs.items():
+            a_tot[a] += n
+            b_tot[b] += n
+        total = sum(pairs.values())
+        return {(a, b): (n / a_tot[a]) / (b_tot[b] / total) for (a, b), n in pairs.items() if n >= min_count}
+
+    def seam(self, w: Word, prev: Word | None) -> float:
+        if not prev:
+            return 1.0
+        two = self.edge2.get((tuple(prev[-2:]), tuple(w[:2])))
+        return two if two is not None else self.edge.get((prev[-1], w[0]), 0.3)
+
+    def position(self, w: Word, at_start: bool, at_end: bool) -> float:
+        x = self.first.get(w[0], 0.3) if at_start else self.first_mid.get(w[0], 1.0)
+        return x * (self.last.get(w[-1], 0.3) if at_end else self.last_mid.get(w[-1], 1.0))
+
     def weight(self, w: Word, prev: Word | None, at_start: bool, at_end: bool) -> float:
-        x = 1.0
-        if prev:
-            x *= self.edge.get((prev[-1], w[0]), 0.3)
-        x *= self.first.get(w[0], 0.3) if at_start else self.first_mid.get(w[0], 1.0)
-        x *= self.last.get(w[-1], 0.3) if at_end else self.last_mid.get(w[-1], 1.0)
-        return x
+        return self.seam(w, prev) * self.position(w, at_start, at_end)
 
 
 def sample_word(grammar: WordGrammar, rng: random.Random, max_len: int = 10) -> Word:
@@ -402,6 +414,9 @@ def generate_v5(
     p_repeat: float = 0.0,
     p_fav: float = 0.0,
     favourites: Sequence[tuple[Word, float]] = (),
+    p_short: float = 0.0,
+    shorts: Sequence[tuple[Word, float]] = (),
+    position_gamma: float | None = None,
     window: int = 8,
     candidates: int = 6,
     gamma: float = 1.0,
@@ -424,6 +439,9 @@ def generate_v5(
     history = [w for l in lines for w in l]
     proposed = Counter({k: 1 for k in rules.length})  # running length distribution of candidates
 
+    short_words = [list(w) for w, _ in shorts]
+    short_weights = [x for _, x in shorts]
+    pos_gamma = gamma if position_gamma is None else position_gamma
     fav_words = [list(w) for w, _ in favourites]
     fav_weights = [x for _, x in favourites]
     counts = Counter(tuple(w) for w in history)
@@ -445,6 +463,8 @@ def generate_v5(
             return list(prev)
         if fav_words and x < p_new + p_hot + p_repeat + p_fav:
             return list(rng.choices(fav_words, fav_weights)[0])
+        if short_words and x < p_new + p_hot + p_repeat + p_fav + p_short:
+            return list(rng.choices(short_words, short_weights)[0])
         r = rng.random()
         if r < p_far:
             src = rng.choice(history)
@@ -478,7 +498,8 @@ def generate_v5(
             for c in cands:
                 proposed[len(c)] += 1
                 lw = (rules.length.get(len(c), 1e-4) / (proposed[len(c)] / total_prop)) ** length_gamma
-                weights.append(rules.weight(c, line[-1] if line else None, col == 0, col == n - 1) ** gamma * lw)
+                weights.append(rules.seam(c, line[-1] if line else None) ** gamma
+                               * rules.position(c, col == 0, col == n - 1) ** pos_gamma * lw)
             line.append(rng.choices(cands, [max(x, 1e-12) for x in weights])[0])
         if line:
             lines.append(line)

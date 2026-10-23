@@ -80,17 +80,20 @@ def generate_by_section(runs, params: dict, seed: int, min_words: int = 1500, fa
         if k not in models:
             lines = pooled[k]
             words = [w for l in lines for w in l]
-            favs = Counter(tuple(w) for w in words).most_common(fav_n)
+            counts = Counter(tuple(w) for w in words)
+            favs = counts.most_common(fav_n)
+            shorts = [(list(w), c) for w, c in counts.items() if len(w) <= 2 and c >= 3]
             models[k] = (selfcite.ScribeRules(lines), selfcite.EditModel(words), selfcite.WordGrammar(words, beta=5),
-                         selfcite.WordMaker(words), [len(l) for l in lines], [(list(w), c) for w, c in favs])
+                         selfcite.WordMaker(words), [len(l) for l in lines], [(list(w), c) for w, c in favs], shorts)
         return models[k]
 
     out = []
     for i, (key, lines) in enumerate(runs):
-        rules, edits, grammar, maker, lengths, favs = model(key)
+        rules, edits, grammar, maker, lengths, favs, shorts = model(key)
         n = sum(map(len, lines))
         gen = selfcite.generate_v5(lines[:2], n + sum(map(len, lines[:2])), lengths, rules, edits, grammar,
-                                   seed=seed + i, maker=maker, favourites=favs, **params)
+                                   seed=seed + i, maker=maker, favourites=favs, shorts=shorts,
+                                   **params)
         out.extend(gen[2:])
     return out
 
