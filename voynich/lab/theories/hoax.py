@@ -154,6 +154,27 @@ def run(cfg: LabConfig) -> TheoryResult:
     b = metrics[best]
     passed = not b["misses"] and b["auc"] <= 0.6
     hardest = min((k for k in gens), key=lambda k: metrics[k]["auc"])
+
+    # Where does the classifier find its cues: inside words, or across the gap between them? And how far does
+    # a word chain (each word drawn given the previous one, words reused only) get, here and in real languages?
+    fmt = lambda d: f"wewnątrz słów {d['inside']:.2f}, na styku słów {d['across']:.2f}, razem {d['all']:.2f}"
+    split = hoax.split_auc(even, gens[hardest], cfg.seed)
+    chain = {o: hoax.split_auc(even, hoax.word_chain(odd, odd, o, seed=cfg.seed), cfg.seed) for o in (0, 1, 2)}
+    refs = {}
+    for lang in ("Latin", "Italian"):
+        words = corpus.load_reference(lang)[:35000]
+        ll = [[list(w) for w in words[i:i + 9]] for i in range(0, len(words), 9)]
+        a, c = ll[0::2], ll[1::2]
+        refs[lang] = {"real": hoax.split_auc(c, a, cfg.seed),
+                      **{o: hoax.split_auc(c, hoax.word_chain(a, a, o, seed=cfg.seed), cfg.seed) for o in (0, 1, 2)}}
+    metrics["split"] = {"generator": hardest, "auc": split, "chain": chain, "languages": refs}
+    res.evidence.append(f"Skąd klasyfikator wie ({hardest}): {fmt(split)}. Prawdziwe połowy rękopisu: "
+                        f"{fmt(hoax.split_auc(even, odd, cfg.seed))}.")
+    res.evidence.append("Łańcuch słów (każde słowo losowane po poprzednich, tylko słowa już widziane): rękopis – "
+                        + "; ".join(f"pamięć {o} słów: {fmt(chain[o])}" for o in (0, 1, 2)) + ".")
+    for lang, rr in refs.items():
+        res.evidence.append(f"To samo dla {lang}: prawdziwe połowy {fmt(rr['real'])}; "
+                            + "; ".join(f"pamięć {o} słów: {fmt(rr[o])}" for o in (0, 1, 2)) + ".")
     res.metrics = metrics
     res.decide(True if passed else None)  # one failed recipe does not refute meaningless text in general
     res.summary = (f"Najlepszy generator ({best}) trafia w {len(hoax.MEASURES) - len(b['misses'])} z {len(hoax.MEASURES)} "
@@ -168,6 +189,9 @@ def run(cfg: LabConfig) -> TheoryResult:
         "nieparzyste (reguły) i parzyste (sprawdzian).",
         "Reguły v5 są wyuczone z rękopisu: pokazują, że takie nawyki wystarczą, nie skąd skryba by je wziął.",
         "Klasyfikator widzi tylko n-gramy znaków w pojedynczych wierszach; mocniejszy model mógłby odróżnić więcej.",
+        "Ten klasyfikator nie odróżnia dalekiej składni od pamięci jednego słowa: łańcuch słów z pamięcią 1 słowa "
+        "zbliża się do prawdziwego tekstu tak samo w łacinie i włoskim jak w rękopisie, więc AUC bliskie 0,5 "
+        "nie dowodziłoby braku treści.",
     ]
     res.seconds = time.time() - t0
     return res

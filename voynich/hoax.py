@@ -127,6 +127,63 @@ def classifier_auc(real: Sequence[Line], fake: Sequence[Line], seed: int) -> flo
     return discriminator_auc(line_strings(real), line_strings(fake), seed)
 
 
+def split_auc(real: Sequence[Line], fake: Sequence[Line], seed: int) -> dict[str, float]:
+    """Classifier AUC from cues inside words only, from cues across the gap between words only, and from all.
+
+    Separates "the words look wrong" from "the words follow each other wrongly". For
+    reference: real Voynich words shuffled within a line's section give 0.56 / 0.82.
+    """
+    from sklearn.feature_extraction.text import TfidfVectorizer
+    from sklearn.linear_model import LogisticRegression
+    from sklearn.metrics import roc_auc_score
+    r = random.Random(seed)
+    a, b = line_strings(real), line_strings(fake)
+    n = min(len(a), len(b))
+    x = r.sample(a, n) + r.sample(b, n)
+    y = [0] * n + [1] * n
+    idx = list(range(2 * n))
+    r.shuffle(idx)
+    tr, te = idx[:n], idx[n:]
+    vec = TfidfVectorizer(analyzer="char", ngram_range=(1, 4), min_df=2)
+    xtr, xte = vec.fit_transform([x[i] for i in tr]), vec.transform([x[i] for i in te])
+    names = vec.get_feature_names_out()
+    out = {}
+    for part, keep in (("inside", lambda f: "." not in f.strip(".")), ("across", lambda f: "." in f.strip(".")),
+                       ("all", lambda f: True)):
+        cols = [j for j, f in enumerate(names) if keep(f)]
+        clf = LogisticRegression(max_iter=3000, C=2.0).fit(xtr[:, cols], [y[i] for i in tr])
+        out[part] = float(roc_auc_score([y[i] for i in te], clf.predict_proba(xte[:, cols])[:, 1]))
+    return out
+
+
+def word_chain(train: Sequence[Line], like: Sequence[Line], order: int = 1, keep: float = 0.9, seed: int = 1) -> list[Line]:
+    """Lines shaped like `like`, each word drawn given the previous `order` words of its line in `train`.
+
+    A reference, not a hoax recipe: it can only reuse words it has seen. With probability
+    1 - keep (and when the context is unseen) it backs off to a shorter context.
+    """
+    r = random.Random(seed)
+    tabs: list[dict] = [{} for _ in range(order + 1)]
+    for l in train:
+        seq = ["<s>"] * order + [tuple(w) for w in l]
+        for i in range(order, len(seq)):
+            for k in range(order + 1):
+                tabs[k].setdefault(tuple(seq[i - k:i]), Counter())[seq[i]] += 1
+    out = []
+    for l in like:
+        ctx, line = ["<s>"] * order, []
+        for _ in l:
+            for k in range(order, -1, -1):
+                c = tabs[k].get(tuple(ctx[len(ctx) - k:]) if k else ())
+                if c and (k == 0 or r.random() < keep):
+                    break
+            w = r.choices(list(c), list(c.values()))[0]
+            line.append(list(w))
+            ctx.append(w)
+        out.append(line)
+    return out
+
+
 def shuffle_lines(lines: Sequence[Line], seed: int) -> list[Line]:
     r = random.Random(seed)
     out = list(lines)
