@@ -41,6 +41,7 @@ def run(cfg: LabConfig) -> TheoryResult:
         return res
     zl = [[list(w) for w in l] for l in tr.load_lines("ZL")]
     stick = hoax.yardstick(zl)
+    zl_words = sum(map(len, zl))
     metrics, holds = {}, []
     for tid in ids:
         lines = [[list(w) for w in l] for l in tr.load_lines(tid)]
@@ -51,18 +52,23 @@ def run(cfg: LabConfig) -> TheoryResult:
         zs = {k: card[k]["z"] for k in SHAPE if k in card}
         glyphs = len({g for l in lines for w in l for g in w})
         ok = syn["unrelated"]["z"] < 2.5 and syn["same"]["z"] > 3 and dyn["ac1"]["value"] > 0.05
-        holds.append(ok)
+        complete = n_words >= 0.8 * zl_words        # Currier's transliteration covers under half the text
+        if complete:
+            holds.append(ok)
         metrics[tid] = {"name": tr.SOURCES[tid][0], "words": n_words, "glyphs": glyphs, "syntax": syn,
-                        "lengths": {k: dyn[k] for k in ("ac1", "updown", "dfa")}, "shape_z": zs, "holds": ok}
+                        "lengths": {k: dyn[k] for k in ("ac1", "updown", "dfa")}, "shape_z": zs, "holds": ok,
+                        "complete": complete}
         res.evidence.append(
             f"{tid} ({tr.SOURCES[tid][0]}; {n_words} słów, {glyphs} znaków): słowa niespokrewnione z = "
             f"{syn['unrelated']['z']:.1f}, powtórzenia z = {syn['same']['z']:.1f}, warianty z = {syn['variants']['z']:.1f}; "
             f"korelacja długości sąsiadów {dyn['ac1']['value']:+.3f}, DFA {dyn['dfa']['value']:.3f}; kształt wobec ZL: "
-            + ", ".join(f"{hoax.MEASURES[k]} {z:+.1f}" for k, z in zs.items()) + f". Podpis {'trzyma' if ok else 'NIE trzyma'}.")
+            + ", ".join(f"{hoax.MEASURES[k]} {z:+.1f}" for k, z in zs.items()) + f". Podpis {'trzyma' if ok else 'NIE trzyma'}"
+            + ("" if complete else " (transliteracja częściowa, poza werdyktem)") + ".")
     res.metrics = metrics
     res.decide(all(holds))
-    res.summary = (f"Podpis trzyma w {sum(holds)}/{len(holds)} transliteracjach: "
-                   + ", ".join(f"{t} {'tak' if m['holds'] else 'nie'}" for t, m in metrics.items()) + ".")
+    res.summary = (f"Podpis trzyma w {sum(holds)}/{len(holds)} pełnych transliteracjach: "
+                   + ", ".join(f"{t} {'tak' if m['holds'] else 'nie'}" + ("" if m["complete"] else " (częściowa)")
+                               for t, m in metrics.items()) + ".")
     res.caveats += ["ZL i Takahashi są w pełni zgodne tylko w ok. 29% wierszy (Chelednik); różnice to głównie "
                     "niepewne glify i podziały słów.",
                     "Alfabety Curriera, FSG i v101 dzielą tekst na inne jednostki niż EVA, więc miary kształtu "
