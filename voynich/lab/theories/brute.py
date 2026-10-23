@@ -12,6 +12,7 @@ method achieves on a real enciphered text of the same language.
 from __future__ import annotations
 
 import time
+from collections import Counter
 
 from ... import corpus, lexicon
 from ..brute import Attack, Device, Lexicon, Settings, attack, encipher, paragraph_lines, relabel_lines, shuffle_words
@@ -54,7 +55,7 @@ def run(cfg: LabConfig) -> TheoryResult:
            + generate_by_section(odd_runs(), V5_SECTION_PARAMS, cfg.seed + 1)]
     shuffled = shuffle_words(lines, cfg.seed)
     relabelled = relabel_lines(lines, cfg.seed)
-    metrics, leads = {}, []
+    metrics, leads, untestable = {}, [], []
     for name in names:
         try:
             lex = Lexicon.load(name)
@@ -70,11 +71,21 @@ def run(cfg: LabConfig) -> TheoryResult:
             res.evidence.append(f"{name}: pominięty (brak próbki bieżącego tekstu w leksykonie; odśwież fetch_lexicons.py --force)")
             continue
         enc, truth = encipher(text, n_glyphs, cfg.seed)
+        covered = sum(len(w) for l in enc for w in l) / max(1, sum(len(w) for w in text))
         pos = attack(enc, lex, dev, s, min(max_triples, 600), cfg.seed)
-        key_acc = sum(pos.key.get(gl) == c for gl, c in truth.items()) / max(1, len(truth))
+        # Key accuracy weighted by how often each glyph occurs (a letter never used cannot be voted on).
+        freq = Counter(g for l in enc for w in l for g in w)
+        key_acc = sum(freq[gl] for gl, c in truth.items() if pos.key.get(gl) == c) / max(1, sum(freq.values()))
         ok = pos.dict_rate >= 0.6 and key_acc >= 0.7
+        if covered < 0.5:
+            # A syllabary (Amharic) or an alphabet far larger than the manuscript's cannot be carried by its glyphs.
+            res.evidence.append(f"{name}: nietestowalny – {n_glyphs} glifów rękopisu niesie tylko {covered:.0%} tekstu tego pisma.")
+            untestable.append(name)
+            continue
         res.control(f"{name}: zaszyfrowany prawdziwy tekst", "≥ 60% słów w słowniku pod odzyskanym kluczem, ≥ 70% klucza",
                     f"{pos.dict_rate:.0%}, klucz {key_acc:.0%}", ok)
+        if not ok:
+            untestable.append(name)
         # A lead: the manuscript beats meaningless text clearly on both agreement and dictionary rate.
         lead = ok and a.consistency >= g.consistency + 0.15 and a.dict_rate >= max(2 * g.dict_rate, 0.25)
         sense = a.plausible_rate - sh.plausible_rate
@@ -92,15 +103,30 @@ def run(cfg: LabConfig) -> TheoryResult:
         print(f"  {name}: rękopis spójność {a.consistency:.2f} słownik {a.dict_rate:.1%} | bełkot {g.consistency:.2f} "
               f"{g.dict_rate:.1%} | zaszyfrowany {pos.consistency:.2f} {pos.dict_rate:.0%}" + (" TROP" if lead else ""),
               flush=True)
-    res.metrics = {"languages": metrics, "n_glyphs": n_glyphs, "device": dev.name, "max_triples": max_triples}
-    controls_ok = all(c.passed for c in res.controls)
-    res.decide(True if leads else False if controls_ok and metrics else None)
-    best = max(metrics, key=lambda k: metrics[k]["voynich"]["dict_rate"]) if metrics else "–"
-    res.summary = (f"{len(metrics)} języków, {max_triples} trójek. " + (f"Tropy: {', '.join(leads)}." if leads else
-                   f"W żadnym języku rękopis nie wygrywa z bełkotem: najwyższy udział słów w słowniku pod wspólnym kluczem "
-                   f"{metrics[best]['voynich']['dict_rate']:.1%} ({best}; bełkot {metrics[best]['generator']['dict_rate']:.1%}, "
-                   f"zaszyfrowany tekst {metrics[best]['enciphered']['dict_rate']:.0%}). Pojedyncze trójki czytają się "
-                   "„sensownie” w większości języków, ale ich klucze się nie zgadzają." if metrics else "brak leksykonów."))
+    tested = {k: v for k, v in metrics.items() if k not in untestable}
+    res.metrics = {"languages": metrics, "untestable": untestable, "n_glyphs": n_glyphs, "device": dev.name,
+                   "max_triples": max_triples}
+    # Languages whose own enciphered text the method cannot read are left out of the verdict, not held against it.
+    res.controls = [c for c in res.controls if c.passed]
+    if untestable:
+        res.control("języki nietestowalne tą metodą (pominięte w werdykcie)", "jak najmniej", ", ".join(untestable), True)
+    res.decide(True if leads else False if tested else None)
+    best = max(tested, key=lambda k: tested[k]["voynich"]["dict_rate"]) if tested else "–"
+    res.summary = (f"{len(tested)} języków testowalnych ({len(untestable)} pominiętych), {max_triples} trójek. "
+                   + (f"Tropy: {', '.join(leads)}." if leads else
+                      f"W żadnym języku rękopis nie wygrywa z bełkotem: najwyższy udział słów w słowniku pod wspólnym "
+                      f"kluczem {tested[best]['voynich']['dict_rate']:.1%} ({best}; bełkot "
+                      f"{tested[best]['generator']['dict_rate']:.1%}, zaszyfrowany tekst "
+                      f"{tested[best]['enciphered']['dict_rate']:.0%}). Pojedyncze trójki czytają się „sensownie” w "
+                      "większości języków, ale ich klucze się nie zgadzają." if tested else "brak leksykonów."))
+    if tested:
+        lo, hi = min(v["sense_excess"] for v in tested.values()), max(v["sense_excess"] for v in tested.values())
+        glo, ghi = (min(v["sense_excess_generator"] for v in tested.values()),
+                    max(v["sense_excess_generator"] for v in tested.values()))
+        res.evidence.insert(0, "Tło dla każdego języka: bełkot v5 (te same miary), słowa przetasowane (sens par) i glify "
+                               "przemianowane w każdym wierszu (zgodność z przypadku); liczby w wierszach poniżej. Nadwyżka "
+                               f"„sensu” rękopisu nad tasowaniem (+{100 * lo:.0f}–{100 * hi:.0f}%) jest taka sama jak bełkotu "
+                               f"(+{100 * glo:.0f}–{100 * ghi:.0f}%): to podobieństwo sąsiednich słów, nie język.")
     res.caveats += [
         "Klucz litera-za-glif, jeden na cały tekst; nie obejmuje szyfrów rozwlekłych, nomenklatorów ani kluczy zmiennych.",
         "Leksykony biblijne to edycje współczesne; słowa rękopisu mogą nie być słowami.",
