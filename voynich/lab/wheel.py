@@ -243,8 +243,24 @@ class Wheels:
         member[:, :, EMPTY] = has_empty | True  # a ring with no empty cell still allows an empty read at cost 0
         return xp.array(member), xp.array(pos)
 
+    def chunk_size(self) -> int:
+        """How many wheels fit in device memory at once: the pair cost tensor is [W, P, C, C] int64, several copies."""
+        P, C = self.text.pairs.shape[0], self.text.comps.shape[1]
+        per_wheel = P * C * C * 8 * 6
+        if self.xp.torch:
+            free, _ = self.xp.torch.cuda.mem_get_info()
+            budget = free * 0.6
+        else:
+            budget = 2 * 1024 ** 3
+        return max(1, min(self.s.population, int(budget // per_wheel)))
+
     def score(self, rings: np.ndarray) -> tuple[np.ndarray, np.ndarray, np.ndarray]:
-        """(score, coverage, mean turning cost) per wheel."""
+        """(score, coverage, mean turning cost) per wheel; the population goes through the device in chunks."""
+        step = self.chunk_size()
+        parts = [self._score(rings[i:i + step]) for i in range(0, rings.shape[0], step)]
+        return tuple(np.concatenate([p[k] for p in parts]) for k in range(3))
+
+    def _score(self, rings: np.ndarray) -> tuple[np.ndarray, np.ndarray, np.ndarray]:
         xp = self.xp
         member, pos = self.tables(rings)
         W = rings.shape[0]
@@ -280,7 +296,9 @@ class Wheels:
             else xp.where(found, best, R * half).astype(np.float32)
         mean_turn = xp.sum(turn, 1) / float(self.text.pairs.shape[0]) / (R * half)  # 0..1
         sc = coverage - self.s.turn_weight * mean_turn
-        return xp.to_np(sc), xp.to_np(coverage), xp.to_np(mean_turn)
+        out = xp.to_np(sc), xp.to_np(coverage), xp.to_np(mean_turn)
+        del cost, allowed, valid, va, vb, member, pos
+        return out
 
     def evolve(self, log=None) -> dict:
         s = self.s
