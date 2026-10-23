@@ -234,7 +234,7 @@ class Wheels:
         """member[W, R, S] and position[W, R, S] (first cell holding the segment; -1 if none)."""
         xp = self.xp
         W, R, K = rings.shape
-        pos = np.full((W, R, self.n_seg), -1, dtype=np.int64)
+        pos = np.full((W, R, self.n_seg), -1, dtype=np.int32)
         for k in range(K - 1, -1, -1):  # descending so the first occurrence wins
             np.put_along_axis(pos, rings[:, :, k][:, :, None], k, axis=2)
         pos[:, :, EMPTY] = 0  # the empty cell is "anywhere": no turn needed to read nothing
@@ -246,10 +246,10 @@ class Wheels:
     def chunk_size(self) -> int:
         """How many wheels fit in device memory at once: the pair cost tensor is [W, P, C, C] int64, several copies."""
         P, C = self.text.pairs.shape[0], self.text.comps.shape[1]
-        per_wheel = P * C * C * 8 * 6
+        per_wheel = P * C * C * 4 * 6  # int32 cost tensor and its temporaries
         if self.xp.torch:
             free, _ = self.xp.torch.cuda.mem_get_info()
-            budget = free * 0.6
+            budget = free * 0.5
         else:
             budget = 2 * 1024 ** 3
         return max(1, min(self.s.population, int(budget // per_wheel)))

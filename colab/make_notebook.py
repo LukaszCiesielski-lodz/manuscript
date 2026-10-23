@@ -34,6 +34,7 @@ import psutil; print(f"RAM: {psutil.virtual_memory().total / 1e9:.0f} GB")"""),
     ("md", "## 1. Kod i dane"),
     ("code", f"""import os, subprocess
 from google.colab import userdata
+os.environ["PYTORCH_CUDA_ALLOC_CONF"] = "expandable_segments:True"   # mniej fragmentacji pamięci GPU
 
 REPO = "lukaszciesielski-lodz/manuscript"
 CODE_BRANCH = "{CODE_BRANCH}"   # gałąź z kodem laboratorium
@@ -174,6 +175,7 @@ Trzy testy w jednym przebiegu, każdy obciąża GPU do oporu:
 | `genres` | gatunki bez składni: litania do Wszystkich Świętych i imiona barbarzyńskie z Ars Notoria i Liber Iuratus mierzone jak rękopis (składnia na odległość, dynamika długości, kształt) |
 
 Uruchom: Środowisko wykonawcze → Uruchom wszystko (GPU A100, High-RAM, sekrety `GITHUB_TOKEN`, `OPENROUTER_API_KEY`).
+Po pobraniu poprawki kodu zawsze: Środowisko wykonawcze → Uruchom ponownie sesję, inaczej Python trzyma stare moduły.
 Czas: ok. 2–3 h na A100 przy ustawieniach poniżej; `quick=True` daje próbę w kilkanaście minut."""),
     cells[3],
     ("code", """!pip install -q open_clip_torch
