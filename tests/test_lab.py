@@ -255,7 +255,7 @@ class NotebookTest(unittest.TestCase):
         # A syntax error in a cell stops "Run all" in Colab; shell (!) and magic (%) lines are not Python.
         import json
         from pathlib import Path
-        for name in ("Voynich_Lab.ipynb", "Voynich_Ilustracje.ipynb"):
+        for name in ("Voynich_Lab.ipynb", "Voynich_Ilustracje.ipynb", "Voynich_Brute.ipynb"):
             nb = json.loads((Path(__file__).resolve().parent.parent / "colab" / name).read_text(encoding="utf-8"))
             for i, c in enumerate(nb["cells"]):
                 if c["cell_type"] == "code":
@@ -281,3 +281,33 @@ class HuntTest(unittest.TestCase):
             self.assertEqual(calls, [1, 3])  # the retry carries the first answer and a reminder
             self.assertEqual([r["name"] for r in hunt._ask(0, "m", 1)], ["x"])  # the reminder worked
             self.assertEqual(len(hunt.silent), 1)
+
+
+class BruteTest(unittest.TestCase):
+    def test_batched_solver_matches_backtracking_and_finds_planted_key(self):
+        from collections import defaultdict
+        import numpy as np
+        from voynich.lab import brute
+        dev = brute.Device(prefer_gpu=False)
+        lex = brute.Lexicon.load("Latin")
+        small = lex.words[:300]
+        bp = defaultdict(list)
+        for i, w in enumerate(small):
+            bp[brute.pattern(w)].append(i)
+        lex.by_pattern = {p: np.array(ix) for p, ix in bp.items()}
+        lex._cache = {}
+        lines = brute.paragraph_lines()[:40]
+        s = brute.Settings(max_pairs=10 ** 6, top=10 ** 6)
+        for triple in list(brute.triples_of(lines))[:60]:
+            ids, _ = brute.structure(triple)
+            got = {words for _, _, words in brute.solve_structure(ids, lex, dev, s)}
+            self.assertEqual(got, brute.reference_solve(triple, small), triple)
+        # A real Latin text under a random key: the voted key is recovered.
+        lex = brute.Lexicon.load("Latin")
+        from voynich import corpus
+        text = [brute.lexicon.normalize(w) for w in corpus.load_reference("Latin")[30000:36000]]
+        enc, truth = brute.encipher(text, 23, 5)
+        a = brute.attack(enc, lex, dev, brute.Settings(), 300, 1)
+        self.assertGreater(a.dict_rate, 0.8)
+        self.assertGreater(sum(a.key.get(g) == c for g, c in truth.items()) / len(truth), 0.8)
+

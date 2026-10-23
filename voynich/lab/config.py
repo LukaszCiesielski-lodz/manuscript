@@ -47,6 +47,11 @@ class LabConfig:
     gpt_width: int = 384
     run_image_diffusion: bool = False  # SDXL LoRA "missing pages"; ~1 h on an A100
 
+    # Brute force over keys, triple by triple (theory "brute").
+    brute_languages: list[str] = field(default_factory=list)  # empty: every lexicon in data/reference/lexicon
+    brute_triples: int = 0         # most frequent distinct triples per text; 0 = 4000 (800 in quick mode)
+    brute_tokenize: str = "glyphs" # "glyphs" (ch, sh, cth... as one symbol) or "chars" (raw EVA letters)
+
     # Git: results are committed to this branch and pushed with the token.
     git_branch: str = "lab-results"
     git_repo: str = "lukaszciesielski-lodz/manuscript"

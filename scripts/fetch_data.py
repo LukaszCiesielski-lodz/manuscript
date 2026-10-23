@@ -94,7 +94,8 @@ def fetch(url: str) -> bytes:
     raise OSError(url)
 
 
-def bible_sample(language: str) -> list[str]:
+def bible_sample(language: str, limit: int | None = SAMPLE_WORDS) -> list[str]:
+    """The first `limit` words of a Bible (None: the whole book)."""
     xml = fetch(BIBLE_URL.format(BIBLE_FILES.get(language, language))).decode("utf-8")
     # Some files carry stray control characters that break the XML parser.
     xml = re.sub(r"[\x00-\x08\x0b\x0c\x0e-\x1f]", "", xml)
@@ -102,9 +103,9 @@ def bible_sample(language: str) -> list[str]:
     out: list[str] = []
     for seg in root.iter("seg"):
         out.extend(normalize_words("".join(seg.itertext())))
-        if len(out) >= SAMPLE_WORDS:
+        if limit and len(out) >= limit:
             break
-    return out[:SAMPLE_WORDS]
+    return out[:limit] if limit else out
 
 
 def main() -> None:

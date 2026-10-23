@@ -22,6 +22,7 @@ Notebook uruchamia testy hipotez o rękopisie Wojnicza z repozytorium `lukaszcie
 | `syntax` | daleka składnia: czy różne słowa zależą od siebie na odległość 2–7 słów, czy tylko powtórzenia i warianty | CPU |
 | `romance` | język (proto)romański: łacina ludowa (Egeria), starofrancuski, 5 Biblii romańskich; szyfr i składnia | CPU |
 | `lengths` | słowa jako liczby (długości): zależność sąsiadów, naprzemienność krótkie–długie, pamięć długozasięgowa (DFA) | CPU |
+| `brute` | brute force: każda trójka kolejnych słów pod jednym kluczem litera-za-glif w ~45 językach epoki; czy klucze się zgadzają | GPU |
 
 Każdy test ma **kontrole metody**: musi znaleźć efekt podłożony celowo i nie znajdować go w danych losowych. Gdy kontrola nie przejdzie, werdykt brzmi „metoda niewiarygodna”, niezależnie od wyniku. Rada modeli (OpenRouter) dyskutuje wyniki w trzech rundach, ale werdykt testu wynika tylko z liczb.
 
@@ -46,7 +47,8 @@ subprocess.run(["git", "checkout", "-B", CODE_BRANCH, f"origin/{{CODE_BRANCH}}"]
 !git log --oneline -3"""),
     ("code", """# PyTorch, numpy, scikit-learn i Pillow są w Colabie; dokładamy CLIP.
 !pip install -q open_clip_torch
-!python scripts/fetch_data.py   # na końcu musi wypisać „Dane kompletne.”; jeśli nie, uruchom ponownie"""),
+!python scripts/fetch_data.py   # na końcu musi wypisać „Dane kompletne.”; jeśli nie, uruchom ponownie
+!python scripts/fetch_lexicons.py   # słowniki ~45 języków epoki do brute force (opcjonalne, ~2 min)"""),
     ("code", """# Opcjonalnie: pamięć podręczna skanów na Dysku, żeby nie pobierać ich przy każdej sesji.
 USE_DRIVE = True
 if USE_DRIVE:
@@ -84,6 +86,7 @@ lab.connect()   # pokaże wybraną radę, model wizyjny i ceny"""),
     ("md", "## 3. Testy\nKażdą komórkę można uruchomić osobno. Wyniki zapisują się w `results/lab/<data>/`."),
     ("code", 'lab.run("numbers");'),
     ("code", 'lab.run("naibbe_cipher"); lab.run("cardan_grille"); lab.run("hebrew_anagram"); lab.run("basque"); lab.run("nomenclator"); lab.run("hoax"); lab.run("syntax"); lab.run("romance"); lab.run("lengths");'),
+    ("code", 'lab.run("brute");            # brute force trójek na GPU (~1 h na A100 przy 45 językach)'),
     ("code", """# Próba pobrania jednego skanu. Yale zwykle odrzuca Colaba (403); wtedy kod bierze te same skany
 # Beinecke z Internet Archive (archive.org/details/voynich) i sprawdza proporcje każdej strony.
 from voynich.lab import images
@@ -130,6 +133,33 @@ display(Markdown((lab.cfg.results_dir / "illustrations.md").read_text()))"""),
 ]
 
 
+brute_cells = [
+    ("md", """# Voynich Lab – brute force trójek słów na GPU
+
+Każda trójka kolejnych słów rękopisu jest czytana pod każdym kluczem litera-za-glif w ~45 językach epoki
+(Biblie, korpusy historyczne: greka, staro-cerkiewno-słowiański, gocki, ormiański, koptyjski, hebrajski biblijny,
+średniofrancuski, łacina Akwinaty, łacina średniowieczna i ludowa, starofrancuski...). Słownik przycina przestrzeń kluczy
+do dokładnie tych odczytów, które dałoby pełne wyliczenie; GPU sprawdza wszystkie kombinacje kandydatów naraz.
+Liczy się nie to, czy trójka ma odczyt (ma prawie zawsze), lecz czy odczyty różnych trójek zgadzają się co do jednego
+klucza, który zamienia większość słów rękopisu w słowa języka – na tle bełkotu o statystyce rękopisu i zaszyfrowanego
+prawdziwego tekstu. Uruchom: Środowisko wykonawcze → Uruchom wszystko (GPU A100, sekrety `GITHUB_TOKEN`, `OPENROUTER_API_KEY`)."""),
+    cells[3],
+    ("code", """!pip install -q open_clip_torch
+!python scripts/fetch_data.py
+!python scripts/fetch_lexicons.py"""),
+    cells[5],
+    ("code", cells[7][1].replace('theories=["all"],          # albo np. ["numbers", "literature"]',
+                                 'theories=["brute"],\n    brute_languages=[],        # puste = wszystkie leksykony; np. ["Latin", "Hebrew"]\n'
+                                 '    brute_triples=0,           # 0 = 4000 najczęstszych trójek; 35000 = wszystkie (kilka godzin)\n'
+                                 '    brute_tokenize="glyphs",   # albo "chars": litery EVA bez łączenia ch, sh, cth...')),
+    ("code", """lab.run("brute")
+lab.convene(["brute"])
+lab.report(); lab.push()
+from IPython.display import Markdown, display
+display(Markdown((lab.cfg.results_dir / "brute.md").read_text()))"""),
+]
+
+
 def cell(kind, text):
     src = text.splitlines(keepends=True)
     if kind == "md":
@@ -141,7 +171,8 @@ nb = {"nbformat": 4, "nbformat_minor": 0,
       "metadata": {"accelerator": "GPU", "colab": {"provenance": [], "gpuType": "A100", "machine_shape": "hm"},
                    "kernelspec": {"name": "python3", "display_name": "Python 3"}, "language_info": {"name": "python"}},
       "cells": [cell(k, t) for k, t in cells]}
-for name, cs in (("Voynich_Lab.ipynb", cells), ("Voynich_Ilustracje.ipynb", illustrations_cells)):
+for name, cs in (("Voynich_Lab.ipynb", cells), ("Voynich_Ilustracje.ipynb", illustrations_cells),
+                 ("Voynich_Brute.ipynb", brute_cells)):
     out = Path(__file__).with_name(name)
     out.write_text(json.dumps({**nb, "cells": [cell(k, t) for k, t in cs]}, indent=1, ensure_ascii=False), encoding="utf-8")
     print("wrote", out)
