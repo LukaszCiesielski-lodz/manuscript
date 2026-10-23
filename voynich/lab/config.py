@@ -59,6 +59,16 @@ class LabConfig:
     wheel_generations: int = 1500
     judge_epochs: int = 12
 
+    # Attacks borrowed from the decipherment literature (theories "cognate", "hillclimb").
+    attack_languages: list[str] = field(default_factory=list)  # empty: every lexicon
+    cognate_types: int = 1500      # manuscript word types matched
+    cognate_words: int = 6000      # lexicon word types matched against
+    cognate_restarts: int = 32     # random restarts in one GPU batch
+    cognate_steps: int = 600
+    climb_population: int = 8192   # climbers in parallel on the GPU
+    climb_steps: int = 3000
+    climb_order: int = 4           # character n-gram order of the language model
+
     # Git: results are committed to this branch and pushed with the token.
     git_branch: str = "lab-results"
     git_repo: str = "lukaszciesielski-lodz/manuscript"

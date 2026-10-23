@@ -36,6 +36,9 @@ THEORIES = {t.name: t for t in [
     Theory("wheel", "Tarcza Lullusa (volvelle) jako urządzenie piszące", ("gpu",), "wheel:run"),
     Theory("adversary", "Transformer-sędzia: prawdziwe vs wygenerowane", ("gpu",), "adversary:run"),
     Theory("genres", "Gatunki średniowieczne bez składni: litania, imiona magiczne", (), "genres:run"),
+    Theory("transcriptions", "Podpis rękopisu w innych transliteracjach", (), "transcriptions:run"),
+    Theory("cognate", "Dopasowanie form słów do języka (NeuroDecipher)", ("gpu",), "cognate:run"),
+    Theory("hillclimb", "Atak homofoniczny: wspinaczka z modelem n-gramowym", ("gpu",), "hillclimb:run"),
 ]}
 ALIASES = {"literature": ["naibbe_cipher", "cardan_grille", "hebrew_anagram"], "all": list(THEORIES)}
 

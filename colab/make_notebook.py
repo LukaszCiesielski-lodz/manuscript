@@ -23,6 +23,7 @@ Notebook uruchamia testy hipotez o rękopisie Wojnicza z repozytorium `lukaszcie
 | `romance` | język (proto)romański: łacina ludowa (Egeria), starofrancuski, 5 Biblii romańskich; szyfr i składnia | CPU |
 | `lengths` | słowa jako liczby (długości): zależność sąsiadów, naprzemienność krótkie–długie, pamięć długozasięgowa (DFA) | CPU |
 | `wheel`, `adversary`, `genres` | tarcza Llulla ewoluowana na GPU, transformer-sędzia generatorów, gatunki bez składni (litania, imiona magiczne); osobny notebook `Voynich_Kolo.ipynb` | GPU |
+| `transcriptions`, `cognate`, `hillclimb` | podpis w innych transliteracjach; NeuroDecipher (dopasowanie słownictwa z transportem optymalnym); atak homofoniczny wspinaczką z modelem n-gramowym; osobny notebook `Voynich_Lamacze.ipynb` | GPU |
 | `brute` | brute force: każda trójka kolejnych słów pod jednym kluczem litera-za-glif w ~45 językach epoki; czy klucze się zgadzają | GPU |
 
 Każdy test ma **kontrole metody**: musi znaleźć efekt podłożony celowo i nie znajdować go w danych losowych. Gdy kontrola nie przejdzie, werdykt brzmi „metoda niewiarygodna”, niezależnie od wyniku. Rada modeli (OpenRouter) dyskutuje wyniki w trzech rundach, ale werdykt testu wynika tylko z liczb.
@@ -201,6 +202,42 @@ for name in ("wheel", "adversary", "genres"):
 ]
 
 
+# One task: the attacks borrowed from the decipherment literature, plus the transliteration check.
+attack_cells = [
+    ("md", """# Voynich Lab – łamacze z literatury na GPU
+
+| teoria | co sprawdza |
+|---|---|
+| `transcriptions` | czy podpis rękopisu (brak dalekiej składni, nadmiar powtórzeń, podobne długości sąsiadów) trzyma w transliteracjach Curriera, FSG, v101, Takahashiego i Reference, nie tylko w ZL |
+| `cognate` | NeuroDecipher (MIT): miękki klucz glif–litera, transport optymalny między słownictwem rękopisu a słownikiem każdego z ~50 języków, spadek gradientu, 32 starty w jednej paczce na GPU; kontrola na zaszyfrowanym tekście z szumem pisowni |
+| `hillclimb` | atak homofoniczny jak w AZdecrypt: model 4-gramowy znaków, 8192 wspinaczy równolegle na GPU, klucz z wierszy nieparzystych oceniany na parzystych; kontrola na tekście zaszyfrowanym homofonicznie |
+
+Uruchom: Środowisko wykonawcze → Uruchom wszystko (GPU A100, High-RAM, sekrety `GITHUB_TOKEN`, `OPENROUTER_API_KEY`).
+Po pobraniu poprawki kodu zawsze: Środowisko wykonawcze → Uruchom ponownie sesję. Czas: ok. 2–4 h na A100."""),
+    cells[3],
+    ("code", """!pip install -q open_clip_torch
+!python scripts/fetch_data.py
+!python scripts/fetch_lexicons.py             # słowniki ~50 języków epoki (~2 min)
+!python scripts/fetch_transliterations.py     # inne transliteracje z voynich.nu"""),
+    cells[5],
+    ("code", cells[7][1].replace('theories=["all"],          # albo np. ["numbers", "literature"]',
+                                 'theories=["transcriptions", "cognate", "hillclimb"],\n'
+                                 '    attack_languages=[],       # puste = wszystkie leksykony; np. ["Latin", "Italian"]\n'
+                                 '    cognate_restarts=32,       # starty w jednej paczce na GPU\n'
+                                 '    cognate_steps=600,\n'
+                                 '    climb_population=8192,     # wspinaczy równolegle\n'
+                                 '    climb_steps=3000,')),
+    ("code", """for name in ("transcriptions", "cognate", "hillclimb"):
+    lab.run(name)
+    lab.push()                     # po każdym teście na GitHub, gdyby sesja padła
+lab.convene(["transcriptions", "cognate", "hillclimb"])
+lab.report(); lab.push()
+from IPython.display import Markdown, display
+for name in ("transcriptions", "cognate", "hillclimb"):
+    display(Markdown((lab.cfg.results_dir / f"{name}.md").read_text()))"""),
+]
+
+
 def cell(kind, text):
     src = text.splitlines(keepends=True)
     if kind == "md":
@@ -213,7 +250,8 @@ nb = {"nbformat": 4, "nbformat_minor": 0,
                    "kernelspec": {"name": "python3", "display_name": "Python 3"}, "language_info": {"name": "python"}},
       "cells": [cell(k, t) for k, t in cells]}
 for name, cs in (("Voynich_Lab.ipynb", cells), ("Voynich_Ilustracje.ipynb", illustrations_cells),
-                 ("Voynich_Brute.ipynb", brute_cells), ("Voynich_Kolo.ipynb", wheel_cells)):
+                 ("Voynich_Brute.ipynb", brute_cells), ("Voynich_Kolo.ipynb", wheel_cells),
+                 ("Voynich_Lamacze.ipynb", attack_cells)):
     out = Path(__file__).with_name(name)
     out.write_text(json.dumps({**nb, "cells": [cell(k, t) for k, t in cs]}, indent=1, ensure_ascii=False), encoding="utf-8")
     print("wrote", out)

@@ -364,3 +364,69 @@ class GenresTest(unittest.TestCase):
         text = "He said _this is an ordinary sentence of prose words_ and then _Hazachay Hazatha Lemogethom Hegemochom Gezomay_."
         names = genres.barbarous_names(text, {"hazatha"})
         self.assertEqual(names, ["hazachay", "lemogethom", "hegemochom", "gezomay"])
+
+
+class TransliterationsTest(unittest.TestCase):
+    def test_generic_cleaning_keeps_case_and_digits(self):
+        from voynich import transliterations as tr
+        self.assertEqual(tr.clean_generic("<%>fa19s.9,hae.ay.Akam<->2oe.!oy9.@253;scs<$>"),
+                         "fa19s.9.hae.ay.Akam.2oe.!oy9.?scs")
+
+    def test_zl_matches_corpus(self):
+        from voynich import corpus, eva, transliterations as tr
+        lines = tr.load_lines("ZL")
+        first = [[tuple(eva.glyphs(w)) for w in l.words] for l in corpus.load_voynich() if l.kind.startswith("P")][0]
+        self.assertEqual(lines[0], first)
+
+
+class HillclimbTest(unittest.TestCase):
+    def test_ngram_model_prefers_its_language(self):
+        from voynich.lab import hillclimb as hc
+        latin = ("in principio creavit deus caelum et terram terra autem erat inanis et vacua et tenebrae erant "
+                 "super faciem abyssi et spiritus dei ferebatur super aquas dixitque deus fiat lux et facta est lux").split()
+        lm = hc.NgramModel.fit(latin * 20, order=3)
+        self.assertLess(lm.bits(["et", "terra", "deus"]), lm.bits(["xqz", "tttt", "zzq"]))
+
+    def test_climb_recovers_a_substitution_key(self):
+        from voynich import corpus
+        from voynich.lab import hillclimb as hc
+        words = corpus.load_reference("Latin")[:6000]
+        lm = hc.NgramModel.fit(words[:4000], order=3)
+        enc, truth = hc.encipher_homophonic(words[4000:], 22, seed=1)
+        glyphs = hc.glyph_inventory(enc, min_count=1)
+        odd, even = hc.split_odd_even(enc)
+        text, held = hc.GlyphText.build(odd, glyphs, 3), hc.GlyphText.build(even, glyphs, 3)
+        out = hc.climb(text, lm, hc.Climb(population=64, steps=400, seed=1), hc.Backend(prefer_gpu=False), held)
+        self.assertGreater(hc.key_accuracy(out["key"], truth, enc), 0.5)
+        self.assertLess(out["held_out_bits"], lm.bits(words[4000:]) + 1.0)
+
+
+class CognateTest(unittest.TestCase):
+    def test_edit_index(self):
+        from voynich.lab.cognate import EditIndex
+        ix = EditIndex(["terra", "caelum", "deus"])
+        for w in ("terra", "tera", "terrra", "tirra", "deux"):
+            self.assertTrue(ix.within_one(w), w)
+        self.assertFalse(ix.within_one("tirri"))
+        self.assertFalse(ix.within_one("xyz"))
+
+    def test_features_and_sinkhorn_numpy(self):
+        import numpy as np
+        from collections import Counter
+        from voynich.lab import cognate as cg
+        known = cg.Vocab.from_counts(Counter({"terra": 5, "deus": 3, "caelum": 2}), list("abcdelmrstu"), 10)
+        F = cg.features(known.onehot(), np)
+        self.assertEqual(F.shape, (3, 2 * 12 * 12))
+        self.assertTrue(np.allclose((F * F).sum(1), 1.0))
+        cost = 1 - F @ F.T
+        a = np.full(3, 1 / 3); b = np.full(3, 1 / 3)
+        plan = cg.sinkhorn(cost, a, b, 0.05, 50, np)
+        self.assertTrue(np.allclose(plan.sum(1), a, atol=1e-3))
+        self.assertGreater(plan[0, 0], plan[0, 1])
+
+    def test_noisy_encipher_truth_key(self):
+        from voynich.lab import cognate as cg
+        words = ["terra", "caelum", "deus", "et", "aqua"] * 50
+        enc, truth = cg.noisy_encipher(words, 10, seed=2, noise=0.0)
+        self.assertEqual(cg.key_accuracy(truth, truth, enc), 1.0)
+        self.assertEqual(cg.cognate_rate(enc, truth, cg.EditIndex(set(words)))[0], 1.0)
