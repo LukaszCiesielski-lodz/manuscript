@@ -308,6 +308,29 @@ class ScribeRules:
         self.last_mid = {g: max(0.02, ((c - last_line[g]) / (nz - nl)) / (c / nz)) for g, c in last_all.items() if c >= 20}
         n_len = sum(lengths.values())
         self.length = {k: v / n_len for k, v in lengths.items()}
+        # Neighbouring words of similar length: how much likelier length b is right after length a.
+        cap = lambda x: min(x, 9)
+        self.length_pair = self._ratios(Counter((cap(len(a)), cap(len(b))) for l in lines
+                                                for a, b in zip([w for w in l if w], [w for w in l if w][1:])))
+        # Whole lines of long or of short words: the line's "mood" (its mean length, in thirds of all lines)
+        # and how likely each word length is in a line of that mood.
+        means = sorted(sum(map(len, l)) / len(l) for l in lines if len(l) >= 4)
+        self.mood_cuts = (means[len(means) // 3], means[2 * len(means) // 3]) if means else (0.0, 0.0)
+        mood_len = Counter()
+        for l in lines:
+            if len(l) >= 4:
+                mood = self.mood_of(sum(map(len, l)) / len(l))
+                mood_len.update((mood, cap(len(w))) for w in l)
+        self.mood_length = self._ratios(mood_len, min_count=3)
+
+    def mood_of(self, mean_len: float) -> int:
+        return 0 if mean_len < self.mood_cuts[0] else 1 if mean_len < self.mood_cuts[1] else 2
+
+    def length_fit(self, w: Word, prev: Word | None, mood: int | None) -> tuple[float, float]:
+        """(neighbour-length factor, line-mood factor) for word w."""
+        n = min(len(w), 9)
+        pair = self.length_pair.get((min(len(prev), 9), n), 0.5) if prev else 1.0
+        return pair, (self.mood_length.get((mood, n), 0.5) if mood is not None else 1.0)
 
     @staticmethod
     def _ratios(pairs: Counter, min_count: int = 5) -> dict:
@@ -417,6 +440,8 @@ def generate_v5(
     p_short: float = 0.0,
     shorts: Sequence[tuple[Word, float]] = (),
     position_gamma: float | None = None,
+    pair_gamma: float = 0.0,
+    mood_gamma: float = 0.0,
     window: int = 8,
     candidates: int = 6,
     gamma: float = 1.0,
@@ -487,6 +512,7 @@ def generate_v5(
         pool = [w for l in recent for w in l]
         n = rng.choice(line_lengths)
         line: list[Word] = []
+        mood = rng.randrange(3) if mood_gamma else None  # lines of long, middling or short words, a third each
         for col in range(n):
             above = [l[col] for l in recent if col < len(l)]
             prev = line[-1] if line else None
@@ -498,8 +524,10 @@ def generate_v5(
             for c in cands:
                 proposed[len(c)] += 1
                 lw = (rules.length.get(len(c), 1e-4) / (proposed[len(c)] / total_prop)) ** length_gamma
+                pair, fit = rules.length_fit(c, line[-1] if line else None, mood)
                 weights.append(rules.seam(c, line[-1] if line else None) ** gamma
-                               * rules.position(c, col == 0, col == n - 1) ** pos_gamma * lw)
+                               * rules.position(c, col == 0, col == n - 1) ** pos_gamma * lw
+                               * pair ** pair_gamma * fit ** mood_gamma)
             line.append(rng.choices(cands, [max(x, 1e-12) for x in weights])[0])
         if line:
             lines.append(line)

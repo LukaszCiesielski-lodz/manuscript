@@ -46,6 +46,8 @@ MEASURES = {
     "line_last_m": "m w ostatnim słowie wiersza",
     "line_last_g": "g w ostatnim słowie wiersza",
     "line_first_len": "długość pierwszego słowa wiersza / średnia",
+    "len_neighbour": "korelacja długości sąsiednich słów",
+    "line_mean_spread": "rozrzut średniej długości słowa między wierszami",
 }
 
 
@@ -74,6 +76,11 @@ def measure(lines: Sequence[Line]) -> dict[str, float]:
     long = [l for l in lines if len(l) >= 3]
     mean_len = statistics.mean(len(w) for l in long for w in l)
     out["line_first_len"] = statistics.mean(len(l[0]) for l in long) / mean_len
+    xs = [len(w) for l in lines for w in l if w]
+    m, v = statistics.mean(xs), statistics.pvariance(xs)
+    pairs = [(len(a), len(b)) for l in lines for a, b in zip(l, l[1:])]
+    out["len_neighbour"] = sum((a - m) * (b - m) for a, b in pairs) / len(pairs) / v
+    out["line_mean_spread"] = statistics.pstdev([statistics.mean(len(w) for w in l) for l in long])
     return out
 
 

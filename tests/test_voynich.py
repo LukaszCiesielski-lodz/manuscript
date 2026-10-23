@@ -172,6 +172,10 @@ class HoaxTest(unittest.TestCase):
         self.assertGreaterEqual(sum(len(l) for l in gen), 5000)
         m = hoax.measure(hoax.blocks(gen)[0])
         self.assertEqual(set(m), set(hoax.MEASURES))
+        # The neighbour-length rule makes neighbouring lengths correlate as in the manuscript (about +0.14).
+        lengthy = selfcite.generate_v5(lines[:3], 5000, [len(l) for l in lines], rules, selfcite.EditModel(words),
+                                       grammar, seed=2, p_new=0.2, p_hot=0.1, pair_gamma=3.0)
+        self.assertGreater(hoax.measure(hoax.blocks(lengthy)[0])["len_neighbour"], m["len_neighbour"])
 
     def test_word_maker_joins_known_parts(self):
         import random
