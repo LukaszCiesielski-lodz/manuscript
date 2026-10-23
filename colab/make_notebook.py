@@ -23,7 +23,7 @@ Notebook uruchamia testy hipotez o rękopisie Wojnicza z repozytorium `lukaszcie
 | `romance` | język (proto)romański: łacina ludowa (Egeria), starofrancuski, 5 Biblii romańskich; szyfr i składnia | CPU |
 | `lengths` | słowa jako liczby (długości): zależność sąsiadów, naprzemienność krótkie–długie, pamięć długozasięgowa (DFA) | CPU |
 | `wheel`, `adversary`, `genres` | tarcza Llulla ewoluowana na GPU, transformer-sędzia generatorów, gatunki bez składni (litania, imiona magiczne); osobny notebook `Voynich_Kolo.ipynb` | GPU |
-| `transcriptions`, `cognate`, `hillclimb` | podpis w innych transliteracjach; NeuroDecipher (dopasowanie słownictwa z transportem optymalnym); atak homofoniczny wspinaczką z modelem n-gramowym; osobny notebook `Voynich_Lamacze.ipynb` | GPU |
+| `phonotactics`, `transcriptions`, `cognate`, `hillclimb` | samogłoski Suchotina i wzorce C/V wobec języków; podpis w innych transliteracjach; NeuroDecipher (dopasowanie słownictwa z transportem optymalnym); atak homofoniczny wspinaczką z modelem n-gramowym; osobny notebook `Voynich_Lamacze.ipynb` | GPU |
 | `brute` | brute force: każda trójka kolejnych słów pod jednym kluczem litera-za-glif w ~45 językach epoki; czy klucze się zgadzają | GPU |
 
 Każdy test ma **kontrole metody**: musi znaleźć efekt podłożony celowo i nie znajdować go w danych losowych. Gdy kontrola nie przejdzie, werdykt brzmi „metoda niewiarygodna”, niezależnie od wyniku. Rada modeli (OpenRouter) dyskutuje wyniki w trzech rundach, ale werdykt testu wynika tylko z liczb.
@@ -88,7 +88,7 @@ lab = Lab(cfg)
 lab.connect()   # pokaże wybraną radę, model wizyjny i ceny"""),
     ("md", "## 3. Testy\nKażdą komórkę można uruchomić osobno. Wyniki zapisują się w `results/lab/<data>/`."),
     ("code", 'lab.run("numbers");'),
-    ("code", 'lab.run("naibbe_cipher"); lab.run("cardan_grille"); lab.run("hebrew_anagram"); lab.run("basque"); lab.run("nomenclator"); lab.run("hoax"); lab.run("syntax"); lab.run("romance"); lab.run("lengths");'),
+    ("code", 'lab.run("naibbe_cipher"); lab.run("cardan_grille"); lab.run("hebrew_anagram"); lab.run("basque"); lab.run("nomenclator"); lab.run("hoax"); lab.run("syntax"); lab.run("romance"); lab.run("lengths"); lab.run("phonotactics");'),
     ("code", 'lab.run("brute");            # brute force trójek na GPU (~1 h na A100 przy 45 językach)'),
     ("code", """# Próba pobrania jednego skanu. Yale zwykle odrzuca Colaba (403); wtedy kod bierze te same skany
 # Beinecke z Internet Archive (archive.org/details/voynich) i sprawdza proporcje każdej strony.
@@ -208,6 +208,7 @@ attack_cells = [
 
 | teoria | co sprawdza |
 |---|---|
+| `phonotactics` | czy słowa mają budowę mowy: samogłoski Suchotina, wzorce spółgłoska–samogłoska rękopisu wobec ~50 języków i abdżadów |
 | `transcriptions` | czy podpis rękopisu (brak dalekiej składni, nadmiar powtórzeń, podobne długości sąsiadów) trzyma w transliteracjach Curriera, FSG, v101, Takahashiego i Reference, nie tylko w ZL |
 | `cognate` | NeuroDecipher (MIT): miękki klucz glif–litera, transport optymalny między słownictwem rękopisu a słownikiem każdego z ~50 języków, spadek gradientu, 32 starty w jednej paczce na GPU; kontrola na zaszyfrowanym tekście z szumem pisowni |
 | `hillclimb` | atak homofoniczny jak w AZdecrypt: model 4-gramowy znaków, 8192 wspinaczy równolegle na GPU, klucz z wierszy nieparzystych oceniany na parzystych; kontrola na tekście zaszyfrowanym homofonicznie |
@@ -221,19 +222,19 @@ Po pobraniu poprawki kodu zawsze: Środowisko wykonawcze → Uruchom ponownie se
 !python scripts/fetch_transliterations.py     # inne transliteracje z voynich.nu"""),
     cells[5],
     ("code", cells[7][1].replace('theories=["all"],          # albo np. ["numbers", "literature"]',
-                                 'theories=["transcriptions", "cognate", "hillclimb"],\n'
+                                 'theories=["phonotactics", "transcriptions", "cognate", "hillclimb"],\n'
                                  '    attack_languages=[],       # puste = wszystkie leksykony; np. ["Latin", "Italian"]\n'
                                  '    cognate_restarts=32,       # starty w jednej paczce na GPU\n'
                                  '    cognate_steps=600,\n'
                                  '    climb_population=8192,     # wspinaczy równolegle\n'
                                  '    climb_steps=3000,')),
-    ("code", """for name in ("transcriptions", "cognate", "hillclimb"):
+    ("code", """for name in ("phonotactics", "transcriptions", "cognate", "hillclimb"):
     lab.run(name)
     lab.push()                     # po każdym teście na GitHub, gdyby sesja padła
-lab.convene(["transcriptions", "cognate", "hillclimb"])
+lab.convene(["phonotactics", "transcriptions", "cognate", "hillclimb"])
 lab.report(); lab.push()
 from IPython.display import Markdown, display
-for name in ("transcriptions", "cognate", "hillclimb"):
+for name in ("phonotactics", "transcriptions", "cognate", "hillclimb"):
     display(Markdown((lab.cfg.results_dir / f"{name}.md").read_text()))"""),
 ]
 

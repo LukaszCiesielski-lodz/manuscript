@@ -430,3 +430,20 @@ class CognateTest(unittest.TestCase):
         enc, truth = cg.noisy_encipher(words, 10, seed=2, noise=0.0)
         self.assertEqual(cg.key_accuracy(truth, truth, enc), 1.0)
         self.assertEqual(cg.cognate_rate(enc, truth, cg.EditIndex(set(words)))[0], 1.0)
+
+
+class PhonotacticsTest(unittest.TestCase):
+    def test_sukhotin_finds_latin_vowels(self):
+        from voynich import corpus, phonotactics as ph
+        words = corpus.load_reference("Latin")[:20000]
+        vowels, order = ph.sukhotin([tuple(w) for w in words])
+        self.assertTrue({"a", "e", "i", "o", "u"} <= vowels, order)
+        self.assertFalse({"t", "s", "r", "m"} & vowels, order)
+
+    def test_patterns_and_divergence(self):
+        from voynich import phonotactics as ph
+        self.assertEqual(ph.pattern("terra", set("aeiou")), "CVCCV")
+        p = ph.profile([("t", "e", "r", "r", "a"), ("e", "t")], set("aeiou"))
+        self.assertAlmostEqual(p["patterns"]["CVCCV"], 0.5)
+        self.assertEqual(ph.js_divergence(p["patterns"], p["patterns"]), 0.0)
+        self.assertAlmostEqual(ph.js_divergence({"CV": 1.0}, {"VC": 1.0}), 1.0)

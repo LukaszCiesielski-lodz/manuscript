@@ -39,6 +39,7 @@ THEORIES = {t.name: t for t in [
     Theory("transcriptions", "Podpis rękopisu w innych transliteracjach", (), "transcriptions:run"),
     Theory("cognate", "Dopasowanie form słów do języka (NeuroDecipher)", ("gpu",), "cognate:run"),
     Theory("hillclimb", "Atak homofoniczny: wspinaczka z modelem n-gramowym", ("gpu",), "hillclimb:run"),
+    Theory("phonotactics", "Budowa słów jak w mowie: samogłoski Suchotina i wzorce C/V", (), "phonotactics:run"),
 ]}
 ALIASES = {"literature": ["naibbe_cipher", "cardan_grille", "hebrew_anagram"], "all": list(THEORIES)}
 
