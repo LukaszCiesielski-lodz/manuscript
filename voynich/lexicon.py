@@ -42,6 +42,35 @@ UD_SOURCES = {
     "Irish": "UD_Irish-IDT/master/ga_idt-ud-train.conllu",
     "Maltese": "UD_Maltese-MUDT/master/mt_mudt-ud-train.conllu",
 }
+# Aramaic. Jewish Aramaic: Targum Onkelos (Torah, 1st-2nd c., Hebrew script) from Sefaria (CC-BY-NC/CC-BY-SA);
+# Syriac: Peshitta Old and New Testament (2nd-5th c., Syriac script) from ETCBC/SEDRA in Text-Fabric form.
+SEFARIA_URL = "https://www.sefaria.org/api/v3/texts/{}?version=hebrew&return_format=text_only"
+ONKELOS_BOOKS = ["Onkelos_Genesis", "Onkelos_Exodus", "Onkelos_Leviticus", "Onkelos_Numbers", "Onkelos_Deuteronomy"]
+TEXTFABRIC_URLS = {"Syriac": ["https://raw.githubusercontent.com/ETCBC/peshitta/master/tf/0.2/word.tf",
+                              "https://raw.githubusercontent.com/ETCBC/syrnt/master/tf/0.1/word.tf"]}
+
+
+def sefaria_words(payload: str) -> list[str]:
+    """Running text of one Sefaria v3 text response (nested lists of verses, HTML tags removed)."""
+    import json
+    import re
+    data = json.loads(payload)
+    text = data["versions"][0]["text"]
+
+    def walk(x):
+        if isinstance(x, str):
+            yield from re.sub(r"<[^>]+>", " ", x).split()
+        else:
+            for y in x:
+                yield from walk(y)
+    return list(walk(text))
+
+
+def textfabric_words(payload: str) -> list[str]:
+    """Running text of a Text-Fabric node feature file: header lines start with '@', then one word per line."""
+    return [l for l in payload.splitlines() if l and not l.startswith("@")]
+
+
 # Lexicons built from files the lab already has (no download needed).
 LOCAL_SOURCES = {
     **{lang: ("bible", lang) for lang in corpus.BIBLE_LANGUAGES},
@@ -57,7 +86,7 @@ GROUPS = {
                               "OldChurchSlavonic", "OldEastSlavic", "Lithuanian"],
     "celtycki": ["Welsh", "Irish"],
     "grecki, ormiański, albański": ["Greek", "AncientGreek", "ClassicalArmenian", "Albanian"],
-    "semicki i koptyjski": ["Hebrew", "BiblicalHebrew", "Arabic", "Maltese", "Amharic", "Coptic"],
+    "semicki i koptyjski": ["Hebrew", "BiblicalHebrew", "Aramaic", "Syriac", "Arabic", "Maltese", "Amharic", "Coptic"],
     "uralski, turecki, baskijski, perski": ["Hungarian", "Finnish", "Turkish", "Basque", "BasqueNews", "Persian"],
     "inne": ["Hindi", "Vietnamese"],
 }

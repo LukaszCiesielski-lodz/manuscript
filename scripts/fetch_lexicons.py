@@ -47,6 +47,21 @@ def main() -> None:
                 done.append(lang)
             except Exception as exc:
                 failed.append(f"{lang}: {exc}")
+        if not (lexicon.LEXICON_DIR / "Aramaic.txt").exists() or args.force:
+            try:
+                words = [w for b in lexicon.ONKELOS_BOOKS for w in lexicon.sefaria_words(fetch(lexicon.SEFARIA_URL.format(b)).decode("utf-8"))]
+                lexicon.build_from_text("Aramaic", words)
+                done.append("Aramaic")
+            except Exception as exc:
+                failed.append(f"Aramaic: {exc}")
+        for name, urls in lexicon.TEXTFABRIC_URLS.items():
+            if (lexicon.LEXICON_DIR / f"{name}.txt").exists() and not args.force:
+                continue
+            try:
+                lexicon.build_from_text(name, [w for u in urls for w in lexicon.textfabric_words(fetch(u).decode("utf-8"))])
+                done.append(name)
+            except Exception as exc:
+                failed.append(f"{name}: {exc}")
         for name, rel in lexicon.UD_SOURCES.items():
             path = lexicon.LEXICON_DIR / f"{name}.txt"
             if path.exists() and not args.force:

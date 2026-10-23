@@ -311,3 +311,14 @@ class BruteTest(unittest.TestCase):
         self.assertGreater(a.dict_rate, 0.8)
         self.assertGreater(sum(a.key.get(g) == c for g, c in truth.items()) / len(truth), 0.8)
 
+
+class LexiconTest(unittest.TestCase):
+    def test_parsers_for_sefaria_and_text_fabric(self):
+        import json
+        from voynich import lexicon
+        payload = json.dumps({"versions": [{"text": [["בְּקַדְמִין בְּרָא <b>יְיָ</b>:", "וְאַרְעָא הֲוַת"], ["יְהֵי נְהוֹרָא"]]}]})
+        words = [lexicon.normalize(w) for w in lexicon.sefaria_words(payload)]
+        self.assertEqual([w for w in words if w], ["בקדמין", "ברא", "יי", "וארעא", "הות", "יהי", "נהורא"])  # points stripped
+        tf = "@node\n@dataset=peshitta\n\nܥܠ\nܐ̈ܦܝ\nܡ̈ܝܐ\n"
+        self.assertEqual([lexicon.normalize(w) for w in lexicon.textfabric_words(tf)], ["ܥܠ", "ܐܦܝ", "ܡܝܐ"])
+
