@@ -84,6 +84,7 @@ Werdykt testu wynika tylko z liczb i kontroli; rada go komentuje. Przegląd lite
 | `hoax` | tekst bez treści z reguł skryby (generator v5 „tabela skryby”), reguły z foliów nieparzystych, sprawdzian na parzystych | nierozstrzygnięta: v5 działami 17/20 miar, klasyfikator wierszy AUC 0,78–0,79 (prawdziwe vs prawdziwe 0,55; v4: 0,998) |
 | `syntax` | zależność między różnymi słowami odległymi o 2–7 słów (informacja wzajemna ponad tasowanie w stronie i miejscu w wierszu), osobno powtórzenia i warianty | obalona: częste słowa bez zależności (z = −1,2; 5 tekstów językowych z ≥ 3,7), za to nadmiar powtórzeń i wariantów (z ≈ 9), profil płaski z odległością |
 | `romance` | język (proto)romański (Cheshire 2019): łacina ludowa (Egeria, ok. 400), starofrancuski (IX–XIII w.), Biblie: włoski, hiszpański, portugalski, francuski, rumuński | obalona: luka 1,09–1,26 bita przy kontrolach 99–100%; każdy tekst romański ma daleką składnię (z ≥ 11), rękopis nie (z = −1,2) |
+| `lengths` | słowa zamienione na liczby znaków: autokorelacja sąsiadów, zygzak krótkie–długie, wykładnik DFA, efekt wiersza; 20 tekstów językowych, generatory, ciąg losowy | obalona: sąsiednie długości dodatnio skorelowane (+0,16; w 17 z 20 języków ujemnie), najsilniejsza pamięć długozasięgowa (DFA 0,60 wobec 0,47–0,58), całe wiersze „długie” lub „krótkie” |
 
 **Psy gończe** (`voynich/lab/hounds.py`, `voynich/lab/recipes.py`): rada przestaje tylko oceniać i sama poluje.
 Każdy model dostaje rolę (kryptolog, lingwista, sceptyk, „dziki pies”) i w kolejnych rundach wymyśla przepisy odczytu

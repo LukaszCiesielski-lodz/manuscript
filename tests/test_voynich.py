@@ -213,3 +213,21 @@ class LongRangeTest(unittest.TestCase):
         self.assertGreater(s["same"]["z"], 3)
         self.assertLess(s["unrelated"]["z"], 3)
 
+
+class LengthsTest(unittest.TestCase):
+    def test_dfa_and_autocorrelation_tell_memory_from_chance(self):
+        import random
+        from voynich import lengths
+        r = random.Random(1)
+        iid = [r.randint(1, 8) for _ in range(6000)]
+        self.assertAlmostEqual(lengths.dfa(iid), 0.5, delta=0.06)
+        runs, x = [], 4
+        for _ in range(6000):  # lengths that drift: each word close to the previous one
+            x = min(9, max(1, x + r.choice((-1, 0, 0, 1))))
+            runs.append(x)
+        self.assertGreater(lengths.dfa(runs), 0.7)
+        self.assertGreater(lengths.autocorr(runs, 1), 0.5)
+        alternating = [2, 7] * 3000  # function word, content word, ...
+        self.assertLess(lengths.autocorr(alternating, 1), -0.9)
+        self.assertGreater(lengths.up_down(alternating), 0.95)
+

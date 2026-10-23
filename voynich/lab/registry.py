@@ -31,6 +31,7 @@ THEORIES = {t.name: t for t in [
     Theory("hoax", "Tekst bez treści z reguł skryby", (), "hoax:run"),
     Theory("syntax", "Daleka składnia: zależności między różnymi słowami", (), "syntax:run"),
     Theory("romance", "Język (proto)romański", (), "romance:run"),
+    Theory("lengths", "Słowa jako liczby: dynamika długości słów", (), "lengths:run"),
 ]}
 ALIASES = {"literature": ["naibbe_cipher", "cardan_grille", "hebrew_anagram"], "all": list(THEORIES)}
 
