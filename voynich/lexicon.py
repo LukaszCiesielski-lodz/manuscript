@@ -78,30 +78,45 @@ def build(words: list[str]) -> Counter:
     return c
 
 
-def save(name: str, counts: Counter, bigrams: Counter | None = None) -> Path:
+SAMPLE_WORDS = 8000
+
+
+def save(name: str, counts: Counter, bigrams: Counter | None = None, sample: list[str] | None = None) -> Path:
+    """Word counts, bigram counts and a stretch of running text (for the enciphered-text control)."""
     LEXICON_DIR.mkdir(parents=True, exist_ok=True)
     path = LEXICON_DIR / f"{name}.txt"
     lines = [f"{w}\t{n}" for w, n in counts.most_common()]
     if bigrams:
         lines += [f"{a} {b}\t{n}" for (a, b), n in bigrams.most_common(200_000)]
+    if sample:
+        lines.append("#text " + " ".join(sample[:SAMPLE_WORDS]))
     path.write_text("\n".join(lines) + "\n", encoding="utf-8")
     return path
 
 
 def load(name: str) -> tuple[Counter, Counter]:
     """(word counts, bigram counts) of a saved lexicon."""
+    words, bigrams, _ = load_all(name)
+    return words, bigrams
+
+
+def load_all(name: str) -> tuple[Counter, Counter, list[str]]:
+    """(word counts, bigram counts, running-text sample) of a saved lexicon."""
     path = LEXICON_DIR / f"{name}.txt"
     if not path.exists():
         raise FileNotFoundError(f"{path} missing - run: python scripts/fetch_lexicons.py")
-    words, bigrams = Counter(), Counter()
+    words, bigrams, sample = Counter(), Counter(), []
     for line in path.read_text(encoding="utf-8").splitlines():
+        if line.startswith("#text "):
+            sample = line[6:].split()
+            continue
         key, _, n = line.rpartition("\t")
         if " " in key:
             a, b = key.split(" ", 1)
             bigrams[(a, b)] = int(n)
         elif key:
             words[key] = int(n)
-    return words, bigrams
+    return words, bigrams, sample
 
 
 def available() -> list[str]:
@@ -121,4 +136,6 @@ def build_from_text(name: str, words: list[str]) -> Path:
     """Save a lexicon with word and bigram counts from running text."""
     norm = [normalize(w) for w in words]
     norm = [w for w in norm if 1 <= len(w) <= MAX_LEN]
-    return save(name, Counter(norm), Counter(zip(norm, norm[1:])))
+    # The sample comes from the middle of the text, where a Bible is prose rather than genealogy.
+    mid = len(norm) // 2
+    return save(name, Counter(norm), Counter(zip(norm, norm[1:])), norm[mid:mid + SAMPLE_WORDS])

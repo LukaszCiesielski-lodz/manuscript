@@ -65,8 +65,10 @@ def run(cfg: LabConfig) -> TheoryResult:
         g = attack(gen, lex, dev, s, max_triples, cfg.seed)
         sh = attack(shuffled, lex, dev, s, max_triples, cfg.seed)
         rl = attack(relabelled, lex, dev, s, max_triples, cfg.seed)
-        counts, _ = lexicon.load(name)
-        text = [w for w, c in counts.items() for _ in range(min(c, 3))]  # a text-like sample of the lexicon
+        _, _, text = lexicon.load_all(name)
+        if len(text) < 1000:
+            res.evidence.append(f"{name}: pominięty (brak próbki bieżącego tekstu w leksykonie; odśwież fetch_lexicons.py --force)")
+            continue
         enc, truth = encipher(text, n_glyphs, cfg.seed)
         pos = attack(enc, lex, dev, s, min(max_triples, 600), cfg.seed)
         key_acc = sum(pos.key.get(gl) == c for gl, c in truth.items()) / max(1, len(truth))
