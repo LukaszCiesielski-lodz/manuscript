@@ -29,6 +29,7 @@ THEORIES = {t.name: t for t in [
     Theory("basque", "Baskijski pod szyfrem podstawieniowym", (), "basque:run"),
     Theory("nomenclator", "Nomenklator: słowo = kod z księgi", (), "nomenclator:run"),
     Theory("hoax", "Tekst bez treści z reguł skryby", (), "hoax:run"),
+    Theory("syntax", "Daleka składnia: zależności między różnymi słowami", (), "syntax:run"),
 ]}
 ALIASES = {"literature": ["naibbe_cipher", "cardan_grille", "hebrew_anagram"], "all": list(THEORIES)}
 

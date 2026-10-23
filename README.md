@@ -82,6 +82,7 @@ Werdykt testu wynika tylko z liczb i kontroli; rada go komentuje. Przegląd lite
 | `basque` | baskijski pod szyfrem podstawieniowym: Leizarraga 1571 i prasa współczesna | obalona (luka 0,96–0,99 bita) |
 | `nomenclator` | księga kodów słowo-za-słowo, łamacz na poziomie słów; rozstrzyga zysk z szyku słów | obalona dla łaciny, włoskiego, niemieckiego (rękopis ±0,01 bita, zakodowany tekst +0,13–0,47) |
 | `hoax` | tekst bez treści z reguł skryby (generator v5 „tabela skryby”), reguły z foliów nieparzystych, sprawdzian na parzystych | nierozstrzygnięta: v5 działami 17/20 miar, klasyfikator wierszy AUC 0,78–0,79 (prawdziwe vs prawdziwe 0,55; v4: 0,998) |
+| `syntax` | zależność między różnymi słowami odległymi o 2–7 słów (informacja wzajemna ponad tasowanie w stronie i miejscu w wierszu), osobno powtórzenia i warianty | obalona: częste słowa bez zależności (z = −1,2; 5 tekstów językowych z ≥ 3,7), za to nadmiar powtórzeń i wariantów (z ≈ 9), profil płaski z odległością |
 
 **Psy gończe** (`voynich/lab/hounds.py`, `voynich/lab/recipes.py`): rada przestaje tylko oceniać i sama poluje.
 Każdy model dostaje rolę (kryptolog, lingwista, sceptyk, „dziki pies”) i w kolejnych rundach wymyśla przepisy odczytu

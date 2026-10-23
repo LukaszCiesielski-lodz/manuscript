@@ -19,6 +19,7 @@ Notebook uruchamia testy hipotez o rękopisie Wojnicza z repozytorium `lukaszcie
 | `basque` | baskijski pod szyfrem podstawieniowym (Leizarraga 1571 i prasa współczesna) | CPU |
 | `nomenclator` | księga kodów: każde słowo to kod jednego słowa języka (łamacz na poziomie słów, rozstrzyga szyk) | CPU |
 | `hoax` | tekst bez treści z reguł skryby: generatory v4 i v5 na 20 miarach i klasyfikatorze wierszy | CPU |
+| `syntax` | daleka składnia: czy różne słowa zależą od siebie na odległość 2–7 słów, czy tylko powtórzenia i warianty | CPU |
 
 Każdy test ma **kontrole metody**: musi znaleźć efekt podłożony celowo i nie znajdować go w danych losowych. Gdy kontrola nie przejdzie, werdykt brzmi „metoda niewiarygodna”, niezależnie od wyniku. Rada modeli (OpenRouter) dyskutuje wyniki w trzech rundach, ale werdykt testu wynika tylko z liczb.
 
@@ -80,7 +81,7 @@ lab = Lab(cfg)
 lab.connect()   # pokaże wybraną radę, model wizyjny i ceny"""),
     ("md", "## 3. Testy\nKażdą komórkę można uruchomić osobno. Wyniki zapisują się w `results/lab/<data>/`."),
     ("code", 'lab.run("numbers");'),
-    ("code", 'lab.run("naibbe_cipher"); lab.run("cardan_grille"); lab.run("hebrew_anagram"); lab.run("basque"); lab.run("nomenclator"); lab.run("hoax");'),
+    ("code", 'lab.run("naibbe_cipher"); lab.run("cardan_grille"); lab.run("hebrew_anagram"); lab.run("basque"); lab.run("nomenclator"); lab.run("hoax"); lab.run("syntax");'),
     ("code", """# Próba pobrania jednego skanu. Yale zwykle odrzuca Colaba (403); wtedy kod bierze te same skany
 # Beinecke z Internet Archive (archive.org/details/voynich) i sprawdza proporcje każdej strony.
 from voynich.lab import images

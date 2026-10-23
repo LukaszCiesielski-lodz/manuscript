@@ -186,3 +186,30 @@ class HoaxTest(unittest.TestCase):
             if w:
                 self.assertTrue(any(tuple(w[:i]) in fronts and tuple(w[i:]) in ends for i in range(1, len(w))))
 
+
+class LongRangeTest(unittest.TestCase):
+    def test_language_ties_different_words_and_shuffling_removes_it(self):
+        import random
+        from voynich import corpus, longrange
+        words = corpus.load_reference("Italian")[:9000]
+        lines = [[list(w) for w in words[i:i + 9]] for i in range(0, len(words), 9)]
+        self.assertGreater(longrange.split_by_identity(lines, top=40, shuffles=6)["unrelated"]["z"], 3)
+        flat = [w for l in lines for w in l]
+        random.Random(2).shuffle(flat)
+        mixed = [flat[i:i + 9] for i in range(0, len(flat), 9)]
+        self.assertLess(abs(longrange.split_by_identity(mixed, top=40, shuffles=6)["unrelated"]["z"]), 3)
+
+    def test_copied_words_show_as_repeats_not_syntax(self):
+        import random
+        r = random.Random(4)
+        vocab = [[c] for c in "abcdefghijklmnopqrstuvwxyz"] + [list(x + y) for x in "abc" for y in "xyz"]
+        lines = []
+        for _ in range(900):
+            line = [r.choice(vocab) for _ in range(9)]
+            line[r.randrange(5, 9)] = list(line[r.randrange(0, 4)])  # each line repeats one of its words
+            lines.append(line)
+        from voynich import longrange
+        s = longrange.split_by_identity(lines, top=40, shuffles=6)
+        self.assertGreater(s["same"]["z"], 3)
+        self.assertLess(s["unrelated"]["z"], 3)
+
