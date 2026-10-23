@@ -322,3 +322,45 @@ class LexiconTest(unittest.TestCase):
         tf = "@node\n@dataset=peshitta\n\nܥܠ\nܐ̈ܦܝ\nܡ̈ܝܐ\n"
         self.assertEqual([lexicon.normalize(w) for w in lexicon.textfabric_words(tf)], ["ܥܠ", "ܐܦܝ", "ܡܝܐ"])
 
+
+
+class WheelTest(unittest.TestCase):
+    def _lines(self):
+        from voynich import corpus, eva
+        lines = [[tuple(eva.glyphs(w)) for w in l.words] for l in corpus.load_voynich() if l.kind.startswith("P") and l.words]
+        return lines[:120]
+
+    def test_compositions_round_trip(self):
+        from voynich.lab import wheel
+        lines = self._lines()
+        seg = wheel.Segments.from_words({w for l in lines for w in l})
+        word = next(w for l in lines for w in l if len(w) >= 4)
+        comps = wheel.compositions(word, 3, seg)
+        self.assertTrue(comps)
+        for comp in comps:
+            self.assertEqual(tuple(g for i in comp for g in seg.strings[i]), word)
+
+    def test_fit_and_scribe(self):
+        from voynich.lab import wheel
+        lines = self._lines()
+        s = wheel.Search(rings=3, cells=12, population=16, generations=3, seed=1)
+        best, text = wheel.fit(lines, s, wheel.Backend(prefer_gpu=False), None)
+        self.assertGreater(best["coverage"], 0.3)
+        self.assertEqual(len(best["rings"]), 3)
+        self.assertTrue(all(len(r) == 12 for r in best["rings"]))
+        gen = wheel.scribe(lines, best["rings"], text.seg, 300, seed=1)
+        self.assertGreaterEqual(sum(map(len, gen)), 300)
+        self.assertTrue(all(isinstance(w, (list, tuple)) and w for l in gen for w in l))
+
+
+class GenresTest(unittest.TestCase):
+    def test_litany_words_drop_markup(self):
+        from voynich import genres
+        words = genres.litany_words("{{Titulus|x}}\n:Sancta Maria,\n:R. ora pro nobis.\n:V. Dominus [[a|vobiscum]].")
+        self.assertEqual(words, ["sancta", "maria", "ora", "pro", "nobis", "dominus", "vobiscum"])
+
+    def test_barbarous_names_keep_only_name_runs(self):
+        from voynich import genres
+        text = "He said _this is an ordinary sentence of prose words_ and then _Hazachay Hazatha Lemogethom Hegemochom Gezomay_."
+        names = genres.barbarous_names(text, {"hazatha"})
+        self.assertEqual(names, ["hazachay", "lemogethom", "hegemochom", "gezomay"])

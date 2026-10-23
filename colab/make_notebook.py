@@ -1,4 +1,4 @@
-"""Write colab/Voynich_Lab.ipynb. Edit the cells here, then run: python colab/make_notebook.py"""
+"""Write the Colab notebooks (colab/Voynich_*.ipynb). Edit the cells here, then run: python colab/make_notebook.py"""
 
 import json
 from pathlib import Path
@@ -22,6 +22,7 @@ Notebook uruchamia testy hipotez o rękopisie Wojnicza z repozytorium `lukaszcie
 | `syntax` | daleka składnia: czy różne słowa zależą od siebie na odległość 2–7 słów, czy tylko powtórzenia i warianty | CPU |
 | `romance` | język (proto)romański: łacina ludowa (Egeria), starofrancuski, 5 Biblii romańskich; szyfr i składnia | CPU |
 | `lengths` | słowa jako liczby (długości): zależność sąsiadów, naprzemienność krótkie–długie, pamięć długozasięgowa (DFA) | CPU |
+| `wheel`, `adversary`, `genres` | tarcza Llulla ewoluowana na GPU, transformer-sędzia generatorów, gatunki bez składni (litania, imiona magiczne); osobny notebook `Voynich_Kolo.ipynb` | GPU |
 | `brute` | brute force: każda trójka kolejnych słów pod jednym kluczem litera-za-glif w ~45 językach epoki; czy klucze się zgadzają | GPU |
 
 Każdy test ma **kontrole metody**: musi znaleźć efekt podłożony celowo i nie znajdować go w danych losowych. Gdy kontrola nie przejdzie, werdykt brzmi „metoda niewiarygodna”, niezależnie od wyniku. Rada modeli (OpenRouter) dyskutuje wyniki w trzech rundach, ale werdykt testu wynika tylko z liczb.
@@ -160,6 +161,44 @@ display(Markdown((lab.cfg.results_dir / "brute.md").read_text()))"""),
 ]
 
 
+# One task, maximal GPU load: the wheel (volvelle) search, the transformer judge, medieval genres.
+wheel_cells = [
+    ("md", """# Voynich Lab – odjechane pomysły średniowieczne na GPU
+
+Trzy testy w jednym przebiegu, każdy obciąża GPU do oporu:
+
+| teoria | co sprawdza |
+|---|---|
+| `wheel` | tarcza Llulla (volvelle): populacja tarcz o 3 pierścieniach ewoluuje na GPU, aż składa słownictwo rękopisu najtańszym obrotem; to samo dla tekstów kontrolnych; najlepsza tarcza pisze tekst, który idzie przez kartę miar, klasyfikator, składnię i długości |
+| `adversary` | transformer-sędzia uczony na GPU: czy odróżni wiersze każdego generatora bez treści (v4, v5, łańcuch, tarcza) od prawdziwych; kontrola prawdziwe vs prawdziwe |
+| `genres` | gatunki bez składni: litania do Wszystkich Świętych i imiona barbarzyńskie z Ars Notoria i Liber Iuratus mierzone jak rękopis (składnia na odległość, dynamika długości, kształt) |
+
+Uruchom: Środowisko wykonawcze → Uruchom wszystko (GPU A100, High-RAM, sekrety `GITHUB_TOKEN`, `OPENROUTER_API_KEY`).
+Czas: ok. 2–3 h na A100 przy ustawieniach poniżej; `quick=True` daje próbę w kilkanaście minut."""),
+    cells[3],
+    ("code", """!pip install -q open_clip_torch
+!python scripts/fetch_data.py
+!python scripts/fetch_lexicons.py --local   # łacina i angielski do odsiewu zwykłych słów z imion
+!python scripts/fetch_genres.py            # litania (la.wikisource) i imiona (Esoteric Archives)"""),
+    cells[5],
+    ("code", cells[7][1].replace('theories=["all"],          # albo np. ["numbers", "literature"]',
+                                 'theories=["wheel", "adversary", "genres"],\n'
+                                 '    wheel_rings=3,             # pierścienie tarczy\n'
+                                 '    wheel_cells=24,            # komórek na pierścień (0–3 glify każda)\n'
+                                 '    wheel_population=2048,     # tarcz w populacji (A100: 2048; L4: 512)\n'
+                                 '    wheel_generations=2000,    # pokoleń ewolucji (4 teksty × pokolenia)\n'
+                                 '    judge_epochs=20,           # epoki transformera-sędziego na każdy generator')),
+    ("code", """for name in ("wheel", "adversary", "genres"):
+    lab.run(name)
+    lab.push()                     # po każdym teście na GitHub, gdyby sesja padła
+lab.convene(["wheel", "adversary", "genres"])
+lab.report(); lab.push()
+from IPython.display import Markdown, display
+for name in ("wheel", "adversary", "genres"):
+    display(Markdown((lab.cfg.results_dir / f"{name}.md").read_text()))"""),
+]
+
+
 def cell(kind, text):
     src = text.splitlines(keepends=True)
     if kind == "md":
@@ -172,7 +211,7 @@ nb = {"nbformat": 4, "nbformat_minor": 0,
                    "kernelspec": {"name": "python3", "display_name": "Python 3"}, "language_info": {"name": "python"}},
       "cells": [cell(k, t) for k, t in cells]}
 for name, cs in (("Voynich_Lab.ipynb", cells), ("Voynich_Ilustracje.ipynb", illustrations_cells),
-                 ("Voynich_Brute.ipynb", brute_cells)):
+                 ("Voynich_Brute.ipynb", brute_cells), ("Voynich_Kolo.ipynb", wheel_cells)):
     out = Path(__file__).with_name(name)
     out.write_text(json.dumps({**nb, "cells": [cell(k, t) for k, t in cs]}, indent=1, ensure_ascii=False), encoding="utf-8")
     print("wrote", out)

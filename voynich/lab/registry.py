@@ -33,6 +33,9 @@ THEORIES = {t.name: t for t in [
     Theory("romance", "Język (proto)romański", (), "romance:run"),
     Theory("lengths", "Słowa jako liczby: dynamika długości słów", (), "lengths:run"),
     Theory("brute", "Brute force: trójki słów pod jednym kluczem w językach epoki", ("gpu",), "brute:run"),
+    Theory("wheel", "Tarcza Lullusa (volvelle) jako urządzenie piszące", ("gpu",), "wheel:run"),
+    Theory("adversary", "Transformer-sędzia: prawdziwe vs wygenerowane", ("gpu",), "adversary:run"),
+    Theory("genres", "Gatunki średniowieczne bez składni: litania, imiona magiczne", (), "genres:run"),
 ]}
 ALIASES = {"literature": ["naibbe_cipher", "cardan_grille", "hebrew_anagram"], "all": list(THEORIES)}
 

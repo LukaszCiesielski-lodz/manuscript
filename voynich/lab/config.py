@@ -52,6 +52,13 @@ class LabConfig:
     brute_triples: int = 0         # most frequent distinct triples per text; 0 = 4000 (800 in quick mode)
     brute_tokenize: str = "glyphs" # "glyphs" (ch, sh, cth... as one symbol) or "chars" (raw EVA letters)
 
+    # The wheel (volvelle) search and the transformer judge (theories "wheel", "adversary").
+    wheel_rings: int = 3
+    wheel_cells: int = 24
+    wheel_population: int = 1024   # wheels scored in parallel on the GPU
+    wheel_generations: int = 1500
+    judge_epochs: int = 12
+
     # Git: results are committed to this branch and pushed with the token.
     git_branch: str = "lab-results"
     git_repo: str = "lukaszciesielski-lodz/manuscript"
