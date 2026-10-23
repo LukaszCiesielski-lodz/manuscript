@@ -18,12 +18,16 @@ MEDIEVAL_DIR = REFERENCE_DIR / "medieval"
 # What scripts/fetch_data.py must produce. Analyses compare against all of these, so a
 # missing or truncated file silently changes every distance; data_problems() guards that.
 BIBLE_LANGUAGES = ["Latin", "Italian", "German", "Polish", "Czech", "English", "Hungarian",
-                   "Finnish", "Turkish", "Hebrew", "Arabic", "Vietnamese", "Basque"]
+                   "Finnish", "Turkish", "Hebrew", "Arabic", "Vietnamese", "Basque",
+                   "Spanish", "Portuguese", "French", "Romanian"]
+ROMANCE = ["Italian", "Spanish", "Portuguese", "French", "Romanian"]
 # Basque exists in the corpus only as the New Testament (Leizarraga, 1571, original spelling).
 BIBLE_FILES = {"Basque": "Basque-NT"}
-# Modern prose samples kept apart from the Bible set: name -> minimum words.
+# Samples kept apart from the Bible set: name -> minimum words.
+# Proto-Romance survives in no text; its nearest witnesses are Vulgar Latin (Egeria's
+# travel diary, c. 400) and the oldest Romance writing (Old French, 9th-13th c.).
 EXTRA_DIR = REFERENCE_DIR / "extra"
-EXTRA_TEXTS = {"basque_news": 60_000}
+EXTRA_TEXTS = {"basque_news": 60_000, "egeria": 15_000, "old_french": 60_000}
 BIBLE_WORDS = 60_000
 MEDIEVAL_NAMES = ["Isidorus", "Hugo", "Alfonsi", "Conches", "Aquinas", "Voragine", "Dante", "Petrarca",
                   "Gesta", "Kempis", "Poggio", "Columella"]

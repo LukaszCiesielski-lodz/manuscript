@@ -52,6 +52,8 @@ def run(cfg: LabConfig) -> TheoryResult:
     for lang in LANGUAGES:
         texts[lang] = _lines(corpus.load_reference(lang)[:n])
     texts["łacina średniowieczna"] = _lines([w for m in corpus.medieval_texts() for w in corpus.load_medieval(m, 4000)][:n])
+    texts["łacina ludowa (Egeria)"] = _lines(corpus.load_extra("egeria")[:n])
+    texts["starofrancuski"] = _lines(corpus.load_extra("old_french")[:n])
     lat = corpus.load_reference("Latin")[:n]
     syl = [s for w in latin.normalize(lat[:20000]) for s in latin.syllabify(w)][:n]
     book = {w: [f"{w}#{k}" for k in range(2)] for w in set(lat)}

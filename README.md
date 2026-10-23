@@ -83,6 +83,7 @@ Werdykt testu wynika tylko z liczb i kontroli; rada go komentuje. Przegląd lite
 | `nomenclator` | księga kodów słowo-za-słowo, łamacz na poziomie słów; rozstrzyga zysk z szyku słów | obalona dla łaciny, włoskiego, niemieckiego (rękopis ±0,01 bita, zakodowany tekst +0,13–0,47) |
 | `hoax` | tekst bez treści z reguł skryby (generator v5 „tabela skryby”), reguły z foliów nieparzystych, sprawdzian na parzystych | nierozstrzygnięta: v5 działami 17/20 miar, klasyfikator wierszy AUC 0,78–0,79 (prawdziwe vs prawdziwe 0,55; v4: 0,998) |
 | `syntax` | zależność między różnymi słowami odległymi o 2–7 słów (informacja wzajemna ponad tasowanie w stronie i miejscu w wierszu), osobno powtórzenia i warianty | obalona: częste słowa bez zależności (z = −1,2; 5 tekstów językowych z ≥ 3,7), za to nadmiar powtórzeń i wariantów (z ≈ 9), profil płaski z odległością |
+| `romance` | język (proto)romański (Cheshire 2019): łacina ludowa (Egeria, ok. 400), starofrancuski (IX–XIII w.), Biblie: włoski, hiszpański, portugalski, francuski, rumuński | obalona: luka 1,09–1,26 bita przy kontrolach 99–100%; każdy tekst romański ma daleką składnię (z ≥ 11), rękopis nie (z = −1,2) |
 
 **Psy gończe** (`voynich/lab/hounds.py`, `voynich/lab/recipes.py`): rada przestaje tylko oceniać i sama poluje.
 Każdy model dostaje rolę (kryptolog, lingwista, sceptyk, „dziki pies”) i w kolejnych rundach wymyśla przepisy odczytu
@@ -94,7 +95,7 @@ Trop liczy się tylko, gdy rękopis wyraźnie wygrywa z bełkotem, a odczyt jest
 język; najlepsze tropy są powtarzane na innej części rękopisu. Pomysły spoza klocków trafiają na listę życzeń.
 W notebooku: `lab.hunt(rounds=4, per_hound=2)`.
 
-Laboratorium porównuje z 13 językami (baskijski dołączył jako 13.); raport `docs/index.html` z etapów 1–2 liczono jeszcze na 12.
+Laboratorium porównuje z 17 językami Biblii (baskijski dołączył jako 13., hiszpański, portugalski, francuski i rumuński jako 14.–17.) oraz z łaciną średniowieczną, łaciną ludową (Egeria) i starofrancuskim; raport `docs/index.html` z etapów 1–2 liczono jeszcze na 12.
 `fetch_data.py` kończy się komunikatem „Dane kompletne.”, a laboratorium odmawia liczenia na niepełnych danych.
 
 Sekrety Colaba: `GITHUB_TOKEN`, `OPENROUTER_API_KEY`. Wyniki trafiają na gałąź `lab-results`.

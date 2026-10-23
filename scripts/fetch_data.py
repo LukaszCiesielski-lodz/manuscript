@@ -34,7 +34,12 @@ LANGUAGES = BIBLE_LANGUAGES
 SAMPLE_WORDS = BIBLE_WORDS
 
 # Modern Basque news prose (Universal Dependencies Basque BDT treebank, CC BY-NC-SA 3.0; not committed).
-EXTRA_URLS = {"basque_news": "https://raw.githubusercontent.com/UniversalDependencies/UD_Basque-BDT/master/eu_bdt-ud-train.conllu"}
+EXTRA_URLS = {"basque_news": "https://raw.githubusercontent.com/UniversalDependencies/UD_Basque-BDT/master/eu_bdt-ud-train.conllu",
+              # Old French, 9th-13th c. (UD Old French PROFITEROLE, CC BY-SA 4.0); first 60 000 words.
+              "old_french": "https://raw.githubusercontent.com/UniversalDependencies/UD_Old_French-PROFITEROLE/master/fro_profiterole-ud-train.conllu"}
+EXTRA_LIMIT = {"old_french": 60_000}
+# Vulgar Latin: Itinerarium Egeriae (c. 400), from The Latin Library.
+EXTRA_LATIN = {"egeria": ["egeria1.txt", "egeria2.txt"]}
 
 
 def conllu_words(url: str) -> list[str]:
@@ -137,7 +142,10 @@ def main() -> None:
         if not force and word_count(path) >= minimum:
             continue
         try:
-            words = conllu_words(EXTRA_URLS[name])
+            if name in EXTRA_LATIN:
+                words = [w for f in EXTRA_LATIN[name] for w in latin_library_words(f)]
+            else:
+                words = conllu_words(EXTRA_URLS[name])[:EXTRA_LIMIT.get(name)]
         except Exception as exc:
             failed.append(f"extra/{name}: {exc}")
             continue

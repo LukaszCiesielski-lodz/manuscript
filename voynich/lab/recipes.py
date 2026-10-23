@@ -330,7 +330,7 @@ def section_words() -> dict[str, int]:
 
 
 def targets() -> list[str]:
-    return corpus.reference_languages() + ["MedievalLatin", "BasqueNews"]
+    return corpus.reference_languages() + ["MedievalLatin", "BasqueNews", "VulgarLatin", "OldFrench"]
 
 
 def dsl_doc() -> str:
@@ -440,6 +440,10 @@ def target_words(recipe: dict) -> list[str]:
                  for w in corpus.load_medieval(n, 15000)]
     elif t == "BasqueNews":
         words = corpus.load_extra("basque_news")
+    elif t == "VulgarLatin":
+        words = corpus.load_extra("egeria")
+    elif t == "OldFrench":
+        words = corpus.load_extra("old_french")
     else:
         words = corpus.load_reference(t)
     for op in recipe.get("target_ops", []) or []:
