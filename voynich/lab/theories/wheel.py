@@ -66,12 +66,22 @@ def run(cfg: LabConfig) -> TheoryResult:
     planted = write_random(known, text.seg, min(len(flat), 12000), cfg.seed)
     print("  tarcza dla: tekst napisany znaną tarczą...", flush=True)
     recovered, _ = fit(planted, s, xp, None)
+    pw = [w for l in planted for w in l]
+    r.shuffle(pw)
+    planted_shuffled, i = [], 0
+    for l in planted:
+        planted_shuffled.append(pw[i:i + len(l)])
+        i += len(l)
+    recovered_sh, _ = fit(planted_shuffled, s, xp, None)
     overlap = statistics.mean(len(set(known[rr]) & set(recovered["rings"][rr])) / len(set(known[rr]))
                               for rr in range(s.rings))
-    res.control("wyszukiwanie odzyskuje znaną tarczę z tekstu nią napisanego", "pokrycie ≥ 0,9 i koszt obrotu ≤ 0,25",
-                f"pokrycie {recovered['coverage']:.1%}, koszt {recovered['turn']:.3f}, wspólnych komórek {overlap:.0%}",
-                recovered["coverage"] >= 0.9 and recovered["turn"] <= 0.25)
-    controls["tekst znanej tarczy"] = {k: v for k, v in recovered.items() if k != "rings"} | {"cell_overlap": overlap}
+    res.control("wyszukiwanie odzyskuje znaną tarczę z tekstu nią napisanego",
+                "pokrycie ≥ 0,9 i koszt obrotu niższy o ≥ 0,1 niż dla tych samych słów przetasowanych",
+                f"pokrycie {recovered['coverage']:.1%}, koszt {recovered['turn']:.3f} wobec {recovered_sh['turn']:.3f} po "
+                f"przetasowaniu, wspólnych komórek z prawdziwą tarczą {overlap:.0%}",
+                recovered["coverage"] >= 0.9 and recovered["turn"] <= recovered_sh["turn"] - 0.1)
+    controls["tekst znanej tarczy"] = {k: v for k, v in recovered.items() if k != "rings"} | {
+        "cell_overlap": overlap, "shuffled_turn": recovered_sh["turn"]}
     cheaper = best["turn"] < controls["słowa przetasowane"]["turn"] - 0.02
     res.control("tarcza rękopisu obraca się taniej niż na słowach przetasowanych", "koszt obrotu niższy o ≥ 0,02",
                 f"{best['turn']:.3f} wobec {controls['słowa przetasowane']['turn']:.3f}", cheaper)
