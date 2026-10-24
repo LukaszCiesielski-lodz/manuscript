@@ -468,3 +468,34 @@ class RecoverTest(unittest.TestCase):
             self.assertIsNotNone(lab.recover("t"))
             self.assertIn("t", lab.results)
             self.assertIsNone(lab.recover("nope"))
+
+
+class PublishTest(unittest.TestCase):
+    def test_publish_does_not_touch_the_code_checkout(self):
+        import subprocess, tempfile
+        from pathlib import Path
+        from voynich.lab.config import LabConfig
+        from voynich.lab.runner import Lab, ROOT
+        head = subprocess.run(["git", "-C", str(ROOT), "rev-parse", "--abbrev-ref", "HEAD"], capture_output=True, text=True).stdout.strip()
+        with tempfile.TemporaryDirectory() as tmp:
+            bare = Path(tmp) / "remote.git"
+            subprocess.run(["git", "init", "-q", "--bare", str(bare)], check=True)
+            cfg = LabConfig(results_dir=ROOT / "results" / "test-publish", git_branch="test-lab-results")
+            lab = Lab(cfg)
+            (lab.cfg.results_dir / "t.md").write_text("x", encoding="utf-8")
+            try:
+                out = lab.publish(str(bare))
+                self.assertEqual(out.returncode, 0, out.stderr)
+                (lab.cfg.results_dir / "u.md").write_text("y", encoding="utf-8")
+                out = lab.publish(str(bare))           # second push on top of the first
+                self.assertEqual(out.returncode, 0, out.stderr)
+                log = subprocess.run(["git", "-C", str(bare), "log", "--oneline", "test-lab-results"], capture_output=True, text=True).stdout
+                self.assertEqual(len(log.strip().splitlines()), 2)
+                files = subprocess.run(["git", "-C", str(bare), "ls-tree", "-r", "--name-only", "test-lab-results"], capture_output=True, text=True).stdout
+                self.assertIn(f"results/test-publish/{lab.stamp}/t.md", files)
+            finally:
+                import shutil
+                shutil.rmtree(ROOT / "results" / "test-publish", ignore_errors=True)
+        after = subprocess.run(["git", "-C", str(ROOT), "rev-parse", "--abbrev-ref", "HEAD"], capture_output=True, text=True).stdout.strip()
+        self.assertEqual(head, after)
+        self.assertTrue((ROOT / "voynich" / "lab" / "theories" / "transcriptions.py").exists())

@@ -183,21 +183,40 @@ class Lab:
         if not token:
             print(f"Brak sekretu {self.cfg.github_secret}: wyniki zostają tylko lokalnie w {self.cfg.results_dir}")
             return
-        url = f"https://x-access-token:{token}@github.com/{self.cfg.git_repo}.git"
-        git = lambda *a, check=True: subprocess.run(["git", "-C", str(ROOT), *a], check=check, capture_output=True, text=True)
-        git("config", "user.name", "Voynich Lab (Colab)")
-        git("config", "user.email", "voynich-lab@users.noreply.github.com")
-        remote = git("ls-remote", "--heads", url, self.cfg.git_branch, check=False).stdout.strip()
-        if remote:
-            git("fetch", url, f"{self.cfg.git_branch}:refs/remotes/lab/{self.cfg.git_branch}")
-            git("checkout", "-B", self.cfg.git_branch, f"refs/remotes/lab/{self.cfg.git_branch}")
-        else:
-            git("checkout", "-B", self.cfg.git_branch)
-        rel = self.cfg.results_dir.relative_to(ROOT)
-        git("add", "-f", str(rel))  # results/ is ignored locally so test runs never get committed by accident
-        git("commit", "-m", f"Voynich Lab: wyniki przebiegu {self.stamp}", check=False)
-        out = git("push", url, f"{self.cfg.git_branch}:{self.cfg.git_branch}", check=False)
+        out = self.publish(f"https://x-access-token:{token}@github.com/{self.cfg.git_repo}.git")
         print("Wypchnięto na gałąź", self.cfg.git_branch if out.returncode == 0 else f"BŁĄD: {out.stderr.replace(token, '***')}")
+
+    def publish(self, url: str) -> subprocess.CompletedProcess:
+        """Commit the results folder on top of the remote branch and push it, in a throw-away worktree.
+
+        The code checkout is never touched: switching the main working tree to the results branch
+        (an old copy of the code) once made every theory imported after the first push disappear.
+        """
+        import shutil
+        import tempfile
+        branch = self.cfg.git_branch
+        git = lambda *a, cwd=ROOT, check=True: subprocess.run(["git", "-C", str(cwd), *a], check=check,
+                                                                capture_output=True, text=True)
+        author = ["-c", "user.name=Voynich Lab (Colab)", "-c", "user.email=voynich-lab@users.noreply.github.com"]
+        wt = Path(tempfile.mkdtemp(prefix="lab-results-"))
+        wt.rmdir()
+        try:
+            remote = git("ls-remote", "--heads", url, branch, check=False).stdout.strip()
+            if remote:
+                git("fetch", url, f"+{branch}:refs/remotes/lab/{branch}")
+                git("worktree", "add", "--detach", str(wt), f"refs/remotes/lab/{branch}")
+            else:
+                git("worktree", "add", "--detach", str(wt))
+                git("switch", "--orphan", f"lab-{self.stamp}", cwd=wt)
+            rel = self.cfg.results_dir.relative_to(ROOT)
+            shutil.copytree(self.cfg.results_dir, wt / rel, dirs_exist_ok=True)
+            git("add", "-f", str(rel), cwd=wt)
+            subprocess.run(["git", "-C", str(wt), *author, "commit", "-m", f"Voynich Lab: wyniki przebiegu {self.stamp}"],
+                           check=False, capture_output=True, text=True)
+            return git("push", url, f"HEAD:refs/heads/{branch}", cwd=wt, check=False)
+        finally:
+            git("worktree", "remove", "--force", str(wt), check=False)
+            git("worktree", "prune", check=False)
 
 
 def main() -> None:
