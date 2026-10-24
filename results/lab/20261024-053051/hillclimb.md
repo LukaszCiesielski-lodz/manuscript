@@ -120,10 +120,30 @@ Tropy: brak; 51 języków testowalnych, 1 nietestowalnych. Najbliżej tekstu nat
 - Model języka z próbki ok. 8 tys. słów; dla szyfru z nullami, skrótami lub zmienną segmentacją wspinaczka po samym kluczu glif–litera nie wystarczy.
 - Bełkot v5 ma statystykę rękopisu, więc wynik rękopisu musi go wyraźnie przebić, by coś znaczył.
 
+## Rada modeli
+
+## Werdykt rady
+
+**Test jest niewiarygodny jako podstawa kategorycznego obalenia hipotezy.** Wynik jest niekorzystny dla badanej wersji prostego szyfru homofonicznego, ale nie spełniono wymogu kontroli ujemnej na danych przetasowanych.
+
+**Poziom zgody:** wysoki co do braku tej kontroli i konieczności odrzucenia automatycznego werdyktu „obalona”; opinie różnią się, jak mocno interpretować niekorzystny wynik.
+
+### Co test pokazuje
+
+Kontrole dodatnie wskazują, że wspinacz odzyskiwał klucz w testowanych zaszyfrowanych tekstach: zwykle w 100% znaków, w najniższych podanych przypadkach w 88–94%. W rękopisie nie uzyskano tropu; najbliższy wynik OldFrench (4,01 bitu/znak) jest bliski bełkotowi v5 (3,96), a gorszy od wartości naturalnego tekstu (3,85). To przemawia przeciw badanej metodzie szyfrowania, ale nie rozstrzyga sprawy bez pełnej walidacji.
+
+### Główne zastrzeżenia
+
+Brak wyników kontroli na danych przetasowanych oznacza, że nie wiadomo, czy pipeline daje fałszywe trafienia. Nie podano też, który leksykon był nietestowalny ani dlaczego. Raport nie wykazuje, że kontrole dodatnie dopasowano długością i strukturą do badanego materiału. Test nie obejmuje innych typów szyfrów ani języków spoza testowanego zestawu.
+
+### Rekomendowany eksperyment
+
+Powtórzyć pełny pipeline na kontrolach dodatnich o długości i strukturze dopasowanej do rękopisu oraz na odpowiadających im danych przetasowanych; z góry ustalić kryterium trafienia i podać wyniki dla wszystkich leksykonów.
+
 ## Literatura
 
 - Van Eycke, AZdecrypt (2017–2021)
 - Nuhn, Schamper & Ney, Beam search for solving substitution ciphers, ACL 2013
 - Kambhatla, Bigvand & Sarkar, Decipherment of substitution ciphers with neural language models, EMNLP 2018
 
-_Czas: 1602 s · 2026-10-24 10:54_
+_Czas: 1602 s · 2026-10-24 11:07_

@@ -119,9 +119,28 @@ Tropy: brak; 50 języków testowalnych, 2 nietestowalnych. Największa przewaga 
 - Cechy bigramowe widzą pisownię, nie wymowę: kognaty różniące się bardziej niż o jedną literę nie liczą się jako trafienia.
 - Klucz glif–litera jeden do jednego; abrewiacje i ligatury wieloliterowe są poza zasięgiem.
 
+## Rada modeli
+
+## Werdykt rady
+**Brak przekonującego wsparcia dla hipotezy w badanym zakresie, ale jej obalenie nie jest uzasadnione.** Metoda nie spełnia wymogu wiarygodności, ponieważ raport nie przedstawia kontroli na danych przetasowanych.
+
+## Poziom zgody
+Po początkowych różnicach opinie zbiegły się co do kluczowego zastrzeżenia: samych kontroli dodatnich nie wystarcza do uznania testu za wiarygodny. Nie ma podstaw do kategorycznego werdyktu „obalona”.
+
+## Co test naprawdę pokazuje
+W 50 językach testowalnych kontrole dodatnie odzyskały klucz w 94–100% znaków, powyżej progu 60%. W wynikach rękopisu nie zgłoszono tropów. Najwyższy podany wynik, dla Syriac, to 85% słów w odległości najwyżej jednej zmiany od słownika wobec 74% dla bełkotu v5. To nie wykazuje przekonującego dopasowania, ale bez rozkładu wyników tła nie wiadomo, czy różnica jest istotna.
+
+Test dotyczy stałego klucza glif–litera dla testowalnych języków. Nie rozstrzyga hipotez spoza tego modelu ani wyników dla dwóch języków nietestowalnych.
+
+## Główne zastrzeżenia
+Brak kontroli ujemnej na danych przetasowanych i rozkładu wielu realizacji tła. Ponadto sekcja dowodów jest niepełna, więc nie można ocenić wszystkich porównań językowych. Kryterium „o jedną zmianę” daje wysokie tło.
+
+## Rekomendowany następny eksperyment
+Uruchomić niezmieniony pipeline na wielu przetasowanych wersjach danych oraz wielu realizacjach bełkotu, podać rozkład wyników i pozycję wyniku Syriac względem tych rozkładów.
+
 ## Literatura
 
 - Luo, Cao & Barzilay, Neural decipherment via minimum-cost flow: from Ugaritic to Linear B, ACL 2019
 - Luo et al., Deciphering undersegmented ancient scripts using phonetic prior, TACL 2021
 
-_Czas: 17637 s · 2026-10-24 10:28_
+_Czas: 17637 s · 2026-10-24 11:04_

@@ -23,9 +23,23 @@ Rękopis (glify): samogłoski o a e y n, naprzemienność 0.80; najbliższy jęz
 - Suchotin dzieli znaki na dwie klasy po samym sąsiedztwie; w abdżadach „samogłoskami” zostają matres lectionis, w rękopisie znaki o, a, e, y.
 - Porównanie wzorców C/V zależy od tego, co uznać za jeden znak; stąd rękopis liczony dwa razy (glify i litery EVA).
 
+## Rada modeli
+
+## Werdykt rady
+**Nierozstrzygnięta, z tendencją negatywną:** test nie dostarcza wiarygodnego dowodu, że wzorce C/V rękopisu odzwierciedlają fonotaktykę mowy. Zgoda jest wysoka co do braku rozstrzygającego wsparcia; różnica dotyczy tego, czy nazwać metodę niewiarygodną, czy wynik nierozstrzygniętym.
+
+## Co test naprawdę pokazuje
+Przetasowanie glifów obniżyło naprzemienność C/V z 0,80 do 0,60, więc ta miara reaguje na lokalną strukturę. Jednak według kryterium odległości dane przetasowane nadal mieszczą się w rozrzucie języków (0,142 wobec maksimum 0,294). Rękopis ma odległość 0,212 — powyżej mediany międzyjęzykowej 0,109 — a bełkot v5 daje niemal taki sam wynik: naprzemienność 0,80 i odległość 0,222.
+
+## Główne zastrzeżenia
+Kontrole nie spełniają w pełni wymogu wiarygodności: brak kontroli pozytywnej z celowo podłożonym efektem, a przetasowanie nie odrzuca kryterium odległości. Nie wiadomo też, jak wygenerowano bełkot v5. Wyniki zależą od segmentacji: glify i EVA dają różne klasy „samogłosek” i inne najbliższe języki. Wartości naprzemienności nie wspierają wariantu abdżadowego, ale same go rozstrzygająco nie wykluczają. Test nie bada semantyki, morfologii ani sposobu powstania tekstu.
+
+## Następny eksperyment
+Przeprowadzić zaślepioną walidację całego, z góry ustalonego kryterium na kontrolach dopasowanych długością i częstością znaków: z celowo podłożoną fonotaktyką oraz z danymi przetasowanymi. Metoda powinna wykryć pierwsze i nie kwalifikować drugich.
+
 ## Literatura
 
 - Sukhotin, Eksperimental'noe vydelenie klassov bukv s pomoshch'ju EVM (1962)
 - Guy, Vowel identification: an old (but good) algorithm, Cryptologia 15 (1991)
 
-_Czas: 13 s · 2026-10-24 05:31_
+_Czas: 13 s · 2026-10-24 10:58_

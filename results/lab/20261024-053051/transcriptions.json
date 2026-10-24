@@ -284,5 +284,156 @@
  ],
  "artifacts": [],
  "seconds": 173.3675034046173,
- "council": {}
+ "council": {
+  "members": [
+   "z-ai/glm-5.3-flash",
+   "openai/gpt-6-luna",
+   "inception/mercury-3",
+   "tencent/hy3"
+  ],
+  "chair": "openai/gpt-6-luna",
+  "round1": {
+   "z-ai/glm-5.3-flash": {
+    "raw": "{\"werdykt\":\"metoda niewiarygodna\",\"pewność\":0.6,\"najmocniejszy_dowód\":\"Spójność sygnatury w 4 pełnych transliteracjach (ZL, IT, FG, GC): silny nadmiar powtórzeń (z≈5-10), wariantów (z≈4.5-6.3) i korelacja długości sąsiadów (z≈18-23 przy null≈0.04-0.07) — niezależnie od alfabetu.\",\"słabości\":[\"Sekcja KONTROLE METODY jest pusta — raport nie dokumentuje żadnych testów kontrolnych (brak danych z podłożonym efektem i brak przetasowań), więc nie można zweryfikować kalibracji z-score i wartości null\",\"CD odrzucone ad hoc jako 'częściowa' — brak kryterium, które wcześniej zadeklarowałoby, że częściowość transliteracji dyskwalifikuje wynik; ryzyko cherry-pickingu (sygnatura 'trzyma' tam, gdzie się zgadza)\",\"GC (70 glifów) i CD różnią się od EWA jednostkami — zastrzeżenie wprost mówi, że miary kształtu nie są porównywalne, a mimo to wchodzą do werdyktu\",\"'unrelated' dla ZL z=-1.2 i IT z=-0.8 nie jest jednoznacznie negatywne (słaby sygnał), mimo że hipoteza wymienia 'brak dalekiej składni' jako kluczowy komponent\",\"CD daje odwrócone znaki na 'unrelated' i 'different' (z=+2.6, +2.4) — nie wyjaśniono, czy to artefakt transliteracji, czy realny problem hipotezy\"],\"inne_wyjaśnienia\":[\"Podpis może wynikać z konwencji transkrypcji (podziały słów, rozstrzyganie niepewnych glifów), nie z rękopisu — zgodność ZL/IT częściowo wynika z tego, że obie bazują na EVA i tylko 29% wierszy różni się\",\"Tokenizacja po znaku dla alfabetów nie-EVA może sztucznie wytwarzać lub kasować korelacje długości\",\"Autokorelacja długości mogłaby wynikać z układu stron/linii (sekcje językowe, ilustracje), co nie jest testowane\"],\"następny_test\":\"Przeprowadzić formalne kontrole metody: wstrzyknąć podłożony efekt (sztuczne powtórzenia i korelację długości sąsiadów) do tekstu kontrolnego i potwierdzić wykrywalność, oraz pokazać brak efektu na 1000 permutacjach przetasowanych w wierszach — z raportowanymi krzywymi ROC/kalibracją z-score. Dopiero wtedy werdykt o treści hipotezy stanie się wiarygodny.\"}",
+    "json": {
+     "werdykt": "metoda niewiarygodna",
+     "pewność": 0.6,
+     "najmocniejszy_dowód": "Spójność sygnatury w 4 pełnych transliteracjach (ZL, IT, FG, GC): silny nadmiar powtórzeń (z≈5-10), wariantów (z≈4.5-6.3) i korelacja długości sąsiadów (z≈18-23 przy null≈0.04-0.07) — niezależnie od alfabetu.",
+     "słabości": [
+      "Sekcja KONTROLE METODY jest pusta — raport nie dokumentuje żadnych testów kontrolnych (brak danych z podłożonym efektem i brak przetasowań), więc nie można zweryfikować kalibracji z-score i wartości null",
+      "CD odrzucone ad hoc jako 'częściowa' — brak kryterium, które wcześniej zadeklarowałoby, że częściowość transliteracji dyskwalifikuje wynik; ryzyko cherry-pickingu (sygnatura 'trzyma' tam, gdzie się zgadza)",
+      "GC (70 glifów) i CD różnią się od EWA jednostkami — zastrzeżenie wprost mówi, że miary kształtu nie są porównywalne, a mimo to wchodzą do werdyktu",
+      "'unrelated' dla ZL z=-1.2 i IT z=-0.8 nie jest jednoznacznie negatywne (słaby sygnał), mimo że hipoteza wymienia 'brak dalekiej składni' jako kluczowy komponent",
+      "CD daje odwrócone znaki na 'unrelated' i 'different' (z=+2.6, +2.4) — nie wyjaśniono, czy to artefakt transliteracji, czy realny problem hipotezy"
+     ],
+     "inne_wyjaśnienia": [
+      "Podpis może wynikać z konwencji transkrypcji (podziały słów, rozstrzyganie niepewnych glifów), nie z rękopisu — zgodność ZL/IT częściowo wynika z tego, że obie bazują na EVA i tylko 29% wierszy różni się",
+      "Tokenizacja po znaku dla alfabetów nie-EVA może sztucznie wytwarzać lub kasować korelacje długości",
+      "Autokorelacja długości mogłaby wynikać z układu stron/linii (sekcje językowe, ilustracje), co nie jest testowane"
+     ],
+     "następny_test": "Przeprowadzić formalne kontrole metody: wstrzyknąć podłożony efekt (sztuczne powtórzenia i korelację długości sąsiadów) do tekstu kontrolnego i potwierdzić wykrywalność, oraz pokazać brak efektu na 1000 permutacjach przetasowanych w wierszach — z raportowanymi krzywymi ROC/kalibracją z-score. Dopiero wtedy werdykt o treści hipotezy stanie się wiarygodny."
+    }
+   },
+   "openai/gpt-6-luna": {
+    "raw": "{\n  \"werdykt\": \"metoda niewiarygodna\",\n  \"pewność\": 0.96,\n  \"najmocniejszy_dowód\": \"Raport nie podaje wyników kontroli wymaganych do uznania testu za wiarygodny: nie pokazuje, że metoda wykrywa celowo podłożony efekt ani że nie wykrywa go w danych przetasowanych. Zgodność wyników w 4 z 4 pełnych transliteracji nie zastępuje tych kontroli.\",\n  \"słabości\": [\n    \"Sekcja „Kontrole metody” nie zawiera żadnych wyników; opis tasowań użytych jako punkt odniesienia dla miar nie potwierdza walidacji całej metody.\",\n    \"ZL jest jednocześnie punktem odniesienia dla miar kształtu, więc jego wartości z = 0.0 są z definicji i nie stanowią niezależnego potwierdzenia.\",\n    \"ZL i Takahashi są w pełni zgodne jedynie w około 29% wierszy, a raport wskazuje różnice w glifach i podziałach słów.\",\n    \"Currier-D'Imperio jest częściowa i nie spełnia kryterium; alfabety FSG i v101 nie są wprost porównywalne z EVA dla części miar.\"\n  ],\n  \"inne_wyjaśnienia\": [\n    \"Podobieństwa między wynikami mogą wynikać ze wspólnych konwencji transliteracji lub segmentacji, a nie wyłącznie z własności rękopisu.\",\n    \"Powtórzenia i lokalne zależności mogą wynikać z cech procesu zapisu lub struktury tekstu; raport nie rozstrzyga ich przyczyny.\"\n  ],\n  \"następny_test\": \"Przeprowadzić zaślepioną walidację całego pipeline’u na kontrolach dodatnich i ujemnych: metoda ma wykryć celowo podłożony podpis w danych dodatnich i nie wykryć go w odpowiednio przetasowanych danych, przy zachowaniu tych samych reguł tokenizacji i segmentacji.\"\n}",
+    "json": {
+     "werdykt": "metoda niewiarygodna",
+     "pewność": 0.96,
+     "najmocniejszy_dowód": "Raport nie podaje wyników kontroli wymaganych do uznania testu za wiarygodny: nie pokazuje, że metoda wykrywa celowo podłożony efekt ani że nie wykrywa go w danych przetasowanych. Zgodność wyników w 4 z 4 pełnych transliteracji nie zastępuje tych kontroli.",
+     "słabości": [
+      "Sekcja „Kontrole metody” nie zawiera żadnych wyników; opis tasowań użytych jako punkt odniesienia dla miar nie potwierdza walidacji całej metody.",
+      "ZL jest jednocześnie punktem odniesienia dla miar kształtu, więc jego wartości z = 0.0 są z definicji i nie stanowią niezależnego potwierdzenia.",
+      "ZL i Takahashi są w pełni zgodne jedynie w około 29% wierszy, a raport wskazuje różnice w glifach i podziałach słów.",
+      "Currier-D'Imperio jest częściowa i nie spełnia kryterium; alfabety FSG i v101 nie są wprost porównywalne z EVA dla części miar."
+     ],
+     "inne_wyjaśnienia": [
+      "Podobieństwa między wynikami mogą wynikać ze wspólnych konwencji transliteracji lub segmentacji, a nie wyłącznie z własności rękopisu.",
+      "Powtórzenia i lokalne zależności mogą wynikać z cech procesu zapisu lub struktury tekstu; raport nie rozstrzyga ich przyczyny."
+     ],
+     "następny_test": "Przeprowadzić zaślepioną walidację całego pipeline’u na kontrolach dodatnich i ujemnych: metoda ma wykryć celowo podłożony podpis w danych dodatnich i nie wykryć go w odpowiednio przetasowanych danych, przy zachowaniu tych samych reguł tokenizacji i segmentacji."
+    }
+   },
+   "inception/mercury-3": {
+    "raw": "{\n  \"werdykt\": \"nierozstrzygnięta\",\n  \"pewność\": 0.6,\n  \"najmocniejszy_dowód\": \"Spójność podpisu w 4 pełnych transliteracjach (ZL, IT, FG, GC) mimo różnych alfabetów i podziałów słów, co sugeruje, że cecha jest niezależna od konkretnej transliteracji.\",\n  \"słabości\": [\n    \"Brak w raporcie kontroli metody: nie pokazano, czy metoda znajduje efekt podłożony celowo i czy nie znajduje go w danych przetasowanych.\",\n    \"Test nie porównuje rękopisu z innymi tekstami (np. losowymi, naturalnymi językami), więc nie wyklucza, że podpis jest typowy dla szerokiej klasy tekstów.\",\n    \"Dane z transliteracji częściowych (CD) nie są w pełni porównywalne, a różnice między alfabetami utrudniają interpretację miar kształtu.\"\n  ],\n  \"inne_wyjaśnienia\": [\n    \"Podpis może wynikać z ogólnych właściwości tekstów pisanych w nieznanym systemie pisma, a nie wyłącznie z rękopisu Wojnicza.\",\n    \"Różnice między transliteracjami mogą maskować lub wzmacniać efekt, zwłaszcza gdy podziały słów są niepewne.\"\n  ],\n  \"następny_test\": \"Wykonanie kontroli z danymi przetasowanymi i podłożonym efektem dla każdej transliteracji, a następnie porównanie miar rękopisu z tekstami kontrolnymi (losowe sekwencje, naturalne języki), aby zweryfikować unikalność podpisu.\"\n}",
+    "json": {
+     "werdykt": "nierozstrzygnięta",
+     "pewność": 0.6,
+     "najmocniejszy_dowód": "Spójność podpisu w 4 pełnych transliteracjach (ZL, IT, FG, GC) mimo różnych alfabetów i podziałów słów, co sugeruje, że cecha jest niezależna od konkretnej transliteracji.",
+     "słabości": [
+      "Brak w raporcie kontroli metody: nie pokazano, czy metoda znajduje efekt podłożony celowo i czy nie znajduje go w danych przetasowanych.",
+      "Test nie porównuje rękopisu z innymi tekstami (np. losowymi, naturalnymi językami), więc nie wyklucza, że podpis jest typowy dla szerokiej klasy tekstów.",
+      "Dane z transliteracji częściowych (CD) nie są w pełni porównywalne, a różnice między alfabetami utrudniają interpretację miar kształtu."
+     ],
+     "inne_wyjaśnienia": [
+      "Podpis może wynikać z ogólnych właściwości tekstów pisanych w nieznanym systemie pisma, a nie wyłącznie z rękopisu Wojnicza.",
+      "Różnice między transliteracjami mogą maskować lub wzmacniać efekt, zwłaszcza gdy podziały słów są niepewne."
+     ],
+     "następny_test": "Wykonanie kontroli z danymi przetasowanymi i podłożonym efektem dla każdej transliteracji, a następnie porównanie miar rękopisu z tekstami kontrolnymi (losowe sekwencje, naturalne języki), aby zweryfikować unikalność podpisu."
+    }
+   },
+   "tencent/hy3": {
+    "raw": "{\n  \"werdykt\": \"potwierdzona\",\n  \"pewność\": 0.6,\n  \"najmocniejszy_dowód\": \"Podpis statystyczny (nadmiar powtórzeń z>4, wariantów z>4, korelacja długości sąsiadów >0.14, DFA >0.59) utrzymuje się w 4 z 4 pełnych transliteracjach (ZL, IT, FG, GC) mimo różnej liczby glifów (23-70) i alfabetów niezależnych od EVA.\",\n  \"słabości\": [\n    \"Brak podania wyników kontroli metody na danych celowo przetasowanych (null model) w sekcji kontroli – nie wiadomo, czy metoda poprawnie nie wykrywa efektu przy braku sygnału.\",\n    \"ZL i IT zgodne tylko w 29% wierszy (Chelednik); mimo to obie 'trzymają' podpis, co może sugerować wspólny artefakt tokenizacji EVA, a nie niezależność.\",\n    \"Miary kształtu (h2, hapax, len_neighbour) dla GC i FG uznano za nieporównywalne z ZL przez inne jednostki podziału, więc część dowodu 'trzymania' opiera się tylko na składni i DFA.\"\n  ],\n  \"inne_wyjaśnienia\": [\n    \"Podpis może być własnością procesu transliteracji (wspólne założenia o granicach słów w EVA i pochodnych), a nie samego rękopisu.\",\n    \"Częściowa zgodność CD (brak efektu w części miar) może wynikać z mniejszej próby (16082 słów) lub innej struktury tekstu stron wybranych do tej transliteracji.\"\n  ],\n  \"następny_test\": \"Test na syntetycznych transliteracjach wygenerowanych z losowym przypisaniem glifów do jednostek (null model) oraz na transkrypcji opartej wyłącznie na segmentacji obrazkowej (bez założeń EVA), by sprawdzić, czy metoda nie daje fałszywych trafień i czy sygnał jest odporny na zmianę definicji słowa.\"\n}",
+    "json": {
+     "werdykt": "potwierdzona",
+     "pewność": 0.6,
+     "najmocniejszy_dowód": "Podpis statystyczny (nadmiar powtórzeń z>4, wariantów z>4, korelacja długości sąsiadów >0.14, DFA >0.59) utrzymuje się w 4 z 4 pełnych transliteracjach (ZL, IT, FG, GC) mimo różnej liczby glifów (23-70) i alfabetów niezależnych od EVA.",
+     "słabości": [
+      "Brak podania wyników kontroli metody na danych celowo przetasowanych (null model) w sekcji kontroli – nie wiadomo, czy metoda poprawnie nie wykrywa efektu przy braku sygnału.",
+      "ZL i IT zgodne tylko w 29% wierszy (Chelednik); mimo to obie 'trzymają' podpis, co może sugerować wspólny artefakt tokenizacji EVA, a nie niezależność.",
+      "Miary kształtu (h2, hapax, len_neighbour) dla GC i FG uznano za nieporównywalne z ZL przez inne jednostki podziału, więc część dowodu 'trzymania' opiera się tylko na składni i DFA."
+     ],
+     "inne_wyjaśnienia": [
+      "Podpis może być własnością procesu transliteracji (wspólne założenia o granicach słów w EVA i pochodnych), a nie samego rękopisu.",
+      "Częściowa zgodność CD (brak efektu w części miar) może wynikać z mniejszej próby (16082 słów) lub innej struktury tekstu stron wybranych do tej transliteracji."
+     ],
+     "następny_test": "Test na syntetycznych transliteracjach wygenerowanych z losowym przypisaniem glifów do jednostek (null model) oraz na transkrypcji opartej wyłącznie na segmentacji obrazkowej (bez założeń EVA), by sprawdzić, czy metoda nie daje fałszywych trafień i czy sygnał jest odporny na zmianę definicji słowa."
+    }
+   }
+  },
+  "round2": {
+   "z-ai/glm-5.3-flash": {
+    "raw": "{\"ranking\": [\"B\", \"C\", \"D\"], \"uwagi\": \"Opinia B jest najlepiej uzasadniona: sekcja KONTROLE METODY jest pusta, a brak wykazania, że metoda wykrywa podłożony efekt i nie wykrywa go w danych przetasowanych, dyskwalifikuje wiarygodność testu według przyjętych zasad. B trafnie wskazuje też, że ZL jest jednocześnie punktem odniesienia miar kształtu (z=0.0 z definicji, brak niezależnego potwierdzenia) oraz problem zgodności ZL/IT tylko w ~29% wierszy. Opinia C jest umiarkowanie uzasadniona - poprawnie zauważa brak kontroli i brak porównania z klasą tekstów kontrolnych, ale przeceniana jest w niej spójność 4/4, bo ta nie zastępuje kontroli metody. Opinia D jest najsłabsza: werdykt 'potwierdzona' jest nie do obrony przy pustych kontrolach; słusznie notuje artefakt z-definicji dla ZL i ograniczenie dowodu do składni/DFA, ale ignoruje to w konkluzji. Błąd C i D: zgodność między transliteracjami nie jest niezależnym potwierdzeniem, gdy wszystkie mogą dzielić wspólny proces tokenizacji/segmentacji. Test wyklucza co najwyżej artefakty jednej konkretnej transliteracji (podpis trzyma się w kilku niezależnych od EVA alfabetach dla miar składni i DFA); nie bada, czy podpis jest unikalny dla tego rękopisu versus typowy dla innych tekstów, ani czy nie jest artefaktem segmentacji słów. CD (częściowa, 16k słów) nie spełnia kryterium i słusznie jest poza werdyktem.\", \"werdykt\": \"nierozstrzygnięta - podpis statystyczny powtarza się w 4 pełnych transliteracjach dla miar składni i dynamiki długości, ale brak jakichkolwiek kontroli metody (dodatniej i ujemnej) uniemożliwia uznanie testu za wiarygodny; wyniki są obiecujące, lecz nieweryfikowalne\", \"pewność\": 0.75, \"zmiana_zdania\": \"nie - od początku brak kontroli metody w raporcie blokuje werdykt 'potwierdzona'; następny test: zaślepiona walidacja pipeline'u (podłożony efekt wykrywany, przetasowane dane negatywne) plus porównanie z naturalnymi językami\"}",
+    "json": {
+     "ranking": [
+      "B",
+      "C",
+      "D"
+     ],
+     "uwagi": "Opinia B jest najlepiej uzasadniona: sekcja KONTROLE METODY jest pusta, a brak wykazania, że metoda wykrywa podłożony efekt i nie wykrywa go w danych przetasowanych, dyskwalifikuje wiarygodność testu według przyjętych zasad. B trafnie wskazuje też, że ZL jest jednocześnie punktem odniesienia miar kształtu (z=0.0 z definicji, brak niezależnego potwierdzenia) oraz problem zgodności ZL/IT tylko w ~29% wierszy. Opinia C jest umiarkowanie uzasadniona - poprawnie zauważa brak kontroli i brak porównania z klasą tekstów kontrolnych, ale przeceniana jest w niej spójność 4/4, bo ta nie zastępuje kontroli metody. Opinia D jest najsłabsza: werdykt 'potwierdzona' jest nie do obrony przy pustych kontrolach; słusznie notuje artefakt z-definicji dla ZL i ograniczenie dowodu do składni/DFA, ale ignoruje to w konkluzji. Błąd C i D: zgodność między transliteracjami nie jest niezależnym potwierdzeniem, gdy wszystkie mogą dzielić wspólny proces tokenizacji/segmentacji. Test wyklucza co najwyżej artefakty jednej konkretnej transliteracji (podpis trzyma się w kilku niezależnych od EVA alfabetach dla miar składni i DFA); nie bada, czy podpis jest unikalny dla tego rękopisu versus typowy dla innych tekstów, ani czy nie jest artefaktem segmentacji słów. CD (częściowa, 16k słów) nie spełnia kryterium i słusznie jest poza werdyktem.",
+     "werdykt": "nierozstrzygnięta - podpis statystyczny powtarza się w 4 pełnych transliteracjach dla miar składni i dynamiki długości, ale brak jakichkolwiek kontroli metody (dodatniej i ujemnej) uniemożliwia uznanie testu za wiarygodny; wyniki są obiecujące, lecz nieweryfikowalne",
+     "pewność": 0.75,
+     "zmiana_zdania": "nie - od początku brak kontroli metody w raporcie blokuje werdykt 'potwierdzona'; następny test: zaślepiona walidacja pipeline'u (podłożony efekt wykrywany, przetasowane dane negatywne) plus porównanie z naturalnymi językami"
+    }
+   },
+   "openai/gpt-6-luna": {
+    "raw": "{\"ranking\":[\"A\",\"C\",\"D\"],\"uwagi\":\"A jest najlepiej uzasadniona: wskazuje brak udokumentowanych kontroli wymaganych do uznania metody za wiarygodną, a także nieuzasadnione kryterium wyłączenia CD. C trafnie podkreśla brak kontroli, lecz jej postulat porównania z innymi tekstami dotyczy szerszej, niebadanej tu kwestii. D przecenia zgodność wyników: cztery transliteracje, w których podpis ma się utrzymywać, nie są czterema niezależnymi potwierdzeniami, a część miar nie jest porównywalna między alfabetami. W raporcie są wyniki względem przetasowań, ale nie pokazano wymaganych kontroli: wykrywania efektu celowo podłożonego oraz niewykrywania go w danych przetasowanych. Ponadto komponent „braku dalekiej składni” nie jest spójny: np. z dla słów niespokrewnionych wynosi +2,1 w FG, a +2,6 w CD. Silne wyniki powtórzeń, wariantów i korelacji długości sąsiednich słów są dowodem opisowym, nie wystarczają jednak do walidacji metody. Najbardziej zmieniłby ocenę test kontrolny z podłożonym efektem i danymi przetasowanymi, z wynikami podanymi dla każdej transliteracji.\",\"werdykt\":\"Nierozstrzygnięta; raport wskazuje na pewne cechy utrzymujące się w kilku transliteracjach, ale nie spełnia warunku wiarygodności metody, a składnik dotyczący braku dalekiej składni nie jest jednolity. Nie potwierdza, że podpis jest własnością rękopisu, a nie transliteracji.\",\"pewność\":0.9,\"zmiana_zdania\":\"nie — na podstawie raportu nie ma podstaw do potwierdzenia hipotezy, a brak wymaganych kontroli uniemożliwia wiarygodny werdykt\"}",
+    "json": {
+     "ranking": [
+      "A",
+      "C",
+      "D"
+     ],
+     "uwagi": "A jest najlepiej uzasadniona: wskazuje brak udokumentowanych kontroli wymaganych do uznania metody za wiarygodną, a także nieuzasadnione kryterium wyłączenia CD. C trafnie podkreśla brak kontroli, lecz jej postulat porównania z innymi tekstami dotyczy szerszej, niebadanej tu kwestii. D przecenia zgodność wyników: cztery transliteracje, w których podpis ma się utrzymywać, nie są czterema niezależnymi potwierdzeniami, a część miar nie jest porównywalna między alfabetami. W raporcie są wyniki względem przetasowań, ale nie pokazano wymaganych kontroli: wykrywania efektu celowo podłożonego oraz niewykrywania go w danych przetasowanych. Ponadto komponent „braku dalekiej składni” nie jest spójny: np. z dla słów niespokrewnionych wynosi +2,1 w FG, a +2,6 w CD. Silne wyniki powtórzeń, wariantów i korelacji długości sąsiednich słów są dowodem opisowym, nie wystarczają jednak do walidacji metody. Najbardziej zmieniłby ocenę test kontrolny z podłożonym efektem i danymi przetasowanymi, z wynikami podanymi dla każdej transliteracji.",
+     "werdykt": "Nierozstrzygnięta; raport wskazuje na pewne cechy utrzymujące się w kilku transliteracjach, ale nie spełnia warunku wiarygodności metody, a składnik dotyczący braku dalekiej składni nie jest jednolity. Nie potwierdza, że podpis jest własnością rękopisu, a nie transliteracji.",
+     "pewność": 0.9,
+     "zmiana_zdania": "nie — na podstawie raportu nie ma podstaw do potwierdzenia hipotezy, a brak wymaganych kontroli uniemożliwia wiarygodny werdykt"
+    }
+   },
+   "inception/mercury-3": {
+    "raw": "{\"ranking\": [\"B\", \"A\", \"D\"], \"uwagi\": \"Opinia B jest najlepiej uzasadniona: poprawnie wskazuje, że sekcja KONTROLE METODY jest pusta, a bez testów z efektem podłożonym i bez danych przetasowanych nie można uznać metody za wiarygodną. Dodatkowo B trafnie zauważa samoodniesienie ZL – wartości kształtu = 0.0 są z definicji, bo ZL jest punktem odniesienia, więc nie są niezależnym dowodem. Opinia A również słusznie krytykuje brak kontroli i ad hoc odrzucenie CD, ale nie eksponuje tego samoodniesienia. Opinia D myli się, uznając zgodność w 4/4 pełnych transliteracjach za potwierdzenie hipotezy: bez kontroli ta zgodność może wynikać ze wspólnych konwencji transliteracji, a część miar dla FG/GC nie jest porównywalna z ZL. B ma jednak nieco zawyżoną pewność 0.96 – brak kontroli wyklucza potwierdzenie, ale nie musi oznaczać fałszywości hipotezy.\", \"werdykt\": \"Hipoteza nie została potwierdzona. Test pokazuje stabilne sygnały w wielu transliteracjach, ale nie dowodzi, że podpis jest własnością rękopisu, a nie transliteracji. Brak kontroli metody oraz problemy z porównywalnością alfabetów uniemożliwiają wiarygodny werdykt.\", \"pewność\": 0.85, \"zmiana_zdania\": \"Nie – od początku wymagam kontroli dodatnich i ujemnych; raport ich nie dostarcza, więc nie zmieniam zdania. Werdykt o treści hipotezy może się zmienić dopiero po przedstawieniu kontroli.\"}",
+    "json": {
+     "ranking": [
+      "B",
+      "A",
+      "D"
+     ],
+     "uwagi": "Opinia B jest najlepiej uzasadniona: poprawnie wskazuje, że sekcja KONTROLE METODY jest pusta, a bez testów z efektem podłożonym i bez danych przetasowanych nie można uznać metody za wiarygodną. Dodatkowo B trafnie zauważa samoodniesienie ZL – wartości kształtu = 0.0 są z definicji, bo ZL jest punktem odniesienia, więc nie są niezależnym dowodem. Opinia A również słusznie krytykuje brak kontroli i ad hoc odrzucenie CD, ale nie eksponuje tego samoodniesienia. Opinia D myli się, uznając zgodność w 4/4 pełnych transliteracjach za potwierdzenie hipotezy: bez kontroli ta zgodność może wynikać ze wspólnych konwencji transliteracji, a część miar dla FG/GC nie jest porównywalna z ZL. B ma jednak nieco zawyżoną pewność 0.96 – brak kontroli wyklucza potwierdzenie, ale nie musi oznaczać fałszywości hipotezy.",
+     "werdykt": "Hipoteza nie została potwierdzona. Test pokazuje stabilne sygnały w wielu transliteracjach, ale nie dowodzi, że podpis jest własnością rękopisu, a nie transliteracji. Brak kontroli metody oraz problemy z porównywalnością alfabetów uniemożliwiają wiarygodny werdykt.",
+     "pewność": 0.85,
+     "zmiana_zdania": "Nie – od początku wymagam kontroli dodatnich i ujemnych; raport ich nie dostarcza, więc nie zmieniam zdania. Werdykt o treści hipotezy może się zmienić dopiero po przedstawieniu kontroli."
+    }
+   },
+   "tencent/hy3": {
+    "raw": "{\n  \"ranking\": [\"B\", \"A\", \"C\"],\n  \"uwagi\": \"Opinia B najtrafniej wskazuje na kardynalny brak zgodnie z zasadami: sekcja 'KONTROLE METODY' nie zawiera wyników testów na danych z podłożonym efektem ani przetasowanych, więc metoda nie jest zwalidowana. Opinia A słusznie punktuje cherry-picking (CD) i nieporównywalność miar, ale B celuje w sam rdzeń wiarygodności. Opinia C błędnie ocenia jako 'nierozstrzygnięta' – brak kontroli czyni test niewiarygodnym, a nie tylko niepełnym. Błąd A i C: sugerowanie, że spójność 4 transliteracji coś dowodzi bez kalibracji metody. Raport wyklucza jedynie, że podpis jest całkowicie artefaktem pojedynczej wersji EVA (ZL/IT/FG/GC trzymają), ale NIE bada niezależności od konwencji transkrypcji ani unikalności wobec innych tekstów.\",\n  \"werdykt\": \"metoda niewiarygodna\",\n  \"pewność\": 0.95,\n  \"zmiana_zdania\": \"nie, raport nie zawiera wymaganych kontroli metody, więc werdykt 'potwierdzona' jest przedwczesny niezależnie od zgodności liczb w transliteracjach\"\n}",
+    "json": {
+     "ranking": [
+      "B",
+      "A",
+      "C"
+     ],
+     "uwagi": "Opinia B najtrafniej wskazuje na kardynalny brak zgodnie z zasadami: sekcja 'KONTROLE METODY' nie zawiera wyników testów na danych z podłożonym efektem ani przetasowanych, więc metoda nie jest zwalidowana. Opinia A słusznie punktuje cherry-picking (CD) i nieporównywalność miar, ale B celuje w sam rdzeń wiarygodności. Opinia C błędnie ocenia jako 'nierozstrzygnięta' – brak kontroli czyni test niewiarygodnym, a nie tylko niepełnym. Błąd A i C: sugerowanie, że spójność 4 transliteracji coś dowodzi bez kalibracji metody. Raport wyklucza jedynie, że podpis jest całkowicie artefaktem pojedynczej wersji EVA (ZL/IT/FG/GC trzymają), ale NIE bada niezależności od konwencji transkrypcji ani unikalności wobec innych tekstów.",
+     "werdykt": "metoda niewiarygodna",
+     "pewność": 0.95,
+     "zmiana_zdania": "nie, raport nie zawiera wymaganych kontroli metody, więc werdykt 'potwierdzona' jest przedwczesny niezależnie od zgodności liczb w transliteracjach"
+    }
+   }
+  },
+  "synthesis": "## Werdykt rady\n\n**Hipoteza nie została potwierdzona; metoda nie jest dostatecznie zwalidowana.** Zgoda jest wysoka co do tego, że automatyczny werdykt „potwierdzona” nie wynika z przedstawionych dowodów. To nie oznacza, że hipoteza jest fałszywa.\n\n## Co test naprawdę pokazuje\n\nW czterech pełnych transliteracjach raportuje się nadmiar powtórzeń i wariantów oraz dodatnią korelację długości sąsiednich słów. Są to powtarzające się sygnały opisowe, ale nie dowodzą, że podpis jest własnością rękopisu, a nie sposobu jego transkrypcji.\n\n## Główne zastrzeżenia\n\n- Nie przedstawiono wymaganych kontroli: wykrycia celowo podłożonego efektu ani niewykrywania go w danych przetasowanych. Podane porównania z tasowaniami nie zastępują walidacji całej metody.\n- ZL jest punktem odniesienia dla miar kształtu, więc jego wartości *z* = 0 nie są niezależnym potwierdzeniem.\n- Transliteracje nie są niezależnymi świadkami: ZL i Takahashi są w pełni zgodne tylko w około 29% wierszy. Część miar dla różnych alfabetów nie jest wprost porównywalna.\n- Składnik dotyczący słów niespokrewnionych nie jest spójny między transliteracjami, a częściowe CD wyłączono bez podanego wcześniej kryterium.\n\n## Rekomendowany następny eksperyment\n\nZweryfikować cały pipeline na kontrolach dodatnich i ujemnych: ma wykrywać efekt podłożony celowo i nie wykrywać go w danych przetasowanych, przy tych samych regułach segmentacji i tokenizacji.",
+  "failed": {},
+  "votes": {
+   "metoda niewiarygodna": 1,
+   "potwierdzona": 1,
+   "nierozstrzygnięta": 2
+  }
+ }
 }

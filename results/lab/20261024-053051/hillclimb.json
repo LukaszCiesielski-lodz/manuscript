@@ -5999,5 +5999,159 @@
  ],
  "artifacts": [],
  "seconds": 1602.4262688159943,
- "council": {}
+ "council": {
+  "members": [
+   "z-ai/glm-5.3-flash",
+   "openai/gpt-6-luna",
+   "inception/mercury-3",
+   "tencent/hy3"
+  ],
+  "chair": "openai/gpt-6-luna",
+  "round1": {
+   "z-ai/glm-5.3-flash": {
+    "raw": "{\"werdykt\": \"obalona\",\n  \"pewność\": 0.85,\n  \"najmocniejszy_dowód\": \"Kontrole dodatnie przeszły w 100% (51/51 języków, odzysk klucza 88–100% znaków), więc metoda faktycznie łamie homofoniki na tekście naturalnym; mimo to na rękopisie żaden z 51 testowalnych leksykonów nie dał tropu, a najlepszy wynik (OldFrench 4.01 bit/znak) jest praktycznie nieodróżnialny od bełkotu v5 (3.96).\",\n  \"słabości\": [\n    \"Margines OldFrench vs bełkot (4.01 vs 3.96) jest tak mały, że bez rozkładu wyników dla wielu tekstów bełkotu nie wiadomo, czy 4.01 to sygnał czy szum\",\n    \"Model 4-gramowy budowany z próbki samego rękopisu — ocena częściowo cyrkularna, może faworyzować statystyki bełkotu\",\n    \"Hipoteza zawężona do czystego szyfru homofonicznego glif→litera; nie testuje nulli, szyfrów słownych, transpozycji ani mieszanych systemów\",\n    \"1 z 52 leksykonów nietestowalny — brak podania, który i dlaczego\",\n    \"Raport ucięty (brak końcówki listy kontroli i sekcji negatywnej) — nie widać pełnej dokumentacji\"\n  ],\n  \"inne_wyjaśnienia\": [\n    \"Tekst może być zaszyfrowany systemem poza klasą homofonicznych (nulli, kody słów, skróty słownikowe)\",\n    \"Tekst może nie być językiem naturalnym (bełkot generowany), co samo w sobie tłumaczy brak tropów\",\n    \"Zbyt mała długość/segmentacja rękopisu względem rozmiaru klucza może uniemożliwiać odzyskanie nawet przy prawdziwym szyfrze — kontrola dodatnia używała pełnych tekstów językowych, nie fragmentu o długości rękopisu\"\n  ],\n  \"następny_test\": \"Test długości: zaszyfrować homofonicznie fragment tekstu naturalnego o DOKŁADNIE długości rękopisu (i z jego strukturą słów/linii) i sprawdzić, czy wspinacz nadal odzyskuje klucz ≥60%. Jeśli nie — obalenie jest przedwczesne (za mało danych); jeśli tak — obalenie homofoniki jest mocne i należy przesunąć uwagę na systemy z nullami/kodami słów.\"\n}",
+    "json": {
+     "werdykt": "obalona",
+     "pewność": 0.85,
+     "najmocniejszy_dowód": "Kontrole dodatnie przeszły w 100% (51/51 języków, odzysk klucza 88–100% znaków), więc metoda faktycznie łamie homofoniki na tekście naturalnym; mimo to na rękopisie żaden z 51 testowalnych leksykonów nie dał tropu, a najlepszy wynik (OldFrench 4.01 bit/znak) jest praktycznie nieodróżnialny od bełkotu v5 (3.96).",
+     "słabości": [
+      "Margines OldFrench vs bełkot (4.01 vs 3.96) jest tak mały, że bez rozkładu wyników dla wielu tekstów bełkotu nie wiadomo, czy 4.01 to sygnał czy szum",
+      "Model 4-gramowy budowany z próbki samego rękopisu — ocena częściowo cyrkularna, może faworyzować statystyki bełkotu",
+      "Hipoteza zawężona do czystego szyfru homofonicznego glif→litera; nie testuje nulli, szyfrów słownych, transpozycji ani mieszanych systemów",
+      "1 z 52 leksykonów nietestowalny — brak podania, który i dlaczego",
+      "Raport ucięty (brak końcówki listy kontroli i sekcji negatywnej) — nie widać pełnej dokumentacji"
+     ],
+     "inne_wyjaśnienia": [
+      "Tekst może być zaszyfrowany systemem poza klasą homofonicznych (nulli, kody słów, skróty słownikowe)",
+      "Tekst może nie być językiem naturalnym (bełkot generowany), co samo w sobie tłumaczy brak tropów",
+      "Zbyt mała długość/segmentacja rękopisu względem rozmiaru klucza może uniemożliwiać odzyskanie nawet przy prawdziwym szyfrze — kontrola dodatnia używała pełnych tekstów językowych, nie fragmentu o długości rękopisu"
+     ],
+     "następny_test": "Test długości: zaszyfrować homofonicznie fragment tekstu naturalnego o DOKŁADNIE długości rękopisu (i z jego strukturą słów/linii) i sprawdzić, czy wspinacz nadal odzyskuje klucz ≥60%. Jeśli nie — obalenie jest przedwczesne (za mało danych); jeśli tak — obalenie homofoniki jest mocne i należy przesunąć uwagę na systemy z nullami/kodami słów."
+    }
+   },
+   "openai/gpt-6-luna": {
+    "raw": "{\n  \"werdykt\": \"metoda niewiarygodna\",\n  \"pewność\": 0.96,\n  \"najmocniejszy_dowód\": \"Kontrole dodatnie opisane w raporcie przeszły: odzyskano 88–100% klucza, przy progu 60%. Nie podano jednak wyników wymaganej kontroli na danych przetasowanych, więc nie wiadomo, czy metoda błędnie wykrywa efekt także tam. Zgodnie z kryterium oceny brak tej kontroli uniemożliwia uznanie testu za wiarygodny.\",\n  \"słabości\": [\n    \"Brak wyników kontroli na danych przetasowanych.\",\n    \"Najbliższy wynik, OldFrench: 4,01 wobec 3,85 bitu/znak dla modelu naturalnego i 3,96 dla bełkotu, nie daje wyraźnego rozróżnienia.\",\n    \"Kontrole dodatnie nie wykazują, że procedura poradzi sobie z różnicami między tekstem kontrolnym a badanym rękopisem.\"\n  ],\n  \"inne_wyjaśnienia\": [\n    \"Wynik może wynikać z niedopasowania modelu n-gramowego lub leksykonu; raport tego nie rozstrzyga.\",\n    \"Test nie ocenia szyfrów o innej strukturze niż założone podstawienie homofoniczne ani tekstu niebędącego zwykłym tekstem danego języka.\"\n  ],\n  \"następny_test\": \"Przeprowadzić i opisać kontrolę ujemną: zastosować ten sam pełny pipeline do danych przetasowanych, z wcześniej ustaloną miarą efektu i progiem. Metoda powinna wykrywać efekt w kontrolach dodatnich, a nie wykrywać go w przetasowanych.\"\n}",
+    "json": {
+     "werdykt": "metoda niewiarygodna",
+     "pewność": 0.96,
+     "najmocniejszy_dowód": "Kontrole dodatnie opisane w raporcie przeszły: odzyskano 88–100% klucza, przy progu 60%. Nie podano jednak wyników wymaganej kontroli na danych przetasowanych, więc nie wiadomo, czy metoda błędnie wykrywa efekt także tam. Zgodnie z kryterium oceny brak tej kontroli uniemożliwia uznanie testu za wiarygodny.",
+     "słabości": [
+      "Brak wyników kontroli na danych przetasowanych.",
+      "Najbliższy wynik, OldFrench: 4,01 wobec 3,85 bitu/znak dla modelu naturalnego i 3,96 dla bełkotu, nie daje wyraźnego rozróżnienia.",
+      "Kontrole dodatnie nie wykazują, że procedura poradzi sobie z różnicami między tekstem kontrolnym a badanym rękopisem."
+     ],
+     "inne_wyjaśnienia": [
+      "Wynik może wynikać z niedopasowania modelu n-gramowego lub leksykonu; raport tego nie rozstrzyga.",
+      "Test nie ocenia szyfrów o innej strukturze niż założone podstawienie homofoniczne ani tekstu niebędącego zwykłym tekstem danego języka."
+     ],
+     "następny_test": "Przeprowadzić i opisać kontrolę ujemną: zastosować ten sam pełny pipeline do danych przetasowanych, z wcześniej ustaloną miarą efektu i progiem. Metoda powinna wykrywać efekt w kontrolach dodatnich, a nie wykrywać go w przetasowanych."
+    }
+   },
+   "inception/mercury-3": {
+    "raw": "{\n  \"werdykt\": \"obalona\",\n  \"pewność\": 0.92,\n  \"najmocniejszy_dowód\": \"Kontrola dodatnia: w 51 z 52 języków metoda odzyskała klucz homofoniczny w ≥88% znaków (przeważnie 100%), przy czym na rękopisie wynik (4.01 bit/znak dla OldFrench) był zbliżony do bełkotu v5 (3.96), a nie do żadnego naturalnego języka — metoda działa na prawdziwym szyfrze, ale nie znajduje go w rękopisie.\",\n  \"słabości\": [\n    \"Raport nie wskazuje, który z 52 leksykonów był nietestowalny ani dlaczego.\",\n    \"Brakuje porównania do dłuższych fragmentów rękopisu o potencjalnie różnych sekcjach tematycznych.\",\n    \"Różnice bit/znak między zaszyfrowanym a naturalnym tekstem w kontrolach dodatnich bywają bardzo małe (np. OldFrench: 3.84 vs 3.85), co wskazuje na ciasny margines rozróżnienia dla niektórych języków.\",\n    \"Raport nie opisuje liczby znaków rękopisu ani szczegółów mapowania glifów do liter (np. czy uwzględniono wieloznaczność).\"\n  ],\n  \"inne_wyjaśnienia\": [\n    \"Rękopis może być szyfrem homofonicznym bardziej złożonego typu, np. z kluczem wielowarstwowym lub z zastosowaniem nulli.\",\n    \"Tekst może być składniowo uporządkowanym bełkotem (np. sztucznym językiem) generowanym według reguł niezależnych od naturalnych języków.\",\n    \"Manuskrypt może być kodowany w systemie niealfabetycznym (np. ideograficznym), który nie jest modelem n-gramowym znaków.\",\n    \"Dowody mogą pochodzić z wielu niezależnych pism lub być efektem twórczego ćwiczenia.\"\n  ],\n  \"następny_test\": \"Należy wykonać test na tekście poddanym losowej permutacji liter w sylabach (lub usunięciu samogłosek) — jeśli metoda nie odróżni tak zmodyfikowanego języka od rękopisu, wzmocni to tezę o braku homofonicznego szyfru; jeśli ją odróżni, wskaże, że rękopis ma strukturę obcą naturalnym językom i wymaga innej metody.\"\n}",
+    "json": {
+     "werdykt": "obalona",
+     "pewność": 0.92,
+     "najmocniejszy_dowód": "Kontrola dodatnia: w 51 z 52 języków metoda odzyskała klucz homofoniczny w ≥88% znaków (przeważnie 100%), przy czym na rękopisie wynik (4.01 bit/znak dla OldFrench) był zbliżony do bełkotu v5 (3.96), a nie do żadnego naturalnego języka — metoda działa na prawdziwym szyfrze, ale nie znajduje go w rękopisie.",
+     "słabości": [
+      "Raport nie wskazuje, który z 52 leksykonów był nietestowalny ani dlaczego.",
+      "Brakuje porównania do dłuższych fragmentów rękopisu o potencjalnie różnych sekcjach tematycznych.",
+      "Różnice bit/znak między zaszyfrowanym a naturalnym tekstem w kontrolach dodatnich bywają bardzo małe (np. OldFrench: 3.84 vs 3.85), co wskazuje na ciasny margines rozróżnienia dla niektórych języków.",
+      "Raport nie opisuje liczby znaków rękopisu ani szczegółów mapowania glifów do liter (np. czy uwzględniono wieloznaczność)."
+     ],
+     "inne_wyjaśnienia": [
+      "Rękopis może być szyfrem homofonicznym bardziej złożonego typu, np. z kluczem wielowarstwowym lub z zastosowaniem nulli.",
+      "Tekst może być składniowo uporządkowanym bełkotem (np. sztucznym językiem) generowanym według reguł niezależnych od naturalnych języków.",
+      "Manuskrypt może być kodowany w systemie niealfabetycznym (np. ideograficznym), który nie jest modelem n-gramowym znaków.",
+      "Dowody mogą pochodzić z wielu niezależnych pism lub być efektem twórczego ćwiczenia."
+     ],
+     "następny_test": "Należy wykonać test na tekście poddanym losowej permutacji liter w sylabach (lub usunięciu samogłosek) — jeśli metoda nie odróżni tak zmodyfikowanego języka od rękopisu, wzmocni to tezę o braku homofonicznego szyfru; jeśli ją odróżni, wskaże, że rękopis ma strukturę obcą naturalnym językom i wymaga innej metody."
+    }
+   },
+   "tencent/hy3": {
+    "raw": "{\n  \"werdykt\": \"obalona\",\n  \"pewność\": 0.95,\n  \"najmocniejszy_dowód\": \"Kontrole metody przeszły dla wszystkich 52 leksykonów (odzysk klucza 88–100% na celowo zaszyfrowanych tekstach), a dla rękopisu Wojnicza nie uzyskano zbliżenia do tekstu naturalnego (najlepszy wynik OldFrench 4.01 bit/znak vs bełkot 3.96 bit/znak, przy naturalnym 3.85). Metoda nie znalazła efektu tam, gdzie go nie było, i znalazła tam, gdzie był.\",\n  \"słabości\": [\n    \"1 z 52 języków pozostał nietestowalny (brak danych o wyniku kontroli dla tego leksykonu).\",\n    \"Test ogranicza się wyłącznie do szyfru homofonicznego z pojedynczym kluczem odzyskiwalnym przez hillclimbing; nie bada innych struktur kryptograficznych (np. wielowarstwowych, z kluczem strumieniowym czy nielinearnych).\",\n    \"Ocena jakości opiera się na przybliżeniu bit/znak na zbiorze walidacyjnym (parzyste wiersze), co nie gwarantuje wykrycia częściowego, nietrywialnego klucza o niskim zasięgu.\"\n  ],\n  \"inne_wyjaśnienia\": [\n    \"Rękopis może być zaszyfrowany innym typem szyfru niż homofoniczny z prostym kluczem.\",\n    \"Rękopis może być w języku niewchodzącym w skład 52 testowanych leksykonów (w tym 1 nietestowalny).\",\n    \"Rękopis może nie być tekstem językowym w sensie testowanym przez model 4-gramowy.\"\n  ],\n  \"następny_test\": \"Test z wykorzystaniem szyfru wielowarstwowego (np. homofoniczny + substytucja polialfabetyczna Vigenère) z tymi sami leksykonami i identycznymi kontrolami pozytywnymi/negatywnymi, by sprawdzić, czy obecna porażka wynika z założenia o pojedynczym kluczu.\"\n}",
+    "json": {
+     "werdykt": "obalona",
+     "pewność": 0.95,
+     "najmocniejszy_dowód": "Kontrole metody przeszły dla wszystkich 52 leksykonów (odzysk klucza 88–100% na celowo zaszyfrowanych tekstach), a dla rękopisu Wojnicza nie uzyskano zbliżenia do tekstu naturalnego (najlepszy wynik OldFrench 4.01 bit/znak vs bełkot 3.96 bit/znak, przy naturalnym 3.85). Metoda nie znalazła efektu tam, gdzie go nie było, i znalazła tam, gdzie był.",
+     "słabości": [
+      "1 z 52 języków pozostał nietestowalny (brak danych o wyniku kontroli dla tego leksykonu).",
+      "Test ogranicza się wyłącznie do szyfru homofonicznego z pojedynczym kluczem odzyskiwalnym przez hillclimbing; nie bada innych struktur kryptograficznych (np. wielowarstwowych, z kluczem strumieniowym czy nielinearnych).",
+      "Ocena jakości opiera się na przybliżeniu bit/znak na zbiorze walidacyjnym (parzyste wiersze), co nie gwarantuje wykrycia częściowego, nietrywialnego klucza o niskim zasięgu."
+     ],
+     "inne_wyjaśnienia": [
+      "Rękopis może być zaszyfrowany innym typem szyfru niż homofoniczny z prostym kluczem.",
+      "Rękopis może być w języku niewchodzącym w skład 52 testowanych leksykonów (w tym 1 nietestowalny).",
+      "Rękopis może nie być tekstem językowym w sensie testowanym przez model 4-gramowy."
+     ],
+     "następny_test": "Test z wykorzystaniem szyfru wielowarstwowego (np. homofoniczny + substytucja polialfabetyczna Vigenère) z tymi sami leksykonami i identycznymi kontrolami pozytywnymi/negatywnymi, by sprawdzić, czy obecna porażka wynika z założenia o pojedynczym kluczu."
+    }
+   }
+  },
+  "round2": {
+   "z-ai/glm-5.3-flash": {
+    "raw": "{\"ranking\": [\"B\", \"C\", \"D\"], \"uwagi\": \"B najlepiej trzyma się kryteriów: poprawnie wskazuje, że kontrole dodatnie przeszły (88–100% odzysku klucza przy progu 60%), ale brak kontroli na danych przetasowanych formalnie uniemożliwia uznanie metody za w pełni wiarygodną. To jedyna opinia, która oddziela to, co test wykazał, od tego, czego nie rozstrzygnął. C ma trafny odczyt danych (rękopis ~4.01 bit/znak dla OldFrench vs bełkot 3.96 — brak rozróżnienia od bełkotu), ale jej proponowany test permutacji sylab nie wynika wprost z raportu i jest mniej precyzyjny niż kontrola ujemna B. D popełnia błąd faktograficzny: twierdzi, że 'metoda nie znalazła efektu tam, gdzie go nie było' — raport nie zawiera żadnej kontroli ujemnej, więc tego nie wiadomo. D słusznie jednak zauważa ograniczenie do pojedynczego klucza homofonicznego i wskazuje sensowny następny test (szyfr wielowarstwowy). Wszyscy pomijają, że 1 leksykon jest nietestowalny bez wyjaśnienia (zauważa tylko C).\", \"werdykt\": \"obalona — hipoteza o prostym szyfrze homofonicznym z odzyskiwalnym kluczem nie znajduje potwierdzenia: metoda zweryfikowana kontrolami dodatnimi na 51/52 językach nie zbliża statystyki rękopisu do żadnego naturalnego języka (najlepszy wynik OldFrench 4.01 bit/znak jest gorszy niż bełkot 3.96 względem naturalnego 3.85). Zastrzeżenie: brak kontroli ujemnej (dane przetasowane) obniża pewność; formalnie metoda nie jest w pełni zweryfikowana.\", \"pewność\": 0.8, \"zmiana_zdania\": \"nie — kontrole dodatnie są jednoznaczne, a wynik na rękopisie nie odróżnia się od bełkotu; brak kontroli ujemnej jedynie obniża pewność, nie zmienia kierunku oceny\"}",
+    "json": {
+     "ranking": [
+      "B",
+      "C",
+      "D"
+     ],
+     "uwagi": "B najlepiej trzyma się kryteriów: poprawnie wskazuje, że kontrole dodatnie przeszły (88–100% odzysku klucza przy progu 60%), ale brak kontroli na danych przetasowanych formalnie uniemożliwia uznanie metody za w pełni wiarygodną. To jedyna opinia, która oddziela to, co test wykazał, od tego, czego nie rozstrzygnął. C ma trafny odczyt danych (rękopis ~4.01 bit/znak dla OldFrench vs bełkot 3.96 — brak rozróżnienia od bełkotu), ale jej proponowany test permutacji sylab nie wynika wprost z raportu i jest mniej precyzyjny niż kontrola ujemna B. D popełnia błąd faktograficzny: twierdzi, że 'metoda nie znalazła efektu tam, gdzie go nie było' — raport nie zawiera żadnej kontroli ujemnej, więc tego nie wiadomo. D słusznie jednak zauważa ograniczenie do pojedynczego klucza homofonicznego i wskazuje sensowny następny test (szyfr wielowarstwowy). Wszyscy pomijają, że 1 leksykon jest nietestowalny bez wyjaśnienia (zauważa tylko C).",
+     "werdykt": "obalona — hipoteza o prostym szyfrze homofonicznym z odzyskiwalnym kluczem nie znajduje potwierdzenia: metoda zweryfikowana kontrolami dodatnimi na 51/52 językach nie zbliża statystyki rękopisu do żadnego naturalnego języka (najlepszy wynik OldFrench 4.01 bit/znak jest gorszy niż bełkot 3.96 względem naturalnego 3.85). Zastrzeżenie: brak kontroli ujemnej (dane przetasowane) obniża pewność; formalnie metoda nie jest w pełni zweryfikowana.",
+     "pewność": 0.8,
+     "zmiana_zdania": "nie — kontrole dodatnie są jednoznaczne, a wynik na rękopisie nie odróżnia się od bełkotu; brak kontroli ujemnej jedynie obniża pewność, nie zmienia kierunku oceny"
+    }
+   },
+   "openai/gpt-6-luna": {
+    "raw": "{\n  \"ranking\": [\"A\", \"C\", \"D\"],\n  \"uwagi\": \"A jest najlepiej uzasadniona: trafnie wskazuje brak testu na danych przetasowanych, mały margines OldFrench–bełkot (4,01 wobec 3,96) i potrzebę kontroli o długości rękopisu. Jej stwierdzenie o 51/51 kontrolach nie jest jednak w pełni weryfikowalne, bo raport jest ucięty. C słusznie zauważa braki raportu, ale proponowany test permutacji sylab lub usuwania samogłosek nie sprawdza bezpośrednio skuteczności metody ani jej fałszywych alarmów. D nadmiernie twierdzi, że kontrole przeszły dla wszystkich 52 leksykonów i że metoda nie wykrywa efektu w danych bez niego: raport podaje jeden leksykon nietestowalny, a wyników kontroli na danych przetasowanych nie przedstawia. Pozytywne kontrole są obiecujące, lecz same nie wystarczają według przyjętego kryterium. Najbardziej rozstrzygający byłby test na danych o długości i strukturze rękopisu, z zaszyfrowanymi tekstami naturalnymi oraz przetasowanymi kontrolami negatywnymi, wraz z podaniem odsetka odzyskania klucza i fałszywych trafień.\",\n  \"werdykt\": \"Brak podstaw do uznania hipotezy za potwierdzoną; wyniki są niekorzystne dla testowanej, wąskiej wersji szyfru homofonicznego, ale raport nie spełnia warunku wiarygodności, bo nie dokumentuje kontroli na danych przetasowanych. Nie uzasadnia więc kategorycznego werdyktu „obalona”.\",\n  \"pewność\": 0.82,\n  \"zmiana_zdania\": \"nie — na podstawie samego raportu: dodatnie kontrole sugerują, że metoda odzyskuje prosty klucz homofoniczny na testowanych tekstach, ale brak wymaganej kontroli negatywnej i kontroli o długości rękopisu ogranicza wniosek.\"\n}",
+    "json": {
+     "ranking": [
+      "A",
+      "C",
+      "D"
+     ],
+     "uwagi": "A jest najlepiej uzasadniona: trafnie wskazuje brak testu na danych przetasowanych, mały margines OldFrench–bełkot (4,01 wobec 3,96) i potrzebę kontroli o długości rękopisu. Jej stwierdzenie o 51/51 kontrolach nie jest jednak w pełni weryfikowalne, bo raport jest ucięty. C słusznie zauważa braki raportu, ale proponowany test permutacji sylab lub usuwania samogłosek nie sprawdza bezpośrednio skuteczności metody ani jej fałszywych alarmów. D nadmiernie twierdzi, że kontrole przeszły dla wszystkich 52 leksykonów i że metoda nie wykrywa efektu w danych bez niego: raport podaje jeden leksykon nietestowalny, a wyników kontroli na danych przetasowanych nie przedstawia. Pozytywne kontrole są obiecujące, lecz same nie wystarczają według przyjętego kryterium. Najbardziej rozstrzygający byłby test na danych o długości i strukturze rękopisu, z zaszyfrowanymi tekstami naturalnymi oraz przetasowanymi kontrolami negatywnymi, wraz z podaniem odsetka odzyskania klucza i fałszywych trafień.",
+     "werdykt": "Brak podstaw do uznania hipotezy za potwierdzoną; wyniki są niekorzystne dla testowanej, wąskiej wersji szyfru homofonicznego, ale raport nie spełnia warunku wiarygodności, bo nie dokumentuje kontroli na danych przetasowanych. Nie uzasadnia więc kategorycznego werdyktu „obalona”.",
+     "pewność": 0.82,
+     "zmiana_zdania": "nie — na podstawie samego raportu: dodatnie kontrole sugerują, że metoda odzyskuje prosty klucz homofoniczny na testowanych tekstach, ale brak wymaganej kontroli negatywnej i kontroli o długości rękopisu ogranicza wniosek."
+    }
+   },
+   "inception/mercury-3": {
+    "raw": "{\"ranking\": [\"A\", \"B\", \"D\"], \"uwagi\": \"Najlepiej uzasadniona jest A: poprawnie liczy 51 testowalnych języków, trafnie wskazuje, że margines OldFrench vs bełkot (4.01 vs 3.96) jest zbyt mały bez podania rozkładu bełkotu, że model n-gramowy budowany z samego rękopisu może faworyzować bełkot i że brak testu z pełną długością rękopisu osłabia obalenie. B ma rację że brakuje właściwej kontroli na danych przetasowanych, ale raport zawiera jednak bełkot v5 jako pewne tło ujemne; stwierdzenie o braku jakiejkolwiek kontroli negatywnej jest więc zbyt ostre. D myli się twierdząc, że kontrole przeszły dla wszystkich 52 leksykonów – p podsumowanie mówi o 51 testowalnych i 1 nietestowalnym; D pomija też problem marginesu z bełkotem i kontroli przetasowanej.\", \"werdykt\": \"obalona, z zastrzeżeniami – silne dowody przeciw prostemu szyfrowi homofonicznemu dla 51 języków, ale brak pełnej kontroli na danych przetasowanych i brak testu z fragmentem o długości rękopisu nie pozwalają wykluczyć innych wariantów szyfru ani przejścia ' za mało danych'\", \"pewność\": 0.8, \"zmiana_zdania\": \"nie – raport wraz z opiniami utwierdza mnie w przekonaniu, że prosta homofonika jest bardzo mało prawdopodobna, ale nie uważam obalenia za ostateczne.\"}",
+    "json": {
+     "ranking": [
+      "A",
+      "B",
+      "D"
+     ],
+     "uwagi": "Najlepiej uzasadniona jest A: poprawnie liczy 51 testowalnych języków, trafnie wskazuje, że margines OldFrench vs bełkot (4.01 vs 3.96) jest zbyt mały bez podania rozkładu bełkotu, że model n-gramowy budowany z samego rękopisu może faworyzować bełkot i że brak testu z pełną długością rękopisu osłabia obalenie. B ma rację że brakuje właściwej kontroli na danych przetasowanych, ale raport zawiera jednak bełkot v5 jako pewne tło ujemne; stwierdzenie o braku jakiejkolwiek kontroli negatywnej jest więc zbyt ostre. D myli się twierdząc, że kontrole przeszły dla wszystkich 52 leksykonów – p podsumowanie mówi o 51 testowalnych i 1 nietestowalnym; D pomija też problem marginesu z bełkotem i kontroli przetasowanej.",
+     "werdykt": "obalona, z zastrzeżeniami – silne dowody przeciw prostemu szyfrowi homofonicznemu dla 51 języków, ale brak pełnej kontroli na danych przetasowanych i brak testu z fragmentem o długości rękopisu nie pozwalają wykluczyć innych wariantów szyfru ani przejścia ' za mało danych'",
+     "pewność": 0.8,
+     "zmiana_zdania": "nie – raport wraz z opiniami utwierdza mnie w przekonaniu, że prosta homofonika jest bardzo mało prawdopodobna, ale nie uważam obalenia za ostateczne."
+    }
+   },
+   "tencent/hy3": {
+    "raw": "{\n  \"ranking\": [\"B\", \"A\", \"C\"],\n  \"uwagi\": \"Opinia B jako jedyna konsekwentnie stosuje kryterium zasad rady: test jest niewiarygodny, bo w raporcie brak kontroli na danych przetasowanych (ujemnej). Bez niej nie wiemy, czy metoda nie 'widzi' szyfru w szumie. A i C uznają hipotezę za obaloną, mimo że metoda nie przeszła pełnej walidacji negatywnej, co jest przedwczesne. A trafnie wskazuje margines szumu (4.01 vs 3.96 bit/znak) i cyrkularność modelu, ale jej werdykt 'obalona' jest słabszy niż 'niewiarygodna'. C pomija lukę w kontrolach i skupia się na mało istotnych szczegółach raportu.\",\n  \"werdykt\": \"test_niewiarygodny_brak_kontroli_ujemnej\",\n  \"pewność\": 0.95,\n  \"zmiana_zdania\": \"tak, raport automatycznie uznał hipotezę za obaloną, ale jako rada musimy odrzucić ten werdykt z powodu niespełnienia warunku metodycznego (brak przetasowania).\"\n}",
+    "json": {
+     "ranking": [
+      "B",
+      "A",
+      "C"
+     ],
+     "uwagi": "Opinia B jako jedyna konsekwentnie stosuje kryterium zasad rady: test jest niewiarygodny, bo w raporcie brak kontroli na danych przetasowanych (ujemnej). Bez niej nie wiemy, czy metoda nie 'widzi' szyfru w szumie. A i C uznają hipotezę za obaloną, mimo że metoda nie przeszła pełnej walidacji negatywnej, co jest przedwczesne. A trafnie wskazuje margines szumu (4.01 vs 3.96 bit/znak) i cyrkularność modelu, ale jej werdykt 'obalona' jest słabszy niż 'niewiarygodna'. C pomija lukę w kontrolach i skupia się na mało istotnych szczegółach raportu.",
+     "werdykt": "test_niewiarygodny_brak_kontroli_ujemnej",
+     "pewność": 0.95,
+     "zmiana_zdania": "tak, raport automatycznie uznał hipotezę za obaloną, ale jako rada musimy odrzucić ten werdykt z powodu niespełnienia warunku metodycznego (brak przetasowania)."
+    }
+   }
+  },
+  "synthesis": "## Werdykt rady\n\n**Test jest niewiarygodny jako podstawa kategorycznego obalenia hipotezy.** Wynik jest niekorzystny dla badanej wersji prostego szyfru homofonicznego, ale nie spełniono wymogu kontroli ujemnej na danych przetasowanych.\n\n**Poziom zgody:** wysoki co do braku tej kontroli i konieczności odrzucenia automatycznego werdyktu „obalona”; opinie różnią się, jak mocno interpretować niekorzystny wynik.\n\n### Co test pokazuje\n\nKontrole dodatnie wskazują, że wspinacz odzyskiwał klucz w testowanych zaszyfrowanych tekstach: zwykle w 100% znaków, w najniższych podanych przypadkach w 88–94%. W rękopisie nie uzyskano tropu; najbliższy wynik OldFrench (4,01 bitu/znak) jest bliski bełkotowi v5 (3,96), a gorszy od wartości naturalnego tekstu (3,85). To przemawia przeciw badanej metodzie szyfrowania, ale nie rozstrzyga sprawy bez pełnej walidacji.\n\n### Główne zastrzeżenia\n\nBrak wyników kontroli na danych przetasowanych oznacza, że nie wiadomo, czy pipeline daje fałszywe trafienia. Nie podano też, który leksykon był nietestowalny ani dlaczego. Raport nie wykazuje, że kontrole dodatnie dopasowano długością i strukturą do badanego materiału. Test nie obejmuje innych typów szyfrów ani języków spoza testowanego zestawu.\n\n### Rekomendowany eksperyment\n\nPowtórzyć pełny pipeline na kontrolach dodatnich o długości i strukturze dopasowanej do rękopisu oraz na odpowiadających im danych przetasowanych; z góry ustalić kryterium trafienia i podać wyniki dla wszystkich leksykonów.",
+  "failed": {},
+  "votes": {
+   "metoda niewiarygodna": 1,
+   "obalona": 2,
+   "potwierdzona": 1
+  }
+ }
 }

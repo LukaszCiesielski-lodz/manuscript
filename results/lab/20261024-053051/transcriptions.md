@@ -22,9 +22,30 @@ Podpis trzyma w 4/4 pełnych transliteracjach: ZL tak, IT tak, CD nie (częścio
 - ZL i Takahashi są w pełni zgodne tylko w ok. 29% wierszy (Chelednik); różnice to głównie niepewne glify i podziały słów.
 - Alfabety Curriera, FSG i v101 dzielą tekst na inne jednostki niż EVA, więc miary kształtu (entropia, długości) nie są z nimi wprost porównywalne; porównywalne są z składni i znak korelacji.
 
+## Rada modeli
+
+## Werdykt rady
+
+**Hipoteza nie została potwierdzona; metoda nie jest dostatecznie zwalidowana.** Zgoda jest wysoka co do tego, że automatyczny werdykt „potwierdzona” nie wynika z przedstawionych dowodów. To nie oznacza, że hipoteza jest fałszywa.
+
+## Co test naprawdę pokazuje
+
+W czterech pełnych transliteracjach raportuje się nadmiar powtórzeń i wariantów oraz dodatnią korelację długości sąsiednich słów. Są to powtarzające się sygnały opisowe, ale nie dowodzą, że podpis jest własnością rękopisu, a nie sposobu jego transkrypcji.
+
+## Główne zastrzeżenia
+
+- Nie przedstawiono wymaganych kontroli: wykrycia celowo podłożonego efektu ani niewykrywania go w danych przetasowanych. Podane porównania z tasowaniami nie zastępują walidacji całej metody.
+- ZL jest punktem odniesienia dla miar kształtu, więc jego wartości *z* = 0 nie są niezależnym potwierdzeniem.
+- Transliteracje nie są niezależnymi świadkami: ZL i Takahashi są w pełni zgodne tylko w około 29% wierszy. Część miar dla różnych alfabetów nie jest wprost porównywalna.
+- Składnik dotyczący słów niespokrewnionych nie jest spójny między transliteracjami, a częściowe CD wyłączono bez podanego wcześniej kryterium.
+
+## Rekomendowany następny eksperyment
+
+Zweryfikować cały pipeline na kontrolach dodatnich i ujemnych: ma wykrywać efekt podłożony celowo i nie wykrywać go w danych przetasowanych, przy tych samych regułach segmentacji i tokenizacji.
+
 ## Literatura
 
 - Zandbergen, voynich.nu/transcr.html
 - Chelednik, voynich-transcription-mismatch (Hugging Face 2026)
 
-_Czas: 173 s · 2026-10-24 05:34_
+_Czas: 173 s · 2026-10-24 11:01_

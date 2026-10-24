@@ -5898,5 +5898,112 @@
  ],
  "artifacts": [],
  "seconds": 17636.576462984085,
- "council": {}
+ "council": {
+  "members": [
+   "z-ai/glm-5.3-flash",
+   "openai/gpt-6-luna",
+   "inception/mercury-3",
+   "tencent/hy3"
+  ],
+  "chair": "openai/gpt-6-luna",
+  "round1": {
+   "z-ai/glm-5.3-flash": {
+    "raw": "```json\n{\n  \"werdykt\": \"obalona\",\n  \"pewność\": 0.85,\n  \"najmocniejszy_dowód\": \"Kontrole dodatnie przeszły w 50/50 języków (odzysk klucza 94–100% przy progu 60%), więc metoda jest wiarygodna; na danych rękopisu brak wyraźnego sygnału — najlepszy wynik (Syriac: 85% słów o jednej zmianie od słownika) przewyższa bełkot v5 (74%) zaledwie o ~11 punktów procentowych, bez podanej istotności.\",\n  \"słabości\": [\n    \"Brak wartości p lub rozkładu tła: nie wiadomo, czy przewaga 85% vs 74% dla Syriac przekracza zmienność między realizacjami bełkotu.\",\n    \"Metryka 'o jedną zmianę od słownika' daje bełkotowi aż 74% — słabo dyskryminująca, podatna na fałszywe tropy przy dużych słownikach.\",\n    \"Kontrole dodatnie używały tekstu zaszyfrowanego losowym kluczem; nie testują przypadku klucza częściowego, homofonicznego ani tekstu pisanego bez klucza (np. skróty, nomina sacra).\",\n    \"2 języki nietestowalne — pokrycie hipotezy niepełne; brak listy kryteriów testowalności.\",\n    \"Raport ucięty po pierwszym języku w sekcji DOWODY — pełne porównania kosztów transportu dla wszystkich 50 języków nie są dostępne w ocenie.\"\n  ],\n  \"inne_wyjaśnienia\": [\n    \"Lekko podwyższony wynik Syriac może wynikać z krótkich słów i bogatej morfologii syryjskiego, które zwiększają szansę trafienia w słownik jedną zmianą, a nie z rzeczywistego pokrewieństwa.\",\n    \"Rękopis mógł być pisany językiem naturalnym z silną redakcją/skróceniem wykraczającym poza model 'jedna zmiana', którego metoda nie obejmuje.\",\n    \"Nietestowalne języki (np. o ubogich korpusach) mogły ukryć dopasowanie.\"\n  ],\n  \"następny_test\": \"Wygenerować wiele (np. 100) niezależnych realizacji bełkotu v5 i wyznaczyć rozkład metryki 'o jedną zmianę' dla każdego języka, by sprawdzić, czy wynik Syriac (85%) odbiega od rozkładu tła; równolegle powtórzyć kontrolę dodatnią z kluczem częściowym (np. 50% glifów poprawnych), by ustalić minimalny poziom 'prawdziwego klucza', jaki metoda wykrywa.\"\n}\n```",
+    "json": {
+     "werdykt": "obalona",
+     "pewność": 0.85,
+     "najmocniejszy_dowód": "Kontrole dodatnie przeszły w 50/50 języków (odzysk klucza 94–100% przy progu 60%), więc metoda jest wiarygodna; na danych rękopisu brak wyraźnego sygnału — najlepszy wynik (Syriac: 85% słów o jednej zmianie od słownika) przewyższa bełkot v5 (74%) zaledwie o ~11 punktów procentowych, bez podanej istotności.",
+     "słabości": [
+      "Brak wartości p lub rozkładu tła: nie wiadomo, czy przewaga 85% vs 74% dla Syriac przekracza zmienność między realizacjami bełkotu.",
+      "Metryka 'o jedną zmianę od słownika' daje bełkotowi aż 74% — słabo dyskryminująca, podatna na fałszywe tropy przy dużych słownikach.",
+      "Kontrole dodatnie używały tekstu zaszyfrowanego losowym kluczem; nie testują przypadku klucza częściowego, homofonicznego ani tekstu pisanego bez klucza (np. skróty, nomina sacra).",
+      "2 języki nietestowalne — pokrycie hipotezy niepełne; brak listy kryteriów testowalności.",
+      "Raport ucięty po pierwszym języku w sekcji DOWODY — pełne porównania kosztów transportu dla wszystkich 50 języków nie są dostępne w ocenie."
+     ],
+     "inne_wyjaśnienia": [
+      "Lekko podwyższony wynik Syriac może wynikać z krótkich słów i bogatej morfologii syryjskiego, które zwiększają szansę trafienia w słownik jedną zmianą, a nie z rzeczywistego pokrewieństwa.",
+      "Rękopis mógł być pisany językiem naturalnym z silną redakcją/skróceniem wykraczającym poza model 'jedna zmiana', którego metoda nie obejmuje.",
+      "Nietestowalne języki (np. o ubogich korpusach) mogły ukryć dopasowanie."
+     ],
+     "następny_test": "Wygenerować wiele (np. 100) niezależnych realizacji bełkotu v5 i wyznaczyć rozkład metryki 'o jedną zmianę' dla każdego języka, by sprawdzić, czy wynik Syriac (85%) odbiega od rozkładu tła; równolegle powtórzyć kontrolę dodatnią z kluczem częściowym (np. 50% glifów poprawnych), by ustalić minimalny poziom 'prawdziwego klucza', jaki metoda wykrywa."
+    }
+   },
+   "openai/gpt-6-luna": {
+    "raw": "{\n  \"werdykt\": \"metoda niewiarygodna\",\n  \"pewność\": 0.96,\n  \"najmocniejszy_dowód\": \"Kontrole dodatnie odzyskały klucz w 94–100% znaków, więc metoda wykrywa efekt w skonstruowanych danych. Nie podano jednak wyników kontroli na danych przetasowanych, a wymagane są oba rodzaje kontroli.\",\n  \"słabości\": [\n    \"Brak wyników kontroli ujemnej uniemożliwia ocenę, czy metoda nie znajduje pozornego efektu w danych przetasowanych.\",\n    \"Próg „o jedną zmianę” daje wysokie tło: dla Syriac podano 85% dla rękopisu wobec 74% dla bełkotu, bez niepewności statystycznej.\",\n    \"Szczegółowe wyniki dla kandydatów są niepełne; przedstawiony wiersz Afrikaans urywa się.\"\n  ],\n  \"inne_wyjaśnienia\": [\n    \"Wysokie dopasowanie przy kryterium jednej zmiany może wynikać z szerokiego kryterium podobieństwa i właściwości słownika, a nie z klucza.\",\n    \"Brak dopasowania w tym teście nie wyklucza innych kluczy, form językowych ani hipotez, których metoda nie bada.\"\n  ],\n  \"następny_test\": \"Uruchomić ten sam, niezmieniony pipeline na wielu przetasowanych wersjach danych i podać rozkład wyników względem rękopisu oraz kandydatów; metoda powinna nie znajdować w nich efektu.\"\n}",
+    "json": {
+     "werdykt": "metoda niewiarygodna",
+     "pewność": 0.96,
+     "najmocniejszy_dowód": "Kontrole dodatnie odzyskały klucz w 94–100% znaków, więc metoda wykrywa efekt w skonstruowanych danych. Nie podano jednak wyników kontroli na danych przetasowanych, a wymagane są oba rodzaje kontroli.",
+     "słabości": [
+      "Brak wyników kontroli ujemnej uniemożliwia ocenę, czy metoda nie znajduje pozornego efektu w danych przetasowanych.",
+      "Próg „o jedną zmianę” daje wysokie tło: dla Syriac podano 85% dla rękopisu wobec 74% dla bełkotu, bez niepewności statystycznej.",
+      "Szczegółowe wyniki dla kandydatów są niepełne; przedstawiony wiersz Afrikaans urywa się."
+     ],
+     "inne_wyjaśnienia": [
+      "Wysokie dopasowanie przy kryterium jednej zmiany może wynikać z szerokiego kryterium podobieństwa i właściwości słownika, a nie z klucza.",
+      "Brak dopasowania w tym teście nie wyklucza innych kluczy, form językowych ani hipotez, których metoda nie bada."
+     ],
+     "następny_test": "Uruchomić ten sam, niezmieniony pipeline na wielu przetasowanych wersjach danych i podać rozkład wyników względem rękopisu oraz kandydatów; metoda powinna nie znajdować w nich efektu."
+    }
+   },
+   "tencent/hy3": {
+    "raw": "{\n  \"werdykt\": \"obalona\",\n  \"pewność\": 0.9,\n  \"najmocniejszy_dowód\": \"Dla najlepszego języka (Syriac) rękopis osiągnął 85% słów o najwyżej jedną zmianę od słownika przy 74% dla bełkotu v5 (brak tropów statystycznych), podczas gdy w kontrolach pozytywnych metoda odzyskiwała klucz w 94–100% i dawała 87–100% zgodności ze słownikiem; różnica między rękopisem a tłem jest marginalna, co obala hipotezę jednokluczowego szyfru słownikowego.\",\n  \"słabości\": [\n    \"Metoda testuje wyłącznie pojedynczy, stały klucz glif–litera (monoalfabetyczny); nie bada szyfrów polialfabetycznych ani wielu kluczy per folio.\",\n    \"Kryterium 'o jedną zmianę' może faworyzować krótkie słowa i nie rozstrzyga, czy 85% w Syriac to efekt strukturalny czy przypadkowy.\",\n    \"2 języki z 50 były nietestowalne – nie podano przyczyny ani wpływu na wynik.\"\n  ],\n  \"inne_wyjaśnienia\": [\n    \"Rękopis może być w języku nieujętym w słownikach (np. izolowanym lub sztucznym) lub używać niesłownikowych neologizmów.\",\n    \"Struktura glifów może nie być mapowalna 1:1 na litery żadnego znanego języka (np. sylabor lub kod niejęzykowy).\"\n  ],\n  \"następny_test\": \"Test metodą NeuroDecipher z relaksem do wielu kluczy (szyfr polialfabetyczny/Vigenère) lub z optymalizacją klucza niezależnie dla bloków tekstu, by sprawdzić, czy rozdzielenie kluczy podnosi zgodność ze słownikiem powyżej poziomu bełkotu.\"\n}",
+    "json": {
+     "werdykt": "obalona",
+     "pewność": 0.9,
+     "najmocniejszy_dowód": "Dla najlepszego języka (Syriac) rękopis osiągnął 85% słów o najwyżej jedną zmianę od słownika przy 74% dla bełkotu v5 (brak tropów statystycznych), podczas gdy w kontrolach pozytywnych metoda odzyskiwała klucz w 94–100% i dawała 87–100% zgodności ze słownikiem; różnica między rękopisem a tłem jest marginalna, co obala hipotezę jednokluczowego szyfru słownikowego.",
+     "słabości": [
+      "Metoda testuje wyłącznie pojedynczy, stały klucz glif–litera (monoalfabetyczny); nie bada szyfrów polialfabetycznych ani wielu kluczy per folio.",
+      "Kryterium 'o jedną zmianę' może faworyzować krótkie słowa i nie rozstrzyga, czy 85% w Syriac to efekt strukturalny czy przypadkowy.",
+      "2 języki z 50 były nietestowalne – nie podano przyczyny ani wpływu na wynik."
+     ],
+     "inne_wyjaśnienia": [
+      "Rękopis może być w języku nieujętym w słownikach (np. izolowanym lub sztucznym) lub używać niesłownikowych neologizmów.",
+      "Struktura glifów może nie być mapowalna 1:1 na litery żadnego znanego języka (np. sylabor lub kod niejęzykowy)."
+     ],
+     "następny_test": "Test metodą NeuroDecipher z relaksem do wielu kluczy (szyfr polialfabetyczny/Vigenère) lub z optymalizacją klucza niezależnie dla bloków tekstu, by sprawdzić, czy rozdzielenie kluczy podnosi zgodność ze słownikiem powyżej poziomu bełkotu."
+    }
+   }
+  },
+  "round2": {
+   "z-ai/glm-5.3-flash": {
+    "raw": "{\"ranking\": [\"B\", \"C\"], \"uwagi\": \"Opinia B jest lepiej uzasadniona: trafnie wskazuje, że raport podaje wyłącznie kontrole dodatnie (wszystkie przeszły, 94–100% odzysku klucza), a brak kontroli na danych przetasowanych uniemożliwia pełną ocenę wiarygodności metody — zgodnie z kryterium rady test jest wiarygodny tylko przy obu typach kontroli. B słusznie zauważa też wysokie tło kryterium „o jedną zmianę\" (bełkot 74% dla Syriac) i brak niepewności statystycznej oraz urwany wiersz dowodów. Opinia C poprawnie czyta główny wynik (najlepszy kandydat Syriac: 85% vs 74% tła, brak tropów), ale przesadza, traktując marginalną, niestatystycznie oszacowaną różnicę jako rozstrzygające obalenie — zwłaszcza że kontrola ujemna nie została wykonana. Cels pewność 0.9 jest zawyżona. Propozycja następnego testu C (wielokluczowość) zmienia hipotezę, podczas gdy test B (przetasowane dane tym samym pipeline'em) jest bardziej informatyczny dla oceny samej metody. Uwaga ł",
+    "json": {}
+   },
+   "openai/gpt-6-luna": {
+    "raw": "{\"ranking\":[\"A\",\"C\"],\"uwagi\":\"A jest lepiej uzasadniona, bo wskazuje kluczowy brak: bez rozkładu wielu realizacji bełkotu nie wiadomo, czy przewaga Syriac (85% wobec 74%) przekracza zmienność tła. Jej propozycja testu tła jest najważniejsza. A jednak zbyt mocno uznaje wiarygodność metody: kontrole dodatnie przeszły, ale raport nie podaje kontroli na danych przetasowanych, wymaganej do sprawdzenia, czy metoda nie wykrywa efektu tam, gdzie go nie ma. C trafnie zauważa ograniczenie do jednego stałego klucza, zgodne z badaną hipotezą, lecz nadmiernie traktuje kontrole dodatnie jako walidację i proponuje test wielu kluczy, który badałby inną hipotezę. W obu opiniach brakuje uwzględnienia, że sekcja DOWODY jest ucięta; nie ma pełnych wyników dla języków ani informacji o dwóch językach nietestowalnych. Test nie wykazał przekonującego dopasowania do słownika, ale nie bada innych modeli kodowania ani języków poza testowalnym zestawem. Następny test: zastosować identyczną procedurę do wielu przetasowanych danych i wielu realizacji bełkotu, podając rozkład wyników oraz pozycję Syriac względem tego tła.\",\"werdykt\":\"Brak przekonującego wsparcia dla hipotezy stałego klucza w przedstawionych wynikach, ale jej obalenie nie jest dostatecznie uzasadnione: kontrola na danych przetasowanych i rozkład tła nie zostały zaraportowane, a przedstawione dowody są niepełne.\",\"pewność\":0.82,\"zmiana_zdania\":\"Nie. Opinie A i C wskazują istotne ograniczenia, ale żadna nie usuwa braku kluczowej kontroli na danych przetasowanych ani braku pełnych wyników.\"}",
+    "json": {
+     "ranking": [
+      "A",
+      "C"
+     ],
+     "uwagi": "A jest lepiej uzasadniona, bo wskazuje kluczowy brak: bez rozkładu wielu realizacji bełkotu nie wiadomo, czy przewaga Syriac (85% wobec 74%) przekracza zmienność tła. Jej propozycja testu tła jest najważniejsza. A jednak zbyt mocno uznaje wiarygodność metody: kontrole dodatnie przeszły, ale raport nie podaje kontroli na danych przetasowanych, wymaganej do sprawdzenia, czy metoda nie wykrywa efektu tam, gdzie go nie ma. C trafnie zauważa ograniczenie do jednego stałego klucza, zgodne z badaną hipotezą, lecz nadmiernie traktuje kontrole dodatnie jako walidację i proponuje test wielu kluczy, który badałby inną hipotezę. W obu opiniach brakuje uwzględnienia, że sekcja DOWODY jest ucięta; nie ma pełnych wyników dla języków ani informacji o dwóch językach nietestowalnych. Test nie wykazał przekonującego dopasowania do słownika, ale nie bada innych modeli kodowania ani języków poza testowalnym zestawem. Następny test: zastosować identyczną procedurę do wielu przetasowanych danych i wielu realizacji bełkotu, podając rozkład wyników oraz pozycję Syriac względem tego tła.",
+     "werdykt": "Brak przekonującego wsparcia dla hipotezy stałego klucza w przedstawionych wynikach, ale jej obalenie nie jest dostatecznie uzasadnione: kontrola na danych przetasowanych i rozkład tła nie zostały zaraportowane, a przedstawione dowody są niepełne.",
+     "pewność": 0.82,
+     "zmiana_zdania": "Nie. Opinie A i C wskazują istotne ograniczenia, ale żadna nie usuwa braku kluczowej kontroli na danych przetasowanych ani braku pełnych wyników."
+    }
+   },
+   "tencent/hy3": {
+    "raw": "{\n  \"ranking\": [\"B\", \"A\"],\n  \"uwagi\": \"Opinia B poprawnie wskazuje krytyczną lukę: zasady wymagają, by metoda nie znajdowała efektu w danych przetasowanych, a raport nie podaje wyników takiej kontroli ujemnej (jedynie tło bełkotu v5, co nie jest tożsame z przetasowaniem struktury rękopisu). Opinia A błędnie uznaje metodę za wiarygodną na podstawie samych kontroli dodatnich, ignorując wymóg podwójnej kontroli z zasad. Test wyklucza istnienie prostego klucza glif–litera dającego >85% słów w słowniku dla 50 języków; nie bada kluczy częściowych, homofonicznych ani języków nietestowalnych (2). Słabość: brak walidacji na przetasowanych danych rękopisu.\",\n  \"werdykt\": \"metoda niewiarygodna do ostatecznego obalenia hipotezy (brak kontroli ujemnej); hipoteza wstępnie obalona w badanym zakresie\",\n  \"pewność\": 0.92,\n  \"zmiana_zdania\": \"tak, ponieważ zasady rady wymagają obu kontroli do uznania testu za wiarygodny, a raport ich nie dostarcza, co czyni werdykt 'obalona' przedwczesnym bez dodatkowego testu przetasowania\"\n}",
+    "json": {
+     "ranking": [
+      "B",
+      "A"
+     ],
+     "uwagi": "Opinia B poprawnie wskazuje krytyczną lukę: zasady wymagają, by metoda nie znajdowała efektu w danych przetasowanych, a raport nie podaje wyników takiej kontroli ujemnej (jedynie tło bełkotu v5, co nie jest tożsame z przetasowaniem struktury rękopisu). Opinia A błędnie uznaje metodę za wiarygodną na podstawie samych kontroli dodatnich, ignorując wymóg podwójnej kontroli z zasad. Test wyklucza istnienie prostego klucza glif–litera dającego >85% słów w słowniku dla 50 języków; nie bada kluczy częściowych, homofonicznych ani języków nietestowalnych (2). Słabość: brak walidacji na przetasowanych danych rękopisu.",
+     "werdykt": "metoda niewiarygodna do ostatecznego obalenia hipotezy (brak kontroli ujemnej); hipoteza wstępnie obalona w badanym zakresie",
+     "pewność": 0.92,
+     "zmiana_zdania": "tak, ponieważ zasady rady wymagają obu kontroli do uznania testu za wiarygodny, a raport ich nie dostarcza, co czyni werdykt 'obalona' przedwczesnym bez dodatkowego testu przetasowania"
+    }
+   }
+  },
+  "synthesis": "## Werdykt rady\n**Brak przekonującego wsparcia dla hipotezy w badanym zakresie, ale jej obalenie nie jest uzasadnione.** Metoda nie spełnia wymogu wiarygodności, ponieważ raport nie przedstawia kontroli na danych przetasowanych.\n\n## Poziom zgody\nPo początkowych różnicach opinie zbiegły się co do kluczowego zastrzeżenia: samych kontroli dodatnich nie wystarcza do uznania testu za wiarygodny. Nie ma podstaw do kategorycznego werdyktu „obalona”.\n\n## Co test naprawdę pokazuje\nW 50 językach testowalnych kontrole dodatnie odzyskały klucz w 94–100% znaków, powyżej progu 60%. W wynikach rękopisu nie zgłoszono tropów. Najwyższy podany wynik, dla Syriac, to 85% słów w odległości najwyżej jednej zmiany od słownika wobec 74% dla bełkotu v5. To nie wykazuje przekonującego dopasowania, ale bez rozkładu wyników tła nie wiadomo, czy różnica jest istotna.\n\nTest dotyczy stałego klucza glif–litera dla testowalnych języków. Nie rozstrzyga hipotez spoza tego modelu ani wyników dla dwóch języków nietestowalnych.\n\n## Główne zastrzeżenia\nBrak kontroli ujemnej na danych przetasowanych i rozkładu wielu realizacji tła. Ponadto sekcja dowodów jest niepełna, więc nie można ocenić wszystkich porównań językowych. Kryterium „o jedną zmianę” daje wysokie tło.\n\n## Rekomendowany następny eksperyment\nUruchomić niezmieniony pipeline na wielu przetasowanych wersjach danych oraz wielu realizacjach bełkotu, podać rozkład wyników i pozycję wyniku Syriac względem tych rozkładów.",
+  "failed": {
+   "inception/mercury-3": "OpenRouter: inception/mercury-3 zwrócił pustą odpowiedź (model rozumujący zużył limit tokenów)"
+  },
+  "votes": {
+   "metoda niewiarygodna": 1,
+   "brak przekonującego wsparcia dla hipotez": 1
+  }
+ }
 }
