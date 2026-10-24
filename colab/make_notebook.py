@@ -251,7 +251,7 @@ i ujemnymi, a trzy ostatnie teorie z procesora liczą się po raz pierwszy na pe
 | teoria | co nowego |
 |---|---|
 | `length_code`, `chronology`, `hands` | kod w długościach słów; strzałka czasu kopiowania między kartami (tło w obrębie bloków działu); ręka skryby a treść (karty odłożone, tło z losowego rozdania kart) |
-| `genres` | + rama litanijna wszczepiona w rękopis (musi dać zależność), litania przetasowana (musi ją stracić) |
+| `genres`, `notation` | + rama wszczepiona w rękopis (musi dać zależność), litania i chorał przetasowane (muszą ją stracić); notacja z pełną tabulaturą basse danse, gdy PDF dostępny |
 | `adversary` | + czułość sędziego (10% glifów podmienionych musi wykryć), AUC z trzech podziałów danych |
 | `hillclimb` | + glify przemianowane w każdym wierszu (tekst bez klucza) obok bełkotu v5; 51 języków, ok. 40 min |
 | `cognate` | + ta sama kontrola; tylko języki, w których coś drgnęło lub które pasują do epoki (lista w ustawieniach) |
@@ -260,13 +260,14 @@ i ujemnymi, a trzy ostatnie teorie z procesora liczą się po raz pierwszy na pe
 Uruchom: Środowisko wykonawcze → Uruchom wszystko (GPU A100, High-RAM, sekrety `GITHUB_TOKEN`, `OPENROUTER_API_KEY`).
 Po pobraniu poprawki kodu zawsze: Środowisko wykonawcze → Uruchom ponownie sesję. Czas: ok. 3 h; wyniki wypychają się po każdej teorii."""),
     cells[3],
-    ("code", """!pip install -q open_clip_torch
+    ("code", """!pip install -q open_clip_torch pypdf
 !python scripts/fetch_data.py
 !python scripts/fetch_lexicons.py
-!python scripts/fetch_transliterations.py"""),
+!python scripts/fetch_transliterations.py
+!python scripts/fetch_notation.py"""),
     cells[5],
     ("code", cells[7][1].replace('theories=["all"],          # albo np. ["numbers", "literature"]',
-                                 'theories=["length_code", "chronology", "hands", "genres", "adversary", "hillclimb", "cognate", "wheel"],\n'
+                                 'theories=["length_code", "chronology", "hands", "genres", "notation", "adversary", "hillclimb", "cognate", "wheel"],\n'
                                  '    attack_languages=["Syriac", "Aramaic", "Latin", "MedievalLatin", "VulgarLatin", "Italian", "German",\n'
                                  '                      "OldFrench", "Hebrew", "Greek", "Czech", "Lithuanian", "Portuguese"],  # tylko cognate; hillclimb bierze wszystkie\n'
                                  '    cognate_restarts=32,\n'
@@ -276,7 +277,7 @@ Po pobraniu poprawki kodu zawsze: Środowisko wykonawcze → Uruchom ponownie se
                                  '    wheel_population=1024,\n'
                                  '    wheel_generations=800,\n'
                                  '    judge_epochs=20,')),
-    ("code", """cpu = ["length_code", "chronology", "hands", "genres"]
+    ("code", """cpu = ["length_code", "chronology", "hands", "genres", "notation"]
 gpu = ["adversary", "hillclimb", "cognate", "wheel"]
 for name in cpu + gpu:
     if name == "hillclimb":

@@ -81,6 +81,34 @@ def run(cfg: LabConfig) -> TheoryResult:
         res.summary = "Pominięte: brak danych notacji."
         res.seconds = time.time() - t0
         return res
+    # Controls: the chant with its units shuffled inside each melody must lose the distant dependency; the manuscript
+    # with a planted frame (every third unit fixed) must gain one.
+    import random as _random
+    rr = _random.Random(cfg.seed)
+    chant_key = next((k for k in texts if k.startswith("chorał")), None)
+    if chant_key:
+        within = []
+        for l in texts[chant_key]:
+            l = list(l)
+            rr.shuffle(l)
+            within.append(l)
+        flat = [w for l in texts[chant_key] for w in l]
+        rr.shuffle(flat)
+        across, i = [], 0
+        for l in texts[chant_key]:
+            across.append(flat[i:i + len(l)])
+            i += len(l)
+        syn_w = longrange.split_by_identity(within, top=60, shuffles=shuffles, seed=cfg.seed)
+        syn_a = longrange.split_by_identity(across, top=60, shuffles=shuffles, seed=cfg.seed)
+        res.control("chorał z jednostkami przetasowanymi między melodiami traci składnię na odległość", "z < 3",
+                    f"z = {syn_a['unrelated']['z']:.1f}", syn_a["unrelated"]["z"] < 3)
+        res.evidence.append(f"Chorał przetasowany tylko w obrębie melodii zachowuje część zależności (z = {syn_w['unrelated']['z']:.1f}): "
+                            "jednostki jednej melodii dzielą modus i zakres, więc u chorału część „składni” to spójność melodii, "
+                            "nie kolejność. Rękopis nie ma ani jednego, ani drugiego.")
+    frame = [[w if i % 3 else ["o", "r", "a"] for i, w in enumerate(l)] for l in voy]
+    syn_fr = longrange.split_by_identity(frame, top=60, shuffles=shuffles, seed=cfg.seed)
+    res.control("rękopis z wszczepioną ramą (co trzecia jednostka stała) zyskuje składnię na odległość", "z ≥ 5",
+                f"z = {syn_fr['unrelated']['z']:.1f}", syn_fr["unrelated"]["z"] >= 5)
     metrics, scores = {}, {}
     for name, lines in texts.items():
         nw = sum(map(len, lines))
