@@ -1,0 +1,225 @@
+{
+ "theory": "genres",
+ "hypothesis": "Rękopis to tekst gatunku, który z natury nie ma składni między słowami: litania (stała rama, zmienne imię) albo „imiona barbarzyńskie” ksiąg magicznych (ciągi bez znaczenia z echami i wariantami).",
+ "method": "Litania do Wszystkich Świętych (la.wikisource) i imiona z Ars Notoria i Liber Iuratus (Esoteric Archives) mierzone jak rękopis: zależność na odległość rozbita na powtórzenia, warianty i słowa niespokrewnione; dynamika długości słów (korelacja sąsiadów, DFA); miary kształtu z karty. Porównanie z rękopisem i łaciną.",
+ "verdict": "nierozstrzygnięta",
+ "summary": "Gatunki o podpisie jak rękopis (brak składni, nadmiar powtórzeń, podobne długości sąsiadów): żaden z badanych. rękopis: niespokrewnione z = -1.2, powtórzenia z = 9.6; łacina (Biblia): niespokrewnione z = 12.7, powtórzenia z = -0.5; litany: niespokrewnione z = 60.3, powtórzenia z = 5.9; voces_magicae: niespokrewnione z = 3.6, powtórzenia z = 4.8",
+ "metrics": {
+  "rękopis": {
+   "syntax": {
+    "same": {
+     "excess": 0.013704832622062162,
+     "z": 9.614489853570293
+    },
+    "different": {
+     "excess": -0.030788100172470467,
+     "z": -2.512250411681245
+    },
+    "variants": {
+     "excess": 0.0780462721036569,
+     "z": 5.10595132176497
+    },
+    "unrelated": {
+     "excess": -0.015168989307893121,
+     "z": -1.1825692714129405
+    }
+   },
+   "lengths": {
+    "ac1": {
+     "value": 0.15919015836720654,
+     "null": 0.04141556689975241,
+     "excess": 0.11777459146745413,
+     "z": 22.85341221357594
+    },
+    "updown": {
+     "value": 0.7051983828843333,
+     "null": 0.7241828326195049,
+     "excess": -0.01898444973517155,
+     "z": -6.800223016890813
+    },
+    "dfa": {
+     "value": 0.5979861434371463,
+     "null": 0.5198715626496577,
+     "excess": 0.07811458078748856,
+     "z": 10.929404949476773
+    }
+   },
+   "shape_z": {
+    "h2": 0.8496114153688988,
+    "hapax_ratio": 0.44369521036544135,
+    "vocab_density": 0.5323256333120554,
+    "adjacent_near": 1.4529142744879056,
+    "positional_rigidity": -1.1276308655660225,
+    "type_token_ratio": 0.00511467884728782
+   },
+   "words": 34820
+  },
+  "łacina (Biblia)": {
+   "syntax": {
+    "same": {
+     "excess": -0.001073524557825896,
+     "z": -0.5428856461856884
+    },
+    "different": {
+     "excess": 0.14625139485640914,
+     "z": 11.428040601071874
+    },
+    "variants": {
+     "excess": 0.01648119907041974,
+     "z": 1.3441953133458548
+    },
+    "unrelated": {
+     "excess": 0.15011355157171302,
+     "z": 12.72452634718052
+    }
+   },
+   "lengths": {
+    "ac1": {
+     "value": -0.10994724475469318,
+     "null": 0.004186209814176414,
+     "excess": -0.1141334545688696,
+     "z": -18.001682933398275
+    },
+    "updown": {
+     "value": 0.723946433104849,
+     "null": 0.7101844793977695,
+     "excess": 0.013761953707079444,
+     "z": 4.889004116900105
+    },
+    "dfa": {
+     "value": 0.5175453271765177,
+     "null": 0.5129081039380742,
+     "excess": 0.004637223238443511,
+     "z": 1.000431946893022
+    }
+   },
+   "shape_z": {
+    "h2": 5.942051216949516,
+    "hapax_ratio": -4.704499531122945,
+    "vocab_density": -27.87406741192558,
+    "adjacent_near": -4.477846879081971,
+    "positional_rigidity": -5.041692796600397,
+    "type_token_ratio": -1.0231657149547255
+   },
+   "words": 34820
+  },
+  "litany": {
+   "syntax": {
+    "same": {
+     "excess": 0.08286124543559745,
+     "z": 5.940116259156231
+    },
+    "different": {
+     "excess": 4.5151413699725635,
+     "z": 60.936645427930074
+    },
+    "variants": {
+     "excess": -0.04716476330362003,
+     "z": -2.213270734603253
+    },
+    "unrelated": {
+     "excess": 4.504896779867617,
+     "z": 60.30567748486443
+    }
+   },
+   "lengths": {
+    "ac1": {
+     "value": -0.046988771576499985,
+     "null": 0.014894560313206953,
+     "excess": -0.06188333188970694,
+     "z": -3.228496910283236
+    },
+    "updown": {
+     "value": 0.6703146374829001,
+     "null": 0.7151501448636076,
+     "excess": -0.04483550738070752,
+     "z": -5.836929056915375
+    },
+    "dfa": {
+     "value": 0.5174096902625434,
+     "null": 0.5056733301546082,
+     "excess": 0.011736360107935107,
+     "z": 0.47376504693501814
+    }
+   },
+   "shape_z": {
+    "h2": 3.0989970200156085,
+    "hapax_ratio": 2.2931411181863948,
+    "vocab_density": -40.174661499613194,
+    "adjacent_near": -4.857245622273494,
+    "positional_rigidity": -4.776159205325791,
+    "type_token_ratio": -1.8239359279661453
+   },
+   "words": 1661
+  },
+  "voces_magicae": {
+   "syntax": {
+    "same": {
+     "excess": 0.008145342151183305,
+     "z": 4.795491128350134
+    },
+    "different": {
+     "excess": 0.9288926311965964,
+     "z": 3.62814858558568
+    },
+    "variants": {
+     "excess": -0.007142857142857143,
+     "z": -0.22360679774997896
+    },
+    "unrelated": {
+     "excess": 0.9300099728709703,
+     "z": 3.6289866310366063
+    }
+   },
+   "lengths": {
+    "ac1": {
+     "value": 0.22527450478774527,
+     "null": 0.059449051370564575,
+     "excess": 0.1658254534171807,
+     "z": 6.579805876881698
+    },
+    "updown": {
+     "value": 0.7131011608623549,
+     "null": 0.716409360952086,
+     "excess": -0.003308200089731095,
+     "z": -0.30828158869405076
+    },
+    "dfa": {
+     "value": 0.7684199341072318,
+     "null": 0.6308020128700152,
+     "excess": 0.1376179212372165,
+     "z": 6.5952492001749246
+    }
+   },
+   "shape_z": {
+    "h2": 6.234827387229876,
+    "hapax_ratio": 9.748705162873593,
+    "vocab_density": -41.92432589820174,
+    "adjacent_near": -4.074036420510834,
+    "positional_rigidity": -2.01750535238478,
+    "type_token_ratio": 10.397557216692913
+   },
+   "words": 1479
+  }
+ },
+ "controls": [],
+ "evidence": [
+  "rękopis (34820 słów): powtórzenia z = 9.6, warianty z = 5.1, słowa niespokrewnione z = -1.2; długości: korelacja sąsiadów +0.159, DFA 0.598; kształt (z wobec rękopisu): entropia warunkowa h₂ +0.8, słowa użyte raz (hapaksy) +0.4, gęstość słownika +0.5, sąsiednie słowa różne o 1 glif +1.5, sztywne miejsca glifów w słowie -1.1, różne słowa / wszystkie +0.0.",
+  "łacina (Biblia) (34820 słów): powtórzenia z = -0.5, warianty z = 1.3, słowa niespokrewnione z = 12.7; długości: korelacja sąsiadów -0.110, DFA 0.518; kształt (z wobec rękopisu): entropia warunkowa h₂ +5.9, słowa użyte raz (hapaksy) -4.7, gęstość słownika -27.9, sąsiednie słowa różne o 1 glif -4.5, sztywne miejsca glifów w słowie -5.0, różne słowa / wszystkie -1.0.",
+  "litany (1661 słów): powtórzenia z = 5.9, warianty z = -2.2, słowa niespokrewnione z = 60.3; długości: korelacja sąsiadów -0.047, DFA 0.517; kształt (z wobec rękopisu): entropia warunkowa h₂ +3.1, słowa użyte raz (hapaksy) +2.3, gęstość słownika -40.2, sąsiednie słowa różne o 1 glif -4.9, sztywne miejsca glifów w słowie -4.8, różne słowa / wszystkie -1.8.",
+  "voces_magicae (1479 słów): powtórzenia z = 4.8, warianty z = -0.2, słowa niespokrewnione z = 3.6; długości: korelacja sąsiadów +0.225, DFA 0.768; kształt (z wobec rękopisu): entropia warunkowa h₂ +6.2, słowa użyte raz (hapaksy) +9.7, gęstość słownika -41.9, sąsiednie słowa różne o 1 glif -4.1, sztywne miejsca glifów w słowie -2.0, różne słowa / wszystkie +10.4."
+ ],
+ "caveats": [
+  "Teksty gatunkowe są krótkie (litania ok. 1,5 tys. słów), więc ich z są z natury mniejsze.",
+  "Imiona wydobyto heurystycznie z wydań angielsko-łacińskich; część to zwykłe słowa.",
+  "Lingua Ignota Hildegardy (1011 słów, sam słownik) nie weszła: nie ma tekstu, tylko listę."
+ ],
+ "references": [
+  "Ars Notoria (ed. Turner 1657; Esoteric Archives)",
+  "Liber Iuratus Honorii (Esoteric Archives)",
+  "Litaniae Sanctorum"
+ ],
+ "artifacts": [],
+ "seconds": 77.90994143486023,
+ "council": {}
+}
