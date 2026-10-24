@@ -1416,5 +1416,154 @@
  ],
  "artifacts": [],
  "seconds": 864.8693499565125,
- "council": {}
+ "council": {
+  "members": [
+   "z-ai/glm-5.3-flash",
+   "openai/gpt-6-luna",
+   "inception/mercury-3",
+   "tencent/hy3"
+  ],
+  "chair": "openai/gpt-6-luna",
+  "round1": {
+   "z-ai/glm-5.3-flash": {
+    "raw": "```json\n{\n  \"werdykt\": \"obalona\",\n  \"pewność\": 0.72,\n  \"najmocniejszy_dowód\": \"Wszystkie kontrole przeszły: szyfrogramy łacińskie zostały odzyskane z F1 = 1.00 (przesunięte długości i czytanie co 3. glif), zwykła łacina i bełkot v5 nie zyskały na żadnej regule. Mimo to żadna z 25 reguł kluczowanych nie koduje rękopisu krócej niż odstępy EVA (najlepiej 3.895 vs 3.896 bit/glif) ani nie daje mu przewagi składniowej nad bełkotem (maks. +5.6). Metoda, która udowadnia, że potrafi znaleźć podłożony klucz, nie znajduje go w rękopisie.\",\n  \"słabości\": [\n    \"Rodzina reguł jest skończona i wąska: cięcia, przesunięcia i transpozycje zależne od długości słowa; klucz jako tablica przyporządkowań (length_code) wymaga osobnego testu, więc obalenie dotyczy tylko tej rodziny.\",\n    \"Test operuje na poziomie wiersza/strumienia glifów; klucze działające w innych skalach (strona, akapit, sekwencja ponadwierszowa) nie są pokryte.\",\n    \"Niepokojący sygnał nieprzetworzony: ujemna informacja wzajemna sąsiednich słów rękopisu (z = -24.4, we wszystkich działach ujemna) pozostaje niewyjaśniona — test odrzuca hipotezę klucza, ale nie tłumaczy tej anomalii.\",\n    \"Rozstrzygające progi (≥2% oszczędności, różnica składni ≥5) są konwencjonalne; reguła dająca efekt mniejszy od progu zostałaby uznana za brak, choć technicznie mogłaby istnieć.\"\n  ],\n  \"inne_wyjaśnienia\": [\n    \"Odstępy EVA mogą być jedynie conventioną transkrypcji, a nie oryginalną segmentacją — wtedy porównanie z nimi jako „jednostkami prawdziwymi” jest częściowo kołowe.\",\n    \"Klucz może istnieć, ale poza testowaną rodziną (np. zależny od pozycji w wierszu, od pierwszego glifu słowa jako indeksu, albo dwupoziomowy).\",\n    \"Ujemna MI sąsiedztwa może wynikać z właściwości tekstu generowanego proceduralnie, a nie z klucza.\"\n  ],\n  \"następny_test\": \"Test klucza tablicowego (length_code): zamiana każdej długości „słowa” EVA na glif/symbol z ustalonej tablicy, a następnie ta sama procedura wyszukiwania minimum długości opisu z tymi samymi kontrolami (odzyskanie zaszyfrowanej łaciny F1 ≥ 0.9, brak zysku dla bełkotu). To najbardziej bezpośrednio domyka zadeklarowaną lukę i przesądza, czy klucz w długościach istnieje w ogóle.\"\n}\n```",
+    "json": {
+     "werdykt": "obalona",
+     "pewność": 0.72,
+     "najmocniejszy_dowód": "Wszystkie kontrole przeszły: szyfrogramy łacińskie zostały odzyskane z F1 = 1.00 (przesunięte długości i czytanie co 3. glif), zwykła łacina i bełkot v5 nie zyskały na żadnej regule. Mimo to żadna z 25 reguł kluczowanych nie koduje rękopisu krócej niż odstępy EVA (najlepiej 3.895 vs 3.896 bit/glif) ani nie daje mu przewagi składniowej nad bełkotem (maks. +5.6). Metoda, która udowadnia, że potrafi znaleźć podłożony klucz, nie znajduje go w rękopisie.",
+     "słabości": [
+      "Rodzina reguł jest skończona i wąska: cięcia, przesunięcia i transpozycje zależne od długości słowa; klucz jako tablica przyporządkowań (length_code) wymaga osobnego testu, więc obalenie dotyczy tylko tej rodziny.",
+      "Test operuje na poziomie wiersza/strumienia glifów; klucze działające w innych skalach (strona, akapit, sekwencja ponadwierszowa) nie są pokryte.",
+      "Niepokojący sygnał nieprzetworzony: ujemna informacja wzajemna sąsiednich słów rękopisu (z = -24.4, we wszystkich działach ujemna) pozostaje niewyjaśniona — test odrzuca hipotezę klucza, ale nie tłumaczy tej anomalii.",
+      "Rozstrzygające progi (≥2% oszczędności, różnica składni ≥5) są konwencjonalne; reguła dająca efekt mniejszy od progu zostałaby uznana za brak, choć technicznie mogłaby istnieć."
+     ],
+     "inne_wyjaśnienia": [
+      "Odstępy EVA mogą być jedynie conventioną transkrypcji, a nie oryginalną segmentacją — wtedy porównanie z nimi jako „jednostkami prawdziwymi” jest częściowo kołowe.",
+      "Klucz może istnieć, ale poza testowaną rodziną (np. zależny od pozycji w wierszu, od pierwszego glifu słowa jako indeksu, albo dwupoziomowy).",
+      "Ujemna MI sąsiedztwa może wynikać z właściwości tekstu generowanego proceduralnie, a nie z klucza."
+     ],
+     "następny_test": "Test klucza tablicowego (length_code): zamiana każdej długości „słowa” EVA na glif/symbol z ustalonej tablicy, a następnie ta sama procedura wyszukiwania minimum długości opisu z tymi samymi kontrolami (odzyskanie zaszyfrowanej łaciny F1 ≥ 0.9, brak zysku dla bełkotu). To najbardziej bezpośrednio domyka zadeklarowaną lukę i przesądza, czy klucz w długościach istnieje w ogóle."
+    }
+   },
+   "openai/gpt-6-luna": {
+    "raw": "{\n  \"werdykt\": \"obalona\",\n  \"pewność\": 0.82,\n  \"najmocniejszy_dowód\": \"W badanej rodzinie reguł żadna z 25 reguł kluczowanych nie skróciła opisu rękopisu względem odstępów EVA ani nie ujawniła składni przewyższającej bełkot według kryterium raportu. Kontrole metody przeszły: odzyskano oba celowo przekształcone teksty łacińskie z F1 = 1, a zwykła łacina i bełkot v5 nie zyskały na regułach.\",\n  \"słabości\": [\n    \"Wynik dotyczy skończonej rodziny cięć, przesunięć i transpozycji; nie wyklucza innych sposobów użycia długości słów jako klucza.\",\n    \"Podsumowanie nie podaje pełnych wyników wszystkich przekształceń, a testy tasowania opierają się na 20 i 16 tasowaniach.\",\n    \"Niezależnie od testu kluczowanego, sztywne cięcie co 3 glify daje rękopisowi krótszy opis niż podział EVA, więc sama miara długości opisu nie rozstrzyga, czy odstępy wyznaczają jednostki.\"\n  ],\n  \"inne_wyjaśnienia\": [\n    \"Odstępy mogą nie wyznaczać właściwych jednostek, ale ich odzyskanie może wymagać reguły spoza przetestowanej rodziny.\",\n    \"Niekorzystne wyniki zależności między sąsiednimi jednostkami mogą odzwierciedlać właściwości badanego zapisu lub podziału, a nie samego mechanizmu kodowania.\"\n  ],\n  \"następny_test\": \"Osobno przetestować niezbadaną hipotezę typu length_code na danych niewykorzystanych do dopasowania: z karą za złożoność mapowania długości oraz kontrolami, które odzyskują celowo zakodowany tekst i nie wykrywają efektu w danych przetasowanych.\"\n}",
+    "json": {
+     "werdykt": "obalona",
+     "pewność": 0.82,
+     "najmocniejszy_dowód": "W badanej rodzinie reguł żadna z 25 reguł kluczowanych nie skróciła opisu rękopisu względem odstępów EVA ani nie ujawniła składni przewyższającej bełkot według kryterium raportu. Kontrole metody przeszły: odzyskano oba celowo przekształcone teksty łacińskie z F1 = 1, a zwykła łacina i bełkot v5 nie zyskały na regułach.",
+     "słabości": [
+      "Wynik dotyczy skończonej rodziny cięć, przesunięć i transpozycji; nie wyklucza innych sposobów użycia długości słów jako klucza.",
+      "Podsumowanie nie podaje pełnych wyników wszystkich przekształceń, a testy tasowania opierają się na 20 i 16 tasowaniach.",
+      "Niezależnie od testu kluczowanego, sztywne cięcie co 3 glify daje rękopisowi krótszy opis niż podział EVA, więc sama miara długości opisu nie rozstrzyga, czy odstępy wyznaczają jednostki."
+     ],
+     "inne_wyjaśnienia": [
+      "Odstępy mogą nie wyznaczać właściwych jednostek, ale ich odzyskanie może wymagać reguły spoza przetestowanej rodziny.",
+      "Niekorzystne wyniki zależności między sąsiednimi jednostkami mogą odzwierciedlać właściwości badanego zapisu lub podziału, a nie samego mechanizmu kodowania."
+     ],
+     "następny_test": "Osobno przetestować niezbadaną hipotezę typu length_code na danych niewykorzystanych do dopasowania: z karą za złożoność mapowania długości oraz kontrolami, które odzyskują celowo zakodowany tekst i nie wykrywają efektu w danych przetasowanych."
+    }
+   },
+   "inception/mercury-3": {
+    "raw": "{\"werdykt\": \"nierozstrzygnięta\",\n  \"pewność\": 0.75,\n  \"najmocniejszy_dowód\": \"Kontrole przeszły – łacina zaszyfrowana została odzyskana z F1=1.00, a zwykła łacina i bełkot v5 nie zyskały na żadnej regule – mimo to żadna z reguł kluczowanych nie zakodowała rękopisu krócej niż odstępy EVA; najlepsza, przesunięcie glifów o długość słowa, dała tylko 3.895 wobec 3.896 bit/glif, czyli różnicę pomijalną i poniżej progu 2%. Żadna reguła nie dała też rękopisowi składni, której nie dawałby bełkot.\",\n  \"słabości\": [\"Rodzina 31 przekształceń jest skończona i nie obejmuje kluczy typu length_code, w których długości słów są bezpośrednio przyporządkowywane literom.\", \"Miary składni ograniczono do korelacji na odległość 2–7 oraz informacji wzajemnej sąsiednich jednostek; mogą nie wykryć subtelniejszych, dalszych zależności strukturalnych.\", \"Porównanie z bełkotem v5/v6 daje jedynie punkt odniesienia, a nie dowód, że ewentualne struktury rękopisu odpowiadają językowi naturalnemu.\"],\n  \"inne_wyjaśnienia\": [\"Rękopis może używać innego nieliniowego klucza, zupełnie niezwiązanego z długościami słów.\", \"Odstępy EVA mogą być sztuczne, lecz ich przewaga kompresyjna może wynikać z innej przyczyny niż hipoteza keystream.\", \"Hipoteza może być zbyt uproszczona – klucz mógłby być kombinacją długości, pozycji i innych parametrów, których ta rodzia nie bada.\"],\n  \"następny_test\": \"Przetestować hipotezę length_code: przypisać kolejnym wartościom długości słów (np. modulo 26) litery alfabetu i sprawdzić, czy powstały ciąg daje kompresję ≥2% względem odstępów EVA oraz poprawę miar składni względem bełkotu; wynik tego testu najbardziej przesunąłby ocenę w stronę potwierdzenia lub obalenia hipotezy.\"}",
+    "json": {
+     "werdykt": "nierozstrzygnięta",
+     "pewność": 0.75,
+     "najmocniejszy_dowód": "Kontrole przeszły – łacina zaszyfrowana została odzyskana z F1=1.00, a zwykła łacina i bełkot v5 nie zyskały na żadnej regule – mimo to żadna z reguł kluczowanych nie zakodowała rękopisu krócej niż odstępy EVA; najlepsza, przesunięcie glifów o długość słowa, dała tylko 3.895 wobec 3.896 bit/glif, czyli różnicę pomijalną i poniżej progu 2%. Żadna reguła nie dała też rękopisowi składni, której nie dawałby bełkot.",
+     "słabości": [
+      "Rodzina 31 przekształceń jest skończona i nie obejmuje kluczy typu length_code, w których długości słów są bezpośrednio przyporządkowywane literom.",
+      "Miary składni ograniczono do korelacji na odległość 2–7 oraz informacji wzajemnej sąsiednich jednostek; mogą nie wykryć subtelniejszych, dalszych zależności strukturalnych.",
+      "Porównanie z bełkotem v5/v6 daje jedynie punkt odniesienia, a nie dowód, że ewentualne struktury rękopisu odpowiadają językowi naturalnemu."
+     ],
+     "inne_wyjaśnienia": [
+      "Rękopis może używać innego nieliniowego klucza, zupełnie niezwiązanego z długościami słów.",
+      "Odstępy EVA mogą być sztuczne, lecz ich przewaga kompresyjna może wynikać z innej przyczyny niż hipoteza keystream.",
+      "Hipoteza może być zbyt uproszczona – klucz mógłby być kombinacją długości, pozycji i innych parametrów, których ta rodzia nie bada."
+     ],
+     "następny_test": "Przetestować hipotezę length_code: przypisać kolejnym wartościom długości słów (np. modulo 26) litery alfabetu i sprawdzić, czy powstały ciąg daje kompresję ≥2% względem odstępów EVA oraz poprawę miar składni względem bełkotu; wynik tego testu najbardziej przesunąłby ocenę w stronę potwierdzenia lub obalenia hipotezy."
+    }
+   },
+   "tencent/hy3": {
+    "raw": "{\n  \"werdykt\": \"obalona\",\n  \"pewność\": 0.9,\n  \"najmocniejszy_dowód\": \"Żadna z 25 reguł kluczowanych nie koduje rękopisu krócej niż odstępy EVA (najlepsza 3.895 bit/glif wobec 3.896) ani nie daje mu składni niedostępnej dla bełkotu v5 (różnica między rękopisem a bełkotem w MI sąsiednich jednostek pozostaje ujemna: -24.4). Kontrole metody przeszły poprawnie (odzyskano zaszyfrowaną łacinę, brak efektu dla zwykłej łaciny i bełkotu).\",\n  \"słabości\": [\n    \"Rodzina reguł jest skończona i obejmuje tylko proste cięcia/przesunięcia względem długości, bez mapowania długości na zewnętrzny alfabet (length_code).\",\n    \"Test badał tylko jednostki powstałe wewnątrz wiersza; nie sprawdzono kluczy międzywierszowych poza jednym wariantem z poprzedniego wiersza.\"\n  ],\n  \"inne_wyjaśnienia\": [\n    \"Odstępy EVA są po prostu naturalnym podziałem statystycznym, a nie maską klucza.\",\n    \"Rękopis ma niższą informację wzajemną sąsiedztwa niż tasowanie (z=-24.4), co sugeruje brak lokalnej struktury słownej niezależnie od klucza.\"\n  ],\n  \"następny_test\": \"Test length_code: potraktowanie ciągu długości słów EVA jako osobnego strumienia znaków i sprawdzenie, czy ten strumień ma niższą entropię lub wykazuje strukturę językową (np. MI sąsiedztwa) względem kontroli przetasowanych.\"\n}",
+    "json": {
+     "werdykt": "obalona",
+     "pewność": 0.9,
+     "najmocniejszy_dowód": "Żadna z 25 reguł kluczowanych nie koduje rękopisu krócej niż odstępy EVA (najlepsza 3.895 bit/glif wobec 3.896) ani nie daje mu składni niedostępnej dla bełkotu v5 (różnica między rękopisem a bełkotem w MI sąsiednich jednostek pozostaje ujemna: -24.4). Kontrole metody przeszły poprawnie (odzyskano zaszyfrowaną łacinę, brak efektu dla zwykłej łaciny i bełkotu).",
+     "słabości": [
+      "Rodzina reguł jest skończona i obejmuje tylko proste cięcia/przesunięcia względem długości, bez mapowania długości na zewnętrzny alfabet (length_code).",
+      "Test badał tylko jednostki powstałe wewnątrz wiersza; nie sprawdzono kluczy międzywierszowych poza jednym wariantem z poprzedniego wiersza."
+     ],
+     "inne_wyjaśnienia": [
+      "Odstępy EVA są po prostu naturalnym podziałem statystycznym, a nie maską klucza.",
+      "Rękopis ma niższą informację wzajemną sąsiedztwa niż tasowanie (z=-24.4), co sugeruje brak lokalnej struktury słownej niezależnie od klucza."
+     ],
+     "następny_test": "Test length_code: potraktowanie ciągu długości słów EVA jako osobnego strumienia znaków i sprawdzenie, czy ten strumień ma niższą entropię lub wykazuje strukturę językową (np. MI sąsiedztwa) względem kontroli przetasowanych."
+    }
+   }
+  },
+  "round2": {
+   "z-ai/glm-5.3-flash": {
+    "raw": "{\"ranking\": [\"B\", \"D\", \"C\"], \"uwagi\": \"Najlepiej uzasadniona jest opinia B: poprawnie oddaje, że wszystkie kontrole przeszły (odzyskanie zaszyfrowanej łaciny F1=1,00, brak efektu dla zwykłej łaciny i bełkotu), a mimo to żadna z 25 reguł kluczowanych nie osiąga progu (najlepsza 3,895 wobec 3,896 bit/glif, czyli ~0,03% zamiast wymaganych ≥2%; maksymalna przewaga składniowa +5,6 zamiast ≥5). B dodatkowo robi coś, czego robią nieliczni: zauważa wewnętrzne osłabienie samej metryki – sztywne cięcie co 3 glify daje rękopisowi 3,317 bit/glif, czyli krócej niż odstępy EVA (3,896), tak jak dla bełkotu (3,199 wobec 3,473), a dla łaciny odwrotnie (3,893 wobec 3,452). To oznacza, że długość opisu sama w sobie nie dowodzi, iż odstępy wyznaczają właściwe jednostki, i uczciwie ogranicza donoszenie wyniku. Wskazanie przez B na tylko 20 i 16 tasowań jest zgodne z raportem. Opinia D jest zbieżna z B i solidna, ale nieco nadmiernie pewna (0,9): jej zarzut o braku kluczy międzywierszowych jest częściowo nieścisły, bo metoda testowała wariant z poprzedniego wiersza (co D sama zresztą przyznaje w zastrzeżeniu), a twierdzenie alternatywne, że odstępy EVA to 'po prostu naturalny podział statystyczny', nie wprost wynika z danych – dane pokazują jedynie, że odstępy wygrywają w tej rodzinie reguł. Opinia C poprawnie dokumentuje wynik, ale werdykt 'nierozstrzygnięta' nie jest najlepszym uzasadnieniem: skoro kontrole przeszły, test jest wiarygodny dla przetestowanej rodziny reguł, a hipoteza w niej pada. C przestawia granice rodziny (kombinacje długości, pozycji, innych parametrów) jako powód do wstrzymania się – to raczej program dalszych badań niż powód, by nie uznać negatywnego wyniku tam, gdzie go mamy. Zarzuty C o wąskich miarach składni (odległość 2–7, MI sąsiedztwa) i o tym, że bełkot to tylko punkt odniesienia, są zasadne jako słabości, ale nie zmieniają faktu, że zaprojektowane kryteria (≥2% kompresji, ≥5 przewagi składniowej) nie zostały osiągnięte ani razu. Wspólny wniosk wszystkich trzech: następny test to length_code – potraktowanie ciągu długości słów jako osobnego strumienia, z kontrolami odzyskania i tasowaniem; B najtrafniej dodaje karę za złożoność mapowania i dane niewykorzystane do dopasowania.\", \"werdykt\": \"obalona w granicach przetestowanej rodziny reguł: klucz z długości słów użyty przez cięcia, przesunięcia i transpozycje nie koduje rękopisu krócej niż odstępy EVA ani nie daje mu składni niedostępnej bełkotowi; kontrole metody przeszły, więc wynik jest wiarygodny dla tej rodziny. Hipotezy spoza rodziny (np. length_code, klucze o innej strukturze) pozostają nietknięte.\", \"pewność\": 0.82, \"zmiana_zdania\": \"nie – dane z raportu (przeszłe kontrole, bezwyjątkowa porażka wszystkich 25 reguł kluczowanych, ujemna MI sąsiedztwa rękopisu z=-24.4 wobec +46.6 dla łaciny i +10.9 dla bełkotu) prowadzą wprost do negatywnego wyniku w przetestowanej rodzinie; jedyna korekta względem werdyktu automatycznego to doprecyzowanie, że dotyczy on tej rodziny reguł, a nie każdej conceivable realizacji idei keystream, co najlepiej ująła opinia B.\"}",
+    "json": {
+     "ranking": [
+      "B",
+      "D",
+      "C"
+     ],
+     "uwagi": "Najlepiej uzasadniona jest opinia B: poprawnie oddaje, że wszystkie kontrole przeszły (odzyskanie zaszyfrowanej łaciny F1=1,00, brak efektu dla zwykłej łaciny i bełkotu), a mimo to żadna z 25 reguł kluczowanych nie osiąga progu (najlepsza 3,895 wobec 3,896 bit/glif, czyli ~0,03% zamiast wymaganych ≥2%; maksymalna przewaga składniowa +5,6 zamiast ≥5). B dodatkowo robi coś, czego robią nieliczni: zauważa wewnętrzne osłabienie samej metryki – sztywne cięcie co 3 glify daje rękopisowi 3,317 bit/glif, czyli krócej niż odstępy EVA (3,896), tak jak dla bełkotu (3,199 wobec 3,473), a dla łaciny odwrotnie (3,893 wobec 3,452). To oznacza, że długość opisu sama w sobie nie dowodzi, iż odstępy wyznaczają właściwe jednostki, i uczciwie ogranicza donoszenie wyniku. Wskazanie przez B na tylko 20 i 16 tasowań jest zgodne z raportem. Opinia D jest zbieżna z B i solidna, ale nieco nadmiernie pewna (0,9): jej zarzut o braku kluczy międzywierszowych jest częściowo nieścisły, bo metoda testowała wariant z poprzedniego wiersza (co D sama zresztą przyznaje w zastrzeżeniu), a twierdzenie alternatywne, że odstępy EVA to 'po prostu naturalny podział statystyczny', nie wprost wynika z danych – dane pokazują jedynie, że odstępy wygrywają w tej rodzinie reguł. Opinia C poprawnie dokumentuje wynik, ale werdykt 'nierozstrzygnięta' nie jest najlepszym uzasadnieniem: skoro kontrole przeszły, test jest wiarygodny dla przetestowanej rodziny reguł, a hipoteza w niej pada. C przestawia granice rodziny (kombinacje długości, pozycji, innych parametrów) jako powód do wstrzymania się – to raczej program dalszych badań niż powód, by nie uznać negatywnego wyniku tam, gdzie go mamy. Zarzuty C o wąskich miarach składni (odległość 2–7, MI sąsiedztwa) i o tym, że bełkot to tylko punkt odniesienia, są zasadne jako słabości, ale nie zmieniają faktu, że zaprojektowane kryteria (≥2% kompresji, ≥5 przewagi składniowej) nie zostały osiągnięte ani razu. Wspólny wniosk wszystkich trzech: następny test to length_code – potraktowanie ciągu długości słów jako osobnego strumienia, z kontrolami odzyskania i tasowaniem; B najtrafniej dodaje karę za złożoność mapowania i dane niewykorzystane do dopasowania.",
+     "werdykt": "obalona w granicach przetestowanej rodziny reguł: klucz z długości słów użyty przez cięcia, przesunięcia i transpozycje nie koduje rękopisu krócej niż odstępy EVA ani nie daje mu składni niedostępnej bełkotowi; kontrole metody przeszły, więc wynik jest wiarygodny dla tej rodziny. Hipotezy spoza rodziny (np. length_code, klucze o innej strukturze) pozostają nietknięte.",
+     "pewność": 0.82,
+     "zmiana_zdania": "nie – dane z raportu (przeszłe kontrole, bezwyjątkowa porażka wszystkich 25 reguł kluczowanych, ujemna MI sąsiedztwa rękopisu z=-24.4 wobec +46.6 dla łaciny i +10.9 dla bełkotu) prowadzą wprost do negatywnego wyniku w przetestowanej rodzinie; jedyna korekta względem werdyktu automatycznego to doprecyzowanie, że dotyczy on tej rodziny reguł, a nie każdej conceivable realizacji idei keystream, co najlepiej ująła opinia B."
+    }
+   },
+   "openai/gpt-6-luna": {
+    "raw": "{\"ranking\":[\"C\",\"A\",\"D\"],\"uwagi\":\"C najlepiej odróżnia brak efektu w przetestowanej rodzinie od braku dowodu na całą hipotezę. Kontrole przeszły, a reguły nie poprawiły kompresji rękopisu względem odstępów EVA w wymaganym stopniu ani nie ujawniły wymaganej przewagi nad bełkotem. A trafnie podaje te wyniki i proponuje dobry następny test, ale werdykt „obalona” jest zbyt szeroki: badano skończoną rodzinę reguł, a raport jawnie wyłącza m.in. length_code. C również powinien wymagać tych samych kontroli dla następnego testu; przypisanie długościom liter modulo 26 byłoby arbitralnym wyborem. D słusznie wskazuje lukę length_code, lecz błędnie utożsamia z=-24,4 dla rękopisu z różnicą wobec bełkotu (ta wynosi -35,3 w podanych z), a wynik dla nieprzekształconych słów traktuje zbyt szeroko jako rozstrzygający o strukturze niezależnie od klucza. Jego test samego strumienia długości nie sprawdza bezpośrednio, czy długości kodują jednostki. Nie przedstawiono opinii B.\",\"werdykt\":\"Nierozstrzygnięta dla ogólnej hipotezy keystream; dane przemawiają przeciw testowanej rodzinie 25 reguł kluczowanych. Kontrole dają wiarygodność temu ograniczonemu wynikowi, nie zaś wykluczeniu kluczy spoza zakresu testu.\",\"pewność\":0.88,\"zmiana_zdania\":\"nie — na podstawie raportu nie ma podstaw, by odrzucić całą hipotezę; brak efektu jest mocny tylko dla przetestowanej rodziny reguł.\"}",
+    "json": {
+     "ranking": [
+      "C",
+      "A",
+      "D"
+     ],
+     "uwagi": "C najlepiej odróżnia brak efektu w przetestowanej rodzinie od braku dowodu na całą hipotezę. Kontrole przeszły, a reguły nie poprawiły kompresji rękopisu względem odstępów EVA w wymaganym stopniu ani nie ujawniły wymaganej przewagi nad bełkotem. A trafnie podaje te wyniki i proponuje dobry następny test, ale werdykt „obalona” jest zbyt szeroki: badano skończoną rodzinę reguł, a raport jawnie wyłącza m.in. length_code. C również powinien wymagać tych samych kontroli dla następnego testu; przypisanie długościom liter modulo 26 byłoby arbitralnym wyborem. D słusznie wskazuje lukę length_code, lecz błędnie utożsamia z=-24,4 dla rękopisu z różnicą wobec bełkotu (ta wynosi -35,3 w podanych z), a wynik dla nieprzekształconych słów traktuje zbyt szeroko jako rozstrzygający o strukturze niezależnie od klucza. Jego test samego strumienia długości nie sprawdza bezpośrednio, czy długości kodują jednostki. Nie przedstawiono opinii B.",
+     "werdykt": "Nierozstrzygnięta dla ogólnej hipotezy keystream; dane przemawiają przeciw testowanej rodzinie 25 reguł kluczowanych. Kontrole dają wiarygodność temu ograniczonemu wynikowi, nie zaś wykluczeniu kluczy spoza zakresu testu.",
+     "pewność": 0.88,
+     "zmiana_zdania": "nie — na podstawie raportu nie ma podstaw, by odrzucić całą hipotezę; brak efektu jest mocny tylko dla przetestowanej rodziny reguł."
+    }
+   },
+   "inception/mercury-3": {
+    "raw": "```json\n{\n  \"ranking\": [\"D\", \"B\", \"A\"],\n  \"uwagi\": \"Wszystkie trzy opinie są jakościowo zgodne z raportem i słusznie wskazują, że w przetestowanej rodzinie reguł hipoteza keystream nie znalazła poparcia: kontrole metody przeszły (odzyskano zaszyfrowaną łacinę z F1=1.00, brak zysku dla zwykłej łaciny i bełkotu v5), a żadna z 25 reguł kluczowanych nie skróciła opisu rękopisu poniżej odstępów EVA (najlepiej 3.895 wobec 3.896 bit/glif) ani nie dała mu składni niedostępnej bełkotowi. D jest najlepiej uzasadniona: najzwięźlej i najdokładniej integruje kluczowe liczby oraz poprawnie wskazuje główne ograniczenie (skończona rodzina, brak length_code). B dodaje istotne zastrzeżenie o sztywnym cięciu co 3 glify, które daje krótszy opis niż podział EVA (3.317 wobec 3.896) — to nie osłabia wniosku, ale pokazuje, że sama długość opisu nie rozstrzyga o trafności podziału. A jest najbardziej ostrożna i słusznie podkreśla, że obalenie dotyczy tylko badanej rodziny, a także zwraca uwagę na niewyjaśnioną ujemną MI sąsiednich słów (z=-24.4); nie jest jednak tak mocno osadzona w danych ilościowych jak D i B. Żadna z opinii nie popełnia rażącego błędu; pewność A (0.72) wydaje się nieco zaniżona, skoro wszystkie kontrole przeszły.\",\n  \"werdykt\": \"Hipoteza keystream w przetestowanej rodzinie reguł (cięcia, przesunięcia, transpozycje według długości słów) jest niepoparta: kontrole metody przeszły, żadna reguła kluczowana nie koduje rękopisu krócej niż odstępy EVA ani nie ujawnia składni przewyższającej bełkot. Jednak wynik nie wyklucza kluczy spoza tej rodziny, np. mapowania długości na glify (length_code), które wymaga osobnego testu.\",\n  \"pewność\": 0.85,\n  \"zmiana_zdania\": \"tak: automatyczny werdykt 'nierozstrzygnięta' został doprecyzowany — po sprawdzeniu kontroli metody i braku zysku dla żadnej reguły ocena przesuwa się ku obaleniu hipotezy dla badanej rodziny, z wyraźnym zastrzeżeniem o ograniczonym zakresie testu.\"\n}\n```",
+    "json": {
+     "ranking": [
+      "D",
+      "B",
+      "A"
+     ],
+     "uwagi": "Wszystkie trzy opinie są jakościowo zgodne z raportem i słusznie wskazują, że w przetestowanej rodzinie reguł hipoteza keystream nie znalazła poparcia: kontrole metody przeszły (odzyskano zaszyfrowaną łacinę z F1=1.00, brak zysku dla zwykłej łaciny i bełkotu v5), a żadna z 25 reguł kluczowanych nie skróciła opisu rękopisu poniżej odstępów EVA (najlepiej 3.895 wobec 3.896 bit/glif) ani nie dała mu składni niedostępnej bełkotowi. D jest najlepiej uzasadniona: najzwięźlej i najdokładniej integruje kluczowe liczby oraz poprawnie wskazuje główne ograniczenie (skończona rodzina, brak length_code). B dodaje istotne zastrzeżenie o sztywnym cięciu co 3 glify, które daje krótszy opis niż podział EVA (3.317 wobec 3.896) — to nie osłabia wniosku, ale pokazuje, że sama długość opisu nie rozstrzyga o trafności podziału. A jest najbardziej ostrożna i słusznie podkreśla, że obalenie dotyczy tylko badanej rodziny, a także zwraca uwagę na niewyjaśnioną ujemną MI sąsiednich słów (z=-24.4); nie jest jednak tak mocno osadzona w danych ilościowych jak D i B. Żadna z opinii nie popełnia rażącego błędu; pewność A (0.72) wydaje się nieco zaniżona, skoro wszystkie kontrole przeszły.",
+     "werdykt": "Hipoteza keystream w przetestowanej rodzinie reguł (cięcia, przesunięcia, transpozycje według długości słów) jest niepoparta: kontrole metody przeszły, żadna reguła kluczowana nie koduje rękopisu krócej niż odstępy EVA ani nie ujawnia składni przewyższającej bełkot. Jednak wynik nie wyklucza kluczy spoza tej rodziny, np. mapowania długości na glify (length_code), które wymaga osobnego testu.",
+     "pewność": 0.85,
+     "zmiana_zdania": "tak: automatyczny werdykt 'nierozstrzygnięta' został doprecyzowany — po sprawdzeniu kontroli metody i braku zysku dla żadnej reguły ocena przesuwa się ku obaleniu hipotezy dla badanej rodziny, z wyraźnym zastrzeżeniem o ograniczonym zakresie testu."
+    }
+   },
+   "tencent/hy3": {
+    "raw": "{\n  \"ranking\": [\"A\", \"B\", \"C\"],\n  \"uwagi\": \"Opinia A jest najlepiej uzasadniona: poprawnie odczytuje, że kontrole metody przeszły (odzyskanie łaciny F1=1.00, brak zysku dla bełkotu), co dowodzi sprawności narzędzia, a mimo to w rękopisie nie znaleziono efektu (3.895 vs 3.896 bit/glif, brak przewagi nad bełkotem). Trafnie wskazuje ścisły zakres obalenia (tylko rodzina cięć/przesunięć) i lukę length_code. Opinia B jest trafna merytorycznie (obalona), ale mniej precyzyjna w rozróżnieniu wykluczeń od niezbadanych słabości. Opinia C myli się co do werdyktu: test był rozstrzygający dla zadeklarowanej rodziny reguł (kontrole OK, efekt zero), więc 'nierozstrzygnięta' jest błędem – niepewność dotyczy innych rodzin, nie samego testu.\",\n  \"werdykt\": \"obalona (dla zbadanej rodziny 31 przekształceń strumienia zależnych od długości słów)\",\n  \"pewność\": 0.85,\n  \"zmiana_zdania\": \"nie, raport i kontrole jednoznacznie pokazują brak efektu w testowanej rodzinie przy sprawnym narzędziu\"\n}",
+    "json": {
+     "ranking": [
+      "A",
+      "B",
+      "C"
+     ],
+     "uwagi": "Opinia A jest najlepiej uzasadniona: poprawnie odczytuje, że kontrole metody przeszły (odzyskanie łaciny F1=1.00, brak zysku dla bełkotu), co dowodzi sprawności narzędzia, a mimo to w rękopisie nie znaleziono efektu (3.895 vs 3.896 bit/glif, brak przewagi nad bełkotem). Trafnie wskazuje ścisły zakres obalenia (tylko rodzina cięć/przesunięć) i lukę length_code. Opinia B jest trafna merytorycznie (obalona), ale mniej precyzyjna w rozróżnieniu wykluczeń od niezbadanych słabości. Opinia C myli się co do werdyktu: test był rozstrzygający dla zadeklarowanej rodziny reguł (kontrole OK, efekt zero), więc 'nierozstrzygnięta' jest błędem – niepewność dotyczy innych rodzin, nie samego testu.",
+     "werdykt": "obalona (dla zbadanej rodziny 31 przekształceń strumienia zależnych od długości słów)",
+     "pewność": 0.85,
+     "zmiana_zdania": "nie, raport i kontrole jednoznacznie pokazują brak efektu w testowanej rodzinie przy sprawnym narzędziu"
+    }
+   }
+  },
+  "synthesis": "## Werdykt rady\n\n**Brak poparcia dla keystream w przetestowanej rodzinie reguł; ogólna hipoteza pozostaje nierozstrzygnięta.** Zgoda jest wysoka co do ograniczonego wyniku, mniejsza co do tego, czy nazywać go „obaleniem” — uzasadnione jest ono wyłącznie dla badanych przekształceń.\n\n## Co test naprawdę pokazuje\n\nKontrole przeszły: metoda odzyskała celowo przekształconą łacinę z F1 = 1,00, a zwykła łacina i bełkot v5 nie zyskały na regułach. Mimo to żadna z badanych reguł kluczowanych nie poprawiła kompresji rękopisu w wymaganym stopniu: najlepszy wynik to 3,895 wobec 3,896 bit/glif dla odstępów EVA, daleko od progu 2%. Raport nie stwierdza też wymaganej przewagi składniowej nad bełkotem.\n\n## Główne zastrzeżenia\n\nWniosek dotyczy skończonej rodziny cięć, przesunięć i transpozycji, nie wszystkich możliwych kluczy. Ponadto sztywne cięcie co 3 glify daje krótszy opis niż podział EVA (3,317 wobec 3,896 bit/glif) — sama kompresja nie potwierdza więc, że EVA wyznacza właściwe jednostki. Ujemna MI sąsiednich słów rękopisu (z = −24,4) pozostaje niewyjaśniona.\n\n## Następny eksperyment\n\nPrzetestować osobno **length_code** na danych niewykorzystanych do dopasowania, z karą za złożoność mapowania oraz kontrolami wymagającymi wykrycia celowo podłożonego efektu i jego braku w danych przetasowanych.",
+  "failed": {},
+  "votes": {
+   "hipoteza keystream w przetestowanej rodz": 1,
+   "obalona": 2,
+   "nierozstrzygnięta": 1
+  }
+ }
 }

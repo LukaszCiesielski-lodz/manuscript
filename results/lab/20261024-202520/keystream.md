@@ -29,9 +29,27 @@ Przy odstępach EVA: różne słowa na odległość z = -1.2, sąsiednie słowa 
 - Cięcie strumienia glifów w sztywne kawałki samo tworzy pozorną informację między sąsiadami (zależności glifów przechodzą przez cięcie); stąd porównanie każdej reguły z tą samą regułą na bełkocie, nie z zerem.
 - Ujemna informacja sąsiednich słów rękopisu to nowa miara spoza karty 22; kandydat do karty v7.
 
+## Rada modeli
+
+## Werdykt rady
+
+**Brak poparcia dla keystream w przetestowanej rodzinie reguł; ogólna hipoteza pozostaje nierozstrzygnięta.** Zgoda jest wysoka co do ograniczonego wyniku, mniejsza co do tego, czy nazywać go „obaleniem” — uzasadnione jest ono wyłącznie dla badanych przekształceń.
+
+## Co test naprawdę pokazuje
+
+Kontrole przeszły: metoda odzyskała celowo przekształconą łacinę z F1 = 1,00, a zwykła łacina i bełkot v5 nie zyskały na regułach. Mimo to żadna z badanych reguł kluczowanych nie poprawiła kompresji rękopisu w wymaganym stopniu: najlepszy wynik to 3,895 wobec 3,896 bit/glif dla odstępów EVA, daleko od progu 2%. Raport nie stwierdza też wymaganej przewagi składniowej nad bełkotem.
+
+## Główne zastrzeżenia
+
+Wniosek dotyczy skończonej rodziny cięć, przesunięć i transpozycji, nie wszystkich możliwych kluczy. Ponadto sztywne cięcie co 3 glify daje krótszy opis niż podział EVA (3,317 wobec 3,896 bit/glif) — sama kompresja nie potwierdza więc, że EVA wyznacza właściwe jednostki. Ujemna MI sąsiednich słów rękopisu (z = −24,4) pozostaje niewyjaśniona.
+
+## Następny eksperyment
+
+Przetestować osobno **length_code** na danych niewykorzystanych do dopasowania, z karą za złożoność mapowania oraz kontrolami wymagającymi wykrycia celowo podłożonego efektu i jego braku w danych przetasowanych.
+
 ## Literatura
 
 - Currier (1976); Zandbergen, voynich.nu: word structure and spaces
 - Reddy & Knight, What we know about the Voynich manuscript (2011): word-level statistics
 
-_Czas: 865 s · 2026-10-24 20:39_
+_Czas: 865 s · 2026-10-24 20:42_
