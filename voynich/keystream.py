@@ -246,3 +246,19 @@ def encipher(lines: Sequence[Line], t: Transform, seed: int = 1) -> list[Line]:
         else:
             out.append([list(w) for w in line])
     return out
+
+
+def description_length(lines: Sequence[Line]) -> float:
+    """Bits per glyph of a two-part code: the lexicon (every unit type spelled out, with a separator) plus the
+    text as unit tokens coded by their frequency. The true word segmentation of a language is close to the
+    minimum of this length among segmentations of the same glyph stream (an MDL criterion)."""
+    words = [tuple(w) for l in lines for w in l]
+    if not words:
+        return float("nan")
+    c = Counter(words)
+    alphabet = len({g for w in words for g in w}) + 1
+    lexicon = sum(len(w) + 1 for w in c) * math.log2(alphabet)
+    n = len(words)
+    text = -sum(k * math.log2(k / n) for k in c.values())
+    glyphs = sum(len(w) for w in words)
+    return (lexicon + text) / glyphs

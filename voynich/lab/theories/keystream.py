@@ -25,7 +25,7 @@ def _measure(lines, shuffles_mi: int, shuffles_syn: int, seed: int) -> dict:
     mi = keystream.adjacent_mi_z(lines, shuffles_mi, seed)
     voc = keystream.vocabulary(lines)
     return {"unrelated_z": syn["unrelated"]["z"], "same_z": syn["same"]["z"], "variants_z": syn["variants"]["z"],
-            "adjacent_mi_z": mi["z"], "adjacent_mi": mi["value"], **voc}
+            "adjacent_mi_z": mi["z"], "adjacent_mi": mi["value"], "dl": keystream.description_length(lines), **voc}
 
 
 def run(cfg: LabConfig) -> TheoryResult:
@@ -40,9 +40,11 @@ def run(cfg: LabConfig) -> TheoryResult:
                 "z poprzedniego wiersza, pierwszego słowa, posortowanych, różnic; przesunięcie glifów w alfabecie o długość słowa, "
                 "poprzedniego słowa, miejsce w słowie; czytanie co n-ty glif; cięcie co n glifów bez klucza. Dla każdego: jednostki "
                 "rękopisu i bełkotu v5 mierzone zależnością między różnymi jednostkami na odległość 2–7 (z wobec tasowania w miejscu) "
-                f"i informacją wzajemną sąsiednich jednostek (z wobec tasowania w wierszu; {sh_mi} i {sh_syn} tasowań). Trop: przekształcenie, "
-                "które daje rękopisowi składnię (z ≥ 5), a bełkotowi nie (różnica ≥ 5). Kontrole: łacina z odstępami przepisanymi regułą "
-                "z rodziny i łacina przeczytana kolumnami muszą zostać odzyskane; zwykła łacina nie może zyskać na żadnej regule."),
+                f"i informacją wzajemną sąsiednich jednostek (z wobec tasowania w wierszu; {sh_mi} i {sh_syn} tasowań), a podział "
+                "oceniany długością opisu (bity na glif: słownik jednostek plus tekst jako ich kody; prawdziwe słowa języka są blisko "
+                "minimum). Trop: reguła kluczowana, która koduje rękopis krócej niż odstępy EVA (≥ 2%) i daje mu składnię (z ≥ 5), "
+                "której nie daje bełkotowi (różnica ≥ 5). Kontrole: łacina z odstępami przepisanymi regułą z rodziny i łacina przeczytana "
+                "kolumnami muszą zostać odzyskane jako minimum długości opisu; zwykła łacina i bełkot v5 nie mogą zyskać na żadnej regule."),
         references=["Currier (1976); Zandbergen, voynich.nu: word structure and spaces",
                     "Reddy & Knight, What we know about the Voynich manuscript (2011): word-level statistics"])
     L = [l for l in corpus.load_voynich() if l.kind.startswith("P") and l.words]
@@ -65,21 +67,21 @@ def run(cfg: LabConfig) -> TheoryResult:
                         + ", ".join(f"{k} {v['z']:+.1f}" for k, v in mi.items()) + "; rękopis działami: "
                         + ", ".join(f"{s} {z:+.1f}" for s, z in sec.items())
                         + ". Sąsiednie słowa rękopisu wiedzą o sobie MNIEJ niż dwa losowe słowa tej samej linii; bełkot v5 i łacina odwrotnie.")
-    # Controls on Latin.
+    # Controls on Latin: the description length must pick the true words, and undo a cipher of the family.
     plain = {t.name: _measure(keystream.apply(t, latl), sh_mi, sh_syn, cfg.seed) for t in fam}
-    best_plain = max(plain, key=lambda k: plain[k]["unrelated_z"])
-    res.control("zwykła łacina: żadna reguła nie przebija jej własnych odstępów", "najwyższa składnia przy odstępach EVA (bez zmian)",
-                f"najwyższa: {best_plain} (z = {plain[best_plain]['unrelated_z']:.1f}; bez zmian {plain[fam[0].name]['unrelated_z']:.1f})",
+    best_plain = min(plain, key=lambda k: plain[k]["dl"])
+    res.control("zwykła łacina: żadna reguła nie koduje jej krócej niż własne odstępy", "minimum długości opisu przy odstępach EVA (bez zmian)",
+                f"minimum: {best_plain} ({plain[best_plain]['dl']:.3f} bit/glif; bez zmian {plain[fam[0].name]['dl']:.3f})",
                 best_plain == fam[0].name)
     for ct in (keystream.Transform("x", "cut", "glyphs", 2), keystream.Transform("x", "read", "none", 3)):
         cipher = keystream.encipher(latl, ct, cfg.seed)
-        scores = {t.name: (_measure(keystream.apply(t, cipher), sh_mi, sh_syn, cfg.seed)["unrelated_z"], t) for t in fam}
-        top_name, (top_z, top_t) = max(scores.items(), key=lambda kv: kv[1][0])
+        scores = {t.name: (keystream.description_length(keystream.apply(t, cipher)), t) for t in fam}
+        top_name, (top_dl, top_t) = min(scores.items(), key=lambda kv: kv[1][0])
         f1 = keystream.boundary_f1(latl, keystream.apply(top_t, cipher))
         ok = keystream.inverse_of(ct, top_t) and f1 >= 0.9
         label = "odstępy przepisane długościami przesuniętymi o 2" if ct.kind == "cut" else "tekst przeczytany co 3. glif"
-        res.control(f"łacina zaszyfrowana ({label}): wyszukiwanie odzyskuje słowa", "najwyższa składnia przy regule odwrotnej, F1 granic ≥ 0,9",
-                    f"najwyższa: {top_name} (z = {top_z:.1f}), F1 = {f1:.2f}; zaszyfrowana bez zmian z = {scores[fam[0].name][0]:.1f}", ok)
+        res.control(f"łacina zaszyfrowana ({label}): wyszukiwanie odzyskuje słowa", "minimum długości opisu przy regule odwrotnej, F1 granic ≥ 0,9",
+                    f"minimum: {top_name} ({top_dl:.3f} bit/glif), F1 = {f1:.2f}; zaszyfrowana bez zmian {scores[fam[0].name][0]:.3f}", ok)
     # The manuscript and v5 under every transform.
     table = {}
     for t in fam:
@@ -91,26 +93,40 @@ def run(cfg: LabConfig) -> TheoryResult:
               f"sąsiedzi z {m_ms['adjacent_mi_z']:+.1f} (v5 {m_v5['adjacent_mi_z']:+.1f}), typów/jednostek {m_ms['type_token_ratio']:.2f}", flush=True)
     res.metrics = {"transforms": table, "adjacent_mi": {k: v for k, v in mi.items()}, "adjacent_mi_by_section": sec}
     base = table[fam[0].name]["manuscript"]["unrelated_z"]
-    keyed = [n for n in table if n != fam[0].name]
-    leads = [n for n in keyed if table[n]["manuscript"]["unrelated_z"] >= 5 and table[n]["delta_unrelated"] >= 5
-             and table[n]["manuscript"]["unrelated_z"] >= base + 5 and table[n]["delta_mi"] >= 5]
-    best = max(keyed, key=lambda n: table[n]["delta_unrelated"])
-    for n in sorted(keyed, key=lambda n: table[n]["delta_unrelated"], reverse=True)[:6]:
+    keyed = [n for n in table if n != fam[0].name and "bez klucza" not in n]
+    dl0 = table[fam[0].name]["manuscript"]["dl"]
+    dl_v5 = table[fam[0].name]["v5"]["dl"]
+    best_v5 = min([fam[0].name] + keyed, key=lambda n: table[n]["v5"]["dl"])
+    res.control("bełkot v5 (pisany słowami): żadna reguła kluczowana nie koduje go krócej niż jego odstępy", "minimum przy odstępach",
+                f"minimum: {best_v5} ({table[best_v5]['v5']['dl']:.3f}; odstępy {dl_v5:.3f})", best_v5 == fam[0].name)
+    cheaper = [n for n in keyed if table[n]["manuscript"]["dl"] <= 0.98 * dl0]
+    leads = [n for n in cheaper if table[n]["manuscript"]["unrelated_z"] >= 5 and table[n]["delta_unrelated"] >= 5]
+    best_dl = min(keyed, key=lambda n: table[n]["manuscript"]["dl"])
+    best_syn = max(keyed, key=lambda n: table[n]["delta_unrelated"])
+    fixed = {n: table[n]["manuscript"]["dl"] for n in table if "bez klucza" in n}
+    fixed_best = min(fixed, key=fixed.get)
+    for n in sorted(keyed, key=lambda n: table[n]["manuscript"]["dl"])[:4] + [best_syn]:
         r = table[n]
-        res.evidence.append(f"{n}: rękopis niespokrewnione z = {r['manuscript']['unrelated_z']:+.1f}, bełkot v5 {r['v5']['unrelated_z']:+.1f}, "
+        res.evidence.append(f"{n}: długość opisu {r['manuscript']['dl']:.3f} bit/glif (odstępy EVA {dl0:.3f}; v5 {r['v5']['dl']:.3f} wobec {dl_v5:.3f}); "
+                            f"rękopis niespokrewnione z = {r['manuscript']['unrelated_z']:+.1f}, bełkot v5 {r['v5']['unrelated_z']:+.1f}, "
                             f"łacina {r['latin']['unrelated_z']:+.1f}; sąsiedzi z = {r['manuscript']['adjacent_mi_z']:+.1f} (v5 {r['v5']['adjacent_mi_z']:+.1f}); "
                             f"jednostek {r['manuscript']['units']}, typów {r['manuscript']['types']}.")
+    res.evidence.append(f"Cięcia bez klucza: {fixed_best} koduje rękopis {fixed[fixed_best]:.3f} bit/glif wobec {dl0:.3f} dla słów EVA "
+                        f"(bełkot v5 {table[fixed_best]['v5']['dl']:.3f} wobec {dl_v5:.3f}; łacina {table[fixed_best]['latin']['dl']:.3f} wobec "
+                        f"{table[fam[0].name]['latin']['dl']:.3f}). Słowa rękopisu, jak słowa bełkotu, są mniej oszczędnymi jednostkami niż "
+                        "sztywne kawałki glifów; słowa łaciny są oszczędniejsze od kawałków.")
     if leads:
         res.decide(True)
-    elif max(table[n]["delta_unrelated"] for n in keyed) < 2.5:
+    elif not cheaper and max(table[n]["delta_unrelated"] for n in keyed) < 2.5:
         res.decide(False)
     else:
         res.decide(None)
     res.summary = (f"Przy odstępach EVA: różne słowa na odległość z = {base:+.1f}, sąsiednie słowa z = {mi['rękopis']['z']:+.1f} "
-                   f"(v5 {mi['bełkot v5']['z']:+.1f}, v6 {mi['bełkot v6']['z']:+.1f}, łacina {mi['łacina']['z']:+.1f}). "
+                   f"(v5 {mi['bełkot v5']['z']:+.1f}, v6 {mi['bełkot v6']['z']:+.1f}, łacina {mi['łacina']['z']:+.1f}); długość opisu {dl0:.3f} bit/glif. "
                    + ("Trop: " + ", ".join(leads) + "." if leads else
-                      f"Żadna z {len(keyed)} reguł kluczowanych nie daje rękopisowi składni, której nie dawałaby bełkotowi: największa przewaga "
-                      f"nad v5 to {best} ({table[best]['delta_unrelated']:+.1f}). Odstępy EVA są najlepszym podziałem, jaki znamy, a klucz "
+                      f"Żadna z {len(keyed)} reguł kluczowanych nie koduje rękopisu krócej niż odstępy EVA (najbliżej {best_dl}: "
+                      f"{table[best_dl]['manuscript']['dl']:.3f}) ani nie daje mu składni, której nie dawałaby bełkotowi (największa przewaga "
+                      f"{best_syn}: {table[best_syn]['delta_unrelated']:+.1f}). Odstępy EVA są najlepszym podziałem w tej rodzinie, a klucz "
                       "w długościach słów nie odsłania jednostek z gramatyką."))
     res.caveats += ["Rodzina reguł jest skończona (cięcia, przesunięcia, transpozycje według długości); klucz innego rodzaju, np. tablica "
                     "przyporządkowująca długościom litery, wymagałby osobnego testu (tak działał length_code, obalony).",

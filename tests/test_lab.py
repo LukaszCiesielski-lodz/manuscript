@@ -825,6 +825,21 @@ class KeystreamTest(unittest.TestCase):
         self.assertLess(K.boundary_f1(self.LAT, c), 0.6)
         self.assertEqual(K.boundary_f1(self.LAT, self.LAT), 1.0)
 
+    def test_description_length_prefers_true_words(self):
+        from voynich import corpus, keystream as K
+        lat = corpus.load_reference("Latin")[:9000]
+        lines = [[list(w) for w in lat[i:i + 9]] for i in range(0, len(lat), 9)]
+        dl0 = K.description_length(lines)
+        for t in K.family()[1:]:
+            dl = K.description_length(K.apply(t, lines))
+            if t.kind == "shift":                        # a bijection on word types keeps the length; keyed by the neighbour it grows
+                self.assertGreaterEqual(dl, dl0 - 1e-9, t.name)
+            else:
+                self.assertGreater(dl, dl0, t.name)
+        cipher = K.encipher(lines, K.Transform("c", "cut", "glyphs", 2))
+        scores = {t.name: K.description_length(K.apply(t, cipher)) for t in K.family()}
+        self.assertIn("przesunięte o 2", min(scores, key=scores.get))
+
     def test_adjacent_mi_sign(self):
         from voynich import keystream as K
         rng = random.Random(1)
