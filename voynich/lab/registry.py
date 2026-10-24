@@ -63,8 +63,15 @@ THEORIES = {t.name: t for t in [
     Theory("chronology", "Strzałka czasu: kolejność kart odczytana z wariantów słów", (), "chronology:run"),
     Theory("hands", "Ręka skryby czy treść: co kształtuje słowa", (), "hands:run"),
     Theory("notation", "Zapis niejęzykowy: chorał, tabulatura tańca, program", (), "notation:run"),
+    Theory("labels", "Etykiety przy rysunkach jako nazwy, cytowane przez akapity", (), "labels:run"),
+    Theory("records", "Wiersz jako rekord o polach", (), "records:run"),
+    Theory("lists", "Podpis rękopisu wobec list średniowiecznych: martyrologium, Apicius, Alphita", (), "lists:run"),
+    Theory("fields_lm", "Zysk z tokenów pozycji: czy słowo zależy od miejsca w wierszu (GPT)", ("gpu",), "fields_lm:run"),
+    Theory("v6", "Generator v6: nawyki skryby ewoluowane na karcie, sędzia na GPU", ("gpu",), "v6:run"),
+    Theory("cohesion", "Spójność strony: czy sędzia pozna dwa wiersze z tej samej strony", ("gpu",), "cohesion:run"),
 ]}
-ALIASES = {"literature": ["naibbe_cipher", "cardan_grille", "hebrew_anagram"], "all": list(THEORIES)}
+ALIASES = {"literature": ["naibbe_cipher", "cardan_grille", "hebrew_anagram"], "rejestr": ["labels", "records", "lists"],
+           "rejestr_gpu": ["fields_lm", "v6", "cohesion"], "all": list(THEORIES)}
 
 
 def expand(names: list[str]) -> list[str]:

@@ -63,34 +63,40 @@ def odd_runs() -> list[tuple[tuple, list]]:
     return runs
 
 
-def generate_by_section(runs, params: dict, seed: int, min_words: int = 1500, fav_n: int = 40) -> list:
-    """v5 run by run: each section and dialect written with habits learned from that part alone.
-
-    A forger filling a herbal, then a 'stars' section in another hand, would not keep one
-    style throughout; the manuscript does not either (Currier A and B). Parts with too
-    little text borrow the habits of their dialect, or of the whole text.
-    """
+def section_models(runs, min_words: int = 1500) -> dict:
+    """Scribe habits learned once per (section, dialect) run, reusable across generator settings."""
     pooled: dict = {}
     for key, lines in runs:
         for k in (key, ("*", key[1]), ("*", "*")):
             pooled.setdefault(k, []).extend(lines)
     models: dict = {}
-
-    def model(key):
+    for key, _ in runs:
         k = next(k for k in (key, ("*", key[1]), ("*", "*")) if sum(map(len, pooled.get(k, []))) >= min_words)
         if k not in models:
             lines = pooled[k]
             words = [w for l in lines for w in l]
             counts = Counter(tuple(w) for w in words)
-            favs = counts.most_common(fav_n)
             shorts = [(list(w), c) for w, c in counts.items() if len(w) <= 2 and c >= 3]
             models[k] = (selfcite.ScribeRules(lines), selfcite.EditModel(words), selfcite.WordGrammar(words, beta=5),
-                         selfcite.WordMaker(words), [len(l) for l in lines], [(list(w), c) for w, c in favs], shorts)
-        return models[k]
+                         selfcite.WordMaker(words), [len(l) for l in lines], counts, shorts)
+        models[key] = models[k]
+    return models
 
+
+def generate_by_section(runs, params: dict, seed: int, min_words: int = 1500, fav_n: int = 40, models: dict | None = None) -> list:
+    """v5 run by run: each section and dialect written with habits learned from that part alone.
+
+    A forger filling a herbal, then a 'stars' section in another hand, would not keep one
+    style throughout; the manuscript does not either (Currier A and B). Parts with too
+    little text borrow the habits of their dialect, or of the whole text. `models` (from
+    `section_models`) saves rebuilding the habits when many settings are tried.
+    """
+    if models is None:
+        models = section_models(runs, min_words)
     out = []
     for i, (key, lines) in enumerate(runs):
-        rules, edits, grammar, maker, lengths, favs, shorts = model(key)
+        rules, edits, grammar, maker, lengths, counts, shorts = models[key]
+        favs = [(list(w), c) for w, c in counts.most_common(fav_n)]
         n = sum(map(len, lines))
         gen = selfcite.generate_v5(lines[:2], n + sum(map(len, lines[:2])), lengths, rules, edits, grammar,
                                    seed=seed + i, maker=maker, favourites=favs, shorts=shorts,

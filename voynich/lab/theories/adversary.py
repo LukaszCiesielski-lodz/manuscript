@@ -20,9 +20,6 @@ from .hoax import V5_SECTION_PARAMS, generate_by_section, odd_runs, split_lines
 
 def train_judge(real: list[str], fake: list[str], cfg: LabConfig, seed: int) -> float:
     """AUC of a character transformer classifier on a held-out half (real vs fake lines)."""
-    import torch
-    import torch.nn as nn
-    from sklearn.metrics import roc_auc_score
     r = random.Random(seed)
     n = min(len(real), len(fake))
     x = r.sample(real, n) + r.sample(fake, n)
@@ -30,12 +27,19 @@ def train_judge(real: list[str], fake: list[str], cfg: LabConfig, seed: int) -> 
     idx = list(range(2 * n))
     r.shuffle(idx)
     cut = len(idx) // 2
-    chars = sorted({c for s in x for c in s})
+    return fit_judge([x[i] for i in idx[:cut]], [y[i] for i in idx[:cut]], [x[i] for i in idx[cut:]], [y[i] for i in idx[cut:]], cfg, seed)
+
+
+def fit_judge(x_train: list[str], y_train: list[int], x_test: list[str], y_test: list[int], cfg: LabConfig, seed: int,
+              length: int = 96) -> float:
+    """Character transformer (4 layers, 192 wide) trained on (string, 0/1) pairs; best-epoch AUC on the test set."""
+    import torch
+    import torch.nn as nn
+    from sklearn.metrics import roc_auc_score
+    chars = sorted({c for s in x_train + x_test for c in s})
     stoi = {c: i + 2 for i, c in enumerate(chars)}  # 0 pad, 1 cls
-    L = 96
+    L = length
     enc = lambda s: [1] + [stoi[c] for c in s[: L - 1]] + [0] * max(0, L - 1 - len(s))
-    X = torch.tensor([enc(x[i]) for i in idx])
-    Y = torch.tensor([y[i] for i in idx], dtype=torch.float32)
     device = "cuda" if torch.cuda.is_available() else "cpu"
     torch.manual_seed(seed)
 
@@ -54,7 +58,10 @@ def train_judge(real: list[str], fake: list[str], cfg: LabConfig, seed: int) -> 
 
     model = Judge(len(chars) + 2).to(device)
     opt = torch.optim.AdamW(model.parameters(), lr=3e-4, weight_decay=0.05)
-    Xtr, Ytr, Xte, Yte = X[:cut].to(device), Y[:cut].to(device), X[cut:].to(device), Y[cut:]
+    Xtr = torch.tensor([enc(s) for s in x_train]).to(device)
+    Ytr = torch.tensor(y_train, dtype=torch.float32).to(device)
+    Xte = torch.tensor([enc(s) for s in x_test]).to(device)
+    Yte = torch.tensor(y_test, dtype=torch.float32)
     epochs = 3 if cfg.quick else cfg.judge_epochs
     best = 0.5
     for ep in range(epochs):

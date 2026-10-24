@@ -69,6 +69,20 @@ class LabConfig:
     climb_steps: int = 3000
     climb_order: int = 4           # character n-gram order of the language model
 
+    # The record track (theories "lists", "fields_lm", "v6", "cohesion").
+    lists_corpora: list[str] = field(default_factory=list)   # empty: every corpus in data/lists passing the parse gate
+    fields_corpora: list[str] = field(default_factory=lambda: [
+        "rękopis", "łacina", "chorał", "bełkot v5", "martyrology", "apicius"])
+    fields_steps: int = 2500       # GPT steps per training (15 trainings)
+    fields_width: int = 256
+    fields_layers: int = 4
+    v6_population: int = 32        # evolution of the v6 generator on the CPU
+    v6_generations: int = 25
+    v6_topk: int = 5               # finalists judged by the transformer on the GPU
+    v6_workers: int = 0            # 0 = all CPUs but one
+    v6_judge_seeds: int = 3
+    v6_inner_auc: bool = False     # add the n-gram line classifier to the fitness (16 s per evaluation)
+
     # Git: results are committed to this branch and pushed with the token.
     git_branch: str = "lab-results"
     git_repo: str = "lukaszciesielski-lodz/manuscript"

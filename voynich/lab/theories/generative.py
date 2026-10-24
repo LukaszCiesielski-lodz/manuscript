@@ -82,6 +82,43 @@ class Vocab:
         return [l for l in text.split("\n") if l]
 
 
+POS_TOKENS = [f"<p:{i}>" for i in range(12)] + ["<p:12+>"]
+
+
+class PosVocab:
+    """Characters plus one token per word position in the line: <p:0>, <p:1>, ... <p:12+>.
+
+    A model that reads the position token before each word gains on text whose words depend on
+    their slot (records with fields) and nothing on text whose words do not.
+    """
+
+    def __init__(self, lines: list[str]):
+        chars = sorted({c for l in lines for c in l} | {"\n"})
+        self.itos = SPECIAL + POS_TOKENS + chars
+        self.stoi = {s: i for i, s in enumerate(self.itos)}
+        self.pos_ids = {self.stoi[t] for t in POS_TOKENS}
+        self.keep = {self.stoi[c] for c in chars}          # tokens whose prediction is scored
+
+    def encode(self, lines: list[str], mode: str = "none", seed: int = 1) -> list[int]:
+        """Lines (words joined by '.') to ids; mode 'none' (plain text), 'pos' (position token before every word)
+        or 'random' (a position token drawn at random: the control that must gain nothing)."""
+        import random as _random
+        rng = _random.Random(seed)
+        ids = []
+        for line in lines:
+            words = line.split(".")
+            for i, w in enumerate(words):
+                if mode == "pos":
+                    ids.append(self.stoi[POS_TOKENS[min(i, 12)]])
+                elif mode == "random":
+                    ids.append(self.stoi[POS_TOKENS[rng.randrange(13)]])
+                ids += [self.stoi[c] for c in w]
+                if i < len(words) - 1:
+                    ids.append(self.stoi["."])
+            ids.append(self.stoi["\n"])
+        return ids
+
+
 def missing_page_attributes(pages: list[dict]) -> dict[int, dict]:
     """Attributes for each lost folio, taken from the nearest surviving page before it."""
     by_num = {}
@@ -143,7 +180,11 @@ def build_model(vocab_size: int, cfg: LabConfig, block: int):
     return GPT()
 
 
-def train_gpt(train_ids: list[int], val_ids: list[int], vocab: Vocab, cfg: LabConfig, block: int = 256):
+def train_gpt(train_ids: list[int], val_ids: list[int], vocab, cfg: LabConfig, block: int = 256, keep: set[int] | None = None,
+              test_ids: list[int] | None = None):
+    """Train the character GPT; checkpoint chosen on one half of `val_ids`, bits reported on the other
+    (or on `test_ids` when given, the checkpoint then chosen on all of `val_ids`).
+    `keep`: score only these target tokens (characters, not position tokens)."""
     import torch
     device = "cuda" if torch.cuda.is_available() else "cpu"
     torch.manual_seed(cfg.seed)
@@ -153,8 +194,11 @@ def train_gpt(train_ids: list[int], val_ids: list[int], vocab: Vocab, cfg: LabCo
     steps = 300 if cfg.quick else cfg.gpt_steps
     # The corpus is small (~200k glyphs), so thousands of steps overfit (Colab: 1.73 -> 5.43 bit/glyph).
     # Choose the checkpoint on one half of the held-out pages and report bits on the other half.
-    half = len(val) // 2
-    pick, test = val[:half], val[half:]
+    if test_ids is not None:
+        pick, test = val, torch.tensor(test_ids, dtype=torch.long)
+    else:
+        half = len(val) // 2
+        pick, test = val[:half], val[half:]
     every = max(1, steps // 40)
     best, best_state, stale = float("inf"), None, 0
     opt = torch.optim.AdamW(model.parameters(), lr=3e-4, weight_decay=0.1, betas=(0.9, 0.95))
@@ -175,7 +219,7 @@ def train_gpt(train_ids: list[int], val_ids: list[int], vocab: Vocab, cfg: LabCo
         opt.step()
         sched.step()
         if step % every == 0 or step == steps - 1:
-            vb = evaluate_bits(model, pick, block, device)
+            vb = evaluate_bits(model, pick, block, device, keep)
             log.append({"step": step, "train_loss": float(loss), "val_bits": vb})
             print(f"  krok {step}: strata {float(loss):.3f}, walidacja {vb:.3f} bit/znak", flush=True)
             if vb < best:
@@ -189,23 +233,52 @@ def train_gpt(train_ids: list[int], val_ids: list[int], vocab: Vocab, cfg: LabCo
     if best_state is not None:
         model.load_state_dict(best_state)
     best_step = min(log, key=lambda e: e["val_bits"])["step"]
-    test_bits = evaluate_bits(model, test, block, device)
+    test_bits = evaluate_bits(model, test, block, device, keep)
     print(f"  wybrano krok {best_step}; odłożona połowa testowa: {test_bits:.3f} bit/znak", flush=True)
     return model, {"log": log, "best_step": best_step, "test_bits": test_bits}
 
 
-def evaluate_bits(model, val, block: int, device: str) -> float:
+def token_losses(model, val, block: int, device: str):
+    """Natural-log loss of every target token of `val` (the last partial block dropped), on the CPU."""
     import torch
+    import torch.nn.functional as F
     model.eval()
-    total, n = 0.0, 0
+    out = []
     with torch.no_grad():
         for i in range(0, len(val) - block - 1, block):
             x = val[i:i + block].unsqueeze(0).to(device)
-            y = val[i + 1:i + block + 1].unsqueeze(0).to(device)
-            _, loss = model(x, y)
-            total += float(loss) * block
-            n += block
-    return total / max(1, n) / math.log(2)
+            y = val[i + 1:i + block + 1].to(device)
+            logits, _ = model(x)
+            out.append(F.cross_entropy(logits[0], y, reduction="none").float().cpu())
+    return torch.cat(out) if out else torch.zeros(0)
+
+
+def evaluate_bits(model, val, block: int, device: str, keep: set[int] | None = None) -> float:
+    """Bits per token; with `keep`, bits per kept token (position tokens and padding excluded)."""
+    import torch
+    losses = token_losses(model, val, block, device)
+    if not len(losses):
+        return float("nan")
+    targets = val[1:1 + len(losses)]
+    mask = torch.ones(len(losses), dtype=torch.bool) if keep is None else torch.tensor([int(t) in keep for t in targets])
+    return float(losses[mask].sum() / max(1, int(mask.sum()))) / math.log(2)
+
+
+def line_bits(model, val, block: int, device: str, newline: int, keep: set[int]) -> list[tuple[float, int]]:
+    """(summed bits, kept tokens) per line of `val`, lines delimited by the `newline` token; for paired bootstraps
+    between encodings of the same lines."""
+    import torch
+    losses = token_losses(model, val, block, device)
+    targets = val[1:1 + len(losses)]
+    out, tot, n = [], 0.0, 0
+    for loss, t in zip(losses.tolist(), targets.tolist()):
+        if t in keep:
+            tot += loss / math.log(2)
+            n += 1
+        if t == newline:
+            out.append((tot, n))
+            tot, n = 0.0, 0
+    return out
 
 
 def sample_page(model, vocab: Vocab, attrs: dict, n_lines: int, block: int, temperature: float = 0.9) -> list[str]:

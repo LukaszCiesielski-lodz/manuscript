@@ -449,6 +449,7 @@ def generate_v5(
     max_len: int = 9,
     seed: int = 1,
     maker: WordMaker | None = None,
+    freq_gamma: float = 0.0,
 ) -> list[list[Word]]:
     """Copy-and-modify like `generate`, but the scribe writes each word by choosing among a few candidates.
 
@@ -457,7 +458,9 @@ def generate_v5(
     fresh word (from `maker` if given: a known front joined to a known ending;
     else glyph by glyph from the shape grammar). The chosen one is drawn with weight
     rules.weight(...)^gamma times a length factor that steers the length
-    distribution towards the scribe's habit.
+    distribution towards the scribe's habit. With `freq_gamma` > 0 a candidate already written n
+    times is damped by (1+n)^-freq_gamma: a scribe who tires of a word (v5 reuses too few words
+    too often: too few hapax legomena, too much weight on the top ten).
     """
     rng = random.Random(seed)
     lines: list[list[Word]] = [list(map(list, l)) for l in seed_lines]
@@ -525,9 +528,12 @@ def generate_v5(
                 proposed[len(c)] += 1
                 lw = (rules.length.get(len(c), 1e-4) / (proposed[len(c)] / total_prop)) ** length_gamma
                 pair, fit = rules.length_fit(c, line[-1] if line else None, mood)
-                weights.append(rules.seam(c, line[-1] if line else None) ** gamma
-                               * rules.position(c, col == 0, col == n - 1) ** pos_gamma * lw
-                               * pair ** pair_gamma * fit ** mood_gamma)
+                w = (rules.seam(c, line[-1] if line else None) ** gamma
+                     * rules.position(c, col == 0, col == n - 1) ** pos_gamma * lw
+                     * pair ** pair_gamma * fit ** mood_gamma)
+                if freq_gamma:
+                    w *= (1 + counts[tuple(c)]) ** -freq_gamma
+                weights.append(w)
             line.append(rng.choices(cands, [max(x, 1e-12) for x in weights])[0])
         if line:
             lines.append(line)

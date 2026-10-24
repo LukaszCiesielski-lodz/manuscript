@@ -255,7 +255,8 @@ class NotebookTest(unittest.TestCase):
         # A syntax error in a cell stops "Run all" in Colab; shell (!) and magic (%) lines are not Python.
         import json
         from pathlib import Path
-        for name in ("Voynich_Lab.ipynb", "Voynich_Ilustracje.ipynb", "Voynich_Brute.ipynb"):
+        for name in ("Voynich_Lab.ipynb", "Voynich_Ilustracje.ipynb", "Voynich_Brute.ipynb", "Voynich_Final.ipynb",
+                     "Voynich_Notacja.ipynb", "Voynich_Rejestr.ipynb", "Voynich_Rejestr_GPU.ipynb"):
             nb = json.loads((Path(__file__).resolve().parent.parent / "colab" / name).read_text(encoding="utf-8"))
             for i, c in enumerate(nb["cells"]):
                 if c["cell_type"] == "code":
@@ -573,3 +574,217 @@ class NotationTest(unittest.TestCase):
         self.assertEqual(len(d), 1)
         self.assertTrue(d[0].startswith("R b ss d r"))
         self.assertEqual(notation.dance_lines()[0][:3], [("R",), ("b",), ("s", "s")])
+
+
+class ListsTest(unittest.TestCase):
+    MART = """{{titulus2|x=y}}
+PROLOGUS AD CAROLUM.
+123.0599A| Domino regum piissimo verba prologi hic sunt multa.
+:MENSIS JANUARIUS HABET DIES XXXI.
+:Kalendis. Die 1.
+123.0601|
+Circumcisio Domini nostri Jesu Christi. Romae, natalis sancti Almachii martyris [ Bouillart. add. et prunas] (AUG, l. XX).
+:IV Nonas. Die 2.
+Apud Antiochiam, passio beati Isidori episcopi et trium fratrum.
+:XIX Kal. Die 14.
+In Africa, natalis sancti Felicis presbyteri.
+"""
+    APIC = """{{titulus2|x=y}}
+== I. Conditum paradoxum. ==
+1. CONDITI PARADOXI COMPOSITIO.
+
+Mellis p.XV in aeneum uas mittuntur, praemissis vini sextariis duobus.
+
+2. CONDITUM MELIZOMUM.
+
+Piper tritum cum melle despumato in cupellam mittis.
+
+== X. Ut uncia laseris toto tempore durent. ==
+Laser in spatiosum doliolum vitreum mittis et nucleos pineos.
+"""
+    ALPH = """Google digitised text
+A MEDICO-BOTANICAL GLOSSARY.
+Absinthium', herba fortis, gal- | Acopum, i. mitigatiuum et dicitur
+lice aloine, anglice uuermode. | a quod est sine labor.
+Acacia, i. succus desiccatus prunelarum agrestium.
+3. aloyne. 5. lineriuue. 6. sotherwod.
+1 dvivOov, E. P. N. p. 42, ‘Absinthium, aloigne, wermod.' κακος ακανθα
+2 A MEDICO-BOTANICAL GLOSSARY.
+Acorus, i. radix gladioli iuxta aquas crescit.
+INDEX.
+Bistorte, 23.
+Botun de rose, 23.
+Bourefair, 40, 115.
+"""
+
+    def test_martyrology_days(self):
+        from voynich import lists
+        e = lists.martyrology_entries(self.MART)
+        self.assertEqual(len(e), 3)
+        self.assertEqual(e[0][:3], ["circumcisio", "domini", "nostri"])
+        self.assertNotIn("bouillart", e[0])
+        self.assertNotIn("aug", e[0])
+        self.assertNotIn("prologi", " ".join(w for x in e for w in x))
+        self.assertEqual(e[2][:2], ["in", "africa"])
+
+    def test_apicius_recipes(self):
+        from voynich import lists
+        e = lists.apicius_entries(self.APIC)
+        self.assertEqual(len(e), 3)
+        self.assertEqual(e[0][:3], ["conditi", "paradoxi", "compositio"])
+        self.assertIn("mellis", e[0])
+        self.assertEqual(e[2][:3], ["x", "ut", "uncia"])
+
+    def test_alphita(self):
+        from voynich import lists
+        e = lists.alphita_entries(self.ALPH)
+        self.assertEqual([x[0] for x in e], ["absinthium", "acacia", "acopum", "acorus"])
+        self.assertNotIn("aloyne", " ".join(w for x in e for w in x))
+        self.assertEqual(lists.alphita_headwords(self.ALPH), [["bistorte"], ["botun", "de", "rose"], ["bourefair"]])
+        q = lists.quality(e)
+        self.assertEqual(q["entries"], 4)
+        self.assertFalse(lists.passes(q))
+        self.assertTrue(lists.passes({"entries": 300, "median_words": 20}))
+
+    def test_committed_corpora_pass_gate(self):
+        from voynich import lists
+        for name in ("martyrology", "apicius", "alphita"):
+            self.assertTrue(lists.passes(lists.quality(lists.load(name))), name)
+
+
+class LabelsTest(unittest.TestCase):
+    def test_planted_citation_detected_shuffled_not(self):
+        from voynich import labels
+        pages, pool = labels.synthetic_label_pages(30, 3, names=True, cite=0.0)
+        base = labels.citation(pages, shuffles=100, seed=1)
+        planted = labels.citation(labels.plant_citations(pages, 0.1, 1), shuffles=100, seed=1)
+        self.assertLess(abs(base["z"]), 3)
+        self.assertGreater(planted["z"], 5)
+        cited, _ = labels.synthetic_label_pages(30, 3, names=True, cite=0.1)
+        dealt = labels.citation(labels.shuffle_labels(cited, random.Random(2)), shuffles=100, seed=1)
+        self.assertLess(abs(dealt["z"]), 3)
+
+    def test_names_are_a_subvocabulary(self):
+        from voynich import labels
+        pages, pool = labels.synthetic_label_pages(30, 4, names=True)
+        sv = labels.subvocabulary(pages, pool, draws=100, seed=1)
+        self.assertGreater(sv["hapax"]["z"], 4)
+        self.assertGreater(sv["o_initial"]["z"], 4)
+        plain, pool = labels.synthetic_label_pages(30, 4, names=False)
+        sv = labels.subvocabulary(plain, pool, draws=100, seed=1)
+        self.assertLess(max(abs(sv[k]["z"]) for k in ("hapax", "o_initial", "mean_length")), 3)
+
+    def test_uniqueness_and_loading(self):
+        from voynich import labels
+        pages = labels.load_label_pages()
+        self.assertGreater(len(pages), 40)
+        self.assertTrue(all(p.labels for p in pages))
+        u = labels.uniqueness(pages, shuffles=50, seed=1)
+        self.assertIn("Lz", u)
+        self.assertTrue(0 <= u["Lz"]["value"] <= 1)
+
+
+class RecordsTest(unittest.TestCase):
+    def test_synthetic_records_and_shuffle(self):
+        from voynich import records
+        lines, groups = records.synthetic_records(800, 1)
+        self.assertGreater(records.slot_auc(lines, groups, records.INTERIOR, 1), 0.8)
+        mi = records.field_mi_z(lines, records.INTERIOR, shuffles=30, seed=1)
+        self.assertGreater(mi["first"]["z"], 5)
+        self.assertGreater(records.template_gain(lines, groups, 1), 0.2)
+        sh = records.shuffle_within_lines(lines, random.Random(2))
+        self.assertLess(records.slot_auc(sh, groups, records.INTERIOR, 1), 0.65)
+        self.assertLess(abs(records.field_mi_z(sh, records.INTERIOR, shuffles=30, seed=1)["first"]["z"]), 3)
+
+    def test_slots(self):
+        from voynich import records
+        self.assertEqual([records.slot(i, 6, records.EDGE) for i in range(6)], [0, 1, 1, 1, 1, 2])
+        self.assertEqual([records.slot(i, 6, records.INTERIOR) for i in range(6)], [None, 0, 1, 2, 3, None])
+        self.assertEqual([records.slot(i, 4, records.INTERIOR) for i in range(4)], [None] * 4)
+
+
+class V6Test(unittest.TestCase):
+    def test_freq_gamma_zero_reproduces_v5(self):
+        from voynich.lab.theories.hoax import V5_SECTION_PARAMS, generate_by_section, odd_runs, section_models
+        runs = odd_runs()[:3]
+        models = section_models(runs)
+        a = generate_by_section(runs, V5_SECTION_PARAMS, 3, models=models)
+        b = generate_by_section(runs, {**V5_SECTION_PARAMS, "freq_gamma": 0.0}, 3)
+        self.assertEqual(a, b)
+        c = generate_by_section(runs, {**V5_SECTION_PARAMS, "freq_gamma": 1.0}, 3, models=models)
+        self.assertNotEqual(a, c)
+        wa, wc = sum(map(len, a)), sum(map(len, c))
+        self.assertLess(abs(wa - wc) / wa, 0.05)      # the word budget is kept, the line count may differ
+
+    def test_v6_space_and_evolution(self):
+        from voynich.lab import v6
+        rng = random.Random(1)
+        for _ in range(50):
+            m = v6.mutate(v6.V5_POINT, 0.5, rng)
+            for k, (lo, hi, integer) in v6.SPACE.items():
+                self.assertTrue(lo <= m[k] <= hi, k)
+                if integer:
+                    self.assertIsInstance(m[k], int)
+        self.assertEqual(v6.clip(v6.V5_POINT), v6.clip(v6.clip(v6.V5_POINT)))
+        card = {"h2": {"z": 0.5}, "hapax_ratio": {"z": -2.0}, "words_per_line": {"z": 3.0}}
+        self.assertAlmostEqual(v6.fitness_of(card), 1.0 + 12.0 + 4.0)
+        from voynich import hoax
+        from voynich.lab.theories.hoax import odd_runs, split_lines
+        runs, n = [], 0
+        for r in odd_runs():                         # enough runs for one 4000-word block
+            runs.append(r)
+            n += sum(map(len, r[1]))
+            if n >= 4500:
+                break
+        shared = v6.Shared(runs, v6.section_models(runs), hoax.yardstick(split_lines()[0]), n_blocks=1)
+        a, b = v6.evaluate(v6.V5_POINT, 3, shared), v6.evaluate(v6.V5_POINT, 3, shared)
+        self.assertEqual(a["fitness"], b["fitness"])
+        self.assertTrue(a["fitness"] == a["fitness"] and a["fitness"] < float("inf"))
+        ev = v6.Evolution(population=4, generations=2, elite=2, workers=2, seed=1)
+        best = ev.run(shared=shared)
+        self.assertEqual(len(ev.history), 2)
+        self.assertLessEqual(best["fitness"], ev.history[0]["best"] + 1e-9)
+        self.assertTrue(ev.finalists)
+
+
+class FieldsTest(unittest.TestCase):
+    def test_position_encoding(self):
+        from voynich.lab.theories.generative import POS_TOKENS, PosVocab
+        v = PosVocab(["daiin.ol.chedy", "qokeey.dal"])
+        plain = v.encode(["daiin.ol.chedy"], "none")
+        pos = v.encode(["daiin.ol.chedy"], "pos")
+        rnd = v.encode(["daiin.ol.chedy"], "random", seed=5)
+        self.assertEqual(len(pos), len(plain) + 3)
+        self.assertEqual(len(rnd), len(pos))
+        self.assertEqual([v.itos[i] for i in pos if i in v.pos_ids], POS_TOKENS[:3])
+        self.assertEqual([i for i in plain if i in v.pos_ids], [])
+        self.assertTrue(all(i in v.keep for i in plain))
+        self.assertFalse(any(i in v.keep for i in v.pos_ids))
+
+    def test_split_keeps_chunks_apart(self):
+        from voynich.lab.theories import fields_lm
+        lines = [f"w{i}" for i in range(200)]
+        tr, pick, test = fields_lm.split(lines, 1)
+        self.assertEqual(len(tr) + len(pick) + len(test), 200)
+        self.assertFalse(set(pick) & set(test) or set(tr) & set(pick))
+
+
+class CohesionTest(unittest.TestCase):
+    def test_pairs_hold_pages_out(self):
+        from voynich.lab.theories import cohesion
+        pages = {f"p{i}": [f"p{i}w{j}.x" for j in range(6)] for i in range(8)}
+        group = {p: "s" for p in pages}
+        xtr, ytr, xte, yte = cohesion.pairs(pages, group, 40, 1)
+        self.assertEqual((len(xtr), len(xte)), (40, 20))
+        self.assertEqual(sum(ytr), 20)
+        train_pages = {x.split("w")[0] for x in xtr}
+        test_pages = {x.split("w")[0] for x in xte}
+        self.assertFalse(train_pages & test_pages)
+        for x, y in zip(xtr, ytr):
+            a, b = x.split("|")
+            self.assertEqual(a.split("w")[0] == b.split("w")[0], bool(y))
+        pg, grp = cohesion.pseudo_pages([f"l{i}" for i in range(50)], ["a"] * 30 + ["b"] * 20, 10, 1)
+        self.assertEqual(len(pg), 5)
+        self.assertTrue(all(len(ls) == 10 for ls in pg.values()))
+        planted = cohesion.plant({"p": ["a.b.c.d.e"] * 3}, 1.0, 1)
+        self.assertEqual(len(set(planted["p"][0].split("."))), 1)

@@ -319,6 +319,72 @@ display(Markdown((lab.cfg.results_dir / "notation.md").read_text()))"""),
 ]
 
 
+# The record track, CPU part: labels as names, lines as records, medieval lists. No GPU units spent.
+rejestr_cells = [
+    ("md", """# Voynich Lab – zapis rekordowy (część CPU): etykiety, rekordy, listy
+
+Hipoteza nietekstowa po wykluczeniu melodii, tańca i programu: tekst to **zapis rekordowy** (wiersz = rekord o polach,
+strona = wpis z nagłówkiem, słownictwo = nomenklatura), bez gramatyki między rekordami. Trzy teorie na CPU:
+
+| teoria | co sprawdza | czas |
+|---|---|---|
+| `labels` | czy słowa przy rysunkach to osobny podsłownik nazw (hapaksy, inicjały o-/q-, długość wobec losowań słów akapitów) i czy akapity strony cytują jej etykiety (wobec etykiet innych stron działu) | 3 min |
+| `records` | czy miejsce słowa w wierszu da się odczytać z samego słowa (klasyfikator z odłożonymi kartami, wnętrze wiersza), informacja wzajemna klasy słowa i miejsca, przewidywanie pola z sąsiadów; wobec łaciny, chorału, bełkotu v5 i list | 10 min |
+| `lists` | podpis rękopisu (8 kryteriów) wobec martyrologium Usuarda, Apicjusza i glosariusza Alphita; gradient proza → listy → rękopis | 15 min |
+
+**Runtime bez akceleratora** (Runtime → Change runtime type → CPU): zero jednostek GPU. Sekrety: `GITHUB_TOKEN`, `OPENROUTER_API_KEY`.
+Część GPU (`Voynich_Rejestr_GPU.ipynb`) uruchamia się potem, osobno."""),
+    cells[3],
+    ("code", """!python scripts/fetch_data.py
+!python scripts/fetch_notation.py 2>/dev/null || true   # chorał do porównania w `records` (opcjonalnie)
+!python scripts/fetch_lists.py                           # korpusy list są w repozytorium; skrypt tylko potwierdza"""),
+    cells[5],
+    ("code", cells[7][1].replace('theories=["all"],          # albo np. ["numbers", "literature"]', 'theories=["rejestr"],')),
+    ("code", """for name in ["labels", "records", "lists"]:
+    lab.run(name)
+    lab.push()                                   # po każdej teorii na GitHub
+lab.convene(["labels", "records", "lists"])
+lab.report(); lab.push()
+from IPython.display import Markdown, display
+for name in ["labels", "records", "lists"]:
+    display(Markdown((lab.cfg.results_dir / f"{name}.md").read_text()))"""),
+]
+
+
+# The record track, GPU part: position-token GPT, evolved generator v6 with the transformer judge, page cohesion.
+rejestr_gpu_cells = [
+    ("md", """# Voynich Lab – zapis rekordowy (część GPU): pola, generator v6, spójność strony
+
+Dalszy ciąg `Voynich_Rejestr.ipynb`. Jednostki GPU idą tylko tam, gdzie liczy się skala (budżet ok. 85 min na A100):
+
+| kolejność | teoria | co sprawdza | min |
+|---|---|---|---|
+| 1 | `fields_lm` | mały GPT uczony dwa razy na każdym korpusie (tekst goły i z tokenem pozycji przed każdym słowem): zysk w bitach na znak = ile miejsce w wierszu mówi o słowie; rękopis wobec łaciny, chorału, bełkotu v5, martyrologium i Apicjusza; kontrole: pozycje losowe, rekordy syntetyczne | 25–30 |
+| 2 | `v6` | ewolucja 18 ustawień generatora v5 z tłumieniem słów już użytych (CPU, pula procesów) na karcie foliałów nieparzystych; finaliści na parzystych; 5 najlepszych do sędziego-transformera z odniesieniami (prawdziwe wobec prawdziwych, czułość, v5) | 8 + 30 |
+| 3 | `cohesion` | czy sędzia pozna dwa wiersze z tej samej strony wobec innych stron tego samego działu i dialektu; kontrole: wiersze rozdane na pseudostrony, łacina ze słowem strony | 6–8 |
+
+**Runtime:** A100 (High-RAM). Sekrety: `GITHUB_TOKEN`, `OPENROUTER_API_KEY`. Wyniki wypychane po każdej teorii; w razie
+braku czasu `cohesion` można pominąć (jest ostatnia)."""),
+    cells[1],
+    cells[3],
+    ("code", """!python scripts/fetch_data.py
+!python scripts/fetch_notation.py 2>/dev/null || true   # chorał (słowa) jako korpus porównawczy
+!python scripts/fetch_lists.py"""),
+    cells[5],
+    ("code", cells[7][1].replace('theories=["all"],          # albo np. ["numbers", "literature"]', 'theories=["rejestr_gpu"],')),
+    ("code", """import os
+lab.cfg.v6_workers = max(1, (os.cpu_count() or 2) - 1)   # ewolucja na wszystkich vCPU poza jednym
+for name in ["fields_lm", "v6", "cohesion"]:
+    lab.run(name)
+    lab.push()                                   # po każdej teorii na GitHub
+lab.convene(["fields_lm", "v6", "cohesion"])
+lab.report(); lab.push()
+from IPython.display import Markdown, display
+for name in ["fields_lm", "v6", "cohesion"]:
+    display(Markdown((lab.cfg.results_dir / f"{name}.md").read_text()))"""),
+]
+
+
 def cell(kind, text):
     src = text.splitlines(keepends=True)
     if kind == "md":
@@ -330,11 +396,15 @@ nb = {"nbformat": 4, "nbformat_minor": 0,
       "metadata": {"accelerator": "GPU", "colab": {"provenance": [], "gpuType": "A100", "machine_shape": "hm"},
                    "kernelspec": {"name": "python3", "display_name": "Python 3"}, "language_info": {"name": "python"}},
       "cells": [cell(k, t) for k, t in cells]}
+nb_cpu = {**nb, "metadata": {"colab": {"provenance": []}, "kernelspec": {"name": "python3", "display_name": "Python 3"},
+                             "language_info": {"name": "python"}}}   # no accelerator: no GPU units
 for name, cs in (("Voynich_Lab.ipynb", cells), ("Voynich_Ilustracje.ipynb", illustrations_cells),
                  ("Voynich_Brute.ipynb", brute_cells), ("Voynich_Kolo.ipynb", wheel_cells),
                  ("Voynich_Lamacze.ipynb", attack_cells),
                  ("Voynich_Final.ipynb", final_cells),
-                 ("Voynich_Notacja.ipynb", notation_cells)):
+                 ("Voynich_Notacja.ipynb", notation_cells),
+                 ("Voynich_Rejestr.ipynb", rejestr_cells), ("Voynich_Rejestr_GPU.ipynb", rejestr_gpu_cells)):
+    base = nb_cpu if name == "Voynich_Rejestr.ipynb" else nb
     out = Path(__file__).with_name(name)
-    out.write_text(json.dumps({**nb, "cells": [cell(k, t) for k, t in cs]}, indent=1, ensure_ascii=False), encoding="utf-8")
+    out.write_text(json.dumps({**base, "cells": [cell(k, t) for k, t in cs]}, indent=1, ensure_ascii=False), encoding="utf-8")
     print("wrote", out)
