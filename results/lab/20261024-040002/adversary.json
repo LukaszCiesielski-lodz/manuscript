@@ -1,0 +1,51 @@
+{
+ "theory": "adversary",
+ "hypothesis": "Któryś z generatorów bez treści pisze wiersze, których nie odróżni od rękopisu nawet transformer.",
+ "method": "Transformer-klasyfikator (4 warstwy, 192 wymiary) uczony na GPU: prawdziwe wiersze (foliały parzyste) przeciw wierszom każdego generatora (reguły z nieparzystych); AUC na odłożonej połowie, najlepsza epoka. Kontrola: prawdziwe przeciw prawdziwym (nieparzyste) musi dać AUC ≈ 0,5.",
+ "verdict": "obalona",
+ "summary": "Prawdziwe vs prawdziwe: AUC 0.54. Transformer odróżnia każdy generator od rękopisu: v4 (kopiowanie ze zmianami) 0.97, v5 działami (tabela skryby) 0.64, łańcuch słów (pamięć 1) 0.61, tarcza (volvelle) 0.97.",
+ "metrics": {
+  "real_vs_real": 0.539350823642859,
+  "v4 (kopiowanie ze zmianami)": {
+   "transformer": 0.9659117748280911,
+   "ngram": 0.9982201782858378
+  },
+  "v5 działami (tabela skryby)": {
+   "transformer": 0.6386616246813615,
+   "ngram": 0.7767703178887388
+  },
+  "łańcuch słów (pamięć 1)": {
+   "transformer": 0.6133035690557814,
+   "ngram": 0.6722427231276789
+  },
+  "tarcza (volvelle)": {
+   "transformer": 0.9710372100647489,
+   "ngram": 0.9938205201759419
+  }
+ },
+ "controls": [
+  {
+   "name": "transformer: prawdziwe vs prawdziwe",
+   "expectation": "AUC ≤ 0,62",
+   "observed": "AUC = 0.539",
+   "passed": true
+  }
+ ],
+ "evidence": [
+  "v4 (kopiowanie ze zmianami): transformer AUC 0.966 (klasyfikator n-gramowy 0.998).",
+  "v5 działami (tabela skryby): transformer AUC 0.639 (klasyfikator n-gramowy 0.777).",
+  "łańcuch słów (pamięć 1): transformer AUC 0.613 (klasyfikator n-gramowy 0.672).",
+  "tarcza (volvelle): transformer AUC 0.971 (klasyfikator n-gramowy 0.994)."
+ ],
+ "caveats": [
+  "Mały transformer uczony kilka epok na ~8 tys. wierszy; większy model może odróżnić więcej.",
+  "Wiersze jako ciągi znaków EVA; test nie widzi układu strony ani rysunków."
+ ],
+ "references": [
+  "Vaswani et al., Attention is all you need (2017)",
+  "Gaskell & Bowern (2022)"
+ ],
+ "artifacts": [],
+ "seconds": 147.89409160614014,
+ "council": {}
+}
