@@ -442,5 +442,141 @@
  ],
  "artifacts": [],
  "seconds": 357.1791169643402,
- "council": {}
+ "council": {
+  "members": [
+   "z-ai/glm-5.3-flash",
+   "openai/gpt-6-luna",
+   "inception/mercury-3",
+   "tencent/hy3"
+  ],
+  "chair": "openai/gpt-6-luna",
+  "round1": {
+   "z-ai/glm-5.3-flash": {
+    "raw": "{\"werdykt\": \"metoda niewiarygodna\",\n  \"pewność\": 0.6,\n  \"najmocniejszy_dowód\": \"Rękopis nie ma składni na odległość (niespokrewnione z = -1.2), podczas gdy wszystkie testowane notacje i języki mają ją bardzo silnie (chorał: z = 65–145, kod Python: z = 137, łacina: z = 12.7); jedyny obiekt o podobnym profilu to bełkot v5 (z = 0.8), co podważa specyficzność podpisu dla notacji.\",\n  \"słabości\": [\"Sekcja KONTROLE METODY jest pusta — brak dowodu, że metoda wykrywa efekt podłożony celowo i nie znajduje go w danych przetasowanych; bez tego wyniki nie są wiarygodne.\", \"Kluczowy kontrast (tabulatura basse danse) nie został faktycznie przetestowany — tylko 146 kroków, za mało na miary; hipoteza o notacji tańca pozostaje nieobciążona danymi.\", \"Podpis rękopisu (8/8) spełnia też bełkot v5 (6/8), więc kryteria nie odróżniają notacji od losowego bełkotu — brak kontroli specyficzności.\", \"Jednostki chorału zależą od poziomu podziału (słowo/sylaba/neuma), a wyniki między poziomami mocno się różnią; wybór jednostki może przesądzać o wyniku.\", \"Volpiano koduje wysokości bezwzględne; zapis interwałowy mógłby zmienić statystykę powtórzeń (przyznane zastrzeżenie).\"],\n  \"inne_wyjaśnienia\": [\"Brak składni na odległość w rękopisie może wynikać z natury tekstu szyfrowego lub sztucznie generowanego bełkotu, a nie z notacji muzycznej/ruchowej.\", \"Zgodność dynamiki długości (korelacja sąsiadów +0.16, DFA 0.60) z chorałem może być artefaktem długości jednostek i alfabetu (33 vs 19 znaków), a nie wspólnej natury zapisu.\", \"Niskie z dla łaciny i bełkotu przy różnych skalach z między porównaniami sugeruje, że miary nie są porównywalne między korpusami o różnej strukturze.\"],\n  \"następny_test\": \"Pobrać pełną tabulaturę basse danse (59 tańców, scripts/fetch_notation.py) i przetestować ją razem z interwałowym zapisem Volpiano, po wcześniejszym uruchomieniu kontroli metody: efekt podłożony celowo musi być wykryty, a w danych przetasowanych — nie.\"}",
+    "json": {
+     "werdykt": "metoda niewiarygodna",
+     "pewność": 0.6,
+     "najmocniejszy_dowód": "Rękopis nie ma składni na odległość (niespokrewnione z = -1.2), podczas gdy wszystkie testowane notacje i języki mają ją bardzo silnie (chorał: z = 65–145, kod Python: z = 137, łacina: z = 12.7); jedyny obiekt o podobnym profilu to bełkot v5 (z = 0.8), co podważa specyficzność podpisu dla notacji.",
+     "słabości": [
+      "Sekcja KONTROLE METODY jest pusta — brak dowodu, że metoda wykrywa efekt podłożony celowo i nie znajduje go w danych przetasowanych; bez tego wyniki nie są wiarygodne.",
+      "Kluczowy kontrast (tabulatura basse danse) nie został faktycznie przetestowany — tylko 146 kroków, za mało na miary; hipoteza o notacji tańca pozostaje nieobciążona danymi.",
+      "Podpis rękopisu (8/8) spełnia też bełkot v5 (6/8), więc kryteria nie odróżniają notacji od losowego bełkotu — brak kontroli specyficzności.",
+      "Jednostki chorału zależą od poziomu podziału (słowo/sylaba/neuma), a wyniki między poziomami mocno się różnią; wybór jednostki może przesądzać o wyniku.",
+      "Volpiano koduje wysokości bezwzględne; zapis interwałowy mógłby zmienić statystykę powtórzeń (przyznane zastrzeżenie)."
+     ],
+     "inne_wyjaśnienia": [
+      "Brak składni na odległość w rękopisie może wynikać z natury tekstu szyfrowego lub sztucznie generowanego bełkotu, a nie z notacji muzycznej/ruchowej.",
+      "Zgodność dynamiki długości (korelacja sąsiadów +0.16, DFA 0.60) z chorałem może być artefaktem długości jednostek i alfabetu (33 vs 19 znaków), a nie wspólnej natury zapisu.",
+      "Niskie z dla łaciny i bełkotu przy różnych skalach z między porównaniami sugeruje, że miary nie są porównywalne między korpusami o różnej strukturze."
+     ],
+     "następny_test": "Pobrać pełną tabulaturę basse danse (59 tańców, scripts/fetch_notation.py) i przetestować ją razem z interwałowym zapisem Volpiano, po wcześniejszym uruchomieniu kontroli metody: efekt podłożony celowo musi być wykryty, a w danych przetasowanych — nie."
+    }
+   },
+   "openai/gpt-6-luna": {
+    "raw": "{\n  \"werdykt\": \"metoda niewiarygodna\",\n  \"pewność\": 0.95,\n  \"najmocniejszy_dowód\": \"Raport nie podaje wyników wymaganych kontroli: czy metoda wykrywa efekt celowo podłożony i czy nie wykrywa go w danych przetasowanych. Bez tego nie można uznać testu za wiarygodny. Same wyniki są też zależne od podziału chorału: zapis słów nie ma cechy definiującej, ale sylaby i neumy wykazują silną zależność na odległość.\",\n  \"słabości\": [\n    \"Brak wyników kontroli pozytywnej i danych przetasowanych; nie wiadomo, czy metoda przechodzi wymagane sprawdzenia.\",\n    \"Wynik zależy od poziomu segmentacji chorału, a tabulatura basse danse ma zbyt małą próbkę, by obliczyć miary.\",\n    \"Porównanie melodii używa wysokości bezwzględnych; raport sam wskazuje, że zapis interwałowy mógłby zmienić obraz powtórzeń.\"\n  ],\n  \"inne_wyjaśnienia\": [\n    \"Różnice między rękopisem a chorałem mogą wynikać z odmiennego sposobu kodowania i segmentacji danych, a nie z przeciwieństwa notacji i mowy.\",\n    \"Test obejmuje wybrane przykłady notacji, nie zaś wszystkie możliwe zapisy melodii, kroków ani procedur.\"\n  ],\n  \"następny_test\": \"Przeprowadzić walidację na ustalonym z góry sposobie segmentacji: sprawdzić, czy metoda wykrywa efekt notacyjny celowo podłożony do danych i nie wykrywa go po przetasowaniu, raportując oba wyniki.\"\n}",
+    "json": {
+     "werdykt": "metoda niewiarygodna",
+     "pewność": 0.95,
+     "najmocniejszy_dowód": "Raport nie podaje wyników wymaganych kontroli: czy metoda wykrywa efekt celowo podłożony i czy nie wykrywa go w danych przetasowanych. Bez tego nie można uznać testu za wiarygodny. Same wyniki są też zależne od podziału chorału: zapis słów nie ma cechy definiującej, ale sylaby i neumy wykazują silną zależność na odległość.",
+     "słabości": [
+      "Brak wyników kontroli pozytywnej i danych przetasowanych; nie wiadomo, czy metoda przechodzi wymagane sprawdzenia.",
+      "Wynik zależy od poziomu segmentacji chorału, a tabulatura basse danse ma zbyt małą próbkę, by obliczyć miary.",
+      "Porównanie melodii używa wysokości bezwzględnych; raport sam wskazuje, że zapis interwałowy mógłby zmienić obraz powtórzeń."
+     ],
+     "inne_wyjaśnienia": [
+      "Różnice między rękopisem a chorałem mogą wynikać z odmiennego sposobu kodowania i segmentacji danych, a nie z przeciwieństwa notacji i mowy.",
+      "Test obejmuje wybrane przykłady notacji, nie zaś wszystkie możliwe zapisy melodii, kroków ani procedur."
+     ],
+     "następny_test": "Przeprowadzić walidację na ustalonym z góry sposobie segmentacji: sprawdzić, czy metoda wykrywa efekt notacyjny celowo podłożony do danych i nie wykrywa go po przetasowaniu, raportując oba wyniki."
+    }
+   },
+   "inception/mercury-3": {
+    "raw": "{\n  \"werdykt\": \"obalona\",\n  \"pewność\": 0.7,\n  \"najmocniejszy_dowód\": \"Chorał gregoriański – niezależnie od poziomu jednostek (słowa, sylaby, neumy) – ma bardzo silną składnię na odległość (z ≈ 65–145), której rękopis nie ma (z ≈ −1,2). To przeczy hipotezie, że rękopis przypomina średniowieczną notację; wspólne są tylko cechy drugorzędne, jak dynamika długości.\",\n  \"słabości\": [\n    \"Tabulatura basse danse nie została przetestowana – próbka 146 kroków była za krótka, więc jedna z kluczowych notacji średniowiecznych wypadła z porównania.\",\n    \"Bełkot v5 spełnia 6/8 kryteriów sygnatury rękopisu, co pokazuje, że zestaw cech słabo odróżnia rękopis od przypadkowego materiału; to zmniejsza moc dowodową.\",\n    \"W raporcie nie opisano jednoznacznie kontroli z celowo podłożonym efektem ani kontroli na danych przetasowanych;",
+    "json": {}
+   },
+   "tencent/hy3": {
+    "raw": "{\n  \"werdykt\": \"obalona\",\n  \"pewność\": 0.85,\n  \"najmocniejszy_dowód\": \"Rękopis wykazuje brak składni na odległość (z = -1.2 dla jednostek niespokrewnionych), podczas gdy badane notacje (chorał: słowa, sylaby, neumy) mają silną składnię (z = 65–145), co oznacza, że statystyka rękopisu nie przypomina badanych notacji średniowiecznych w ich kluczowej cesze definiującej.\",\n  \"słabości\": [\n    \"Próbka tabulatury basse danse była zbyt krótka (146 kroków), by wyliczyć miary – hipoteza o zapisie kroków nie została zbadana.\",\n    \"Zapis chorału w Volpiano to wysokości bezwzględne; nie przetestowano zapisu interwałowego, który mógłby zmienić obraz powtórzeń.\",\n    \"Metoda nie wykazała kontroli na przetasowanych danych w raporcie – brak jawnie podanego wyniku kontroli permutacyjnej.\"\n  ],\n  \"inne_wyjaśnienia\": [\n    \"Rękopis może być niejęzykowym zapisem o innym typie struktury niż badane (np. nie melodia, lecz chemia lub astronomia).\",\n    \"Rękopis może być zapisem językowym o specyficznej, nieznanej strukturze (bełkot v5 dał 6/8 kryteriów, zbliżone do rękopisu).\"\n  ],\n  \"następny_test\": \"Pobranie pełnego wydania basse danse (59 tańców) i uruchomienie tej samej procedury statystycznej, by sprawdzić, czy tabulatura kroków wykazuje brak składni na odległość podobnie jak rękopis.\"\n}",
+    "json": {
+     "werdykt": "obalona",
+     "pewność": 0.85,
+     "najmocniejszy_dowód": "Rękopis wykazuje brak składni na odległość (z = -1.2 dla jednostek niespokrewnionych), podczas gdy badane notacje (chorał: słowa, sylaby, neumy) mają silną składnię (z = 65–145), co oznacza, że statystyka rękopisu nie przypomina badanych notacji średniowiecznych w ich kluczowej cesze definiującej.",
+     "słabości": [
+      "Próbka tabulatury basse danse była zbyt krótka (146 kroków), by wyliczyć miary – hipoteza o zapisie kroków nie została zbadana.",
+      "Zapis chorału w Volpiano to wysokości bezwzględne; nie przetestowano zapisu interwałowego, który mógłby zmienić obraz powtórzeń.",
+      "Metoda nie wykazała kontroli na przetasowanych danych w raporcie – brak jawnie podanego wyniku kontroli permutacyjnej."
+     ],
+     "inne_wyjaśnienia": [
+      "Rękopis może być niejęzykowym zapisem o innym typie struktury niż badane (np. nie melodia, lecz chemia lub astronomia).",
+      "Rękopis może być zapisem językowym o specyficznej, nieznanej strukturze (bełkot v5 dał 6/8 kryteriów, zbliżone do rękopisu)."
+     ],
+     "następny_test": "Pobranie pełnego wydania basse danse (59 tańców) i uruchomienie tej samej procedury statystycznej, by sprawdzić, czy tabulatura kroków wykazuje brak składni na odległość podobnie jak rękopis."
+    }
+   }
+  },
+  "round2": {
+   "z-ai/glm-5.3-flash": {
+    "raw": "{\"ranking\": [\"B\", \"D\", \"C\"], \"uwagi\": \"Opinia B jest najtrafniejsza metodologicznie: raport ma sekcję 'KONTROLE METODY' bez żadnej treści — nie podano ani wyniku kontroli pozytywnej (efekt podłożony), ani kontroli permutacyjnej (dane przetasowane). Zgodnie z zasadami rady test bez tych kontroli nie może być uznany za wiarygodny, więc werdykt automatyczny 'obalona' nie może zostać zaakceptowany bez zastrzeżeń. B słusznie wskazuje też na problem segmentacji chorału (słowa: brak cechy definiującej; sylaby i neumy: silna składnia na odległość) i na zastrzeżenie o zapisie interwałowym. Opinia D poprawnie identyfikuje najsilniejszy sygnał w danych (z = 65–145 u notacji vs z = -1,2 w rękopisie) i proponuje konkretny, wykonalny następny test (pełna tabulatura basse danse), ale zbyt łatwo akceptuje obalenie mimo braku kontroli. Opinia C ma podobną argumentację co D, ale jej lista słabości jest ucięta, brak proponowanego testu, a najniższa pewność (0,7) nie jest uzasadniona mocniej niż u D. Błąd wspólny C i D: traktują brak cechy definiującej u chorału jako rozstrzygające, podczas gdy bełkot v5 spełnia 6/8 kryteriów — zestaw kryteriów słabo odróżnia rękopis od materiału przypadkowego, co osłabia moc dowodową obalenia. Żadna opinia nie podważa jednak faktu, że dane, jeśli metoda jest wiarygodna, wyraźnie przemawiają przeciwko hipotezie notacyjnej dla badanych notacji.\", \"werdykt\": \"Obalona warunkowo / metoda niewiarygodna w obecnej formie: raport nie dokumentuje wymaganych kontroli (efekt podłożony, dane przetasowane), więc formalnie nie można zaakceptować werdyktu automatycznego. Sam wzorzec danych (rękopis bez składni na odległość z = -1,2 przy z = 65–145 dla chorału we wszystkich segmentacjach) sugeruje obalenie, ale wymaga potwierdzenia kontrolami; dodatkowo hipoteza o zapisie kroków (basse danse) pozostaje niewykluczona z powodu zbyt krótkiej próbki.\", \"pewność\": 0.6, \"zmiana_zdania\": \"nie — to moja pierwsza ocena tego testu; opiera się na braku udokumentowanych kontroli oraz na spójności wniosków opinii B i D co do sygnału w danych\"}",
+    "json": {
+     "ranking": [
+      "B",
+      "D",
+      "C"
+     ],
+     "uwagi": "Opinia B jest najtrafniejsza metodologicznie: raport ma sekcję 'KONTROLE METODY' bez żadnej treści — nie podano ani wyniku kontroli pozytywnej (efekt podłożony), ani kontroli permutacyjnej (dane przetasowane). Zgodnie z zasadami rady test bez tych kontroli nie może być uznany za wiarygodny, więc werdykt automatyczny 'obalona' nie może zostać zaakceptowany bez zastrzeżeń. B słusznie wskazuje też na problem segmentacji chorału (słowa: brak cechy definiującej; sylaby i neumy: silna składnia na odległość) i na zastrzeżenie o zapisie interwałowym. Opinia D poprawnie identyfikuje najsilniejszy sygnał w danych (z = 65–145 u notacji vs z = -1,2 w rękopisie) i proponuje konkretny, wykonalny następny test (pełna tabulatura basse danse), ale zbyt łatwo akceptuje obalenie mimo braku kontroli. Opinia C ma podobną argumentację co D, ale jej lista słabości jest ucięta, brak proponowanego testu, a najniższa pewność (0,7) nie jest uzasadniona mocniej niż u D. Błąd wspólny C i D: traktują brak cechy definiującej u chorału jako rozstrzygające, podczas gdy bełkot v5 spełnia 6/8 kryteriów — zestaw kryteriów słabo odróżnia rękopis od materiału przypadkowego, co osłabia moc dowodową obalenia. Żadna opinia nie podważa jednak faktu, że dane, jeśli metoda jest wiarygodna, wyraźnie przemawiają przeciwko hipotezie notacyjnej dla badanych notacji.",
+     "werdykt": "Obalona warunkowo / metoda niewiarygodna w obecnej formie: raport nie dokumentuje wymaganych kontroli (efekt podłożony, dane przetasowane), więc formalnie nie można zaakceptować werdyktu automatycznego. Sam wzorzec danych (rękopis bez składni na odległość z = -1,2 przy z = 65–145 dla chorału we wszystkich segmentacjach) sugeruje obalenie, ale wymaga potwierdzenia kontrolami; dodatkowo hipoteza o zapisie kroków (basse danse) pozostaje niewykluczona z powodu zbyt krótkiej próbki.",
+     "pewność": 0.6,
+     "zmiana_zdania": "nie — to moja pierwsza ocena tego testu; opiera się na braku udokumentowanych kontroli oraz na spójności wniosków opinii B i D co do sygnału w danych"
+    }
+   },
+   "openai/gpt-6-luna": {
+    "raw": "{\"ranking\":[\"A\",\"D\",\"C\"],\"uwagi\":\"A jest najlepiej uzasadniona: trafnie zauważa, że raport nie podaje wyników wymaganych kontroli metody, więc nie można uznać testu za wiarygodny. D i C słusznie wskazują, że chorał ma silną zależność na odległość (z ≈ 65–145), której rękopis nie wykazuje (z ≈ −1,2), ale zbyt stanowczo traktują to jako obalenie szerokiej hipotezy. Dodatkowo D proponuje test basse danse bez wymogu uprzedniego sprawdzenia kontroli. A także nieco uogólnia: bełkot v5 nie ma silnej zależności na odległość (z = 0,8), a łacina ma z = 12,7, znacznie mniej niż chorał i Python. Zgodność bełkotu z 6/8 kryteriów osłabia swoistość podpisu, ale sama nie rozstrzyga, czym jest rękopis. Dane nie wspierają podobieństwa do badanego chorału w kluczowej mierzonej cesze; nie wykluczają jednak innych typów notacji. Basse danse nie została miarodajnie zbadana, a zapis interwałowy chorału także nie. Zgodnie z wymaganym standardem brak wykazanych kontroli oznacza, że wynik nie uzasadnia werdyktu „obalona”.\",\"werdykt\":\"Nierozstrzygnięta; przedstawiony test jest niewiarygodny z powodu braku udokumentowanych kontroli metody. Wstępne wyniki wskazują na niezgodność rękopisu z badanym chorałem w zakresie składni na odległość, ale nie obalają ogólnej hipotezy o zapisie niejęzykowym.\",\"pewność\":0.9,\"zmiana_zdania\":\"nie — na podstawie raportu nie przyjmuję werdyktu „obalona”, ponieważ nie wykazano, że metoda przechodzi wymagane kontrole; wyniki można traktować jedynie jako wstępne.\"}",
+    "json": {
+     "ranking": [
+      "A",
+      "D",
+      "C"
+     ],
+     "uwagi": "A jest najlepiej uzasadniona: trafnie zauważa, że raport nie podaje wyników wymaganych kontroli metody, więc nie można uznać testu za wiarygodny. D i C słusznie wskazują, że chorał ma silną zależność na odległość (z ≈ 65–145), której rękopis nie wykazuje (z ≈ −1,2), ale zbyt stanowczo traktują to jako obalenie szerokiej hipotezy. Dodatkowo D proponuje test basse danse bez wymogu uprzedniego sprawdzenia kontroli. A także nieco uogólnia: bełkot v5 nie ma silnej zależności na odległość (z = 0,8), a łacina ma z = 12,7, znacznie mniej niż chorał i Python. Zgodność bełkotu z 6/8 kryteriów osłabia swoistość podpisu, ale sama nie rozstrzyga, czym jest rękopis. Dane nie wspierają podobieństwa do badanego chorału w kluczowej mierzonej cesze; nie wykluczają jednak innych typów notacji. Basse danse nie została miarodajnie zbadana, a zapis interwałowy chorału także nie. Zgodnie z wymaganym standardem brak wykazanych kontroli oznacza, że wynik nie uzasadnia werdyktu „obalona”.",
+     "werdykt": "Nierozstrzygnięta; przedstawiony test jest niewiarygodny z powodu braku udokumentowanych kontroli metody. Wstępne wyniki wskazują na niezgodność rękopisu z badanym chorałem w zakresie składni na odległość, ale nie obalają ogólnej hipotezy o zapisie niejęzykowym.",
+     "pewność": 0.9,
+     "zmiana_zdania": "nie — na podstawie raportu nie przyjmuję werdyktu „obalona”, ponieważ nie wykazano, że metoda przechodzi wymagane kontrole; wyniki można traktować jedynie jako wstępne."
+    }
+   },
+   "inception/mercury-3": {
+    "raw": "{\"ranking\": [\"A\", \"B\", \"D\"], \"uwagi\": \"Opinia A jest najlepiej uzasadniona danymi w raporcie: słusznie wskazuje na brak kontroli metody (sekcja KONTROLE METODY jest pusta), zbyt krótką próbkę basse danse oraz na fakt, że bełkot v5 spełnia 6/8 kryteriów, co podważa specyficzność podpisu dla notacji. Opinia B poprawnie akcentuje brak kontroli pozytywnej i permutacyjnej oraz zależność od segmentacji chorału, ale jest mniej kompletna niż A – nie omawia problemu z basse danse ani bełkotu. Opinia D jest błędna, gdyż wydaje werdykt „obalona” pomimo braku wymaganych kontroli metody i zbyt małej próbki dla jednej z kluczowych notacji; pomija też, że bełkot v5 daje wynik zbliżony do rękopisu, co osłabia tezę o specyficzności notacji.\", \"werdykt\": \"Metoda niewiarygodna – raport nie zawiera wyników kontroli (efekt podłożony celowo oraz dane przetasowane), a jeden z kluczowych kontrastów (basse danse) nie został zbadany ze względu na zbyt małą próbkę. Nie można zatem wiążąco ocenić hipotezy, choć same wyniki sugerują, że rękopis nie przypomina badanych notacji w cesze definiującej.\", \"pewność\": 0.85, \"zmiana_zdania\": \"Nie – moja ocena zgadza się z opinią A; brak kontroli metody dyskwalifikuje test jako wiarygodny, niezależnie od pojedynczych miar.\"}",
+    "json": {
+     "ranking": [
+      "A",
+      "B",
+      "D"
+     ],
+     "uwagi": "Opinia A jest najlepiej uzasadniona danymi w raporcie: słusznie wskazuje na brak kontroli metody (sekcja KONTROLE METODY jest pusta), zbyt krótką próbkę basse danse oraz na fakt, że bełkot v5 spełnia 6/8 kryteriów, co podważa specyficzność podpisu dla notacji. Opinia B poprawnie akcentuje brak kontroli pozytywnej i permutacyjnej oraz zależność od segmentacji chorału, ale jest mniej kompletna niż A – nie omawia problemu z basse danse ani bełkotu. Opinia D jest błędna, gdyż wydaje werdykt „obalona” pomimo braku wymaganych kontroli metody i zbyt małej próbki dla jednej z kluczowych notacji; pomija też, że bełkot v5 daje wynik zbliżony do rękopisu, co osłabia tezę o specyficzności notacji.",
+     "werdykt": "Metoda niewiarygodna – raport nie zawiera wyników kontroli (efekt podłożony celowo oraz dane przetasowane), a jeden z kluczowych kontrastów (basse danse) nie został zbadany ze względu na zbyt małą próbkę. Nie można zatem wiążąco ocenić hipotezy, choć same wyniki sugerują, że rękopis nie przypomina badanych notacji w cesze definiującej.",
+     "pewność": 0.85,
+     "zmiana_zdania": "Nie – moja ocena zgadza się z opinią A; brak kontroli metody dyskwalifikuje test jako wiarygodny, niezależnie od pojedynczych miar."
+    }
+   },
+   "tencent/hy3": {
+    "raw": "{\n  \"ranking\": [\"B\", \"A\", \"C\"],\n  \"uwagi\": \"B najlepiej uzasadnia ocenę danymi: trafnie wskazuje, że sekcja KONTROLE METODY w raporcie jest pusta, co zgodnie z zasadami rady czyni test niewiarygodnym (brak dowodu na wykrycie efektu celowego i brak fałszywych alarmów w danych przetasowanych). A słusznie wskazuje na brak testu basse danse i nakładanie się profilu rękopisu z bełkotem v5, ale czyni to drugorzędnym wobec braku walidacji metody. C myli się, wydając werdykt 'obalona' na podstawie wyników metody, której wiarygodności nie zweryfikowano (brak kontroli).\",\n  \"werdykt\": \"metoda niewiarygodna\",\n  \"pewność\": 0.95,\n  \"zmiana_zdania\": \"nie, test został odrzucony na etapie weryfikacji metody z powodu braku wymaganych kontroli (efekt podłożony/przetasowanie) w dostarczonym raporcie\"\n}",
+    "json": {
+     "ranking": [
+      "B",
+      "A",
+      "C"
+     ],
+     "uwagi": "B najlepiej uzasadnia ocenę danymi: trafnie wskazuje, że sekcja KONTROLE METODY w raporcie jest pusta, co zgodnie z zasadami rady czyni test niewiarygodnym (brak dowodu na wykrycie efektu celowego i brak fałszywych alarmów w danych przetasowanych). A słusznie wskazuje na brak testu basse danse i nakładanie się profilu rękopisu z bełkotem v5, ale czyni to drugorzędnym wobec braku walidacji metody. C myli się, wydając werdykt 'obalona' na podstawie wyników metody, której wiarygodności nie zweryfikowano (brak kontroli).",
+     "werdykt": "metoda niewiarygodna",
+     "pewność": 0.95,
+     "zmiana_zdania": "nie, test został odrzucony na etapie weryfikacji metody z powodu braku wymaganych kontroli (efekt podłożony/przetasowanie) w dostarczonym raporcie"
+    }
+   }
+  },
+  "synthesis": "## Werdykt rady\n**Hipoteza nierozstrzygnięta; test niewiarygodny w obecnej postaci.** Zgodność rady jest wysoka: wszyscy oceniający w rundzie 2 odrzucają automatyczne „obalona” jako nieuzasadnione bez wymaganych kontroli.\n\n## Co test naprawdę pokazuje\nWarunkowo, jeśli metoda działa poprawnie, rękopis różni się od badanego chorału w kluczowej mierze: zależność dla niespokrewnionych jednostek wynosi **z = −1,2**, wobec **z = 65–145** dla chorału zależnie od segmentacji. Jednocześnie część miar długości jest podobna. Podpis rękopisu spełnia też bełkot v5 (**6/8 kryteriów**), co ogranicza swoistość tego zestawu cech.\n\nTo są wyniki dotyczące zbadanych danych, nie dowód przeciwko wszystkim rodzajom zapisu niejęzykowego. Test nie rozstrzyga, czym jest rękopis.\n\n## Główne zastrzeżenia\nRaport nie podaje wyników kontroli wymaganych do uznania metody za wiarygodną: wykrycia efektu podłożonego celowo oraz braku efektu w danych przetasowanych. Ponadto basse danse nie została miarodajnie zbadana (146 kroków), wyniki chorału zależą od segmentacji, a nie sprawdzono zapisu interwałowego.\n\n## Następny eksperyment\nPrzeprowadzić walidację tej samej, ustalonej z góry procedury: wykazać, że wykrywa celowo podłożony efekt i nie wykrywa go po przetasowaniu danych.",
+  "failed": {},
+  "votes": {
+   "nierozstrzygnięta": 1,
+   "metoda niewiarygodna": 2,
+   "obalona": 1
+  }
+ }
 }

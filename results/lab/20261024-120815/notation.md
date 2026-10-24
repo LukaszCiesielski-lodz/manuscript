@@ -26,10 +26,26 @@ Kryteria podpisu rękopisu spełnione: chorał: słowa tekstu 6/8, bełkot v5 6/
 - Tabulatura basse danse w dostępnej próbce jest za krótka; pełne wydanie (59 tańców) wymaga pobrania PDF.
 - Melodie w Volpiano to wysokości bezwzględne; zapis interwałowy mógłby dać inny obraz powtórzeń.
 
+## Rada modeli
+
+## Werdykt rady
+**Hipoteza nierozstrzygnięta; test niewiarygodny w obecnej postaci.** Zgodność rady jest wysoka: wszyscy oceniający w rundzie 2 odrzucają automatyczne „obalona” jako nieuzasadnione bez wymaganych kontroli.
+
+## Co test naprawdę pokazuje
+Warunkowo, jeśli metoda działa poprawnie, rękopis różni się od badanego chorału w kluczowej mierze: zależność dla niespokrewnionych jednostek wynosi **z = −1,2**, wobec **z = 65–145** dla chorału zależnie od segmentacji. Jednocześnie część miar długości jest podobna. Podpis rękopisu spełnia też bełkot v5 (**6/8 kryteriów**), co ogranicza swoistość tego zestawu cech.
+
+To są wyniki dotyczące zbadanych danych, nie dowód przeciwko wszystkim rodzajom zapisu niejęzykowego. Test nie rozstrzyga, czym jest rękopis.
+
+## Główne zastrzeżenia
+Raport nie podaje wyników kontroli wymaganych do uznania metody za wiarygodną: wykrycia efektu podłożonego celowo oraz braku efektu w danych przetasowanych. Ponadto basse danse nie została miarodajnie zbadana (146 kroków), wyniki chorału zależą od segmentacji, a nie sprawdzono zapisu interwałowego.
+
+## Następny eksperyment
+Przeprowadzić walidację tej samej, ustalonej z góry procedury: wykazać, że wykrywa celowo podłożony efekt i nie wykrywa go po przetasowaniu danych.
+
 ## Literatura
 
 - Cornelissen, Zuidema & Burgoyne, Mode classification and natural units in plainchant, ISMIR 2020 (CantusCorpus)
 - Brussels, KBR ms. 9085, Les basses danses de Marguerite d'Autriche (c. 1470)
 - Crane, Materials for the study of the fifteenth century basse danse (1968)
 
-_Czas: 357 s · 2026-10-24 12:14_
+_Czas: 357 s · 2026-10-24 12:17_
