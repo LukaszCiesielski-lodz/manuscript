@@ -47,6 +47,7 @@ os.chdir("/content/manuscript")
 # Kolejne uruchomienie w tej samej sesji: dociągnij najnowszy kod (wyniki są na osobnej gałęzi).
 subprocess.run(["git", "fetch", "origin", CODE_BRANCH], check=True)
 subprocess.run(["git", "checkout", "-B", CODE_BRANCH, f"origin/{{CODE_BRANCH}}"], check=True)
+import importlib; importlib.invalidate_caches()
 !git log --oneline -3"""),
     ("code", """# PyTorch, numpy, scikit-learn i Pillow są w Colabie; dokładamy CLIP.
 !pip install -q open_clip_torch

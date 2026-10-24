@@ -15,6 +15,7 @@ class Theory:
 
     def load(self) -> Callable:
         import importlib
+        importlib.invalidate_caches()   # files pulled into the package after the first import must still be found
         mod, fn = self.runner.split(":")
         return getattr(importlib.import_module(f"voynich.lab.theories.{mod}"), fn)
 
