@@ -447,3 +447,24 @@ class PhonotacticsTest(unittest.TestCase):
         self.assertAlmostEqual(p["patterns"]["CVCCV"], 0.5)
         self.assertEqual(ph.js_divergence(p["patterns"], p["patterns"]), 0.0)
         self.assertAlmostEqual(ph.js_divergence({"CV": 1.0}, {"VC": 1.0}), 1.0)
+
+
+class RecoverTest(unittest.TestCase):
+    def test_result_round_trip_and_recover(self):
+        import tempfile
+        from pathlib import Path
+        from voynich.lab.config import LabConfig
+        from voynich.lab.runner import Lab
+        r = TheoryResult("t", "h", "m")
+        r.control("ok", "x", "x", True)
+        r.decide(True)
+        with tempfile.TemporaryDirectory() as tmp:
+            root = Path(tmp)
+            r.save(root / "20200101-000000")
+            back = TheoryResult.load(root / "20200101-000000" / "t.json")
+            self.assertEqual(back.verdict, "potwierdzona")
+            self.assertEqual(back.controls[0].name, "ok")
+            lab = Lab(LabConfig(results_dir=root))
+            self.assertIsNotNone(lab.recover("t"))
+            self.assertIn("t", lab.results)
+            self.assertIsNone(lab.recover("nope"))

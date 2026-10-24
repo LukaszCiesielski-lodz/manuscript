@@ -73,6 +73,12 @@ class TheoryResult:
         (folder / f"{self.theory}.md").write_text(self.markdown(), encoding="utf-8")
         return path
 
+    @classmethod
+    def load(cls, path: Path) -> "TheoryResult":
+        d = json.loads(Path(path).read_text(encoding="utf-8"))
+        d["controls"] = [Control(**c) for c in d.get("controls", [])]
+        return cls(**d)
+
     def markdown(self) -> str:
         out = [f"# {self.theory}: {self.verdict}", "", f"**Hipoteza.** {self.hypothesis}", "",
                f"**Metoda.** {self.method}", "", self.summary, "", "## Kontrole", ""]

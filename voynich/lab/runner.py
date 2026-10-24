@@ -102,13 +102,28 @@ class Lab:
 
     # ---- council
 
+    def recover(self, name: str) -> TheoryResult | None:
+        """The newest saved result of a theory from an earlier run on this machine (after a kernel restart)."""
+        root = self.cfg.results_dir.parent
+        found = sorted(root.glob(f"*/{name}.json"), key=lambda p: p.stat().st_mtime)
+        if not found:
+            return None
+        res = TheoryResult.load(found[-1])
+        self.results[name] = res
+        res.save(self.cfg.results_dir)
+        print(f"Wynik {name} wczytany z {found[-1].parent.name}.", flush=True)
+        return res
+
     def convene(self, names: list[str] | None = None) -> None:
         if not self.client or not self.members:
             print("Rada pominięta: brak połączenia z OpenRouter.")
             return
         chat = lambda model, messages, max_tokens: self.client.chat(model, messages, max_tokens)
         for name in names or list(self.results):
-            res = self.results[name]
+            res = self.results.get(name) or self.recover(name)
+            if res is None:
+                print(f"Rada pomija {name}: brak wyniku w tej sesji i na dysku.")
+                continue
             print(f"Rada obraduje: {name} ...", flush=True)
             res.council = deliberate(res, self.members, self.chair, chat, self.cfg.council_language, self.cfg.max_tokens)
             res.save(self.cfg.results_dir)

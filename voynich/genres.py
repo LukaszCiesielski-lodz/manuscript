@@ -5,7 +5,7 @@ and one-glyph variants inside a line, neighbours of similar length) is what a co
 leaves, but some genuine medieval genres might leave it too: a litany repeats a frame with a
 changing name; the "voces magicae" of the Ars Notoria and Liber Iuratus are deliberately
 meaningless strings with echoes and variants (Lemogethom, Hegemochom, Hazachay, Hazatha...).
-Texts are fetched by scripts/fetch_genres.py into data/reference/genres/ (not committed).
+Texts live in data/genres/ (committed; scripts/fetch_genres.py refreshes them).
 """
 
 from __future__ import annotations
@@ -15,7 +15,7 @@ from pathlib import Path
 
 from . import corpus, lexicon
 
-GENRES_DIR = corpus.REFERENCE_DIR / "genres"
+GENRES_DIR = corpus.DATA / "genres"   # committed: small public-domain texts, refreshed by scripts/fetch_genres.py
 LITANY_URL = "https://la.wikisource.org/w/api.php?action=parse&page=Litaniae_Sanctorum&prop=wikitext&format=json&formatversion=2"
 NOTORIA_URL = "http://www.esotericarchives.com/notoria/notoria.htm"
 IURATUS_URL = "http://www.esotericarchives.com/juratus/juratus.htm"
