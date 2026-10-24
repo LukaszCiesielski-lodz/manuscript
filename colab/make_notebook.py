@@ -89,7 +89,7 @@ lab = Lab(cfg)
 lab.connect()   # pokaże wybraną radę, model wizyjny i ceny"""),
     ("md", "## 3. Testy\nKażdą komórkę można uruchomić osobno. Wyniki zapisują się w `results/lab/<data>/`."),
     ("code", 'lab.run("numbers");'),
-    ("code", 'lab.run("naibbe_cipher"); lab.run("cardan_grille"); lab.run("hebrew_anagram"); lab.run("basque"); lab.run("nomenclator"); lab.run("hoax"); lab.run("syntax"); lab.run("romance"); lab.run("lengths"); lab.run("phonotactics");'),
+    ("code", 'lab.run("naibbe_cipher"); lab.run("cardan_grille"); lab.run("hebrew_anagram"); lab.run("basque"); lab.run("nomenclator"); lab.run("hoax"); lab.run("syntax"); lab.run("romance"); lab.run("lengths"); lab.run("phonotactics"); lab.run("length_code");'),
     ("code", 'lab.run("brute");            # brute force trójek na GPU (~1 h na A100 przy 45 językach)'),
     ("code", """# Próba pobrania jednego skanu. Yale zwykle odrzuca Colaba (403); wtedy kod bierze te same skany
 # Beinecke z Internet Archive (archive.org/details/voynich) i sprawdza proporcje każdej strony.

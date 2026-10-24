@@ -499,3 +499,21 @@ class PublishTest(unittest.TestCase):
         after = subprocess.run(["git", "-C", str(ROOT), "rev-parse", "--abbrev-ref", "HEAD"], capture_output=True, text=True).stdout.strip()
         self.assertEqual(head, after)
         self.assertTrue((ROOT / "voynich" / "lab" / "theories" / "transcriptions.py").exists())
+
+
+class LengthCodeTest(unittest.TestCase):
+    def test_planted_text_shows_order_and_shuffle_does_not(self):
+        from voynich import corpus
+        from voynich.lab.theories import length_code as lc
+        rows = [[4, 5, 3, 4, 6, 2, 5, 4, 3]] * 300
+        plant = lc.planted(corpus.load_reference("Latin"), rows)
+        _, z = lc.structure_z(plant, shuffles=20, seed=1)
+        self.assertLess(z, -5)
+        import random
+        r = random.Random(1)
+        flat = [x for row in plant for x in row]
+        r.shuffle(flat)
+        rnd = [flat[i:i + 9] for i in range(0, len(flat) - 8, 9)]
+        _, z2 = lc.structure_z(rnd, shuffles=20, seed=1)
+        self.assertGreater(z2, -3)
+        self.assertEqual(lc.digits([[["a", "b"], ["c"] * 12]]), [[2, 9]])
