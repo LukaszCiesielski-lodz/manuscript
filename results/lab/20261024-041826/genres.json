@@ -1,0 +1,21 @@
+{
+ "theory": "genres",
+ "hypothesis": "Rękopis to tekst gatunku, który z natury nie ma składni między słowami: litania (stała rama, zmienne imię) albo „imiona barbarzyńskie” ksiąg magicznych (ciągi bez znaczenia z echami i wariantami).",
+ "method": "Litania do Wszystkich Świętych (la.wikisource) i imiona z Ars Notoria i Liber Iuratus (Esoteric Archives) mierzone jak rękopis: zależność na odległość rozbita na powtórzenia, warianty i słowa niespokrewnione; dynamika długości słów (korelacja sąsiadów, DFA); miary kształtu z karty. Porównanie z rękopisem i łaciną.",
+ "verdict": "nierozstrzygnięta",
+ "summary": "Pominięte: brak danych.",
+ "metrics": {},
+ "controls": [],
+ "evidence": [
+  "Brak tekstów gatunkowych: uruchom scripts/fetch_genres.py."
+ ],
+ "caveats": [],
+ "references": [
+  "Ars Notoria (ed. Turner 1657; Esoteric Archives)",
+  "Liber Iuratus Honorii (Esoteric Archives)",
+  "Litaniae Sanctorum"
+ ],
+ "artifacts": [],
+ "seconds": 0.15178775787353516,
+ "council": {}
+}
