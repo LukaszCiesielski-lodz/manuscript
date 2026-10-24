@@ -76,7 +76,9 @@ def run(cfg: LabConfig) -> TheoryResult:
     res.evidence.append("Przed przekształceniem, informacja wzajemna sąsiednich słów wobec tasowania w wierszu (z): "
                         + ", ".join(f"{k} {v['z']:+.1f}" for k, v in mi.items()) + "; rękopis działami: "
                         + ", ".join(f"{s} {z:+.1f}" for s, z in sec.items())
-                        + ". Sąsiednie słowa rękopisu wiedzą o sobie MNIEJ niż dwa losowe słowa tej samej linii; bełkot v5 i łacina odwrotnie.")
+                        + ". Sąsiednie słowa rękopisu wiedzą o sobie MNIEJ niż dwa losowe słowa tej samej linii; bełkot v5 i łacina odwrotnie. "
+                        "Źródłem są krawędzie wiersza: gdy pierwsze i ostatnie słowo zostają na miejscu, nadwyżka rękopisu jest dodatnia "
+                        "(+0,09 bitu, jak u v5); pierwsze i ostatnie słowa wierszy są osobnym słownictwem jako całe słowa, nie tylko przez glify p/m/g.")
     # Controls on Latin: the description length must pick the true words, and undo a cipher of the family.
     plain = {t.name: _measure(keystream.apply(t, latl), sh_mi, sh_syn, cfg.seed) for t in fam}
     best_plain = _cheapest(fam[0].name, plain, lambda k: plain[k]["dl"])
@@ -143,6 +145,7 @@ def run(cfg: LabConfig) -> TheoryResult:
                     "przyporządkowująca długościom litery, wymagałby osobnego testu (tak działał length_code, obalony).",
                     "Cięcie strumienia glifów w sztywne kawałki samo tworzy pozorną informację między sąsiadami (zależności glifów przechodzą "
                     "przez cięcie); stąd porównanie każdej reguły z tą samą regułą na bełkocie, nie z zerem.",
-                    "Ujemna informacja sąsiednich słów rękopisu to nowa miara spoza karty 22; kandydat do karty v7."]
+                    "Ujemna informacja sąsiednich słów rękopisu to miara spoza karty 22, dodana do karty jako 23. (adjacent_mi_excess); "
+                    "jej źródłem jest słownictwo krawędzi wiersza."]
     res.seconds = time.time() - t0
     return res

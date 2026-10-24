@@ -408,6 +408,35 @@ display(Markdown((lab.cfg.results_dir / "keystream.md").read_text()))"""),
 ]
 
 
+# Generator v7 on the GPU: v6 plus neighbour avoidance and the 23rd measure; the transformer judge decides.
+v7_cells = [
+    ("md", """# Voynich Lab – generator v7: czy „unikanie sąsiada” domyka bełkot
+
+Sąsiednie słowa rękopisu niosą o sobie mniej informacji niż dwa losowe słowa tej samej linii (z = −24), czego bełkot v5
+(+11) ani v6 (+1,5) nie odtwarzają, a łacina ma +47. Diagnoza: to słownictwo krawędzi wiersza (pierwsze i ostatnie słowa
+wierszy to osobny zasób całych słów, nie tylko glify p/m/g). v7 dodaje do generatora zasób słów otwierających i zamykających
+wiersz (`p_edge`; przy 0,6–0,9 odtwarza miarę) i „unikanie sąsiada” (`neighbour_gamma`), a do karty 23. miarę (informacja
+sąsiednich słów ponad losowe słowa linii). Ewolucja 20 ustawień na CPU (karta foliałów nieparzystych), finaliści na
+parzystych, 5 najlepszych do sędziego-transformera na GPU.
+Jeśli sędzia przestanie odróżniać (AUC ≤ prawdziwe wobec prawdziwych + 0,07), mechanizm skryby tłumaczy wszystko, co
+umiemy zmierzyć; jeśli nie, zostaje coś jeszcze.
+
+**Runtime:** A100 (High-RAM). Sekrety: `GITHUB_TOKEN`, `OPENROUTER_API_KEY`. Czas: ok. 40 min (8 CPU + 30 GPU)."""),
+    cells[1],
+    cells[3],
+    ("code", """!python scripts/fetch_data.py"""),
+    cells[5],
+    ("code", cells[7][1].replace('theories=["all"],          # albo np. ["numbers", "literature"]', 'theories=["v6"],')),
+    ("code", """import os
+lab.cfg.v6_workers = max(1, (os.cpu_count() or 2) - 1)
+lab.run("v6"); lab.push()
+lab.convene(["v6"])
+lab.report(); lab.push()
+from IPython.display import Markdown, display
+display(Markdown((lab.cfg.results_dir / "v6.md").read_text()))"""),
+]
+
+
 def cell(kind, text):
     src = text.splitlines(keepends=True)
     if kind == "md":
@@ -427,7 +456,7 @@ for name, cs in (("Voynich_Lab.ipynb", cells), ("Voynich_Ilustracje.ipynb", illu
                  ("Voynich_Final.ipynb", final_cells),
                  ("Voynich_Notacja.ipynb", notation_cells),
                  ("Voynich_Rejestr.ipynb", rejestr_cells), ("Voynich_Rejestr_GPU.ipynb", rejestr_gpu_cells),
-                 ("Voynich_Klucz.ipynb", keystream_cells)):
+                 ("Voynich_Klucz.ipynb", keystream_cells), ("Voynich_V7.ipynb", v7_cells)):
     base = nb_cpu if name in ("Voynich_Rejestr.ipynb", "Voynich_Klucz.ipynb") else nb
     out = Path(__file__).with_name(name)
     out.write_text(json.dumps({**base, "cells": [cell(k, t) for k, t in cs]}, indent=1, ensure_ascii=False), encoding="utf-8")

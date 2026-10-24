@@ -1,11 +1,13 @@
-"""Generator v6: the v5 scribe's habits searched by evolution against the manuscript's scorecard.
+"""Generators v6 and v7: the v5 scribe's habits searched by evolution against the manuscript's scorecard.
 
 v5 by section misses three vocabulary measures (too few distinct words and hapax legomena, too
 much weight on the ten most frequent words): its reuse is too concentrated. `freq_gamma` damps a
 word the more often it has been written. The eighteen settings below are evolved on the CPU (a
-process pool; each evaluation generates ~37k words and scores 22 measures against the yardstick
+process pool; each evaluation generates ~37k words and scores every measure of the scorecard against the yardstick
 of the odd folios); the even folios, never seen by the search, rank the finalists, and the
-transformer judge on the GPU gives the last word.
+transformer judge on the GPU gives the last word. v7 adds `neighbour_gamma` (a candidate resembling
+the word just written is avoided), `p_edge` (a stock of whole line-opening and line-closing words) and
+the 23rd measure, the information between adjacent words, which the edge vocabulary drives.
 """
 
 from __future__ import annotations
@@ -29,9 +31,10 @@ SPACE: dict[str, tuple[float, float, bool]] = {
     "p_repeat": (0.0, 0.02, False), "window": (3, 30, True), "candidates": (2, 8, True), "p_fav": (0.0, 0.3, False),
     "p_short": (0.0, 0.15, False), "position_gamma": (0.0, 4.0, False), "pair_gamma": (0.0, 4.0, False),
     "mood_gamma": (0.0, 4.0, False), "freq_gamma": (0.0, 2.0, False), "fav_n": (5, 120, True),
+    "neighbour_gamma": (0.0, 6.0, False), "p_edge": (0.0, 0.9, False),
 }
 VOCAB = ("type_token_ratio", "hapax_ratio", "top10_coverage", "vocab_density")
-V5_POINT = {**V5_SECTION_PARAMS, "freq_gamma": 0.0, "fav_n": 40}
+V5_POINT = {**V5_SECTION_PARAMS, "freq_gamma": 0.0, "fav_n": 40, "neighbour_gamma": 0.0, "p_edge": 0.0}
 
 
 def clip(params: dict) -> dict:

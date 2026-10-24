@@ -48,6 +48,7 @@ MEASURES = {
     "line_first_len": "długość pierwszego słowa wiersza / średnia",
     "len_neighbour": "korelacja długości sąsiednich słów",
     "line_mean_spread": "rozrzut średniej długości słowa między wierszami",
+    "adjacent_mi_excess": "informacja sąsiednich słów ponad losowe słowa linii",
 }
 
 
@@ -81,7 +82,36 @@ def measure(lines: Sequence[Line]) -> dict[str, float]:
     pairs = [(len(a), len(b)) for l in lines for a, b in zip(l, l[1:])]
     out["len_neighbour"] = sum((a - m) * (b - m) for a, b in pairs) / len(pairs) / v
     out["line_mean_spread"] = statistics.pstdev([statistics.mean(len(w) for w in l) for l in long])
+    out["adjacent_mi_excess"] = adjacent_mi_excess(lines)
     return out
+
+
+def _pair_mi(pairs: Sequence[tuple]) -> float:
+    n = len(pairs)
+    if not n:
+        return 0.0
+    cxy, cx, cy = Counter(pairs), Counter(a for a, _ in pairs), Counter(b for _, b in pairs)
+    return sum(c / n * math.log2(c * n / (cx[a] * cy[b])) for (a, b), c in cxy.items())
+
+
+def adjacent_mi_excess(lines: Sequence[Line], shuffles: int = 3) -> float:
+    """Mutual information (bits) between neighbouring words minus its mean after shuffling the words of every line
+    (fixed seed). Languages are positive (neighbours predict each other); the manuscript is negative (-0.17 per block,
+    v5 +0.03). The deficit comes from the line edges: with the first and last words held in place the excess is +0.09,
+    like v5's, so what the measure captures is that the manuscript's line-initial and line-final words are a
+    vocabulary of their own as whole words, beyond the p-/m-/g- glyph habits the card already has."""
+    rng = random.Random(0)
+    words = [[tuple(w) for w in l if w] for l in lines]
+    obs = _pair_mi([(a, b) for l in words for a, b in zip(l, l[1:])])
+    null = []
+    for _ in range(shuffles):
+        pairs = []
+        for l in words:
+            l = list(l)
+            rng.shuffle(l)
+            pairs += list(zip(l, l[1:]))
+        null.append(_pair_mi(pairs))
+    return obs - statistics.mean(null)
 
 
 def yardstick(real_lines: Sequence[Line]) -> dict[str, tuple[float, float]]:

@@ -1,4 +1,4 @@
-"""Theory: a scribe's habits can be tuned until no measure and no transformer judge tells the text from the manuscript.
+"""Theory: a scribe's habits (v6, v7) can be tuned until no measure and no transformer judge tells the text from the manuscript.
 
 See voynich.lab.v6. Evolution on the CPU (scorecard of the odd folios), finalists ranked on the
 even folios the search never saw (three seeds, n-gram line classifier), the best few judged by
@@ -32,10 +32,12 @@ def run(cfg: LabConfig) -> TheoryResult:
     pop, gens = (6, 3) if cfg.quick else (cfg.v6_population, cfg.v6_generations)
     res = TheoryResult(
         theory="v6",
-        hypothesis="Reguły skryby bez treści (v5 z tłumieniem słów już użytych) dają się dostroić tak, że tekst przechodzi "
-                   "wszystkie 22 miary i nie odróżnia go transformer-sędzia: rękopis jest wtedy wytłumaczalny bez treści.",
+        hypothesis="Reguły skryby bez treści (v5 z tłumieniem słów już użytych i unikaniem sąsiada: v7) dają się dostroić tak, że "
+                   f"tekst przechodzi wszystkie {len(hoax.MEASURES)} miary i nie odróżnia go transformer-sędzia: rękopis jest wtedy "
+                   "wytłumaczalny bez treści.",
         method=(f"Ewolucja (μ+λ) {len(v6.SPACE)} ustawień generatora v5 działami z nowym tłumieniem częstości (freq_gamma): populacja "
-                f"{pop}, {gens} pokoleń, elita {4}, wspólne ziarno w pokoleniu, przystosowanie = Σ max(0,|z|−1)² po 22 miarach + "
+                f"{pop}, {gens} pokoleń, elita {4}, wspólne ziarno w pokoleniu, przystosowanie = Σ max(0,|z|−1)² po {len(hoax.MEASURES)} miarach "
+                "(w tym nowa: informacja sąsiednich słów ponad losowe słowa linii) + "
                 "3·Σ z² po miarach słownictwa wobec karty foliałów nieparzystych. Finaliści oceniani na foliałach parzystych "
                 f"(3 ziarna, klasyfikator n-gramowy wierszy), {cfg.v6_topk} najlepszych do sędziego-transformera ({cfg.v6_judge_seeds} ziarna) "
                 "z odniesieniami: prawdziwe wobec prawdziwych, bełkot v5 działami, czułość (10% glifów zmienionych)."),

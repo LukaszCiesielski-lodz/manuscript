@@ -257,7 +257,7 @@ class NotebookTest(unittest.TestCase):
         from pathlib import Path
         for name in ("Voynich_Lab.ipynb", "Voynich_Ilustracje.ipynb", "Voynich_Brute.ipynb", "Voynich_Final.ipynb",
                      "Voynich_Notacja.ipynb", "Voynich_Rejestr.ipynb", "Voynich_Rejestr_GPU.ipynb",
-                     "Voynich_Klucz.ipynb"):
+                     "Voynich_Klucz.ipynb", "Voynich_V7.ipynb"):
             nb = json.loads((Path(__file__).resolve().parent.parent / "colab" / name).read_text(encoding="utf-8"))
             for i, c in enumerate(nb["cells"]):
                 if c["cell_type"] == "code":
@@ -712,8 +712,11 @@ class V6Test(unittest.TestCase):
         a = generate_by_section(runs, V5_SECTION_PARAMS, 3, models=models)
         b = generate_by_section(runs, {**V5_SECTION_PARAMS, "freq_gamma": 0.0}, 3)
         self.assertEqual(a, b)
+        self.assertEqual(a, generate_by_section(runs, {**V5_SECTION_PARAMS, "neighbour_gamma": 0.0}, 3, models=models))
         c = generate_by_section(runs, {**V5_SECTION_PARAMS, "freq_gamma": 1.0}, 3, models=models)
         self.assertNotEqual(a, c)
+        d = generate_by_section(runs, {**V5_SECTION_PARAMS, "neighbour_gamma": 3.0}, 3, models=models)
+        self.assertNotEqual(a, d)
         wa, wc = sum(map(len, a)), sum(map(len, c))
         self.assertLess(abs(wa - wc) / wa, 0.05)      # the word budget is kept, the line count may differ
 
@@ -859,3 +862,42 @@ class KeystreamTest(unittest.TestCase):
         # a shift keyed by the word's own length is a bijection on word types: the information is unchanged
         shifted = K.apply(K.Transform("s", "shift", "glyphs", 0), lines)
         self.assertAlmostEqual(K.adjacent_mi_z(shifted, 20, 1)["value"], z["value"])
+
+
+class AdjacentMeasureTest(unittest.TestCase):
+    def test_measure_sign_and_card(self):
+        from voynich import hoax, selfcite
+        from voynich.lab.theories.hoax import split_lines
+        self.assertIn("adjacent_mi_excess", hoax.MEASURES)
+        self.assertEqual(selfcite.similarity(["a", "b"], ["a", "b"]), 1.0)
+        self.assertEqual(selfcite.similarity(["a", "b"], ["c", "d", "e"]), 0.0)
+        odd, _ = split_lines()
+        block = hoax.blocks(odd)[0]
+        m = hoax.measure(block)
+        self.assertLess(m["adjacent_mi_excess"], 0.0)       # the manuscript's neighbours avoid each other
+        rng = random.Random(1)
+        vocab = [tuple(rng.choice("abcde") for _ in range(3)) for _ in range(40)]
+        nxt = {w: vocab[(i * 7 + 3) % 40] for i, w in enumerate(vocab)}
+        lines = []
+        for _ in range(400):
+            w = rng.choice(vocab)
+            l = [list(w)]
+            for _ in range(8):
+                w = nxt[w]
+                l.append(list(w))
+            lines.append(l)
+        self.assertGreater(hoax.adjacent_mi_excess(lines), 0.5)   # chained words: neighbours predict each other
+
+    def test_edge_stock_reproduces_the_deficit(self):
+        from voynich import hoax
+        from voynich.lab.theories.hoax import V5_SECTION_PARAMS, generate_by_section, odd_runs, section_models
+        runs, n = [], 0
+        for r in odd_runs():
+            runs.append(r)
+            n += sum(map(len, r[1]))
+            if n >= 6000:
+                break
+        models = section_models(runs)
+        plain = generate_by_section(runs, V5_SECTION_PARAMS, 5, models=models)
+        edged = generate_by_section(runs, {**V5_SECTION_PARAMS, "p_edge": 0.9}, 5, models=models)
+        self.assertLess(hoax.adjacent_mi_excess(edged), hoax.adjacent_mi_excess(plain) - 0.05)

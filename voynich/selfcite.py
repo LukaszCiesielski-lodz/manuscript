@@ -421,6 +421,13 @@ class WordMaker:
         return []
 
 
+def similarity(a: Word, b: Word) -> float:
+    """Shared glyphs (as a multiset) over the longer word: 1 for the same word, 0 for disjoint glyphs."""
+    ca = Counter(a)
+    common = sum(min(n, ca[g]) for g, n in Counter(b).items())
+    return common / max(1, len(a), len(b))
+
+
 def generate_v5(
     seed_lines: Sequence[Sequence[Word]],
     n_words: int,
@@ -450,6 +457,9 @@ def generate_v5(
     seed: int = 1,
     maker: WordMaker | None = None,
     freq_gamma: float = 0.0,
+    neighbour_gamma: float = 0.0,
+    p_edge: float = 0.0,
+    edges: tuple[Sequence[tuple[Word, float]], Sequence[tuple[Word, float]]] = ((), ()),
 ) -> list[list[Word]]:
     """Copy-and-modify like `generate`, but the scribe writes each word by choosing among a few candidates.
 
@@ -460,7 +470,13 @@ def generate_v5(
     rules.weight(...)^gamma times a length factor that steers the length
     distribution towards the scribe's habit. With `freq_gamma` > 0 a candidate already written n
     times is damped by (1+n)^-freq_gamma: a scribe who tires of a word (v5 reuses too few words
-    too often: too few hapax legomena, too much weight on the top ten).
+    too often: too few hapax legomena, too much weight on the top ten). With `neighbour_gamma` > 0
+    a candidate resembling the word just written (shared glyphs over the longer length) is damped by
+    (1+similarity)^-neighbour_gamma: the manuscript's neighbours know less about each other than two
+    random words of the same line, which v5 does not reproduce. With `p_edge` > 0 the first (last) word of
+    a line is, with that probability, drawn whole from `edges` (the words seen opening and closing lines,
+    with weights): a stock of line-openers and line-closers, which is what the manuscript's negative
+    adjacent-word information turns out to be.
     """
     rng = random.Random(seed)
     lines: list[list[Word]] = [list(map(list, l)) for l in seed_lines]
@@ -472,6 +488,8 @@ def generate_v5(
     pos_gamma = gamma if position_gamma is None else position_gamma
     fav_words = [list(w) for w, _ in favourites]
     fav_weights = [x for _, x in favourites]
+    first_words, first_weights = [list(w) for w, _ in edges[0]], [x for _, x in edges[0]]
+    last_words, last_weights = [list(w) for w, _ in edges[1]], [x for _, x in edges[1]]
     counts = Counter(tuple(w) for w in history)
     hot: list = []
 
@@ -481,7 +499,11 @@ def generate_v5(
 
     refresh_hot()
 
-    def candidate(pool, above, prev) -> Word:
+    def candidate(pool, above, prev, at: str | None = None) -> Word:
+        if p_edge and at == "start" and first_words and rng.random() < p_edge:
+            return list(rng.choices(first_words, first_weights)[0])
+        if p_edge and at == "end" and last_words and rng.random() < p_edge:
+            return list(rng.choices(last_words, last_weights)[0])
         x = rng.random()
         if x < p_new:
             return maker.make(rng, max_len) if maker else sample_word(grammar, rng, max_len)
@@ -519,7 +541,8 @@ def generate_v5(
         for col in range(n):
             above = [l[col] for l in recent if col < len(l)]
             prev = line[-1] if line else None
-            cands = [c for c in (candidate(pool, above, prev) for _ in range(candidates)) if 1 <= len(c) <= max_len]
+            at = "start" if col == 0 else ("end" if col == n - 1 else None)
+            cands = [c for c in (candidate(pool, above, prev, at) for _ in range(candidates)) if 1 <= len(c) <= max_len]
             if not cands:
                 continue
             total_prop = sum(proposed.values())
@@ -533,6 +556,8 @@ def generate_v5(
                      * pair ** pair_gamma * fit ** mood_gamma)
                 if freq_gamma:
                     w *= (1 + counts[tuple(c)]) ** -freq_gamma
+                if neighbour_gamma and line:
+                    w *= (1 + similarity(c, line[-1])) ** -neighbour_gamma
                 weights.append(w)
             line.append(rng.choices(cands, [max(x, 1e-12) for x in weights])[0])
         if line:

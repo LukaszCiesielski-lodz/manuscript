@@ -33,7 +33,7 @@ def run(cfg: LabConfig) -> TheoryResult:
                 f"komórka = 0–3 glify) oceniana na {xp.name} przez {gens} pokoleń: pokrycie słownictwa i koszt obrotu "
                 "między kolejnymi słowami wiersza. To samo dla tekstów kontrolnych: rękopis z przetasowanymi słowami, "
                 "bełkot v5, łacina (litery jako glify). Najlepsza tarcza pisze tekst nawykami obrotu odczytanymi z rękopisu; "
-                "tekst idzie przez kartę 22 miar, klasyfikator wierszy, test składni i dynamiki długości."),
+                f"tekst idzie przez kartę {len(hoax.MEASURES)} miar, klasyfikator wierszy, test składni i dynamiki długości."),
         references=["Llull, Ars generalis ultima (1305–1308); Bonner, The Art and Logic of Ramon Llull (2007)",
                     "Timm & Schinner, Cryptologia 44 (2020)"])
     odd, even = split_lines()
