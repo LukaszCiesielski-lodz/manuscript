@@ -25,6 +25,15 @@ from voynich import notation  # noqa: E402
 DANCE_PDF = "http://virtuabis.free.fr/Les%20Basses%20Danses%20de%20Marguerite.pdf"
 
 
+def pdf_text(pdf: Path) -> str:
+    """Text of a PDF: pypdf when installed (Colab), pdftotext otherwise."""
+    try:
+        import pypdf
+        return "\n".join(page.extract_text() or "" for page in pypdf.PdfReader(str(pdf)).pages)
+    except ImportError:
+        return subprocess.run(["pdftotext", "-layout", str(pdf), "-"], capture_output=True, text=True, check=True).stdout
+
+
 def main() -> None:
     notation.DIR.mkdir(parents=True, exist_ok=True)
     csv.field_size_limit(10 ** 8)
@@ -45,8 +54,9 @@ def main() -> None:
     if not full.exists():
         try:
             pdf = notation.DIR / "marguerite.pdf"
-            pdf.write_bytes(fetch(DANCE_PDF))
-            txt = subprocess.run(["pdftotext", "-layout", str(pdf), "-"], capture_output=True, text=True, check=True).stdout
+            if not pdf.exists():
+                pdf.write_bytes(fetch(DANCE_PDF))
+            txt = pdf_text(pdf)
             dances = notation.extract_dances(txt)
             if len(dances) >= 20:
                 full.write_text("\n".join(dances) + "\n", encoding="utf-8")

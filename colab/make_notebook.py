@@ -305,8 +305,9 @@ z cechą definiującą: brak zależności między różnymi jednostkami na odleg
 
 Bez GPU (wystarczy CPU, High-RAM niepotrzebny). Sekrety: `GITHUB_TOKEN`, `OPENROUTER_API_KEY`. Czas: ok. 15 min."""),
     cells[3],
-    ("code", """!python scripts/fetch_data.py
-!python scripts/fetch_notation.py      # CantusCorpus (38 MB) i, gdy dostępne, pełne wydanie basse danse"""),
+    ("code", """!pip install -q pypdf
+!python scripts/fetch_data.py
+!python scripts/fetch_notation.py      # CantusCorpus (38 MB) i, gdy dostępne, pełne wydanie basse danse (PDF przez pypdf)"""),
     cells[5],
     ("code", cells[7][1].replace('theories=["all"],          # albo np. ["numbers", "literature"]', 'theories=["notation"],')),
     ("code", """lab.run("notation"); lab.push()
