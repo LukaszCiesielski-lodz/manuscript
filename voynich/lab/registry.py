@@ -62,6 +62,7 @@ THEORIES = {t.name: t for t in [
     Theory("length_code", "Kod w długościach słów", (), "length_code:run"),
     Theory("chronology", "Strzałka czasu: kolejność kart odczytana z wariantów słów", (), "chronology:run"),
     Theory("hands", "Ręka skryby czy treść: co kształtuje słowa", (), "hands:run"),
+    Theory("notation", "Zapis niejęzykowy: chorał, tabulatura tańca, program", (), "notation:run"),
 ]}
 ALIASES = {"literature": ["naibbe_cipher", "cardan_grille", "hebrew_anagram"], "all": list(THEORIES)}
 

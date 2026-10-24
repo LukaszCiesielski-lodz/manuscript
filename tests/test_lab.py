@@ -556,3 +556,20 @@ class WheelControlTest(unittest.TestCase):
         words = [w for l in text for w in l]
         self.assertGreaterEqual(len(words), 200)
         self.assertTrue(all(wheel.decompose(w, rings, seg) is not None for w in words[:50]))
+
+
+class NotationTest(unittest.TestCase):
+    def test_volpiano_units(self):
+        from voynich import notation
+        v = "1---k--l--k--h---gfed--d---"
+        self.assertEqual(notation.volpiano_units(v, "word"), [("k", "l", "k", "h"), ("g", "f", "e", "d", "d")])
+        self.assertEqual(notation.volpiano_units(v, "syllable")[:3], [("k",), ("l",), ("k",)])
+        self.assertEqual(notation.volpiano_units("1---f-g--h7---j4", "neume"), [("f",), ("g",), ("h",), ("j",)])
+
+    def test_extract_dances(self):
+        from voynich import notation
+        text = "Filles a marier. R b ss d r d r b ss ddd ss r b ss d r b. Next: R b ss."
+        d = notation.extract_dances(text)
+        self.assertEqual(len(d), 1)
+        self.assertTrue(d[0].startswith("R b ss d r"))
+        self.assertEqual(notation.dance_lines()[0][:3], [("R",), ("b",), ("s", "s")])

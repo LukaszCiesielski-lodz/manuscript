@@ -293,6 +293,30 @@ for name in cpu + gpu:
 ]
 
 
+# One task on the CPU: is the manuscript a notation rather than speech?
+notation_cells = [
+    ("md", """# Voynich Lab – zapis niejęzykowy? Chorał, tabulatura tańca, program
+
+Czy rękopis statystycznie przypomina notacje średniowieczne bardziej niż mowę? Chorał gregoriański z bazy Cantus
+(63 tys. melodii w Volpiano; jednostki: słowa tekstu, sylaby, neumy), tabulatura kroków basse danse (Bruksela 9085,
+ok. 1470), kod Pythona jako kontrast, łacina i bełkot v5 idą przez tę samą baterię: składnia na odległość rozbita na
+powtórzenia, warianty i jednostki niespokrewnione; dynamika długości; miary kształtu. Osiem kryteriów podpisu rękopisu,
+z cechą definiującą: brak zależności między różnymi jednostkami na odległość.
+
+Bez GPU (wystarczy CPU, High-RAM niepotrzebny). Sekrety: `GITHUB_TOKEN`, `OPENROUTER_API_KEY`. Czas: ok. 15 min."""),
+    cells[3],
+    ("code", """!python scripts/fetch_data.py
+!python scripts/fetch_notation.py      # CantusCorpus (38 MB) i, gdy dostępne, pełne wydanie basse danse"""),
+    cells[5],
+    ("code", cells[7][1].replace('theories=["all"],          # albo np. ["numbers", "literature"]', 'theories=["notation"],')),
+    ("code", """lab.run("notation"); lab.push()
+lab.convene(["notation"])
+lab.report(); lab.push()
+from IPython.display import Markdown, display
+display(Markdown((lab.cfg.results_dir / "notation.md").read_text()))"""),
+]
+
+
 def cell(kind, text):
     src = text.splitlines(keepends=True)
     if kind == "md":
@@ -307,7 +331,8 @@ nb = {"nbformat": 4, "nbformat_minor": 0,
 for name, cs in (("Voynich_Lab.ipynb", cells), ("Voynich_Ilustracje.ipynb", illustrations_cells),
                  ("Voynich_Brute.ipynb", brute_cells), ("Voynich_Kolo.ipynb", wheel_cells),
                  ("Voynich_Lamacze.ipynb", attack_cells),
-                 ("Voynich_Final.ipynb", final_cells)):
+                 ("Voynich_Final.ipynb", final_cells),
+                 ("Voynich_Notacja.ipynb", notation_cells)):
     out = Path(__file__).with_name(name)
     out.write_text(json.dumps({**nb, "cells": [cell(k, t) for k, t in cs]}, indent=1, ensure_ascii=False), encoding="utf-8")
     print("wrote", out)

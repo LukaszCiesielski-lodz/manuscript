@@ -1,0 +1,10 @@
+# Basse danse step tablature (R reverence, b branle, s simple, d double, r reprise), Brussels MS 9085 / Toulouze,
+# after the reconstruction in Letter of Dance vol. 2 (pbm.com/~lindahl). One dance per line.
+R b ss d r d r b ss ddd ss r b ss d r b
+b ss d r d r b ss ddd ss r b ss d r b
+R b ss d r d ss r b ss ddd r d ss r b
+b ss d ss r b ss ddd r d ss r b ss d ss r d ss r b
+r b ss d r d r b ddd ss r b ss d r b
+R b ss d r d ss r b ss ddd ss r d ss r b
+R b ss d ss r d ss r b ss d ss r b ss d ss r d ss r b vs
+b ss d r d ss r b ss d d d r b ss d ss r b
