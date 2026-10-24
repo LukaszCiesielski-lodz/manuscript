@@ -1,0 +1,240 @@
+{
+ "params": {
+  "p_new": 0.9,
+  "p_far": 0.7829397774030342,
+  "p_copy": 0.03605919858257224,
+  "p_same_column": 0.6640264970508976,
+  "gamma": 4.671167060589388,
+  "length_gamma": 0.3,
+  "p_hot": 0.040642549298228914,
+  "hot_power": 3.0,
+  "p_repeat": 0.0,
+  "window": 15,
+  "candidates": 3,
+  "p_fav": 0.05905735147194152,
+  "p_short": 0.10941306195550178,
+  "position_gamma": 2.3915624424901285,
+  "pair_gamma": 2.5172390689647974,
+  "mood_gamma": 0.0,
+  "freq_gamma": 0.443430409931333,
+  "fav_n": 18
+ },
+ "fitness": 10.561212509601036,
+ "generations": 25,
+ "history": [
+  {
+   "generation": 0,
+   "best": 42.059936027947785,
+   "misses": [
+    "hapax_ratio",
+    "line_first_p",
+    "line_first_len",
+    "len_neighbour",
+    "line_mean_spread"
+   ],
+   "median": 105.52142486075192
+  },
+  {
+   "generation": 1,
+   "best": 37.959648789298875,
+   "misses": [
+    "hapax_ratio",
+    "line_first_p",
+    "line_last_m"
+   ],
+   "median": 70.81172389312707
+  },
+  {
+   "generation": 2,
+   "best": 28.987607251753644,
+   "misses": [
+    "hapax_ratio",
+    "line_first_p",
+    "line_first_len"
+   ],
+   "median": 54.725247910222535
+  },
+  {
+   "generation": 3,
+   "best": 28.37464407838197,
+   "misses": [
+    "hapax_ratio",
+    "line_first_len",
+    "len_neighbour"
+   ],
+   "median": 46.903058602563405
+  },
+  {
+   "generation": 4,
+   "best": 21.327526557278098,
+   "misses": [
+    "hapax_ratio",
+    "line_first_len"
+   ],
+   "median": 45.97404745680036
+  },
+  {
+   "generation": 5,
+   "best": 23.83456159335714,
+   "misses": [
+    "hapax_ratio",
+    "line_first_p"
+   ],
+   "median": 38.13355085846724
+  },
+  {
+   "generation": 6,
+   "best": 19.115577109235392,
+   "misses": [
+    "hapax_ratio"
+   ],
+   "median": 35.20208109238369
+  },
+  {
+   "generation": 7,
+   "best": 23.394586810181796,
+   "misses": [
+    "hapax_ratio",
+    "line_first_len"
+   ],
+   "median": 36.18015995355829
+  },
+  {
+   "generation": 8,
+   "best": 15.645841315288187,
+   "misses": [
+    "hapax_ratio",
+    "line_first_p"
+   ],
+   "median": 33.61134214443368
+  },
+  {
+   "generation": 9,
+   "best": 19.358532410559363,
+   "misses": [
+    "hapax_ratio"
+   ],
+   "median": 32.01899148298092
+  },
+  {
+   "generation": 10,
+   "best": 19.904167011464644,
+   "misses": [
+    "hapax_ratio",
+    "line_first_p"
+   ],
+   "median": 41.33947926762544
+  },
+  {
+   "generation": 11,
+   "best": 19.978796341052718,
+   "misses": [
+    "len_neighbour"
+   ],
+   "median": 32.56710885139789
+  },
+  {
+   "generation": 12,
+   "best": 20.78895292084256,
+   "misses": [
+    "hapax_ratio"
+   ],
+   "median": 29.777872084792914
+  },
+  {
+   "generation": 13,
+   "best": 22.304008000835548,
+   "misses": [
+    "hapax_ratio"
+   ],
+   "median": 31.135964321398504
+  },
+  {
+   "generation": 14,
+   "best": 15.277910798711236,
+   "misses": [],
+   "median": 32.25627635159974
+  },
+  {
+   "generation": 15,
+   "best": 19.065481214785912,
+   "misses": [
+    "hapax_ratio"
+   ],
+   "median": 32.29893120613825
+  },
+  {
+   "generation": 16,
+   "best": 14.202039574573934,
+   "misses": [
+    "line_first_len"
+   ],
+   "median": 26.865054895858876
+  },
+  {
+   "generation": 17,
+   "best": 19.28825073383009,
+   "misses": [
+    "edge_mi",
+    "line_first_p",
+    "len_neighbour"
+   ],
+   "median": 36.29533761424908
+  },
+  {
+   "generation": 18,
+   "best": 10.561212509601036,
+   "misses": [
+    "line_first_len"
+   ],
+   "median": 29.725328966872354
+  },
+  {
+   "generation": 19,
+   "best": 14.642793728382655,
+   "misses": [],
+   "median": 24.444405368402897
+  },
+  {
+   "generation": 20,
+   "best": 18.23655320310217,
+   "misses": [
+    "hapax_ratio",
+    "line_first_p"
+   ],
+   "median": 27.421928323904467
+  },
+  {
+   "generation": 21,
+   "best": 15.971125178904368,
+   "misses": [
+    "line_first_len"
+   ],
+   "median": 22.96381040874673
+  },
+  {
+   "generation": 22,
+   "best": 12.09993649632515,
+   "misses": [
+    "edge_mi"
+   ],
+   "median": 28.15951027668646
+  },
+  {
+   "generation": 23,
+   "best": 16.176456158260137,
+   "misses": [
+    "edge_mi"
+   ],
+   "median": 29.613945164377753
+  },
+  {
+   "generation": 24,
+   "best": 18.894118221804074,
+   "misses": [
+    "edge_mi"
+   ],
+   "median": 32.45361401081761
+  }
+ ]
+}
