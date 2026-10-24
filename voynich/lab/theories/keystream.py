@@ -19,6 +19,15 @@ from ..results import TheoryResult
 from .hoax import V5_SECTION_PARAMS, V6_FAV_N, V6_SECTION_PARAMS, generate_by_section, odd_runs
 
 
+def _cheapest(original: str, names, dl) -> str:
+    """The name with the shortest description; ties (a bijection on word types changes nothing) go to the original."""
+    best = original
+    for n in names:
+        if dl(n) < dl(best) - 1e-6:
+            best = n
+    return best
+
+
 def _measure(lines, shuffles_mi: int, shuffles_syn: int, seed: int) -> dict:
     nw = sum(map(len, lines))
     syn = longrange.split_by_identity(lines, top=60 if nw > 3000 else 15, shuffles=shuffles_syn, seed=seed)
@@ -69,14 +78,15 @@ def run(cfg: LabConfig) -> TheoryResult:
                         + ". Sąsiednie słowa rękopisu wiedzą o sobie MNIEJ niż dwa losowe słowa tej samej linii; bełkot v5 i łacina odwrotnie.")
     # Controls on Latin: the description length must pick the true words, and undo a cipher of the family.
     plain = {t.name: _measure(keystream.apply(t, latl), sh_mi, sh_syn, cfg.seed) for t in fam}
-    best_plain = min(plain, key=lambda k: plain[k]["dl"])
+    best_plain = _cheapest(fam[0].name, plain, lambda k: plain[k]["dl"])
     res.control("zwykła łacina: żadna reguła nie koduje jej krócej niż własne odstępy", "minimum długości opisu przy odstępach EVA (bez zmian)",
                 f"minimum: {best_plain} ({plain[best_plain]['dl']:.3f} bit/glif; bez zmian {plain[fam[0].name]['dl']:.3f})",
                 best_plain == fam[0].name)
     for ct in (keystream.Transform("x", "cut", "glyphs", 2), keystream.Transform("x", "read", "none", 3)):
         cipher = keystream.encipher(latl, ct, cfg.seed)
         scores = {t.name: (keystream.description_length(keystream.apply(t, cipher)), t) for t in fam}
-        top_name, (top_dl, top_t) = min(scores.items(), key=lambda kv: kv[1][0])
+        top_name = _cheapest(fam[0].name, scores, lambda k: scores[k][0])
+        top_dl, top_t = scores[top_name]
         f1 = keystream.boundary_f1(latl, keystream.apply(top_t, cipher))
         ok = keystream.inverse_of(ct, top_t) and f1 >= 0.9
         label = "odstępy przepisane długościami przesuniętymi o 2" if ct.kind == "cut" else "tekst przeczytany co 3. glif"
@@ -96,7 +106,7 @@ def run(cfg: LabConfig) -> TheoryResult:
     keyed = [n for n in table if n != fam[0].name and "bez klucza" not in n]
     dl0 = table[fam[0].name]["manuscript"]["dl"]
     dl_v5 = table[fam[0].name]["v5"]["dl"]
-    best_v5 = min([fam[0].name] + keyed, key=lambda n: table[n]["v5"]["dl"])
+    best_v5 = _cheapest(fam[0].name, [fam[0].name] + keyed, lambda n: table[n]["v5"]["dl"])
     res.control("bełkot v5 (pisany słowami): żadna reguła kluczowana nie koduje go krócej niż jego odstępy", "minimum przy odstępach",
                 f"minimum: {best_v5} ({table[best_v5]['v5']['dl']:.3f}; odstępy {dl_v5:.3f})", best_v5 == fam[0].name)
     cheaper = [n for n in keyed if table[n]["manuscript"]["dl"] <= 0.98 * dl0]
