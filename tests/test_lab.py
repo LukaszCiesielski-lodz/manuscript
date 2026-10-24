@@ -517,3 +517,28 @@ class LengthCodeTest(unittest.TestCase):
         _, z2 = lc.structure_z(rnd, shuffles=20, seed=1)
         self.assertGreater(z2, -3)
         self.assertEqual(lc.digits([[["a", "b"], ["c"] * 12]]), [[2, 9]])
+
+
+class PagesTest(unittest.TestCase):
+    def test_arrow_in_synthetic_copying_and_not_in_shuffled(self):
+        from voynich import pages as pg
+        near = pg.synthetic_self_citation(30, 120, seed=1, near=True)
+        nbs = pg.Neighbours(near)
+        order = list(range(len(near)))
+        z = pg.arrow_z(nbs, order, [order], shuffles=20, seed=1)
+        self.assertGreater(z["z"], 4)
+        import random
+        r = random.Random(1)
+        sh = order[:]; r.shuffle(sh)
+        pos = {p: i for i, p in enumerate(sh)}
+        e_sh, _ = pg.ancestor_excess(nbs, order, pos)
+        self.assertLess(abs(e_sh - z["null_mean"]), 4 * z["null_sd"] + 0.02)
+
+    def test_blocks_and_neighbours(self):
+        from voynich import pages as pg
+        ps = [pg.Page("f1r", "herbal", "A", "1", "A", [("a", "b"), ("a", "b", "c"), ("x",)]),
+              pg.Page("f1v", "herbal", "A", "1", "A", [("a", "c")]), pg.Page("f2r", "stars", "B", "3", "T", [("q",)])]
+        self.assertEqual(pg.blocks(ps), [[0, 1], [2]])
+        nbs = pg.Neighbours(ps)
+        ab, abc, ac = nbs.enc(("a", "b")), nbs.enc(("a", "b", "c")), nbs.enc(("a", "c"))
+        self.assertIn(abc, nbs.nb[ab]); self.assertIn(ac, nbs.nb[ab]); self.assertNotIn(nbs.enc(("x",)), nbs.nb[ab])
