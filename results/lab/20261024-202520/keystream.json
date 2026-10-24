@@ -1,0 +1,1420 @@
+{
+ "theory": "keystream",
+ "hypothesis": "Odstępy nie dzielą słów: ciąg długości „słów” (w glifach albo w znakach EVA) jest kluczem zapisanym w tekście, a właściwe jednostki powstają po pocięciu, przesunięciu lub przeczytaniu strumienia glifów według tego klucza.",
+ "method": "Rodzina 31 przekształceń strumienia glifów wiersza: cięcie według długości przesuniętych o 1–3, odwróconych, z poprzedniego wiersza, pierwszego słowa, posortowanych, różnic; przesunięcie glifów w alfabecie o długość słowa, poprzedniego słowa, miejsce w słowie; czytanie co n-ty glif; cięcie co n glifów bez klucza. Dla każdego: jednostki rękopisu i bełkotu v5 mierzone zależnością między różnymi jednostkami na odległość 2–7 (z wobec tasowania w miejscu) i informacją wzajemną sąsiednich jednostek (z wobec tasowania w wierszu; 20 i 16 tasowań), a podział oceniany długością opisu (bity na glif: słownik jednostek plus tekst jako ich kody; prawdziwe słowa języka są blisko minimum). Trop: reguła kluczowana, która koduje rękopis krócej niż odstępy EVA (≥ 2%) i daje mu składnię (z ≥ 5), której nie daje bełkotowi (różnica ≥ 5). Kontrole: łacina z odstępami przepisanymi regułą z rodziny i łacina przeczytana kolumnami muszą zostać odzyskane jako minimum długości opisu; zwykła łacina i bełkot v5 nie mogą zyskać na żadnej regule.",
+ "verdict": "nierozstrzygnięta",
+ "summary": "Przy odstępach EVA: różne słowa na odległość z = -1.2, sąsiednie słowa z = -24.4 (v5 +10.9, v6 +1.5, łacina +46.6); długość opisu 3.896 bit/glif. Żadna z 25 reguł kluczowanych nie koduje rękopisu krócej niż odstępy EVA (najbliżej przesunięcie glifów o długość słowa (chars): 3.895) ani nie daje mu składni, której nie dawałaby bełkotowi (największa przewaga cięcie: długości posortowane (glyphs): +5.6). Odstępy EVA są najlepszym podziałem w tej rodzinie, a klucz w długościach słów nie odsłania jednostek z gramatyką.",
+ "metrics": {
+  "transforms": {
+   "odstępy EVA (bez zmian)": {
+    "manuscript": {
+     "unrelated_z": -1.2361673745302426,
+     "same_z": 10.047518544623337,
+     "variants_z": 5.474500046890819,
+     "adjacent_mi_z": -24.433652618817984,
+     "adjacent_mi": 5.58259227973589,
+     "dl": 3.8958491789847303,
+     "units": 34820,
+     "types": 7018,
+     "type_token_ratio": 0.20155083285468123,
+     "hapax_ratio": 0.13716255025847215,
+     "mean_length": 4.33503733486502
+    },
+    "v5": {
+     "unrelated_z": 2.268555643559161,
+     "same_z": 2.022428399076631,
+     "variants_z": 3.6606045351080905,
+     "adjacent_mi_z": 10.861924360201504,
+     "adjacent_mi": 4.93648660213317,
+     "dl": 3.4733514621166313,
+     "units": 34929,
+     "types": 5661,
+     "type_token_ratio": 0.16207163102293223,
+     "hapax_ratio": 0.09696813536030233,
+     "mean_length": 4.317272180709439
+    },
+    "latin": {
+     "unrelated_z": 13.65895591540049,
+     "same_z": -0.695369060452874,
+     "variants_z": 1.485828546938242,
+     "adjacent_mi_z": 46.5943405081712,
+     "adjacent_mi": 6.362398043077881,
+     "dl": 3.4518046792818984,
+     "units": 34820,
+     "types": 7098,
+     "type_token_ratio": 0.2038483630097645,
+     "hapax_ratio": 0.12139574956921309,
+     "mean_length": 5.320534175761057
+    },
+    "delta_unrelated": -3.504723018089404,
+    "delta_mi": -35.295576979019486
+   },
+   "cięcie: długości przesunięte o 1 (glyphs)": {
+    "manuscript": {
+     "unrelated_z": 3.7168890119728704,
+     "same_z": 9.245040803229594,
+     "variants_z": 3.6984843028119387,
+     "adjacent_mi_z": -9.35499540394814,
+     "adjacent_mi": 9.989538602493363,
+     "dl": 5.9790226762886824,
+     "units": 34820,
+     "types": 14560,
+     "type_token_ratio": 0.41815048822515793,
+     "hapax_ratio": 0.31229178632969556,
+     "mean_length": 4.33503733486502
+    },
+    "v5": {
+     "unrelated_z": 8.527865527903796,
+     "same_z": 12.487023956632017,
+     "variants_z": 5.963439825433499,
+     "adjacent_mi_z": 12.28212856547681,
+     "adjacent_mi": 9.662932616329988,
+     "dl": 5.632784962164616,
+     "units": 34929,
+     "types": 13388,
+     "type_token_ratio": 0.3832918205502591,
+     "hapax_ratio": 0.28102722665979557,
+     "mean_length": 4.317272180709439
+    },
+    "latin": {
+     "unrelated_z": 0.16005107918270134,
+     "same_z": 8.209862322249396,
+     "variants_z": 2.5821647540459156,
+     "adjacent_mi_z": 16.08007706017523,
+     "adjacent_mi": 12.20385152591891,
+     "dl": 6.70769242180539,
+     "units": 34820,
+     "types": 22395,
+     "type_token_ratio": 0.6431648477886273,
+     "hapax_ratio": 0.5532739804709936,
+     "mean_length": 5.320534175761057
+    },
+    "delta_unrelated": -4.810976515930925,
+    "delta_mi": -21.637123969424948
+   },
+   "cięcie: długości przesunięte o 2 (glyphs)": {
+    "manuscript": {
+     "unrelated_z": 1.0661885048313422,
+     "same_z": 0.5805149816199373,
+     "variants_z": 3.8164932083161993,
+     "adjacent_mi_z": -3.4728194647987314,
+     "adjacent_mi": 10.07255223116215,
+     "dl": 6.087644119785128,
+     "units": 34820,
+     "types": 15004,
+     "type_token_ratio": 0.4309017805858702,
+     "hapax_ratio": 0.3270821367030442,
+     "mean_length": 4.33503733486502
+    },
+    "v5": {
+     "unrelated_z": 4.233755378958709,
+     "same_z": -0.6493601517522196,
+     "variants_z": 0.7392038791549574,
+     "adjacent_mi_z": 11.556563773821377,
+     "adjacent_mi": 9.7539196683612,
+     "dl": 5.754346491469865,
+     "units": 34929,
+     "types": 13865,
+     "type_token_ratio": 0.3969480947064044,
+     "hapax_ratio": 0.29368146812104556,
+     "mean_length": 4.317272180709439
+    },
+    "latin": {
+     "unrelated_z": 0.7494607638597148,
+     "same_z": 1.2617622515272493,
+     "variants_z": 0.20783597925588917,
+     "adjacent_mi_z": 12.683104327814018,
+     "adjacent_mi": 12.359361737092307,
+     "dl": 6.8224841818124755,
+     "units": 34820,
+     "types": 23005,
+     "type_token_ratio": 0.6606835152211373,
+     "hapax_ratio": 0.5735209649626651,
+     "mean_length": 5.320534175761057
+    },
+    "delta_unrelated": -3.167566874127367,
+    "delta_mi": -15.02938323862011
+   },
+   "cięcie: długości przesunięte o 3 (glyphs)": {
+    "manuscript": {
+     "unrelated_z": 3.728247100527723,
+     "same_z": 1.2460467724059747,
+     "variants_z": 1.3817295977632922,
+     "adjacent_mi_z": -6.182672546297944,
+     "adjacent_mi": 10.057566661242276,
+     "dl": 6.082927735420815,
+     "units": 34820,
+     "types": 14971,
+     "type_token_ratio": 0.42995404939689835,
+     "hapax_ratio": 0.32547386559448593,
+     "mean_length": 4.33503733486502
+    },
+    "v5": {
+     "unrelated_z": 2.514813637159971,
+     "same_z": -0.3565449140808279,
+     "variants_z": -0.1720750909008821,
+     "adjacent_mi_z": 23.51594124313281,
+     "adjacent_mi": 9.732631548219938,
+     "dl": 5.757724405723895,
+     "units": 34929,
+     "types": 13896,
+     "type_token_ratio": 0.397835609379026,
+     "hapax_ratio": 0.2970311202725529,
+     "mean_length": 4.317272180709439
+    },
+    "latin": {
+     "unrelated_z": 0.4673486362479382,
+     "same_z": 2.334769497081719,
+     "variants_z": 0.42543594536185075,
+     "adjacent_mi_z": 12.825945300623836,
+     "adjacent_mi": 12.374379951505311,
+     "dl": 6.8481188365401975,
+     "units": 34820,
+     "types": 23145,
+     "type_token_ratio": 0.664704192992533,
+     "hapax_ratio": 0.5781447443997703,
+     "mean_length": 5.320534175761057
+    },
+    "delta_unrelated": 1.213433463367752,
+    "delta_mi": -29.698613789430755
+   },
+   "cięcie: długości odwrócone (glyphs)": {
+    "manuscript": {
+     "unrelated_z": 0.08239887149923705,
+     "same_z": 5.913789607804407,
+     "variants_z": 0.7131707261135106,
+     "adjacent_mi_z": -11.659345719819068,
+     "adjacent_mi": 10.0006405514646,
+     "dl": 6.060493711393856,
+     "units": 34820,
+     "types": 14857,
+     "type_token_ratio": 0.42668006892590465,
+     "hapax_ratio": 0.321338311315336,
+     "mean_length": 4.33503733486502
+    },
+    "v5": {
+     "unrelated_z": 1.8038720766765488,
+     "same_z": 8.847311688769938,
+     "variants_z": 1.897938801509893,
+     "adjacent_mi_z": 9.747290223849948,
+     "adjacent_mi": 9.731493049307785,
+     "dl": 5.755790999359929,
+     "units": 34929,
+     "types": 13872,
+     "type_token_ratio": 0.3971485012453835,
+     "hapax_ratio": 0.296057717083226,
+     "mean_length": 4.317272180709439
+    },
+    "latin": {
+     "unrelated_z": -0.4172927821214005,
+     "same_z": 4.1381935782115224,
+     "variants_z": -1.0546882887547613,
+     "adjacent_mi_z": 15.284587944785361,
+     "adjacent_mi": 12.38455533470915,
+     "dl": 6.8624942440968875,
+     "units": 34820,
+     "types": 23250,
+     "type_token_ratio": 0.6677197013210798,
+     "hapax_ratio": 0.5833716255025847,
+     "mean_length": 5.320534175761057
+    },
+    "delta_unrelated": -1.7214732051773118,
+    "delta_mi": -21.406635943669016
+   },
+   "cięcie: długości poprzedniego wiersza (glyphs)": {
+    "manuscript": {
+     "unrelated_z": 0.23107464050336138,
+     "same_z": 2.6353045765794447,
+     "variants_z": 2.861067655112989,
+     "adjacent_mi_z": 24.182045775875114,
+     "adjacent_mi": 9.753093697178969,
+     "dl": 6.062642165268454,
+     "units": 36276,
+     "types": 14658,
+     "type_token_ratio": 0.4040688058220311,
+     "hapax_ratio": 0.30267945749255704,
+     "mean_length": 4.16104311390451
+    },
+    "v5": {
+     "unrelated_z": -4.174995820153762,
+     "same_z": 5.943467481602665,
+     "variants_z": 4.6315023778735895,
+     "adjacent_mi_z": 49.23757550913357,
+     "adjacent_mi": 9.12620837322871,
+     "dl": 5.694316362562795,
+     "units": 37378,
+     "types": 13251,
+     "type_token_ratio": 0.3545133500989887,
+     "hapax_ratio": 0.26122317941034834,
+     "mean_length": 4.03440526512922
+    },
+    "latin": {
+     "unrelated_z": -1.9481386476847422,
+     "same_z": 2.906026489460754,
+     "variants_z": 1.5552291389921458,
+     "adjacent_mi_z": 31.599921647264384,
+     "adjacent_mi": 11.979991769016515,
+     "dl": 6.838896743356101,
+     "units": 37186,
+     "types": 22894,
+     "type_token_ratio": 0.6156618082073899,
+     "hapax_ratio": 0.5300112945732265,
+     "mean_length": 4.982009358360673
+    },
+    "delta_unrelated": 4.406070460657123,
+    "delta_mi": -25.055529733258457
+   },
+   "cięcie: długość pierwszego słowa (glyphs)": {
+    "manuscript": {
+     "unrelated_z": 8.186137434250881,
+     "same_z": 66.2685665453602,
+     "variants_z": 60.31412201866472,
+     "adjacent_mi_z": 110.05715953913283,
+     "adjacent_mi": 9.536356585511488,
+     "dl": 5.903773113053549,
+     "units": 38028,
+     "types": 13767,
+     "type_token_ratio": 0.36202272010097825,
+     "hapax_ratio": 0.27266750815188806,
+     "mean_length": 3.9693383822446617
+    },
+    "v5": {
+     "unrelated_z": 25.867371653423767,
+     "same_z": 64.11417757503294,
+     "variants_z": 63.82905520719994,
+     "adjacent_mi_z": 109.11955755670013,
+     "adjacent_mi": 8.717033375495586,
+     "dl": 5.483252182346367,
+     "units": 40711,
+     "types": 11961,
+     "type_token_ratio": 0.2938026577583454,
+     "hapax_ratio": 0.21131880818452015,
+     "mean_length": 3.704109454447201
+    },
+    "latin": {
+     "unrelated_z": -62.67851036171624,
+     "same_z": 23.77926407765457,
+     "variants_z": 5.909331815811733,
+     "adjacent_mi_z": 237.5225664405935,
+     "adjacent_mi": 10.010082926572032,
+     "dl": 6.387479421385284,
+     "units": 46285,
+     "types": 19516,
+     "type_token_ratio": 0.42164848222966406,
+     "hapax_ratio": 0.34449605703791725,
+     "mean_length": 4.002614237874042
+    },
+    "delta_unrelated": -17.681234219172886,
+    "delta_mi": 0.937601982432696
+   },
+   "cięcie: długości posortowane (glyphs)": {
+    "manuscript": {
+     "unrelated_z": -25.624981232615852,
+     "same_z": -0.03626117655587067,
+     "variants_z": -0.6692663990915387,
+     "adjacent_mi_z": 17.10860159954899,
+     "adjacent_mi": 10.041055198781248,
+     "dl": 5.942520288382489,
+     "units": 34820,
+     "types": 14388,
+     "type_token_ratio": 0.4132107983917289,
+     "hapax_ratio": 0.3082423894313613,
+     "mean_length": 4.33503733486502
+    },
+    "v5": {
+     "unrelated_z": -31.209038893377485,
+     "same_z": -0.4368936959486158,
+     "variants_z": 0.14449799304274885,
+     "adjacent_mi_z": 27.955503205600575,
+     "adjacent_mi": 9.759046740740393,
+     "dl": 5.671579384644257,
+     "units": 34929,
+     "types": 13568,
+     "type_token_ratio": 0.3884451315525781,
+     "hapax_ratio": 0.2856079475507458,
+     "mean_length": 4.317272180709439
+    },
+    "latin": {
+     "unrelated_z": -11.554594114717672,
+     "same_z": 0.48418584087416494,
+     "variants_z": -1.103852797539046,
+     "adjacent_mi_z": 56.67841384150086,
+     "adjacent_mi": 12.743831830450668,
+     "dl": 6.888986812199931,
+     "units": 34820,
+     "types": 23513,
+     "type_token_ratio": 0.6752728317059161,
+     "hapax_ratio": 0.5918150488225158,
+     "mean_length": 5.320534175761057
+    },
+    "delta_unrelated": 5.5840576607616335,
+    "delta_mi": -10.846901606051585
+   },
+   "cięcie: różnice długości (glyphs)": {
+    "manuscript": {
+     "unrelated_z": 3.8618522652747376,
+     "same_z": 11.376499173162019,
+     "variants_z": 12.294998945462158,
+     "adjacent_mi_z": 140.71468287160405,
+     "adjacent_mi": 4.366860219808145,
+     "dl": 5.082906357806954,
+     "units": 62072,
+     "types": 7253,
+     "type_token_ratio": 0.11684817631138034,
+     "hapax_ratio": 0.07715233921897152,
+     "mean_length": 2.4317888903209175
+    },
+    "v5": {
+     "unrelated_z": 3.743303753245663,
+     "same_z": 3.1206526216726584,
+     "variants_z": 8.631908079182452,
+     "adjacent_mi_z": 175.08819038808548,
+     "adjacent_mi": 4.200344312806278,
+     "dl": 4.8899345911533105,
+     "units": 62602,
+     "types": 6630,
+     "type_token_ratio": 0.10590715951567042,
+     "hapax_ratio": 0.0678412830261014,
+     "mean_length": 2.4088367783776876
+    },
+    "latin": {
+     "unrelated_z": -3.3239807599211595,
+     "same_z": 0.4478766065597339,
+     "variants_z": -2.28754914418629,
+     "adjacent_mi_z": 45.43088851318551,
+     "adjacent_mi": 9.55097112289405,
+     "dl": 6.6191570678992955,
+     "units": 48778,
+     "types": 20502,
+     "type_token_ratio": 0.4203124359342326,
+     "hapax_ratio": 0.3400303415474189,
+     "mean_length": 3.7980442002542127
+    },
+    "delta_unrelated": 0.11854851202907479,
+    "delta_mi": -34.373507516481425
+   },
+   "przesunięcie glifów o długość słowa (glyphs)": {
+    "manuscript": {
+     "unrelated_z": -1.8143103772619018,
+     "same_z": 10.047518544623337,
+     "variants_z": 4.392700529546631,
+     "adjacent_mi_z": -24.433652618817984,
+     "adjacent_mi": 5.58259227973589,
+     "dl": 3.8958491789847303,
+     "units": 34820,
+     "types": 7018,
+     "type_token_ratio": 0.20155083285468123,
+     "hapax_ratio": 0.13716255025847215,
+     "mean_length": 4.33503733486502
+    },
+    "v5": {
+     "unrelated_z": 2.272962990344783,
+     "same_z": 2.022428399076631,
+     "variants_z": 3.6011163296082715,
+     "adjacent_mi_z": 10.861924360201504,
+     "adjacent_mi": 4.93648660213317,
+     "dl": 3.4733514621166313,
+     "units": 34929,
+     "types": 5661,
+     "type_token_ratio": 0.16207163102293223,
+     "hapax_ratio": 0.09696813536030233,
+     "mean_length": 4.317272180709439
+    },
+    "latin": {
+     "unrelated_z": 12.738734189490337,
+     "same_z": -0.695369060452874,
+     "variants_z": 1.1105671463340203,
+     "adjacent_mi_z": 46.5943405081712,
+     "adjacent_mi": 6.362398043077881,
+     "dl": 3.4518046792818984,
+     "units": 34820,
+     "types": 7098,
+     "type_token_ratio": 0.2038483630097645,
+     "hapax_ratio": 0.12139574956921309,
+     "mean_length": 5.320534175761057
+    },
+    "delta_unrelated": -4.087273367606685,
+    "delta_mi": -35.295576979019486
+   },
+   "przesunięcie glifów o długość poprzedniego słowa (glyphs)": {
+    "manuscript": {
+     "unrelated_z": -0.760936780265953,
+     "same_z": 2.354269996811754,
+     "variants_z": 2.5965951949583035,
+     "adjacent_mi_z": -29.143664851250428,
+     "adjacent_mi": 9.152301186971261,
+     "dl": 5.357723105829844,
+     "units": 34820,
+     "types": 12376,
+     "type_token_ratio": 0.35542791499138426,
+     "hapax_ratio": 0.25249856404365306,
+     "mean_length": 4.33503733486502
+    },
+    "v5": {
+     "unrelated_z": 1.223210765055842,
+     "same_z": 0.3684243046425464,
+     "variants_z": 0.8243348830111199,
+     "adjacent_mi_z": -3.056727567974748,
+     "adjacent_mi": 8.677141258088,
+     "dl": 5.017046479782493,
+     "units": 34929,
+     "types": 11186,
+     "type_token_ratio": 0.32024964928855676,
+     "hapax_ratio": 0.22199318617767472,
+     "mean_length": 4.317272180709439
+    },
+    "latin": {
+     "unrelated_z": 3.64375496850731,
+     "same_z": -0.771986740379331,
+     "variants_z": 0.4691162116770209,
+     "adjacent_mi_z": 18.00555053884583,
+     "adjacent_mi": 10.07880361754318,
+     "dl": 5.13046453800784,
+     "units": 34820,
+     "types": 14332,
+     "type_token_ratio": 0.4116025272831706,
+     "hapax_ratio": 0.29086731763354395,
+     "mean_length": 5.320534175761057
+    },
+    "delta_unrelated": -1.984147545321795,
+    "delta_mi": -26.08693728327568
+   },
+   "cięcie: długości przesunięte o 1 (chars)": {
+    "manuscript": {
+     "unrelated_z": -0.03353848038656479,
+     "same_z": 1.2699758162831225,
+     "variants_z": 1.4592643007035366,
+     "adjacent_mi_z": 17.906043172356714,
+     "adjacent_mi": 10.761327704736903,
+     "dl": 6.251154490033507,
+     "units": 31948,
+     "types": 15662,
+     "type_token_ratio": 0.49023413046200076,
+     "hapax_ratio": 0.3845937147865281,
+     "mean_length": 4.724740202829598
+    },
+    "v5": {
+     "unrelated_z": -2.639981832381376,
+     "same_z": 0.2760350520450755,
+     "variants_z": 1.056015660024282,
+     "adjacent_mi_z": 29.141241959416085,
+     "adjacent_mi": 10.428492017608255,
+     "dl": 5.894667730263698,
+     "units": 31877,
+     "types": 14461,
+     "type_token_ratio": 0.4536499670608903,
+     "hapax_ratio": 0.35194654453053925,
+     "mean_length": 4.730620823791448
+    },
+    "latin": {
+     "unrelated_z": 0.16005107918270134,
+     "same_z": 8.209862322249396,
+     "variants_z": 2.5821647540459156,
+     "adjacent_mi_z": 16.08007706017523,
+     "adjacent_mi": 12.20385152591891,
+     "dl": 6.70769242180539,
+     "units": 34820,
+     "types": 22395,
+     "type_token_ratio": 0.6431648477886273,
+     "hapax_ratio": 0.5532739804709936,
+     "mean_length": 5.320534175761057
+    },
+    "delta_unrelated": 2.606443351994811,
+    "delta_mi": -11.235198787059371
+   },
+   "cięcie: długości przesunięte o 2 (chars)": {
+    "manuscript": {
+     "unrelated_z": 1.8552911842192525,
+     "same_z": -1.0314162368465671,
+     "variants_z": 2.4207049268921854,
+     "adjacent_mi_z": 23.93409805584479,
+     "adjacent_mi": 10.973456689891682,
+     "dl": 6.454970459293595,
+     "units": 31763,
+     "types": 16437,
+     "type_token_ratio": 0.5174889021817838,
+     "hapax_ratio": 0.4126184554355697,
+     "mean_length": 4.752258917608538
+    },
+    "v5": {
+     "unrelated_z": 1.5233759978428247,
+     "same_z": 1.0211621674662577,
+     "variants_z": -0.9591316790144211,
+     "adjacent_mi_z": 39.64981455394847,
+     "adjacent_mi": 10.730117994850874,
+     "dl": 6.163188942102232,
+     "units": 31911,
+     "types": 15528,
+     "type_token_ratio": 0.4866033656106045,
+     "hapax_ratio": 0.3843815612171352,
+     "mean_length": 4.725580520823541
+    },
+    "latin": {
+     "unrelated_z": 0.7494607638597148,
+     "same_z": 1.2617622515272493,
+     "variants_z": 0.20783597925588917,
+     "adjacent_mi_z": 12.683104327814018,
+     "adjacent_mi": 12.359361737092307,
+     "dl": 6.8224841818124755,
+     "units": 34820,
+     "types": 23005,
+     "type_token_ratio": 0.6606835152211373,
+     "hapax_ratio": 0.5735209649626651,
+     "mean_length": 5.320534175761057
+    },
+    "delta_unrelated": 0.3319151863764278,
+    "delta_mi": -15.715716498103678
+   },
+   "cięcie: długości przesunięte o 3 (chars)": {
+    "manuscript": {
+     "unrelated_z": 1.585084561307773,
+     "same_z": -0.25551414159921193,
+     "variants_z": 0.2571011628543494,
+     "adjacent_mi_z": 15.589239121992755,
+     "adjacent_mi": 11.034005533832802,
+     "dl": 6.50982996283138,
+     "units": 31734,
+     "types": 16656,
+     "type_token_ratio": 0.5248629230478351,
+     "hapax_ratio": 0.4199596647129262,
+     "mean_length": 4.756601752064032
+    },
+    "v5": {
+     "unrelated_z": 0.68615845910656,
+     "same_z": 0.7992737832123553,
+     "variants_z": -1.416783242170586,
+     "adjacent_mi_z": 27.47336652153533,
+     "adjacent_mi": 10.746598978372086,
+     "dl": 6.194499883744606,
+     "units": 31897,
+     "types": 15672,
+     "type_token_ratio": 0.4913314731792959,
+     "hapax_ratio": 0.38922155688622756,
+     "mean_length": 4.727654638367245
+    },
+    "latin": {
+     "unrelated_z": 0.4673486362479382,
+     "same_z": 2.334769497081719,
+     "variants_z": 0.42543594536185075,
+     "adjacent_mi_z": 12.825945300623836,
+     "adjacent_mi": 12.374379951505311,
+     "dl": 6.8481188365401975,
+     "units": 34820,
+     "types": 23145,
+     "type_token_ratio": 0.664704192992533,
+     "hapax_ratio": 0.5781447443997703,
+     "mean_length": 5.320534175761057
+    },
+    "delta_unrelated": 0.898926102201213,
+    "delta_mi": -11.884127399542574
+   },
+   "cięcie: długości odwrócone (chars)": {
+    "manuscript": {
+     "unrelated_z": 2.806379402392817,
+     "same_z": 0.9624072132828113,
+     "variants_z": 0.3533663859159969,
+     "adjacent_mi_z": 21.813544819060123,
+     "adjacent_mi": 10.984239625881798,
+     "dl": 6.449125486313409,
+     "units": 32025,
+     "types": 16414,
+     "type_token_ratio": 0.5125370804059328,
+     "hapax_ratio": 0.4075878220140515,
+     "mean_length": 4.713380171740828
+    },
+    "v5": {
+     "unrelated_z": 0.6412326788064754,
+     "same_z": -0.1777372493106982,
+     "variants_z": 1.4046723942256916,
+     "adjacent_mi_z": 49.30106097057297,
+     "adjacent_mi": 10.752649751502826,
+     "dl": 6.1935419810373435,
+     "units": 31873,
+     "types": 15656,
+     "type_token_ratio": 0.49119944780848995,
+     "hapax_ratio": 0.39070686788190634,
+     "mean_length": 4.731214507576946
+    },
+    "latin": {
+     "unrelated_z": -0.4172927821214005,
+     "same_z": 4.1381935782115224,
+     "variants_z": -1.0546882887547613,
+     "adjacent_mi_z": 15.284587944785361,
+     "adjacent_mi": 12.38455533470915,
+     "dl": 6.8624942440968875,
+     "units": 34820,
+     "types": 23250,
+     "type_token_ratio": 0.6677197013210798,
+     "hapax_ratio": 0.5833716255025847,
+     "mean_length": 5.320534175761057
+    },
+    "delta_unrelated": 2.1651467235863415,
+    "delta_mi": -27.487516151512846
+   },
+   "cięcie: długości poprzedniego wiersza (chars)": {
+    "manuscript": {
+     "unrelated_z": 2.229357630464113,
+     "same_z": 2.054551586432022,
+     "variants_z": 3.5151243481239143,
+     "adjacent_mi_z": 24.325813970302608,
+     "adjacent_mi": 11.11653835648014,
+     "dl": 6.540319118882065,
+     "units": 31443,
+     "types": 16832,
+     "type_token_ratio": 0.5353178767929269,
+     "hapax_ratio": 0.43128836306968166,
+     "mean_length": 4.800623350189231
+    },
+    "v5": {
+     "unrelated_z": 1.570169635084435,
+     "same_z": 4.5071409069569155,
+     "variants_z": 3.545198743558644,
+     "adjacent_mi_z": 36.15138864395484,
+     "adjacent_mi": 10.452443165354003,
+     "dl": 6.14477521599082,
+     "units": 32839,
+     "types": 15377,
+     "type_token_ratio": 0.468254209933311,
+     "hapax_ratio": 0.36886019671731785,
+     "mean_length": 4.592039952495508
+    },
+    "latin": {
+     "unrelated_z": -1.9481386476847422,
+     "same_z": 2.906026489460754,
+     "variants_z": 1.5552291389921458,
+     "adjacent_mi_z": 31.599921647264384,
+     "adjacent_mi": 11.979991769016515,
+     "dl": 6.838896743356101,
+     "units": 37186,
+     "types": 22894,
+     "type_token_ratio": 0.6156618082073899,
+     "hapax_ratio": 0.5300112945732265,
+     "mean_length": 4.982009358360673
+    },
+    "delta_unrelated": 0.6591879953796782,
+    "delta_mi": -11.82557467365223
+   },
+   "cięcie: długość pierwszego słowa (chars)": {
+    "manuscript": {
+     "unrelated_z": -3.8892188674650705,
+     "same_z": 63.17077448824698,
+     "variants_z": 40.1976105313629,
+     "adjacent_mi_z": 91.30135471870281,
+     "adjacent_mi": 10.36237852982521,
+     "dl": 6.370154453192389,
+     "units": 34369,
+     "types": 15646,
+     "type_token_ratio": 0.45523582298001103,
+     "hapax_ratio": 0.36215775844511044,
+     "mean_length": 4.391922953824667
+    },
+    "v5": {
+     "unrelated_z": 21.937282885966596,
+     "same_z": 67.66920164015869,
+     "variants_z": 57.7646194993278,
+     "adjacent_mi_z": 142.8494167073185,
+     "adjacent_mi": 9.483424071507843,
+     "dl": 5.897023337523546,
+     "units": 37420,
+     "types": 13786,
+     "type_token_ratio": 0.368412613575628,
+     "hapax_ratio": 0.28196151790486373,
+     "mean_length": 4.029877071084981
+    },
+    "latin": {
+     "unrelated_z": -62.67851036171624,
+     "same_z": 23.77926407765457,
+     "variants_z": 5.909331815811733,
+     "adjacent_mi_z": 237.5225664405935,
+     "adjacent_mi": 10.010082926572032,
+     "dl": 6.387479421385284,
+     "units": 46285,
+     "types": 19516,
+     "type_token_ratio": 0.42164848222966406,
+     "hapax_ratio": 0.34449605703791725,
+     "mean_length": 4.002614237874042
+    },
+    "delta_unrelated": -25.826501753431668,
+    "delta_mi": -51.5480619886157
+   },
+   "cięcie: długości posortowane (chars)": {
+    "manuscript": {
+     "unrelated_z": -1.9405603535085167,
+     "same_z": -1.1719986685571526,
+     "variants_z": -1.77125046230684,
+     "adjacent_mi_z": 79.16161625639836,
+     "adjacent_mi": 10.863781952275135,
+     "dl": 6.17695964502242,
+     "units": 33631,
+     "types": 15538,
+     "type_token_ratio": 0.4620142130772204,
+     "hapax_ratio": 0.35401861377895394,
+     "mean_length": 4.488299485593648
+    },
+    "v5": {
+     "unrelated_z": -0.0746001039973341,
+     "same_z": -1.5920957677453391,
+     "variants_z": -0.06760220908172518,
+     "adjacent_mi_z": 70.93034919784652,
+     "adjacent_mi": 10.500964061603094,
+     "dl": 5.851944630577348,
+     "units": 33853,
+     "types": 14469,
+     "type_token_ratio": 0.42740672909343336,
+     "hapax_ratio": 0.3220098661861578,
+     "mean_length": 4.454494431808111
+    },
+    "latin": {
+     "unrelated_z": -11.554594114717672,
+     "same_z": 0.48418584087416494,
+     "variants_z": -1.103852797539046,
+     "adjacent_mi_z": 56.67841384150086,
+     "adjacent_mi": 12.743831830450668,
+     "dl": 6.888986812199931,
+     "units": 34820,
+     "types": 23513,
+     "type_token_ratio": 0.6752728317059161,
+     "hapax_ratio": 0.5918150488225158,
+     "mean_length": 5.320534175761057
+    },
+    "delta_unrelated": -1.8659602495111827,
+    "delta_mi": 8.231267058551836
+   },
+   "cięcie: różnice długości (chars)": {
+    "manuscript": {
+     "unrelated_z": 0.4536163217084896,
+     "same_z": 7.052465139394528,
+     "variants_z": 10.142636463813032,
+     "adjacent_mi_z": 172.8128414165544,
+     "adjacent_mi": 4.879659017296699,
+     "dl": 5.332705875123062,
+     "units": 58207,
+     "types": 8721,
+     "type_token_ratio": 0.14982734035425294,
+     "hapax_ratio": 0.10491865239575995,
+     "mean_length": 2.593261978799801
+    },
+    "v5": {
+     "unrelated_z": -2.7685202089477268,
+     "same_z": 3.383642708269201,
+     "variants_z": 8.141551033984813,
+     "adjacent_mi_z": 211.9126893031321,
+     "adjacent_mi": 4.786172958836666,
+     "dl": 5.141819423831449,
+     "units": 58134,
+     "types": 8143,
+     "type_token_ratio": 0.1400729349434066,
+     "hapax_ratio": 0.09670760656414491,
+     "mean_length": 2.593972546186397
+    },
+    "latin": {
+     "unrelated_z": -3.3239807599211595,
+     "same_z": 0.4478766065597339,
+     "variants_z": -2.28754914418629,
+     "adjacent_mi_z": 45.43088851318551,
+     "adjacent_mi": 9.55097112289405,
+     "dl": 6.6191570678992955,
+     "units": 48778,
+     "types": 20502,
+     "type_token_ratio": 0.4203124359342326,
+     "hapax_ratio": 0.3400303415474189,
+     "mean_length": 3.7980442002542127
+    },
+    "delta_unrelated": 3.222136530656216,
+    "delta_mi": -39.09984788657772
+   },
+   "przesunięcie glifów o długość słowa (chars)": {
+    "manuscript": {
+     "unrelated_z": -1.8213478601059832,
+     "same_z": 10.047518544623337,
+     "variants_z": 3.6998154701733608,
+     "adjacent_mi_z": -24.445901976056042,
+     "adjacent_mi": 5.579563806580462,
+     "dl": 3.8951688093169627,
+     "units": 34820,
+     "types": 7014,
+     "type_token_ratio": 0.20143595634692704,
+     "hapax_ratio": 0.1371338311315336,
+     "mean_length": 4.33503733486502
+    },
+    "v5": {
+     "unrelated_z": 2.3463807082866044,
+     "same_z": 2.022428399076631,
+     "variants_z": 1.2735777647028428,
+     "adjacent_mi_z": 10.828855201706128,
+     "adjacent_mi": 4.934392554078665,
+     "dl": 3.4726032454070426,
+     "units": 34929,
+     "types": 5656,
+     "type_token_ratio": 0.16192848349509004,
+     "hapax_ratio": 0.09688224684359702,
+     "mean_length": 4.317272180709439
+    },
+    "latin": {
+     "unrelated_z": 12.738734189490337,
+     "same_z": -0.695369060452874,
+     "variants_z": 1.1105671463340203,
+     "adjacent_mi_z": 46.5943405081712,
+     "adjacent_mi": 6.362398043077881,
+     "dl": 3.4518046792818984,
+     "units": 34820,
+     "types": 7098,
+     "type_token_ratio": 0.2038483630097645,
+     "hapax_ratio": 0.12139574956921309,
+     "mean_length": 5.320534175761057
+    },
+    "delta_unrelated": -4.1677285683925875,
+    "delta_mi": -35.27475717776217
+   },
+   "przesunięcie glifów o długość poprzedniego słowa (chars)": {
+    "manuscript": {
+     "unrelated_z": -2.2464396204045753,
+     "same_z": 2.643804224195689,
+     "variants_z": 1.4063274101482315,
+     "adjacent_mi_z": -27.453781644183206,
+     "adjacent_mi": 9.302158178381887,
+     "dl": 5.434893234385549,
+     "units": 34820,
+     "types": 12726,
+     "type_token_ratio": 0.3654796094198736,
+     "hapax_ratio": 0.26094198736358415,
+     "mean_length": 4.33503733486502
+    },
+    "v5": {
+     "unrelated_z": 1.2408182138489705,
+     "same_z": -0.2836682346882366,
+     "variants_z": 0.25863033809348834,
+     "adjacent_mi_z": -1.7143787627746598,
+     "adjacent_mi": 8.892409737762323,
+     "dl": 5.119705839390501,
+     "units": 34929,
+     "types": 11617,
+     "type_token_ratio": 0.33258896618855394,
+     "hapax_ratio": 0.23298691631595522,
+     "mean_length": 4.317272180709439
+    },
+    "latin": {
+     "unrelated_z": 3.64375496850731,
+     "same_z": -0.771986740379331,
+     "variants_z": 0.4691162116770209,
+     "adjacent_mi_z": 18.00555053884583,
+     "adjacent_mi": 10.07880361754318,
+     "dl": 5.13046453800784,
+     "units": 34820,
+     "types": 14332,
+     "type_token_ratio": 0.4116025272831706,
+     "hapax_ratio": 0.29086731763354395,
+     "mean_length": 5.320534175761057
+    },
+    "delta_unrelated": -3.487257834253546,
+    "delta_mi": -25.739402881408544
+   },
+   "przesunięcie glifów o miejsce w słowie": {
+    "manuscript": {
+     "unrelated_z": -1.750508960308679,
+     "same_z": 10.047518544623337,
+     "variants_z": 4.793994634854232,
+     "adjacent_mi_z": -24.433652618817984,
+     "adjacent_mi": 5.58259227973589,
+     "dl": 3.8958491789847303,
+     "units": 34820,
+     "types": 7018,
+     "type_token_ratio": 0.20155083285468123,
+     "hapax_ratio": 0.13716255025847215,
+     "mean_length": 4.33503733486502
+    },
+    "v5": {
+     "unrelated_z": 2.2269288032691934,
+     "same_z": 2.022428399076631,
+     "variants_z": 3.8569210386326254,
+     "adjacent_mi_z": 10.861924360201504,
+     "adjacent_mi": 4.93648660213317,
+     "dl": 3.4733514621166313,
+     "units": 34929,
+     "types": 5661,
+     "type_token_ratio": 0.16207163102293223,
+     "hapax_ratio": 0.09696813536030233,
+     "mean_length": 4.317272180709439
+    },
+    "latin": {
+     "unrelated_z": 12.6139634498013,
+     "same_z": -0.695369060452874,
+     "variants_z": 1.7254967328973176,
+     "adjacent_mi_z": 46.5943405081712,
+     "adjacent_mi": 6.362398043077881,
+     "dl": 3.4518046792818984,
+     "units": 34820,
+     "types": 7098,
+     "type_token_ratio": 0.2038483630097645,
+     "hapax_ratio": 0.12139574956921309,
+     "mean_length": 5.320534175761057
+    },
+    "delta_unrelated": -3.977437763577872,
+    "delta_mi": -35.295576979019486
+   },
+   "cięcie co 3 glifów (bez klucza)": {
+    "manuscript": {
+     "unrelated_z": 13.517954041124556,
+     "same_z": 8.95695201214186,
+     "variants_z": 5.100643125231668,
+     "adjacent_mi_z": 207.989648844758,
+     "adjacent_mi": 3.6728514297059487,
+     "dl": 3.3170142558801468,
+     "units": 51703,
+     "types": 2362,
+     "type_token_ratio": 0.04568400286250314,
+     "hapax_ratio": 0.016401369359611628,
+     "mean_length": 2.9194824284857743
+    },
+    "v5": {
+     "unrelated_z": 11.782684767533455,
+     "same_z": 3.8841491663087333,
+     "variants_z": 4.183964200875412,
+     "adjacent_mi_z": 236.76302692808568,
+     "adjacent_mi": 3.5167325651904484,
+     "dl": 3.19928562821557,
+     "units": 51690,
+     "types": 2095,
+     "type_token_ratio": 0.04053008318823757,
+     "hapax_ratio": 0.013522925130586188,
+     "mean_length": 2.9173534532791643
+    },
+    "latin": {
+     "unrelated_z": 6.247342391917133,
+     "same_z": -2.43745605584676,
+     "variants_z": -1.6187624269262624,
+     "adjacent_mi_z": 435.0151732762097,
+     "adjacent_mi": 6.179751699722559,
+     "dl": 3.8933478841911007,
+     "units": 63014,
+     "types": 3350,
+     "type_token_ratio": 0.05316278922144285,
+     "hapax_ratio": 0.008839305551147364,
+     "mean_length": 2.9399974608817088
+    },
+    "delta_unrelated": 1.7352692735911006,
+    "delta_mi": -28.773378083327685
+   },
+   "cięcie co 4 glifów (bez klucza)": {
+    "manuscript": {
+     "unrelated_z": 0.6920836493417974,
+     "same_z": 1.7898324848446734,
+     "variants_z": -0.044657209122564316,
+     "adjacent_mi_z": 37.15861405559962,
+     "adjacent_mi": 6.657501686508168,
+     "dl": 3.847270816983605,
+     "units": 39272,
+     "types": 6391,
+     "type_token_ratio": 0.16273680994092482,
+     "hapax_ratio": 0.08464045630474638,
+     "mean_length": 3.8436035852515786
+    },
+    "v5": {
+     "unrelated_z": -0.7059505023995674,
+     "same_z": 1.0541065967626269,
+     "variants_z": -1.4563771185693448,
+     "adjacent_mi_z": 70.31295245293916,
+     "adjacent_mi": 6.323701150229997,
+     "dl": 3.669956964588796,
+     "units": 39279,
+     "types": 5806,
+     "type_token_ratio": 0.1478143537259095,
+     "hapax_ratio": 0.07067389699330431,
+     "mean_length": 3.839150691209043
+    },
+    "latin": {
+     "unrelated_z": 1.8602902769220087,
+     "same_z": -0.6926674236184392,
+     "variants_z": -1.1392483313399697,
+     "adjacent_mi_z": 108.48456832367629,
+     "adjacent_mi": 10.07818447652734,
+     "dl": 4.751750765018235,
+     "units": 47785,
+     "types": 12345,
+     "type_token_ratio": 0.2583446688291305,
+     "hapax_ratio": 0.11503609919430784,
+     "mean_length": 3.876969760385058
+    },
+    "delta_unrelated": 1.3980341517413648,
+    "delta_mi": -33.15433839733954
+   },
+   "cięcie co 5 glifów (bez klucza)": {
+    "manuscript": {
+     "unrelated_z": -2.7954534919880576,
+     "same_z": 3.308389876414989,
+     "variants_z": -0.06770737776807084,
+     "adjacent_mi_z": 9.562843057235696,
+     "adjacent_mi": 9.546940079479688,
+     "dl": 4.873762796418316,
+     "units": 31815,
+     "types": 11601,
+     "type_token_ratio": 0.36463932107496466,
+     "hapax_ratio": 0.2386924406726387,
+     "mean_length": 4.744491592016344
+    },
+    "v5": {
+     "unrelated_z": -1.9622677117104603,
+     "same_z": 0.8870593888802359,
+     "variants_z": 0.006591657226956613,
+     "adjacent_mi_z": 28.043053589118323,
+     "adjacent_mi": 9.139709863752493,
+     "dl": 4.603533949912949,
+     "units": 31850,
+     "types": 10659,
+     "type_token_ratio": 0.3346624803767661,
+     "hapax_ratio": 0.21076923076923076,
+     "mean_length": 4.734631083202512
+    },
+    "latin": {
+     "unrelated_z": 1.9249437404872793,
+     "same_z": -0.6775520028345036,
+     "variants_z": 1.7468785281384058,
+     "adjacent_mi_z": 50.446004765493036,
+     "adjacent_mi": 12.258130123634992,
+     "dl": 5.788285902383669,
+     "units": 38616,
+     "types": 20135,
+     "type_token_ratio": 0.5214159933706236,
+     "hapax_ratio": 0.3592811269939921,
+     "mean_length": 4.797519163041226
+    },
+    "delta_unrelated": -0.8331857802775973,
+    "delta_mi": -18.480210531882626
+   },
+   "cięcie co 6 glifów (bez klucza)": {
+    "manuscript": {
+     "unrelated_z": -3.4349556634217677,
+     "same_z": 0.06335661220724256,
+     "variants_z": -0.2981191002257832,
+     "adjacent_mi_z": 11.880655021580337,
+     "adjacent_mi": 11.453804728388592,
+     "dl": 5.888025964412563,
+     "units": 26866,
+     "types": 15431,
+     "type_token_ratio": 0.5743690910444428,
+     "hapax_ratio": 0.45272835554232116,
+     "mean_length": 5.618476885282513
+    },
+    "v5": {
+     "unrelated_z": -0.07081847775017314,
+     "same_z": 0.33292546733980444,
+     "variants_z": -0.2748954193428521,
+     "adjacent_mi_z": 17.9666756598406,
+     "adjacent_mi": 11.102962453288153,
+     "dl": 5.590675730349033,
+     "units": 26890,
+     "types": 14516,
+     "type_token_ratio": 0.5398289326887319,
+     "hapax_ratio": 0.4197471178876906,
+     "mean_length": 5.607958348828561
+    },
+    "latin": {
+     "unrelated_z": -0.35351694717164717,
+     "same_z": -0.1386480711446986,
+     "variants_z": -0.6580475823810957,
+     "adjacent_mi_z": 48.14523293567481,
+     "adjacent_mi": 13.220011912190909,
+     "dl": 6.307727651297588,
+     "units": 32469,
+     "types": 22611,
+     "type_token_ratio": 0.6963873232929871,
+     "hapax_ratio": 0.570821398872771,
+     "mean_length": 5.705780898703378
+    },
+    "delta_unrelated": -3.3641371856715945,
+    "delta_mi": -6.086020638260264
+   },
+   "cięcie co 7 glifów (bez klucza)": {
+    "manuscript": {
+     "unrelated_z": -1.5109792066439651,
+     "same_z": 2.396805951749775,
+     "variants_z": 0.30983285055432036,
+     "adjacent_mi_z": 10.921469705118787,
+     "adjacent_mi": 12.459129274068824,
+     "dl": 6.491003801333869,
+     "units": 23314,
+     "types": 16802,
+     "type_token_ratio": 0.7206828515055331,
+     "hapax_ratio": 0.6222441451488376,
+     "mean_length": 6.474478853907524
+    },
+    "v5": {
+     "unrelated_z": 0.22887991135809782,
+     "same_z": 0.8868444190027835,
+     "variants_z": 1.6472289430863971,
+     "adjacent_mi_z": 23.538496680089064,
+     "adjacent_mi": 12.238634413953406,
+     "dl": 6.2394766275380675,
+     "units": 23332,
+     "types": 16141,
+     "type_token_ratio": 0.6917966740956626,
+     "hapax_ratio": 0.5963912223555632,
+     "mean_length": 6.463140750900052
+    },
+    "latin": {
+     "unrelated_z": -2.729624243881065,
+     "same_z": 1.6384773478663035,
+     "variants_z": -0.5652353173475849,
+     "adjacent_mi_z": 36.10522278255497,
+     "adjacent_mi": 13.587600265314169,
+     "dl": 6.492305877266307,
+     "units": 28130,
+     "types": 22452,
+     "type_token_ratio": 0.7981514397440455,
+     "hapax_ratio": 0.706825453252755,
+     "mean_length": 6.585886953430501
+    },
+    "delta_unrelated": -1.7398591180020628,
+    "delta_mi": -12.617026974970278
+   },
+   "czytanie co 2. glif w wierszu (transpozycja)": {
+    "manuscript": {
+     "unrelated_z": -0.4216214199942992,
+     "same_z": -0.060578640900654644,
+     "variants_z": 0.5141190711723186,
+     "adjacent_mi_z": -12.146337109646646,
+     "adjacent_mi": 12.019904945492955,
+     "dl": 7.536269397274453,
+     "units": 34820,
+     "types": 21537,
+     "type_token_ratio": 0.618523836875359,
+     "hapax_ratio": 0.519959793222286,
+     "mean_length": 4.33503733486502
+    },
+    "v5": {
+     "unrelated_z": 1.146363529302822,
+     "same_z": -0.9228654993034098,
+     "variants_z": 2.331824215718322,
+     "adjacent_mi_z": 1.5227407126098298,
+     "adjacent_mi": 11.960842067254013,
+     "dl": 7.328124376559283,
+     "units": 34929,
+     "types": 20944,
+     "type_token_ratio": 0.5996163646253829,
+     "hapax_ratio": 0.49941309513584703,
+     "mean_length": 4.317272180709439
+    },
+    "latin": {
+     "unrelated_z": -0.34338515887692495,
+     "same_z": -0.3453264850817248,
+     "variants_z": -0.27171669349497624,
+     "adjacent_mi_z": 4.698506283681715,
+     "adjacent_mi": 12.935951079724532,
+     "dl": 7.328572830616138,
+     "units": 34820,
+     "types": 26191,
+     "type_token_ratio": 0.7521826536473292,
+     "hapax_ratio": 0.6950028719126938,
+     "mean_length": 5.320534175761057
+    },
+    "delta_unrelated": -1.5679849492971212,
+    "delta_mi": -13.669077822256476
+   },
+   "czytanie co 3. glif w wierszu (transpozycja)": {
+    "manuscript": {
+     "unrelated_z": -0.7934398981473499,
+     "same_z": 1.6988825887619545,
+     "variants_z": -0.6176090027523973,
+     "adjacent_mi_z": -9.22610013224148,
+     "adjacent_mi": 12.804566909946045,
+     "dl": 8.172753817901391,
+     "units": 34820,
+     "types": 24609,
+     "type_token_ratio": 0.7067489948305572,
+     "hapax_ratio": 0.6162263067202757,
+     "mean_length": 4.33503733486502
+    },
+    "v5": {
+     "unrelated_z": 1.3705611231297012,
+     "same_z": 1.1672312555145914,
+     "variants_z": 0.8347511328302013,
+     "adjacent_mi_z": -2.8242465853075585,
+     "adjacent_mi": 12.780368631375538,
+     "dl": 7.998114867219702,
+     "units": 34929,
+     "types": 24142,
+     "type_token_ratio": 0.6911735234332503,
+     "hapax_ratio": 0.596810673079676,
+     "mean_length": 4.317272180709439
+    },
+    "latin": {
+     "unrelated_z": 2.197733260116569,
+     "same_z": 0.7995787398279519,
+     "variants_z": -0.568153277629215,
+     "adjacent_mi_z": 4.82234420239952,
+     "adjacent_mi": 13.091251146659461,
+     "dl": 7.449414638228923,
+     "units": 34820,
+     "types": 27031,
+     "type_token_ratio": 0.7763067202757036,
+     "hapax_ratio": 0.7270534175761056,
+     "mean_length": 5.320534175761057
+    },
+    "delta_unrelated": -2.164001021277051,
+    "delta_mi": -6.401853546933922
+   },
+   "czytanie co 4. glif w wierszu (transpozycja)": {
+    "manuscript": {
+     "unrelated_z": 0.0810678091526326,
+     "same_z": 0.18200445211814145,
+     "variants_z": 0.3727373890643239,
+     "adjacent_mi_z": -8.278043356654184,
+     "adjacent_mi": 13.015644224691117,
+     "dl": 8.36514402289272,
+     "units": 34820,
+     "types": 25598,
+     "type_token_ratio": 0.7351522113727743,
+     "hapax_ratio": 0.6526134405514072,
+     "mean_length": 4.33503733486502
+    },
+    "v5": {
+     "unrelated_z": -0.4925289795289606,
+     "same_z": 0.6994555762976482,
+     "variants_z": 2.866532484488067,
+     "adjacent_mi_z": -3.538241696511155,
+     "adjacent_mi": 13.016531804788121,
+     "dl": 8.221962605229011,
+     "units": 34929,
+     "types": 25294,
+     "type_token_ratio": 0.7241547138480918,
+     "hapax_ratio": 0.6387242692318703,
+     "mean_length": 4.317272180709439
+    },
+    "latin": {
+     "unrelated_z": 2.3539955059960924,
+     "same_z": -0.2246255582544908,
+     "variants_z": 1.3034877507430038,
+     "adjacent_mi_z": 3.222415315245311,
+     "adjacent_mi": 13.121922000698614,
+     "dl": 7.482746226781678,
+     "units": 34820,
+     "types": 27260,
+     "type_token_ratio": 0.7828834003446296,
+     "hapax_ratio": 0.7373923032739804,
+     "mean_length": 5.320534175761057
+    },
+    "delta_unrelated": 0.5735967886815931,
+    "delta_mi": -4.739801660143028
+   },
+   "czytanie co 5. glif w wierszu (transpozycja)": {
+    "manuscript": {
+     "unrelated_z": -1.4356814070099408,
+     "same_z": -0.495614568305624,
+     "variants_z": -0.4984613683186824,
+     "adjacent_mi_z": -8.760547748708051,
+     "adjacent_mi": 13.076586185540641,
+     "dl": 8.407998527366294,
+     "units": 34820,
+     "types": 25824,
+     "type_token_ratio": 0.7416427340608845,
+     "hapax_ratio": 0.6581562320505456,
+     "mean_length": 4.33503733486502
+    },
+    "v5": {
+     "unrelated_z": -0.4263713312995634,
+     "same_z": 0.4767158119602269,
+     "variants_z": -0.2976204631971172,
+     "adjacent_mi_z": -3.0393027503933587,
+     "adjacent_mi": 13.125428143993126,
+     "dl": 8.314226327122697,
+     "units": 34929,
+     "types": 25803,
+     "type_token_ratio": 0.7387271321824272,
+     "hapax_ratio": 0.6560451201007759,
+     "mean_length": 4.317272180709439
+    },
+    "latin": {
+     "unrelated_z": 0.35027440050960756,
+     "same_z": -0.15007024590253734,
+     "variants_z": -1.2795233585303725,
+     "adjacent_mi_z": 3.0737726914843075,
+     "adjacent_mi": 13.114745202198888,
+     "dl": 7.4887313314306905,
+     "units": 34820,
+     "types": 27321,
+     "type_token_ratio": 0.7846352670878806,
+     "hapax_ratio": 0.739862148190695,
+     "mean_length": 5.320534175761057
+    },
+    "delta_unrelated": -1.0093100757103775,
+    "delta_mi": -5.721244998314692
+   }
+  },
+  "adjacent_mi": {
+   "rękopis": {
+    "value": 5.58259227973589,
+    "null_mean": 5.731312115263523,
+    "z": -24.433652618817984
+   },
+   "bełkot v5": {
+    "value": 4.93648660213317,
+    "null_mean": 4.869739226943635,
+    "z": 10.861924360201504
+   },
+   "bełkot v6": {
+    "value": 6.108318600168144,
+    "null_mean": 6.089591369625115,
+    "z": 1.511828081356005
+   },
+   "łacina": {
+    "value": 6.362398043077881,
+    "null_mean": 5.927474352961598,
+    "z": 46.5943405081712
+   }
+  },
+  "adjacent_mi_by_section": {
+   "text": -7.030154986550522,
+   "herbal": -10.836888993588303,
+   "stars": -31.837161078085572,
+   "biological": -7.8345449931281355,
+   "pharmaceutical": -7.661472566729929
+  }
+ },
+ "controls": [
+  {
+   "name": "zwykła łacina: żadna reguła nie koduje jej krócej niż własne odstępy",
+   "expectation": "minimum długości opisu przy odstępach EVA (bez zmian)",
+   "observed": "minimum: odstępy EVA (bez zmian) (3.452 bit/glif; bez zmian 3.452)",
+   "passed": true
+  },
+  {
+   "name": "łacina zaszyfrowana (odstępy przepisane długościami przesuniętymi o 2): wyszukiwanie odzyskuje słowa",
+   "expectation": "minimum długości opisu przy regule odwrotnej, F1 granic ≥ 0,9",
+   "observed": "minimum: cięcie: długości przesunięte o 2 (glyphs) (3.452 bit/glif), F1 = 1.00; zaszyfrowana bez zmian 6.845",
+   "passed": true
+  },
+  {
+   "name": "łacina zaszyfrowana (tekst przeczytany co 3. glif): wyszukiwanie odzyskuje słowa",
+   "expectation": "minimum długości opisu przy regule odwrotnej, F1 granic ≥ 0,9",
+   "observed": "minimum: czytanie co 3. glif w wierszu (transpozycja) (3.452 bit/glif), F1 = 1.00; zaszyfrowana bez zmian 7.482",
+   "passed": true
+  },
+  {
+   "name": "bełkot v5 (pisany słowami): żadna reguła kluczowana nie koduje go krócej niż jego odstępy",
+   "expectation": "minimum przy odstępach",
+   "observed": "minimum: odstępy EVA (bez zmian) (3.473; odstępy 3.473)",
+   "passed": true
+  }
+ ],
+ "evidence": [
+  "Przed przekształceniem, informacja wzajemna sąsiednich słów wobec tasowania w wierszu (z): rękopis -24.4, bełkot v5 +10.9, bełkot v6 +1.5, łacina +46.6; rękopis działami: text -7.0, herbal -10.8, stars -31.8, biological -7.8, pharmaceutical -7.7. Sąsiednie słowa rękopisu wiedzą o sobie MNIEJ niż dwa losowe słowa tej samej linii; bełkot v5 i łacina odwrotnie.",
+  "przesunięcie glifów o długość słowa (chars): długość opisu 3.895 bit/glif (odstępy EVA 3.896; v5 3.473 wobec 3.473); rękopis niespokrewnione z = -1.8, bełkot v5 +2.3, łacina +12.7; sąsiedzi z = -24.4 (v5 +10.8); jednostek 34820, typów 7014.",
+  "przesunięcie glifów o długość słowa (glyphs): długość opisu 3.896 bit/glif (odstępy EVA 3.896; v5 3.473 wobec 3.473); rękopis niespokrewnione z = -1.8, bełkot v5 +2.3, łacina +12.7; sąsiedzi z = -24.4 (v5 +10.9); jednostek 34820, typów 7018.",
+  "przesunięcie glifów o miejsce w słowie: długość opisu 3.896 bit/glif (odstępy EVA 3.896; v5 3.473 wobec 3.473); rękopis niespokrewnione z = -1.8, bełkot v5 +2.2, łacina +12.6; sąsiedzi z = -24.4 (v5 +10.9); jednostek 34820, typów 7018.",
+  "cięcie: różnice długości (glyphs): długość opisu 5.083 bit/glif (odstępy EVA 3.896; v5 4.890 wobec 3.473); rękopis niespokrewnione z = +3.9, bełkot v5 +3.7, łacina -3.3; sąsiedzi z = +140.7 (v5 +175.1); jednostek 62072, typów 7253.",
+  "cięcie: długości posortowane (glyphs): długość opisu 5.943 bit/glif (odstępy EVA 3.896; v5 5.672 wobec 3.473); rękopis niespokrewnione z = -25.6, bełkot v5 -31.2, łacina -11.6; sąsiedzi z = +17.1 (v5 +28.0); jednostek 34820, typów 14388.",
+  "Cięcia bez klucza: cięcie co 3 glifów (bez klucza) koduje rękopis 3.317 bit/glif wobec 3.896 dla słów EVA (bełkot v5 3.199 wobec 3.473; łacina 3.893 wobec 3.452). Słowa rękopisu, jak słowa bełkotu, są mniej oszczędnymi jednostkami niż sztywne kawałki glifów; słowa łaciny są oszczędniejsze od kawałków."
+ ],
+ "caveats": [
+  "Rodzina reguł jest skończona (cięcia, przesunięcia, transpozycje według długości); klucz innego rodzaju, np. tablica przyporządkowująca długościom litery, wymagałby osobnego testu (tak działał length_code, obalony).",
+  "Cięcie strumienia glifów w sztywne kawałki samo tworzy pozorną informację między sąsiadami (zależności glifów przechodzą przez cięcie); stąd porównanie każdej reguły z tą samą regułą na bełkocie, nie z zerem.",
+  "Ujemna informacja sąsiednich słów rękopisu to nowa miara spoza karty 22; kandydat do karty v7."
+ ],
+ "references": [
+  "Currier (1976); Zandbergen, voynich.nu: word structure and spaces",
+  "Reddy & Knight, What we know about the Voynich manuscript (2011): word-level statistics"
+ ],
+ "artifacts": [],
+ "seconds": 864.8693499565125,
+ "council": {}
+}
