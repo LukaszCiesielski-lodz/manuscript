@@ -602,5 +602,110 @@
   "/content/manuscript/results/lab/20261024-182511/v6/best_sample.txt"
  ],
  "seconds": 530.5514023303986,
- "council": {}
+ "council": {
+  "members": [
+   "z-ai/glm-5.3-flash",
+   "openai/gpt-6-luna",
+   "inception/mercury-3",
+   "tencent/hy3"
+  ],
+  "chair": "openai/gpt-6-luna",
+  "round1": {
+   "z-ai/glm-5.3-flash": {
+    "raw": "```json\n{\n  \"werdykt\": \"obalona\",\n  \"pewność\": 0.65,\n  \"najmocniejszy_dowód\": \"Najlepszy finalista v6 uzyskuje AUC sędziego 0.655, praktycznie identycznie jak punkt odniesienia bełkotu v5 (0.658), przy kontrolnej parze prawdziwe–prawdziwe 0.531. Tłumienie częstości (freq_gamma) nie przybliżyło tekstu bez treści do rękopisu w ocenie sędziego. Dodatkowo finaliści na foliałach parzystych wciąż gubią 2–4 z 22 miar (m.in. hapax_ratio, edge_mi), więc żaden nie przeszedł pełnej karty miar.\",\n  \"słabości\": [\n    \"Budżet wyszukiwania jest mały: 25 pokoleń × populacja 32 wobec 18 wymiarów — obalenie dotyczy osiągniętego dopasowania, nie możliwości teoretycznych reguł.\",\n    \"Przystosowanie liczone na jednym ziarnie na pokolenie; finaliści sprawdzani na trzech, więc odrzucenie może częściowo wynikać z wariancji ziarna.\",\n    \"Przystosowanie nie zawiera sygnału od sędziego-transformera ani AUC n-gramowego — dobór optymalizował miary statystyczne, a nie podstawową deklarowaną zdolność 'nieodróżnialności'.\",\n    \"Sędzia ocenia pojedyncze wiersze; wniosek o odróżnialności dotyczy poziomu wiersza, nie spójności strony.\"\n  ],\n  \"inne_wyjaśnienia\": [\n    \"Sędzia-transformer może wykrywać cechy poza zasięgiem 22 miar (np. powtarzalność fraz na poziomie strony), których generator v5 z definicji nie modeluje — wtedy porażka nie obala samej reguły tłumienia, lecz klasę generatora.\",\n    \"Ewolucja mogła znaleźć lokalne optimum: wszystkie finaliści mają podobne parametry (p_copy≈0, p_repeat≈0), co sugeruje wąski region poszukiwań.\"\n  ],\n  \"następny_test\": \"Ponowna ewolucja z przystosowaniem wzbogaconym o AUC sędziego (lub klasyfikatora n-gramowego) liczonym na zbiorze walidacyjnym, przy większym budżecie (np. 100 pokoleń, przystosowanie uśrednione po 3 ziarnach). Jeśli mimo to AUC pozostanie ≈0.65, obalenie hipotezy stanie się mocne; jeśli spadnie ku 0.53, hipoteza wraca do gry.\"\n}\n```",
+    "json": {
+     "werdykt": "obalona",
+     "pewność": 0.65,
+     "najmocniejszy_dowód": "Najlepszy finalista v6 uzyskuje AUC sędziego 0.655, praktycznie identycznie jak punkt odniesienia bełkotu v5 (0.658), przy kontrolnej parze prawdziwe–prawdziwe 0.531. Tłumienie częstości (freq_gamma) nie przybliżyło tekstu bez treści do rękopisu w ocenie sędziego. Dodatkowo finaliści na foliałach parzystych wciąż gubią 2–4 z 22 miar (m.in. hapax_ratio, edge_mi), więc żaden nie przeszedł pełnej karty miar.",
+     "słabości": [
+      "Budżet wyszukiwania jest mały: 25 pokoleń × populacja 32 wobec 18 wymiarów — obalenie dotyczy osiągniętego dopasowania, nie możliwości teoretycznych reguł.",
+      "Przystosowanie liczone na jednym ziarnie na pokolenie; finaliści sprawdzani na trzech, więc odrzucenie może częściowo wynikać z wariancji ziarna.",
+      "Przystosowanie nie zawiera sygnału od sędziego-transformera ani AUC n-gramowego — dobór optymalizował miary statystyczne, a nie podstawową deklarowaną zdolność 'nieodróżnialności'.",
+      "Sędzia ocenia pojedyncze wiersze; wniosek o odróżnialności dotyczy poziomu wiersza, nie spójności strony."
+     ],
+     "inne_wyjaśnienia": [
+      "Sędzia-transformer może wykrywać cechy poza zasięgiem 22 miar (np. powtarzalność fraz na poziomie strony), których generator v5 z definicji nie modeluje — wtedy porażka nie obala samej reguły tłumienia, lecz klasę generatora.",
+      "Ewolucja mogła znaleźć lokalne optimum: wszystkie finaliści mają podobne parametry (p_copy≈0, p_repeat≈0), co sugeruje wąski region poszukiwań."
+     ],
+     "następny_test": "Ponowna ewolucja z przystosowaniem wzbogaconym o AUC sędziego (lub klasyfikatora n-gramowego) liczonym na zbiorze walidacyjnym, przy większym budżecie (np. 100 pokoleń, przystosowanie uśrednione po 3 ziarnach). Jeśli mimo to AUC pozostanie ≈0.65, obalenie hipotezy stanie się mocne; jeśli spadnie ku 0.53, hipoteza wraca do gry."
+    }
+   },
+   "openai/gpt-6-luna": {
+    "raw": "{\n  \"werdykt\": \"metoda niewiarygodna\",\n  \"pewność\": 0.86,\n  \"najmocniejszy_dowód\": \"Kontrola czułości wykryła celowo wprowadzone zmiany glifów (AUC 0.854), ale raport nie podaje wymaganej kontroli na danych przetasowanych. Niezależnie od tego brak wyników nie wspiera hipotezy: najlepszy generator ma 4 chybienia miar, a sędzia odróżnia go od rękopisu (AUC 0.655; dla prawdziwych wobec prawdziwych 0.531).\",\n  \"słabości\": [\n    \"Brak kontroli negatywnej na danych przetasowanych uniemożliwia uznanie metody za wiarygodną według podanych kryteriów.\",\n    \"Strojenie używało jednego ziarna na pokolenie; ocena finalistów na trzech ziarnach i niewidzianych foliałach ogranicza, ale nie wyklucza, niestabilności i przeuczenia.\",\n    \"Sędzia porównuje pojedyncze wiersze, nie spójność strony; raport nie rozstrzyga więc hipotezy o spójności całego rękopisu.\"\n  ],\n  \"inne_wyjaśnienia\": [\n    \"AUC 0.655 może odzwierciedlać różnice lokalne wykrywane przez tego konkretnego sędziego, a nie wszystkie możliwe różnice między tekstami.\",\n    \"Wyniki są oparte na trzech ziarnach dla finalistów i ograniczonej liczbie foliałów oceny.\"\n  ],\n  \"następny_test\": \"Powtórzyć pełną ocenę, w tym strojenie i pracę sędziego, na danych przetasowanych jako kontroli negatywnej; sprawdzić, czy sędzia nie wykrywa w nich efektu, zachowując wykrywanie celowo wprowadzonych zmian.\"\n}",
+    "json": {
+     "werdykt": "metoda niewiarygodna",
+     "pewność": 0.86,
+     "najmocniejszy_dowód": "Kontrola czułości wykryła celowo wprowadzone zmiany glifów (AUC 0.854), ale raport nie podaje wymaganej kontroli na danych przetasowanych. Niezależnie od tego brak wyników nie wspiera hipotezy: najlepszy generator ma 4 chybienia miar, a sędzia odróżnia go od rękopisu (AUC 0.655; dla prawdziwych wobec prawdziwych 0.531).",
+     "słabości": [
+      "Brak kontroli negatywnej na danych przetasowanych uniemożliwia uznanie metody za wiarygodną według podanych kryteriów.",
+      "Strojenie używało jednego ziarna na pokolenie; ocena finalistów na trzech ziarnach i niewidzianych foliałach ogranicza, ale nie wyklucza, niestabilności i przeuczenia.",
+      "Sędzia porównuje pojedyncze wiersze, nie spójność strony; raport nie rozstrzyga więc hipotezy o spójności całego rękopisu."
+     ],
+     "inne_wyjaśnienia": [
+      "AUC 0.655 może odzwierciedlać różnice lokalne wykrywane przez tego konkretnego sędziego, a nie wszystkie możliwe różnice między tekstami.",
+      "Wyniki są oparte na trzech ziarnach dla finalistów i ograniczonej liczbie foliałów oceny."
+     ],
+     "następny_test": "Powtórzyć pełną ocenę, w tym strojenie i pracę sędziego, na danych przetasowanych jako kontroli negatywnej; sprawdzić, czy sędzia nie wykrywa w nich efektu, zachowując wykrywanie celowo wprowadzonych zmian."
+    }
+   },
+   "tencent/hy3": {
+    "raw": "{\n  \"werdykt\": \"obalona\",\n  \"pewność\": 0.82,\n  \"najmocniejszy_dowód\": \"Sędzia-transformer nadal odróżnia tekst generowany przez v6 od rękopisu (AUC 0.655 wobec 0.5 dla przypadku losowego; dla v5 AUC 0.658), a najlepszy finalista wciąż wykazuje chybienia w miarach edge_mi, hapax_ratio, line_last_m i line_mean_spread na foliałach parzystych niewidzianych w ewolucji.\",\n  \"słabości\": [\n    \"Test nie bada spójności międzywierszowej całych stron (sędzia widzi pojedyncze wiersze; teoria cohesion niezbadana w tym raporcie).\",\n    \"Przystosowanie w ewolucji liczone na jednym ziarnie na pokolenie, co zwiększa szum estymacji wobec oceny finalistów na 3 ziarnach.\",\n    \"Hipoteza zakładała przejście wszystkich 22 miar i nierozróżnialność przez sędziego; żaden finalista nie spełnił obu warunków jednocześnie.\"\n  ],\n  \"inne_wyjaśnienia\": [\n    \"Rękopis może zawierać ukrytą treść lub wyższy poziom struktury semantycznej nieuwzględniony w regułach v5/v6.\",\n    \"Model v6 może wymagać szerszej przestrzeni parametrów lub innej funkcji kary niż suma kwadratów odchyleń miar.\"\n  ],\n  \"następny_test\": \"Test sędziego-transformera na pełnych foliałach (nie tylko wierszach) z miarą spójności cohesion, aby sprawdzić, czy brak odróżnienia wymaga uwzględnienia kontekstu międzywierszowego strony.\"\n}",
+    "json": {
+     "werdykt": "obalona",
+     "pewność": 0.82,
+     "najmocniejszy_dowód": "Sędzia-transformer nadal odróżnia tekst generowany przez v6 od rękopisu (AUC 0.655 wobec 0.5 dla przypadku losowego; dla v5 AUC 0.658), a najlepszy finalista wciąż wykazuje chybienia w miarach edge_mi, hapax_ratio, line_last_m i line_mean_spread na foliałach parzystych niewidzianych w ewolucji.",
+     "słabości": [
+      "Test nie bada spójności międzywierszowej całych stron (sędzia widzi pojedyncze wiersze; teoria cohesion niezbadana w tym raporcie).",
+      "Przystosowanie w ewolucji liczone na jednym ziarnie na pokolenie, co zwiększa szum estymacji wobec oceny finalistów na 3 ziarnach.",
+      "Hipoteza zakładała przejście wszystkich 22 miar i nierozróżnialność przez sędziego; żaden finalista nie spełnił obu warunków jednocześnie."
+     ],
+     "inne_wyjaśnienia": [
+      "Rękopis może zawierać ukrytą treść lub wyższy poziom struktury semantycznej nieuwzględniony w regułach v5/v6.",
+      "Model v6 może wymagać szerszej przestrzeni parametrów lub innej funkcji kary niż suma kwadratów odchyleń miar."
+     ],
+     "następny_test": "Test sędziego-transformera na pełnych foliałach (nie tylko wierszach) z miarą spójności cohesion, aby sprawdzić, czy brak odróżnienia wymaga uwzględnienia kontekstu międzywierszowego strony."
+    }
+   }
+  },
+  "round2": {
+   "z-ai/glm-5.3-flash": {
+    "raw": "```json\n{\"ranking\": [\"B\", \"C\"], \"uwagi\": \"Opinia B trafnie identyfikuje kluczową lukę proceduralną: raport nie zawiera kontroli negatywnej na danych przetasowanych, a reguły rady wymagają, by metoda znajdowała efekt podłożony celowo (kontrola czułości: AUC 0.854 — przeszła) i NIE znajdowała go w danych przetasowanych (brak). Jej spostrzeżenia o jednym ziarnie w strojeniu i o sędzi widzącym tylko wiersze są zgodne z zastrzeżeniami raportu. Krytykując metodę, B jednak lekko przesadza: wszystkie cztery wykonane kontrole przeszły, a wynik rzeczowy (sędzia odróżnia v6, AUC 0.655 wobec 0.531 dla prawdziwych; finaliści mają 1–4 chybienia na foliałach niewidzianych w strojeniu) jest wewnętrznie spójny — brak kontroli przetasowanej osłabia wiarygodność formalną, ale nie podważa kierunku obserwacji. Opinia C poprawnie czyta dane (żaden finalista nie spełnił obu warunków hipotezy; sędzia odróżnia), ale jej werdykt 'obalona' jest nadinterpretacją: niepowodzenie JEDNEJ ewolucji (25 pokoleń, 32 osobniki, uporczywe chybienia hapax_ratio i edge_mi) pokazuje, że ta próba dostrojenia zawiodła, nie że hipoteza jest niemożliwa — automatyczny werdykt 'nierozstrzygnięta' jest właściwy. Propozycja C (sędzia na pełnych foliałach z spójnością) jest wartościowa jako dalszy krok, ale mniej rozstrzygająca niż brakująca kontrola negatywna, bo dotyczy zakresu hipotezy, nie wiarygodności metody.\", \"werdykt\": \"nierozstrzygnięta — hipoteza (v6 przechodzi wszystkie 22 miary i jest nierozróżnialna przez sędziego) nie znalazła poparcia w tej próbie: najlepszy finalista ma 4 chybienia na niewidzianych foliałach, a sędzia odróżnia go od rękopisu (AUC 0.655). Nie jest to jednak obalenie hipotezy — ewolucja mogła po prostu nie zbiec. Wiarygodność formalna metody jest ograniczona brakiem kontroli na danych przetasowanych; wykonane kontrole (czułość 0.854, prawdziwe-prawdziwe 0.531, determinizm, karta foliałów) przeszły.\", \"pewność\": 0.65, \"zmiana_zdania\": \"nie — dane z raportu jednoznacznie pokazują niepowodzenie tej próby dostrojenia przy zachowanychcontrols, a spór B vs C dotyczy głównie etykiety: B ('niewiarygodna metoda') i C ('obalona') obie przekraczają to, co uzasadnia wynik 'nierozstrzygnięta'.\"}\n```",
+    "json": {
+     "ranking": [
+      "B",
+      "C"
+     ],
+     "uwagi": "Opinia B trafnie identyfikuje kluczową lukę proceduralną: raport nie zawiera kontroli negatywnej na danych przetasowanych, a reguły rady wymagają, by metoda znajdowała efekt podłożony celowo (kontrola czułości: AUC 0.854 — przeszła) i NIE znajdowała go w danych przetasowanych (brak). Jej spostrzeżenia o jednym ziarnie w strojeniu i o sędzi widzącym tylko wiersze są zgodne z zastrzeżeniami raportu. Krytykując metodę, B jednak lekko przesadza: wszystkie cztery wykonane kontrole przeszły, a wynik rzeczowy (sędzia odróżnia v6, AUC 0.655 wobec 0.531 dla prawdziwych; finaliści mają 1–4 chybienia na foliałach niewidzianych w strojeniu) jest wewnętrznie spójny — brak kontroli przetasowanej osłabia wiarygodność formalną, ale nie podważa kierunku obserwacji. Opinia C poprawnie czyta dane (żaden finalista nie spełnił obu warunków hipotezy; sędzia odróżnia), ale jej werdykt 'obalona' jest nadinterpretacją: niepowodzenie JEDNEJ ewolucji (25 pokoleń, 32 osobniki, uporczywe chybienia hapax_ratio i edge_mi) pokazuje, że ta próba dostrojenia zawiodła, nie że hipoteza jest niemożliwa — automatyczny werdykt 'nierozstrzygnięta' jest właściwy. Propozycja C (sędzia na pełnych foliałach z spójnością) jest wartościowa jako dalszy krok, ale mniej rozstrzygająca niż brakująca kontrola negatywna, bo dotyczy zakresu hipotezy, nie wiarygodności metody.",
+     "werdykt": "nierozstrzygnięta — hipoteza (v6 przechodzi wszystkie 22 miary i jest nierozróżnialna przez sędziego) nie znalazła poparcia w tej próbie: najlepszy finalista ma 4 chybienia na niewidzianych foliałach, a sędzia odróżnia go od rękopisu (AUC 0.655). Nie jest to jednak obalenie hipotezy — ewolucja mogła po prostu nie zbiec. Wiarygodność formalna metody jest ograniczona brakiem kontroli na danych przetasowanych; wykonane kontrole (czułość 0.854, prawdziwe-prawdziwe 0.531, determinizm, karta foliałów) przeszły.",
+     "pewność": 0.65,
+     "zmiana_zdania": "nie — dane z raportu jednoznacznie pokazują niepowodzenie tej próby dostrojenia przy zachowanychcontrols, a spór B vs C dotyczy głównie etykiety: B ('niewiarygodna metoda') i C ('obalona') obie przekraczają to, co uzasadnia wynik 'nierozstrzygnięta'."
+    }
+   },
+   "openai/gpt-6-luna": {
+    "raw": "{\"ranking\":[\"A\",\"C\"],\"uwagi\":\"A jest lepiej uzasadniona i ostrożniejsza: wskazuje AUC 0.655 wobec 0.658 dla v5 oraz utrzymujące się chybienia miar, a proponuje test bliższy głównej hipotezie. C trafnie opisuje wyniki, lecz jej pewność 0.82 i kategoryczne „obalona” są zbyt mocne przy ograniczonym wyszukiwaniu; proponowany test całych foliałów dotyczy dodatkowej spójności stron, której ten raport nie bada. Zastrzeżenie do A: optymalizacja bez sygnału sędziego nie jest rozstrzygającym testem, czy dałoby się znaleźć ustawienia nierozróżnialne; przy włączeniu AUC do celu trzeba zachować nietknięty zbiór testowy. W raporcie kontrola czułości na celową zmianę glifów przeszła (AUC 0.854), podobnie kontrola prawdziwe–prawdziwe (0.531), ale nie opisano kontroli na danych przetasowanych. Zgodnie z kryteriami oceny wiarygodność kontroli jest więc niepełna. Najbardziej zmieniłaby ocenę szersza, wieloziarnowa ewolucja z kryterium sędziego i oceną na nietkniętym zbiorze, wraz z kontrolami na celowo podłożonym efekcie i danych przetasowanych. Wśród opinii nie podano B.\",\"werdykt\":\"Wyniki są mocnym dowodem, że przedstawione wyszukiwanie v6 nie uzyskało rozwiązania spełniającego hipotezę: finaliści nie przechodzą wszystkich miar na foliałach parzystych, a sędzia odróżnia najlepszy wynik od rękopisu. Nie obalają jednak ogólnej możliwości dostrojenia reguł poza zbadanym budżetem i konfiguracją. Ocena: nierozstrzygnięta, z",
+    "json": {}
+   },
+   "tencent/hy3": {
+    "raw": "{\n  \"ranking\": [\"A\", \"B\"],\n  \"uwagi\": \"A jest lepiej uzasadniona danymi: poprawnie cytuje AUC sędziego (0.655 vs 0.531 kontrolne, 0.658 v5) i chybienia miar finalistów, wyciągając wniosek o braku nieodróżnialności w zbadanym budżecie. B myli się co do niewiarygodności metody – raport zawiera kontrole negatywne (prawdziwe-prawdziwe AUC 0.531, foliały nieparzyste/parzyste 0 błędów), które przeszły, więc kryterium z zasad (kontrole przeszły) jest spełnione. Test wyklucza dostrojenie v6 w budżecie 25×32 do pełnej zgodności i nieodróżnialności wierszy; nie bada spójności strony ani możliwości przy większym budżecie.\",\n  \"werdykt\": \"obalona w zbadanym zakresie (brak przejścia 22 miar i AUC sędziego >0.6)\",\n  \"pewność\": 0.72,\n  \"zmiana_zdania\": \"nie, raport jasno pokazuje porażkę finalistów w miarach i u sędziego\"\n}",
+    "json": {
+     "ranking": [
+      "A",
+      "B"
+     ],
+     "uwagi": "A jest lepiej uzasadniona danymi: poprawnie cytuje AUC sędziego (0.655 vs 0.531 kontrolne, 0.658 v5) i chybienia miar finalistów, wyciągając wniosek o braku nieodróżnialności w zbadanym budżecie. B myli się co do niewiarygodności metody – raport zawiera kontrole negatywne (prawdziwe-prawdziwe AUC 0.531, foliały nieparzyste/parzyste 0 błędów), które przeszły, więc kryterium z zasad (kontrole przeszły) jest spełnione. Test wyklucza dostrojenie v6 w budżecie 25×32 do pełnej zgodności i nieodróżnialności wierszy; nie bada spójności strony ani możliwości przy większym budżecie.",
+     "werdykt": "obalona w zbadanym zakresie (brak przejścia 22 miar i AUC sędziego >0.6)",
+     "pewność": 0.72,
+     "zmiana_zdania": "nie, raport jasno pokazuje porażkę finalistów w miarach i u sędziego"
+    }
+   }
+  },
+  "synthesis": "## Werdykt rady\n\n**Nierozstrzygnięta.** W badanym wyszukiwaniu v6 nie uzyskano rozwiązania spełniającego hipotezę, ale wynik nie dowodzi, że takie ustawienia nie istnieją.\n\n**Poziom zgody:** umiarkowanie wysoki co do tego, że badani finaliści nie spełnili deklarowanych kryteriów; mniejszy co do tego, czy wolno uznać test za wiarygodny. Brakuje kluczowej kontroli negatywnej.\n\n## Co test naprawdę pokazuje\n\nNajlepszy zgłoszony wynik sędziego dla v6 to AUC **0,655**, wobec **0,531** dla porównania prawdziwe–prawdziwe i **0,658** dla v5. Sędzia nadal odróżniał więc tekst v6 od rękopisu. Finaliści mieli też uchybienia w **1–4 z 22 miar** na foliałach parzystych. To świadczy o niepowodzeniu tej próby strojenia, nie o niemożliwości dostrojenia reguł w ogóle.\n\nKontrola czułości na celowo zmienione glify przeszła (**AUC 0,854**), podobnie porównanie prawdziwe–prawdziwe. Raport nie podaje jednak wyniku na danych przetasowanych, wymaganego do uznania kontroli metody za zaliczoną.\n\n## Główne zastrzeżenia\n\nWyszukiwanie było ograniczone do 25 pokoleń i 32 ustawień, a strojenie nie uwzględniało wyniku sędziego. Ocena sędziego dotyczyła pojedynczych wierszy, nie spójności całych stron. Finalistów sprawdzono na trzech ziarnach i niewidzianych foliałach, ale nie usuwa to tych ograniczeń.\n\n## Następny eksperyment\n\nPrzeprowadzić wieloziarnowe strojenie z kryterium obejmującym sędziego, oceniając je na nietkniętym zbiorze; równocześnie wykazać, że metoda wykrywa efekt celowo podłożony, a nie znajduje go w danych przetasowanych.",
+  "failed": {
+   "inception/mercury-3": "OpenRouter: inception/mercury-3 zwrócił pustą odpowiedź (model rozumujący zużył limit tokenów)"
+  },
+  "votes": {
+   "obalona": 1,
+   "nierozstrzygnięta": 1
+  }
+ }
 }

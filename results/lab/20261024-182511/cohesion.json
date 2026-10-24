@@ -66,5 +66,155 @@
  ],
  "artifacts": [],
  "seconds": 39.47993278503418,
- "council": {}
+ "council": {
+  "members": [
+   "z-ai/glm-5.3-flash",
+   "openai/gpt-6-luna",
+   "inception/mercury-3",
+   "tencent/hy3"
+  ],
+  "chair": "openai/gpt-6-luna",
+  "round1": {
+   "z-ai/glm-5.3-flash": {
+    "raw": "{\"werdykt\":\"metoda niewiarygodna\",\"pewność\":0.7,\"najmocniejszy_dowód\":\"Kontrola ujemna przeszła czysto: przy rozdanym wierszach w dziale i dialekcie AUC 0.500, czyli sędzia nie znajduje fałszywej spójności pseudostron; na rękopisie AUC 0.526 — blisko zera efektu.\",\"słabości\":[\"Kontrola dodatnia niezaliczona: na łacinie ze wszczepionym słowem strony AUC 0.654 < wymagane 0.7, więc metoda mogła być zbyt słaba, by wykryć realny (umiarkowany) sygnał spójności strony — wynik 0.526 nie obala hipotezy jednoznacznie.\",\"Para wierszy z tej samej strony różni się od par między stronami także układem, a nie tylko przynależnością do wpisu; test nie rozdziela tych źródeł sygnału.\",\"Uprzedzenie: różnice rąk skrybów w obrębie działu mogą dawać sędziemu oparcie niezasadne dla hipotezy (zastrzeżenie raportu).\",\"Normalizacja wierszy do 47 znaków (obcięcia/dopełnienia) może zniekształcać sygnał, zwłaszcza końcówek wierszy.\"],\"inne_wyjaśnienia\":[\"Brak efektu może wynikać z małej pojemności modelu (4 warstwy, 192 wymiary) i małych par uczących, a nie z braku spójności stron.\",\"Ewentualny słaby sygnał (< AUC ~0.55) mógł zostać niewykryty przez sędziego niezdolnego do kontrolą dodatnią.\"],\"następny_test\":\"Wzmocnić kontrolę dodatnią (np. wszczepienie słowa strony w 20% słów na bełkot v5 oraz hierarchiczna kontrola dodatnia na rękopisie — sztuczne wstawienie realnie powtarzalnego elementu strony), tak by metoda przechodziła kontrolę przy AUC ≥ 0.7; dopiero wtedy powtórzyć pomiar na rękopisie.\"}",
+    "json": {
+     "werdykt": "metoda niewiarygodna",
+     "pewność": 0.7,
+     "najmocniejszy_dowód": "Kontrola ujemna przeszła czysto: przy rozdanym wierszach w dziale i dialekcie AUC 0.500, czyli sędzia nie znajduje fałszywej spójności pseudostron; na rękopisie AUC 0.526 — blisko zera efektu.",
+     "słabości": [
+      "Kontrola dodatnia niezaliczona: na łacinie ze wszczepionym słowem strony AUC 0.654 < wymagane 0.7, więc metoda mogła być zbyt słaba, by wykryć realny (umiarkowany) sygnał spójności strony — wynik 0.526 nie obala hipotezy jednoznacznie.",
+      "Para wierszy z tej samej strony różni się od par między stronami także układem, a nie tylko przynależnością do wpisu; test nie rozdziela tych źródeł sygnału.",
+      "Uprzedzenie: różnice rąk skrybów w obrębie działu mogą dawać sędziemu oparcie niezasadne dla hipotezy (zastrzeżenie raportu).",
+      "Normalizacja wierszy do 47 znaków (obcięcia/dopełnienia) może zniekształcać sygnał, zwłaszcza końcówek wierszy."
+     ],
+     "inne_wyjaśnienia": [
+      "Brak efektu może wynikać z małej pojemności modelu (4 warstwy, 192 wymiary) i małych par uczących, a nie z braku spójności stron.",
+      "Ewentualny słaby sygnał (< AUC ~0.55) mógł zostać niewykryty przez sędziego niezdolnego do kontrolą dodatnią."
+     ],
+     "następny_test": "Wzmocnić kontrolę dodatnią (np. wszczepienie słowa strony w 20% słów na bełkot v5 oraz hierarchiczna kontrola dodatnia na rękopisie — sztuczne wstawienie realnie powtarzalnego elementu strony), tak by metoda przechodziła kontrolę przy AUC ≥ 0.7; dopiero wtedy powtórzyć pomiar na rękopisie."
+    }
+   },
+   "openai/gpt-6-luna": {
+    "raw": "{\n  \"werdykt\": \"metoda niewiarygodna\",\n  \"pewność\": 0.98,\n  \"najmocniejszy_dowód\": \"Kontrola ujemna przeszła (AUC 0,500), ale kontrola dodatnia nie: wszczepione słowo strony dało AUC 0,654 zamiast wymaganego co najmniej 0,7. Wynik rękopisu, 0,526 wobec 0,500 po przetasowaniu, jest bliski losowemu, lecz test nie wykazał, że metoda niezawodnie rozpoznaje nawet efekt podłożony celowo.\",\n  \"słabości\": [\n    \"Niezaliczona kontrola dodatnia podważa zdolność testu do wykrywania spójności strony.\",\n    \"Różnice rąk skrybów w obrębie działu mogą dostarczać sędziemu dodatkowych wskazówek; kontrola nie usuwa tego możliwego źródła.\",\n    \"Obcinanie długich wierszy i dopełnianie krótkich do 47 znaków może pomijać lub zniekształcać istotne cechy.\"\n  ],\n  \"inne_wyjaśnienia\": [\n    \"AUC bliskie 0,5 nie wykazuje silnej wykrywalnej spójności strony w tej konfiguracji, ale nie rozstrzyga, czy słabszy efekt istnieje.\",\n    \"Ewentualna spójność może opierać się na cechach, których model znakowy nie uchwycił; test nie bada znaczenia ani rodzaju wpisów.\"\n  ],\n  \"następny_test\": \"Najpierw skalibrować i powtórzyć kontrolę dodatnią z losowo przydzielanymi, wszczepionymi znacznikami strony, aż metoda osiągnie ustalony próg AUC, a następnie zastosować ją do rękopisu przy podziale danych na całe strony.\"\n}",
+    "json": {
+     "werdykt": "metoda niewiarygodna",
+     "pewność": 0.98,
+     "najmocniejszy_dowód": "Kontrola ujemna przeszła (AUC 0,500), ale kontrola dodatnia nie: wszczepione słowo strony dało AUC 0,654 zamiast wymaganego co najmniej 0,7. Wynik rękopisu, 0,526 wobec 0,500 po przetasowaniu, jest bliski losowemu, lecz test nie wykazał, że metoda niezawodnie rozpoznaje nawet efekt podłożony celowo.",
+     "słabości": [
+      "Niezaliczona kontrola dodatnia podważa zdolność testu do wykrywania spójności strony.",
+      "Różnice rąk skrybów w obrębie działu mogą dostarczać sędziemu dodatkowych wskazówek; kontrola nie usuwa tego możliwego źródła.",
+      "Obcinanie długich wierszy i dopełnianie krótkich do 47 znaków może pomijać lub zniekształcać istotne cechy."
+     ],
+     "inne_wyjaśnienia": [
+      "AUC bliskie 0,5 nie wykazuje silnej wykrywalnej spójności strony w tej konfiguracji, ale nie rozstrzyga, czy słabszy efekt istnieje.",
+      "Ewentualna spójność może opierać się na cechach, których model znakowy nie uchwycił; test nie bada znaczenia ani rodzaju wpisów."
+     ],
+     "następny_test": "Najpierw skalibrować i powtórzyć kontrolę dodatnią z losowo przydzielanymi, wszczepionymi znacznikami strony, aż metoda osiągnie ustalony próg AUC, a następnie zastosować ją do rękopisu przy podziale danych na całe strony."
+    }
+   },
+   "inception/mercury-3": {
+    "raw": "{\"werdykt\": \"metoda niewiarygodna\",\n \"pewność\": 0.9,\n \"najmocniejszy_dowód\": \"Kontrola ujemna przeszła: losowe rozdanie wierszy na pseudostrony dało AUC 0.500, zgodnie z oczekiwaniem, ale kontrola dodatnia z wszczepionym słowem strony osiągnęła tylko 0.654, poniżej progu 0.7, więc metoda nie dowodzi zdolności do wykrycia sygnału strony.\",\n \"słabości\": [\"Kontrola dodatnia niezaliczona: AUC 0.654 < 0.7\", \"Rękopis AUC 0.526 jest bliskie przypadku, ale bez przejścia kontroli dodatniej nie można tego interpretować\", \"Liczba stron różni się między eksperymentami (206, 338, 139, 274), co utrudnia porównania\", \"Połówki wierszy po 47 znaków: długie wiersze obcięte, krótkie dopełnione, co może niszczyć wzorce\"],\n \"inne_wyjaśnienia\": [\"Model może mieć zbyt małą pojemność lub zbyt słabą reprezentację do wychwycenia subtelnej spójności stron\", \"Przycinanie wierszy usuwa fragmenty mogące zawierać sygnał strony\", \"Różnice rąk skryby w obrębie działu mogą maskować lub dodawać szum\", \"Efekt strony może być realny, ale metoda nie jest wystarczająco czuła, by go wykryć\"],\n \"następny_test\": \"Poprawić kontrolę dodatnią: wstawić wyrazisty sygnał strony (np. unikalny token w każdej parze wierszy) i uzyskać AUC ≥ 0.7; dopiero potem porównać wynik rękopisu z kontrolami.\"}",
+    "json": {
+     "werdykt": "metoda niewiarygodna",
+     "pewność": 0.9,
+     "najmocniejszy_dowód": "Kontrola ujemna przeszła: losowe rozdanie wierszy na pseudostrony dało AUC 0.500, zgodnie z oczekiwaniem, ale kontrola dodatnia z wszczepionym słowem strony osiągnęła tylko 0.654, poniżej progu 0.7, więc metoda nie dowodzi zdolności do wykrycia sygnału strony.",
+     "słabości": [
+      "Kontrola dodatnia niezaliczona: AUC 0.654 < 0.7",
+      "Rękopis AUC 0.526 jest bliskie przypadku, ale bez przejścia kontroli dodatniej nie można tego interpretować",
+      "Liczba stron różni się między eksperymentami (206, 338, 139, 274), co utrudnia porównania",
+      "Połówki wierszy po 47 znaków: długie wiersze obcięte, krótkie dopełnione, co może niszczyć wzorce"
+     ],
+     "inne_wyjaśnienia": [
+      "Model może mieć zbyt małą pojemność lub zbyt słabą reprezentację do wychwycenia subtelnej spójności stron",
+      "Przycinanie wierszy usuwa fragmenty mogące zawierać sygnał strony",
+      "Różnice rąk skryby w obrębie działu mogą maskować lub dodawać szum",
+      "Efekt strony może być realny, ale metoda nie jest wystarczająco czuła, by go wykryć"
+     ],
+     "następny_test": "Poprawić kontrolę dodatnią: wstawić wyrazisty sygnał strony (np. unikalny token w każdej parze wierszy) i uzyskać AUC ≥ 0.7; dopiero potem porównać wynik rękopisu z kontrolami."
+    }
+   },
+   "tencent/hy3": {
+    "raw": "{\n  \"werdykt\": \"metoda niewiarygodna\",\n  \"pewność\": 0.98,\n  \"najmocniejszy_dowód\": \"Kontrola dodatnia niezaliczona: łacina ze wszczepionym słowem strony dała AUC 0.654 przy oczekiwanym progu ≥0.7, co oznacza, że metoda nie wykryła celowo podłożonego sygnału przynależności do strony.\",\n  \"słabości\": [\n    \"Niezaliczona kontrola dodatnia dowodzi braku czułości metody na znany efekt (AUC 0.654 < 0.7).\",\n    \"Różnice rąk skrybów w obrębie działu mogły stanowić niekontrolowane oparcie dla sędziego mimo grupowania po dialekcie.\",\n    \"Dopełnianie i obcinanie wierszy do sztywnego limitu 47 znaków zniekształca oryginalną strukturę tekstu.\"\n  ],\n  \"inne_wyjaśnienia\": [\n    \"Test nie wyklucza spójności wierszy na stronie w wymiarze nieszeregowym (np. semantycznym), którego model znakowy nie uchwycił.\",\n    \"Test nie bada spójności międzystronicowej ani szerszych bloków (np. rozkładek).\",\n    \"Hipoteza o spójności 'ponad dział i dialekt' nie została zweryfikowana, bo metoda odrzuciła już na etapie kalibracji.\"\n  ],\n  \"następny_test\": \"Powtórzyć procedurę z pełnymi wierszami (bez obcinania do 47 znaków) i wzmocnioną kontrolą dodatnią (np. 100% wszczepienie markera strony w łacinie, cel AUC ≥0.7), by udowodnić wykrywalność efektu przed badaniem rękopisu.\"\n}",
+    "json": {
+     "werdykt": "metoda niewiarygodna",
+     "pewność": 0.98,
+     "najmocniejszy_dowód": "Kontrola dodatnia niezaliczona: łacina ze wszczepionym słowem strony dała AUC 0.654 przy oczekiwanym progu ≥0.7, co oznacza, że metoda nie wykryła celowo podłożonego sygnału przynależności do strony.",
+     "słabości": [
+      "Niezaliczona kontrola dodatnia dowodzi braku czułości metody na znany efekt (AUC 0.654 < 0.7).",
+      "Różnice rąk skrybów w obrębie działu mogły stanowić niekontrolowane oparcie dla sędziego mimo grupowania po dialekcie.",
+      "Dopełnianie i obcinanie wierszy do sztywnego limitu 47 znaków zniekształca oryginalną strukturę tekstu."
+     ],
+     "inne_wyjaśnienia": [
+      "Test nie wyklucza spójności wierszy na stronie w wymiarze nieszeregowym (np. semantycznym), którego model znakowy nie uchwycił.",
+      "Test nie bada spójności międzystronicowej ani szerszych bloków (np. rozkładek).",
+      "Hipoteza o spójności 'ponad dział i dialekt' nie została zweryfikowana, bo metoda odrzuciła już na etapie kalibracji."
+     ],
+     "następny_test": "Powtórzyć procedurę z pełnymi wierszami (bez obcinania do 47 znaków) i wzmocnioną kontrolą dodatnią (np. 100% wszczepienie markera strony w łacinie, cel AUC ≥0.7), by udowodnić wykrywalność efektu przed badaniem rękopisu."
+    }
+   }
+  },
+  "round2": {
+   "z-ai/glm-5.3-flash": {
+    "raw": "{\"ranking\": [\"B\", \"D\", \"C\"], \"uwagi\": \"Wszystkie trzy opinie słusznie opierają werdykt na niezaliczonej kontroli dodatniej (AUC 0,654 < 0,7) przy poprawnej kontroli ujemnej (0,500) — to poprawna logika: metoda, która nie wykrywa podłożonego efektu, nie może interpretable czytać wyniku 0,526 na rękopisie jako braku spójności. B jest najbardziej precyzyjna: podaje dokładne liczby, poprawnie ważą kontrolę dodatnią ponad bliskość wyniku rękopisu do losowości, a proponowany następny test (kalibracja kontroli dodatniej do progu przed ponownym badaniem rękopisu) jest właściwą kolejnością. D jest bliska, ale proponowany test z 100% wszczepieniem markera ryzykuje trywializację kontroli (łatwo wykrywalny sygnał nie testuje realnej czułości); lepiej kalibrować na realistycznym poziomie, jak sugeruje B. C pomija najważniejszy problem metodologiczny — możliwe oparcie sędziego w różnicach rąk skrybów w obrębie działu — i część jej 'słabości' (zróżnicowana liczba stron między przebiegami) jest słabsza, bo różnice liczby stron wynikają z natury kontroli, nie muszą zniekształcać porównań AUC. Wspólne słabości wszystkich: test w ogóle nie bada spójności semantycznej ani bloków szerszych niż strona, a obcinanie wierszy do 47 znaków mogło usunąć sygnał — więc werdykt 'niewiarygodna' dotyczy tej metody i tej konfiguracji, nie hipotezy jako takiej.\", \"werdykt\": \"metoda niewiarygodna\", \"pewność\": 0.95, \"zmiana_zdania\": \"nie — kontrola dodatnia niezaliczona przy przebiegłej kontroli ujemnej wystarcza: metoda nie wykazała zdolności wykrywania znanego sygnału strony, więc jej wynik na rękopisie (0,526) nie dowodzi ani braku spójności, ani niczego innego\"}",
+    "json": {
+     "ranking": [
+      "B",
+      "D",
+      "C"
+     ],
+     "uwagi": "Wszystkie trzy opinie słusznie opierają werdykt na niezaliczonej kontroli dodatniej (AUC 0,654 < 0,7) przy poprawnej kontroli ujemnej (0,500) — to poprawna logika: metoda, która nie wykrywa podłożonego efektu, nie może interpretable czytać wyniku 0,526 na rękopisie jako braku spójności. B jest najbardziej precyzyjna: podaje dokładne liczby, poprawnie ważą kontrolę dodatnią ponad bliskość wyniku rękopisu do losowości, a proponowany następny test (kalibracja kontroli dodatniej do progu przed ponownym badaniem rękopisu) jest właściwą kolejnością. D jest bliska, ale proponowany test z 100% wszczepieniem markera ryzykuje trywializację kontroli (łatwo wykrywalny sygnał nie testuje realnej czułości); lepiej kalibrować na realistycznym poziomie, jak sugeruje B. C pomija najważniejszy problem metodologiczny — możliwe oparcie sędziego w różnicach rąk skrybów w obrębie działu — i część jej 'słabości' (zróżnicowana liczba stron między przebiegami) jest słabsza, bo różnice liczby stron wynikają z natury kontroli, nie muszą zniekształcać porównań AUC. Wspólne słabości wszystkich: test w ogóle nie bada spójności semantycznej ani bloków szerszych niż strona, a obcinanie wierszy do 47 znaków mogło usunąć sygnał — więc werdykt 'niewiarygodna' dotyczy tej metody i tej konfiguracji, nie hipotezy jako takiej.",
+     "werdykt": "metoda niewiarygodna",
+     "pewność": 0.95,
+     "zmiana_zdania": "nie — kontrola dodatnia niezaliczona przy przebiegłej kontroli ujemnej wystarcza: metoda nie wykazała zdolności wykrywania znanego sygnału strony, więc jej wynik na rękopisie (0,526) nie dowodzi ani braku spójności, ani niczego innego"
+    }
+   },
+   "openai/gpt-6-luna": {
+    "raw": "{\"ranking\":[\"A\",\"C\",\"D\"],\"uwagi\":\"A najlepiej równoważy wyniki: kontrola ujemna przeszła, ale kontrola dodatnia nie osiągnęła ustalonego progu, więc AUC rękopisu 0,526 nie rozstrzyga hipotezy. C trafnie wskazuje tę samą główną wadę, lecz różne liczby stron same w sobie nie dowodzą, że porównania są niewiarygodne. D słusznie zauważa niezaliczenie kontroli dodatniej, ale przesadza, gdy traktuje je jako dowód, że metoda nie wykryła żadnego znanego sygnału: AUC 0,654 jest powyżej przypadku, choć poniżej wymaganego progu 0,7. U A nieuzasadnione są też określenie wyniku jako „bliskiego zeru efektu” bez przedziałów niepewności oraz sugestia, że układ par różni się od przynależności do wpisu — raport tego nie wykazuje. Najbardziej zmieniłby ocenę powtórzony test z kontrolą dodatnią, która przechodzi ustalony próg i odpowiada siłą sygnału badanemu efektowi; sam łatwy, silny marker może być niewystarczającą kalibracją.\",\"werdykt\":\"Metoda niewiarygodna według podanej reguły, ponieważ kontrola dodatnia nie przeszła. Wynik 0,526, przy 0,500 w kontroli ujemnej, nie stanowi przekonującego dowodu spójności stron, ale też nie wyklucza jej. Test dotyczy konkretnej metody znakowej i nie rozstrzyga spójności uchwytnych innymi sposobami.\",\"pewność\":0.91,\"zmiana_zdania\":\"nie — raport sam podaje, że kontrola dodatnia nie spełniła wymaganego progu, więc test nie uzasadnia wiarygodnego rozstrzygnięcia hipotezy.\"}",
+    "json": {
+     "ranking": [
+      "A",
+      "C",
+      "D"
+     ],
+     "uwagi": "A najlepiej równoważy wyniki: kontrola ujemna przeszła, ale kontrola dodatnia nie osiągnęła ustalonego progu, więc AUC rękopisu 0,526 nie rozstrzyga hipotezy. C trafnie wskazuje tę samą główną wadę, lecz różne liczby stron same w sobie nie dowodzą, że porównania są niewiarygodne. D słusznie zauważa niezaliczenie kontroli dodatniej, ale przesadza, gdy traktuje je jako dowód, że metoda nie wykryła żadnego znanego sygnału: AUC 0,654 jest powyżej przypadku, choć poniżej wymaganego progu 0,7. U A nieuzasadnione są też określenie wyniku jako „bliskiego zeru efektu” bez przedziałów niepewności oraz sugestia, że układ par różni się od przynależności do wpisu — raport tego nie wykazuje. Najbardziej zmieniłby ocenę powtórzony test z kontrolą dodatnią, która przechodzi ustalony próg i odpowiada siłą sygnału badanemu efektowi; sam łatwy, silny marker może być niewystarczającą kalibracją.",
+     "werdykt": "Metoda niewiarygodna według podanej reguły, ponieważ kontrola dodatnia nie przeszła. Wynik 0,526, przy 0,500 w kontroli ujemnej, nie stanowi przekonującego dowodu spójności stron, ale też nie wyklucza jej. Test dotyczy konkretnej metody znakowej i nie rozstrzyga spójności uchwytnych innymi sposobami.",
+     "pewność": 0.91,
+     "zmiana_zdania": "nie — raport sam podaje, że kontrola dodatnia nie spełniła wymaganego progu, więc test nie uzasadnia wiarygodnego rozstrzygnięcia hipotezy."
+    }
+   },
+   "inception/mercury-3": {
+    "raw": "{\n  \"ranking\": [\"A\", \"D\", \"B\"],\n  \"uwagi\": \"Opinia A jest najlepiej uzasadniona, ponieważ poprawnie oddziela to, co test faktycznie wykazuje (brak silnego sygnału, AUC 0.526) od ograniczeń (niezaliczona kontrola dodatnia, mała pojemność modelu, normalizacja do 47 znaków, różnice rąk w obrębie działu). Wskazuje też konkretny następny test mający na celu wzmocnienie kontroli dodatniej. Opinia D jest podobnie rzetelna i poprawnie podkreśla niezaliczoną kontrolę dodatnią, ale jej propozycja następnego testu jest mniej dopracowana (np. 100% wszczepienie markera może być nierealistyczne). Opinia B jest poprawna, ale mniej szczegółowa w uzasadnieniu i słabiej oddziela fakt braku efektu od niemożności jego wykrycia. Nie ma w nich rażących błędów; wszystkie zgodnie podważają wiarygodność metody ze względu na niezaliczoną kontrolę dodatnią.\",\n  \"werdykt\": \"Metoda jest niewiarygodna, a wynik rękopisu (AUC 0.526) nie stanowi wystarczającego dowodu ani za, ani przeciw hipotezie spójności stron. Kontrola dodatnia nie przeszła (AUC 0.654 < 0.7), więc test nie udowodnił, że potrafi wykryć celowo podłożony sygnał.\",\n  \"pewność\": 0.85,\n  \"zmiana_zdania\": \"Nie. Kontrola dodatnia niezaliczona oznacza, że metoda nie przeszła walidacji; zatem wynik rękopisu nie może być podstawą do odrzucenia hipotezy, ale też nie dostarcza pozytywnego dowodu. Konieczne jest powtórzenie testu po wzmocnieniu kontroli dodatniej.\"\n}",
+    "json": {
+     "ranking": [
+      "A",
+      "D",
+      "B"
+     ],
+     "uwagi": "Opinia A jest najlepiej uzasadniona, ponieważ poprawnie oddziela to, co test faktycznie wykazuje (brak silnego sygnału, AUC 0.526) od ograniczeń (niezaliczona kontrola dodatnia, mała pojemność modelu, normalizacja do 47 znaków, różnice rąk w obrębie działu). Wskazuje też konkretny następny test mający na celu wzmocnienie kontroli dodatniej. Opinia D jest podobnie rzetelna i poprawnie podkreśla niezaliczoną kontrolę dodatnią, ale jej propozycja następnego testu jest mniej dopracowana (np. 100% wszczepienie markera może być nierealistyczne). Opinia B jest poprawna, ale mniej szczegółowa w uzasadnieniu i słabiej oddziela fakt braku efektu od niemożności jego wykrycia. Nie ma w nich rażących błędów; wszystkie zgodnie podważają wiarygodność metody ze względu na niezaliczoną kontrolę dodatnią.",
+     "werdykt": "Metoda jest niewiarygodna, a wynik rękopisu (AUC 0.526) nie stanowi wystarczającego dowodu ani za, ani przeciw hipotezie spójności stron. Kontrola dodatnia nie przeszła (AUC 0.654 < 0.7), więc test nie udowodnił, że potrafi wykryć celowo podłożony sygnał.",
+     "pewność": 0.85,
+     "zmiana_zdania": "Nie. Kontrola dodatnia niezaliczona oznacza, że metoda nie przeszła walidacji; zatem wynik rękopisu nie może być podstawą do odrzucenia hipotezy, ale też nie dostarcza pozytywnego dowodu. Konieczne jest powtórzenie testu po wzmocnieniu kontroli dodatniej."
+    }
+   },
+   "tencent/hy3": {
+    "raw": "{\n  \"ranking\": [\"A\", \"C\", \"B\"],\n  \"uwagi\": \"Opinia A najtrafniej wiąże dane: poprawnie stwierdza, że kontrola ujemna (0.500) przeszła, ale dodatnia (0.654 < 0.7) nie, co czyni test niewiarygodnym, lecz nie obala hipotezy (efekt mógł być słabszy niż czułość metody). Uwzględnia też zastrzeżenia raportu (ręce, 47 znaków). Opinia C jest poprawna merytorycznie, ale mniej precyzyjna w rozróżnieniu 'braku efektu' od 'braku czułości'. Opinia B jest zbyt kategoryczna (pewność 0.98) i pomija niuans, że wynik 0.526 przy niezaliczonej kontroli dodatniej nie jest dowodem na brak spójności, lecz na bezużyteczność testu. B myli się, sugerując, że wynik 0.526 'nie rozstrzyga' – on po prostu nie może być użyty jako dowód, bo metoda nie przeszła walidacji.\",\n  \"werdykt\": \"Metoda niewiarygodna. Test nie przeszedł kontroli dodatniej (AUC 0.654 < 0.7), więc nie można uznać wyniku rękopisu (0.526) za dowód braku spójności stron. Test wyklucza jedynie bardzo silną spójność (>0.65), której nie szukano. Nie bada natomiast cech semantycznych ani struktury na poziomie całych stron (tylko połówki wierszy).\",\n  \"pewność\": 0.95,\n  \"zmiana_zdania\": \"nie, raport jasno wskazuje na niespełnienie kryterium kontroli dodatniej, co zgodnie z zasadami rady automatycznie dyskwalifikuje wiarygodność testu.\"\n}",
+    "json": {
+     "ranking": [
+      "A",
+      "C",
+      "B"
+     ],
+     "uwagi": "Opinia A najtrafniej wiąże dane: poprawnie stwierdza, że kontrola ujemna (0.500) przeszła, ale dodatnia (0.654 < 0.7) nie, co czyni test niewiarygodnym, lecz nie obala hipotezy (efekt mógł być słabszy niż czułość metody). Uwzględnia też zastrzeżenia raportu (ręce, 47 znaków). Opinia C jest poprawna merytorycznie, ale mniej precyzyjna w rozróżnieniu 'braku efektu' od 'braku czułości'. Opinia B jest zbyt kategoryczna (pewność 0.98) i pomija niuans, że wynik 0.526 przy niezaliczonej kontroli dodatniej nie jest dowodem na brak spójności, lecz na bezużyteczność testu. B myli się, sugerując, że wynik 0.526 'nie rozstrzyga' – on po prostu nie może być użyty jako dowód, bo metoda nie przeszła walidacji.",
+     "werdykt": "Metoda niewiarygodna. Test nie przeszedł kontroli dodatniej (AUC 0.654 < 0.7), więc nie można uznać wyniku rękopisu (0.526) za dowód braku spójności stron. Test wyklucza jedynie bardzo silną spójność (>0.65), której nie szukano. Nie bada natomiast cech semantycznych ani struktury na poziomie całych stron (tylko połówki wierszy).",
+     "pewność": 0.95,
+     "zmiana_zdania": "nie, raport jasno wskazuje na niespełnienie kryterium kontroli dodatniej, co zgodnie z zasadami rady automatycznie dyskwalifikuje wiarygodność testu."
+    }
+   }
+  },
+  "synthesis": "## Werdykt rady\n\n**Metoda niewiarygodna w tej konfiguracji.** Zgodność jest wysoka: wszystkie oceny wskazują, że kontrola dodatnia nie przeszła, choć kontrola ujemna przeszła.\n\n## Co test naprawdę pokazuje\n\nKontrola ujemna dała AUC 0,500, a rękopis 0,526 — wynik bliski losowemu, który sam w sobie nie stanowi przekonującego dowodu spójności stron. Jednak kontrola dodatnia osiągnęła tylko 0,654, poniżej wymaganego progu 0,7. Metoda nie wykazała więc, że potrafi niezawodnie wykrywać podłożony sygnał. Wynik rękopisu **nie rozstrzyga hipotezy i nie wyklucza spójności stron**.\n\n## Główne zastrzeżenia\n\nTest mierzy rozpoznawanie par połówek wierszy na podstawie znaków, nie spójność semantyczną ani inne cechy strony. Różnice rąk skrybów w obrębie działu mogą dostarczać dodatkowych wskazówek, a obcinanie i dopełnianie wierszy do 47 znaków może zniekształcać sygnał.\n\n## Rekomendowany następny eksperyment\n\nPowtórzyć test po skalibrowaniu kontroli dodatniej na danych możliwie zbliżonych do badanego materiału i przy sile sygnału odpowiadającej badanemu efektowi. Kontrola powinna osiągnąć ustalony próg AUC ≥ 0,7, zanim wynik rękopisu zostanie zinterpretowany.",
+  "failed": {},
+  "votes": {
+   "metoda niewiarygodna": 4
+  }
+ }
 }

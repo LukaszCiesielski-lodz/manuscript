@@ -24,8 +24,26 @@ Para wierszy z tej samej strony: AUC rękopisu 0.526 wobec 0.500 po rozdaniu wie
 - Ręka skryby i dział są w tle wspólne dla strony i pseudostrony tylko wtedy, gdy grupa rozdania to dział i dialekt; różnice rąk w obrębie działu mogą dodać sędziemu oparcia.
 - Połówki wierszy po 47 znaków: długie wiersze obcięte, krótkie dopełnione.
 
+## Rada modeli
+
+## Werdykt rady
+
+**Metoda niewiarygodna w tej konfiguracji.** Zgodność jest wysoka: wszystkie oceny wskazują, że kontrola dodatnia nie przeszła, choć kontrola ujemna przeszła.
+
+## Co test naprawdę pokazuje
+
+Kontrola ujemna dała AUC 0,500, a rękopis 0,526 — wynik bliski losowemu, który sam w sobie nie stanowi przekonującego dowodu spójności stron. Jednak kontrola dodatnia osiągnęła tylko 0,654, poniżej wymaganego progu 0,7. Metoda nie wykazała więc, że potrafi niezawodnie wykrywać podłożony sygnał. Wynik rękopisu **nie rozstrzyga hipotezy i nie wyklucza spójności stron**.
+
+## Główne zastrzeżenia
+
+Test mierzy rozpoznawanie par połówek wierszy na podstawie znaków, nie spójność semantyczną ani inne cechy strony. Różnice rąk skrybów w obrębie działu mogą dostarczać dodatkowych wskazówek, a obcinanie i dopełnianie wierszy do 47 znaków może zniekształcać sygnał.
+
+## Rekomendowany następny eksperyment
+
+Powtórzyć test po skalibrowaniu kontroli dodatniej na danych możliwie zbliżonych do badanego materiału i przy sile sygnału odpowiadającej badanemu efektowi. Kontrola powinna osiągnąć ustalony próg AUC ≥ 0,7, zanim wynik rękopisu zostanie zinterpretowany.
+
 ## Literatura
 
 - Vaswani et al., Attention is all you need (2017)
 
-_Czas: 39 s · 2026-10-24 18:44_
+_Czas: 39 s · 2026-10-24 18:52_

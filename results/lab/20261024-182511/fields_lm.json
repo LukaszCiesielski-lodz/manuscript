@@ -106,5 +106,139 @@
  ],
  "artifacts": [],
  "seconds": 576.5216329097748,
- "council": {}
+ "council": {
+  "members": [
+   "z-ai/glm-5.3-flash",
+   "openai/gpt-6-luna",
+   "inception/mercury-3",
+   "tencent/hy3"
+  ],
+  "chair": "openai/gpt-6-luna",
+  "round1": {
+   "z-ai/glm-5.3-flash": {
+    "raw": "```json\n{\n  \"werdykt\": \"metoda niewiarygodna\",\n  \"pewność\": 0.85,\n  \"najmocniejszy_dowód\": \"Kontrola pozytywna nie zaliczona: rekordy syntetyczne z wyraźną strukturą pól dały zysk Δ = 0.012 ± 0.008, czyli poniżej oczekiwanego progu ≥ 0.15 i statystycznie nieodróżnialne od zera. Metoda nie wykrywa efektu, który celowo podłożono — więc jej ujemny wynik na rękopisie (Δ = -0.017 ± 0.004) nie obala hipotezy.\",\n  \"słabości\": [\n    \"Kontrola pozytywna (syntetyczne pola) pokazuje, że model nie umie wykorzystać tokenów pozycji nawet przy oczywistej strukturze pól — najmniejszy GPT (4 warstwy, 2500 kroków) prawdopodobnie zbyt słaby lub za krótko trenowany.\",\n    \"Wszystkie korpusy, także te z naturalną strukturą pól (chorał, martyrologium), dają UJEMNY zysk — tokeny pozycji systematycznie szkodzą predykcji, co sugeruje artefakt metody (np. szum treningu), a nie rzeczywistą strukturę danych.\",\n    \"Jeden przebieg treningowy na korpus; rozrzut liczony bootstrapem po wierszach nie obejmuje wariancji między treningami, więc -0.017 może mieścić się w szumie treningowym.\",\n    \"Niektóre korpusy mają bardzo mało wierszy testowych (apicius: 38, martyrologium: 39), co osłabia porównania międzykorporusowe.\",\n    \"Zysk obejmuje krawędzie wiersza (nawyki p/m/g), którego częściowo uniknięto przez bełkot v5, ale to nie ratuje podstawowej wady metody.\"\n  ],\n  \"inne_wyjaśnienia\": [\n    \"Ujemne Δ na wszystkich korpusach może wynikać z dodatkowych tokenów zwiększających rozmiar sekwencji i utrudniających uczenie w tym samym budżecie kroków.\",\n    \"Token pozycji <p:12+> i funkcja liczenia pozycji mogą być źle skalibrowane względem realnej struktury wierszy.\",\n    \"Model może kodować pozycję niejawnie (transformer ma informację o kolejności), więc brak zysku z tokenów nie wyklucza zależności od pozycji — test może nie mierzyć tej hipotezy w ogóle.\"\n  ],\n  \"następny_test\": \"Powtórzyć kontrolę pozytywną na syntetycznych rekordach z silniejszym modelem (więcej warstw/wymiarów) i dłuższym treningiem, z kilkoma ziarnami na korpus; test wiarygodny dopiero gdy syntetyczne pola dadzą Δ bliskie oczekiwanemu ≥ 0.15, a dane przetasowane Δ ≈ 0. Dopiero wtedy wynik na rękopisie będzie miał wartość dowodową.\"\n}\n```",
+    "json": {
+     "werdykt": "metoda niewiarygodna",
+     "pewność": 0.85,
+     "najmocniejszy_dowód": "Kontrola pozytywna nie zaliczona: rekordy syntetyczne z wyraźną strukturą pól dały zysk Δ = 0.012 ± 0.008, czyli poniżej oczekiwanego progu ≥ 0.15 i statystycznie nieodróżnialne od zera. Metoda nie wykrywa efektu, który celowo podłożono — więc jej ujemny wynik na rękopisie (Δ = -0.017 ± 0.004) nie obala hipotezy.",
+     "słabości": [
+      "Kontrola pozytywna (syntetyczne pola) pokazuje, że model nie umie wykorzystać tokenów pozycji nawet przy oczywistej strukturze pól — najmniejszy GPT (4 warstwy, 2500 kroków) prawdopodobnie zbyt słaby lub za krótko trenowany.",
+      "Wszystkie korpusy, także te z naturalną strukturą pól (chorał, martyrologium), dają UJEMNY zysk — tokeny pozycji systematycznie szkodzą predykcji, co sugeruje artefakt metody (np. szum treningu), a nie rzeczywistą strukturę danych.",
+      "Jeden przebieg treningowy na korpus; rozrzut liczony bootstrapem po wierszach nie obejmuje wariancji między treningami, więc -0.017 może mieścić się w szumie treningowym.",
+      "Niektóre korpusy mają bardzo mało wierszy testowych (apicius: 38, martyrologium: 39), co osłabia porównania międzykorporusowe.",
+      "Zysk obejmuje krawędzie wiersza (nawyki p/m/g), którego częściowo uniknięto przez bełkot v5, ale to nie ratuje podstawowej wady metody."
+     ],
+     "inne_wyjaśnienia": [
+      "Ujemne Δ na wszystkich korpusach może wynikać z dodatkowych tokenów zwiększających rozmiar sekwencji i utrudniających uczenie w tym samym budżecie kroków.",
+      "Token pozycji <p:12+> i funkcja liczenia pozycji mogą być źle skalibrowane względem realnej struktury wierszy.",
+      "Model może kodować pozycję niejawnie (transformer ma informację o kolejności), więc brak zysku z tokenów nie wyklucza zależności od pozycji — test może nie mierzyć tej hipotezy w ogóle."
+     ],
+     "następny_test": "Powtórzyć kontrolę pozytywną na syntetycznych rekordach z silniejszym modelem (więcej warstw/wymiarów) i dłuższym treningiem, z kilkoma ziarnami na korpus; test wiarygodny dopiero gdy syntetyczne pola dadzą Δ bliskie oczekiwanemu ≥ 0.15, a dane przetasowane Δ ≈ 0. Dopiero wtedy wynik na rękopisie będzie miał wartość dowodową."
+    }
+   },
+   "openai/gpt-6-luna": {
+    "raw": "{\n  \"werdykt\": \"metoda niewiarygodna\",\n  \"pewność\": 0.99,\n  \"najmocniejszy_dowód\": \"Kontrola pozytywna nie przeszła: na danych syntetycznych z polami oczekiwano zysku co najmniej 0,15 bitu/znak, a uzyskano tylko 0,012 ± 0,008. W rękopisie pozycja pogorszyła wynik o 0,017 ± 0,004 bitu/znak, ale przy niezaliczonej kontroli test nie rozstrzyga wiarygodnie hipotezy.\",\n  \"słabości\": [\n    \"Tylko jeden przebieg treningu na korpus; bootstrap po wierszach nie mierzy zmienności między treningami.\",\n    \"Zysk obejmuje krawędzie wiersza i nawyki p/m/g, więc nie izoluje samego efektu pozycji słowa.\",\n    \"Kontrola losowych pozycji przeszła, ale nie zastępuje niezaliczonej kontroli pozytywnej.\"\n  ],\n  \"inne_wyjaśnienia\": [\n    \"Model lub budżet treningu może być zbyt słaby, by wykryć nawet rzeczywistą zależność od pozycji.\",\n    \"Ujemny wynik rękopisu może oznaczać brak mierzonego efektu albo koszt dodania tokenów pozycji; test nie rozstrzyga między tymi możliwościami.\"\n  ],\n  \"następny_test\": \"Powtórzyć test po dostrojeniu modelu i budżetu tak, by wiarygodnie wykrywał efekt na syntetycznych rekordach o porównywalnej długości; uruchomić wiele ziaren i ponownie sprawdzić kontrolę losową.\"\n}",
+    "json": {
+     "werdykt": "metoda niewiarygodna",
+     "pewność": 0.99,
+     "najmocniejszy_dowód": "Kontrola pozytywna nie przeszła: na danych syntetycznych z polami oczekiwano zysku co najmniej 0,15 bitu/znak, a uzyskano tylko 0,012 ± 0,008. W rękopisie pozycja pogorszyła wynik o 0,017 ± 0,004 bitu/znak, ale przy niezaliczonej kontroli test nie rozstrzyga wiarygodnie hipotezy.",
+     "słabości": [
+      "Tylko jeden przebieg treningu na korpus; bootstrap po wierszach nie mierzy zmienności między treningami.",
+      "Zysk obejmuje krawędzie wiersza i nawyki p/m/g, więc nie izoluje samego efektu pozycji słowa.",
+      "Kontrola losowych pozycji przeszła, ale nie zastępuje niezaliczonej kontroli pozytywnej."
+     ],
+     "inne_wyjaśnienia": [
+      "Model lub budżet treningu może być zbyt słaby, by wykryć nawet rzeczywistą zależność od pozycji.",
+      "Ujemny wynik rękopisu może oznaczać brak mierzonego efektu albo koszt dodania tokenów pozycji; test nie rozstrzyga między tymi możliwościami."
+     ],
+     "następny_test": "Powtórzyć test po dostrojeniu modelu i budżetu tak, by wiarygodnie wykrywał efekt na syntetycznych rekordach o porównywalnej długości; uruchomić wiele ziaren i ponownie sprawdzić kontrolę losową."
+    }
+   },
+   "inception/mercury-3": {
+    "raw": "{\"werdykt\": \"metoda niewiarygodna\",\n  \"pewność\": 0.9,\n  \"najmocniejszy_dowód\": \"Kontrola syntetyczna nie przeszła: dla rekordów o znanych polach oczekiwano zysku Δ ≥ 0.15 bit/znak, a zaobserwowano jedynie 0.012 ± 0.008. Metoda nie potrafi wykryć znanej zależności od pozycji, więc jej wynik dla rękopisu nie może być interpretowany jako brak takiej zależności.\",\n  \"słabości\": [\"Kontrola syntetyczna niezaliczone; test nie ma wykazanej czułości na efekt pozycji w słowie.\", \"Tylko jeden przebieg treningu na korpus; rozrzut z bootstrapu po wierszach nie obejmuje losowości inicjalizacji i treningu.\", \"Małe liczby wierszy testowych dla apicius (38) i martyrology (39) zwiększają niepewność tych porównań.\", \"Test nie bada, czy zależność pozycyjna istnieje; pokazuje tylko, że ten model z tymi tokenami jej nie wykrywa.\"],\n  \"inne_wyjaśnienia\": [\"Efekt pozycji może istnieć, ale być za słaby albo nieuchwytny dla małego GPT-a trenowanego tylko 2500 kroków.\", \"Tokeny pozycji mogą być zbędne, jeśli model pośrednio odczytuje miejsce słowa w wierszu z kontekstu znakowego.\", \"Różnice między korpusami mogą pochodzić od długości wierszy, stylu zakończeń linii lub innych cech, nie od relacji pole-rubryka.\"],\n  \"następny_test\": \"Należy najpierw naprawić kontrolę syntetyczną: użyć rekordów o silnej, znanej zależności znaków od indeksu słowa, zwiększyć model i liczbę kroków oraz powtórzyć treningi po wielu ziarnach. Dopiero gdy t",
+    "json": {}
+   },
+   "tencent/hy3": {
+    "raw": "{\n  \"werdykt\": \"metoda niewiarygodna\",\n  \"pewność\": 0.95,\n  \"najmocniejszy_dowód\": \"Kontrola na rekordach syntetycznych (gdzie efekt pozycji był celowo wbudowany) dała zysk Δ = 0.012 ± 0.008 bit/znak, przy wymaganym progu Δ ≥ 0.15. Metoda nie wykryła znanego efektu, co dyskwalifikuje jej wyniki.\",\n  \"słabości\": [\n    \"Brak wykrycia efektu w kontroli pozytywnej (rekordy syntetyczne) – metoda nie spełnia kryterium wiarygodności.\",\n    \"Pojedynczy przebieg treningu na korpus (jedno ziarno losowości), rozrzut szacowany tylko z bootstrapu wierszy, nie z wariancji uczenia.\",\n    \"Bardzo mały model (4 warstwy, 256 wymiarów, 2500 kroków) może nie wychwycić subtelnych zależności pozycyjnych.\"\n  ],\n  \"inne_wyjaśnienia\": [\n    \"Ujemne zyski (np. rękopis -0.017) sugerują szum lub lekkie pogorszenie przez dodatkowe tokeny, a nie brak zależności pozycyjnej w tekście.\",\n    \"Bełkot v5 ma wbudowane nawyki krawędzi wiersza, co czyni go słabym punktem odniesienia dla testowania pozycji wewnątrz wiersza.\"\n  ],\n  \"następny_test\": \"Powtórzenie testu z większym modelem i wielokrotnym treningiem (wiele ziaren) do momentu, aż kontrola syntetyczna (rekordy o polach) osiągnie zysk ≥ 0.15 bit/znak; dopiero wtedy ocenić wynik dla rękopisu.\"\n}",
+    "json": {
+     "werdykt": "metoda niewiarygodna",
+     "pewność": 0.95,
+     "najmocniejszy_dowód": "Kontrola na rekordach syntetycznych (gdzie efekt pozycji był celowo wbudowany) dała zysk Δ = 0.012 ± 0.008 bit/znak, przy wymaganym progu Δ ≥ 0.15. Metoda nie wykryła znanego efektu, co dyskwalifikuje jej wyniki.",
+     "słabości": [
+      "Brak wykrycia efektu w kontroli pozytywnej (rekordy syntetyczne) – metoda nie spełnia kryterium wiarygodności.",
+      "Pojedynczy przebieg treningu na korpus (jedno ziarno losowości), rozrzut szacowany tylko z bootstrapu wierszy, nie z wariancji uczenia.",
+      "Bardzo mały model (4 warstwy, 256 wymiarów, 2500 kroków) może nie wychwycić subtelnych zależności pozycyjnych."
+     ],
+     "inne_wyjaśnienia": [
+      "Ujemne zyski (np. rękopis -0.017) sugerują szum lub lekkie pogorszenie przez dodatkowe tokeny, a nie brak zależności pozycyjnej w tekście.",
+      "Bełkot v5 ma wbudowane nawyki krawędzi wiersza, co czyni go słabym punktem odniesienia dla testowania pozycji wewnątrz wiersza."
+     ],
+     "następny_test": "Powtórzenie testu z większym modelem i wielokrotnym treningiem (wiele ziaren) do momentu, aż kontrola syntetyczna (rekordy o polach) osiągnie zysk ≥ 0.15 bit/znak; dopiero wtedy ocenić wynik dla rękopisu."
+    }
+   }
+  },
+  "round2": {
+   "z-ai/glm-5.3-flash": {
+    "raw": "{\"ranking\": [\"B\", \"D\", \"C\"], \"uwagi\": \"Wszystkie trzy opinie trafnie wskazują kluczowy problem: kontrola pozytywna niezaliczona (0,012 ± 0,008 wobec progu 0,15), więc metoda nie wykryła efektu podłożonego celowo, a wyniki (w tym rękopis Δ = -0,017 ± 0,004) są niemiarodajne. Najlepiej uzasadniona jest B: precyzyjnie oddziela to, co test wyklucza, od czego nie bada (brak rozstrzygnięcia między brakiem efektu a kosztem tokenów), poprawnie ocenia kontrolę losową jako niezastępującą pozytywnej, i proponuje kolejny test naprawiający czułość przed ponowną oceną. D jest merytorycznie zbliżone, ale nieco mniej kompletne (pomija niemiarodajność rozróżnienia rękopis–bełkot v5). C jest najmniej dopracowane formalnie (obcięty JSON), choć treściowo spójne; dodaje wartościowe uwagi o małych próbach apicius (38 wierszy) i martyrology (39) oraz o możliwości, że model odczytuje pozycję pośrednio z kontekstu znakowego — co jednak bardziej wzbogaca niż wzmacnia argumentację. Wszyscy słusznie podnoszą jedno ziarno treningu i bootstrap bez wariancji między treningami. Nikt nie przekracza zakresu danych ani nie podaje odczytań rękopisu.\", \"werdykt\": \"metoda niewiarygodna\", \"pewność\": 0.95, \"zmiana_zdania\": \"nie — kontrola pozytywna przeszła tylko na poziomie ~8% wymaganego progu, a kontrola losowa dała Δ = -0,013, co pokazuje, że dodanie tokenów pozycji może wręcz szkodzić kalibracji; test trzeba powtórzyć po naprawieniu czułości (większy model/budżet, wiele ziaren, kontrola ≥ 0,15), zanim wynik dla rękopisu będzie interpretowalny.\"}",
+    "json": {
+     "ranking": [
+      "B",
+      "D",
+      "C"
+     ],
+     "uwagi": "Wszystkie trzy opinie trafnie wskazują kluczowy problem: kontrola pozytywna niezaliczona (0,012 ± 0,008 wobec progu 0,15), więc metoda nie wykryła efektu podłożonego celowo, a wyniki (w tym rękopis Δ = -0,017 ± 0,004) są niemiarodajne. Najlepiej uzasadniona jest B: precyzyjnie oddziela to, co test wyklucza, od czego nie bada (brak rozstrzygnięcia między brakiem efektu a kosztem tokenów), poprawnie ocenia kontrolę losową jako niezastępującą pozytywnej, i proponuje kolejny test naprawiający czułość przed ponowną oceną. D jest merytorycznie zbliżone, ale nieco mniej kompletne (pomija niemiarodajność rozróżnienia rękopis–bełkot v5). C jest najmniej dopracowane formalnie (obcięty JSON), choć treściowo spójne; dodaje wartościowe uwagi o małych próbach apicius (38 wierszy) i martyrology (39) oraz o możliwości, że model odczytuje pozycję pośrednio z kontekstu znakowego — co jednak bardziej wzbogaca niż wzmacnia argumentację. Wszyscy słusznie podnoszą jedno ziarno treningu i bootstrap bez wariancji między treningami. Nikt nie przekracza zakresu danych ani nie podaje odczytań rękopisu.",
+     "werdykt": "metoda niewiarygodna",
+     "pewność": 0.95,
+     "zmiana_zdania": "nie — kontrola pozytywna przeszła tylko na poziomie ~8% wymaganego progu, a kontrola losowa dała Δ = -0,013, co pokazuje, że dodanie tokenów pozycji może wręcz szkodzić kalibracji; test trzeba powtórzyć po naprawieniu czułości (większy model/budżet, wiele ziaren, kontrola ≥ 0,15), zanim wynik dla rękopisu będzie interpretowalny."
+    }
+   },
+   "openai/gpt-6-luna": {
+    "raw": "{\n  \"ranking\": [\"A\", \"C\", \"D\"],\n  \"uwagi\": \"A jest najlepiej uzasadniona: wskazuje niezaliczoną kontrolę syntetyczną, brak wielu ziaren i ograniczenia małych prób. C trafnie podkreśla te same główne problemy, ale zbyt kategorycznie mówi, że test w ogóle nie bada zależności pozycyjnej — bada, czy dodanie jawnych tokenów pozycji poprawia predykcję, choć nie rozstrzyga, czy zależność istnieje. D poprawnie wskazuje dyskwalifikującą porażkę kontroli, lecz jest mniej kompletna. A przypisuje chorałowi i martyrologium naturalną strukturę pól, czego raport nie wykazuje; ujemne wyniki na wszystkich korpusach nie dowodzą też same w sobie artefaktu metody. W raporcie kontrola losowa została uznana za zaliczoną zgodnie z podanym kryterium Δ ≤ 0,01. Nie podano opinii B, więc jej nie uwzględniam.\",\n  \"werdykt\": \"Metoda niewiarygodna: kontrola pozytywna nie wykryła celowo wbudowanego efektu (Δ = 0,012 ± 0,008 wobec wymaganego co najmniej 0,15). Ujemny wynik rękopisu (Δ = -0,017 ± 0,004) nie jest zatem wiarygodnym dowodem przeciwko hipotezie. Test pokazuje jedynie, że w tym ustawieniu jawne tokeny pozycji nie poprawiły predykcji; nie ustala, czy zależność pozycyjna istnieje ani czy model może ją kodować z kontekstu. Najważniejszy następny test: poprawić i powtórzyć kontrolę syntetyczną w wielu ziarnach, tak aby wykrywała wymagany efekt, a dane przetasowane nadal nie dawały zysku; następnie powtórzyć pomiar rękopisu.\",\n  \"pewność\": 0.94,\n  \"zmiana_zdania\": \"nie — niezaliczona kontrola pozytywna uniemożliwia interpretowanie wyniku rękopisu jako rozstrzygającego testu hipotezy.\"\n}",
+    "json": {
+     "ranking": [
+      "A",
+      "C",
+      "D"
+     ],
+     "uwagi": "A jest najlepiej uzasadniona: wskazuje niezaliczoną kontrolę syntetyczną, brak wielu ziaren i ograniczenia małych prób. C trafnie podkreśla te same główne problemy, ale zbyt kategorycznie mówi, że test w ogóle nie bada zależności pozycyjnej — bada, czy dodanie jawnych tokenów pozycji poprawia predykcję, choć nie rozstrzyga, czy zależność istnieje. D poprawnie wskazuje dyskwalifikującą porażkę kontroli, lecz jest mniej kompletna. A przypisuje chorałowi i martyrologium naturalną strukturę pól, czego raport nie wykazuje; ujemne wyniki na wszystkich korpusach nie dowodzą też same w sobie artefaktu metody. W raporcie kontrola losowa została uznana za zaliczoną zgodnie z podanym kryterium Δ ≤ 0,01. Nie podano opinii B, więc jej nie uwzględniam.",
+     "werdykt": "Metoda niewiarygodna: kontrola pozytywna nie wykryła celowo wbudowanego efektu (Δ = 0,012 ± 0,008 wobec wymaganego co najmniej 0,15). Ujemny wynik rękopisu (Δ = -0,017 ± 0,004) nie jest zatem wiarygodnym dowodem przeciwko hipotezie. Test pokazuje jedynie, że w tym ustawieniu jawne tokeny pozycji nie poprawiły predykcji; nie ustala, czy zależność pozycyjna istnieje ani czy model może ją kodować z kontekstu. Najważniejszy następny test: poprawić i powtórzyć kontrolę syntetyczną w wielu ziarnach, tak aby wykrywała wymagany efekt, a dane przetasowane nadal nie dawały zysku; następnie powtórzyć pomiar rękopisu.",
+     "pewność": 0.94,
+     "zmiana_zdania": "nie — niezaliczona kontrola pozytywna uniemożliwia interpretowanie wyniku rękopisu jako rozstrzygającego testu hipotezy."
+    }
+   },
+   "inception/mercury-3": {
+    "raw": "{\n  \"ranking\": [\"B\", \"D\", \"A\"],\n  \"uwagi\": \"Opinie prawidłowo identyfikują główny problem: niezaliczona kontrola pozytywna (syntetyczne rekordy dały Δ = 0.012 ± 0.008 wobec oczekiwanego ≥ 0.15). Opinia B jest najbardziej zwięzła i poprawna: nie twierdzi ponad dane, oddziela niezaliczoną kontrolę pozytywną od kontroli losowej i wskazuje jednoznacznie następny test. Opinia D jest podobna, ale mniej precyzyjna w uzasadnieniu; opinia A ma mocne szczegóły, ale zawiera niepotrzebne przypuszczenia o treningu i budżecie, które wykraczają poza dane. Wszystkie opinie poprawnie odrzucają metodę jako niewiarygodną.\",\n  \"werdykt\": \"Metoda jest niewiarygodna. Niezaliczona kontrola pozytywna oznacza, że model nie wykrywa znanego efektu pozycji (Δ = 0.012 ± 0.008, wymagane ≥ 0.15), więc wynik dla rękopisu (−0.017 ± 0.004) nie dowodzi ani potwierdzenia, ani obalenia hipotezy. Ujemne zyski na wszystkich korpusach sugerują, że dodanie tokenów pozycji szkodzi predykcji niezależnie od treści, a jedno ziarno treningu nie pozwala wykluczyć szumu treningowego.\",\n  \"pewność\": 0.95,\n  \"zmiana_zdania\": \"nie, wyniki nie zmieniają oceny — kontrola pozytywna jest bezwzględnym warunkiem wiarygodności testu, a jej brak dyskwalifikuje metodę.\"\n}",
+    "json": {
+     "ranking": [
+      "B",
+      "D",
+      "A"
+     ],
+     "uwagi": "Opinie prawidłowo identyfikują główny problem: niezaliczona kontrola pozytywna (syntetyczne rekordy dały Δ = 0.012 ± 0.008 wobec oczekiwanego ≥ 0.15). Opinia B jest najbardziej zwięzła i poprawna: nie twierdzi ponad dane, oddziela niezaliczoną kontrolę pozytywną od kontroli losowej i wskazuje jednoznacznie następny test. Opinia D jest podobna, ale mniej precyzyjna w uzasadnieniu; opinia A ma mocne szczegóły, ale zawiera niepotrzebne przypuszczenia o treningu i budżecie, które wykraczają poza dane. Wszystkie opinie poprawnie odrzucają metodę jako niewiarygodną.",
+     "werdykt": "Metoda jest niewiarygodna. Niezaliczona kontrola pozytywna oznacza, że model nie wykrywa znanego efektu pozycji (Δ = 0.012 ± 0.008, wymagane ≥ 0.15), więc wynik dla rękopisu (−0.017 ± 0.004) nie dowodzi ani potwierdzenia, ani obalenia hipotezy. Ujemne zyski na wszystkich korpusach sugerują, że dodanie tokenów pozycji szkodzi predykcji niezależnie od treści, a jedno ziarno treningu nie pozwala wykluczyć szumu treningowego.",
+     "pewność": 0.95,
+     "zmiana_zdania": "nie, wyniki nie zmieniają oceny — kontrola pozytywna jest bezwzględnym warunkiem wiarygodności testu, a jej brak dyskwalifikuje metodę."
+    }
+   },
+   "tencent/hy3": {
+    "raw": "{\n  \"ranking\": [\"A\", \"B\", \"C\"],\n  \"uwagi\": \"Wszystkie opinie poprawnie stwierdzają niewiarygodność metody z powodu niezaliczonej kontroli pozytywnej (syntetyczne pola: Δ=0.012±0.008 vs oczekiwane ≥0.15). Opinia A jest najlepiej uzasadniona: jako jedyna szczegółowo wskazuje na systematycznie ujemne zyski we wszystkich korpusach (artefakt metody), ograniczenie bootstrapu do wierszy (brak wariancji treningu) oraz fakt, że transformer może kodować pozycję niejawnie, co czyni test niewrażliwym na hipotezę. Opinia B jest trafna, ale skrótowa. Opinia C jest merytorycznie poprawna, lecz jej treść urywa się w polu 'następny_test' (brak pełnej rekomendacji). Nikt nie myli się w ocenie faktów z raportu; błąd mógłby polegać na uznania wyniku rękopisu (Δ=-0.017) za dowód braku zależności – czego autorzy opinii słusznie nie robią.\",\n  \"werdykt\": \"metoda niewiarygodna\",\n  \"pewność\": 0.95,\n  \"zmiana_zdania\": \"nie, raport i opinie zgodnie wykazują, że kontrola pozytywna nie przeszła, więc test nie spełnia kryterium wiarygodności rady (brak wykrycia efektu podłożonego celowo).\"\n}",
+    "json": {
+     "ranking": [
+      "A",
+      "B",
+      "C"
+     ],
+     "uwagi": "Wszystkie opinie poprawnie stwierdzają niewiarygodność metody z powodu niezaliczonej kontroli pozytywnej (syntetyczne pola: Δ=0.012±0.008 vs oczekiwane ≥0.15). Opinia A jest najlepiej uzasadniona: jako jedyna szczegółowo wskazuje na systematycznie ujemne zyski we wszystkich korpusach (artefakt metody), ograniczenie bootstrapu do wierszy (brak wariancji treningu) oraz fakt, że transformer może kodować pozycję niejawnie, co czyni test niewrażliwym na hipotezę. Opinia B jest trafna, ale skrótowa. Opinia C jest merytorycznie poprawna, lecz jej treść urywa się w polu 'następny_test' (brak pełnej rekomendacji). Nikt nie myli się w ocenie faktów z raportu; błąd mógłby polegać na uznania wyniku rękopisu (Δ=-0.017) za dowód braku zależności – czego autorzy opinii słusznie nie robią.",
+     "werdykt": "metoda niewiarygodna",
+     "pewność": 0.95,
+     "zmiana_zdania": "nie, raport i opinie zgodnie wykazują, że kontrola pozytywna nie przeszła, więc test nie spełnia kryterium wiarygodności rady (brak wykrycia efektu podłożonego celowo)."
+    }
+   }
+  },
+  "synthesis": "## Werdykt rady\n\n**Metoda niewiarygodna.** Zgoda jest wysoka: wszystkie opinie wskazują na niezaliczoną kontrolę pozytywną. W danych syntetycznych oczekiwano zysku co najmniej **0,15 bitu/znak**, a uzyskano **0,012 ± 0,008**. Test nie wykazał więc, że potrafi wykryć celowo podłożony efekt.\n\n## Co test naprawdę pokazuje\n\nW tym ustawieniu dodanie jawnych tokenów pozycji nie poprawiło predykcji rękopisu: raportowany zysk wyniósł **−0,017 ± 0,004 bitu/znak**. Kontrola losowych pozycji spełniła podane kryterium, ale nie zastępuje niezaliczonej kontroli pozytywnej. Wynik nie rozstrzyga, czy zależność od miejsca w wierszu istnieje; nie stanowi też wiarygodnego dowodu przeciw hipotezie. Różnica rękopis–bełkot v5 (**−0,006**) nie osiąga progu **+0,05**.\n\n## Główne zastrzeżenia\n\n- Tylko jeden przebieg treningu na korpus; bootstrap po wierszach nie mierzy zmienności między treningami.\n- Dodanie tokenów może samo utrudniać uczenie przy ustalonym budżecie; wynik obejmuje też efekty krawędzi wiersza.\n- Ujemne wyniki dla wszystkich korpusów nie rozstrzygają, czy przyczyną jest brak mierzonego efektu, czy ograniczenie metody.\n\n## Rekomendowany następny eksperyment\n\nPowtórzyć test po dostrojeniu modelu i budżetu, na syntetycznej kontroli o porównywalnej długości, z wieloma ziarnami. Kontrola pozytywna musi wykryć wymagany efekt, a dane z przetasowanymi pozycjami nie mogą go wykazywać; dopiero potem ponownie ocenić rękopis.",
+  "failed": {},
+  "votes": {
+   "metoda niewiarygodna": 4
+  }
+ }
 }

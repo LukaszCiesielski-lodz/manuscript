@@ -25,9 +25,29 @@ Zysk z tokenów pozycji (bit/znak): łacina -0.003, bełkot v5 -0.011, rękopis 
 - Zysk obejmuje też krawędzie wiersza (znane nawyki p/m/g); bełkot v5 ma te nawyki wbudowane, stąd porównanie z nim.
 - Jeden przebieg na korpus (ziarno cfg.seed); rozrzut z bootstrapu po wierszach, nie z wielu treningów.
 
+## Rada modeli
+
+## Werdykt rady
+
+**Metoda niewiarygodna.** Zgoda jest wysoka: wszystkie opinie wskazują na niezaliczoną kontrolę pozytywną. W danych syntetycznych oczekiwano zysku co najmniej **0,15 bitu/znak**, a uzyskano **0,012 ± 0,008**. Test nie wykazał więc, że potrafi wykryć celowo podłożony efekt.
+
+## Co test naprawdę pokazuje
+
+W tym ustawieniu dodanie jawnych tokenów pozycji nie poprawiło predykcji rękopisu: raportowany zysk wyniósł **−0,017 ± 0,004 bitu/znak**. Kontrola losowych pozycji spełniła podane kryterium, ale nie zastępuje niezaliczonej kontroli pozytywnej. Wynik nie rozstrzyga, czy zależność od miejsca w wierszu istnieje; nie stanowi też wiarygodnego dowodu przeciw hipotezie. Różnica rękopis–bełkot v5 (**−0,006**) nie osiąga progu **+0,05**.
+
+## Główne zastrzeżenia
+
+- Tylko jeden przebieg treningu na korpus; bootstrap po wierszach nie mierzy zmienności między treningami.
+- Dodanie tokenów może samo utrudniać uczenie przy ustalonym budżecie; wynik obejmuje też efekty krawędzi wiersza.
+- Ujemne wyniki dla wszystkich korpusów nie rozstrzygają, czy przyczyną jest brak mierzonego efektu, czy ograniczenie metody.
+
+## Rekomendowany następny eksperyment
+
+Powtórzyć test po dostrojeniu modelu i budżetu, na syntetycznej kontroli o porównywalnej długości, z wieloma ziarnami. Kontrola pozytywna musi wykryć wymagany efekt, a dane z przetasowanymi pozycjami nie mogą go wykazywać; dopiero potem ponownie ocenić rękopis.
+
 ## Literatura
 
 - Radford et al., Language models are unsupervised multitask learners (2019)
 - Karpathy, nanoGPT
 
-_Czas: 577 s · 2026-10-24 18:34_
+_Czas: 577 s · 2026-10-24 18:47_
