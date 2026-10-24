@@ -20,10 +20,11 @@ from .hoax import V5_SECTION_PARAMS, V6_FAV_N, V6_SECTION_PARAMS, generate_by_se
 
 
 def _cheapest(original: str, names, dl) -> str:
-    """The name with the shortest description; ties (a bijection on word types changes nothing) go to the original."""
+    """The name with the shortest description; near-ties go to the original (a shift keyed by the word is a bijection
+    on word types, or nearly one when two types collide, and changes the length by a fraction of a percent)."""
     best = original
     for n in names:
-        if dl(n) < dl(best) - 1e-6:
+        if dl(n) < 0.99 * dl(best):
             best = n
     return best
 
