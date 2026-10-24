@@ -1,0 +1,1549 @@
+{
+ "theory": "wheel",
+ "hypothesis": "Tekst powstał z tarczy (volvelle) o kilku pierścieniach z ciągami glifów: słowo = komórki pod wskaźnikiem, między słowami pierścienie obracają się o ząbek lub dwa; żadnego języka za tym nie ma.",
+ "method": "Tarcza nieznana, więc wnioskowana: populacja 2048 tarcz (3 pierścienie × 24 komórek, komórka = 0–3 glify) oceniana na cuda przez 2000 pokoleń: pokrycie słownictwa i koszt obrotu między kolejnymi słowami wiersza. To samo dla tekstów kontrolnych: rękopis z przetasowanymi słowami, bełkot v5, łacina (litery jako glify). Najlepsza tarcza pisze tekst nawykami obrotu odczytanymi z rękopisu; tekst idzie przez kartę 22 miar, klasyfikator wierszy, test składni i dynamiki długości.",
+ "verdict": "nierozstrzygnięta",
+ "summary": "Najlepsza tarcza składa 84% słów rękopisu przy koszcie obrotu 0.41 (przetasowane 0.44, łacina 0.84, bełkot v5 0.37). Tekst pisany tarczą: 5/22 miar, AUC 0.99.",
+ "metrics": {
+  "wheel": {
+   "score": 0.4305998980998993,
+   "coverage": 0.8394888043403625,
+   "turn": 0.40888890624046326,
+   "generation": 1995,
+   "seconds": 1161.4643182754517,
+   "cells": [
+    [
+     [
+      "ch"
+     ],
+     [
+      "q",
+      "o",
+      "k"
+     ],
+     [
+      "o",
+      "k"
+     ],
+     [
+      "sh"
+     ],
+     [
+      "q",
+      "o",
+      "t"
+     ],
+     [
+      "o",
+      "l"
+     ],
+     [
+      "t"
+     ],
+     [
+      "cph"
+     ],
+     [
+      "r"
+     ],
+     [
+      "q",
+      "o",
+      "l"
+     ],
+     [
+      "sh",
+      "e"
+     ],
+     [
+      "y"
+     ],
+     [
+      "o"
+     ],
+     [
+      "q",
+      "o"
+     ],
+     [
+      "p"
+     ],
+     [
+      "ch",
+      "e"
+     ],
+     [
+      "d"
+     ],
+     [
+      "y",
+      "t"
+     ],
+     [
+      "ch",
+      "o"
+     ],
+     [
+      "k"
+     ],
+     [
+      "y",
+      "k"
+     ],
+     [
+      "s"
+     ],
+     [
+      "o",
+      "t"
+     ],
+     [
+      "l"
+     ]
+    ],
+    [
+     [
+      "e"
+     ],
+     [
+      "d"
+     ],
+     [
+      "ckh"
+     ],
+     [
+      "k"
+     ],
+     [
+      "t"
+     ],
+     [
+      "ch",
+      "e"
+     ],
+     [
+      "k",
+      "e",
+      "e"
+     ],
+     [
+      "sh"
+     ],
+     [
+      "p",
+      "ch"
+     ],
+     [
+      "p"
+     ],
+     [
+      "o",
+      "r"
+     ],
+     [
+      "sh",
+      "e"
+     ],
+     [
+      "o",
+      "d"
+     ],
+     [
+      "a",
+      "r"
+     ],
+     [
+      "a",
+      "ii"
+     ],
+     [
+      "o",
+      "k"
+     ],
+     [
+      "o",
+      "l"
+     ],
+     [
+      "a",
+      "l"
+     ],
+     [
+      "cth"
+     ],
+     [
+      "a",
+      "i"
+     ],
+     [
+      "a"
+     ],
+     [
+      "o"
+     ],
+     [
+      "e",
+      "e"
+     ],
+     [
+      "ch"
+     ]
+    ],
+    [
+     [
+      "y"
+     ],
+     [
+      "e",
+      "d",
+      "y"
+     ],
+     [
+      "a",
+      "i",
+      "n"
+     ],
+     [
+      "a",
+      "l"
+     ],
+     [
+      "o",
+      "d",
+      "y"
+     ],
+     [
+      "d",
+      "a",
+      "r"
+     ],
+     [
+      "a",
+      "m"
+     ],
+     [
+      "k",
+      "y"
+     ],
+     [
+      "e",
+      "e",
+      "y"
+     ],
+     [
+      "ii",
+      "n"
+     ],
+     [
+      "s"
+     ],
+     [
+      "r"
+     ],
+     [
+      "l"
+     ],
+     [
+      "o"
+     ],
+     [
+      "n"
+     ],
+     [
+      "d"
+     ],
+     [
+      "m"
+     ],
+     [
+      "ch",
+      "y"
+     ],
+     [
+      "a",
+      "r"
+     ],
+     [
+      "d",
+      "y"
+     ],
+     [
+      "e",
+      "y"
+     ],
+     [
+      "o",
+      "l"
+     ],
+     [
+      "o",
+      "r"
+     ],
+     [
+      "a",
+      "ii",
+      "n"
+     ]
+    ]
+   ]
+  },
+  "controls": {
+   "słowa przetasowane": {
+    "score": 0.3985150158405304,
+    "coverage": 0.8383113145828247,
+    "turn": 0.4397962987422943,
+    "rings": "[[  6  20   7  54  41  15  14   3   9   1  18 173  13  16  53  36  95   8\n   93  85  29  12   5  30]\n [  2   6  34  20  12  65  16  29  33  17   5  19  35  79  36   1   4  15\n   39  18  67  42  43   8]\n [  3  16  47  33  35  78  41  45  10  34  68   7   9  23  62   5  80  76\n   64   1  57  25  22  27]]",
+    "generation": 1988,
+    "seconds": 1159.0649118423462,
+    "cells": [
+     [
+      [
+       "ch"
+      ],
+      [
+       "sh"
+      ],
+      [
+       "l"
+      ],
+      [
+       "q",
+       "o",
+       "t"
+      ],
+      [
+       "s"
+      ],
+      [
+       "t"
+      ],
+      [
+       "q",
+       "o"
+      ],
+      [
+       "y"
+      ],
+      [
+       "r"
+      ],
+      [
+       "o"
+      ],
+      [
+       "ch",
+       "e"
+      ],
+      [
+       "cph"
+      ],
+      [
+       "q"
+      ],
+      [
+       "o",
+       "l"
+      ],
+      [
+       "p"
+      ],
+      [
+       "sh",
+       "e"
+      ],
+      [
+       "o",
+       "p"
+      ],
+      [
+       "k"
+      ],
+      [
+       "y",
+       "t"
+      ],
+      [
+       "y",
+       "k"
+      ],
+      [
+       "o",
+       "t"
+      ],
+      [
+       "o",
+       "k"
+      ],
+      [
+       "d"
+      ],
+      [
+       "q",
+       "o",
+       "k"
+      ]
+     ],
+     [
+      [
+       "e"
+      ],
+      [
+       "ch"
+      ],
+      [
+       "a",
+       "l"
+      ],
+      [
+       "sh"
+      ],
+      [
+       "o",
+       "k"
+      ],
+      [
+       "cth"
+      ],
+      [
+       "o",
+       "l"
+      ],
+      [
+       "o",
+       "t"
+      ],
+      [
+       "a",
+       "r"
+      ],
+      [
+       "e",
+       "d"
+      ],
+      [
+       "d"
+      ],
+      [
+       "e",
+       "e"
+      ],
+      [
+       "o",
+       "r"
+      ],
+      [
+       "p",
+       "ch"
+      ],
+      [
+       "sh",
+       "e"
+      ],
+      [
+       "o"
+      ],
+      [
+       "a"
+      ],
+      [
+       "t"
+      ],
+      [
+       "a",
+       "i"
+      ],
+      [
+       "ch",
+       "e"
+      ],
+      [
+       "ckh"
+      ],
+      [
+       "k",
+       "e",
+       "e"
+      ],
+      [
+       "o",
+       "d"
+      ],
+      [
+       "k"
+      ]
+     ],
+     [
+      [
+       "y"
+      ],
+      [
+       "o",
+       "l"
+      ],
+      [
+       "a",
+       "i",
+       "n"
+      ],
+      [
+       "a",
+       "r"
+      ],
+      [
+       "o",
+       "r"
+      ],
+      [
+       "a",
+       "m"
+      ],
+      [
+       "s"
+      ],
+      [
+       "e",
+       "e",
+       "y"
+      ],
+      [
+       "d",
+       "y"
+      ],
+      [
+       "a",
+       "l"
+      ],
+      [
+       "ch",
+       "e",
+       "y"
+      ],
+      [
+       "l"
+      ],
+      [
+       "r"
+      ],
+      [
+       "ii",
+       "n"
+      ],
+      [
+       "m"
+      ],
+      [
+       "d"
+      ],
+      [
+       "k",
+       "y"
+      ],
+      [
+       "d",
+       "a",
+       "r"
+      ],
+      [
+       "ch",
+       "y"
+      ],
+      [
+       "o"
+      ],
+      [
+       "o",
+       "d",
+       "y"
+      ],
+      [
+       "e",
+       "y"
+      ],
+      [
+       "e",
+       "d",
+       "y"
+      ],
+      [
+       "a",
+       "ii",
+       "n"
+      ]
+     ]
+    ]
+   },
+   "bełkot v5": {
+    "score": 0.49912774562835693,
+    "coverage": 0.8690721988677979,
+    "turn": 0.3699444532394409,
+    "rings": "[[ 30  21   8   3  11  16   5  14   1  37   6  46  15  41   7  57 102  35\n  108  12  13  53  19  28]\n [  2   6   5  67   1  21  55  17  63   4  15  11  35  33  18  38  39  81\n   47  76  19  42  16   7]\n [ 22  27  44  25   3  33  15  39  10  45   1  69   8  24 116  46 222   5\n  201 191  68 128 110  38]]",
+    "generation": 1974,
+    "seconds": 1127.227365732193,
+    "cells": [
+     [
+      [
+       "o",
+       "t"
+      ],
+      [
+       "sh"
+      ],
+      [
+       "l"
+      ],
+      [
+       "y"
+      ],
+      [
+       "o",
+       "k"
+      ],
+      [
+       "t"
+      ],
+      [
+       "d"
+      ],
+      [
+       "q",
+       "o"
+      ],
+      [
+       "o"
+      ],
+      [
+       "ch",
+       "o"
+      ],
+      [
+       "ch"
+      ],
+      [
+       "s"
+      ],
+      [
+       "o",
+       "l"
+      ],
+      [
+       "o",
+       "k",
+       "e"
+      ],
+      [
+       "k"
+      ],
+      [
+       "p"
+      ],
+      [
+       "o",
+       "p"
+      ],
+      [
+       "sh",
+       "e"
+      ],
+      [
+       "q",
+       "o",
+       "l"
+      ],
+      [
+       "q"
+      ],
+      [
+       "r"
+      ],
+      [
+       "q",
+       "o",
+       "t"
+      ],
+      [
+       "ch",
+       "e"
+      ],
+      [
+       "q",
+       "o",
+       "k"
+      ]
+     ],
+     [
+      [
+       "e"
+      ],
+      [
+       "ch"
+      ],
+      [
+       "d"
+      ],
+      [
+       "cth"
+      ],
+      [
+       "o"
+      ],
+      [
+       "sh"
+      ],
+      [
+       "k",
+       "ch"
+      ],
+      [
+       "e",
+       "e"
+      ],
+      [
+       "t",
+       "ch"
+      ],
+      [
+       "a"
+      ],
+      [
+       "o",
+       "l"
+      ],
+      [
+       "o",
+       "k"
+      ],
+      [
+       "sh",
+       "e"
+      ],
+      [
+       "o",
+       "r"
+      ],
+      [
+       "e",
+       "d"
+      ],
+      [
+       "a",
+       "l"
+      ],
+      [
+       "a",
+       "r"
+      ],
+      [
+       "ckh"
+      ],
+      [
+       "o",
+       "d"
+      ],
+      [
+       "p",
+       "ch"
+      ],
+      [
+       "ch",
+       "e"
+      ],
+      [
+       "k",
+       "e",
+       "e"
+      ],
+      [
+       "t"
+      ],
+      [
+       "k"
+      ]
+     ],
+     [
+      [
+       "e",
+       "d",
+       "y"
+      ],
+      [
+       "e",
+       "y"
+      ],
+      [
+       "a",
+       "i",
+       "n"
+      ],
+      [
+       "a",
+       "ii",
+       "n"
+      ],
+      [
+       "y"
+      ],
+      [
+       "o",
+       "r"
+      ],
+      [
+       "o",
+       "l"
+      ],
+      [
+       "a",
+       "r"
+      ],
+      [
+       "d",
+       "y"
+      ],
+      [
+       "e",
+       "e",
+       "y"
+      ],
+      [
+       "o"
+      ],
+      [
+       "e",
+       "o",
+       "l"
+      ],
+      [
+       "l"
+      ],
+      [
+       "ii",
+       "n"
+      ],
+      [
+       "a",
+       "m"
+      ],
+      [
+       "s"
+      ],
+      [
+       "a",
+       "n"
+      ],
+      [
+       "d"
+      ],
+      [
+       "o",
+       "m"
+      ],
+      [
+       "s",
+       "y"
+      ],
+      [
+       "o",
+       "d",
+       "y"
+      ],
+      [
+       "o",
+       "s"
+      ],
+      [
+       "a",
+       "i",
+       "r"
+      ],
+      [
+       "a",
+       "l"
+      ]
+     ]
+    ]
+   },
+   "łacina (litery)": {
+    "score": -0.33712083101272583,
+    "coverage": 0.49913841485977173,
+    "turn": 0.8362592458724976,
+    "rings": "[[  3   4 190  14   9 115 129  15  26 192 314  53 320  12 203  22   1   8\n  263  33  76  18   6  11]\n [  2   1   5  10 210  45  21  49   4  19 291 408  48   3  18 108 434 110\n  270   7  68  92  25  20]\n [  3  24   2  52  26   4  10  97   1   8 297 242  67  76 278  40  12  59\n   48  27 136  35  11  21]]",
+    "generation": 1953,
+    "seconds": 1161.398683309555,
+    "cells": [
+     [
+      [
+       "t"
+      ],
+      [
+       "a"
+      ],
+      [
+       "o",
+       "m",
+       "n"
+      ],
+      [
+       "p"
+      ],
+      [
+       "m"
+      ],
+      [
+       "d",
+       "o",
+       "m"
+      ],
+      [
+       "f",
+       "i",
+       "l"
+      ],
+      [
+       "e",
+       "r"
+      ],
+      [
+       "i",
+       "s"
+      ],
+      [
+       "i",
+       "l",
+       "l"
+      ],
+      [
+       "f",
+       "a",
+       "c"
+      ],
+      [
+       "s",
+       "u"
+      ],
+      [
+       "f",
+       "r"
+      ],
+      [
+       "c"
+      ],
+      [
+       "d",
+       "i",
+       "x"
+      ],
+      [
+       "v"
+      ],
+      [
+       "e"
+      ],
+      [
+       "n"
+      ],
+      [
+       "a",
+       "e",
+       "g"
+      ],
+      [
+       "h"
+      ],
+      [
+       "t",
+       "e",
+       "r"
+      ],
+      [
+       "q",
+       "u"
+      ],
+      [
+       "s"
+      ],
+      [
+       "d"
+      ]
+     ],
+     [
+      [
+       "i"
+      ],
+      [
+       "e"
+      ],
+      [
+       "u"
+      ],
+      [
+       "o"
+      ],
+      [
+       "a",
+       "t",
+       "r"
+      ],
+      [
+       "a",
+       "n"
+      ],
+      [
+       "u",
+       "m"
+      ],
+      [
+       "o",
+       "r"
+      ],
+      [
+       "a"
+      ],
+      [
+       "i",
+       "t"
+      ],
+      [
+       "n",
+       "i",
+       "m"
+      ],
+      [
+       "e",
+       "r",
+       "v"
+      ],
+      [
+       "o",
+       "s"
+      ],
+      [
+       "t"
+      ],
+      [
+       "q",
+       "u"
+      ],
+      [
+       "p",
+       "e",
+       "r"
+      ],
+      [
+       "l",
+       "o",
+       "c"
+      ],
+      [
+       "i",
+       "b"
+      ],
+      [
+       "y",
+       "p",
+       "t"
+      ],
+      [
+       "r"
+      ],
+      [
+       "u",
+       "n"
+      ],
+      [
+       "e",
+       "s",
+       "t"
+      ],
+      [
+       "r",
+       "a"
+      ],
+      [
+       "i",
+       "n"
+      ]
+     ],
+     [
+      [
+       "t"
+      ],
+      [
+       "u",
+       "s"
+      ],
+      [
+       "i"
+      ],
+      [
+       "a",
+       "e"
+      ],
+      [
+       "i",
+       "s"
+      ],
+      [
+       "a"
+      ],
+      [
+       "o"
+      ],
+      [
+       "a",
+       "s"
+      ],
+      [
+       "e"
+      ],
+      [
+       "n"
+      ],
+      [
+       "g",
+       "o"
+      ],
+      [
+       "h",
+       "i"
+      ],
+      [
+       "x"
+      ],
+      [
+       "t",
+       "e",
+       "r"
+      ],
+      [
+       "h",
+       "e",
+       "l"
+      ],
+      [
+       "e",
+       "m"
+      ],
+      [
+       "c"
+      ],
+      [
+       "q",
+       "u",
+       "e"
+      ],
+      [
+       "o",
+       "s"
+      ],
+      [
+       "e",
+       "s"
+      ],
+      [
+       "t",
+       "e",
+       "m"
+      ],
+      [
+       "a",
+       "m"
+      ],
+      [
+       "d"
+      ],
+      [
+       "u",
+       "m"
+      ]
+     ]
+    ]
+   }
+  },
+  "text": {
+   "card": {
+    "h1": {
+     "generated": 3.9781788890178476,
+     "manuscript": 3.862672305333711,
+     "spread": 0.07725344610667423,
+     "z": 1.4951641577858026
+    },
+    "h2": {
+     "generated": 2.7244483605725462,
+     "manuscript": 2.210174720651762,
+     "spread": 0.11862607618290731,
+     "z": 4.335249520753222
+    },
+    "h3": {
+     "generated": 2.3515525469434717,
+     "manuscript": 1.9393360545018943,
+     "spread": 0.12657047205033362,
+     "z": 3.256814055948612
+    },
+    "mean_word_len": {
+     "generated": 5.06398899814402,
+     "manuscript": 4.313781541947225,
+     "spread": 0.327038108167072,
+     "z": 2.2939450708097313
+    },
+    "sd_word_len": {
+     "generated": 1.1429580621908788,
+     "manuscript": 1.5459077828316357,
+     "spread": 0.06918306422909334,
+     "z": -5.824398284910104
+    },
+    "type_token_ratio": {
+     "generated": 0.7878174061939308,
+     "manuscript": 0.36827859750650227,
+     "spread": 0.018045609985819448,
+     "z": 23.248801731673765
+    },
+    "hapax_ratio": {
+     "generated": 0.7993443208818303,
+     "manuscript": 0.7069894949961183,
+     "spread": 0.014139789899922366,
+     "z": 6.531555740175393
+    },
+    "zipf_slope": {
+     "generated": -0.3874638774656618,
+     "manuscript": -0.8891987069735965,
+     "spread": 0.01778397413947193,
+     "z": 28.21275073687399
+    },
+    "top10_coverage": {
+     "generated": 0.016724053973658122,
+     "manuscript": 0.15522291409508407,
+     "spread": 0.016349638554499547,
+     "z": -8.47106556268854
+    },
+    "adjacent_repeat": {
+     "generated": 0.038869070905158024,
+     "manuscript": 0.00899106190526458,
+     "spread": 0.0016216127131587774,
+     "z": 18.424873434602873
+    },
+    "adjacent_near": {
+     "generated": 0.08148253139954158,
+     "manuscript": 0.04445236303240783,
+     "spread": 0.009086427867591533,
+     "z": 4.075327390118714
+    },
+    "vocab_density": {
+     "generated": 0.9573333333333334,
+     "manuscript": 0.8568598281762841,
+     "spread": 0.017137196563525685,
+     "z": 5.8628903966063
+    },
+    "positional_rigidity": {
+     "generated": 0.7955415754483679,
+     "manuscript": 0.7828451601113595,
+     "spread": 0.02528309763603305,
+     "z": 0.5021700869008101
+    },
+    "order_consistency": {
+     "generated": 0.8348389673022045,
+     "manuscript": 0.8873592974352257,
+     "spread": 0.017747185948704513,
+     "z": -2.959361009955213
+    },
+    "edge_mi": {
+     "generated": 0.017477489723942988,
+     "manuscript": 0.2408780137891401,
+     "spread": 0.050480995300159315,
+     "z": -4.425438181970475
+    },
+    "words_per_line": {
+     "generated": 8.353471584344918,
+     "manuscript": 8.443405844535452,
+     "spread": 1.1534554991223651,
+     "z": -0.07796942340555159
+    },
+    "line_first_p": {
+     "generated": 0.7623838587414963,
+     "manuscript": 2.552559357052122,
+     "spread": 0.7861514088159463,
+     "z": -2.277138319966735
+    },
+    "line_last_m": {
+     "generated": 1.0988206518770216,
+     "manuscript": 6.255993663621335,
+     "spread": 1.8010534619006273,
+     "z": -2.8634202819843106
+    },
+    "line_last_g": {
+     "generated": 0.0,
+     "manuscript": 3.038628244188148,
+     "spread": 3.513664689946101,
+     "z": -0.8648031364184497
+    },
+    "line_first_len": {
+     "generated": 0.9909596423213507,
+     "manuscript": 1.1003902150166858,
+     "spread": 0.040646261787794964,
+     "z": -2.692266591861451
+    },
+    "len_neighbour": {
+     "generated": 0.4219714914129538,
+     "manuscript": 0.14204680853714796,
+     "spread": 0.039835778104122456,
+     "z": 7.026966616395463
+    },
+    "line_mean_spread": {
+     "generated": 0.6337774865315143,
+     "manuscript": 0.6589749308497812,
+     "spread": 0.015092607367343277,
+     "z": -1.6695222836570969
+    }
+   },
+   "misses": [
+    "h2",
+    "h3",
+    "mean_word_len",
+    "sd_word_len",
+    "type_token_ratio",
+    "hapax_ratio",
+    "zipf_slope",
+    "top10_coverage",
+    "adjacent_repeat",
+    "adjacent_near",
+    "vocab_density",
+    "order_consistency",
+    "edge_mi",
+    "line_first_p",
+    "line_last_m",
+    "line_first_len",
+    "len_neighbour"
+   ],
+   "auc": 0.9927467675812047,
+   "split": {
+    "inside": 0.9921940613122209,
+    "across": 0.9457932911749573,
+    "all": 0.9927467675812047
+   },
+   "syntax": {
+    "same": {
+     "excess": 0.0007069202972638446,
+     "z": 4.644156806100905
+    },
+    "different": {
+     "excess": 0.019222485869798245,
+     "z": 0.3935110699662478
+    },
+    "variants": {
+     "excess": 0.2428926628926629,
+     "z": 1.1430971945738144
+    },
+    "unrelated": {
+     "excess": -0.016272459894252078,
+     "z": -0.3273667314739478
+    }
+   },
+   "lengths": {
+    "n": 13007,
+    "mean": 5.063042976858615,
+    "sd": 1.1437608553704368,
+    "entropy": 2.2216045456252473,
+    "dist": {
+     "3": 0.07834243099869301,
+     "4": 0.2464826631813639,
+     "5": 0.3324363804105482,
+     "6": 0.2381025601599139,
+     "7": 0.08649188898285538,
+     "8": 0.01745214115476282,
+     "9": 0.0006919351118628431
+    },
+    "mi1": {
+     "value": 0.11409099060870445,
+     "null": 0.0021993097567105536,
+     "excess": 0.1118916808519939,
+     "z": 360.4021079387442
+    },
+    "mi2": {
+     "value": 0.029234020033316672,
+     "null": 0.0019404290006832638,
+     "excess": 0.02729359103263341,
+     "z": 46.7726010515918
+    },
+    "ac1": {
+     "value": 0.37119447952238427,
+     "null": 0.017179707822313504,
+     "excess": 0.3540147717000708,
+     "z": 70.08237816124708
+    },
+    "ac2": {
+     "value": 0.19141917598576189,
+     "null": 0.009720660996529538,
+     "excess": 0.18169851498923234,
+     "z": 20.665782684173383
+    },
+    "ac3": {
+     "value": 0.10467952565078212,
+     "null": 0.010233311063065187,
+     "excess": 0.09444621458771693,
+     "z": 10.147817545929742
+    },
+    "ac5": {
+     "value": 0.027362019960460185,
+     "null": 0.015207063016908664,
+     "excess": 0.012154956943551521,
+     "z": 1.5675560388798584
+    },
+    "updown": {
+     "value": 0.7090909090909091,
+     "null": 0.745049536598622,
+     "excess": -0.03595862750771295,
+     "z": -8.749469425091942
+    },
+    "dfa": {
+     "value": 0.6291740561129746,
+     "null": 0.5228563340716917,
+     "excess": 0.10631772204128287,
+     "z": 12.034557778884537
+    }
+   },
+   "sample": [
+    "ycheey.ychiin.ychchy.ychain.ychody.shechody.sheorar.sheoko.lkeey",
+    "sair.qokair.qokaiy.qokshody.qokdey.qolpd.qolps.qolarr.qolaram.qolarody.qolaar",
+    "pchedar.qocheey.qochy.olcham.karr.kcher.kas.kan",
+    "ykoiin.ykoy.ykoedy.ykoaiin.ykcheody.cphcheam.cphchedy.saody.sechy.seky",
+    "yaiy.yaiaiin.yalr.yaio.yaiain.yshl.yaiedy.yaior.yaiior.yokain.yokain",
+    "sdaiin.sckhedy.soredy.saiio.seedar.scthm.sorol.sors.chetaiin.chetal.checthl.cheaain"
+   ]
+  }
+ },
+ "controls": [
+  {
+   "name": "tarcza rękopisu obraca się taniej niż na słowach przetasowanych",
+   "expectation": "koszt obrotu niższy o ≥ 0,02",
+   "observed": "0.409 wobec 0.440",
+   "passed": true
+  }
+ ],
+ "evidence": [
+  "Rękopis: pokrycie 83.9%, koszt obrotu 0.409 (tarcza z pokolenia 1995, 1161 s).",
+  "słowa przetasowane: pokrycie 83.8%, koszt obrotu 0.440.",
+  "bełkot v5: pokrycie 86.9%, koszt obrotu 0.370.",
+  "łacina (litery): pokrycie 49.9%, koszt obrotu 0.836.",
+  "Pierścień 1: ch qok ok sh qot ol t cph r qol she y o qo p che d yt cho k yk s ot l",
+  "Pierścień 2: e d ckh k t che kee sh pch p or she od ar aii ok ol al cth ai a o ee ch",
+  "Pierścień 3: y edy ain al ody dar am ky eey iin s r l o n d m chy ar dy ey ol or aiin",
+  "Tekst z tarczy: 5/22 miar w rozrzucie rękopisu; poza: entropia warunkowa h₂ (z = +4.3), entropia warunkowa h₃ (z = +3.3), średnia długość słowa (z = +2.3), rozrzut długości słowa (z = -5.8), różne słowa / wszystkie (z = +23.2), słowa użyte raz (hapaksy) (z = +6.5), nachylenie Zipfa (z = +28.2), udział 10 najczęstszych słów (z = -8.5), to samo słowo zaraz po sobie (z = +18.4), sąsiednie słowa różne o 1 glif (z = +4.1), gęstość słownika (z = +5.9), stała kolejność glifów (z = -3.0), związek końca słowa z początkiem następnego (z = -4.4), p w pierwszym słowie wiersza (z = -2.3), m w ostatnim słowie wiersza (z = -2.9), długość pierwszego słowa wiersza / średnia (z = -2.7), korelacja długości sąsiednich słów (z = +7.0). Klasyfikator wierszy: AUC 0.993 (wewnątrz słów 0.99, na styku 0.95; v5 działami ≈ 0,78, prawdziwe 0,55).",
+  "Składnia tekstu z tarczy: powtórzenia z = 4.6, warianty z = 1.1, słowa niespokrewnione z = -0.3 (rękopis ≈ 10, 9, −1). Długości: korelacja sąsiadów +0.371 (rękopis +0,16), DFA 0.629 (0,60).",
+  "Próbka: ycheey.ychiin.ychchy.ychain.ychody.shechody.sheorar.sheoko.lkeey | sair.qokair.qokaiy.qokshody.qokdey.qolpd.qolps.qolarr.qolaram.qolarody.qolaar | pchedar.qocheey.qochy.olcham.karr.kcher.kas.kan"
+ ],
+ "caveats": [
+  "Tarcza o 3 pierścieniach i komórkach do 3 glifów to jeden z możliwych kształtów urządzenia; inne (więcej pierścieni, nierówne pierścienie) mogą składać więcej.",
+  "Koszt obrotu zależy od ułożenia komórek, które wyszukiwanie dopasowuje do rękopisu; dlatego porównanie z tekstami kontrolnymi, dla których szukano tak samo długo.",
+  "Pokrycie poniżej 100% oznacza słowa, których tarcza nie składa; skryba mógł je dopisywać ręcznie."
+ ],
+ "references": [
+  "Llull, Ars generalis ultima (1305–1308); Bonner, The Art and Logic of Ramon Llull (2007)",
+  "Timm & Schinner, Cryptologia 44 (2020)"
+ ],
+ "artifacts": [],
+ "seconds": 4629.2997353076935,
+ "council": {
+  "members": [
+   "z-ai/glm-5.3-flash",
+   "openai/gpt-6-luna",
+   "inception/mercury-3",
+   "tencent/hy3"
+  ],
+  "chair": "openai/gpt-6-luna",
+  "round1": {
+   "z-ai/glm-5.3-flash": {
+    "raw": "{\"werdykt\": \"obalona\", \"pewność\": 0.7, \"najmocniejszy_dowód\": \"Kontrola pozytywna przeszła tylko mikroskopijnie (0.409 vs 0.440, przy progu ≥0.02 — margines 0.031), a bełkot v5 — tekst pozbawiony struktury tarczy — uzyskał LEPSZY koszt obrotu (0.370) i wyższe pokrycie (86.9%) niż rękopis (0.409, 83.9%). Jeśli mechanizm tarczy wyjaśniał rękopis, losowy bełkot nie powinien być 'tańszy' do złożenia.\", \"słabości\": [\"Tekst wygenerowany tarczą odrzuca 17 z 22 miar rękopisu, z ekstremalnymi odchyleniami: Zipf z=+28.2, powtórzenia z=+18.4, różne słowa z=+23.2 — tarcza produkuje tekst statystycznie inny niż rękopis.\", \"Jedyna kontrola pozytywna ma margines tuż nad progiem; brak testu istotności (permutacyjnego) dla różnicy 0.031.\", \"Kształt tarczy (3×24, 0–3 glify) dobrano arbitralnie; przeszukiwanie 2000 pokoleń dopasowuje tarczę do danych, więc pokrycie 84% jest niemal gwarantowane dla dowolnego tekstu o podobnej strukturze glifów.\"], \"inne_wyjaśnienia\": [\"Pokrycie ~84% odzwierciedla statystykę częstych krótkich ciągów glifów (qo, ch, aiin...), nie mechanizm tarczy — stąd bełkot v5 też jest składany w 87%.\", \"Tekst z tarczy zachowuje lokalne nawyki glifowe (AUC 0.99 klasyfikatora wewnątrz słów), ale nie makrostrukturę (entropie h₂/h₃, Zipf, hapaksy) — czyli tarcza replikuje morfotaktykę glifów, nie strukturę językową/porządek obrotów.\"], \"następny_test\": \"Test permutacyjny istotności kosztu obrotu: porównać koszt tarczy rękopisu z rozkładem kosztów tarcz dopasowanych do 100+ losowych permutacji słów rękopisu i tekstów o tych samych statystykach jednowyrazowych — zamiast jednej kontroli przetasowanej i progu 0.02. Jeśli tarcza rękopisu nie wyróżnia się poza ten rozkład, hipoteza upada; jeśli się wyróżnia, sprawdzić jej predykcje kolejnych słów w wierszach.\"}",
+    "json": {
+     "werdykt": "obalona",
+     "pewność": 0.7,
+     "najmocniejszy_dowód": "Kontrola pozytywna przeszła tylko mikroskopijnie (0.409 vs 0.440, przy progu ≥0.02 — margines 0.031), a bełkot v5 — tekst pozbawiony struktury tarczy — uzyskał LEPSZY koszt obrotu (0.370) i wyższe pokrycie (86.9%) niż rękopis (0.409, 83.9%). Jeśli mechanizm tarczy wyjaśniał rękopis, losowy bełkot nie powinien być 'tańszy' do złożenia.",
+     "słabości": [
+      "Tekst wygenerowany tarczą odrzuca 17 z 22 miar rękopisu, z ekstremalnymi odchyleniami: Zipf z=+28.2, powtórzenia z=+18.4, różne słowa z=+23.2 — tarcza produkuje tekst statystycznie inny niż rękopis.",
+      "Jedyna kontrola pozytywna ma margines tuż nad progiem; brak testu istotności (permutacyjnego) dla różnicy 0.031.",
+      "Kształt tarczy (3×24, 0–3 glify) dobrano arbitralnie; przeszukiwanie 2000 pokoleń dopasowuje tarczę do danych, więc pokrycie 84% jest niemal gwarantowane dla dowolnego tekstu o podobnej strukturze glifów."
+     ],
+     "inne_wyjaśnienia": [
+      "Pokrycie ~84% odzwierciedla statystykę częstych krótkich ciągów glifów (qo, ch, aiin...), nie mechanizm tarczy — stąd bełkot v5 też jest składany w 87%.",
+      "Tekst z tarczy zachowuje lokalne nawyki glifowe (AUC 0.99 klasyfikatora wewnątrz słów), ale nie makrostrukturę (entropie h₂/h₃, Zipf, hapaksy) — czyli tarcza replikuje morfotaktykę glifów, nie strukturę językową/porządek obrotów."
+     ],
+     "następny_test": "Test permutacyjny istotności kosztu obrotu: porównać koszt tarczy rękopisu z rozkładem kosztów tarcz dopasowanych do 100+ losowych permutacji słów rękopisu i tekstów o tych samych statystykach jednowyrazowych — zamiast jednej kontroli przetasowanej i progu 0.02. Jeśli tarcza rękopisu nie wyróżnia się poza ten rozkład, hipoteza upada; jeśli się wyróżnia, sprawdzić jej predykcje kolejnych słów w wierszach."
+    }
+   },
+   "openai/gpt-6-luna": {
+    "raw": "{\n  \"werdykt\": \"metoda niewiarygodna\",\n  \"pewność\": 0.94,\n  \"najmocniejszy_dowód\": \"Nie wykazano, że metoda odzyskuje efekt w danych z celowo podłożoną tarczą. Kontrola przetasowania spełnia próg kosztu obrotu (0,409 wobec 0,440), ale sama nie wystarcza do walidacji metody. Dopasowanie do bełkotu jest nawet lepsze niż do rękopisu: pokrycie 86,9% i koszt 0,370 wobec 83,9% i 0,409.\",\n  \"słabości\": [\n    \"Brak pozytywnej kontroli z tarczą o znanym układzie i znanym sposobie generowania tekstu.\",\n    \"Wyszukiwanie dopasowuje układ komórek do badanych danych; podobne pokrycie tekstu przetasowanego (83,8%) wskazuje na ograniczoną swoistość dopasowania.\",\n    \"Wynik 5/22 miar poza zakresem rękopisu oraz liczne skrajne wartości z nie potwierdzają, że tekst wytwarzany przez tarczę przypomina rękopis.\"\n  ],\n  \"inne_wyjaśnienia\": [\n    \"Wysokie pokrycie może wynikać z optymalizacji tarczy pod konkretne dane, a nie z rzeczywistego mechanizmu ich powstania.\",\n    \"Test dotyczy tylko jednej konfiguracji: trzech pierścieni po 24 komórki i komórek do trzech glifów; nie rozstrzyga o innych urządzeniach ani o tym, czy tekst ma podłoże językowe.\"\n  ],\n  \"następny_test\": \"Przeprowadzić ślepy test na danych z celowo podłożonymi, znanymi tarczami oraz na dopasowanych danych przetasowanych: metoda powinna odzyskać tarczę lub jej efekt w kontroli dodatniej, a nie wykrywać go w ujemnej, przy takim samym budżecie wyszukiwania.\"\n}",
+    "json": {
+     "werdykt": "metoda niewiarygodna",
+     "pewność": 0.94,
+     "najmocniejszy_dowód": "Nie wykazano, że metoda odzyskuje efekt w danych z celowo podłożoną tarczą. Kontrola przetasowania spełnia próg kosztu obrotu (0,409 wobec 0,440), ale sama nie wystarcza do walidacji metody. Dopasowanie do bełkotu jest nawet lepsze niż do rękopisu: pokrycie 86,9% i koszt 0,370 wobec 83,9% i 0,409.",
+     "słabości": [
+      "Brak pozytywnej kontroli z tarczą o znanym układzie i znanym sposobie generowania tekstu.",
+      "Wyszukiwanie dopasowuje układ komórek do badanych danych; podobne pokrycie tekstu przetasowanego (83,8%) wskazuje na ograniczoną swoistość dopasowania.",
+      "Wynik 5/22 miar poza zakresem rękopisu oraz liczne skrajne wartości z nie potwierdzają, że tekst wytwarzany przez tarczę przypomina rękopis."
+     ],
+     "inne_wyjaśnienia": [
+      "Wysokie pokrycie może wynikać z optymalizacji tarczy pod konkretne dane, a nie z rzeczywistego mechanizmu ich powstania.",
+      "Test dotyczy tylko jednej konfiguracji: trzech pierścieni po 24 komórki i komórek do trzech glifów; nie rozstrzyga o innych urządzeniach ani o tym, czy tekst ma podłoże językowe."
+     ],
+     "następny_test": "Przeprowadzić ślepy test na danych z celowo podłożonymi, znanymi tarczami oraz na dopasowanych danych przetasowanych: metoda powinna odzyskać tarczę lub jej efekt w kontroli dodatniej, a nie wykrywać go w ujemnej, przy takim samym budżecie wyszukiwania."
+    }
+   },
+   "tencent/hy3": {
+    "raw": "{\n  \"werdykt\": \"nierozstrzygnięta\",\n  \"pewność\": 0.6,\n  \"najmocniejszy_dowód\": \"Kontrola metody przeszła: koszt obrotu dla rękopisu (0.409) jest niższy niż dla słów przetasowanych (0.440), co potwierdza, że test wykrywa specyficzną strukturę obrotową w danych oryginalnych, a nie szum. Jednak wygenerowany tekst z tarczy odbiega od rękopisu w 17 z 22 miar (m.in. z = +28.2 dla nachylenia Zipfa, z = +23.2 dla różnych słów/wszystkie, z = -5.8 dla rozrzutu długości).\",\n  \"słabości\": [\n    \"Tekst z tarczy nie przechodzi 17/22 miar statystycznych rękopisu, co sugeruje, że sama tarcza 3-pierścieniowa nie oddaje dynamiki tekstu (np. rozkład długości, hapaksów, korelacje sąsiedztwa).\",\n    \"Założenie o 3 pierścieniach i komórkach 0–3 glify to tylko jeden z możliwych kształtów urządzenia; test nie bada innych konfiguracji (więcej pierścieni, nierówne).\",\n    \"Pokrycie 83.9% oznacza, że 16% słów tarcza nie składa – autorzy zakładają dopisek ręczny, co nie jest zweryfikowane i osłabia tezę o czysto mechanicznym pochodzeniu całości.\"\n  ],\n  \"inne_wyjaśnienia\": [\n    \"Tekst może być językiem naturalnym lub szyfrem z nałożoną mechaniczną procedurą zapisu (tarcza jako pomoc, nie źródło znaczenia).\",\n    \"Inna architektura tarczy (np. 4+ pierścieni) mogłaby lepiej odwzorować miary statystyczne.\",\n    \"Rękopis mógł powstać z tarczy, ale z aktywnym udziałem skryby modyfikującym wynik (co tłumaczyłoby odchylenia w miarach).\"\n  ],\n  \"następny_test\": \"Rozszerzyć przestrzeń wyszukiwania na tarcze o 4–6 pierścieniach i nierównych długościach oraz powtórzyć porównanie miar statystycznych (zwłaszcza Zipfa, hapaksów i korelacji długości sąsiednich) z tekstem generowanym przez takie tarcze, aby sprawdzić, czy wyższa złożoność urządzenia niweluje obecne odchylenia.\"\n}",
+    "json": {
+     "werdykt": "nierozstrzygnięta",
+     "pewność": 0.6,
+     "najmocniejszy_dowód": "Kontrola metody przeszła: koszt obrotu dla rękopisu (0.409) jest niższy niż dla słów przetasowanych (0.440), co potwierdza, że test wykrywa specyficzną strukturę obrotową w danych oryginalnych, a nie szum. Jednak wygenerowany tekst z tarczy odbiega od rękopisu w 17 z 22 miar (m.in. z = +28.2 dla nachylenia Zipfa, z = +23.2 dla różnych słów/wszystkie, z = -5.8 dla rozrzutu długości).",
+     "słabości": [
+      "Tekst z tarczy nie przechodzi 17/22 miar statystycznych rękopisu, co sugeruje, że sama tarcza 3-pierścieniowa nie oddaje dynamiki tekstu (np. rozkład długości, hapaksów, korelacje sąsiedztwa).",
+      "Założenie o 3 pierścieniach i komórkach 0–3 glify to tylko jeden z możliwych kształtów urządzenia; test nie bada innych konfiguracji (więcej pierścieni, nierówne).",
+      "Pokrycie 83.9% oznacza, że 16% słów tarcza nie składa – autorzy zakładają dopisek ręczny, co nie jest zweryfikowane i osłabia tezę o czysto mechanicznym pochodzeniu całości."
+     ],
+     "inne_wyjaśnienia": [
+      "Tekst może być językiem naturalnym lub szyfrem z nałożoną mechaniczną procedurą zapisu (tarcza jako pomoc, nie źródło znaczenia).",
+      "Inna architektura tarczy (np. 4+ pierścieni) mogłaby lepiej odwzorować miary statystyczne.",
+      "Rękopis mógł powstać z tarczy, ale z aktywnym udziałem skryby modyfikującym wynik (co tłumaczyłoby odchylenia w miarach)."
+     ],
+     "następny_test": "Rozszerzyć przestrzeń wyszukiwania na tarcze o 4–6 pierścieniach i nierównych długościach oraz powtórzyć porównanie miar statystycznych (zwłaszcza Zipfa, hapaksów i korelacji długości sąsiednich) z tekstem generowanym przez takie tarcze, aby sprawdzić, czy wyższa złożoność urządzenia niweluje obecne odchylenia."
+    }
+   }
+  },
+  "round2": {
+   "z-ai/glm-5.3-flash": {
+    "raw": "{\"ranking\": [\"B\", \"C\"], \"uwagi\": \"Opinia B jest lepiej uzasadniona: trafnie wskazuje, że kluczowy brak to pozytywna kontrola (odzyskanie efektu z podłożoną, znaną tarczą), a jedyna przeprowadzona kontrola (przetasowania) jest słaba. Co istotne, dane raportu wręcz podważają swoistość metody: bełkot v5 daje LEPSZE dopasowanie niż rękopis (pokrycie 86,9% vs 83,9%, koszt obrotu 0,370 vs 0,409), a przetasowany rękopis osiąga niemal identyczne pokrycie (83,8%). Skoro tarczę da się 'znaleźć' nawet w bełkocie, niski koszt obrotu nie dowodzi mechanizmu tarczy w rękopisie. Dodatkowo tekst wygenerowany najlepszą tarczą odpada w 17/22 miar (Zipf z=+28,2, hapaksy z=+6,5, powtórzenia z=+18,4) i AUC 0,993 klasyfikatora oznacza, że tekst tarczy jest łatwo odróżnialny od rękopisu. Zastrzeżenie o wyrównanym budżecie wyszukiwania (zastrzeżenie 2) nie ratuje wyniku, bo dotyczy porównań między kontrolami, a nie braku kontroli dodatniej.\", \"werdykt\": \"metoda niewiarygodna\", \"pewność\": 0.85, \"zmiana_zdania\": \"nie — dane raportu od początku wskazywały na brak kontroli dodatniej i lepsze dopasowanie do bełkotu niż do rękopisu; opinia B tylko to uporządkował\"}",
+    "json": {
+     "ranking": [
+      "B",
+      "C"
+     ],
+     "uwagi": "Opinia B jest lepiej uzasadniona: trafnie wskazuje, że kluczowy brak to pozytywna kontrola (odzyskanie efektu z podłożoną, znaną tarczą), a jedyna przeprowadzona kontrola (przetasowania) jest słaba. Co istotne, dane raportu wręcz podważają swoistość metody: bełkot v5 daje LEPSZE dopasowanie niż rękopis (pokrycie 86,9% vs 83,9%, koszt obrotu 0,370 vs 0,409), a przetasowany rękopis osiąga niemal identyczne pokrycie (83,8%). Skoro tarczę da się 'znaleźć' nawet w bełkocie, niski koszt obrotu nie dowodzi mechanizmu tarczy w rękopisie. Dodatkowo tekst wygenerowany najlepszą tarczą odpada w 17/22 miar (Zipf z=+28,2, hapaksy z=+6,5, powtórzenia z=+18,4) i AUC 0,993 klasyfikatora oznacza, że tekst tarczy jest łatwo odróżnialny od rękopisu. Zastrzeżenie o wyrównanym budżecie wyszukiwania (zastrzeżenie 2) nie ratuje wyniku, bo dotyczy porównań między kontrolami, a nie braku kontroli dodatniej.",
+     "werdykt": "metoda niewiarygodna",
+     "pewność": 0.85,
+     "zmiana_zdania": "nie — dane raportu od początku wskazywały na brak kontroli dodatniej i lepsze dopasowanie do bełkotu niż do rękopisu; opinia B tylko to uporządkował"
+    }
+   },
+   "openai/gpt-6-luna": {
+    "raw": "{\"ranking\":[\"C\",\"A\"],\"uwagi\":\"C jest lepiej uzasadniona głównie dlatego, że werdykt „nierozstrzygnięta” nie wyciąga z testu więcej, niż on pokazuje. Ma jednak istotny błąd: porównanie 0,409 z 0,440 nie potwierdza samo w sobie, że metoda wykrywa mechanizm tarczy. Raport nie podaje kontroli pozytywnej z celowo wygenerowanym tekstem tarczowym; pokazuje tylko, że wynik rękopisu jest lepszy od jednej kontroli z przetasowanymi słowami, o 0,031 przy progu 0,02. A trafnie wskazuje, że bełkot v5 ma lepszy koszt obrotu i pokrycie niż rękopis oraz że tekst z tarczy mieści się w zakresie rękopisu tylko dla 5/22 miar. To poważnie osłabia dopasowanie tej konkretnej tarczy. Jednak werdykt A „obalona” jest zbyt mocny: raport bada jedną architekturę, a porównania i miary nie wykluczają wszystkich możliwych tarcz. Określenie bełkotu v5 jako pozbawionego struktury nie wystarcza też, by uznać go za kontrolę bez struktury tarczowej. Następny test o największej wartości to ślepa walidacja całego potoku: sprawdzić, czy odzyskuje znaną, celowo podłożoną tarczę z wygenerowanego tekstu, a zarazem nie znajduje podobnego efektu w przetasowanych danych; najlepiej ocenić dopasowanie także na niewykorzystanych wierszach. Rozszerzanie tarczy do 4–6 pierścieni, jak proponuje C, zwiększyłoby ryzyko nadmiernego dopasowania, zanim potwierdzono sprawność metody.\",\"werdykt\":\"Nierozstrzygnięta. Wyniki nie wspierają dobrze",
+    "json": {}
+   },
+   "tencent/hy3": {
+    "raw": "{\n  \"ranking\": [\"B\", \"A\"],\n  \"uwagi\": \"Opinia B jest lepiej uzasadniona, bo trafnie wskazuje na kardynalny błąd metodologiczny: brak kontroli dodatniej z celowo podłożoną, znaną tarczą. Zgodnie z zasadami rady, test bez takiej kontroli jest niewiarygodny, więc nie można uznać go za dowód 'za' ani 'przeciw' hipotezie. Opinia A poprawnie punktuje statystyczne odchylenia (17/22 miar poza zakresem, lepszy wynik bełkotu), ale jej werdykt 'obalona' jest przedwczesny, bo opiera się na narzędziu, którego poprawności nie zweryfikowano. A myli się co do możliwości wyciągania wniosków z samego faktu dopasowania do bełkotu – to raczej dowód na słabość metody niż na fałszywość hipotezy tarczy.\",\n  \"werdykt\": \"Nierozstrzygnięta (metoda niewiarygodna z powodu braku kontroli dodatniej)\",\n  \"pewność\": 0.9,\n  \"zmiana_zdania\": \"Tak, początkowo sugerowany werdykt 'obalona' przez A wydawał się bliski, ale po analizie zasad rady (wymóg kontroli dodatniej) uznaję, że test nie spełnia standardu wiarygodności, więc hipotezy nie można ani przyjąć, ani odrzucić na jego podstawie.\"\n}",
+    "json": {
+     "ranking": [
+      "B",
+      "A"
+     ],
+     "uwagi": "Opinia B jest lepiej uzasadniona, bo trafnie wskazuje na kardynalny błąd metodologiczny: brak kontroli dodatniej z celowo podłożoną, znaną tarczą. Zgodnie z zasadami rady, test bez takiej kontroli jest niewiarygodny, więc nie można uznać go za dowód 'za' ani 'przeciw' hipotezie. Opinia A poprawnie punktuje statystyczne odchylenia (17/22 miar poza zakresem, lepszy wynik bełkotu), ale jej werdykt 'obalona' jest przedwczesny, bo opiera się na narzędziu, którego poprawności nie zweryfikowano. A myli się co do możliwości wyciągania wniosków z samego faktu dopasowania do bełkotu – to raczej dowód na słabość metody niż na fałszywość hipotezy tarczy.",
+     "werdykt": "Nierozstrzygnięta (metoda niewiarygodna z powodu braku kontroli dodatniej)",
+     "pewność": 0.9,
+     "zmiana_zdania": "Tak, początkowo sugerowany werdykt 'obalona' przez A wydawał się bliski, ale po analizie zasad rady (wymóg kontroli dodatniej) uznaję, że test nie spełnia standardu wiarygodności, więc hipotezy nie można ani przyjąć, ani odrzucić na jego podstawie."
+    }
+   }
+  },
+  "synthesis": "## Werdykt rady\n**Test jest metodologicznie niewiarygodny; hipoteza pozostaje nierozstrzygnięta.** Zgodność jest wysoka co do braku podstaw do uznania wyniku za wiarygodny. Nie ma jednak podstaw, by na tej podstawie obalić wszystkie możliwe warianty hipotezy.\n\n## Co test naprawdę pokazuje\nDla badanej konfiguracji tarczy koszt obrotu wyniósł 0,409 wobec 0,440 dla słów przetasowanych, a pokrycie było niemal identyczne: 83,9% i 83,8%. Bełkot v5 uzyskał lepszy wynik niż rękopis: koszt 0,370 i pokrycie 86,9%. Tekst wygenerowany przez tarczę mieścił się w rozrzucie rękopisu tylko dla 5 z 22 miar. Wyniki te nie dowodzą, że rękopis powstał z tarczy.\n\n## Główne zastrzeżenia\nKontrola przetasowania nie zastępuje kontroli dodatniej: raport nie pokazuje, czy metoda odzyskuje efekt z tekstu celowo wygenerowanego znaną tarczą. Lepsze dopasowanie bełkotu i zbliżone pokrycie przetasowanego tekstu podważają swoistość dopasowania. Ponadto test obejmuje tylko jedną, z góry ograniczoną konfigurację, a wyszukiwanie dopasowuje tarczę do badanych danych. Nie wyklucza to innych konfiguracji, ale też ich nie potwierdza.\n\n## Rekomendowany następny eksperyment\nPrzeprowadzić ślepą walidację całego potoku: sprawdzić, czy odzyskuje znaną tarczę z tekstu celowo nią wygenerowanego, a nie znajduje podobnego efektu w danych przetasowanych, przy tym samym budżecie wyszukiwania. Ocenę dopasowania należy wykonać także na niewykorzystanych wcześniej wierszach.",
+  "failed": {
+   "inception/mercury-3": "OpenRouter: inception/mercury-3 zwrócił pustą odpowiedź (model rozumujący zużył limit tokenów)"
+  },
+  "votes": {
+   "nierozstrzygnięta": 1,
+   "metoda niewiarygodna": 1
+  }
+ }
+}

@@ -221,5 +221,156 @@
  ],
  "artifacts": [],
  "seconds": 77.90994143486023,
- "council": {}
+ "council": {
+  "members": [
+   "z-ai/glm-5.3-flash",
+   "openai/gpt-6-luna",
+   "inception/mercury-3",
+   "tencent/hy3"
+  ],
+  "chair": "openai/gpt-6-luna",
+  "round1": {
+   "z-ai/glm-5.3-flash": {
+    "raw": "{\"werdykt\": \"obalona\",\n\"pewność\": 0.6,\n\"najmocniejszy_dowód\": \"Żaden z dwóch kandydatów nie odtwarza profilu rękopisu: litania ma niespokrewnione z = +60.3 wobec -1.2 w rękopisie i gęstość słownika -40 z; voces_magicae częściowo pasuje (powtórzenia +4.8, ac1 +0.23, DFA 0.77), ale występuje w hapaksach +9.7, type-token +10.4 i niespokrewnione z = +3.6 — czyli mimo tematu 'bez znaczenia' mają strukturę zupełnie inną niż rękopis.\",\n\"słabości\": [\"Sekcja KONTROLE METODY jest pusta: brak walidacji, że metoda wykrywa podłożony efekt i go nie generuje w danych przetasowanych — bez tego z-scores trudno traktować kalibrowanie\", \"Teksty gatunkowe są bardzo krótkie (1661 i 1479 słów vs 34820), więc porównanie kształtu (shape_z) między próbami różnej wielkości jest wrażliwe na artefakty\", \"Imiona wydobyto heurystycznie z wydań mieszanych (łacińsko-angielskich) — zanieczyszczenie zbiorem zwykłych słów może zaniżać 'magiczność' profilu\", \"Zbadano tylko jeden przykład na gatunek — brak wariantów liturii/imion z innych źródeł\"],\n\"inne_wyjaśnienia\": [\"Rękopis może mieć strukturę powtórzeń typową dla dowolnego tekstu wygenerowanego prostym mechanizmem (np. sylabariusz, tablice fraz), a nie tylko dla litanii/imion\", \"Rozbicie transkrypcji rękopisu (segmentacja 'słów') może samo w sobie tworzyć nadmiar powtórzeń i korelację sąsiadów, niezależnie od gatunku źródłowego\", \"voces_magicae częściowo pasujące, ale zanieczyszczone tekstem łacińskim — czystsza próbka mogłaby się zbliżyć\"],\n\"następny_test\": \"Walidacja metody na kontrolach: podłożyć celowo w tekstach kontrolnych strukturę powtórzeń/variantów charakterystyczną dla rękopisu (syntetyczna 'litania' z wygenerowanych tokenów) i sprawdzić, czy metoda ją odzyskuje oraz czy na danych przetasowanych z ≈ 0 — dopiero wtedy profil rękopisu można traktować jako dyskryminujący; równolegle powtórzyć porównanie na 5-10 niezależnych zbiorach litanii i voces z różnych źródeł.\"}",
+    "json": {
+     "werdykt": "obalona",
+     "pewność": 0.6,
+     "najmocniejszy_dowód": "Żaden z dwóch kandydatów nie odtwarza profilu rękopisu: litania ma niespokrewnione z = +60.3 wobec -1.2 w rękopisie i gęstość słownika -40 z; voces_magicae częściowo pasuje (powtórzenia +4.8, ac1 +0.23, DFA 0.77), ale występuje w hapaksach +9.7, type-token +10.4 i niespokrewnione z = +3.6 — czyli mimo tematu 'bez znaczenia' mają strukturę zupełnie inną niż rękopis.",
+     "słabości": [
+      "Sekcja KONTROLE METODY jest pusta: brak walidacji, że metoda wykrywa podłożony efekt i go nie generuje w danych przetasowanych — bez tego z-scores trudno traktować kalibrowanie",
+      "Teksty gatunkowe są bardzo krótkie (1661 i 1479 słów vs 34820), więc porównanie kształtu (shape_z) między próbami różnej wielkości jest wrażliwe na artefakty",
+      "Imiona wydobyto heurystycznie z wydań mieszanych (łacińsko-angielskich) — zanieczyszczenie zbiorem zwykłych słów może zaniżać 'magiczność' profilu",
+      "Zbadano tylko jeden przykład na gatunek — brak wariantów liturii/imion z innych źródeł"
+     ],
+     "inne_wyjaśnienia": [
+      "Rękopis może mieć strukturę powtórzeń typową dla dowolnego tekstu wygenerowanego prostym mechanizmem (np. sylabariusz, tablice fraz), a nie tylko dla litanii/imion",
+      "Rozbicie transkrypcji rękopisu (segmentacja 'słów') może samo w sobie tworzyć nadmiar powtórzeń i korelację sąsiadów, niezależnie od gatunku źródłowego",
+      "voces_magicae częściowo pasujące, ale zanieczyszczone tekstem łacińskim — czystsza próbka mogłaby się zbliżyć"
+     ],
+     "następny_test": "Walidacja metody na kontrolach: podłożyć celowo w tekstach kontrolnych strukturę powtórzeń/variantów charakterystyczną dla rękopisu (syntetyczna 'litania' z wygenerowanych tokenów) i sprawdzić, czy metoda ją odzyskuje oraz czy na danych przetasowanych z ≈ 0 — dopiero wtedy profil rękopisu można traktować jako dyskryminujący; równolegle powtórzyć porównanie na 5-10 niezależnych zbiorach litanii i voces z różnych źródeł."
+    }
+   },
+   "openai/gpt-6-luna": {
+    "raw": "{\"werdykt\":\"metoda niewiarygodna\",\"pewność\":0.94,\"najmocniejszy_dowód\":\"Sekcja kontroli metody nie podaje wyników: nie wiadomo, czy test wykrywa efekt podłożony celowo ani czy nie wykrywa go w danych przetasowanych. Zgodnie z kryterium oceny nie można więc uznać wyniku za wiarygodny. Raportowane porównania wskazują ponadto, że żaden z badanych gatunków nie ma łącznie podpisu rękopisu.\",\"słabości\":[\"Brak wyników wymaganych kontroli dodatniej i na danych przetasowanych.\",\"Litania i zbiory imion są krótkie, a imiona wydobyto heurystycznie; porównania mogą być słabo dopasowane.\",\"Raport nie pokazuje, jak wrażliwe miary są na dobór tekstów, segmentację ani różnice w długości próbek.\"],\"inne_wyjaśnienia\":[\"Różnice mogą wynikać z niedopasowania badanych tekstów do hipotetycznego gatunku, a nie z wykluczenia całej hipotezy.\",\"Nadmiar powtórzeń i korelacja długości słów mogą wynikać z cech zapisu lub segmentacji, których test nie rozdziela od cech gatunku.\"],\"następny_test\":\"Powtórzyć analizę z wcześniej ustalonym protokołem kontroli: sprawdzić, czy metoda wykrywa efekt celowo wprowadzony do tekstów kontrolnych i czy nie wykrywa go w tych samych danych po przetasowaniu; podać wyniki obu kontroli.\"}",
+    "json": {
+     "werdykt": "metoda niewiarygodna",
+     "pewność": 0.94,
+     "najmocniejszy_dowód": "Sekcja kontroli metody nie podaje wyników: nie wiadomo, czy test wykrywa efekt podłożony celowo ani czy nie wykrywa go w danych przetasowanych. Zgodnie z kryterium oceny nie można więc uznać wyniku za wiarygodny. Raportowane porównania wskazują ponadto, że żaden z badanych gatunków nie ma łącznie podpisu rękopisu.",
+     "słabości": [
+      "Brak wyników wymaganych kontroli dodatniej i na danych przetasowanych.",
+      "Litania i zbiory imion są krótkie, a imiona wydobyto heurystycznie; porównania mogą być słabo dopasowane.",
+      "Raport nie pokazuje, jak wrażliwe miary są na dobór tekstów, segmentację ani różnice w długości próbek."
+     ],
+     "inne_wyjaśnienia": [
+      "Różnice mogą wynikać z niedopasowania badanych tekstów do hipotetycznego gatunku, a nie z wykluczenia całej hipotezy.",
+      "Nadmiar powtórzeń i korelacja długości słów mogą wynikać z cech zapisu lub segmentacji, których test nie rozdziela od cech gatunku."
+     ],
+     "następny_test": "Powtórzyć analizę z wcześniej ustalonym protokołem kontroli: sprawdzić, czy metoda wykrywa efekt celowo wprowadzony do tekstów kontrolnych i czy nie wykrywa go w tych samych danych po przetasowaniu; podać wyniki obu kontroli."
+    }
+   },
+   "inception/mercury-3": {
+    "raw": "{\"werdykt\": \"nierozstrzygnięta\", \"pewność\": 0.65, \"najmocniejszy_dowód\": \"Rękopis ma wyraźnie inny profil niż oba badane gatunki: słowa niespokrewnione z = -1.2 (rękopis) wobec 60.3 (litania) i 3.6 (voces_magicae); powtórzenia z = 9.6 (rękopis) wobec 5.9 i 4.8. Zatem żaden z badanych korpusów nie naśladuje podpisu rękopisu.\", \"słabości\": [\"Teksty gatunkowe są krótkie (litania 1661 słów, voces_magicae 1479 słów) w porównaniu z rękopisem (34820 słów), więc ich statystyki z mogą być niestabilne.\", \"Brak jawnie opisanych kontroli pozytywnych (efekt podłożony celowo) i negatywnych (dane przetasowane) dla kluczowych miar syntaktycznych; widoczne są tylko nulle dla długości.\", \"Heurystyczne wydobycie imion z wydań angielsko-łacińskich może wprowadzać zwykłe słowa, a brak Lingua Ignota (tylko lista) wyklucza ważny gatunek bez składni.\"], \"inne_wyjaśnienia\": [\"Rękopis może być gatunkiem bez składni, którego nie przebadano (np. inne litanie, zaklęcia, listy imion).\", \"Badane korpusy to pojedyncze realizacje; inne teksty tych gatunków mogłyby mieć profil bliższy rękopisowi.\", \"Sposób segmentacji słów w rękopisie może wpływać na liczbę powtórzeń i niespokrewnionych.\"], \"następny_test\": \"Porównanie z dłuższymi i oczyszczonymi korpusami litanii oraz voces_magicae, z dodatkową kontrolą pozytywną (sztucznie osadzony efekt) i permutacją całych miar, oraz z porównaniem do wersji rękopisu po różnych segmentacjach — by wykluczyć artefakty segmentacyjne.\"}",
+    "json": {
+     "werdykt": "nierozstrzygnięta",
+     "pewność": 0.65,
+     "najmocniejszy_dowód": "Rękopis ma wyraźnie inny profil niż oba badane gatunki: słowa niespokrewnione z = -1.2 (rękopis) wobec 60.3 (litania) i 3.6 (voces_magicae); powtórzenia z = 9.6 (rękopis) wobec 5.9 i 4.8. Zatem żaden z badanych korpusów nie naśladuje podpisu rękopisu.",
+     "słabości": [
+      "Teksty gatunkowe są krótkie (litania 1661 słów, voces_magicae 1479 słów) w porównaniu z rękopisem (34820 słów), więc ich statystyki z mogą być niestabilne.",
+      "Brak jawnie opisanych kontroli pozytywnych (efekt podłożony celowo) i negatywnych (dane przetasowane) dla kluczowych miar syntaktycznych; widoczne są tylko nulle dla długości.",
+      "Heurystyczne wydobycie imion z wydań angielsko-łacińskich może wprowadzać zwykłe słowa, a brak Lingua Ignota (tylko lista) wyklucza ważny gatunek bez składni."
+     ],
+     "inne_wyjaśnienia": [
+      "Rękopis może być gatunkiem bez składni, którego nie przebadano (np. inne litanie, zaklęcia, listy imion).",
+      "Badane korpusy to pojedyncze realizacje; inne teksty tych gatunków mogłyby mieć profil bliższy rękopisowi.",
+      "Sposób segmentacji słów w rękopisie może wpływać na liczbę powtórzeń i niespokrewnionych."
+     ],
+     "następny_test": "Porównanie z dłuższymi i oczyszczonymi korpusami litanii oraz voces_magicae, z dodatkową kontrolą pozytywną (sztucznie osadzony efekt) i permutacją całych miar, oraz z porównaniem do wersji rękopisu po różnych segmentacjach — by wykluczyć artefakty segmentacyjne."
+    }
+   },
+   "tencent/hy3": {
+    "raw": "{\n  \"werdykt\": \"metoda niewiarygodna\",\n  \"pewność\": 0.85,\n  \"najmocniejszy_dowód\": \"Rękopis: powtórzenia z=9.6, niespokrewnione z=-1.2; litany: niespokrewnione z=60.3; łacina: niespokrewnione z=12.7 – profil rękopisu różny od badanych gatunków, ale bez walidacji metody.\",\n  \"słabości\": [\n    \"Brak opisu kontroli metody: nie podano testu z wszczepionym efektem ani danymi przetasowanymi.\",\n    \"Krótkie korpusy gatunkowe (litania 1661, voces 1479 słów) zaniżają statystyki.\",\n    \"Imiona z Ars Notoria/Liber Iuratus wydobyte heurystycznie, część to zwykłe słowa.\",\n    \"Pominięto Lingua Ignota (tylko słownik, brak tekstu).\"\n  ],\n  \"inne_wyjaśnienia\": [\n    \"Test wyklucza litanię i łacinę biblijną jako bezpośrednie wzorce (odmienne z niespokrewnionych).\",\n    \"Nie bada innych gatunków bez składni (np. szyfry, inne corpus voces_magicae, języki zaginione, teksty techniczne).\",\n    \"Hipoteza o 'imionach barbarzyńskich' nie pasuje: voces_magicae mają niespokrewnione z=3.6 i powtórzenia 4.8, odmiennie od rękopisu.\"\n  ],\n  \"następny_test\": \"Przeprowadzić kontrolę metody: wszczepić sygnaturę rękopisu do przetasowanych tekstów i zmierzyć wykrywalność oraz null distribution, a następnie powtórzyć porównanie z rozszerzonym korpusem (w tym Lingua Ignota z wygenerowanym tekstem).\"\n}",
+    "json": {
+     "werdykt": "metoda niewiarygodna",
+     "pewność": 0.85,
+     "najmocniejszy_dowód": "Rękopis: powtórzenia z=9.6, niespokrewnione z=-1.2; litany: niespokrewnione z=60.3; łacina: niespokrewnione z=12.7 – profil rękopisu różny od badanych gatunków, ale bez walidacji metody.",
+     "słabości": [
+      "Brak opisu kontroli metody: nie podano testu z wszczepionym efektem ani danymi przetasowanymi.",
+      "Krótkie korpusy gatunkowe (litania 1661, voces 1479 słów) zaniżają statystyki.",
+      "Imiona z Ars Notoria/Liber Iuratus wydobyte heurystycznie, część to zwykłe słowa.",
+      "Pominięto Lingua Ignota (tylko słownik, brak tekstu)."
+     ],
+     "inne_wyjaśnienia": [
+      "Test wyklucza litanię i łacinę biblijną jako bezpośrednie wzorce (odmienne z niespokrewnionych).",
+      "Nie bada innych gatunków bez składni (np. szyfry, inne corpus voces_magicae, języki zaginione, teksty techniczne).",
+      "Hipoteza o 'imionach barbarzyńskich' nie pasuje: voces_magicae mają niespokrewnione z=3.6 i powtórzenia 4.8, odmiennie od rękopisu."
+     ],
+     "następny_test": "Przeprowadzić kontrolę metody: wszczepić sygnaturę rękopisu do przetasowanych tekstów i zmierzyć wykrywalność oraz null distribution, a następnie powtórzyć porównanie z rozszerzonym korpusem (w tym Lingua Ignota z wygenerowanym tekstem)."
+    }
+   }
+  },
+  "round2": {
+   "z-ai/glm-5.3-flash": {
+    "raw": "{\"ranking\": [\"B\", \"C\", \"D\"], \"uwagi\": \"Opinia B jest najlepiej uzasadniona: trafnie wskazuje, że sekcja KONTROLE METODY jest pusta, a bez kontroli dodatniej (wykrycie podłożonego efektu) i negatywnej (brak wykrycia w danych przetasowanych) testu nie można uznać za wiarygodne. Jednocześnie B poprawnie odczytuje dane: żaden z badanych korpusów nie replikuje łącznego profilu rękopisu (powtórzenia z=9,6 + warianty z=5,1 + niespokrewnione z=-1,2, podczas gdy litania ma niespokrewnione z=60,3, a voces_magicae z=3,6 przy wyraźnie odmiennym kształcie, np. hapaksy +9,7 vs +0,4 w rękopisie). Opinia C jest rzetelna, ale zbyt łagodnie traktuje brak kontroli — przy pustej sekcji kontroli 'nierozstrzygnięta' co do metody oznacza w praktyce niewiarygodność wyniku; jej zaleta to dobra lista zastrzeżeń (krótkie korpusy, heurystyczna ekstrakcja imion, pominięcie Lingua Ignota, wpływ segmentacji). Opinia D merytorycznie zbieżna z B, ale słabsza: myli się lub przesadza sugerując w 'następnym teście' porównanie z Lingua Ignota 'z wygenerowanym tekstem' — wygenerowany tekst nie jest źródłem historycznym i nie testuje hipotezy; jej katalog 'innych wyjaśnień' (szyfry, języki zaginione) wykracza poza dane raportu. Wszyscy oceniający słusznie nie nadinterpretowują liczb: test co najwyżej wyklucza trzy konkretne korpusy (litania z wikisource, imiona z Ars Notoria/Liber Iuratus, łacinę biblijną jako kontrast), a nie całą klasę tekstów bez składni. Nikt nie podaje odczytań tekstu rękopisu — zgodnie z zasadami.\", \"werdykt\": \"metoda niewiarygodna (brak wyników kontroli); co do treści: dane, o ile metoda zostanie zwalidowana, wskazują na odrzucenie hipotezy jedynie dla przebadanych korpusów — litania i voces_magicae mają profile wyraźnie odmienne od rękopisu\", \"pewność\": 0.85, \"zmiana_zdania\": \"nie — sekcja kontroli metody jest pusta już w samym raporcie, co samodzielnie wymusza werdykt o niewiarygodności; opinie B i D tylko to trafnie sformalizowały\"}",
+    "json": {
+     "ranking": [
+      "B",
+      "C",
+      "D"
+     ],
+     "uwagi": "Opinia B jest najlepiej uzasadniona: trafnie wskazuje, że sekcja KONTROLE METODY jest pusta, a bez kontroli dodatniej (wykrycie podłożonego efektu) i negatywnej (brak wykrycia w danych przetasowanych) testu nie można uznać za wiarygodne. Jednocześnie B poprawnie odczytuje dane: żaden z badanych korpusów nie replikuje łącznego profilu rękopisu (powtórzenia z=9,6 + warianty z=5,1 + niespokrewnione z=-1,2, podczas gdy litania ma niespokrewnione z=60,3, a voces_magicae z=3,6 przy wyraźnie odmiennym kształcie, np. hapaksy +9,7 vs +0,4 w rękopisie). Opinia C jest rzetelna, ale zbyt łagodnie traktuje brak kontroli — przy pustej sekcji kontroli 'nierozstrzygnięta' co do metody oznacza w praktyce niewiarygodność wyniku; jej zaleta to dobra lista zastrzeżeń (krótkie korpusy, heurystyczna ekstrakcja imion, pominięcie Lingua Ignota, wpływ segmentacji). Opinia D merytorycznie zbieżna z B, ale słabsza: myli się lub przesadza sugerując w 'następnym teście' porównanie z Lingua Ignota 'z wygenerowanym tekstem' — wygenerowany tekst nie jest źródłem historycznym i nie testuje hipotezy; jej katalog 'innych wyjaśnień' (szyfry, języki zaginione) wykracza poza dane raportu. Wszyscy oceniający słusznie nie nadinterpretowują liczb: test co najwyżej wyklucza trzy konkretne korpusy (litania z wikisource, imiona z Ars Notoria/Liber Iuratus, łacinę biblijną jako kontrast), a nie całą klasę tekstów bez składni. Nikt nie podaje odczytań tekstu rękopisu — zgodnie z zasadami.",
+     "werdykt": "metoda niewiarygodna (brak wyników kontroli); co do treści: dane, o ile metoda zostanie zwalidowana, wskazują na odrzucenie hipotezy jedynie dla przebadanych korpusów — litania i voces_magicae mają profile wyraźnie odmienne od rękopisu",
+     "pewność": 0.85,
+     "zmiana_zdania": "nie — sekcja kontroli metody jest pusta już w samym raporcie, co samodzielnie wymusza werdykt o niewiarygodności; opinie B i D tylko to trafnie sformalizowały"
+    }
+   },
+   "openai/gpt-6-luna": {
+    "raw": "{\n  \"ranking\": [\"C\", \"D\", \"A\"],\n  \"uwagi\": \"C najlepiej rozdziela wynik opisowy od wniosku o całej hipotezie: badane próbki nie odtwarzają profilu rękopisu, ale kontrole metody są niepodane, więc wynik pozostaje nierozstrzygający. D trafnie podkreśla brak walidacji; jego „metoda niewiarygodna” jest jednak mocniejsze niż „wiarygodności nie wykazano”, a badane próbki nie wykluczają całych gatunków. A wskazuje konkretne różnice i proponuje dobry test kontrolny, lecz werdykt „obalona” nadmiernie uogólnia wynik z kilku krótkich korpusów. B nie została przedstawiona, więc nie można jej ocenić. Zastrzeżenia o krótkich próbkach dotyczą przede wszystkim mniejszej precyzji; ich z-score nie jest automatycznie mniejszy tylko dlatego, że próbka krótsza. Ponadto Lingua Ignota jako sama lista nie byłaby tekstem gatunkowym do porównania tych miar.\",\n  \"werdykt\": \"Nierozstrzygnięta: miary wskazują, że badane korpusy litanijne i voces_magicae nie przypominają profilu rękopisu w kluczowych statystykach, ale brak zaliczonych kontroli pozytywnej i negatywnej uniemożliwia uznanie testu za wiarygodny. Wynik nie wyklucza szerszej hipotezy o innym, niebadanym gatunku bez składni.\",\n  \"pewność\": 0.86,\n  \"zmiana_zdania\": \"Nie — obecne dane uzasadniają ostrożny werdykt nierozstrzygający. Najbardziej mogłyby go zmienić kontrole metody: odzyskanie celowo wszczepionego efektu oraz jego brak w danych przetasowanych.\"\n}",
+    "json": {
+     "ranking": [
+      "C",
+      "D",
+      "A"
+     ],
+     "uwagi": "C najlepiej rozdziela wynik opisowy od wniosku o całej hipotezie: badane próbki nie odtwarzają profilu rękopisu, ale kontrole metody są niepodane, więc wynik pozostaje nierozstrzygający. D trafnie podkreśla brak walidacji; jego „metoda niewiarygodna” jest jednak mocniejsze niż „wiarygodności nie wykazano”, a badane próbki nie wykluczają całych gatunków. A wskazuje konkretne różnice i proponuje dobry test kontrolny, lecz werdykt „obalona” nadmiernie uogólnia wynik z kilku krótkich korpusów. B nie została przedstawiona, więc nie można jej ocenić. Zastrzeżenia o krótkich próbkach dotyczą przede wszystkim mniejszej precyzji; ich z-score nie jest automatycznie mniejszy tylko dlatego, że próbka krótsza. Ponadto Lingua Ignota jako sama lista nie byłaby tekstem gatunkowym do porównania tych miar.",
+     "werdykt": "Nierozstrzygnięta: miary wskazują, że badane korpusy litanijne i voces_magicae nie przypominają profilu rękopisu w kluczowych statystykach, ale brak zaliczonych kontroli pozytywnej i negatywnej uniemożliwia uznanie testu za wiarygodny. Wynik nie wyklucza szerszej hipotezy o innym, niebadanym gatunku bez składni.",
+     "pewność": 0.86,
+     "zmiana_zdania": "Nie — obecne dane uzasadniają ostrożny werdykt nierozstrzygający. Najbardziej mogłyby go zmienić kontrole metody: odzyskanie celowo wszczepionego efektu oraz jego brak w danych przetasowanych."
+    }
+   },
+   "inception/mercury-3": {
+    "raw": "{\"ranking\": [\"B\", \"D\", \"A\"], \"uwagi\": \"Najlepiej uzasadniona jest opinia B: trafnie wskazuje, że sekcja KONTROLE METODY jest pusta, więc zgodnie z kryteriami oceny wyniki nie są wiarygodne; nie wykracza też poza to, co wynika z raportu. Opinia D również ma rację co do niewiarygodności metody, ale jako najmocniejszy dowód podaje różnice profilów, które bez kontroli nie są rozstrzygające. Opinia A myli się, wydając werdykt „obalona” mimo braku kontroli — dane mogą sugerować niedopasowanie badanych gatunków, ale nie uprawniają do odrzucenia hipotezy, dopóki metoda nie zostanie zwalidowana.\", \"werdykt\": \"metoda niewiarygodna; hipoteza nierozstrzygnięta\", \"pewność\": 0.9, \"zmiana_zdania\": \"tak – automatyczny werdykt „nierozstrzygnięta” sugeruje, że wynik mógłby być rozstrzygający; tymczasem brak kontroli metody oznacza, że wyniki nie mogą być uznane za wiarygodne, więc ocena powinna brzmieć „metoda niewiarygodna”, a hipoteza pozostaje nieprzetestowana.\"}",
+    "json": {
+     "ranking": [
+      "B",
+      "D",
+      "A"
+     ],
+     "uwagi": "Najlepiej uzasadniona jest opinia B: trafnie wskazuje, że sekcja KONTROLE METODY jest pusta, więc zgodnie z kryteriami oceny wyniki nie są wiarygodne; nie wykracza też poza to, co wynika z raportu. Opinia D również ma rację co do niewiarygodności metody, ale jako najmocniejszy dowód podaje różnice profilów, które bez kontroli nie są rozstrzygające. Opinia A myli się, wydając werdykt „obalona” mimo braku kontroli — dane mogą sugerować niedopasowanie badanych gatunków, ale nie uprawniają do odrzucenia hipotezy, dopóki metoda nie zostanie zwalidowana.",
+     "werdykt": "metoda niewiarygodna; hipoteza nierozstrzygnięta",
+     "pewność": 0.9,
+     "zmiana_zdania": "tak – automatyczny werdykt „nierozstrzygnięta” sugeruje, że wynik mógłby być rozstrzygający; tymczasem brak kontroli metody oznacza, że wyniki nie mogą być uznane za wiarygodne, więc ocena powinna brzmieć „metoda niewiarygodna”, a hipoteza pozostaje nieprzetestowana."
+    }
+   },
+   "tencent/hy3": {
+    "raw": "{\n  \"ranking\": [\"B\", \"A\", \"C\"],\n  \"uwagi\": \"Opinia B jest najlepiej uzasadniona: jako jedyna konsekwentnie wskazuje, że sekcja KONTROLE METODY jest pusta, a bez dowodu na wykrywalność efektu w danych kontrolnych i brak efektu w przetasowanych, metoda nie spełnia kryterium wiarygodności zasad rady. Opinia A słusznie zauważa różnice profili (np. niespokrewnione z: rękopis -1.2, litania 60.3, voces 3.6; hapaksy voces +9.7), ale błędnie wyciąga werdykt 'obalona' bez uprzedniej walidacji metody. Opinia C poprawnie wskazuje na brak kontroli i krótkość korpusów, ale jest zbyt ostrożna – priorytetem jest niespełniony wymóg kontroli metody. Test wyklucza podobieństwo do ZBADANYCH korpusów litanii i voces_magicae, ale nie bada innych gatunków bez składni (np. Lingua Ignota, inne zbiory). Słabości: brak kontroli metody, małe próby gatunkowe (1.6k/1.5k vs 34.8k słów), heurystyczne zanieczyszczenie łaciną.\",\n  \"werdykt\": \"metoda niewiarygodna\",\n  \"pewność\": 0.94,\n  \"zmiana_zdania\": \"nie, raport od początku nie zawierał wymaganych kontroli metody, co automatycznie dyskwalifikuje wiarygodność testu niezależnie od wyników z-score.\"\n}",
+    "json": {
+     "ranking": [
+      "B",
+      "A",
+      "C"
+     ],
+     "uwagi": "Opinia B jest najlepiej uzasadniona: jako jedyna konsekwentnie wskazuje, że sekcja KONTROLE METODY jest pusta, a bez dowodu na wykrywalność efektu w danych kontrolnych i brak efektu w przetasowanych, metoda nie spełnia kryterium wiarygodności zasad rady. Opinia A słusznie zauważa różnice profili (np. niespokrewnione z: rękopis -1.2, litania 60.3, voces 3.6; hapaksy voces +9.7), ale błędnie wyciąga werdykt 'obalona' bez uprzedniej walidacji metody. Opinia C poprawnie wskazuje na brak kontroli i krótkość korpusów, ale jest zbyt ostrożna – priorytetem jest niespełniony wymóg kontroli metody. Test wyklucza podobieństwo do ZBADANYCH korpusów litanii i voces_magicae, ale nie bada innych gatunków bez składni (np. Lingua Ignota, inne zbiory). Słabości: brak kontroli metody, małe próby gatunkowe (1.6k/1.5k vs 34.8k słów), heurystyczne zanieczyszczenie łaciną.",
+     "werdykt": "metoda niewiarygodna",
+     "pewność": 0.94,
+     "zmiana_zdania": "nie, raport od początku nie zawierał wymaganych kontroli metody, co automatycznie dyskwalifikuje wiarygodność testu niezależnie od wyników z-score."
+    }
+   }
+  },
+  "synthesis": "## Werdykt rady\n**Metoda niewiarygodna w obecnym raporcie; hipoteza pozostaje nierozstrzygnięta.** Kontrole wymagane do uznania testu za wiarygodny nie zostały opisane, więc nie można oprzeć rozstrzygnięcia na podanych miarach.\n\n## Zgodność\nWysoka: niezależne oceny różniły się początkowo werdyktem, ale w rundzie 2 zgodnie uznały brak kontroli za kluczowy problem i odrzuciły wniosek, że hipoteza jest obalona.\n\n## Co test naprawdę pokazuje\nOpisowo, żaden z badanych korpusów nie odtwarza łącznie profilu rękopisu: np. „słowa niespokrewnione” mają z = −1,2 w rękopisie, 60,3 w litanii i 3,6 w voces_magicae. To wskazuje na różnice między konkretnymi próbkami, ale bez walidacji metody nie stanowi wiarygodnego wykluczenia nawet tych porównań. Test nie rozstrzyga o całej klasie tekstów bez składni.\n\n## Główne zastrzeżenia\nPusta sekcja kontroli metody; krótkie korpusy gatunkowe; heurystyczne wydobycie imion z możliwym zanieczyszczeniem zwykłymi słowami; ograniczenie do niewielu źródeł. Pominięcie listy słownikowej nie jest samo w sobie rozstrzygające, bo nie jest tekstem do porównania tych miar.\n\n## Następny eksperyment\nPowtórzyć analizę po ustaleniu protokołu kontroli: wykazać, że miary wykrywają celowo wszczepiony efekt i nie wykrywają go w tych samych danych po przetasowaniu.",
+  "failed": {},
+  "votes": {
+   "nierozstrzygnięta": 1,
+   "metoda niewiarygodna": 3
+  }
+ }
 }

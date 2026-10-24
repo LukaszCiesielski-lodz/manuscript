@@ -1,0 +1,185 @@
+{
+ "theory": "adversary",
+ "hypothesis": "Któryś z generatorów bez treści pisze wiersze, których nie odróżni od rękopisu nawet transformer.",
+ "method": "Transformer-klasyfikator (4 warstwy, 192 wymiary) uczony na GPU: prawdziwe wiersze (foliały parzyste) przeciw wierszom każdego generatora (reguły z nieparzystych); AUC na odłożonej połowie, najlepsza epoka. Kontrola: prawdziwe przeciw prawdziwym (nieparzyste) musi dać AUC ≈ 0,5.",
+ "verdict": "obalona",
+ "summary": "Prawdziwe vs prawdziwe: AUC 0.54. Transformer odróżnia każdy generator od rękopisu: v4 (kopiowanie ze zmianami) 0.97, v5 działami (tabela skryby) 0.64, łańcuch słów (pamięć 1) 0.61, tarcza (volvelle) 0.97.",
+ "metrics": {
+  "real_vs_real": 0.539350823642859,
+  "v4 (kopiowanie ze zmianami)": {
+   "transformer": 0.9659117748280911,
+   "ngram": 0.9982201782858378
+  },
+  "v5 działami (tabela skryby)": {
+   "transformer": 0.6386616246813615,
+   "ngram": 0.7767703178887388
+  },
+  "łańcuch słów (pamięć 1)": {
+   "transformer": 0.6133035690557814,
+   "ngram": 0.6722427231276789
+  },
+  "tarcza (volvelle)": {
+   "transformer": 0.9710372100647489,
+   "ngram": 0.9938205201759419
+  }
+ },
+ "controls": [
+  {
+   "name": "transformer: prawdziwe vs prawdziwe",
+   "expectation": "AUC ≤ 0,62",
+   "observed": "AUC = 0.539",
+   "passed": true
+  }
+ ],
+ "evidence": [
+  "v4 (kopiowanie ze zmianami): transformer AUC 0.966 (klasyfikator n-gramowy 0.998).",
+  "v5 działami (tabela skryby): transformer AUC 0.639 (klasyfikator n-gramowy 0.777).",
+  "łańcuch słów (pamięć 1): transformer AUC 0.613 (klasyfikator n-gramowy 0.672).",
+  "tarcza (volvelle): transformer AUC 0.971 (klasyfikator n-gramowy 0.994)."
+ ],
+ "caveats": [
+  "Mały transformer uczony kilka epok na ~8 tys. wierszy; większy model może odróżnić więcej.",
+  "Wiersze jako ciągi znaków EVA; test nie widzi układu strony ani rysunków."
+ ],
+ "references": [
+  "Vaswani et al., Attention is all you need (2017)",
+  "Gaskell & Bowern (2022)"
+ ],
+ "artifacts": [],
+ "seconds": 147.89409160614014,
+ "council": {
+  "members": [
+   "z-ai/glm-5.3-flash",
+   "openai/gpt-6-luna",
+   "inception/mercury-3",
+   "tencent/hy3"
+  ],
+  "chair": "openai/gpt-6-luna",
+  "round1": {
+   "z-ai/glm-5.3-flash": {
+    "raw": "```json\n{\n  \"werdykt\": \"obalona\",\n  \"pewność\": 0.75,\n  \"najmocniejszy_dowód\": \"Kontrola prawdziwe-vs-prawdziwe przeszła (AUC 0.539 ≤ 0.62), a transformer odróżnia dwa generatory bardzo wyraźnie: v4 AUC 0.966, tarcza AUC 0.971 — metoda wykrywa podłożony efekt tam, gdzie on istnieje.\",\n  \"słabości\": [\n    \"Dwa generatory (v5 działami AUC 0.639, łańcuch słów AUC 0.613) ledwo przekraczają poziom szumu (kontrola 0.539) — rozróżnienie jest słabe i może nie być istotne przy tak małym modelu i ~8 tys. wierszy.\",\n    \"Mały transformer (4 warstwy, 192 wymiary) uczony kilka epok — zastrzeżenie raportu: większy model mógłby odróżnić także te słabe generatory, więc hipoteza 'nieodróżnialne nawet przez transformer' jest testowana tylko słabym transformerem.\",\n    \"Test nie widzi układu strony ani rysunków — nie obejmuje pełnej struktury rękopisu.\"\n  ],\n  \"inne_wyjaśnienia\": [\n    \"Słabe AUC dla v5 i łańcucha słów mogą wynikać z niedouczenia modelu, a nie z faktycznej nieodróżnialności tych generatorów.\",\n    \"Klasyfikator n-gramowy osiąga wyraźnie wyższe AUC (0.777, 0.672) niż transformer dla tych samych par — wskazuje, że transformer nie wyczerpuje sygnału.\"\n  ],\n  \"następny_test\": \"Ponowić test z istotnie większym transformerem i dłuższym treningiem (oraz walidacją krzyżową), skupiając się na v5 i łańcuchu słów — jeśli AUC nadal ≈ 0.55–0.65, hipoteza o nieodróżnialności tych generatorów zostanie mocno wzmocniona.\"\n}\n```",
+    "json": {
+     "werdykt": "obalona",
+     "pewność": 0.75,
+     "najmocniejszy_dowód": "Kontrola prawdziwe-vs-prawdziwe przeszła (AUC 0.539 ≤ 0.62), a transformer odróżnia dwa generatory bardzo wyraźnie: v4 AUC 0.966, tarcza AUC 0.971 — metoda wykrywa podłożony efekt tam, gdzie on istnieje.",
+     "słabości": [
+      "Dwa generatory (v5 działami AUC 0.639, łańcuch słów AUC 0.613) ledwo przekraczają poziom szumu (kontrola 0.539) — rozróżnienie jest słabe i może nie być istotne przy tak małym modelu i ~8 tys. wierszy.",
+      "Mały transformer (4 warstwy, 192 wymiary) uczony kilka epok — zastrzeżenie raportu: większy model mógłby odróżnić także te słabe generatory, więc hipoteza 'nieodróżnialne nawet przez transformer' jest testowana tylko słabym transformerem.",
+      "Test nie widzi układu strony ani rysunków — nie obejmuje pełnej struktury rękopisu."
+     ],
+     "inne_wyjaśnienia": [
+      "Słabe AUC dla v5 i łańcucha słów mogą wynikać z niedouczenia modelu, a nie z faktycznej nieodróżnialności tych generatorów.",
+      "Klasyfikator n-gramowy osiąga wyraźnie wyższe AUC (0.777, 0.672) niż transformer dla tych samych par — wskazuje, że transformer nie wyczerpuje sygnału."
+     ],
+     "następny_test": "Ponowić test z istotnie większym transformerem i dłuższym treningiem (oraz walidacją krzyżową), skupiając się na v5 i łańcuchu słów — jeśli AUC nadal ≈ 0.55–0.65, hipoteza o nieodróżnialności tych generatorów zostanie mocno wzmocniona."
+    }
+   },
+   "openai/gpt-6-luna": {
+    "raw": "{\n  \"werdykt\": \"metoda niewiarygodna\",\n  \"pewność\": 0.94,\n  \"najmocniejszy_dowód\": \"Kontrola prawdziwe–prawdziwe przeszła (AUC 0,539 wobec progu 0,62), ale raport nie podaje wymaganych kontroli: wykrycia efektu celowo podłożonego ani braku efektu w danych przetasowanych. Bez nich metoda nie spełnia kryteriów wiarygodności.\",\n  \"słabości\": [\n    \"Brak wyników obu wymaganych kontroli, więc nie wiadomo, czy klasyfikator działa poprawnie na znanym efekcie i danych przetasowanych.\",\n    \"Nie podano przedziałów niepewności ani wyników na niezależnych powtórzeniach; wybór najlepszej epoki może zawyżać AUC.\",\n    \"Test obejmuje ciągi znaków EVA, nie układ strony ani rysunki, a model trenowano na około 8 tysiącach wierszy.\"\n  ],\n  \"inne_wyjaśnienia\": [\n    \"Wysokie AUC mogą wynikać z charakterystycznych artefaktów generatorów, a nie z rozstrzygającej różnicy wobec rękopisu jako całości.\",\n    \"Wyniki nie wykluczają generatora, którego cechy nie uchwycił użyty model ani reprezentacja danych.\"\n  ],\n  \"następny_test\": \"Powtórzyć ocenę z kontrolami dodatnią i przetasowaną: wykazać, że klasyfikator wykrywa efekt celowo podłożony, lecz nie odróżnia etykiet po przetasowaniu, stosując niezależne podziały danych.\"\n}",
+    "json": {
+     "werdykt": "metoda niewiarygodna",
+     "pewność": 0.94,
+     "najmocniejszy_dowód": "Kontrola prawdziwe–prawdziwe przeszła (AUC 0,539 wobec progu 0,62), ale raport nie podaje wymaganych kontroli: wykrycia efektu celowo podłożonego ani braku efektu w danych przetasowanych. Bez nich metoda nie spełnia kryteriów wiarygodności.",
+     "słabości": [
+      "Brak wyników obu wymaganych kontroli, więc nie wiadomo, czy klasyfikator działa poprawnie na znanym efekcie i danych przetasowanych.",
+      "Nie podano przedziałów niepewności ani wyników na niezależnych powtórzeniach; wybór najlepszej epoki może zawyżać AUC.",
+      "Test obejmuje ciągi znaków EVA, nie układ strony ani rysunki, a model trenowano na około 8 tysiącach wierszy."
+     ],
+     "inne_wyjaśnienia": [
+      "Wysokie AUC mogą wynikać z charakterystycznych artefaktów generatorów, a nie z rozstrzygającej różnicy wobec rękopisu jako całości.",
+      "Wyniki nie wykluczają generatora, którego cechy nie uchwycił użyty model ani reprezentacja danych."
+     ],
+     "następny_test": "Powtórzyć ocenę z kontrolami dodatnią i przetasowaną: wykazać, że klasyfikator wykrywa efekt celowo podłożony, lecz nie odróżnia etykiet po przetasowaniu, stosując niezależne podziały danych."
+    }
+   },
+   "inception/mercury-3": {
+    "raw": "{\n  \"werdykt\": \"obalona\",\n  \"pewność\": 0.85,\n  \"najmocniejszy_dowód\": \"Transformer odróżnia każdy z czterech generatorów od rękopisu (AUC: v4 0.966, tarcza 0.971, v5 0.639, łańcuch 0.613), przy kontroli prawdziwe vs prawdziwe dającej AUC 0.539, co potwierdza wiarygodność metody.\",\n  \"słabości\": [\n    \"Przetestowano tylko cztery konkretne generatory; hipoteza mówi o dowolnym generatorze bez treści.\",\n    \"Mały transformer (4 warstwy, 192 wymiary) uczony kilkad epok; możliwe, że większy model wykryłby jeszcze więcej różnic.\",\n    \"Test dotyczy wyłącznie ciągów znaków EVA, bez układu strony i rysunków.\"\n  ],\n  \"inne_wyjaśnienia\": [\n    \"Mogą istnieć inne, nietestowane generatory, których wiersze byłyby nieodróżnialne\",\n    \"Różnice mogą pochodzić z powierzchownych cech (np. długość, częstotliwość liter), a nie z głębszej struktury językowej.\"\n  ],\n  \"następny_test\": \"Przetestować szerszy zestaw generatorów o odmiennych parametrach (np. różne poziomy pamięci, reguły) oraz użyć większego transformera, a także rozważyć klasyfikację całych stron z uwzględnieniem układu i rysunków.\"\n}",
+    "json": {
+     "werdykt": "obalona",
+     "pewność": 0.85,
+     "najmocniejszy_dowód": "Transformer odróżnia każdy z czterech generatorów od rękopisu (AUC: v4 0.966, tarcza 0.971, v5 0.639, łańcuch 0.613), przy kontroli prawdziwe vs prawdziwe dającej AUC 0.539, co potwierdza wiarygodność metody.",
+     "słabości": [
+      "Przetestowano tylko cztery konkretne generatory; hipoteza mówi o dowolnym generatorze bez treści.",
+      "Mały transformer (4 warstwy, 192 wymiary) uczony kilkad epok; możliwe, że większy model wykryłby jeszcze więcej różnic.",
+      "Test dotyczy wyłącznie ciągów znaków EVA, bez układu strony i rysunków."
+     ],
+     "inne_wyjaśnienia": [
+      "Mogą istnieć inne, nietestowane generatory, których wiersze byłyby nieodróżnialne",
+      "Różnice mogą pochodzić z powierzchownych cech (np. długość, częstotliwość liter), a nie z głębszej struktury językowej."
+     ],
+     "następny_test": "Przetestować szerszy zestaw generatorów o odmiennych parametrach (np. różne poziomy pamięci, reguły) oraz użyć większego transformera, a także rozważyć klasyfikację całych stron z uwzględnieniem układu i rysunków."
+    }
+   },
+   "tencent/hy3": {
+    "raw": "{\n  \"werdykt\": \"obalona\",\n  \"pewność\": 0.95,\n  \"najmocniejszy_dowód\": \"Transformer-klasyfikator odróżnił każdy z testowanych generatorów od rękopisu z AUC > 0.6 (najniższe 0.613 dla łańcucha słów, najwyższe 0.971 dla tarczy), przy poprawnej kontroli prawdziwe vs prawdziwe (AUC 0.539).\",\n  \"słabości\": [\n    \"Mały transformer (4 warstwy, 192 wymiary) uczony na ~8 tys. wierszy; wynik może nie uogólniać się na większe modele.\",\n    \"Analiza tylko ciągów znaków EVA; test ignoruje układ strony, rysunki i strukturę wizualną rękopisu.\"\n  ],\n  \"inne_wyjaśnienia\": [\n    \"Hipoteza dotyczyła 'któregoś generatora', ale przetestowano tylko 4 konkretne; inne mechanizmy beztreściowe nie zostały zbadane.\",\n    \"Różnice mogą wynikać z artefaktów transliteracji EVA, a nie samej natury tekstu.\"\n  ],\n  \"następny_test\": \"Test na większym modelu językowym (LLM, np. GPT-scale) uczonym na surowych obrazach folio, aby ocenić odróżnialność generatorów biorąc pod uwagę układ graficzny i rysunki.\"\n}",
+    "json": {
+     "werdykt": "obalona",
+     "pewność": 0.95,
+     "najmocniejszy_dowód": "Transformer-klasyfikator odróżnił każdy z testowanych generatorów od rękopisu z AUC > 0.6 (najniższe 0.613 dla łańcucha słów, najwyższe 0.971 dla tarczy), przy poprawnej kontroli prawdziwe vs prawdziwe (AUC 0.539).",
+     "słabości": [
+      "Mały transformer (4 warstwy, 192 wymiary) uczony na ~8 tys. wierszy; wynik może nie uogólniać się na większe modele.",
+      "Analiza tylko ciągów znaków EVA; test ignoruje układ strony, rysunki i strukturę wizualną rękopisu."
+     ],
+     "inne_wyjaśnienia": [
+      "Hipoteza dotyczyła 'któregoś generatora', ale przetestowano tylko 4 konkretne; inne mechanizmy beztreściowe nie zostały zbadane.",
+      "Różnice mogą wynikać z artefaktów transliteracji EVA, a nie samej natury tekstu."
+     ],
+     "następny_test": "Test na większym modelu językowym (LLM, np. GPT-scale) uczonym na surowych obrazach folio, aby ocenić odróżnialność generatorów biorąc pod uwagę układ graficzny i rysunki."
+    }
+   }
+  },
+  "round2": {
+   "z-ai/glm-5.3-flash": {
+    "raw": "{\"ranking\": [\"C\", \"D\", \"B\"], \"uwagi\": \"C trafnie oddaje strukturę dowodu: kontrola prawdziwe–prawdziwe przeszła (0,539 ≤ 0,62), a każdy z czterech testowanych generatorów jest odróżnialny (AUC 0,61–0,97). Słusznie wskazuje kluczowe ograniczenie: hipoteza o 'którymś generatorze' jest kwantyfikowana egzystencjalnie, więc obalenie wymagałoby pokazania, że żaden generator bez treści nie przejdzie — test obala tylko cztery konkretne. D jest podobne, ale jego następny test (LLM na surowych obrazach folio) wykracza poza zakres raportu i miesza poziomy analizy; ponadto pomija n-gramowe wyniki, które wzmacniają spójność (dwa niezależne klasyfikatory dają ten sam ranking generatorów). B ma rację formalnie co do braku jawnych kontroli dodatniej (podłożony efekt) i przetasowanej w raporcie — to realna luka dokumentacyjna. Ale werdykt 'metoda niewiarygodna' z pewnością 0,94 jest przesadzony: kontrola negatywna (prawdziwe vs prawdziwe) jest jedyną jawnie zadeklarowaną w protokole i przeszła, a zbieżność transformer + n-gram działa jak niejawna kontrola dodatnia (oba wykrywają te same generatory, przy n-gramach silniej). B ignoruje też treść dowodów. Błąd C/D: kontrola 0,539 nie 'potwierdza wiarygodności metody' w pełni — pokazuje tylko brak fałszywych trafień na danych prawdziwych, nie zdolność wykrycia znanego efektu. Wspólna słabość: brak przedziałów niepewności i ryzyko zawyżenia przez wybór najlepszej epoki; najniższe AUC (0,61–0,64) są blisko progu kontroli (0,62), więc dla v5 i łańcucha słów odróżnienie jest słabe.\", \"werdykt\": \"obalona częściowo: cztery testowane generatory bez treści są odróżnialne od rękopisu (najsłabiej v5 i łańcuch słów, AUC ~0,61–0,64), więc te konkretne mechanizmy nie przechodzą testu transformera. Hipotezy egzystencjalnej o dowolnym generatorze test nie rozstrzyga — nieprzetestowane mechanizmy pozostają możliwe. Kontrole: negatywna przeszła; dodatnia i przetasowana nie są udokumentowane w raporcie, co obniża pewność, ale zbieżność z klasyfikatorem n-gramowym częściowo ją rekompensuje.\", \"pewność\": 0.7, \"zmiana_zdania\": \"nie — dane z raportu (spójne wyniki dwóch klasyfikatorów, poprawna kontrola negatywna) wystarczają do obalenia czterech konkretnych generatorów, ale brak jawnej kontroli dodatniej i słabe AUC dla dwóch generatorów obniżają pewność poniżej poziomów deklarowanych przez C i D\"}",
+    "json": {
+     "ranking": [
+      "C",
+      "D",
+      "B"
+     ],
+     "uwagi": "C trafnie oddaje strukturę dowodu: kontrola prawdziwe–prawdziwe przeszła (0,539 ≤ 0,62), a każdy z czterech testowanych generatorów jest odróżnialny (AUC 0,61–0,97). Słusznie wskazuje kluczowe ograniczenie: hipoteza o 'którymś generatorze' jest kwantyfikowana egzystencjalnie, więc obalenie wymagałoby pokazania, że żaden generator bez treści nie przejdzie — test obala tylko cztery konkretne. D jest podobne, ale jego następny test (LLM na surowych obrazach folio) wykracza poza zakres raportu i miesza poziomy analizy; ponadto pomija n-gramowe wyniki, które wzmacniają spójność (dwa niezależne klasyfikatory dają ten sam ranking generatorów). B ma rację formalnie co do braku jawnych kontroli dodatniej (podłożony efekt) i przetasowanej w raporcie — to realna luka dokumentacyjna. Ale werdykt 'metoda niewiarygodna' z pewnością 0,94 jest przesadzony: kontrola negatywna (prawdziwe vs prawdziwe) jest jedyną jawnie zadeklarowaną w protokole i przeszła, a zbieżność transformer + n-gram działa jak niejawna kontrola dodatnia (oba wykrywają te same generatory, przy n-gramach silniej). B ignoruje też treść dowodów. Błąd C/D: kontrola 0,539 nie 'potwierdza wiarygodności metody' w pełni — pokazuje tylko brak fałszywych trafień na danych prawdziwych, nie zdolność wykrycia znanego efektu. Wspólna słabość: brak przedziałów niepewności i ryzyko zawyżenia przez wybór najlepszej epoki; najniższe AUC (0,61–0,64) są blisko progu kontroli (0,62), więc dla v5 i łańcucha słów odróżnienie jest słabe.",
+     "werdykt": "obalona częściowo: cztery testowane generatory bez treści są odróżnialne od rękopisu (najsłabiej v5 i łańcuch słów, AUC ~0,61–0,64), więc te konkretne mechanizmy nie przechodzą testu transformera. Hipotezy egzystencjalnej o dowolnym generatorze test nie rozstrzyga — nieprzetestowane mechanizmy pozostają możliwe. Kontrole: negatywna przeszła; dodatnia i przetasowana nie są udokumentowane w raporcie, co obniża pewność, ale zbieżność z klasyfikatorem n-gramowym częściowo ją rekompensuje.",
+     "pewność": 0.7,
+     "zmiana_zdania": "nie — dane z raportu (spójne wyniki dwóch klasyfikatorów, poprawna kontrola negatywna) wystarczają do obalenia czterech konkretnych generatorów, ale brak jawnej kontroli dodatniej i słabe AUC dla dwóch generatorów obniżają pewność poniżej poziomów deklarowanych przez C i D"
+    }
+   },
+   "openai/gpt-6-luna": {
+    "raw": "{\"ranking\":[\"A\",\"C\",\"D\"],\"uwagi\":\"A jest najlepiej uzasadniona: zauważa słabe wyniki v5 i łańcucha słów, ograniczoną moc modelu oraz brak oceny układu i rysunków. C trafnie wskazuje, że zbadano tylko cztery generatory, ale — podobnie jak A i D — zbyt mocno uznaje kontrolę za potwierdzenie wiarygodności metody. Kontrola prawdziwe–prawdziwe przeszła (AUC 0,539), lecz raport nie podaje kontroli z celowo podłożonym efektem ani danych przetasowanych, wymaganych do pełnej oceny metody. Dodatkowo żadna opinia nie może wnioskować o istotności samych AUC: brak przedziałów niepewności lub testów istotności. D ma najsłabsze uzasadnienie następnego testu: test na surowych obrazach nie wynika z obecnego testu tekstowego i nie jest oczywistym pierwszym krokiem. Brakuje opinii B, więc ranking obejmuje tylko podane A, C i D.\",\"werdykt\":\"Nierozstrzygnięta. Wyniki przemawiają przeciw nieodróżnialności czterech testowanych generatorów — wszystkie AUC transformera przekraczają 0,5, choć dwa tylko nieznacznie. Nie obalają jednak szerszej hipotezy o którymś generatorze bez treści, a brak wymaganych kontroli i miar niepewności osłabia wniosek.\",\"pewność\":0.88,\"zmiana_zdania\":\"nie — dane wskazują na rozróżnialność testowanych generatorów, ale nie uzasadniają automatycznego werdyktu „obalona”; brakuje kontroli z podłożonym efektem i danymi przetasowanymi.\"}",
+    "json": {
+     "ranking": [
+      "A",
+      "C",
+      "D"
+     ],
+     "uwagi": "A jest najlepiej uzasadniona: zauważa słabe wyniki v5 i łańcucha słów, ograniczoną moc modelu oraz brak oceny układu i rysunków. C trafnie wskazuje, że zbadano tylko cztery generatory, ale — podobnie jak A i D — zbyt mocno uznaje kontrolę za potwierdzenie wiarygodności metody. Kontrola prawdziwe–prawdziwe przeszła (AUC 0,539), lecz raport nie podaje kontroli z celowo podłożonym efektem ani danych przetasowanych, wymaganych do pełnej oceny metody. Dodatkowo żadna opinia nie może wnioskować o istotności samych AUC: brak przedziałów niepewności lub testów istotności. D ma najsłabsze uzasadnienie następnego testu: test na surowych obrazach nie wynika z obecnego testu tekstowego i nie jest oczywistym pierwszym krokiem. Brakuje opinii B, więc ranking obejmuje tylko podane A, C i D.",
+     "werdykt": "Nierozstrzygnięta. Wyniki przemawiają przeciw nieodróżnialności czterech testowanych generatorów — wszystkie AUC transformera przekraczają 0,5, choć dwa tylko nieznacznie. Nie obalają jednak szerszej hipotezy o którymś generatorze bez treści, a brak wymaganych kontroli i miar niepewności osłabia wniosek.",
+     "pewność": 0.88,
+     "zmiana_zdania": "nie — dane wskazują na rozróżnialność testowanych generatorów, ale nie uzasadniają automatycznego werdyktu „obalona”; brakuje kontroli z podłożonym efektem i danymi przetasowanymi."
+    }
+   },
+   "tencent/hy3": {
+    "raw": "{\n  \"ranking\": [\"B\", \"A\", \"C\"],\n  \"uwagi\": \"Opinia B jako jedyna poprawnie stosuje zasady rady: test jest wiarygodny TYLKO przy kontrolach pozytywnej (efekt podłożony) i przetasowanej. Raport podaje tylko kontrolę prawdziwe-vs-prawdziwe (AUC 0.539), co nie spełnia kryteriów. A i C błędnie uznają metodę za wiarygodną i hipotezę za obaloną, ignorując brak wymaganych kontroli. A słusznie wskazuje słabość małego modelu, C słusznie zauważa wąski zakres generatorów, ale obie mylą przejście jednej kontroli z pełną wiarygodnością.\",\n  \"werdykt\": \"metoda niewiarygodna (brak pełnych kontroli)\",\n  \"pewność\": 0.92,\n  \"zmiana_zdania\": \"nie, raport wyraźnie pomija kontrole pozytywną i przetasowaną wymagane przez zasady, więc ocena pozostaje zgodna z regułami rady\"\n}",
+    "json": {
+     "ranking": [
+      "B",
+      "A",
+      "C"
+     ],
+     "uwagi": "Opinia B jako jedyna poprawnie stosuje zasady rady: test jest wiarygodny TYLKO przy kontrolach pozytywnej (efekt podłożony) i przetasowanej. Raport podaje tylko kontrolę prawdziwe-vs-prawdziwe (AUC 0.539), co nie spełnia kryteriów. A i C błędnie uznają metodę za wiarygodną i hipotezę za obaloną, ignorując brak wymaganych kontroli. A słusznie wskazuje słabość małego modelu, C słusznie zauważa wąski zakres generatorów, ale obie mylą przejście jednej kontroli z pełną wiarygodnością.",
+     "werdykt": "metoda niewiarygodna (brak pełnych kontroli)",
+     "pewność": 0.92,
+     "zmiana_zdania": "nie, raport wyraźnie pomija kontrole pozytywną i przetasowaną wymagane przez zasady, więc ocena pozostaje zgodna z regułami rady"
+    }
+   }
+  },
+  "synthesis": "## Werdykt rady\n**Metoda niewiarygodna w świetle przyjętych kryteriów; hipoteza pozostaje nierozstrzygnięta.** Kontrola prawdziwe–prawdziwe przeszła (AUC 0,539), ale raport nie przedstawia kontroli wykrywającej efekt celowo podłożony ani kontroli na danych przetasowanych.\n\n## Poziom zgody\nOpinie początkowe różniły się co do werdyktu. W późniejszej rundzie silniej wybrzmiało, że brak wymaganych kontroli nie pozwala uznać metody za wiarygodną ani automatycznie obalić hipotezy.\n\n## Co test naprawdę pokazuje\nDla czterech przetestowanych generatorów transformer uzyskał AUC od 0,613 do 0,971; wyniki dwóch generatorów były znacznie wyższe. Klasyfikator n-gramowy także odróżniał wszystkie cztery. To przemawia przeciw nieodróżnialności **tych konkretnych generatorów**, ale nie rozstrzyga hipotezy o którymkolwiek generatorze bez treści.\n\n## Główne zastrzeżenia\nBrak wymaganych kontroli uniemożliwia ocenę czułości metody i jej zachowania po przetasowaniu. Brak przedziałów niepewności oraz wybór najlepszej epoki mogą zawyżać wyniki; najniższe AUC są bliskie poziomowi losowemu. Test obejmuje tylko cztery generatory i ciągi EVA, nie układ strony ani rysunki.\n\n## Rekomendowany następny eksperyment\nPowtórzyć test na niezależnych podziałach danych, z kontrolą dodatnią (celowo podłożony efekt), kontrolą przetasowaną i przedziałami niepewności; szczególną uwagę poświęcić dwóm generatorom z najniższym AUC.",
+  "failed": {
+   "inception/mercury-3": "OpenRouter: inception/mercury-3 zwrócił pustą odpowiedź (model rozumujący zużył limit tokenów)"
+  },
+  "votes": {
+   "nierozstrzygnięta": 1,
+   "metoda niewiarygodna": 1,
+   "obalona": 1
+  }
+ }
+}

@@ -22,10 +22,27 @@ Gatunki o podpisie jak rękopis (brak składni, nadmiar powtórzeń, podobne dł
 - Imiona wydobyto heurystycznie z wydań angielsko-łacińskich; część to zwykłe słowa.
 - Lingua Ignota Hildegardy (1011 słów, sam słownik) nie weszła: nie ma tekstu, tylko listę.
 
+## Rada modeli
+
+## Werdykt rady
+**Metoda niewiarygodna w obecnym raporcie; hipoteza pozostaje nierozstrzygnięta.** Kontrole wymagane do uznania testu za wiarygodny nie zostały opisane, więc nie można oprzeć rozstrzygnięcia na podanych miarach.
+
+## Zgodność
+Wysoka: niezależne oceny różniły się początkowo werdyktem, ale w rundzie 2 zgodnie uznały brak kontroli za kluczowy problem i odrzuciły wniosek, że hipoteza jest obalona.
+
+## Co test naprawdę pokazuje
+Opisowo, żaden z badanych korpusów nie odtwarza łącznie profilu rękopisu: np. „słowa niespokrewnione” mają z = −1,2 w rękopisie, 60,3 w litanii i 3,6 w voces_magicae. To wskazuje na różnice między konkretnymi próbkami, ale bez walidacji metody nie stanowi wiarygodnego wykluczenia nawet tych porównań. Test nie rozstrzyga o całej klasie tekstów bez składni.
+
+## Główne zastrzeżenia
+Pusta sekcja kontroli metody; krótkie korpusy gatunkowe; heurystyczne wydobycie imion z możliwym zanieczyszczeniem zwykłymi słowami; ograniczenie do niewielu źródeł. Pominięcie listy słownikowej nie jest samo w sobie rozstrzygające, bo nie jest tekstem do porównania tych miar.
+
+## Następny eksperyment
+Powtórzyć analizę po ustaleniu protokołu kontroli: wykazać, że miary wykrywają celowo wszczepiony efekt i nie wykrywają go w tych samych danych po przetasowaniu.
+
 ## Literatura
 
 - Ars Notoria (ed. Turner 1657; Esoteric Archives)
 - Liber Iuratus Honorii (Esoteric Archives)
 - Litaniae Sanctorum
 
-_Czas: 78 s · 2026-10-24 04:29_
+_Czas: 78 s · 2026-10-24 04:37_
