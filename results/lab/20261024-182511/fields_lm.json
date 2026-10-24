@@ -1,0 +1,110 @@
+{
+ "theory": "fields_lm",
+ "hypothesis": "Słowo rękopisu zależy od swojego miejsca w wierszu jak pole od rubryki rekordu: model języka, który zna numer słowa w wierszu, przewiduje znaki wyraźnie lepiej.",
+ "method": "Mały GPT znakowy (4 warstwy, 256 wymiarów, 2500 kroków) uczony dwa razy na każdym korpusie: tekst goły i tekst z tokenem pozycji przed każdym słowem (<p:0>, <p:1>, ... <p:12+>); bity na znak na odłożonych wierszach (znaki liczone, tokeny pozycji nie), różnica = zysk z pozycji, rozrzut z bootstrapu po wierszach. Korpusy: rękopis, łacina, chorał (słowa), bełkot v5, martyrologium, Apicius (po ok. 200 tys. znaków). Kontrole: tokeny pozycji losowe na rękopisie (zysk ≈ 0); rekordy syntetyczne o polach (duży zysk).",
+ "verdict": "metoda niewiarygodna",
+ "summary": "Zysk z tokenów pozycji (bit/znak): łacina -0.003, bełkot v5 -0.011, rękopis -0.017, apicius -0.030, martyrology -0.048, chorał -0.055. Rękopis wobec bełkotu v5: -0.006 (próg +0,05); kontrola losowa -0.013, rekordy syntetyczne +0.012.",
+ "metrics": {
+  "controls": {
+   "synthetic": {
+    "bits_none": 0.7584544971946413,
+    "bits_pos": 0.7462321201544486,
+    "delta": 0.012240471807464908,
+    "delta_sd": 0.008255788147144814,
+    "lines_test": 395,
+    "chars": 185549
+   },
+   "random_positions": {
+    "bits_none": 1.696066245498135,
+    "bits_random": 1.7084429769674772,
+    "delta": -0.013121845183459447,
+    "delta_sd": 0.00449980736409193,
+    "lines_test": 386,
+    "chars": 200020
+   }
+  },
+  "corpora": {
+   "rękopis": {
+    "bits_none": 1.6960973743579413,
+    "bits_pos": 1.7118444498362417,
+    "delta": -0.0167327411390231,
+    "delta_sd": 0.004417911013095731,
+    "lines_test": 386,
+    "chars": 200020
+   },
+   "łacina": {
+    "bits_none": 1.9820396852834168,
+    "bits_pos": 1.984487514353147,
+    "delta": -0.0028584968240827225,
+    "delta_sd": 0.007610803974133901,
+    "lines_test": 346,
+    "chars": 200066
+   },
+   "chorał": {
+    "bits_none": 2.2397820009469176,
+    "bits_pos": 2.295655380593925,
+    "delta": -0.05456722902873816,
+    "delta_sd": 0.011032680421088233,
+    "lines_test": 218,
+    "chars": 200027
+   },
+   "bełkot v5": {
+    "bits_none": 1.7232131909888768,
+    "bits_pos": 1.7341571349938807,
+    "delta": -0.010920437954279296,
+    "delta_sd": 0.0034441816636230204,
+    "lines_test": 408,
+    "chars": 200031
+   },
+   "apicius": {
+    "bits_none": 1.363900415474239,
+    "bits_pos": 1.4018532029013417,
+    "delta": -0.02970905239989651,
+    "delta_sd": 0.01134287207331818,
+    "lines_test": 38,
+    "chars": 100115
+   },
+   "martyrology": {
+    "bits_none": 1.3298172376915491,
+    "bits_pos": 1.3747718687919042,
+    "delta": -0.048131285601840226,
+    "delta_sd": 0.008020349347844716,
+    "lines_test": 39,
+    "chars": 200540
+   }
+  }
+ },
+ "controls": [
+  {
+   "name": "rekordy syntetyczne o polach: tokeny pozycji dają zysk",
+   "expectation": "Δ ≥ 0,15 bit/znak",
+   "observed": "Δ = 0.012 ± 0.008",
+   "passed": false
+  },
+  {
+   "name": "rękopis z losowymi tokenami pozycji: brak zysku",
+   "expectation": "Δ ≤ 0,01",
+   "observed": "Δ = -0.013 ± 0.004",
+   "passed": true
+  }
+ ],
+ "evidence": [
+  "rękopis: 1.696 bit/znak bez pozycji, 1.712 z pozycją; zysk Δ = -0.017 ± 0.004 (386 wierszy testowych, 200020 znaków).",
+  "łacina: 1.982 bit/znak bez pozycji, 1.984 z pozycją; zysk Δ = -0.003 ± 0.008 (346 wierszy testowych, 200066 znaków).",
+  "chorał: 2.240 bit/znak bez pozycji, 2.296 z pozycją; zysk Δ = -0.055 ± 0.011 (218 wierszy testowych, 200027 znaków).",
+  "bełkot v5: 1.723 bit/znak bez pozycji, 1.734 z pozycją; zysk Δ = -0.011 ± 0.003 (408 wierszy testowych, 200031 znaków).",
+  "apicius: 1.364 bit/znak bez pozycji, 1.402 z pozycją; zysk Δ = -0.030 ± 0.011 (38 wierszy testowych, 100115 znaków).",
+  "martyrology: 1.330 bit/znak bez pozycji, 1.375 z pozycją; zysk Δ = -0.048 ± 0.008 (39 wierszy testowych, 200540 znaków)."
+ ],
+ "caveats": [
+  "Zysk obejmuje też krawędzie wiersza (znane nawyki p/m/g); bełkot v5 ma te nawyki wbudowane, stąd porównanie z nim.",
+  "Jeden przebieg na korpus (ziarno cfg.seed); rozrzut z bootstrapu po wierszach, nie z wielu treningów."
+ ],
+ "references": [
+  "Radford et al., Language models are unsupervised multitask learners (2019)",
+  "Karpathy, nanoGPT"
+ ],
+ "artifacts": [],
+ "seconds": 576.5216329097748,
+ "council": {}
+}
