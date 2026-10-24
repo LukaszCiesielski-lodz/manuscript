@@ -1,0 +1,288 @@
+{
+ "theory": "transcriptions",
+ "hypothesis": "Podpis statystyczny rękopisu (brak dalekiej składni między różnymi słowami, nadmiar powtórzeń i wariantów, podobne długości sąsiadów) jest własnością rękopisu, nie transliteracji ZL.",
+ "method": "Te same miary na każdej dostępnej transliteracji z voynich.nu: Zandbergen-Landini, Takahashi (dwie wersje), Reference, Currier-D'Imperio, FSG, v101. Alfabety nie-EVA tokenizowane po znaku. Składnia na odległość rozbita na powtórzenia, warianty i słowa niespokrewnione (z wobec tasowań w stronie i miejscu w wierszu); dynamika długości (korelacja sąsiadów, DFA); miary kształtu jako z wobec rozrzutu bloków ZL.",
+ "verdict": "potwierdzona",
+ "summary": "Podpis trzyma w 4/4 pełnych transliteracjach: ZL tak, IT tak, CD nie (częściowa), FG tak, GC tak.",
+ "metrics": {
+  "ZL": {
+   "name": "Zandbergen-Landini",
+   "words": 34820,
+   "glyphs": 33,
+   "syntax": {
+    "same": {
+     "excess": 0.013704832622062162,
+     "z": 9.614489853570293
+    },
+    "different": {
+     "excess": -0.030788100172470467,
+     "z": -2.512250411681245
+    },
+    "variants": {
+     "excess": 0.0780462721036569,
+     "z": 5.10595132176497
+    },
+    "unrelated": {
+     "excess": -0.015168989307893121,
+     "z": -1.1825692714129405
+    }
+   },
+   "lengths": {
+    "ac1": {
+     "value": 0.15919015836720654,
+     "null": 0.04141556689975241,
+     "excess": 0.11777459146745413,
+     "z": 22.85341221357594
+    },
+    "updown": {
+     "value": 0.7051983828843333,
+     "null": 0.7241828326195049,
+     "excess": -0.01898444973517155,
+     "z": -6.800223016890813
+    },
+    "dfa": {
+     "value": 0.5979861434371463,
+     "null": 0.5198715626496577,
+     "excess": 0.07811458078748856,
+     "z": 10.929404949476773
+    }
+   },
+   "shape_z": {
+    "h2": 0.0,
+    "type_token_ratio": 0.0,
+    "hapax_ratio": 0.0,
+    "adjacent_near": 0.0,
+    "len_neighbour": 0.0
+   },
+   "holds": true,
+   "complete": true
+  },
+  "IT": {
+   "name": "Takahashi (interlinear)",
+   "words": 34411,
+   "glyphs": 29,
+   "syntax": {
+    "same": {
+     "excess": 0.011202579291678645,
+     "z": 8.025312189811343
+    },
+    "different": {
+     "excess": -0.028582708823865266,
+     "z": -2.1085949776414754
+    },
+    "variants": {
+     "excess": 0.09754429016738574,
+     "z": 6.285452384394342
+    },
+    "unrelated": {
+     "excess": -0.010840177370964321,
+     "z": -0.8070889537627236
+    }
+   },
+   "lengths": {
+    "ac1": {
+     "value": 0.1576919495232499,
+     "null": 0.04817094266518094,
+     "excess": 0.10952100685806898,
+     "z": 18.033712698058828
+    },
+    "updown": {
+     "value": 0.7088135221161234,
+     "null": 0.7274473774453184,
+     "excess": -0.018633855329195037,
+     "z": -10.303666062545341
+    },
+    "dfa": {
+     "value": 0.5974930720787631,
+     "null": 0.5232654592133685,
+     "excess": 0.07422761286539459,
+     "z": 10.180785488323618
+    }
+   },
+   "shape_z": {
+    "h2": 0.02005146043024696,
+    "type_token_ratio": 0.12670301245236207,
+    "hapax_ratio": 0.034659548846349274,
+    "adjacent_near": -0.15266120024671367,
+    "len_neighbour": -0.039221327823813025
+   },
+   "holds": true,
+   "complete": true
+  },
+  "CD": {
+   "name": "Currier-D'Imperio",
+   "words": 16082,
+   "glyphs": 35,
+   "syntax": {
+    "same": {
+     "excess": 0.01154674000227214,
+     "z": 4.347812243759011
+    },
+    "different": {
+     "excess": 0.04600918481904126,
+     "z": 2.401015082419177
+    },
+    "variants": {
+     "excess": 0.13006983972778088,
+     "z": 4.460224206632747
+    },
+    "unrelated": {
+     "excess": 0.04880088114610526,
+     "z": 2.6445471318832037
+    }
+   },
+   "lengths": {
+    "ac1": {
+     "value": 0.17722463653995546,
+     "null": 0.06660080205570536,
+     "excess": 0.1106238344842501,
+     "z": 21.823329666265387
+    },
+    "updown": {
+     "value": 0.7186244576570786,
+     "null": 0.7330053159532016,
+     "excess": -0.014380858296123011,
+     "z": -3.799730768754766
+    },
+    "dfa": {
+     "value": 0.6044842151471423,
+     "null": 0.527667382638409,
+     "excess": 0.07681683250873339,
+     "z": 5.313459250204511
+    }
+   },
+   "shape_z": {
+    "h2": 0.3885358432117095,
+    "type_token_ratio": -0.15796611854849493,
+    "hapax_ratio": -0.31849958549437163,
+    "adjacent_near": 1.124999623588451,
+    "len_neighbour": 0.5036581417282802
+   },
+   "holds": false,
+   "complete": false
+  },
+  "FG": {
+   "name": "FSG (First Study Group)",
+   "words": 33002,
+   "glyphs": 23,
+   "syntax": {
+    "same": {
+     "excess": 0.010034779065210813,
+     "z": 6.094070613786442
+    },
+    "different": {
+     "excess": 0.010798699903714737,
+     "z": 0.7395416039736826
+    },
+    "variants": {
+     "excess": 0.09729442695211249,
+     "z": 4.848005213953994
+    },
+    "unrelated": {
+     "excess": 0.03130262733335898,
+     "z": 2.0774337107017464
+    }
+   },
+   "lengths": {
+    "ac1": {
+     "value": 0.1481088624895706,
+     "null": 0.032290900462320686,
+     "excess": 0.1158179620272499,
+     "z": 21.31767375126623
+    },
+    "updown": {
+     "value": 0.7144024276377218,
+     "null": 0.7348384384759012,
+     "excess": -0.020436010838179475,
+     "z": -7.2926340898814095
+    },
+    "dfa": {
+     "value": 0.6038414364514444,
+     "null": 0.5238929318940163,
+     "excess": 0.07994850455742808,
+     "z": 13.074194564809373
+    }
+   },
+   "shape_z": {
+    "h2": 0.24516121294439316,
+    "type_token_ratio": 0.07230809877889106,
+    "hapax_ratio": 0.010567704800869125,
+    "adjacent_near": -0.02731622289728553,
+    "len_neighbour": 0.20889591537283872
+   },
+   "holds": true,
+   "complete": true
+  },
+  "GC": {
+   "name": "GC v101",
+   "words": 36347,
+   "glyphs": 70,
+   "syntax": {
+    "same": {
+     "excess": 0.0072899474669561055,
+     "z": 5.432112170111929
+    },
+    "different": {
+     "excess": -0.07981964617760107,
+     "z": -6.308465573097094
+    },
+    "variants": {
+     "excess": 0.07386400895127003,
+     "z": 4.486088156838726
+    },
+    "unrelated": {
+     "excess": -0.05383043568109991,
+     "z": -4.672218871300618
+    }
+   },
+   "lengths": {
+    "ac1": {
+     "value": 0.19696322851069842,
+     "null": 0.02048047874974322,
+     "excess": 0.1764827497609552,
+     "z": 28.65065944524618
+    },
+    "updown": {
+     "value": 0.6973628691983123,
+     "null": 0.729087794501314,
+     "excess": -0.03172492530300175,
+     "z": -15.279158257347445
+    },
+    "dfa": {
+     "value": 0.6099222567969022,
+     "null": 0.5238830250941926,
+     "excess": 0.08603923170270955,
+     "z": 10.858085164806834
+    }
+   },
+   "shape_z": {
+    "h2": 1.3258594768018708,
+    "type_token_ratio": 0.7676212469882733,
+    "hapax_ratio": 1.291736858008307,
+    "adjacent_near": 0.20019097398992466,
+    "len_neighbour": 2.1835607799408474
+   },
+   "holds": true,
+   "complete": true
+  }
+ },
+ "controls": [],
+ "evidence": [
+  "ZL (Zandbergen-Landini; 34820 słów, 33 znaków): słowa niespokrewnione z = -1.2, powtórzenia z = 9.6, warianty z = 5.1; korelacja długości sąsiadów +0.159, DFA 0.598; kształt wobec ZL: entropia warunkowa h₂ +0.0, różne słowa / wszystkie +0.0, słowa użyte raz (hapaksy) +0.0, sąsiednie słowa różne o 1 glif +0.0, korelacja długości sąsiednich słów +0.0. Podpis trzyma.",
+  "IT (Takahashi (interlinear); 34411 słów, 29 znaków): słowa niespokrewnione z = -0.8, powtórzenia z = 8.0, warianty z = 6.3; korelacja długości sąsiadów +0.158, DFA 0.597; kształt wobec ZL: entropia warunkowa h₂ +0.0, różne słowa / wszystkie +0.1, słowa użyte raz (hapaksy) +0.0, sąsiednie słowa różne o 1 glif -0.2, korelacja długości sąsiednich słów -0.0. Podpis trzyma.",
+  "CD (Currier-D'Imperio; 16082 słów, 35 znaków): słowa niespokrewnione z = 2.6, powtórzenia z = 4.3, warianty z = 4.5; korelacja długości sąsiadów +0.177, DFA 0.604; kształt wobec ZL: entropia warunkowa h₂ +0.4, różne słowa / wszystkie -0.2, słowa użyte raz (hapaksy) -0.3, sąsiednie słowa różne o 1 glif +1.1, korelacja długości sąsiednich słów +0.5. Podpis NIE trzyma (transliteracja częściowa, poza werdyktem).",
+  "FG (FSG (First Study Group); 33002 słów, 23 znaków): słowa niespokrewnione z = 2.1, powtórzenia z = 6.1, warianty z = 4.8; korelacja długości sąsiadów +0.148, DFA 0.604; kształt wobec ZL: entropia warunkowa h₂ +0.2, różne słowa / wszystkie +0.1, słowa użyte raz (hapaksy) +0.0, sąsiednie słowa różne o 1 glif -0.0, korelacja długości sąsiednich słów +0.2. Podpis trzyma.",
+  "GC (GC v101; 36347 słów, 70 znaków): słowa niespokrewnione z = -4.7, powtórzenia z = 5.4, warianty z = 4.5; korelacja długości sąsiadów +0.197, DFA 0.610; kształt wobec ZL: entropia warunkowa h₂ +1.3, różne słowa / wszystkie +0.8, słowa użyte raz (hapaksy) +1.3, sąsiednie słowa różne o 1 glif +0.2, korelacja długości sąsiednich słów +2.2. Podpis trzyma."
+ ],
+ "caveats": [
+  "ZL i Takahashi są w pełni zgodne tylko w ok. 29% wierszy (Chelednik); różnice to głównie niepewne glify i podziały słów.",
+  "Alfabety Curriera, FSG i v101 dzielą tekst na inne jednostki niż EVA, więc miary kształtu (entropia, długości) nie są z nimi wprost porównywalne; porównywalne są z składni i znak korelacji."
+ ],
+ "references": [
+  "Zandbergen, voynich.nu/transcr.html",
+  "Chelednik, voynich-transcription-mismatch (Hugging Face 2026)"
+ ],
+ "artifacts": [],
+ "seconds": 173.3675034046173,
+ "council": {}
+}
