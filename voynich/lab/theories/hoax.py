@@ -51,6 +51,15 @@ def split_lines() -> tuple[list, list]:
     return odd, even
 
 
+# Best settings found by the v6 evolution (Colab, 25 generations of 32, yardstick of the odd folios; fitness 10.6 there,
+# 4 misses on the even folios: edge_mi, hapax_ratio, line_last_m, line_mean_spread; transformer judge AUC 0.655, no better
+# than v5). Kept as the strongest known content-free text for later theories; needs freq_gamma in generate_v5.
+V6_SECTION_PARAMS = {"p_new": 0.9, "p_far": 0.783, "p_copy": 0.036, "p_same_column": 0.664, "gamma": 4.671, "length_gamma": 0.3,
+                     "p_hot": 0.041, "hot_power": 3.0, "p_repeat": 0.0, "window": 15, "candidates": 3, "p_fav": 0.059,
+                     "p_short": 0.109, "position_gamma": 2.392, "pair_gamma": 2.517, "mood_gamma": 0.0, "freq_gamma": 0.443}
+V6_FAV_N = 18
+
+
 def odd_runs() -> list[tuple[tuple, list]]:
     """Odd-folio paragraph lines as contiguous runs of one (section, Currier language), in manuscript order."""
     runs: list[tuple[tuple, list]] = []

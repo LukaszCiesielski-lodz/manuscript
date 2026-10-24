@@ -385,6 +385,29 @@ for name in ["fields_lm", "v6", "cohesion"]:
 ]
 
 
+# One CPU task: are the spaces a key rather than word boundaries?
+keystream_cells = [
+    ("md", """# Voynich Lab – odstępy jako klucz zapisany w tekście
+
+Czy „słowa” EVA są jednostkami tekstu, czy ciąg ich długości (w glifach albo w znakach EVA) jest kluczem, według którego
+trzeba pociąć, przesunąć albo przeczytać strumień glifów? Teoria `keystream` stosuje rodzinę 31 takich reguł do rękopisu
+i do bełkotu v5 o jego statystyce, mierzy jednostki składnią na odległość i informacją między sąsiadami, i ma kontrole:
+łacina z odstępami przepisanymi regułą z rodziny musi zostać odzyskana, zwykła łacina nie może zyskać na żadnej regule.
+Przy okazji mierzy nową cechę: sąsiednie słowa rękopisu niosą o sobie mniej informacji niż losowe słowa tej samej linii.
+
+**Runtime bez akceleratora** (CPU): zero jednostek GPU. Sekrety: `GITHUB_TOKEN`, `OPENROUTER_API_KEY`. Czas: ok. 25 min."""),
+    cells[3],
+    ("code", """!python scripts/fetch_data.py"""),
+    cells[5],
+    ("code", cells[7][1].replace('theories=["all"],          # albo np. ["numbers", "literature"]', 'theories=["keystream"],')),
+    ("code", """lab.run("keystream"); lab.push()
+lab.convene(["keystream"])
+lab.report(); lab.push()
+from IPython.display import Markdown, display
+display(Markdown((lab.cfg.results_dir / "keystream.md").read_text()))"""),
+]
+
+
 def cell(kind, text):
     src = text.splitlines(keepends=True)
     if kind == "md":
@@ -403,8 +426,9 @@ for name, cs in (("Voynich_Lab.ipynb", cells), ("Voynich_Ilustracje.ipynb", illu
                  ("Voynich_Lamacze.ipynb", attack_cells),
                  ("Voynich_Final.ipynb", final_cells),
                  ("Voynich_Notacja.ipynb", notation_cells),
-                 ("Voynich_Rejestr.ipynb", rejestr_cells), ("Voynich_Rejestr_GPU.ipynb", rejestr_gpu_cells)):
-    base = nb_cpu if name == "Voynich_Rejestr.ipynb" else nb
+                 ("Voynich_Rejestr.ipynb", rejestr_cells), ("Voynich_Rejestr_GPU.ipynb", rejestr_gpu_cells),
+                 ("Voynich_Klucz.ipynb", keystream_cells)):
+    base = nb_cpu if name in ("Voynich_Rejestr.ipynb", "Voynich_Klucz.ipynb") else nb
     out = Path(__file__).with_name(name)
     out.write_text(json.dumps({**base, "cells": [cell(k, t) for k, t in cs]}, indent=1, ensure_ascii=False), encoding="utf-8")
     print("wrote", out)

@@ -69,6 +69,7 @@ THEORIES = {t.name: t for t in [
     Theory("fields_lm", "Zysk z tokenów pozycji: czy słowo zależy od miejsca w wierszu (GPT)", ("gpu",), "fields_lm:run"),
     Theory("v6", "Generator v6: nawyki skryby ewoluowane na karcie, sędzia na GPU", ("gpu",), "v6:run"),
     Theory("cohesion", "Spójność strony: czy sędzia pozna dwa wiersze z tej samej strony", ("gpu",), "cohesion:run"),
+    Theory("keystream", "Odstępy jako klucz: długości słów tną, przesuwają lub czytają strumień glifów", (), "keystream:run"),
 ]}
 ALIASES = {"literature": ["naibbe_cipher", "cardan_grille", "hebrew_anagram"], "rejestr": ["labels", "records", "lists"],
            "rejestr_gpu": ["fields_lm", "v6", "cohesion"], "all": list(THEORIES)}

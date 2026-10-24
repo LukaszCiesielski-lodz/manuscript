@@ -256,7 +256,8 @@ class NotebookTest(unittest.TestCase):
         import json
         from pathlib import Path
         for name in ("Voynich_Lab.ipynb", "Voynich_Ilustracje.ipynb", "Voynich_Brute.ipynb", "Voynich_Final.ipynb",
-                     "Voynich_Notacja.ipynb", "Voynich_Rejestr.ipynb", "Voynich_Rejestr_GPU.ipynb"):
+                     "Voynich_Notacja.ipynb", "Voynich_Rejestr.ipynb", "Voynich_Rejestr_GPU.ipynb",
+                     "Voynich_Klucz.ipynb"):
             nb = json.loads((Path(__file__).resolve().parent.parent / "colab" / name).read_text(encoding="utf-8"))
             for i, c in enumerate(nb["cells"]):
                 if c["cell_type"] == "code":
@@ -788,3 +789,58 @@ class CohesionTest(unittest.TestCase):
         self.assertTrue(all(len(ls) == 10 for ls in pg.values()))
         planted = cohesion.plant({"p": ["a.b.c.d.e"] * 3}, 1.0, 1)
         self.assertEqual(len(set(planted["p"][0].split("."))), 1)
+
+
+class KeystreamTest(unittest.TestCase):
+    LAT = [[list(w) for w in "in principio creavit deus caelum et terram".split()],
+           [list(w) for w in "terra autem erat inanis et vacua et tenebrae".split()]]
+
+    def test_cut_and_keys(self):
+        from voynich import keystream as K
+        self.assertEqual(K.cut(list("abcdefg"), [2, 3]), [list("ab"), list("cde"), list("fg")])
+        self.assertEqual(K.key_variant([2, 9, 6, 5], "shift", 1, None), [9, 6, 5, 2])
+        self.assertEqual(K.key_variant([2, 9, 6, 5], "reverse", 0, None), [5, 6, 9, 2])
+        self.assertEqual(K.key_variant([2, 9], "previous", 0, [3, 3]), [3, 3])
+        self.assertEqual(K.lengths([["c", "h", "o"], ["d", "a"]], "glyphs"), [3, 2])
+        self.assertEqual(K.lengths([["ch", "o"], ["d", "a"]], "chars"), [3, 2])
+        self.assertEqual(K.stride_read(list("abcdef"), 2), list("acebdf"))
+
+    def test_every_transform_keeps_the_glyphs(self):
+        from voynich import keystream as K
+        for t in K.family():
+            out = K.apply(t, self.LAT)
+            self.assertEqual(len(out), 2, t.name)
+            for a, b in zip(self.LAT, out):
+                self.assertEqual(sum(map(len, a)), sum(map(len, b)), t.name)
+                if t.kind != "shift":
+                    self.assertEqual(sorted(g for w in a for g in w), sorted(g for w in b for g in w), t.name)
+
+    def test_cipher_is_undone_by_its_inverse(self):
+        from voynich import keystream as K
+        for t in (K.Transform("c", "cut", "glyphs", 2), K.Transform("r", "read", "none", 3), K.Transform("s", "shift", "glyphs", 0),
+                  K.Transform("p", "shift", "none", 2)):
+            cipher = K.encipher(self.LAT, t)
+            self.assertEqual(K.apply(t, cipher), [[list(w) for w in l] for l in self.LAT], t.name)
+        c = K.encipher(self.LAT, K.Transform("c", "cut", "glyphs", 2))
+        self.assertLess(K.boundary_f1(self.LAT, c), 0.6)
+        self.assertEqual(K.boundary_f1(self.LAT, self.LAT), 1.0)
+
+    def test_adjacent_mi_sign(self):
+        from voynich import keystream as K
+        rng = random.Random(1)
+        vocab = [tuple(rng.choice("abcde") for _ in range(3)) for _ in range(40)]
+        # lines where word i+1 is determined by word i: positive MI; the same lines shuffled: about zero
+        nxt = {w: vocab[(i * 7 + 3) % 40] for i, w in enumerate(vocab)}
+        lines = []
+        for _ in range(300):
+            w = rng.choice(vocab)
+            l = [list(w)]
+            for _ in range(7):
+                w = nxt[w]
+                l.append(list(w))
+            lines.append(l)
+        z = K.adjacent_mi_z(lines, 20, 1)
+        self.assertGreater(z["z"], 5)
+        # a shift keyed by the word's own length is a bijection on word types: the information is unchanged
+        shifted = K.apply(K.Transform("s", "shift", "glyphs", 0), lines)
+        self.assertAlmostEqual(K.adjacent_mi_z(shifted, 20, 1)["value"], z["value"])
