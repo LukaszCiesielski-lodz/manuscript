@@ -112,14 +112,23 @@ def run(cfg: LabConfig) -> TheoryResult:
     real_even, real_odd = hoax.line_strings(even), hoax.line_strings(odd)
     auc0 = train_judge(real_even, real_odd, cfg, cfg.seed)
     res.control("transformer: prawdziwe vs prawdziwe", "AUC ≤ 0,62", f"AUC = {auc0:.3f}", auc0 <= 0.62)
-    metrics = {"real_vs_real": auc0}
+    # Sensitivity: real lines with one glyph in ten replaced at random must be caught.
+    r = random.Random(cfg.seed)
+    glyph_pool = sorted({g for l in odd for w in l for g in w})
+    perturbed = [[[g if r.random() > 0.1 else r.choice(glyph_pool) for g in w] for w in l] for l in odd]
+    auc_p = train_judge(real_even, hoax.line_strings(perturbed), cfg, cfg.seed)
+    res.control("transformer wykrywa podłożony efekt (10% glifów podmienionych)", "AUC ≥ 0,7", f"AUC = {auc_p:.3f}", auc_p >= 0.7)
+    metrics = {"real_vs_real": auc0, "perturbed_real": auc_p}
     for name, g in gens.items():
         if not g:
             continue
-        auc = train_judge(real_even, hoax.line_strings(g), cfg, cfg.seed)
+        seeds = [cfg.seed] if cfg.quick else [cfg.seed, cfg.seed + 1, cfg.seed + 2]
+        aucs = [train_judge(real_even, hoax.line_strings(g), cfg, sd) for sd in seeds]
+        auc = sum(aucs) / len(aucs)
+        spread = (max(aucs) - min(aucs)) / 2
         weak = hoax.classifier_auc(even, g, cfg.seed)
-        metrics[name] = {"transformer": auc, "ngram": weak}
-        res.evidence.append(f"{name}: transformer AUC {auc:.3f} (klasyfikator n-gramowy {weak:.3f}).")
+        metrics[name] = {"transformer": auc, "transformer_runs": aucs, "ngram": weak}
+        res.evidence.append(f"{name}: transformer AUC {auc:.3f} ± {spread:.3f} ({len(aucs)} podziały; klasyfikator n-gramowy {weak:.3f}).")
         print(f"  {name}: transformer {auc:.3f}, n-gramy {weak:.3f}", flush=True)
     res.metrics = metrics
     passing = [k for k, v in metrics.items() if isinstance(v, dict) and v["transformer"] <= auc0 + 0.07]

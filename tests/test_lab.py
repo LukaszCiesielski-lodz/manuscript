@@ -542,3 +542,17 @@ class PagesTest(unittest.TestCase):
         nbs = pg.Neighbours(ps)
         ab, abc, ac = nbs.enc(("a", "b")), nbs.enc(("a", "b", "c")), nbs.enc(("a", "c"))
         self.assertIn(abc, nbs.nb[ab]); self.assertIn(ac, nbs.nb[ab]); self.assertNotIn(nbs.enc(("x",)), nbs.nb[ab])
+
+
+class WheelControlTest(unittest.TestCase):
+    def test_known_wheel_writes_readable_text(self):
+        from voynich import corpus, eva
+        from voynich.lab import wheel
+        lines = [[tuple(eva.glyphs(w)) for w in l.words] for l in corpus.load_voynich() if l.kind.startswith("P") and l.words][:120]
+        seg = wheel.Segments.from_words({w for l in lines for w in l})
+        rings = wheel.random_wheel(seg, 3, 12, seed=1)
+        self.assertEqual(rings.shape, (3, 12))
+        text = wheel.write_random(rings, seg, 200, seed=1)
+        words = [w for l in text for w in l]
+        self.assertGreaterEqual(len(words), 200)
+        self.assertTrue(all(wheel.decompose(w, rings, seg) is not None for w in words[:50]))

@@ -14,7 +14,7 @@ from __future__ import annotations
 import time
 
 from ... import lexicon
-from ..brute import paragraph_lines
+from ..brute import paragraph_lines, relabel_lines
 from ..config import LabConfig
 from ..hillclimb import (Backend, Climb, GlyphText, NgramModel, climb, encipher_homophonic, glyph_inventory,
                          key_accuracy, split_odd_even)
@@ -54,6 +54,7 @@ def run(cfg: LabConfig) -> TheoryResult:
     n_glyphs = len(glyph_inventory(lines))
     gen = [[tuple(w) for w in l] for l in generate_by_section(odd_runs(), V5_SECTION_PARAMS, cfg.seed)
            + generate_by_section(odd_runs(), V5_SECTION_PARAMS, cfg.seed + 1)]
+    relabelled = relabel_lines(lines, cfg.seed)   # a fresh glyph permutation on every line: no key can exist
     log = (lambda m: print(m, flush=True)) if not cfg.quick else None
     metrics, leads, untestable = {}, [], []
     for name in names:
@@ -84,18 +85,20 @@ def run(cfg: LabConfig) -> TheoryResult:
             untestable.append(name)
         v = _attack(lines, lm, s, xp, order, log)
         g = _attack(gen, lm, s, xp, order)
+        rl = _attack(relabelled, lm, s, xp, order)
         gap_gen = g["held_out_bits"] - v["held_out_bits"]          # positive: the manuscript decodes better
         gap_nat = v["held_out_bits"] - natural                    # how far from natural text
         lead = ok and gap_gen >= 0.2 and gap_nat <= 0.8
-        metrics[name] = {"natural_bits": natural, "voynich": v, "generator": g, "enciphered": pos, "key_accuracy": acc,
-                         "gap_to_generator": gap_gen, "gap_to_natural": gap_nat, "lead": lead}
+        metrics[name] = {"natural_bits": natural, "voynich": v, "generator": g, "relabelled": rl, "enciphered": pos,
+                         "key_accuracy": acc, "gap_to_generator": gap_gen, "gap_to_natural": gap_nat, "lead": lead}
         if lead:
             leads.append(name)
         sample = " ".join("".join(v["key"].get(g, "?") for g in w) for w in lines[0][:8])
         res.evidence.append(f"{name}: rękopis {v['held_out_bits']:.2f} bit/znak, bełkot v5 {g['held_out_bits']:.2f}, "
+                            f"glify przemianowane w każdym wierszu {rl['held_out_bits']:.2f} (bez klucza), "
                             f"tekst naturalny {natural:.2f}; zaszyfrowany tekst odczytany do {pos['held_out_bits']:.2f} "
                             f"z kluczem w {acc:.0%}. " + ("TROP. " if lead else "") + f"Odczyt pierwszego wiersza: „{sample}”.")
-        print(f"  {name}: rękopis {v['held_out_bits']:.2f} | bełkot {g['held_out_bits']:.2f} | naturalny {natural:.2f} | "
+        print(f"  {name}: rękopis {v['held_out_bits']:.2f} | bełkot {g['held_out_bits']:.2f} | przemianowane {rl['held_out_bits']:.2f} | naturalny {natural:.2f} | "
               f"klucz {acc:.0%}" + (" TROP" if lead else ""), flush=True)
     res.controls = [c for c in res.controls if c.passed]
     tested = [n for n in metrics if n not in untestable]

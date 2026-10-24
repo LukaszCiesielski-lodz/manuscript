@@ -387,6 +387,31 @@ def scribe(lines: Sequence[Sequence[Word]], rings: np.ndarray, seg: Segments, n_
     return out
 
 
+def random_wheel(seg: Segments, rings: int, cells: int, seed: int) -> np.ndarray:
+    """Rings filled with segments drawn in proportion to their frequency (one empty cell per ring)."""
+    r = np.random.default_rng(seed)
+    p = seg.freq / seg.freq.sum()
+    p[EMPTY] = 0.0
+    p /= p.sum()
+    out = r.choice(len(seg.strings), size=(rings, cells), p=p)
+    out[:, 0] = EMPTY
+    return out
+
+
+def write_random(rings: np.ndarray, seg: Segments, n_words: int, seed: int, max_step: int = 2, line_len: int = 9) -> list[list[tuple[str, ...]]]:
+    """Text a wheel writes when every ring turns by at most `max_step` notches between words (positive control)."""
+    r = random.Random(seed)
+    R, K = rings.shape
+    posv = [r.randrange(K) for _ in range(R)]
+    words: list[tuple[str, ...]] = []
+    while len(words) < n_words:
+        w = read_wheel(rings, posv, seg)
+        if w:
+            words.append(tuple(w))
+        posv = [(p + r.randint(-max_step, max_step)) % K for p in posv]
+    return [words[i:i + line_len] for i in range(0, len(words), line_len)]
+
+
 def fit(lines: Sequence[Sequence[Word]], s: Search, xp: Backend, log=None) -> tuple[dict, Text]:
     text = Text.build(lines, s.rings, seed=s.seed)
     t0 = time.time()

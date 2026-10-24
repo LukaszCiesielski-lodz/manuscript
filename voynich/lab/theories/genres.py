@@ -45,6 +45,20 @@ def run(cfg: LabConfig) -> TheoryResult:
         res.summary = "Pominięte: brak danych."
         res.seconds = time.time() - t0
         return res
+    # Controls: a litany frame planted into the manuscript must raise the unrelated-word z; a litany with its
+    # words shuffled must lose it.
+    import random as _random
+    frame = [[w if i % 3 else ["o", "r", "a"] for i, w in enumerate(l)] for l in voy]
+    syn_frame = longrange.split_by_identity(frame, top=60, shuffles=shuffles, seed=cfg.seed)
+    res.control("wszczepiona rama litanijna (co trzecie słowo stałe) daje zależność słów niespokrewnionych", "z ≥ 5",
+                f"z = {syn_frame['unrelated']['z']:.1f}", syn_frame["unrelated"]["z"] >= 5)
+    if "litany" in texts:
+        rr = _random.Random(cfg.seed)
+        lit = [w for l in texts["litany"] for w in l]
+        rr.shuffle(lit)
+        syn_sh = longrange.split_by_identity(_lines(lit), top=25, shuffles=shuffles, seed=cfg.seed)
+        res.control("litania z przetasowanymi słowami traci zależność", "z < 3", f"z = {syn_sh['unrelated']['z']:.1f}",
+                    syn_sh["unrelated"]["z"] < 3)
     stick = hoax.yardstick(voy)
     shape_keys = ["h2", "hapax_ratio", "vocab_density", "adjacent_near", "positional_rigidity", "type_token_ratio"]
     metrics = {}

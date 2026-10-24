@@ -240,6 +240,59 @@ for name in ("phonotactics", "transcriptions", "cognate", "hillclimb"):
 ]
 
 
+# The closing run: every theory the council asked controls for, with those controls, plus the three CPU theories
+# added last (length code, arrow of time, scribal hands).
+final_cells = [
+    ("md", """# Voynich Lab – przebieg zamykający
+
+Jeden notebook domyka etap: teorie, którym rada wytknęła brak kontroli, idą ponownie z kontrolami dodatnimi
+i ujemnymi, a trzy ostatnie teorie z procesora liczą się po raz pierwszy na pełnych ustawieniach.
+
+| teoria | co nowego |
+|---|---|
+| `length_code`, `chronology`, `hands` | kod w długościach słów; strzałka czasu kopiowania między kartami (tło w obrębie bloków działu); ręka skryby a treść (karty odłożone, tło z losowego rozdania kart) |
+| `genres` | + rama litanijna wszczepiona w rękopis (musi dać zależność), litania przetasowana (musi ją stracić) |
+| `adversary` | + czułość sędziego (10% glifów podmienionych musi wykryć), AUC z trzech podziałów danych |
+| `hillclimb` | + glify przemianowane w każdym wierszu (tekst bez klucza) obok bełkotu v5; 51 języków, ok. 40 min |
+| `cognate` | + ta sama kontrola; tylko języki, w których coś drgnęło lub które pasują do epoki (lista w ustawieniach) |
+| `wheel` | + tekst napisany znaną tarczą: wyszukiwanie musi ją odzyskać; mniejsza populacja, bo wynik już znamy |
+
+Uruchom: Środowisko wykonawcze → Uruchom wszystko (GPU A100, High-RAM, sekrety `GITHUB_TOKEN`, `OPENROUTER_API_KEY`).
+Po pobraniu poprawki kodu zawsze: Środowisko wykonawcze → Uruchom ponownie sesję. Czas: ok. 3 h; wyniki wypychają się po każdej teorii."""),
+    cells[3],
+    ("code", """!pip install -q open_clip_torch
+!python scripts/fetch_data.py
+!python scripts/fetch_lexicons.py
+!python scripts/fetch_transliterations.py"""),
+    cells[5],
+    ("code", cells[7][1].replace('theories=["all"],          # albo np. ["numbers", "literature"]',
+                                 'theories=["length_code", "chronology", "hands", "genres", "adversary", "hillclimb", "cognate", "wheel"],\n'
+                                 '    attack_languages=["Syriac", "Aramaic", "Latin", "MedievalLatin", "VulgarLatin", "Italian", "German",\n'
+                                 '                      "OldFrench", "Hebrew", "Greek", "Czech", "Lithuanian", "Portuguese"],  # tylko cognate; hillclimb bierze wszystkie\n'
+                                 '    cognate_restarts=32,\n'
+                                 '    cognate_steps=600,\n'
+                                 '    climb_population=8192,\n'
+                                 '    climb_steps=3000,\n'
+                                 '    wheel_population=1024,\n'
+                                 '    wheel_generations=800,\n'
+                                 '    judge_epochs=20,')),
+    ("code", """cpu = ["length_code", "chronology", "hands", "genres"]
+gpu = ["adversary", "hillclimb", "cognate", "wheel"]
+for name in cpu + gpu:
+    if name == "hillclimb":
+        lab.cfg.attack_languages = []            # wspinaczka: wszystkie leksykony (ok. 40 min)
+    elif name == "cognate":
+        lab.cfg.attack_languages = cfg.attack_languages
+    lab.run(name)
+    lab.push()                                   # po każdej teorii na GitHub, gdyby sesja padła
+lab.convene(cpu + gpu)
+lab.report(); lab.push()
+from IPython.display import Markdown, display
+for name in cpu + gpu:
+    display(Markdown((lab.cfg.results_dir / f"{name}.md").read_text()))"""),
+]
+
+
 def cell(kind, text):
     src = text.splitlines(keepends=True)
     if kind == "md":
@@ -253,7 +306,8 @@ nb = {"nbformat": 4, "nbformat_minor": 0,
       "cells": [cell(k, t) for k, t in cells]}
 for name, cs in (("Voynich_Lab.ipynb", cells), ("Voynich_Ilustracje.ipynb", illustrations_cells),
                  ("Voynich_Brute.ipynb", brute_cells), ("Voynich_Kolo.ipynb", wheel_cells),
-                 ("Voynich_Lamacze.ipynb", attack_cells)):
+                 ("Voynich_Lamacze.ipynb", attack_cells),
+                 ("Voynich_Final.ipynb", final_cells)):
     out = Path(__file__).with_name(name)
     out.write_text(json.dumps({**nb, "cells": [cell(k, t) for k, t in cs]}, indent=1, ensure_ascii=False), encoding="utf-8")
     print("wrote", out)

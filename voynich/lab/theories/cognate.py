@@ -13,7 +13,7 @@ from __future__ import annotations
 import time
 
 from ... import lexicon
-from ..brute import paragraph_lines
+from ..brute import paragraph_lines, relabel_lines
 from ..cognate import (EditIndex, Fit, Vocab, cognate_rate, fit, glyph_inventory, key_accuracy, noisy_encipher,
                        type_counts)
 from ..config import LabConfig
@@ -65,6 +65,7 @@ def run(cfg: LabConfig) -> TheoryResult:
     n_glyphs = len(glyph_inventory(lines))
     gen = [[tuple(w) for w in l] for l in generate_by_section(odd_runs(), V5_SECTION_PARAMS, cfg.seed)
            + generate_by_section(odd_runs(), V5_SECTION_PARAMS, cfg.seed + 1)]
+    relabelled = relabel_lines(lines, cfg.seed)   # a fresh glyph permutation on every line: no key can exist
     log = (lambda m: print(m, flush=True)) if not cfg.quick else None
     metrics, leads, untestable = {}, [], []
     for name in names:
@@ -94,13 +95,15 @@ def run(cfg: LabConfig) -> TheoryResult:
             untestable.append(name)
         v = _attack(lines, known, index, s, n_types, log)
         g = _attack(gen, known, index, s, n_types)
-        lead = ok and v["near"] >= g["near"] + 0.15 and v["near"] >= 0.3
-        metrics[name] = {"voynich": v, "generator": g, "enciphered": pos, "key_accuracy": acc, "lead": lead}
+        rl = _attack(relabelled, known, index, s, n_types)
+        lead = ok and v["near"] >= g["near"] + 0.15 and v["near"] >= rl["near"] + 0.15 and v["near"] >= 0.3
+        metrics[name] = {"voynich": v, "generator": g, "relabelled": rl, "enciphered": pos, "key_accuracy": acc, "lead": lead}
         if lead:
             leads.append(name)
         sample = " ".join("".join(v["key"].get(gl, "?") for gl in w) for w in lines[0][:8])
         res.evidence.append(f"{name}: rękopis – słowa w słowniku {v['exact']:.1%}, o jedną zmianę {v['near']:.1%} "
-                            f"(koszt transportu {v['cost']:.3f}); bełkot v5 – {g['exact']:.1%}, {g['near']:.1%}; "
+                            f"(koszt transportu {v['cost']:.3f}); bełkot v5 – {g['exact']:.1%}, {g['near']:.1%}; glify "
+                            f"przemianowane w każdym wierszu – {rl['exact']:.1%}, {rl['near']:.1%}; "
                             f"zaszyfrowany tekst – klucz {acc:.0%}, słowa {pos['near']:.0%}. " + ("TROP. " if lead else "")
                             + f"Odczyt pierwszego wiersza: „{sample}”.")
         print(f"  {name}: rękopis {v['exact']:.1%}/{v['near']:.1%} | bełkot {g['exact']:.1%}/{g['near']:.1%} | "

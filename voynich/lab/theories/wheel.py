@@ -16,7 +16,7 @@ import time
 from ... import corpus, eva, hoax, lengths, longrange
 from ..config import LabConfig
 from ..results import TheoryResult
-from ..wheel import Backend, Search, fit, scribe
+from ..wheel import Backend, Search, fit, random_wheel, scribe, write_random
 from .hoax import V5_SECTION_PARAMS, generate_by_section, odd_runs, split_lines
 
 
@@ -59,7 +59,19 @@ def run(cfg: LabConfig) -> TheoryResult:
     fmt = lambda b: f"pokrycie {b['coverage']:.1%}, koszt obrotu {b['turn']:.3f}"
     res.evidence.append(f"Rękopis: {fmt(best)} (tarcza z pokolenia {best['generation']}, {best['seconds']:.0f} s).")
     for name, b in controls.items():
-        res.evidence.append(f"{name}: {fmt(b)}.")
+        if name != "tekst znanej tarczy":
+            res.evidence.append(f"{name}: {fmt(b)}.")
+    # Positive control: a text really written with a known wheel (small turns) must be recovered as such.
+    known = random_wheel(text.seg, s.rings, s.cells, cfg.seed)
+    planted = write_random(known, text.seg, min(len(flat), 12000), cfg.seed)
+    print("  tarcza dla: tekst napisany znaną tarczą...", flush=True)
+    recovered, _ = fit(planted, s, xp, None)
+    overlap = statistics.mean(len(set(known[rr]) & set(recovered["rings"][rr])) / len(set(known[rr]))
+                              for rr in range(s.rings))
+    res.control("wyszukiwanie odzyskuje znaną tarczę z tekstu nią napisanego", "pokrycie ≥ 0,9 i koszt obrotu ≤ 0,25",
+                f"pokrycie {recovered['coverage']:.1%}, koszt {recovered['turn']:.3f}, wspólnych komórek {overlap:.0%}",
+                recovered["coverage"] >= 0.9 and recovered["turn"] <= 0.25)
+    controls["tekst znanej tarczy"] = {k: v for k, v in recovered.items() if k != "rings"} | {"cell_overlap": overlap}
     cheaper = best["turn"] < controls["słowa przetasowane"]["turn"] - 0.02
     res.control("tarcza rękopisu obraca się taniej niż na słowach przetasowanych", "koszt obrotu niższy o ≥ 0,02",
                 f"{best['turn']:.3f} wobec {controls['słowa przetasowane']['turn']:.3f}", cheaper)
