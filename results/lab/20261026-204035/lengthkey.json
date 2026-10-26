@@ -1,0 +1,161 @@
+{
+ "theory": "lengthkey",
+ "hypothesis": "Klucz szyfru zależy od długości słowa: słowa jedno-, dwu-, ..., dziewięcio- i więcej glifowe mają własne alfabety podstawieniowe (odstępy wybierają klucz).",
+ "method": "Glif g w słowie o klasie długości c staje się symbolem g#c (klasy 1–8 i 9+); wspinaczka homofoniczna (8192 wspinaczy, 3000 kroków, model 4-gramowy na cuda) nad takimi symbolami to dziewięć kluczy naraz. Dla każdego języka: bity na znak na wierszach parzystych z jednym kluczem i z kluczami po długości, dla rękopisu, bełkotu v5 i glifów przemianowanych w każdym wierszu (tło: więcej kluczy zawsze trochę pomaga). Kontrola dodatnia: tekst języka zaszyfrowany dziewięcioma kluczami, klucze odzyskane w ≥ 60% symboli. Trop: zysk rękopisu z kluczy po długości ≥ zysk v5 + 0,2 bitu i ≥ zysk przemianowanych + 0,2, przy wyniku ≤ naturalny + 0,8.",
+ "verdict": "nierozstrzygnięta",
+ "summary": "Tropy: brak; 6 języków. Największa przewaga zysku rękopisu nad bełkotem: French (-1.16 wobec -1.17 bitu); rękopis z kluczami po długości 5.19 bit/znak wobec naturalnego 2.64.",
+ "metrics": {
+  "languages": {
+   "Latin": {
+    "natural_bits": 2.994502570802588,
+    "key_accuracy": 0.380210791253736,
+    "rękopis": {
+     "one_key": 4.235909859526251,
+     "length_keys": 5.010067562545501,
+     "gain": -0.7741577030192497
+    },
+    "sample": "ritas edem et inite eis meme rman i",
+    "bełkot v5": {
+     "one_key": 4.111428689679266,
+     "length_keys": 4.79303053191363,
+     "gain": -0.6816018422343646
+    },
+    "przemianowane": {
+     "one_key": 6.7058863127749895,
+     "length_keys": 7.434112030586888,
+     "gain": -0.7282257178118989
+    },
+    "lead": false
+   },
+   "Italian": {
+    "natural_bits": 2.3056567696312555,
+    "key_accuracy": 0.27123858674077017,
+    "rękopis": {
+     "one_key": 4.286517837051794,
+     "length_keys": 5.094918862296493,
+     "gain": -0.8084010252446987
+    },
+    "sample": "seeeo iseo un ebere sei aioi rori a",
+    "bełkot v5": {
+     "one_key": 4.113797678449464,
+     "length_keys": 4.808103166769425,
+     "gain": -0.6943054883199613
+    },
+    "przemianowane": {
+     "one_key": 6.774378053909208,
+     "length_keys": 7.8782155359002575,
+     "gain": -1.1038374819910493
+    },
+    "lead": false
+   },
+   "German": {
+    "natural_bits": 2.2447422734410463,
+    "key_accuracy": 0.4449297971918877,
+    "rękopis": {
+     "one_key": 4.298635748492436,
+     "length_keys": 5.231236127119678,
+     "gain": -0.9326003786272423
+    },
+    "sample": "zsenb esen de sisen hen aere grss s",
+    "bełkot v5": {
+     "one_key": 4.2343820046984595,
+     "length_keys": 5.069058537356519,
+     "gain": -0.8346765326580599
+    },
+    "przemianowane": {
+     "one_key": 7.203140317785244,
+     "length_keys": 7.884698916611655,
+     "gain": -0.6815585988264115
+    },
+    "lead": false
+   },
+   "French": {
+    "natural_bits": 2.6365777084572746,
+    "key_accuracy": 0.3646902947996025,
+    "rękopis": {
+     "one_key": 4.028096001297623,
+     "length_keys": 5.1925823617035505,
+     "gain": -1.1644863604059275
+    },
+    "sample": "ertse eret ns reras ain aese csrc c",
+    "bełkot v5": {
+     "one_key": 3.958871171353134,
+     "length_keys": 5.131382069948006,
+     "gain": -1.1725108985948718
+    },
+    "przemianowane": {
+     "one_key": 6.9441779266994,
+     "length_keys": 7.729446349679668,
+     "gain": -0.785268422980268
+    },
+    "lead": false
+   },
+   "Spanish": {
+    "natural_bits": 2.485751693432983,
+    "key_accuracy": 0.27317554240631164,
+    "rękopis": {
+     "one_key": 4.3370996815179375,
+     "length_keys": 5.211763485142351,
+     "gain": -0.8746638036244132
+    },
+    "sample": "ciper ocen al icido les roso rses q",
+    "bełkot v5": {
+     "one_key": 4.244068226329403,
+     "length_keys": 5.034886994653315,
+     "gain": -0.7908187683239118
+    },
+    "przemianowane": {
+     "one_key": 7.079318670583368,
+     "length_keys": 8.07474739236201,
+     "gain": -0.9954287217786417
+    },
+    "lead": false
+   },
+   "Czech": {
+    "natural_bits": 2.6371931003776914,
+    "key_accuracy": 0.1807390388665518,
+    "rękopis": {
+     "one_key": 4.836957924641053,
+     "length_keys": 5.620237474597713,
+     "gain": -0.78327954995666
+    },
+    "sample": "jeeen enam ta elest sem zame nmim a",
+    "bełkot v5": {
+     "one_key": 4.717950970656466,
+     "length_keys": 5.345763930221491,
+     "gain": -0.6278129595650244
+    },
+    "przemianowane": {
+     "one_key": 7.84845685032966,
+     "length_keys": 8.302565585084874,
+     "gain": -0.4541087347552146
+    },
+    "lead": false
+   }
+  },
+  "n_glyphs": 28,
+  "device": "cuda",
+  "population": 8192,
+  "steps": 3000
+ },
+ "controls": [],
+ "evidence": [
+  "Latin: rękopis 4.24 → 5.01 bit/znak (zysk -0.77); bełkot v5 4.11 → 4.79 (zysk -0.68); przemianowane 6.71 → 7.43 (zysk -0.73); naturalny 2.99; szyfr testowy odzyskany w 38%. Odczyt pierwszego wiersza: „ritas edem et inite eis meme rman i”.",
+  "Italian: rękopis 4.29 → 5.09 bit/znak (zysk -0.81); bełkot v5 4.11 → 4.81 (zysk -0.69); przemianowane 6.77 → 7.88 (zysk -1.10); naturalny 2.31; szyfr testowy odzyskany w 27%. Odczyt pierwszego wiersza: „seeeo iseo un ebere sei aioi rori a”.",
+  "German: rękopis 4.30 → 5.23 bit/znak (zysk -0.93); bełkot v5 4.23 → 5.07 (zysk -0.83); przemianowane 7.20 → 7.88 (zysk -0.68); naturalny 2.24; szyfr testowy odzyskany w 44%. Odczyt pierwszego wiersza: „zsenb esen de sisen hen aere grss s”.",
+  "French: rękopis 4.03 → 5.19 bit/znak (zysk -1.16); bełkot v5 3.96 → 5.13 (zysk -1.17); przemianowane 6.94 → 7.73 (zysk -0.79); naturalny 2.64; szyfr testowy odzyskany w 36%. Odczyt pierwszego wiersza: „ertse eret ns reras ain aese csrc c”.",
+  "Spanish: rękopis 4.34 → 5.21 bit/znak (zysk -0.87); bełkot v5 4.24 → 5.03 (zysk -0.79); przemianowane 7.08 → 8.07 (zysk -1.00); naturalny 2.49; szyfr testowy odzyskany w 27%. Odczyt pierwszego wiersza: „ciper ocen al icido les roso rses q”.",
+  "Czech: rękopis 4.84 → 5.62 bit/znak (zysk -0.78); bełkot v5 4.72 → 5.35 (zysk -0.63); przemianowane 7.85 → 8.30 (zysk -0.45); naturalny 2.64; szyfr testowy odzyskany w 18%. Odczyt pierwszego wiersza: „jeeen enam ta elest sem zame nmim a”."
+ ],
+ "caveats": [
+  "Dziewięć kluczy to dziewięć razy więcej swobody: każdy tekst zyskuje; liczy się tylko nadwyżka zysku nad bełkotem i nad glifami przemianowanymi.",
+  "Klasy długości liczone w glifach EVA (ch, sh, cth jako jeden); długości 9+ razem, bo powyżej to 0,2% słów."
+ ],
+ "references": [
+  "Van Eycke, AZdecrypt (2017–2021)",
+  "Stolfi, On the VMS word length distribution (2000)"
+ ],
+ "artifacts": [],
+ "seconds": 2265.22500371933,
+ "council": {}
+}
