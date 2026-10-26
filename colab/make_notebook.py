@@ -437,6 +437,31 @@ display(Markdown((lab.cfg.results_dir / "v6.md").read_text()))"""),
 ]
 
 
+# A key per word length, on the GPU: six languages, nine keys at once.
+lengthkey_cells = [
+    ("md", """# Voynich Lab – inny klucz dla każdej długości słowa
+
+Czy skryba używał innego alfabetu podstawieniowego dla słów jedno-, dwu-, ..., dziewięcioglifowych (odstępy wybierają
+klucz)? Glif w słowie o danej długości staje się osobnym symbolem, więc wspinaczka homofoniczna na GPU szuka dziewięciu
+kluczy naraz. Więcej kluczy zawsze trochę pomaga, dlatego zysk rękopisu porównuje się z zyskiem bełkotu v5 i glifów
+przemianowanych w każdym wierszu; łacina zaszyfrowana dziewięcioma kluczami musi zostać odzyskana. Sześć języków:
+łacina, włoski, niemiecki, francuski, hiszpański, czeski.
+
+**Runtime:** A100. Sekrety: `GITHUB_TOKEN`, `OPENROUTER_API_KEY`. Czas: ok. 1 h."""),
+    cells[1],
+    cells[3],
+    ("code", """!python scripts/fetch_data.py
+!python scripts/fetch_lexicons.py"""),
+    cells[5],
+    ("code", cells[7][1].replace('theories=["all"],          # albo np. ["numbers", "literature"]', 'theories=["lengthkey"],')),
+    ("code", """lab.run("lengthkey"); lab.push()
+lab.convene(["lengthkey"])
+lab.report(); lab.push()
+from IPython.display import Markdown, display
+display(Markdown((lab.cfg.results_dir / "lengthkey.md").read_text()))"""),
+]
+
+
 def cell(kind, text):
     src = text.splitlines(keepends=True)
     if kind == "md":
@@ -456,7 +481,8 @@ for name, cs in (("Voynich_Lab.ipynb", cells), ("Voynich_Ilustracje.ipynb", illu
                  ("Voynich_Final.ipynb", final_cells),
                  ("Voynich_Notacja.ipynb", notation_cells),
                  ("Voynich_Rejestr.ipynb", rejestr_cells), ("Voynich_Rejestr_GPU.ipynb", rejestr_gpu_cells),
-                 ("Voynich_Klucz.ipynb", keystream_cells), ("Voynich_V7.ipynb", v7_cells)):
+                 ("Voynich_Klucz.ipynb", keystream_cells), ("Voynich_V7.ipynb", v7_cells),
+                 ("Voynich_Klucz_Dlugosci.ipynb", lengthkey_cells)):
     base = nb_cpu if name in ("Voynich_Rejestr.ipynb", "Voynich_Klucz.ipynb") else nb
     out = Path(__file__).with_name(name)
     out.write_text(json.dumps({**base, "cells": [cell(k, t) for k, t in cs]}, indent=1, ensure_ascii=False), encoding="utf-8")

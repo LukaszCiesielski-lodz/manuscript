@@ -224,3 +224,44 @@ def key_accuracy(found: dict, true: dict, lines: Sequence[Sequence[Word]]) -> fl
 
 def split_odd_even(lines: Sequence[Sequence[Word]]) -> tuple[list, list]:
     return [l for i, l in enumerate(lines) if i % 2 == 0], [l for i, l in enumerate(lines) if i % 2 == 1]
+
+
+# ---------- a key per word length (the symbol "g#c" is glyph g inside a word of length class c)
+
+CLASSES = 9
+
+
+def length_class(n: int, classes: int = CLASSES) -> int:
+    """Word lengths 1..classes-1 are their own class; longer words share the last one."""
+    return min(max(1, n), classes)
+
+
+def by_length(lines: Sequence[Sequence[Word]], classes: int = CLASSES) -> list[list[Word]]:
+    """Glyphs renamed by the length class of their word, so that one homophonic key over the renamed symbols
+    is a separate key for every word length."""
+    return [[tuple(f"{g}#{length_class(len(w), classes)}" for g in w) for w in l] for l in lines]
+
+
+def encipher_by_length(words: Sequence[str], n_glyphs: int, seed: int, classes: int = CLASSES, line_len: int = 9) -> tuple[list[list[Word]], dict]:
+    """Real text where every word-length class has a homophonic key of its own; lines of pseudo-glyph words whose
+    symbols already carry the class (g#c), and the true key symbol -> letter."""
+    by_class: dict[int, list[str]] = {}
+    for w in words:
+        by_class.setdefault(length_class(len(w), classes), []).append(w)
+    enc_words: dict[int, list[Word]] = {}
+    truth: dict = {}
+    for c, ws in by_class.items():
+        lines, key = encipher_homophonic(ws, n_glyphs, seed + 97 * c, line_len=10 ** 9)
+        enc_words[c] = [tuple(f"{g}#{c}" for g in w) for l in lines for w in l]
+        truth.update({f"{g}#{c}": letter for g, letter in key.items()})
+    # restore the original word order (the classes were enciphered separately)
+    pos = {c: 0 for c in by_class}
+    out: list[Word] = []
+    for w in words:
+        c = length_class(len(w), classes)
+        if pos[c] < len(enc_words[c]):
+            cand = enc_words[c][pos[c]]
+            if len(cand) == len(w):
+                out.append(cand)
+                pos[c] += 1
+    return [out[i:i + line_len] for i in range(0, len(out), line_len)], truth

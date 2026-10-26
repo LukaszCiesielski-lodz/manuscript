@@ -257,7 +257,7 @@ class NotebookTest(unittest.TestCase):
         from pathlib import Path
         for name in ("Voynich_Lab.ipynb", "Voynich_Ilustracje.ipynb", "Voynich_Brute.ipynb", "Voynich_Final.ipynb",
                      "Voynich_Notacja.ipynb", "Voynich_Rejestr.ipynb", "Voynich_Rejestr_GPU.ipynb",
-                     "Voynich_Klucz.ipynb", "Voynich_V7.ipynb"):
+                     "Voynich_Klucz.ipynb", "Voynich_V7.ipynb", "Voynich_Klucz_Dlugosci.ipynb"):
             nb = json.loads((Path(__file__).resolve().parent.parent / "colab" / name).read_text(encoding="utf-8"))
             for i, c in enumerate(nb["cells"]):
                 if c["cell_type"] == "code":
@@ -901,3 +901,37 @@ class AdjacentMeasureTest(unittest.TestCase):
         plain = generate_by_section(runs, V5_SECTION_PARAMS, 5, models=models)
         edged = generate_by_section(runs, {**V5_SECTION_PARAMS, "p_edge": 0.9}, 5, models=models)
         self.assertLess(hoax.adjacent_mi_excess(edged), hoax.adjacent_mi_excess(plain) - 0.05)
+
+
+class LengthKeyTest(unittest.TestCase):
+    def test_symbols_by_length(self):
+        from voynich.lab import hillclimb as H
+        lines = [[("d", "a", "i", "i", "n"), ("o", "l")], [("ch", "e", "d", "y"), ("o", "l"), ("s",)]]
+        bl = H.by_length(lines)
+        self.assertEqual(sum(len(w) for l in bl for w in l), sum(len(w) for l in lines for w in l))
+        self.assertEqual(bl[0][1], ("o#2", "l#2"))
+        self.assertEqual(bl[1][2], ("s#1",))
+        self.assertEqual(H.length_class(14), 9)
+        self.assertLessEqual(len(H.glyph_inventory(bl, 1)), 9 * len(H.glyph_inventory(lines, 1)))
+
+    def test_cipher_by_length_has_separate_keys(self):
+        from voynich.lab import hillclimb as H
+        words = "in principio creavit deus caelum et terram terra autem erat inanis et vacua".split() * 30
+        enc, truth = H.encipher_by_length(words, 22, 1)
+        keys = {}
+        for sym, letter in truth.items():
+            g, c = sym.split("#")
+            keys.setdefault(c, {})[g] = letter
+        self.assertGreaterEqual(len(keys), 3)
+        self.assertNotEqual(keys["2"], keys["5"])
+        self.assertEqual(len([w for l in enc for w in l]), len(words))
+        self.assertTrue(all(s.endswith("#2") for w in [w for l in enc for w in l] if len(w) == 2 for s in w))
+
+    def test_theory_without_torch_is_undecided(self):
+        from voynich.lab.config import LabConfig
+        from voynich.lab.theories import lengthkey
+        try:
+            import torch  # noqa: F401
+        except ImportError:
+            r = lengthkey.run(LabConfig(quick=True))
+            self.assertEqual(r.verdict, "nierozstrzygnięta")
