@@ -257,7 +257,8 @@ class NotebookTest(unittest.TestCase):
         from pathlib import Path
         for name in ("Voynich_Lab.ipynb", "Voynich_Ilustracje.ipynb", "Voynich_Brute.ipynb", "Voynich_Final.ipynb",
                      "Voynich_Notacja.ipynb", "Voynich_Rejestr.ipynb", "Voynich_Rejestr_GPU.ipynb",
-                     "Voynich_Klucz.ipynb", "Voynich_V7.ipynb", "Voynich_Klucz_Dlugosci.ipynb"):
+                     "Voynich_Klucz.ipynb", "Voynich_V7.ipynb", "Voynich_Klucz_Dlugosci.ipynb",
+                     "Voynich_Brute_Dlugosci.ipynb"):
             nb = json.loads((Path(__file__).resolve().parent.parent / "colab" / name).read_text(encoding="utf-8"))
             for i, c in enumerate(nb["cells"]):
                 if c["cell_type"] == "code":
@@ -935,3 +936,16 @@ class LengthKeyTest(unittest.TestCase):
         except ImportError:
             r = lengthkey.run(LabConfig(quick=True))
             self.assertEqual(r.verdict, "nierozstrzygnięta")
+
+
+class BruteLengthTest(unittest.TestCase):
+    def test_length_sets(self):
+        from voynich.lab.theories.brute_length import length_sets
+        lines = [[("o", "l"), ("d", "a", "i", "i", "n"), ("s",), ("c", "h", "o", "l")], [("o", "r"), ("d", "a", "i", "n"), tuple("abcdefghijk")]]
+        sets = length_sets(lines, line_len=2)
+        self.assertEqual(sets[2], [[("o", "l"), ("o", "r")]])
+        self.assertEqual(sets[4], [[("c", "h", "o", "l"), ("d", "a", "i", "n")]])
+        self.assertEqual(sets[5], [[("d", "a", "i", "i", "n")]])
+        self.assertEqual(sets[9], [[tuple("abcdefghijk")]])
+        self.assertNotIn(1, sets)
+        self.assertEqual(sum(len(w) for ws in sets.values() for l in ws for w in l), sum(len(w) for l in lines for w in l) - 1)

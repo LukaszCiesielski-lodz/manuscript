@@ -462,6 +462,30 @@ display(Markdown((lab.cfg.results_dir / "lengthkey.md").read_text()))"""),
 ]
 
 
+# Brute force per word-length set, on the GPU.
+brute_length_cells = [
+    ("md", """# Voynich Lab – brute force osobno na każdym zbiorze słów jednakowej długości
+
+Słowa rękopisu podzielone na zbiory według długości (2, 3, ..., 8 glifów i 9+); każdy zbiór to osobny szyfr z własnym
+kluczem, atakowany brute force trójka po trójce przeciw sześciu leksykonom (łacina, włoski, niemiecki, francuski,
+hiszpański, czeski). Na każdym zbiorze to samo tło co w `brute`: bełkot v5 podzielony tak samo, słowa przetasowane, glify
+przemianowane; kontrola dodatnia: tekst języka zaszyfrowany i podzielony według długości musi oddać klucz każdego zbioru.
+
+**Runtime:** A100. Sekrety: `GITHUB_TOKEN`, `OPENROUTER_API_KEY`. Czas: ok. 30–40 min."""),
+    cells[1],
+    cells[3],
+    ("code", """!python scripts/fetch_data.py
+!python scripts/fetch_lexicons.py"""),
+    cells[5],
+    ("code", cells[7][1].replace('theories=["all"],          # albo np. ["numbers", "literature"]', 'theories=["brute_length"],')),
+    ("code", """lab.run("brute_length"); lab.push()
+lab.convene(["brute_length"])
+lab.report(); lab.push()
+from IPython.display import Markdown, display
+display(Markdown((lab.cfg.results_dir / "brute_length.md").read_text()))"""),
+]
+
+
 def cell(kind, text):
     src = text.splitlines(keepends=True)
     if kind == "md":
@@ -482,7 +506,7 @@ for name, cs in (("Voynich_Lab.ipynb", cells), ("Voynich_Ilustracje.ipynb", illu
                  ("Voynich_Notacja.ipynb", notation_cells),
                  ("Voynich_Rejestr.ipynb", rejestr_cells), ("Voynich_Rejestr_GPU.ipynb", rejestr_gpu_cells),
                  ("Voynich_Klucz.ipynb", keystream_cells), ("Voynich_V7.ipynb", v7_cells),
-                 ("Voynich_Klucz_Dlugosci.ipynb", lengthkey_cells)):
+                 ("Voynich_Klucz_Dlugosci.ipynb", lengthkey_cells), ("Voynich_Brute_Dlugosci.ipynb", brute_length_cells)):
     base = nb_cpu if name in ("Voynich_Rejestr.ipynb", "Voynich_Klucz.ipynb") else nb
     out = Path(__file__).with_name(name)
     out.write_text(json.dumps({**base, "cells": [cell(k, t) for k, t in cs]}, indent=1, ensure_ascii=False), encoding="utf-8")
