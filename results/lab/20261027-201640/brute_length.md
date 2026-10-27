@@ -66,9 +66,23 @@
 - W zbiorze jednej długości „trójka” to trzy kolejne słowa tej długości w kolejności czytania, nie sąsiedzi w tekście; sens par jest więc słabszym sygnałem niż w teorii brute, liczy się zgodność klucza i udział słów w słowniku.
 - Zbiory krótkich słów (2–3 glify) mają mało wzorów powtórzeń, więc wiele odczytów pasuje z przypadku; tło bełkotu to wyrównuje.
 
+## Rada modeli
+
+## Werdykt rady
+**Wynik jest sugestywny, ale test nie uzasadnia stanowczego odrzucenia hipotezy.** Zgodność jest umiarkowana: A i D skłaniają się ku obaleniu w badanym zakresie, B kwestionuje wiarygodność metody, a C zajmuje stanowisko ostrożne. Kluczowe jest to, że raport nie dokumentuje pełnej kontroli ujemnej dla głównej miary.
+
+## Co test naprawdę pokazuje
+W 34 zbiorach uznanych za testowalne kontrole dodatnie — teksty zaszyfrowane — osiągnęły podane progi. Wyniki rękopisu na ogół nie przewyższają bełkotu, co nie wspiera hipotezy o osobnym kluczu podstawieniowym dla każdej długości. Jest jednak wyjątek: French, długość 2, gdzie wynik rękopisu to 93,9%, a bełkotu 87,6%, wbrew podsumowaniu raportu. Sześć zbiorów pominięto, bo kontrola dodatnia nie spełniła progów; dodatkowo raport pomija małe zbiory długości 8 i 9+.
+
+## Główne zastrzeżenia
+Dla danych przetasowanych/przemianowanych podano miarę „spójności”, ale nie porównywalny wynik głównej miary słownikowej ani jasne kryterium zaliczenia. Zatem nie można potwierdzić, że metoda nie wykrywa efektu w kontroli ujemnej — warunku wiarygodności testu. Brakuje też oceny niepewności, a wynik French/2 wymaga wyjaśnienia.
+
+## Rekomendowany następny eksperyment
+Powtórzyć test z wieloma kontrolami ujemnymi, stosując do nich tę samą miarę słownikową co do rękopisu; z góry ustalić kryteria i podać rozkład wyników oraz niepewność. Zachować kontrolę dodatnią i osobno oznaczyć zbiory nietestowalne.
+
 ## Literatura
 
 - Hauer & Kondrak, Decoding Anagrammed Texts Written in an Unknown Language and Script, TACL 4 (2016)
 - Stolfi, On the VMS word length distribution (2000)
 
-_Czas: 563 s · 2026-10-27 20:26_
+_Czas: 563 s · 2026-10-27 20:30_

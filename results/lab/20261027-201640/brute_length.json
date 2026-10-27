@@ -16318,5 +16318,117 @@
  ],
  "artifacts": [],
  "seconds": 562.68390417099,
- "council": {}
+ "council": {
+  "members": [
+   "z-ai/glm-5.3-flash",
+   "openai/gpt-6-luna",
+   "inception/mercury-3",
+   "tencent/hy3"
+  ],
+  "chair": "openai/gpt-6-luna",
+  "round1": {
+   "z-ai/glm-5.3-flash": {
+    "raw": "{\"werdykt\": \"obalona\", \"pewność\": 0.8, \"najmocniejszy_dowód\": \"Kontrola dodatnia przeszła we wszystkich 34 testowalnych zbiorach (odzyskanie klucza 59–100%, słownik 59–100% dla zaszyfrowanego tekstu), a mimo to w żadnym zbiorze rękopis nie wygrywa z bełkotem — np. Latin dł. 4: słownik rękopisu 14,1% vs bełkot 4,9%, ale spójność 0,19 vs 0,20; Latin dł. 7: rękopis 0,0% vs bełkot 7,8% (bełkot lepszy).\", \"słabości\": [\"Małe zbiory (dł. 8 i 9+, 209–537 słów) mogą być za krótkie na wiarygodną ocenę; 6 zbiorów pominiętych jako nietestowalnych\", \"Przy 4000 najczęstszych trójkach metoda może nie obejmować rzadkich glifów/kluczy rzadkich\", \"Leksykony współczesne/standaryzowane mogą nie odpowiadać językowi epoki (pisownia historyczna)\", \"Podział na pseudowiersze po 9 słów arbitralny — inna segmentacja mogłaby dać inny wynik\", \"Miara 'spójność' bliska bełkotowi (0,17–0,38) sugeruje niską moc statystyczną, nie tylko brak efektu\"], \"inne_wyjaśnienia\": [\"Rękopis może być zaszyfrowany inaczej niż prostym podstawieniem per-długość (np. z użyciem homofonów, polialfabetycznie, z transpozycją)\", \"Tekst może nie być naturalnym językiem z leksykonów (sztuczny język, żargon, skróty)\", \"Segmentacja słów/glifów (tokenizacja) może być błędna, co psuje podstawienie\"], \"następny_test\": \"Powtórzyć brute force z rozszerzonym przestrzeniem kluczy (wszystkie trójki, nie tylko top 4000) i leksykonami historycznymi odpowiadającymi epoce rękopisu, oraz z segmentacją pseudowierszy o różnych długościach (np. 5, 9, 15 słów), żeby wykluczyć artefakty segmentacji i pokrycia kluczy.\"}",
+    "json": {
+     "werdykt": "obalona",
+     "pewność": 0.8,
+     "najmocniejszy_dowód": "Kontrola dodatnia przeszła we wszystkich 34 testowalnych zbiorach (odzyskanie klucza 59–100%, słownik 59–100% dla zaszyfrowanego tekstu), a mimo to w żadnym zbiorze rękopis nie wygrywa z bełkotem — np. Latin dł. 4: słownik rękopisu 14,1% vs bełkot 4,9%, ale spójność 0,19 vs 0,20; Latin dł. 7: rękopis 0,0% vs bełkot 7,8% (bełkot lepszy).",
+     "słabości": [
+      "Małe zbiory (dł. 8 i 9+, 209–537 słów) mogą być za krótkie na wiarygodną ocenę; 6 zbiorów pominiętych jako nietestowalnych",
+      "Przy 4000 najczęstszych trójkach metoda może nie obejmować rzadkich glifów/kluczy rzadkich",
+      "Leksykony współczesne/standaryzowane mogą nie odpowiadać językowi epoki (pisownia historyczna)",
+      "Podział na pseudowiersze po 9 słów arbitralny — inna segmentacja mogłaby dać inny wynik",
+      "Miara 'spójność' bliska bełkotowi (0,17–0,38) sugeruje niską moc statystyczną, nie tylko brak efektu"
+     ],
+     "inne_wyjaśnienia": [
+      "Rękopis może być zaszyfrowany inaczej niż prostym podstawieniem per-długość (np. z użyciem homofonów, polialfabetycznie, z transpozycją)",
+      "Tekst może nie być naturalnym językiem z leksykonów (sztuczny język, żargon, skróty)",
+      "Segmentacja słów/glifów (tokenizacja) może być błędna, co psuje podstawienie"
+     ],
+     "następny_test": "Powtórzyć brute force z rozszerzonym przestrzeniem kluczy (wszystkie trójki, nie tylko top 4000) i leksykonami historycznymi odpowiadającymi epoce rękopisu, oraz z segmentacją pseudowierszy o różnych długościach (np. 5, 9, 15 słów), żeby wykluczyć artefakty segmentacji i pokrycia kluczy."
+    }
+   },
+   "openai/gpt-6-luna": {
+    "raw": "{\n  \"werdykt\": \"metoda niewiarygodna\",\n  \"pewność\": 0.94,\n  \"najmocniejszy_dowód\": \"Nie da się potwierdzić wymaganych kontroli: wyniki kontroli z przetasowanymi danymi podano tylko jako miarę „spójności”, bez wyników dla głównej miary słownikowej ani jasnego kryterium zaliczenia. Ponadto podsumowanie mówi, że rękopis nigdzie nie przewyższa bełkotu, ale zarazem podaje 93,9% wobec 87,6% dla francuskiego zbioru długości 2.\",\n  \"słabości\": [\n    \"Kontrole dodatnie dla włoskich zbiorów długości 2 i 3 nie osiągnęły progów i zostały uznane za nietestowalne; nie pokazano pełnych wyników kontroli dla wszystkich analizowanych zbiorów.\",\n    \"Brakuje porównywalnych wyników głównej miary dla danych przetasowanych, więc nie można sprawdzić, czy metoda nie wykrywa efektu w kontroli ujemnej.\",\n    \"Raport jest niepełny: część dowodów urywa się w wynikach niemieckich, a podsumowanie zawiera sprzeczność dotyczącą przewagi nad bełkotem.\"\n  ],\n  \"inne_wyjaśnienia\": [\n    \"Wysoki wynik dla krótkich słów może wynikać z dopasowań przypadkowych lub własności słowników; raport pokazuje, że także bełkot osiąga tam wysoki wynik.\",\n    \"Ograniczenie wyszukiwania do 4000 najczęstszych trójek i sześciu leksykonów może wpływać na wyniki, choć raport nie pozwala określić skali tego wpływu.\"\n  ],\n  \"następny_test\": \"Powtórzyć analizę z pełnym, z góry ustalonym zestawem wyników dla każdego zbioru: zastosować identyczną miarę do rękopisu, tekstu zaszyfrowanego i wielu przetasowanych kontroli, z progami zaliczenia ustalonymi przed testem; opublikować także wszystkie pominięte i nietestowalne przypadki.\"\n}",
+    "json": {
+     "werdykt": "metoda niewiarygodna",
+     "pewność": 0.94,
+     "najmocniejszy_dowód": "Nie da się potwierdzić wymaganych kontroli: wyniki kontroli z przetasowanymi danymi podano tylko jako miarę „spójności”, bez wyników dla głównej miary słownikowej ani jasnego kryterium zaliczenia. Ponadto podsumowanie mówi, że rękopis nigdzie nie przewyższa bełkotu, ale zarazem podaje 93,9% wobec 87,6% dla francuskiego zbioru długości 2.",
+     "słabości": [
+      "Kontrole dodatnie dla włoskich zbiorów długości 2 i 3 nie osiągnęły progów i zostały uznane za nietestowalne; nie pokazano pełnych wyników kontroli dla wszystkich analizowanych zbiorów.",
+      "Brakuje porównywalnych wyników głównej miary dla danych przetasowanych, więc nie można sprawdzić, czy metoda nie wykrywa efektu w kontroli ujemnej.",
+      "Raport jest niepełny: część dowodów urywa się w wynikach niemieckich, a podsumowanie zawiera sprzeczność dotyczącą przewagi nad bełkotem."
+     ],
+     "inne_wyjaśnienia": [
+      "Wysoki wynik dla krótkich słów może wynikać z dopasowań przypadkowych lub własności słowników; raport pokazuje, że także bełkot osiąga tam wysoki wynik.",
+      "Ograniczenie wyszukiwania do 4000 najczęstszych trójek i sześciu leksykonów może wpływać na wyniki, choć raport nie pozwala określić skali tego wpływu."
+     ],
+     "następny_test": "Powtórzyć analizę z pełnym, z góry ustalonym zestawem wyników dla każdego zbioru: zastosować identyczną miarę do rękopisu, tekstu zaszyfrowanego i wielu przetasowanych kontroli, z progami zaliczenia ustalonymi przed testem; opublikować także wszystkie pominięte i nietestowalne przypadki."
+    }
+   },
+   "inception/mercury-3": {
+    "raw": "{\n  \"werdykt\": \"obalona\",\n  \"pewność\": 0.68,\n  \"najmocniejszy_dowód\": \"Kontrole pozytywne przeszły dla wszystkich testowalnych zbiorów, np. łacina dł. 4–8 osiągała >97% zgodności słownika i 100% odzyskanego klucza, a mimo to w żadnym z 34 zbiorów rękopis nie wykazał przewagi nad bełkotem.\",\n  \"słabości\": [\n    \"Raport nie podaje przedziałów ufności ani testów istotności, więc różnice takie jak 93.9% vs 87.6% mogą być nieistotne statystycznie.\",\n    \"Pominięto zbiory o małej liczbie słów oraz kilka zbiorów długości 2–3 z powodu nieudanych kontrolek dodatnich, a właśnie krótkie słowa mogą być kluc",
+    "json": {}
+   },
+   "tencent/hy3": {
+    "raw": "{\n  \"werdykt\": \"obalona\",\n  \"pewność\": 0.95,\n  \"najmocniejszy_dowód\": \"We wszystkich 34 testowalnych zbiorach długości rękopis nie przewyższył tła bełkotu w udziale słów w słowniku pod kluczem (najwyższy wynik rękopisu 93.9% vs bełkot 87.6% dla French dł. 2), a kontrole dodatnie na zaszyfrowanych tekstach przeszły (odzyskano klucze i >60% słów w słowniku), co udowadnia, że metoda wykryłaby szyfr, gdyby był obecny.\",\n  \"słabości\": [\n    \"Pominięto 6 zbiorów (Italian/2, Italian/3, German/2, Spanish/2, Czech/2, Czech/3 oraz długości 8-9+ w niektórych językach) z powodu małej liczby słów lub nietestowalności metody – nie zostały one przebadane.\",\n    \"Metoda porównuje tylko z bełkotem v5; nie testowano innych modeli szumu ani tekstów naturalnych bez szyfru.\",\n    \"Miara 'spójności' dla rękopisu i bełkotu jest niemal identyczna we wszystkich długościach, co sugeruje, że test nie rozróżnia struktury rękopisu od pseudolosowej pod tym parametrem.\"\n  ],\n  \"inne_wyjaśnienia\": [\n    \"Hipoteza, że słowa tej samej długości mają osobny klucz, jest fałszywa lub rękopis nie jest szyfrem podstawieniowym żadnego z 6 leksykonów.\",\n    \"Rękopis może być szyfrem polialfabetycznym, homofonicznym lub niepodzielnym na zbiory długości.\"\n  ],\n  \"następny_test\": \"Test pojedynczego globalnego klucza podstawieniowego na całym korpusie rękopisu (bez podziału na długości słów) z tymi samymi leksykonami i kontrolami dodatnimi/ujemnymi.\"\n}",
+    "json": {
+     "werdykt": "obalona",
+     "pewność": 0.95,
+     "najmocniejszy_dowód": "We wszystkich 34 testowalnych zbiorach długości rękopis nie przewyższył tła bełkotu w udziale słów w słowniku pod kluczem (najwyższy wynik rękopisu 93.9% vs bełkot 87.6% dla French dł. 2), a kontrole dodatnie na zaszyfrowanych tekstach przeszły (odzyskano klucze i >60% słów w słowniku), co udowadnia, że metoda wykryłaby szyfr, gdyby był obecny.",
+     "słabości": [
+      "Pominięto 6 zbiorów (Italian/2, Italian/3, German/2, Spanish/2, Czech/2, Czech/3 oraz długości 8-9+ w niektórych językach) z powodu małej liczby słów lub nietestowalności metody – nie zostały one przebadane.",
+      "Metoda porównuje tylko z bełkotem v5; nie testowano innych modeli szumu ani tekstów naturalnych bez szyfru.",
+      "Miara 'spójności' dla rękopisu i bełkotu jest niemal identyczna we wszystkich długościach, co sugeruje, że test nie rozróżnia struktury rękopisu od pseudolosowej pod tym parametrem."
+     ],
+     "inne_wyjaśnienia": [
+      "Hipoteza, że słowa tej samej długości mają osobny klucz, jest fałszywa lub rękopis nie jest szyfrem podstawieniowym żadnego z 6 leksykonów.",
+      "Rękopis może być szyfrem polialfabetycznym, homofonicznym lub niepodzielnym na zbiory długości."
+     ],
+     "następny_test": "Test pojedynczego globalnego klucza podstawieniowego na całym korpusie rękopisu (bez podziału na długości słów) z tymi samymi leksykonami i kontrolami dodatnimi/ujemnymi."
+    }
+   }
+  },
+  "round2": {
+   "z-ai/glm-5.3-flash": {
+    "raw": "{\"ranking\": [\"D\", \"C\", \"B\"], \"uwagi\": \"D najtrafniej oddaje strukturę dowodu: 34 kontrolki dodatnie przeszły (odzyskanie klucza 59–100%, w większości ~100%), więc metoda potrafi znaleźć podłożony szyfr, a mimo to rękopis nie przewyższa bełkotu w żadnym testowalnym zbiorze. Drobna pomyłka D: zbiory Italian/2,3, German/2, Spanish/2, Czech/2,3 pominięto nie z powodu małej liczby słów, lecz dlatego, że kontrola dodatnia nie osiągnęła progów (nietestowalne). C jest zgodna z D, ale jej opinia jest ucięta i wskazuje trafnie na brak testów istotności (93.9% vs 87.6% przy jednorazowym przebiegu bez rozkładu tła). B ma słuszne wątpliwości metodologiczne (raport urywa się na niemieckich zbiorach, brak pełnych rozkładów tła dla miary słownikowej), ale jej główny zarzut 'sprzeczności' jest błędny: 93.9% wobec 87.6% to marginalna przewaga rękopisu w jednym zbiorze, którą summary nieprecyzyjnie opisuje jako brak wygranej — to problem raportu, a nie dowód niewiarygodności metody. Zarzut B, że brak wyników głównej miary dla danych przetasowanych, jest częściowo nieścisły: wartości słownika dla bełkotu są podane per zbiór, choć bez wielu realizacji i progów. Werdykt 'metoda niewiarygodna' u B nie jest uzasadniony skoro 34/34 kontrole pozytywne przeszły. Test wyklucza: osobny szyfr podstawieniowy per długość słowa względem 6 leksykonów. Nie bada: 6 nietestowalnych zbiorów krótkich, innych języków, szyfrów polialfabetycznych/homofonicznych, globalnego klucza.\", \"werdykt\": \"obalona\", \"pewność\": 0.85, \"zmiana_zdania\": \"nie — kontrole dodatnie przeszły konsekwentnie, a wynik rękopisu jest na poziomie bełkotu lub minimalnie go przekracza tylko w jednym zbiorze, co przy braku testów istotności nie uzasadnia odmiennej oceny\"}",
+    "json": {
+     "ranking": [
+      "D",
+      "C",
+      "B"
+     ],
+     "uwagi": "D najtrafniej oddaje strukturę dowodu: 34 kontrolki dodatnie przeszły (odzyskanie klucza 59–100%, w większości ~100%), więc metoda potrafi znaleźć podłożony szyfr, a mimo to rękopis nie przewyższa bełkotu w żadnym testowalnym zbiorze. Drobna pomyłka D: zbiory Italian/2,3, German/2, Spanish/2, Czech/2,3 pominięto nie z powodu małej liczby słów, lecz dlatego, że kontrola dodatnia nie osiągnęła progów (nietestowalne). C jest zgodna z D, ale jej opinia jest ucięta i wskazuje trafnie na brak testów istotności (93.9% vs 87.6% przy jednorazowym przebiegu bez rozkładu tła). B ma słuszne wątpliwości metodologiczne (raport urywa się na niemieckich zbiorach, brak pełnych rozkładów tła dla miary słownikowej), ale jej główny zarzut 'sprzeczności' jest błędny: 93.9% wobec 87.6% to marginalna przewaga rękopisu w jednym zbiorze, którą summary nieprecyzyjnie opisuje jako brak wygranej — to problem raportu, a nie dowód niewiarygodności metody. Zarzut B, że brak wyników głównej miary dla danych przetasowanych, jest częściowo nieścisły: wartości słownika dla bełkotu są podane per zbiór, choć bez wielu realizacji i progów. Werdykt 'metoda niewiarygodna' u B nie jest uzasadniony skoro 34/34 kontrole pozytywne przeszły. Test wyklucza: osobny szyfr podstawieniowy per długość słowa względem 6 leksykonów. Nie bada: 6 nietestowalnych zbiorów krótkich, innych języków, szyfrów polialfabetycznych/homofonicznych, globalnego klucza.",
+     "werdykt": "obalona",
+     "pewność": 0.85,
+     "zmiana_zdania": "nie — kontrole dodatnie przeszły konsekwentnie, a wynik rękopisu jest na poziomie bełkotu lub minimalnie go przekracza tylko w jednym zbiorze, co przy braku testów istotności nie uzasadnia odmiennej oceny"
+    }
+   },
+   "openai/gpt-6-luna": {
+    "raw": "{\n  \"ranking\": [\"C\", \"A\", \"D\"],\n  \"uwagi\": \"C jest najlepiej uzasadniona: zauważa brak przedziałów ufności i że pominięte zbiory ograniczają zakres wnioskowania. A trafnie wskazuje problemy z pokryciem trójek, leksykonami i segmentacją, ale błędnie sugeruje, że kontrola dodatnia przeszła we wszystkich zbiorach: Italian/2 i Italian/3 nie spełniły progów i zostały wyłączone. D przesadza najbardziej: kontrola pokazuje wykrywanie skonstruowanego szyfru w testowalnych zbiorach, nie dowodzi wykrycia każdego szyfru; ponadto twierdzenie, że rękopis nigdy nie przewyższa bełkotu w udziale słownikowym, kłóci się z podanym wynikiem French/2: 93,9% wobec 87,6%. To samo napięcie występuje między tym wynikiem a podsumowaniem raportu, że rękopis nigdzie nie wygrywa. Raport nie podaje też wystarczających wyników ani kryterium zaliczenia kontroli na danych przetasowanych. Test nie rozstrzyga szyfrów innych typów ani przypadków poza testowalnymi zbiorami i sześcioma leksykonami. Najbardziej zmieniłby ocenę powtórzony test z jawnymi wynikami kontroli ujemnych, z góry ustalonymi kryteriami i oceną niepewności, zachowując kontrolę dodatnią.\",\n  \"werdykt\": \"Raczej obalona w badanym, wąskim zakresie: dla testowalnych zbiorów i użytych leksykonów nie ma przekonującego dowodu na osobny podstawieniowy klucz dla każdej długości. Nie uzasadnia to odrzucenia szerszych hipotez o innym rodzaju szyfru. Sprzeczność dotycząca French/2 oraz niedostatecznie udokumentowane kontrole ujemne osłabiają automatyczny werdykt.\",\n  \"pewność\": 0.66,\n",
+    "json": {}
+   },
+   "tencent/hy3": {
+    "raw": "{\n  \"ranking\": [\"A\", \"C\", \"B\"],\n  \"uwagi\": \"Opinia A najlepiej trzyma się danych: poprawnie stwierdza, że kontrole dodatnie przeszły we wszystkich 34 zbiorach (odzysk klucza 59–100%), a rękopis w 33 zbiorach nie przewyższa bełkotu (tylko French dł. 2 ma 93.9% vs 87.6%, co raport sprzecznie nazywa 'obaleniem'). B myli się co do niewiarygodności metody – kontrole są podane w sekcji KONTROLE METODY i DOWODY (kolumna 'przemianowane' to szum/przetasowanie wewnątrz zbioru), a brak pełnego słownika dla przetasowanych nie dyskwalifikuje testu, bo tłem jest bełkot v5 (podano jego słownik). B słusznie jednak wyłapał sprzeczność w raporcie (French dł. 2 wygrywa, a werdykt mówi 'nigdzie'). C jest niepełna, ale zgadza się z A.\",\n  \"werdykt\": \"obalona\",\n  \"pewność\": 0.82,\n  \"zmiana_zdania\": \"nie, kontrole metody przeszły (odzyskano klucze zaszyfrowanych tekstów w 34 zbiorach), więc test jest wiarygodny według przyjętych zasad; rękopis nie wykazuje statystycznie lepszego dopasowania do leksykonów niż bełkot poza jednym wyjątkiem (French dł. 2), co nie dowodzi hipotezy o osobnym szyfrze per długość.\"\n}",
+    "json": {
+     "ranking": [
+      "A",
+      "C",
+      "B"
+     ],
+     "uwagi": "Opinia A najlepiej trzyma się danych: poprawnie stwierdza, że kontrole dodatnie przeszły we wszystkich 34 zbiorach (odzysk klucza 59–100%), a rękopis w 33 zbiorach nie przewyższa bełkotu (tylko French dł. 2 ma 93.9% vs 87.6%, co raport sprzecznie nazywa 'obaleniem'). B myli się co do niewiarygodności metody – kontrole są podane w sekcji KONTROLE METODY i DOWODY (kolumna 'przemianowane' to szum/przetasowanie wewnątrz zbioru), a brak pełnego słownika dla przetasowanych nie dyskwalifikuje testu, bo tłem jest bełkot v5 (podano jego słownik). B słusznie jednak wyłapał sprzeczność w raporcie (French dł. 2 wygrywa, a werdykt mówi 'nigdzie'). C jest niepełna, ale zgadza się z A.",
+     "werdykt": "obalona",
+     "pewność": 0.82,
+     "zmiana_zdania": "nie, kontrole metody przeszły (odzyskano klucze zaszyfrowanych tekstów w 34 zbiorach), więc test jest wiarygodny według przyjętych zasad; rękopis nie wykazuje statystycznie lepszego dopasowania do leksykonów niż bełkot poza jednym wyjątkiem (French dł. 2), co nie dowodzi hipotezy o osobnym szyfrze per długość."
+    }
+   }
+  },
+  "synthesis": "## Werdykt rady\n**Wynik jest sugestywny, ale test nie uzasadnia stanowczego odrzucenia hipotezy.** Zgodność jest umiarkowana: A i D skłaniają się ku obaleniu w badanym zakresie, B kwestionuje wiarygodność metody, a C zajmuje stanowisko ostrożne. Kluczowe jest to, że raport nie dokumentuje pełnej kontroli ujemnej dla głównej miary.\n\n## Co test naprawdę pokazuje\nW 34 zbiorach uznanych za testowalne kontrole dodatnie — teksty zaszyfrowane — osiągnęły podane progi. Wyniki rękopisu na ogół nie przewyższają bełkotu, co nie wspiera hipotezy o osobnym kluczu podstawieniowym dla każdej długości. Jest jednak wyjątek: French, długość 2, gdzie wynik rękopisu to 93,9%, a bełkotu 87,6%, wbrew podsumowaniu raportu. Sześć zbiorów pominięto, bo kontrola dodatnia nie spełniła progów; dodatkowo raport pomija małe zbiory długości 8 i 9+.\n\n## Główne zastrzeżenia\nDla danych przetasowanych/przemianowanych podano miarę „spójności”, ale nie porównywalny wynik głównej miary słownikowej ani jasne kryterium zaliczenia. Zatem nie można potwierdzić, że metoda nie wykrywa efektu w kontroli ujemnej — warunku wiarygodności testu. Brakuje też oceny niepewności, a wynik French/2 wymaga wyjaśnienia.\n\n## Rekomendowany następny eksperyment\nPowtórzyć test z wieloma kontrolami ujemnymi, stosując do nich tę samą miarę słownikową co do rękopisu; z góry ustalić kryteria i podać rozkład wyników oraz niepewność. Zachować kontrolę dodatnią i osobno oznaczyć zbiory nietestowalne.",
+  "failed": {
+   "inception/mercury-3": "OpenRouter: inception/mercury-3 zwrócił pustą odpowiedź (model rozumujący zużył limit tokenów)"
+  },
+  "votes": {
+   "obalona": 2
+  }
+ }
 }
