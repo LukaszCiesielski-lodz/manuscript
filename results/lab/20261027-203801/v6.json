@@ -593,5 +593,141 @@
   "/content/manuscript/results/lab/20261027-203801/v6/best_sample.txt"
  ],
  "seconds": 483.0288157463074,
- "council": {}
+ "council": {
+  "members": [
+   "z-ai/glm-5.3-flash",
+   "openai/gpt-6-luna",
+   "inception/mercury-3",
+   "tencent/hy3"
+  ],
+  "chair": "openai/gpt-6-luna",
+  "round1": {
+   "z-ai/glm-5.3-flash": {
+    "raw": "```json\n{\n  \"werdykt\": \"obalona\",\n  \"pewność\": 0.7,\n  \"najmocniejszy_dowód\": \"Wszystkie kontrole metody przeszły (podział foliałów 0 chybień w obie strony, deterministyczność, sędzia na prawdziwych danych AUC 0.531, czułość na 10% zmienionych glifów AUC 0.853), a mimo to najlepszy generator bez treści nadal jest odróżnialny: sędzia-transformer AUC 0.642, klasyfikator n-gramowy 0.74–0.77, z trwałymi chybieniami hapax_ratio i line_mean_spread u wszystkich finalistów. Hipoteza zakładała przejście wszystkich 23 miar i nierozróżnialność — to nie zostało osiągnięte.\",\n  \"słabości\": [\n    \"Przeszukiwanie było ograniczone: 25 pokoleń, populacja 32, przystosowanie na jednym ziarnie na pokolenie — brak dowodu, że przestrzeń ustawień v6 nie zawiera rozwiązania, tylko że ewolucja go nie znalazła.\",\n    \"Przystosowanie liczone na nieparzystych, finaliści oceniani na parzystych — dobra praktyka, ale tylko 5 finalistów trafiło do sędziego, więc wniosek o nierozróżnialności opiera się na małej próbie ustawień.\",\n    \"Sędzia widzi pojedyncze wiersze; spójność strony nie była testowana w tym teście (odwołanie do osobnej teorii cohesion), więc hipoteza 'bez treści' nie jest rozstrzygnięta na poziomie całej strony.\",\n    \"AUC prawdziwe wobec prawdziwych 0.531 i v5 0.660 pokazują, że sędzia sam w sobie słabo rozróżnia podobne materiały — 0.642 dla v6 to słaby sygnał, choć powyżej proku kontrolnego.\"\n  ],\n  \"inne_wyjaśnienia\": [\n    \"Chybienia hapax_ratio i line_mean_spread mogą wynikać z brakujących mechanizmów generatora (np. kontroli długości linii i rozkładu rzadkich słów), a nie z obecności treści w rękopisie — obalenie dotyczy tej konkretnej wersji v6, nie każdej możliwej reguły skryby.\",\n    \"Ewolucja mogła utknąć w lokalnym optimum: historia pokoleń pokazuje fluktuacje (best 19.5–33.8 bez trendu od pokolenia 14), co sugeruje plateau, a nie dowód niewytłumaczalności.\"\n  ],\n  \"następny_test\": \"Uruchomić ewolucję z znacznie większym budżetem (np. 100 pokoleń, populacja 64, przystosowanie uśrednione po 3 ziarnach) z wymuszonym naciskiem na dwie uporczywe miary (hapax_ratio, line_mean_spread) — jeśli nawet wtedy sędzia-transformer utrzyma AUC > 0.6, obalenie hipotezy 'wytłumaczalność bez treści' stanie się znacznie mocniejsze; jeśli AUC spadnie do ~0.53, hipoteza wróci do gry.\"\n}\n```",
+    "json": {
+     "werdykt": "obalona",
+     "pewność": 0.7,
+     "najmocniejszy_dowód": "Wszystkie kontrole metody przeszły (podział foliałów 0 chybień w obie strony, deterministyczność, sędzia na prawdziwych danych AUC 0.531, czułość na 10% zmienionych glifów AUC 0.853), a mimo to najlepszy generator bez treści nadal jest odróżnialny: sędzia-transformer AUC 0.642, klasyfikator n-gramowy 0.74–0.77, z trwałymi chybieniami hapax_ratio i line_mean_spread u wszystkich finalistów. Hipoteza zakładała przejście wszystkich 23 miar i nierozróżnialność — to nie zostało osiągnięte.",
+     "słabości": [
+      "Przeszukiwanie było ograniczone: 25 pokoleń, populacja 32, przystosowanie na jednym ziarnie na pokolenie — brak dowodu, że przestrzeń ustawień v6 nie zawiera rozwiązania, tylko że ewolucja go nie znalazła.",
+      "Przystosowanie liczone na nieparzystych, finaliści oceniani na parzystych — dobra praktyka, ale tylko 5 finalistów trafiło do sędziego, więc wniosek o nierozróżnialności opiera się na małej próbie ustawień.",
+      "Sędzia widzi pojedyncze wiersze; spójność strony nie była testowana w tym teście (odwołanie do osobnej teorii cohesion), więc hipoteza 'bez treści' nie jest rozstrzygnięta na poziomie całej strony.",
+      "AUC prawdziwe wobec prawdziwych 0.531 i v5 0.660 pokazują, że sędzia sam w sobie słabo rozróżnia podobne materiały — 0.642 dla v6 to słaby sygnał, choć powyżej proku kontrolnego."
+     ],
+     "inne_wyjaśnienia": [
+      "Chybienia hapax_ratio i line_mean_spread mogą wynikać z brakujących mechanizmów generatora (np. kontroli długości linii i rozkładu rzadkich słów), a nie z obecności treści w rękopisie — obalenie dotyczy tej konkretnej wersji v6, nie każdej możliwej reguły skryby.",
+      "Ewolucja mogła utknąć w lokalnym optimum: historia pokoleń pokazuje fluktuacje (best 19.5–33.8 bez trendu od pokolenia 14), co sugeruje plateau, a nie dowód niewytłumaczalności."
+     ],
+     "następny_test": "Uruchomić ewolucję z znacznie większym budżetem (np. 100 pokoleń, populacja 64, przystosowanie uśrednione po 3 ziarnach) z wymuszonym naciskiem na dwie uporczywe miary (hapax_ratio, line_mean_spread) — jeśli nawet wtedy sędzia-transformer utrzyma AUC > 0.6, obalenie hipotezy 'wytłumaczalność bez treści' stanie się znacznie mocniejsze; jeśli AUC spadnie do ~0.53, hipoteza wróci do gry."
+    }
+   },
+   "openai/gpt-6-luna": {
+    "raw": "{\n  \"werdykt\": \"metoda niewiarygodna\",\n  \"pewność\": 0.91,\n  \"najmocniejszy_dowód\": \"Raport nie podaje wymaganych kontroli: odzyskania celowo podłożonego efektu ani braku efektu w danych przetasowanych. Zarazem wyniki nie wspierają hipotezy: najlepszy model nadal chybił miary, a AUC sędziego 0,642 przewyższa 0,531 dla porównania prawdziwych foliałów.\",\n  \"słabości\": [\n    \"Brak kluczowych kontroli wiarygodności metody, mimo że wymóg ich przejścia jest kryterium oceny.\",\n    \"Finaliści nie spełnili wszystkich miar; na foliałach parzystych powtarzają się chybienia hapax_ratio i line_mean_spread.\",\n    \"Przystosowanie w pokoleniach liczono na jednym ziarnie; trzy ziarna zastosowano dopiero do finalistów.\",\n    \"Sędzia ocenia pojedyncze wiersze, więc wynik nie rozstrzyga o spójności całych stron.\"\n  ],\n  \"inne_wyjaśnienia\": [\n    \"Niepowodzenie może wynikać z ograniczeń rodziny generatorów lub budżetu przeszukiwania, a nie z samej obecności treści.\",\n    \"Sędzia może wykrywać różnice stylu lub struktury, których nie obejmuje zestaw 23 miar.\"\n  ],\n  \"następny_test\": \"Przeprowadzić z góry zaplanowany test kontrolny na danych zaślepionych: sprawdzić, czy pełna metoda odzyskuje efekt celowo podłożony i nie wykrywa go w danych przetasowanych; użyć wielu ziaren i odłożonych foliałów.\"\n}",
+    "json": {
+     "werdykt": "metoda niewiarygodna",
+     "pewność": 0.91,
+     "najmocniejszy_dowód": "Raport nie podaje wymaganych kontroli: odzyskania celowo podłożonego efektu ani braku efektu w danych przetasowanych. Zarazem wyniki nie wspierają hipotezy: najlepszy model nadal chybił miary, a AUC sędziego 0,642 przewyższa 0,531 dla porównania prawdziwych foliałów.",
+     "słabości": [
+      "Brak kluczowych kontroli wiarygodności metody, mimo że wymóg ich przejścia jest kryterium oceny.",
+      "Finaliści nie spełnili wszystkich miar; na foliałach parzystych powtarzają się chybienia hapax_ratio i line_mean_spread.",
+      "Przystosowanie w pokoleniach liczono na jednym ziarnie; trzy ziarna zastosowano dopiero do finalistów.",
+      "Sędzia ocenia pojedyncze wiersze, więc wynik nie rozstrzyga o spójności całych stron."
+     ],
+     "inne_wyjaśnienia": [
+      "Niepowodzenie może wynikać z ograniczeń rodziny generatorów lub budżetu przeszukiwania, a nie z samej obecności treści.",
+      "Sędzia może wykrywać różnice stylu lub struktury, których nie obejmuje zestaw 23 miar."
+     ],
+     "następny_test": "Przeprowadzić z góry zaplanowany test kontrolny na danych zaślepionych: sprawdzić, czy pełna metoda odzyskuje efekt celowo podłożony i nie wykrywa go w danych przetasowanych; użyć wielu ziaren i odłożonych foliałów."
+    }
+   },
+   "inception/mercury-3": {
+    "raw": "{\n  \"werdykt\": \"obalona\",\n  \"pewność\": 0.7,\n  \"najmocniejszy_dowód\": \"Najlepszy v6 osiąga AUC 0.642 w rozróżnianiu przez sędziego transformera, przy kontrolach: czułość 0.853, odniesienie prawdziwe-wobec-prawdziwych 0.531, oraz nadal ma chybienia w miarach hapax_ratio i line_mean_spread co przeczy hipotezie o pełnym dostrojeniu.\",\n  \"słabości\": [\"Przystosowanie liczone na jednym ziarnie na pokolenie; finaliści na trzech ziarnach, ale ograniczona liczba pokoleń (25) i populacji (32) może nie zapewnić pełnej optymalizacji.\", \"Sędzia widzi tylko pojedyncze wiersze, więc nie sprawdza spójności całej strony; to może nie wychwycić subtelnych wzorców odróżniających rękopis.\"],\n  \"inne_wyjaśnienia\": [\"Rękopis mógł zostać wygenerowany przez inne, bardziej złożone reguły bez treści niż te testowane.\", \"Rękopis może faktycznie zawierać treść, wobec czego żadne reguły bez treści nie odtworzą wszystkich jego statystyk.\", \"Sędzia mógł uchwycić cechy wynikające z procesu historycznego (np. degeneracja pergaminu), których nie da się zasymulować parametrami generatora.\"],\n  \"następny_test\": \"Przetestować hipotezę alternatywną: model z treścią (np. ukryty język z rekonstrukcją słów) w tym samym zestawie miar i sędziego, aby sprawdzić, czy potrafi osiągnąć niższe AUC i zero chybień.\"\n}",
+    "json": {
+     "werdykt": "obalona",
+     "pewność": 0.7,
+     "najmocniejszy_dowód": "Najlepszy v6 osiąga AUC 0.642 w rozróżnianiu przez sędziego transformera, przy kontrolach: czułość 0.853, odniesienie prawdziwe-wobec-prawdziwych 0.531, oraz nadal ma chybienia w miarach hapax_ratio i line_mean_spread co przeczy hipotezie o pełnym dostrojeniu.",
+     "słabości": [
+      "Przystosowanie liczone na jednym ziarnie na pokolenie; finaliści na trzech ziarnach, ale ograniczona liczba pokoleń (25) i populacji (32) może nie zapewnić pełnej optymalizacji.",
+      "Sędzia widzi tylko pojedyncze wiersze, więc nie sprawdza spójności całej strony; to może nie wychwycić subtelnych wzorców odróżniających rękopis."
+     ],
+     "inne_wyjaśnienia": [
+      "Rękopis mógł zostać wygenerowany przez inne, bardziej złożone reguły bez treści niż te testowane.",
+      "Rękopis może faktycznie zawierać treść, wobec czego żadne reguły bez treści nie odtworzą wszystkich jego statystyk.",
+      "Sędzia mógł uchwycić cechy wynikające z procesu historycznego (np. degeneracja pergaminu), których nie da się zasymulować parametrami generatora."
+     ],
+     "następny_test": "Przetestować hipotezę alternatywną: model z treścią (np. ukryty język z rekonstrukcją słów) w tym samym zestawie miar i sędziego, aby sprawdzić, czy potrafi osiągnąć niższe AUC i zero chybień."
+    }
+   },
+   "tencent/hy3": {
+    "raw": "{\n  \"werdykt\": \"nierozstrzygnięta\",\n  \"pewność\": 0.75,\n  \"najmocniejszy_dowód\": \"Sędzia-transformer nadal odróżnia najlepszy model v6 od rękopisu (AUC 0.642, gdzie 0.5 oznacza brak odróżnienia), a finaliści wciąż chybują w miarach hapax_ratio i line_mean_spread na foliałach parzystych niewidzianych w ewolucji.\",\n  \"słabości\": [\n    \"Sędzia ocenia pojedyncze wiersze, ignorując spójność całej strony (wg raportu sprawdzaną osobno, ale nie w tym teście).\",\n    \"Przystosowanie w ewolucji liczone na jednym ziarnie, co przy determinizmie OK, ale ogranicza szacowanie wariancji między foliałami.\",\n    \"Model nie przechodzi wszystkich 23 mir (pozostają chybienia w rozrzucie linii i odsetku hapaxów), więc hipoteza o pełnej wtłumaczalności bez treści nie została dowiedziona.\"\n  ],\n  \"inne_wyjaśnienia\": [\n    \"Rękopis może zawierać strukturę wyższego rzędu (spójność strony/sekcji), której v6 nie modeluje.\",\n    \"Brakująca treść lub semantyka mogą być niezbędne do wygenerowania obserwowanych statystyk sąsiedztwa.\"\n  ],\n  \"następny_test\": \"Test sędziego-transformera na pełnych foliałach (nie tylko wierszach) z dodatkową miarą spójności międzywierszowej strony, aby sprawdzić, czy różnica AUC wynika z braku modelowania struktury całej strony.\"\n}",
+    "json": {
+     "werdykt": "nierozstrzygnięta",
+     "pewność": 0.75,
+     "najmocniejszy_dowód": "Sędzia-transformer nadal odróżnia najlepszy model v6 od rękopisu (AUC 0.642, gdzie 0.5 oznacza brak odróżnienia), a finaliści wciąż chybują w miarach hapax_ratio i line_mean_spread na foliałach parzystych niewidzianych w ewolucji.",
+     "słabości": [
+      "Sędzia ocenia pojedyncze wiersze, ignorując spójność całej strony (wg raportu sprawdzaną osobno, ale nie w tym teście).",
+      "Przystosowanie w ewolucji liczone na jednym ziarnie, co przy determinizmie OK, ale ogranicza szacowanie wariancji między foliałami.",
+      "Model nie przechodzi wszystkich 23 mir (pozostają chybienia w rozrzucie linii i odsetku hapaxów), więc hipoteza o pełnej wtłumaczalności bez treści nie została dowiedziona."
+     ],
+     "inne_wyjaśnienia": [
+      "Rękopis może zawierać strukturę wyższego rzędu (spójność strony/sekcji), której v6 nie modeluje.",
+      "Brakująca treść lub semantyka mogą być niezbędne do wygenerowania obserwowanych statystyk sąsiedztwa."
+     ],
+     "następny_test": "Test sędziego-transformera na pełnych foliałach (nie tylko wierszach) z dodatkową miarą spójności międzywierszowej strony, aby sprawdzić, czy różnica AUC wynika z braku modelowania struktury całej strony."
+    }
+   }
+  },
+  "round2": {
+   "z-ai/glm-5.3-flash": {
+    "raw": "{\"ranking\": [\"D\", \"C\", \"B\"], \"uwagi\": \"D najlepiej oddaje stan dowodów: hipoteza (v6 dostrojone przechodzi 23 miary i nie odróżnia się od rękopisu) NIE została potwierdzona — najlepszy finalista wciąż chybił hapax_ratio i line_mean_spread na niewidzianych foliałach parzystych, a sędzia odróżnia go z AUC 0.642 przy kalibracji prawdziwe-wobec-prawdziwych 0.531. Jednocześnie D słusznie nie przesadza: porażka tej wersji nie dowodzi obecności treści, bo może wynikać z ograniczeń rodziny generatorów v5 lub budżetu ewolucji (25 pokoleń, populacja 32). Werdykt D zgodny z automatycznym. C czyta dane poprawnie (te same liczby), ale werdykt 'obalona' jest zbyt mocny — test wyklucza tylko, że TA rodzina reguł przy TYM budżecie przeszukiwania wystarcza; nie wyklucza innych reguł bez treści ani nie dowodzi treści. Proponowany przez C test modelu z treścią jest jednak cenny jako kontrast. B ma rację w jednym: raport nie zawiera klasycznej kontroli odzyskania celowo podłożonego efektu ani danych przetasowanych — to realna luka. Ale B pomija, że raport podaje cztery kontrole, które przeszły (karta foliałów, determinizm, kalibracja sędziego 0.531, czułość na 10% zmienionych glifów 0.853 — ta ostatnia jest w istocie kontrolą podłożonej perturbacji). Werdykt B 'metoda niewiarygodna' jest więc nieproporcjonalny i częściowo oparty na nieprecyzyjnym odczytaniu sekcji kontroli. Wszyscy trzej słusznie zauważają, że sędzia ocenia pojedyncze wiersze, więc wynik nie rozstrzyga spójności strony. Kluczowe rozdzielenie: test wyklucza, że v6 (tłumienie częstości + unikanie sąsiada) osiąga pełne dopasowanie; nie bada modeli z treścią, struktury międzywierszowej ani innych rodzin generatorów. Najbardziej zmieniający ocenę następny test: kontrola zaślepiona — podłożyć znany wzorzec (np. sztuczny tekst o znanej strukturze sąsiedztwa) i sprawdzić, czy pełny pipeline (ewolucja + sędzia) go odzyskuje, oraz uruchomić sędziego na pełnych foliałach ze spójnością międzywierszową.\", \"werdykt\": \"nierozstrzygnięta\", \"pewność\": 0.72, \"zmiana_zdania\": \"nie — to moja pierwsza ocena; przyjmuję werdykt automatyczny, bo dowody pokazują porażkę konkretnej wersji hipotezy (AUC 0.642 > 0.531, trwałe chybienia hapax_ratio i line_mean_spread), ale brak kontroli podłożonego efektu/przetasowań i ograniczony budżet ewolucji nie pozwalają na obalenie szerszej tezy o wyjaśnialności bez treści\"}",
+    "json": {
+     "ranking": [
+      "D",
+      "C",
+      "B"
+     ],
+     "uwagi": "D najlepiej oddaje stan dowodów: hipoteza (v6 dostrojone przechodzi 23 miary i nie odróżnia się od rękopisu) NIE została potwierdzona — najlepszy finalista wciąż chybił hapax_ratio i line_mean_spread na niewidzianych foliałach parzystych, a sędzia odróżnia go z AUC 0.642 przy kalibracji prawdziwe-wobec-prawdziwych 0.531. Jednocześnie D słusznie nie przesadza: porażka tej wersji nie dowodzi obecności treści, bo może wynikać z ograniczeń rodziny generatorów v5 lub budżetu ewolucji (25 pokoleń, populacja 32). Werdykt D zgodny z automatycznym. C czyta dane poprawnie (te same liczby), ale werdykt 'obalona' jest zbyt mocny — test wyklucza tylko, że TA rodzina reguł przy TYM budżecie przeszukiwania wystarcza; nie wyklucza innych reguł bez treści ani nie dowodzi treści. Proponowany przez C test modelu z treścią jest jednak cenny jako kontrast. B ma rację w jednym: raport nie zawiera klasycznej kontroli odzyskania celowo podłożonego efektu ani danych przetasowanych — to realna luka. Ale B pomija, że raport podaje cztery kontrole, które przeszły (karta foliałów, determinizm, kalibracja sędziego 0.531, czułość na 10% zmienionych glifów 0.853 — ta ostatnia jest w istocie kontrolą podłożonej perturbacji). Werdykt B 'metoda niewiarygodna' jest więc nieproporcjonalny i częściowo oparty na nieprecyzyjnym odczytaniu sekcji kontroli. Wszyscy trzej słusznie zauważają, że sędzia ocenia pojedyncze wiersze, więc wynik nie rozstrzyga spójności strony. Kluczowe rozdzielenie: test wyklucza, że v6 (tłumienie częstości + unikanie sąsiada) osiąga pełne dopasowanie; nie bada modeli z treścią, struktury międzywierszowej ani innych rodzin generatorów. Najbardziej zmieniający ocenę następny test: kontrola zaślepiona — podłożyć znany wzorzec (np. sztuczny tekst o znanej strukturze sąsiedztwa) i sprawdzić, czy pełny pipeline (ewolucja + sędzia) go odzyskuje, oraz uruchomić sędziego na pełnych foliałach ze spójnością międzywierszową.",
+     "werdykt": "nierozstrzygnięta",
+     "pewność": 0.72,
+     "zmiana_zdania": "nie — to moja pierwsza ocena; przyjmuję werdykt automatyczny, bo dowody pokazują porażkę konkretnej wersji hipotezy (AUC 0.642 > 0.531, trwałe chybienia hapax_ratio i line_mean_spread), ale brak kontroli podłożonego efektu/przetasowań i ograniczony budżet ewolucji nie pozwalają na obalenie szerszej tezy o wyjaśnialności bez treści"
+    }
+   },
+   "openai/gpt-6-luna": {
+    "raw": "{\n  \"ranking\": [\"D\", \"A\", \"C\"],\n  \"uwagi\": \"D najlepiej oddziela wynik negatywny dla tej wersji generatora od nierozstrzygniętej hipotezy ogólnej. A trafnie podaje główne liczby i ograniczenia, ale wniosek „obalona” jest zbyt mocny: nieosiągnięcie celu w ograniczonym przeszukiwaniu nie wyklucza, że inne ustawienia v6 by go osiągnęły. C popełnia ten sam błąd i proponowany test modelu z treścią nie sprawdza bezpośrednio hipotezy o regułach bez treści. AUC 0.642 oraz chybienia hapax_ratio i line_mean_spread pokazują, że badani finaliści nie spełnili kryteriów; AUC v6 jest też niższe niż v5 (0.660), więc sam wynik sędziego nie wskazuje na pogorszenie względem v5. Ważne: raport nie podaje wymaganych kontroli z efektem celowo podłożonym ani danych przetasowanych. Zatem nie można uznać metody za w pełni zwalidowaną, mimo że wymienione w raporcie kontrole przeszły. Test dotyczy określonego generatora i wierszy, nie wszystkich możliwych reguł bez treści ani spójności całych stron. Opinii B nie dostarczono. Najbardziej zmieniłaby ocenę walidacja całego potoku na danych z celowo podłożonym efektem oraz na danych przetasowanych, z wcześniej ustalonymi kryteriami sukcesu.\",\n  \"werdykt\": \"nierozstrzygnięta\",\n  \"pewność\": 0.82,\n  \"zmiana_zdania\": \"nie — opinie nie zmieniają oceny: wyniki nie potwierdzają, że v6 spełnia hipotezę, ale ograniczone przeszukiwanie i brak wymaganych kontroli nie uzasadniają jej obalenia.\"\n}",
+    "json": {
+     "ranking": [
+      "D",
+      "A",
+      "C"
+     ],
+     "uwagi": "D najlepiej oddziela wynik negatywny dla tej wersji generatora od nierozstrzygniętej hipotezy ogólnej. A trafnie podaje główne liczby i ograniczenia, ale wniosek „obalona” jest zbyt mocny: nieosiągnięcie celu w ograniczonym przeszukiwaniu nie wyklucza, że inne ustawienia v6 by go osiągnęły. C popełnia ten sam błąd i proponowany test modelu z treścią nie sprawdza bezpośrednio hipotezy o regułach bez treści. AUC 0.642 oraz chybienia hapax_ratio i line_mean_spread pokazują, że badani finaliści nie spełnili kryteriów; AUC v6 jest też niższe niż v5 (0.660), więc sam wynik sędziego nie wskazuje na pogorszenie względem v5. Ważne: raport nie podaje wymaganych kontroli z efektem celowo podłożonym ani danych przetasowanych. Zatem nie można uznać metody za w pełni zwalidowaną, mimo że wymienione w raporcie kontrole przeszły. Test dotyczy określonego generatora i wierszy, nie wszystkich możliwych reguł bez treści ani spójności całych stron. Opinii B nie dostarczono. Najbardziej zmieniłaby ocenę walidacja całego potoku na danych z celowo podłożonym efektem oraz na danych przetasowanych, z wcześniej ustalonymi kryteriami sukcesu.",
+     "werdykt": "nierozstrzygnięta",
+     "pewność": 0.82,
+     "zmiana_zdania": "nie — opinie nie zmieniają oceny: wyniki nie potwierdzają, że v6 spełnia hipotezę, ale ograniczone przeszukiwanie i brak wymaganych kontroli nie uzasadniają jej obalenia."
+    }
+   },
+   "tencent/hy3": {
+    "raw": "{\n  \"ranking\": [\"A\", \"C\", \"B\"],\n  \"uwagi\": \"Opinia A najlepiej trzyma się danych: poprawnie stwierdza, że kontrole z raportu przeszły (0 chybień między podziałami foliałów, deterministyczność 104.645, sędzia na prawdziwych 0.531, czułość 0.853), a mimo to hipoteza v6 nie została spełniona (AUC 0.642, trwałe chybienia hapax_ratio i line_mean_spread). Opinia C jest podobna, ale mniej precyzyjna w słabościach. Opinia B błędnie nazywa metodę 'niewiarygodną' – raport zawiera cztery opisane kontrole i wszystkie przeszły; brak w raporcie kontroli 'efekt podłożony/przetasowanie' nie unieważnia wykonanych testów, choć jest luką metodologiczną. Test wyklucza, że badana wersja v6 (20 ustawień, 25 pokoleń) daje tekst nierozróżnialny od rękopisu. Nie bada: czy inna architektura bez treści by się udała, ani spójności strony (sędzia widzi wiersze).\",\n  \"werdykt\": \"Hipoteza v6 obalona w badanej formie: generator bez treści nie przeszedł wszystkich miar ani nie oszukał sędziego. Nie wyklucza to innych reguł skryby bez treści poza przestrzenią tej ewolucji.\",\n  \"pewność\": 0.7,\n  \"zmiana_zdania\": \"nie, dane z raportu i kontrole wystarczająco pokazują niespełnienie kryteriów hipotezy przez testowany model v6\"\n}",
+    "json": {
+     "ranking": [
+      "A",
+      "C",
+      "B"
+     ],
+     "uwagi": "Opinia A najlepiej trzyma się danych: poprawnie stwierdza, że kontrole z raportu przeszły (0 chybień między podziałami foliałów, deterministyczność 104.645, sędzia na prawdziwych 0.531, czułość 0.853), a mimo to hipoteza v6 nie została spełniona (AUC 0.642, trwałe chybienia hapax_ratio i line_mean_spread). Opinia C jest podobna, ale mniej precyzyjna w słabościach. Opinia B błędnie nazywa metodę 'niewiarygodną' – raport zawiera cztery opisane kontrole i wszystkie przeszły; brak w raporcie kontroli 'efekt podłożony/przetasowanie' nie unieważnia wykonanych testów, choć jest luką metodologiczną. Test wyklucza, że badana wersja v6 (20 ustawień, 25 pokoleń) daje tekst nierozróżnialny od rękopisu. Nie bada: czy inna architektura bez treści by się udała, ani spójności strony (sędzia widzi wiersze).",
+     "werdykt": "Hipoteza v6 obalona w badanej formie: generator bez treści nie przeszedł wszystkich miar ani nie oszukał sędziego. Nie wyklucza to innych reguł skryby bez treści poza przestrzenią tej ewolucji.",
+     "pewność": 0.7,
+     "zmiana_zdania": "nie, dane z raportu i kontrole wystarczająco pokazują niespełnienie kryteriów hipotezy przez testowany model v6"
+    }
+   }
+  },
+  "synthesis": "## Werdykt rady\n**Nierozstrzygnięta.** Test nie potwierdza hipotezy dla badanego v6, ale nie obala ogólnej możliwości generowania tekstu regułami bez treści. Zgodność opinii jest wysoka co do wyniku negatywnego dla finalistów; różni się ocena, czy uzasadnia on werdykt „obalona”. Rada przyjmuje ostrożniejszy werdykt.\n\n## Co test naprawdę pokazuje\nŻaden z pięciu finalistów nie spełnił wszystkich miar na odłożonych foliałach: powtarzały się chybienia `hapax_ratio` i `line_mean_spread`. Sędzia odróżniał v6 od rękopisu (AUC 0,642; odniesienie prawdziwe–prawdziwe: 0,531). Zatem badane ustawienia nie spełniły kryteriów hipotezy.\n\n## Główne zastrzeżenia\nWymienione kontrole przeszły, ale raport nie pokazuje wymaganej walidacji na danych z celowo podłożonym efektem **i** na danych przetasowanych. Nie można więc uznać pełnej wiarygodności metody według tych kryteriów. Ponadto przeszukiwanie było ograniczone (25 pokoleń, populacja 32; pojedyncze ziarno przy ocenie pokoleń), a sędzia badał pojedyncze wiersze, nie spójność całych stron. Wynik nie rozstrzyga też o innych rodzinach generatorów bez treści.\n\n## Następny eksperyment\nPrzeprowadzić zaślepioną, z góry zaplanowaną walidację całego potoku: sprawdzić odzyskanie efektu celowo podłożonego oraz brak wykrycia efektu w danych przetasowanych, na wielu ziarnach i odłożonych foliałach.",
+  "failed": {
+   "inception/mercury-3": "OpenRouter: inception/mercury-3 zwrócił pustą odpowiedź (model rozumujący zużył limit tokenów)"
+  },
+  "votes": {
+   "nierozstrzygnięta": 2,
+   "obalona": 1
+  }
+ }
 }
