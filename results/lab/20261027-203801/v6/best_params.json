@@ -1,0 +1,216 @@
+{
+ "params": {
+  "p_new": 0.9,
+  "p_far": 1.0,
+  "p_copy": 0.2843999668813964,
+  "p_same_column": 0.7213767220403468,
+  "gamma": 6.884139578880624,
+  "length_gamma": 0.7293456492087215,
+  "p_hot": 0.006907231505004635,
+  "hot_power": 2.5297472360336535,
+  "p_repeat": 0.0,
+  "window": 20,
+  "candidates": 2,
+  "p_fav": 0.18592923337351142,
+  "p_short": 0.07030743687000812,
+  "position_gamma": 3.985558656236769,
+  "pair_gamma": 3.244530323832465,
+  "mood_gamma": 4.0,
+  "freq_gamma": 0.7120440175385213,
+  "fav_n": 26,
+  "neighbour_gamma": 0.0,
+  "p_edge": 0.5167180186077754
+ },
+ "fitness": 19.46227375359086,
+ "generations": 21,
+ "history": [
+  {
+   "generation": 0,
+   "best": 52.09821540629646,
+   "misses": [
+    "hapax_ratio",
+    "adjacent_mi_excess"
+   ],
+   "median": 122.14621772585835
+  },
+  {
+   "generation": 1,
+   "best": 44.85694213500956,
+   "misses": [
+    "hapax_ratio",
+    "adjacent_mi_excess"
+   ],
+   "median": 101.52672328058736
+  },
+  {
+   "generation": 2,
+   "best": 29.248525031915904,
+   "misses": [
+    "hapax_ratio",
+    "adjacent_mi_excess"
+   ],
+   "median": 69.19040226328568
+  },
+  {
+   "generation": 3,
+   "best": 23.31777485481356,
+   "misses": [
+    "adjacent_mi_excess"
+   ],
+   "median": 48.46862972606543
+  },
+  {
+   "generation": 4,
+   "best": 31.68729184436387,
+   "misses": [
+    "adjacent_mi_excess"
+   ],
+   "median": 47.21968627958377
+  },
+  {
+   "generation": 5,
+   "best": 33.79777129190641,
+   "misses": [
+    "hapax_ratio",
+    "edge_mi"
+   ],
+   "median": 51.100762793736294
+  },
+  {
+   "generation": 6,
+   "best": 30.816107279467488,
+   "misses": [
+    "hapax_ratio",
+    "line_mean_spread",
+    "adjacent_mi_excess"
+   ],
+   "median": 51.492838650831985
+  },
+  {
+   "generation": 7,
+   "best": 23.923881480365544,
+   "misses": [
+    "edge_mi",
+    "adjacent_mi_excess"
+   ],
+   "median": 47.618704234822985
+  },
+  {
+   "generation": 8,
+   "best": 21.289445882615645,
+   "misses": [
+    "adjacent_mi_excess"
+   ],
+   "median": 50.01926694703381
+  },
+  {
+   "generation": 9,
+   "best": 23.12763827419522,
+   "misses": [
+    "len_neighbour",
+    "adjacent_mi_excess"
+   ],
+   "median": 35.41864015308761
+  },
+  {
+   "generation": 10,
+   "best": 23.633864993550063,
+   "misses": [
+    "hapax_ratio",
+    "line_mean_spread",
+    "adjacent_mi_excess"
+   ],
+   "median": 49.01204946059642
+  },
+  {
+   "generation": 11,
+   "best": 23.892281508065608,
+   "misses": [
+    "zipf_slope",
+    "len_neighbour",
+    "adjacent_mi_excess"
+   ],
+   "median": 48.33962385040006
+  },
+  {
+   "generation": 12,
+   "best": 23.101368040692794,
+   "misses": [
+    "hapax_ratio",
+    "adjacent_mi_excess"
+   ],
+   "median": 46.595604280575586
+  },
+  {
+   "generation": 13,
+   "best": 27.940221286030585,
+   "misses": [
+    "line_first_p",
+    "len_neighbour",
+    "adjacent_mi_excess"
+   ],
+   "median": 39.31956772273095
+  },
+  {
+   "generation": 14,
+   "best": 19.46227375359086,
+   "misses": [
+    "hapax_ratio"
+   ],
+   "median": 35.50063255376732
+  },
+  {
+   "generation": 15,
+   "best": 28.76670460458702,
+   "misses": [
+    "hapax_ratio"
+   ],
+   "median": 39.817756990754475
+  },
+  {
+   "generation": 16,
+   "best": 27.452484511105276,
+   "misses": [
+    "hapax_ratio"
+   ],
+   "median": 48.766115952618094
+  },
+  {
+   "generation": 17,
+   "best": 29.28156974722969,
+   "misses": [
+    "hapax_ratio",
+    "adjacent_mi_excess"
+   ],
+   "median": 42.8531869360539
+  },
+  {
+   "generation": 18,
+   "best": 27.38217563322722,
+   "misses": [
+    "len_neighbour",
+    "adjacent_mi_excess"
+   ],
+   "median": 42.762675839351616
+  },
+  {
+   "generation": 19,
+   "best": 21.89023113775832,
+   "misses": [
+    "hapax_ratio",
+    "line_mean_spread",
+    "adjacent_mi_excess"
+   ],
+   "median": 36.94300733179119
+  },
+  {
+   "generation": 20,
+   "best": 19.503494493397774,
+   "misses": [
+    "hapax_ratio",
+    "adjacent_mi_excess"
+   ],
+   "median": 34.84674627758011
+  }
+ ]
+}
