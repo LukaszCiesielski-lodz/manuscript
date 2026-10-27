@@ -486,6 +486,48 @@ display(Markdown((lab.cfg.results_dir / "brute_length.md").read_text()))"""),
 ]
 
 
+# What the judge sees (GPU, ~10 min) and the same plant twice (CPU, ~2 min).
+judge_cells = [
+    ("md", """# Voynich Lab – co widzi sędzia
+
+Po v7 sędzia-transformer wciąż odróżnia bełkot od rękopisu (AUC 0,642), choć 21 z 23 miar jest trafionych. Ten notebook
+uczy sędziego raz i go przepytuje: które cechy wiersza idą za jego wynikiem (hapaksy, słowa nieobecne w drugim korpusie,
+długość, miejsce na stronie) i czy nadal odróżnia, gdy oba korpusy ograniczyć do wierszy z samych słów wspólnych
+(słownictwo dopasowane). Jeśli wtedy AUC spada do poziomu prawdziwe–prawdziwe, ślad to słownictwo; jeśli zostaje, to szyk.
+
+**Runtime:** A100. Sekrety: `GITHUB_TOKEN`, `OPENROUTER_API_KEY`. Czas: ok. 10 min."""),
+    cells[1],
+    cells[3],
+    ("code", """!python scripts/fetch_data.py"""),
+    cells[5],
+    ("code", cells[7][1].replace('theories=["all"],          # albo np. ["numbers", "literature"]', 'theories=["judge_probe"],')),
+    ("code", """lab.run("judge_probe"); lab.push()
+lab.convene(["judge_probe"])
+lab.report(); lab.push()
+from IPython.display import Markdown, display
+display(Markdown((lab.cfg.results_dir / "judge_probe.md").read_text()))"""),
+]
+
+plants_cells = [
+    ("md", """# Voynich Lab – ta sama roślina w dwóch miejscach
+
+Zandbergen i Petersen wskazują fragmenty roślin w dziale farmaceutycznym, które są tą samą rośliną co rośliny zielnika
+(9 par „ta sama”, 28 „podobna”). Jeśli tekst opisuje roślinę, obie strony dzielą słowa ponad losowe strony tego samego
+języka Curriera. Kontrole: słowa partnera wszczepione w stronę (muszą zostać wykryte), pary przełączone losowo.
+
+**Runtime bez akceleratora** (CPU). Sekrety: `GITHUB_TOKEN`, `OPENROUTER_API_KEY`. Czas: ok. 3 min."""),
+    cells[3],
+    ("code", """!python scripts/fetch_data.py"""),
+    cells[5],
+    ("code", cells[7][1].replace('theories=["all"],          # albo np. ["numbers", "literature"]', 'theories=["plant_pairs"],')),
+    ("code", """lab.run("plant_pairs"); lab.push()
+lab.convene(["plant_pairs"])
+lab.report(); lab.push()
+from IPython.display import Markdown, display
+display(Markdown((lab.cfg.results_dir / "plant_pairs.md").read_text()))"""),
+]
+
+
 def cell(kind, text):
     src = text.splitlines(keepends=True)
     if kind == "md":
@@ -506,8 +548,9 @@ for name, cs in (("Voynich_Lab.ipynb", cells), ("Voynich_Ilustracje.ipynb", illu
                  ("Voynich_Notacja.ipynb", notation_cells),
                  ("Voynich_Rejestr.ipynb", rejestr_cells), ("Voynich_Rejestr_GPU.ipynb", rejestr_gpu_cells),
                  ("Voynich_Klucz.ipynb", keystream_cells), ("Voynich_V7.ipynb", v7_cells),
-                 ("Voynich_Klucz_Dlugosci.ipynb", lengthkey_cells), ("Voynich_Brute_Dlugosci.ipynb", brute_length_cells)):
-    base = nb_cpu if name in ("Voynich_Rejestr.ipynb", "Voynich_Klucz.ipynb") else nb
+                 ("Voynich_Klucz_Dlugosci.ipynb", lengthkey_cells), ("Voynich_Brute_Dlugosci.ipynb", brute_length_cells),
+                 ("Voynich_Sedzia.ipynb", judge_cells), ("Voynich_Rosliny.ipynb", plants_cells)):
+    base = nb_cpu if name in ("Voynich_Rejestr.ipynb", "Voynich_Klucz.ipynb", "Voynich_Rosliny.ipynb") else nb
     out = Path(__file__).with_name(name)
     out.write_text(json.dumps({**base, "cells": [cell(k, t) for k, t in cs]}, indent=1, ensure_ascii=False), encoding="utf-8")
     print("wrote", out)

@@ -72,6 +72,8 @@ THEORIES = {t.name: t for t in [
     Theory("keystream", "Odstępy jako klucz: długości słów tną, przesuwają lub czytają strumień glifów", (), "keystream:run"),
     Theory("lengthkey", "Inny alfabet szyfru dla każdej długości słowa (wspinaczka z dziewięcioma kluczami)", ("gpu",), "lengthkey:run"),
     Theory("brute_length", "Brute force osobno na każdym zbiorze słów jednakowej długości", ("gpu",), "brute_length:run"),
+    Theory("judge_probe", "Co widzi sędzia: słownictwo czy szyk", ("gpu",), "judge_probe:run"),
+    Theory("plant_pairs", "Ta sama roślina w dwóch miejscach: czy strony dzielą słowa", (), "plant_pairs:run"),
 ]}
 ALIASES = {"literature": ["naibbe_cipher", "cardan_grille", "hebrew_anagram"], "rejestr": ["labels", "records", "lists"],
            "rejestr_gpu": ["fields_lm", "v6", "cohesion"], "all": list(THEORIES)}

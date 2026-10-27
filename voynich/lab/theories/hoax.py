@@ -60,6 +60,15 @@ V6_SECTION_PARAMS = {"p_new": 0.9, "p_far": 0.783, "p_copy": 0.036, "p_same_colu
 V6_FAV_N = 18
 
 
+# v7: the v6 space plus a stock of line-opening/closing words (p_edge) and neighbour damping; the finalist the
+# transformer judge found hardest in the 27.10 run (AUC 0.642; v5 0.660; real vs real 0.531), 2 misses on the even folios.
+V7_SECTION_PARAMS = {"p_new": 0.743, "p_far": 0.712, "p_copy": 0.213, "p_same_column": 0.777, "gamma": 7.162, "length_gamma": 1.178,
+                     "p_hot": 0.01, "hot_power": 2.676, "p_repeat": 0.001, "window": 21, "candidates": 3, "p_fav": 0.265,
+                     "p_short": 0.042, "position_gamma": 4.0, "pair_gamma": 1.117, "mood_gamma": 3.523, "freq_gamma": 1.09,
+                     "neighbour_gamma": 0.0, "p_edge": 0.328}
+V7_FAV_N = 44
+
+
 def odd_runs() -> list[tuple[tuple, list]]:
     """Odd-folio paragraph lines as contiguous runs of one (section, Currier language), in manuscript order."""
     runs: list[tuple[tuple, list]] = []

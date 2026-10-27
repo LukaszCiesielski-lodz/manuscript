@@ -258,7 +258,7 @@ class NotebookTest(unittest.TestCase):
         for name in ("Voynich_Lab.ipynb", "Voynich_Ilustracje.ipynb", "Voynich_Brute.ipynb", "Voynich_Final.ipynb",
                      "Voynich_Notacja.ipynb", "Voynich_Rejestr.ipynb", "Voynich_Rejestr_GPU.ipynb",
                      "Voynich_Klucz.ipynb", "Voynich_V7.ipynb", "Voynich_Klucz_Dlugosci.ipynb",
-                     "Voynich_Brute_Dlugosci.ipynb"):
+                     "Voynich_Brute_Dlugosci.ipynb", "Voynich_Sedzia.ipynb", "Voynich_Rosliny.ipynb"):
             nb = json.loads((Path(__file__).resolve().parent.parent / "colab" / name).read_text(encoding="utf-8"))
             for i, c in enumerate(nb["cells"]):
                 if c["cell_type"] == "code":
@@ -949,3 +949,27 @@ class BruteLengthTest(unittest.TestCase):
         self.assertEqual(sets[9], [[tuple("abcdefghijk")]])
         self.assertNotIn(1, sets)
         self.assertEqual(sum(len(w) for ws in sets.values() for l in ws for w in l), sum(len(w) for l in lines for w in l) - 1)
+
+
+class PlantPairsTest(unittest.TestCase):
+    def test_pairs_resolve_and_controls(self):
+        from voynich import plantpairs as PP
+        pages, pairs = PP.load_pages(), PP.load_pairs()
+        self.assertGreaterEqual(len(pairs), 30)
+        self.assertTrue(all(PP.find(pages, p.pharma) and PP.find(pages, p.herbal) for p in pairs))
+        idf = PP.idf_table(pages)
+        self.assertEqual(PP.overlap([("a",), ("b",)], [("a",)], {("a",): 1.0, ("b",): 3.0}), 0.25)
+        self.assertEqual(PP.label_hits([("a",), ("b",)], [("b",), ("c",)]), 0.5)
+        planted = PP.evaluate(PP.plant(pages, pairs[:10], 0.2, 1), pairs[:10], idf, shuffles=100, seed=1)
+        self.assertGreater(planted["z"], 5)
+        self.assertLess(planted["median_rank"], 0.2)
+        rewired = PP.evaluate(pages, PP.rewire(pages, pairs[:10], 2), idf, shuffles=100, seed=1)
+        self.assertLess(abs(rewired["z"]), 3)
+
+    def test_judge_probe_without_torch(self):
+        from voynich.lab.config import LabConfig
+        from voynich.lab.theories import judge_probe
+        try:
+            import torch  # noqa: F401
+        except ImportError:
+            self.assertEqual(judge_probe.run(LabConfig(quick=True)).verdict, "nierozstrzygnięta")
