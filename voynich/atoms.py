@@ -15,6 +15,7 @@ Templates are generated from the transliteration; people fill the `cechy` dicts.
 from __future__ import annotations
 
 import json
+import re
 import math
 import random
 import statistics
@@ -343,3 +344,101 @@ def summary(atoms: Sequence[Atom]) -> dict:
     return {"atoms": len(atoms), "filled": len(done), "pages": len({a.page for a in atoms}),
             "pages_filled": len({a.page for a in done}), "sources": sorted({a.zrodlo for a in done if a.zrodlo}),
             "per_section": dict(per_section)}
+
+
+# ---------- geometry for drafts from vision models (pure Python; see lab/vision.py for the models)
+
+POINT_COORDS = re.compile(r'coords="([^"]*)"')
+POINT_TRIPLE = re.compile(r"(\d+) (\d{1,4}) (\d{1,4})")
+POINT_XY_ATTR = re.compile(r'x\d*="([\d.]+)"\s+y\d*="([\d.]+)"')
+
+
+def parse_points(text: str, width: float, height: float) -> list[tuple[float, float]]:
+    """Pixel points from a pointing model's reply.
+
+    Molmo2 writes <points ... coords="1 123 456, 2 234 567"/> with coordinates scaled by 1000;
+    the first Molmo wrote <point x="12.3" y="45.6"> in percent. Both are read; out-of-image points dropped.
+    """
+    out = []
+    for coords in POINT_COORDS.findall(text):
+        for _, x, y in POINT_TRIPLE.findall(coords):
+            px, py = float(x) / 1000 * width, float(y) / 1000 * height
+            if 0 <= px <= width and 0 <= py <= height:
+                out.append((px, py))
+    if not out:
+        for x, y in POINT_XY_ATTR.findall(text):
+            px, py = float(x) / 100 * width, float(y) / 100 * height
+            if 0 <= px <= width and 0 <= py <= height:
+                out.append((px, py))
+    return out
+
+
+def ring_layout(points: Sequence[tuple[float, float]], center: tuple[float, float] | None = None,
+                max_rings: int = 3, gap: float = 0.15) -> list[dict]:
+    """Rings and clockwise order (from twelve o'clock) of points around a roundel.
+
+    Returns one dict per input point, same order: krag ("zewn", "srod", "wewn"), kolejnosc (1-based within
+    the ring), kat (degrees clockwise from the top), promien (relative to the largest radius). Rings are cut
+    where sorted radii jump by more than `gap` of the largest radius, at most `max_rings` rings.
+    """
+    if not points:
+        return []
+    if center is None:
+        xs, ys = sorted(p[0] for p in points), sorted(p[1] for p in points)
+        center = (statistics.median(xs), statistics.median(ys))
+    cx, cy = center
+    radii = [math.hypot(x - cx, y - cy) for x, y in points]
+    angles = [(math.degrees(math.atan2(x - cx, -(y - cy))) + 360.0) % 360.0 for x, y in points]
+    rmax = max(radii) or 1.0
+    order = sorted(range(len(points)), key=lambda i: -radii[i])    # outermost first
+    cuts = sorted(((radii[order[k]] - radii[order[k + 1]]) / rmax, k) for k in range(len(order) - 1))
+    cuts = [k for g, k in cuts if g >= gap]
+    cuts = sorted(cuts, key=lambda k: -(radii[order[k]] - radii[order[k + 1]]))[: max_rings - 1]
+    ring_of = {}
+    ring = 0
+    for pos, i in enumerate(order):
+        ring_of[i] = ring
+        if pos in cuts:
+            ring += 1
+    n_rings = ring + 1
+    names = {1: ["zewn"], 2: ["zewn", "wewn"], 3: ["zewn", "srod", "wewn"]}[n_rings]
+    out = [None] * len(points)
+    for r in range(n_rings):
+        members = sorted((i for i in ring_of if ring_of[i] == r), key=lambda i: angles[i])
+        for k, i in enumerate(members, 1):
+            out[i] = {"krag": names[r], "kolejnosc": k, "kat": round(angles[i], 1), "promien": round(radii[i] / rmax, 3)}
+    return out
+
+
+def reading_order(points: Sequence[tuple[float, float]], row_tolerance: float) -> list[int]:
+    """1-based reading order (rows top to bottom, left to right) for points on a page without rings."""
+    idx = sorted(range(len(points)), key=lambda i: points[i][1])
+    rows, current = [], []
+    for i in idx:
+        if current and points[i][1] - points[current[0]][1] > row_tolerance:
+            rows.append(current)
+            current = []
+        current.append(i)
+    if current:
+        rows.append(current)
+    out = [0] * len(points)
+    k = 1
+    for row in rows:
+        for i in sorted(row, key=lambda i: points[i][0]):
+            out[i] = k
+            k += 1
+    return out
+
+
+def crop_box(point: tuple[float, float], points: Sequence[tuple[float, float]], width: float, height: float,
+             factor: float = 1.6, minimum: float = 64.0) -> tuple[int, int, int, int]:
+    """Square crop around a point, sized from the typical distance between neighbouring points, kept inside the image."""
+    x, y = point
+    nearest = []
+    for i, (a, b) in enumerate(points):
+        d = [math.hypot(a - c, b - e) for j, (c, e) in enumerate(points) if j != i]
+        if d:
+            nearest.append(min(d))
+    side = max(minimum, factor * statistics.median(nearest)) if nearest else max(minimum, min(width, height) / 4)
+    half = side / 2
+    return (int(max(0, x - half)), int(max(0, y - half)), int(min(width, x + half)), int(min(height, y + half)))

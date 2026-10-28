@@ -45,6 +45,15 @@ f72r1 Byk (ciemny), f72r2 Bliźnięta, f72r3 Rak, f72v3 Lew, f72v2 Panna, f72v1 
 Notebook `colab/Voynich_Atomy.ipynb` prosi model widzący obrazy o pierwszy, brudny opis stron zodiaku w tym samym schemacie
 (`zrodlo: "vlm"`, `pewnosc: 1`). Liczby po modelu (promienie, płatki) są niepewne: to szkic do poprawienia, nie wynik.
 
+## Szkic na własnym GPU
+
+Notebook `colab/Voynich_Atomy_GPU.ipynb` (A100) robi to samo bez płatnego API, otwartymi modelami z Hugging Face: Molmo2
+wskazuje punktami postaci i gwiazdy, geometria liczy kręgi i kolejność zgodnie z ruchem wskazówek zegara, Qwen3-VL opisuje
+wycinek wokół każdej postaci. Wynik to `atoms_vision/<strona>.json` (`zrodlo: "vision"`) oraz PNG z numerami punktów: zanim
+ktoś poprawi cechy, niech sprawdzi na PNG, czy numer 7 to naprawdę siódma etykieta w kręgu. Kolejność z geometrii zakłada,
+że transliteracja numeruje etykiety od góry zgodnie z ruchem wskazówek zegara; tam, gdzie liczba punktów nie zgadza się
+z liczbą etykiet, pole `uwaga` to mówi i dopasowanie jest zgadywane.
+
 ## Sprawdzenie i test
 
 ```

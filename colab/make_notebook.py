@@ -562,6 +562,35 @@ nb = {"nbformat": 4, "nbformat_minor": 0,
       "metadata": {"accelerator": "GPU", "colab": {"provenance": [], "gpuType": "A100", "machine_shape": "hm"},
                    "kernelspec": {"name": "python3", "display_name": "Python 3"}, "language_info": {"name": "python"}},
       "cells": [cell(k, t) for k, t in cells]}
+atoms_gpu_cells = [
+    ("md", """# Voynich Lab – atomy ilustracji na własnym GPU (Molmo2 + geometria + Qwen3-VL)
+
+Szkic atomów bez OpenRouter: `allenai/Molmo2-8B` wskazuje punktami środki kół, postaci i gwiazdy na stronach zodiaku,
+geometria liczy kręgi i kolejność zgodnie z ruchem wskazówek zegara, `Qwen/Qwen3-VL-8B-Instruct` opisuje wycinek wokół
+każdej postaci według słownika `data/atoms/vocab.json`, a `IDEA-Research/grounding-dino-base` liczy to samo ramkami jako
+kontrola. Wynik: pliki stron `atoms_vision/<strona>.json` i PNG z numerami punktów na `lab-results` (do sprawdzenia,
+poprawienia i scalenia z `data/atoms/`). Potem test `atoms` (na razie tylko kontrole metody).
+
+**Runtime: GPU A100** (modele 8B w bf16: ok. 35 GB razem). Sekrety: `GITHUB_TOKEN` (`OPENROUTER_API_KEY` tylko do rady).
+Czas: ok. 25 min (pobranie modeli ~10 min za pierwszym razem). Dział farmaceutyczny: dopisz `"pharmaceutical"` do `atoms_sections`."""),
+    cells[1], cells[3],
+    ("code", """!pip -q install "transformers==4.57.1" molmo_utils einops accelerate
+!python scripts/fetch_data.py"""),
+    cells[5],
+    ("code", cells[7][1].replace('theories=["all"],          # albo np. ["numbers", "literature"]',
+                                 'theories=["atoms_vision", "atoms"], atoms_sections=("zodiac",),')),
+    ("code", """lab.run("atoms_vision"); lab.push()
+lab.run("atoms"); lab.push()
+lab.report(); lab.push()
+from IPython.display import Markdown, display
+display(Markdown((lab.cfg.results_dir / "atoms_vision.md").read_text()))
+import glob
+from IPython.display import Image as IImage
+for png in sorted(glob.glob(str(lab.cfg.results_dir / "atoms_vision" / "*.png"))):
+    display(IImage(filename=png, width=900))"""),
+]
+
+
 nb_cpu = {**nb, "metadata": {"colab": {"provenance": []}, "kernelspec": {"name": "python3", "display_name": "Python 3"},
                              "language_info": {"name": "python"}}}   # no accelerator: no GPU units
 for name, cs in (("Voynich_Lab.ipynb", cells), ("Voynich_Ilustracje.ipynb", illustrations_cells),
@@ -573,7 +602,7 @@ for name, cs in (("Voynich_Lab.ipynb", cells), ("Voynich_Ilustracje.ipynb", illu
                  ("Voynich_Klucz.ipynb", keystream_cells), ("Voynich_V7.ipynb", v7_cells),
                  ("Voynich_Klucz_Dlugosci.ipynb", lengthkey_cells), ("Voynich_Brute_Dlugosci.ipynb", brute_length_cells),
                  ("Voynich_Sedzia.ipynb", judge_cells), ("Voynich_Rosliny.ipynb", plants_cells),
-                 ("Voynich_Atomy.ipynb", atoms_cells)):
+                 ("Voynich_Atomy.ipynb", atoms_cells), ("Voynich_Atomy_GPU.ipynb", atoms_gpu_cells)):
     base = nb_cpu if name in ("Voynich_Rejestr.ipynb", "Voynich_Klucz.ipynb", "Voynich_Rosliny.ipynb", "Voynich_Atomy.ipynb") else nb
     out = Path(__file__).with_name(name)
     out.write_text(json.dumps({**base, "cells": [cell(k, t) for k, t in cs]}, indent=1, ensure_ascii=False), encoding="utf-8")

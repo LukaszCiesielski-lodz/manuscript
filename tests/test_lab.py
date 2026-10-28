@@ -259,7 +259,7 @@ class NotebookTest(unittest.TestCase):
                      "Voynich_Notacja.ipynb", "Voynich_Rejestr.ipynb", "Voynich_Rejestr_GPU.ipynb",
                      "Voynich_Klucz.ipynb", "Voynich_V7.ipynb", "Voynich_Klucz_Dlugosci.ipynb",
                      "Voynich_Brute_Dlugosci.ipynb", "Voynich_Sedzia.ipynb", "Voynich_Rosliny.ipynb",
-                     "Voynich_Atomy.ipynb"):
+                     "Voynich_Atomy.ipynb", "Voynich_Atomy_GPU.ipynb"):
             nb = json.loads((Path(__file__).resolve().parent.parent / "colab" / name).read_text(encoding="utf-8"))
             for i, c in enumerate(nb["cells"]):
                 if c["cell_type"] == "code":
@@ -1044,3 +1044,48 @@ class AtomsTest(unittest.TestCase):
         self.assertEqual(page["atomy"][0]["zrodlo"], "vlm")
         self.assertEqual(A.validate(page, vocab), [])
         self.assertEqual(page["atomy"][1]["zrodlo"], "")
+
+
+class AtomsVisionTest(unittest.TestCase):
+    def test_ring_layout_recovers_rings_and_order(self):
+        import math
+        from voynich import atoms as A
+        pts, truth = [], []
+        for k in range(12):
+            a = math.radians(k * 30 + 5)
+            pts.append((500 + 300 * math.sin(a), 500 - 300 * math.cos(a)))
+            truth.append(("zewn", k + 1))
+        for k in range(8):
+            a = math.radians(k * 45 + 10)
+            pts.append((500 + 150 * math.sin(a), 500 - 150 * math.cos(a)))
+            truth.append(("wewn", k + 1))
+        lay = A.ring_layout(pts)
+        self.assertEqual([(d["krag"], d["kolejnosc"]) for d in lay], truth)
+        self.assertAlmostEqual(lay[3]["kat"], 95.0, places=3)          # 3 o'clock side is clockwise from the top
+        self.assertEqual(A.ring_layout([]), [])
+        one = A.ring_layout(pts[:12], (500, 500))
+        self.assertTrue(all(d["krag"] == "zewn" for d in one))
+
+    def test_parse_points_crop_and_reading_order(self):
+        from voynich import atoms as A
+        text = 'Here: <points alt="figures" coords="1 100 200, 2 300 400; 3 1200 50"/> done'
+        self.assertEqual(A.parse_points(text, 1000, 500), [(100.0, 100.0), (300.0, 200.0)])   # third is outside
+        self.assertEqual(A.parse_points('<point x="10.0" y="20.0" alt="a">a</point>', 1000, 500), [(100.0, 100.0)])
+        self.assertEqual(A.parse_points("There are 30 figures.", 1000, 500), [])
+        pts = [(10, 10), (50, 10), (90, 10), (10, 60)]
+        box = A.crop_box((10, 10), pts, 100, 100)
+        self.assertEqual(box, (0, 0, 42, 42))                       # 1.6 x 40 = 64 wide, clipped at the image edge
+        self.assertEqual(A.reading_order([(10, 10), (200, 12), (15, 100), (300, 105)], 30), [1, 2, 3, 4])
+
+    def test_vision_theory_without_gpu_and_prompt(self):
+        from voynich import atoms as A
+        from voynich.lab import vision
+        from voynich.lab.config import LabConfig
+        from voynich.lab.theories import atoms_vision
+        self.assertEqual(atoms_vision.run(LabConfig(quick=True)).verdict, "nierozstrzygnięta")
+        prompt = vision.schema_prompt("nimfa", A.load_vocab()["typy"]["nimfa"]["cechy"], "Test.")
+        self.assertIn('"gwiazda_promienie": "liczba"', prompt)
+        self.assertIn("true/false", prompt)
+        cleaned, dropped = atoms_vision._clean({"naga": "true", "trzyma": "miecz", "gwiazda_promienie": 7.0},
+                                               A.load_vocab()["typy"]["nimfa"]["cechy"])
+        self.assertEqual((cleaned["naga"], cleaned["trzyma"], cleaned["gwiazda_promienie"], dropped), (True, None, 7, 1))

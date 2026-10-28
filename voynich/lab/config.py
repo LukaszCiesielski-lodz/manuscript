@@ -39,6 +39,12 @@ class LabConfig:
     # Images (Beinecke IIIF) and GPU work.
     image_width: int = 1024        # pixels; IIIF serves any size
     images_dir: Path | None = None # optional folder of scans named f1r.jpg, f1v.jpg...; used before downloading
+    # Atoms of the drawings on our own GPU (theory atoms_vision): which sections, which Hugging Face models.
+    atoms_sections: tuple[str, ...] = ("zodiac",)   # add "pharmaceutical" for jars and plant fragments
+    atoms_pointer: str = "allenai/Molmo2-8B"
+    atoms_describer: str = "Qwen/Qwen3-VL-8B-Instruct"
+    atoms_detector: str = "IDEA-Research/grounding-dino-base"
+    atoms_image_width: int = 2000
     clip_model: str = "ViT-L-14"   # open_clip architecture
     clip_pretrained: str = "openai"
     vlm_folios_limit: int = 0      # 0 = all herbal folios; set e.g. 20 to save money
