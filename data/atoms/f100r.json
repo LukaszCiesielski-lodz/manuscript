@@ -1,0 +1,400 @@
+{
+ "strona": "f100r",
+ "dzial": "pharmaceutical",
+ "jezyk": "A",
+ "atomy": [
+  {
+   "id": "f100r-01",
+   "typ": "fragment",
+   "cechy": {
+    "czesc": null,
+    "liczba": null,
+    "kolor": null
+   },
+   "pozycja": {
+    "krag": null,
+    "kolejnosc": 1
+   },
+   "etykieta": {
+    "locus": "1",
+    "rodzaj": "Lf",
+    "slowa": [
+     "chosaroshol"
+    ]
+   },
+   "zrodlo": "",
+   "pewnosc": null,
+   "uwaga": ""
+  },
+  {
+   "id": "f100r-02",
+   "typ": "fragment",
+   "cechy": {
+    "czesc": null,
+    "liczba": null,
+    "kolor": null
+   },
+   "pozycja": {
+    "krag": null,
+    "kolejnosc": 2
+   },
+   "etykieta": {
+    "locus": "2",
+    "rodzaj": "Lf",
+    "slowa": [
+     "sochorcfhy"
+    ]
+   },
+   "zrodlo": "",
+   "pewnosc": null,
+   "uwaga": ""
+  },
+  {
+   "id": "f100r-03",
+   "typ": "fragment",
+   "cechy": {
+    "czesc": null,
+    "liczba": null,
+    "kolor": null
+   },
+   "pozycja": {
+    "krag": null,
+    "kolejnosc": 3
+   },
+   "etykieta": {
+    "locus": "3",
+    "rodzaj": "Lf",
+    "slowa": [
+     "otear"
+    ]
+   },
+   "zrodlo": "",
+   "pewnosc": null,
+   "uwaga": ""
+  },
+  {
+   "id": "f100r-04",
+   "typ": "fragment",
+   "cechy": {
+    "czesc": null,
+    "liczba": null,
+    "kolor": null
+   },
+   "pozycja": {
+    "krag": null,
+    "kolejnosc": 4
+   },
+   "etykieta": {
+    "locus": "4",
+    "rodzaj": "Lf",
+    "slowa": [
+     "chofary"
+    ]
+   },
+   "zrodlo": "",
+   "pewnosc": null,
+   "uwaga": ""
+  },
+  {
+   "id": "f100r-05",
+   "typ": "fragment",
+   "cechy": {
+    "czesc": null,
+    "liczba": null,
+    "kolor": null
+   },
+   "pozycja": {
+    "krag": null,
+    "kolejnosc": 5
+   },
+   "etykieta": {
+    "locus": "5",
+    "rodzaj": "Lf",
+    "slowa": [
+     "sar",
+     "char",
+     "daiindy"
+    ]
+   },
+   "zrodlo": "",
+   "pewnosc": null,
+   "uwaga": ""
+  },
+  {
+   "id": "f100r-06",
+   "typ": "fragment",
+   "cechy": {
+    "czesc": null,
+    "liczba": null,
+    "kolor": null
+   },
+   "pozycja": {
+    "krag": null,
+    "kolejnosc": 6
+   },
+   "etykieta": {
+    "locus": "6",
+    "rodzaj": "Lf",
+    "slowa": [
+     "oraro"
+    ]
+   },
+   "zrodlo": "",
+   "pewnosc": null,
+   "uwaga": ""
+  },
+  {
+   "id": "f100r-07",
+   "typ": "fragment",
+   "cechy": {
+    "czesc": null,
+    "liczba": null,
+    "kolor": null
+   },
+   "pozycja": {
+    "krag": null,
+    "kolejnosc": 7
+   },
+   "etykieta": {
+    "locus": "7",
+    "rodzaj": "Lf",
+    "slowa": [
+     "chalsain"
+    ]
+   },
+   "zrodlo": "",
+   "pewnosc": null,
+   "uwaga": ""
+  },
+  {
+   "id": "f100r-08",
+   "typ": "fragment",
+   "cechy": {
+    "czesc": null,
+    "liczba": null,
+    "kolor": null
+   },
+   "pozycja": {
+    "krag": null,
+    "kolejnosc": 8
+   },
+   "etykieta": {
+    "locus": "8",
+    "rodzaj": "Lf",
+    "slowa": [
+     "soity"
+    ]
+   },
+   "zrodlo": "",
+   "pewnosc": null,
+   "uwaga": ""
+  },
+  {
+   "id": "f100r-09",
+   "typ": "fragment",
+   "cechy": {
+    "czesc": null,
+    "liczba": null,
+    "kolor": null
+   },
+   "pozycja": {
+    "krag": null,
+    "kolejnosc": 9
+   },
+   "etykieta": {
+    "locus": "9",
+    "rodzaj": "Lf",
+    "slowa": [
+     "sosam"
+    ]
+   },
+   "zrodlo": "",
+   "pewnosc": null,
+   "uwaga": ""
+  },
+  {
+   "id": "f100r-10",
+   "typ": "fragment",
+   "cechy": {
+    "czesc": null,
+    "liczba": null,
+    "kolor": null
+   },
+   "pozycja": {
+    "krag": null,
+    "kolejnosc": 10
+   },
+   "etykieta": {
+    "locus": "10",
+    "rodzaj": "Lf",
+    "slowa": [
+     "dakocth"
+    ]
+   },
+   "zrodlo": "",
+   "pewnosc": null,
+   "uwaga": ""
+  },
+  {
+   "id": "f100r-11",
+   "typ": "fragment",
+   "cechy": {
+    "czesc": null,
+    "liczba": null,
+    "kolor": null
+   },
+   "pozycja": {
+    "krag": null,
+    "kolejnosc": 11
+   },
+   "etykieta": {
+    "locus": "11",
+    "rodzaj": "Lf",
+    "slowa": [
+     "sofam"
+    ]
+   },
+   "zrodlo": "",
+   "pewnosc": null,
+   "uwaga": ""
+  },
+  {
+   "id": "f100r-12",
+   "typ": "fragment",
+   "cechy": {
+    "czesc": null,
+    "liczba": null,
+    "kolor": null
+   },
+   "pozycja": {
+    "krag": null,
+    "kolejnosc": 12
+   },
+   "etykieta": {
+    "locus": "16",
+    "rodzaj": "Lf",
+    "slowa": [
+     "okeeos"
+    ]
+   },
+   "zrodlo": "",
+   "pewnosc": null,
+   "uwaga": ""
+  },
+  {
+   "id": "f100r-13",
+   "typ": "fragment",
+   "cechy": {
+    "czesc": null,
+    "liczba": null,
+    "kolor": null
+   },
+   "pozycja": {
+    "krag": null,
+    "kolejnosc": 13
+   },
+   "etykieta": {
+    "locus": "17",
+    "rodzaj": "Lf",
+    "slowa": [
+     "shockhey"
+    ]
+   },
+   "zrodlo": "",
+   "pewnosc": null,
+   "uwaga": ""
+  },
+  {
+   "id": "f100r-14",
+   "typ": "fragment",
+   "cechy": {
+    "czesc": null,
+    "liczba": null,
+    "kolor": null
+   },
+   "pozycja": {
+    "krag": null,
+    "kolejnosc": 14
+   },
+   "etykieta": {
+    "locus": "18",
+    "rodzaj": "Lf",
+    "slowa": [
+     "orol"
+    ]
+   },
+   "zrodlo": "",
+   "pewnosc": null,
+   "uwaga": ""
+  },
+  {
+   "id": "f100r-15",
+   "typ": "fragment",
+   "cechy": {
+    "czesc": null,
+    "liczba": null,
+    "kolor": null
+   },
+   "pozycja": {
+    "krag": null,
+    "kolejnosc": 15
+   },
+   "etykieta": {
+    "locus": "19",
+    "rodzaj": "Lf",
+    "slowa": [
+     "olcheom"
+    ]
+   },
+   "zrodlo": "",
+   "pewnosc": null,
+   "uwaga": ""
+  },
+  {
+   "id": "f100r-16",
+   "typ": "fragment",
+   "cechy": {
+    "czesc": null,
+    "liczba": null,
+    "kolor": null
+   },
+   "pozycja": {
+    "krag": null,
+    "kolejnosc": 16
+   },
+   "etykieta": {
+    "locus": "20",
+    "rodzaj": "Lf",
+    "slowa": [
+     "oteol"
+    ]
+   },
+   "zrodlo": "",
+   "pewnosc": null,
+   "uwaga": ""
+  },
+  {
+   "id": "f100r-17",
+   "typ": "fragment",
+   "cechy": {
+    "czesc": null,
+    "liczba": null,
+    "kolor": null
+   },
+   "pozycja": {
+    "krag": null,
+    "kolejnosc": 17
+   },
+   "etykieta": {
+    "locus": "21",
+    "rodzaj": "Lf",
+    "slowa": [
+     "okols"
+    ]
+   },
+   "zrodlo": "",
+   "pewnosc": null,
+   "uwaga": ""
+  }
+ ]
+}

@@ -1,0 +1,105 @@
+{
+ "strona": "f83v",
+ "dzial": "biological",
+ "jezyk": "B",
+ "atomy": [
+  {
+   "id": "f83v-01",
+   "typ": "rura",
+   "cechy": {
+    "ksztalt": null,
+    "zakonczenie": null,
+    "kolor": null
+   },
+   "pozycja": {
+    "krag": null,
+    "kolejnosc": 1
+   },
+   "etykieta": {
+    "locus": "9",
+    "rodzaj": "Lt",
+    "slowa": [
+     "ololary"
+    ]
+   },
+   "zrodlo": "",
+   "pewnosc": null,
+   "uwaga": ""
+  },
+  {
+   "id": "f83v-02",
+   "typ": "rura",
+   "cechy": {
+    "ksztalt": null,
+    "zakonczenie": null,
+    "kolor": null
+   },
+   "pozycja": {
+    "krag": null,
+    "kolejnosc": 2
+   },
+   "etykieta": {
+    "locus": "10",
+    "rodzaj": "Lt",
+    "slowa": [
+     "okarchy"
+    ]
+   },
+   "zrodlo": "",
+   "pewnosc": null,
+   "uwaga": ""
+  },
+  {
+   "id": "f83v-03",
+   "typ": "nimfa",
+   "cechy": {
+    "naga": null,
+    "w_obiekcie": null,
+    "korona": null,
+    "wlosy": null,
+    "trzyma": null,
+    "kierunek": null,
+    "gwiazda_promienie": null,
+    "gwiazda_ogon": null,
+    "gwiazda_kolor": null
+   },
+   "pozycja": {
+    "krag": null,
+    "kolejnosc": 3
+   },
+   "etykieta": {
+    "locus": "34",
+    "rodzaj": "Ln",
+    "slowa": [
+     "okchdy"
+    ]
+   },
+   "zrodlo": "",
+   "pewnosc": null,
+   "uwaga": ""
+  },
+  {
+   "id": "f83v-04",
+   "typ": "rura",
+   "cechy": {
+    "ksztalt": null,
+    "zakonczenie": null,
+    "kolor": null
+   },
+   "pozycja": {
+    "krag": null,
+    "kolejnosc": 4
+   },
+   "etykieta": {
+    "locus": "35",
+    "rodzaj": "Lt",
+    "slowa": [
+     "okaiin"
+    ]
+   },
+   "zrodlo": "",
+   "pewnosc": null,
+   "uwaga": ""
+  }
+ ]
+}

@@ -1,0 +1,452 @@
+{
+ "strona": "f70v1",
+ "dzial": "zodiac",
+ "jezyk": "?",
+ "atomy": [
+  {
+   "id": "f70v1-01",
+   "typ": "nimfa",
+   "cechy": {
+    "naga": null,
+    "w_obiekcie": null,
+    "korona": null,
+    "wlosy": null,
+    "trzyma": null,
+    "kierunek": null,
+    "gwiazda_promienie": null,
+    "gwiazda_ogon": null,
+    "gwiazda_kolor": null
+   },
+   "pozycja": {
+    "krag": null,
+    "kolejnosc": 1
+   },
+   "etykieta": {
+    "locus": "2",
+    "rodzaj": "Lz",
+    "slowa": [
+     "otalchy",
+     "tar",
+     "am",
+     "dy"
+    ]
+   },
+   "zrodlo": "",
+   "pewnosc": null,
+   "uwaga": ""
+  },
+  {
+   "id": "f70v1-02",
+   "typ": "nimfa",
+   "cechy": {
+    "naga": null,
+    "w_obiekcie": null,
+    "korona": null,
+    "wlosy": null,
+    "trzyma": null,
+    "kierunek": null,
+    "gwiazda_promienie": null,
+    "gwiazda_ogon": null,
+    "gwiazda_kolor": null
+   },
+   "pozycja": {
+    "krag": null,
+    "kolejnosc": 2
+   },
+   "etykieta": {
+    "locus": "3",
+    "rodzaj": "Lz",
+    "slowa": [
+     "opchey",
+     "sal"
+    ]
+   },
+   "zrodlo": "",
+   "pewnosc": null,
+   "uwaga": ""
+  },
+  {
+   "id": "f70v1-03",
+   "typ": "nimfa",
+   "cechy": {
+    "naga": null,
+    "w_obiekcie": null,
+    "korona": null,
+    "wlosy": null,
+    "trzyma": null,
+    "kierunek": null,
+    "gwiazda_promienie": null,
+    "gwiazda_ogon": null,
+    "gwiazda_kolor": null
+   },
+   "pozycja": {
+    "krag": null,
+    "kolejnosc": 3
+   },
+   "etykieta": {
+    "locus": "4",
+    "rodzaj": "Lz",
+    "slowa": [
+     "otakaizan"
+    ]
+   },
+   "zrodlo": "",
+   "pewnosc": null,
+   "uwaga": ""
+  },
+  {
+   "id": "f70v1-04",
+   "typ": "nimfa",
+   "cechy": {
+    "naga": null,
+    "w_obiekcie": null,
+    "korona": null,
+    "wlosy": null,
+    "trzyma": null,
+    "kierunek": null,
+    "gwiazda_promienie": null,
+    "gwiazda_ogon": null,
+    "gwiazda_kolor": null
+   },
+   "pozycja": {
+    "krag": null,
+    "kolejnosc": 4
+   },
+   "etykieta": {
+    "locus": "5",
+    "rodzaj": "Lz",
+    "slowa": [
+     "okalal"
+    ]
+   },
+   "zrodlo": "",
+   "pewnosc": null,
+   "uwaga": ""
+  },
+  {
+   "id": "f70v1-05",
+   "typ": "nimfa",
+   "cechy": {
+    "naga": null,
+    "w_obiekcie": null,
+    "korona": null,
+    "wlosy": null,
+    "trzyma": null,
+    "kierunek": null,
+    "gwiazda_promienie": null,
+    "gwiazda_ogon": null,
+    "gwiazda_kolor": null
+   },
+   "pozycja": {
+    "krag": null,
+    "kolejnosc": 5
+   },
+   "etykieta": {
+    "locus": "6",
+    "rodzaj": "Lz",
+    "slowa": [
+     "otaly"
+    ]
+   },
+   "zrodlo": "",
+   "pewnosc": null,
+   "uwaga": ""
+  },
+  {
+   "id": "f70v1-06",
+   "typ": "nimfa",
+   "cechy": {
+    "naga": null,
+    "w_obiekcie": null,
+    "korona": null,
+    "wlosy": null,
+    "trzyma": null,
+    "kierunek": null,
+    "gwiazda_promienie": null,
+    "gwiazda_ogon": null,
+    "gwiazda_kolor": null
+   },
+   "pozycja": {
+    "krag": null,
+    "kolejnosc": 6
+   },
+   "etykieta": {
+    "locus": "7",
+    "rodzaj": "Lz",
+    "slowa": [
+     "oalcheg"
+    ]
+   },
+   "zrodlo": "",
+   "pewnosc": null,
+   "uwaga": ""
+  },
+  {
+   "id": "f70v1-07",
+   "typ": "nimfa",
+   "cechy": {
+    "naga": null,
+    "w_obiekcie": null,
+    "korona": null,
+    "wlosy": null,
+    "trzyma": null,
+    "kierunek": null,
+    "gwiazda_promienie": null,
+    "gwiazda_ogon": null,
+    "gwiazda_kolor": null
+   },
+   "pozycja": {
+    "krag": null,
+    "kolejnosc": 7
+   },
+   "etykieta": {
+    "locus": "8",
+    "rodzaj": "Lz",
+    "slowa": [
+     "otchodals"
+    ]
+   },
+   "zrodlo": "",
+   "pewnosc": null,
+   "uwaga": ""
+  },
+  {
+   "id": "f70v1-08",
+   "typ": "nimfa",
+   "cechy": {
+    "naga": null,
+    "w_obiekcie": null,
+    "korona": null,
+    "wlosy": null,
+    "trzyma": null,
+    "kierunek": null,
+    "gwiazda_promienie": null,
+    "gwiazda_ogon": null,
+    "gwiazda_kolor": null
+   },
+   "pozycja": {
+    "krag": null,
+    "kolejnosc": 8
+   },
+   "etykieta": {
+    "locus": "9",
+    "rodzaj": "Lz",
+    "slowa": [
+     "okolshy"
+    ]
+   },
+   "zrodlo": "",
+   "pewnosc": null,
+   "uwaga": ""
+  },
+  {
+   "id": "f70v1-09",
+   "typ": "nimfa",
+   "cechy": {
+    "naga": null,
+    "w_obiekcie": null,
+    "korona": null,
+    "wlosy": null,
+    "trzyma": null,
+    "kierunek": null,
+    "gwiazda_promienie": null,
+    "gwiazda_ogon": null,
+    "gwiazda_kolor": null
+   },
+   "pozycja": {
+    "krag": null,
+    "kolejnosc": 9
+   },
+   "etykieta": {
+    "locus": "10",
+    "rodzaj": "Lz",
+    "slowa": [
+     "otshshdy"
+    ]
+   },
+   "zrodlo": "",
+   "pewnosc": null,
+   "uwaga": ""
+  },
+  {
+   "id": "f70v1-10",
+   "typ": "nimfa",
+   "cechy": {
+    "naga": null,
+    "w_obiekcie": null,
+    "korona": null,
+    "wlosy": null,
+    "trzyma": null,
+    "kierunek": null,
+    "gwiazda_promienie": null,
+    "gwiazda_ogon": null,
+    "gwiazda_kolor": null
+   },
+   "pozycja": {
+    "krag": null,
+    "kolejnosc": 10
+   },
+   "etykieta": {
+    "locus": "11",
+    "rodzaj": "Lz",
+    "slowa": [
+     "otal",
+     "ypsharal"
+    ]
+   },
+   "zrodlo": "",
+   "pewnosc": null,
+   "uwaga": ""
+  },
+  {
+   "id": "f70v1-11",
+   "typ": "nimfa",
+   "cechy": {
+    "naga": null,
+    "w_obiekcie": null,
+    "korona": null,
+    "wlosy": null,
+    "trzyma": null,
+    "kierunek": null,
+    "gwiazda_promienie": null,
+    "gwiazda_ogon": null,
+    "gwiazda_kolor": null
+   },
+   "pozycja": {
+    "krag": null,
+    "kolejnosc": 11
+   },
+   "etykieta": {
+    "locus": "13",
+    "rodzaj": "Lz",
+    "slowa": [
+     "okoly"
+    ]
+   },
+   "zrodlo": "",
+   "pewnosc": null,
+   "uwaga": ""
+  },
+  {
+   "id": "f70v1-12",
+   "typ": "nimfa",
+   "cechy": {
+    "naga": null,
+    "w_obiekcie": null,
+    "korona": null,
+    "wlosy": null,
+    "trzyma": null,
+    "kierunek": null,
+    "gwiazda_promienie": null,
+    "gwiazda_ogon": null,
+    "gwiazda_kolor": null
+   },
+   "pozycja": {
+    "krag": null,
+    "kolejnosc": 12
+   },
+   "etykieta": {
+    "locus": "14",
+    "rodzaj": "Lz",
+    "slowa": [
+     "otalaiin"
+    ]
+   },
+   "zrodlo": "",
+   "pewnosc": null,
+   "uwaga": ""
+  },
+  {
+   "id": "f70v1-13",
+   "typ": "nimfa",
+   "cechy": {
+    "naga": null,
+    "w_obiekcie": null,
+    "korona": null,
+    "wlosy": null,
+    "trzyma": null,
+    "kierunek": null,
+    "gwiazda_promienie": null,
+    "gwiazda_ogon": null,
+    "gwiazda_kolor": null
+   },
+   "pozycja": {
+    "krag": null,
+    "kolejnosc": 13
+   },
+   "etykieta": {
+    "locus": "15",
+    "rodzaj": "Lz",
+    "slowa": [
+     "oteo",
+     "alals",
+     "araly"
+    ]
+   },
+   "zrodlo": "",
+   "pewnosc": null,
+   "uwaga": ""
+  },
+  {
+   "id": "f70v1-14",
+   "typ": "nimfa",
+   "cechy": {
+    "naga": null,
+    "w_obiekcie": null,
+    "korona": null,
+    "wlosy": null,
+    "trzyma": null,
+    "kierunek": null,
+    "gwiazda_promienie": null,
+    "gwiazda_ogon": null,
+    "gwiazda_kolor": null
+   },
+   "pozycja": {
+    "krag": null,
+    "kolejnosc": 14
+   },
+   "etykieta": {
+    "locus": "16",
+    "rodzaj": "Lz",
+    "slowa": [
+     "oteoeey",
+     "otal",
+     "okealar"
+    ]
+   },
+   "zrodlo": "",
+   "pewnosc": null,
+   "uwaga": ""
+  },
+  {
+   "id": "f70v1-15",
+   "typ": "nimfa",
+   "cechy": {
+    "naga": null,
+    "w_obiekcie": null,
+    "korona": null,
+    "wlosy": null,
+    "trzyma": null,
+    "kierunek": null,
+    "gwiazda_promienie": null,
+    "gwiazda_ogon": null,
+    "gwiazda_kolor": null
+   },
+   "pozycja": {
+    "krag": null,
+    "kolejnosc": 15
+   },
+   "etykieta": {
+    "locus": "17",
+    "rodzaj": "Lz",
+    "slowa": [
+     "otear",
+     "araydy"
+    ]
+   },
+   "zrodlo": "",
+   "pewnosc": null,
+   "uwaga": ""
+  }
+ ]
+}

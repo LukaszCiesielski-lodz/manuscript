@@ -1,0 +1,336 @@
+{
+ "strona": "f89v2",
+ "dzial": "pharmaceutical",
+ "jezyk": "A",
+ "atomy": [
+  {
+   "id": "f89v2-01",
+   "typ": "naczynie",
+   "cechy": {
+    "ksztalt": null,
+    "pokrywka": null,
+    "nozki": null,
+    "segmenty": null,
+    "kolor": null
+   },
+   "pozycja": {
+    "krag": null,
+    "kolejnosc": 1
+   },
+   "etykieta": {
+    "locus": "1",
+    "rodzaj": "Lc",
+    "slowa": [
+     "choeesy"
+    ]
+   },
+   "zrodlo": "",
+   "pewnosc": null,
+   "uwaga": ""
+  },
+  {
+   "id": "f89v2-02",
+   "typ": "fragment",
+   "cechy": {
+    "czesc": null,
+    "liczba": null,
+    "kolor": null
+   },
+   "pozycja": {
+    "krag": null,
+    "kolejnosc": 2
+   },
+   "etykieta": {
+    "locus": "2",
+    "rodzaj": "Lf",
+    "slowa": [
+     "okam"
+    ]
+   },
+   "zrodlo": "",
+   "pewnosc": null,
+   "uwaga": ""
+  },
+  {
+   "id": "f89v2-03",
+   "typ": "fragment",
+   "cechy": {
+    "czesc": null,
+    "liczba": null,
+    "kolor": null
+   },
+   "pozycja": {
+    "krag": null,
+    "kolejnosc": 3
+   },
+   "etykieta": {
+    "locus": "3",
+    "rodzaj": "Lf",
+    "slowa": [
+     "darcheor"
+    ]
+   },
+   "zrodlo": "",
+   "pewnosc": null,
+   "uwaga": ""
+  },
+  {
+   "id": "f89v2-04",
+   "typ": "fragment",
+   "cechy": {
+    "czesc": null,
+    "liczba": null,
+    "kolor": null
+   },
+   "pozycja": {
+    "krag": null,
+    "kolejnosc": 4
+   },
+   "etykieta": {
+    "locus": "4",
+    "rodzaj": "Lf",
+    "slowa": [
+     "chokaro"
+    ]
+   },
+   "zrodlo": "",
+   "pewnosc": null,
+   "uwaga": ""
+  },
+  {
+   "id": "f89v2-05",
+   "typ": "fragment",
+   "cechy": {
+    "czesc": null,
+    "liczba": null,
+    "kolor": null
+   },
+   "pozycja": {
+    "krag": null,
+    "kolejnosc": 5
+   },
+   "etykieta": {
+    "locus": "5",
+    "rodzaj": "Lf",
+    "slowa": [
+     "sheol"
+    ]
+   },
+   "zrodlo": "",
+   "pewnosc": null,
+   "uwaga": ""
+  },
+  {
+   "id": "f89v2-06",
+   "typ": "fragment",
+   "cechy": {
+    "czesc": null,
+    "liczba": null,
+    "kolor": null
+   },
+   "pozycja": {
+    "krag": null,
+    "kolejnosc": 6
+   },
+   "etykieta": {
+    "locus": "6",
+    "rodzaj": "Lf",
+    "slowa": [
+     "chokam"
+    ]
+   },
+   "zrodlo": "",
+   "pewnosc": null,
+   "uwaga": ""
+  },
+  {
+   "id": "f89v2-07",
+   "typ": "naczynie",
+   "cechy": {
+    "ksztalt": null,
+    "pokrywka": null,
+    "nozki": null,
+    "segmenty": null,
+    "kolor": null
+   },
+   "pozycja": {
+    "krag": null,
+    "kolejnosc": 7
+   },
+   "etykieta": {
+    "locus": "11",
+    "rodzaj": "Lc",
+    "slowa": [
+     "otory"
+    ]
+   },
+   "zrodlo": "",
+   "pewnosc": null,
+   "uwaga": ""
+  },
+  {
+   "id": "f89v2-08",
+   "typ": "fragment",
+   "cechy": {
+    "czesc": null,
+    "liczba": null,
+    "kolor": null
+   },
+   "pozycja": {
+    "krag": null,
+    "kolejnosc": 8
+   },
+   "etykieta": {
+    "locus": "12",
+    "rodzaj": "Lf",
+    "slowa": [
+     "otair",
+     "chody"
+    ]
+   },
+   "zrodlo": "",
+   "pewnosc": null,
+   "uwaga": ""
+  },
+  {
+   "id": "f89v2-09",
+   "typ": "fragment",
+   "cechy": {
+    "czesc": null,
+    "liczba": null,
+    "kolor": null
+   },
+   "pozycja": {
+    "krag": null,
+    "kolejnosc": 9
+   },
+   "etykieta": {
+    "locus": "13",
+    "rodzaj": "Lf",
+    "slowa": [
+     "dykaran"
+    ]
+   },
+   "zrodlo": "",
+   "pewnosc": null,
+   "uwaga": ""
+  },
+  {
+   "id": "f89v2-10",
+   "typ": "fragment",
+   "cechy": {
+    "czesc": null,
+    "liczba": null,
+    "kolor": null
+   },
+   "pozycja": {
+    "krag": null,
+    "kolejnosc": 10
+   },
+   "etykieta": {
+    "locus": "14",
+    "rodzaj": "Lf",
+    "slowa": [
+     "opcheedey"
+    ]
+   },
+   "zrodlo": "",
+   "pewnosc": null,
+   "uwaga": ""
+  },
+  {
+   "id": "f89v2-11",
+   "typ": "naczynie",
+   "cechy": {
+    "ksztalt": null,
+    "pokrywka": null,
+    "nozki": null,
+    "segmenty": null,
+    "kolor": null
+   },
+   "pozycja": {
+    "krag": null,
+    "kolejnosc": 11
+   },
+   "etykieta": {
+    "locus": "23",
+    "rodzaj": "Lc",
+    "slowa": [
+     "opaloiiry"
+    ]
+   },
+   "zrodlo": "",
+   "pewnosc": null,
+   "uwaga": ""
+  },
+  {
+   "id": "f89v2-12",
+   "typ": "fragment",
+   "cechy": {
+    "czesc": null,
+    "liczba": null,
+    "kolor": null
+   },
+   "pozycja": {
+    "krag": null,
+    "kolejnosc": 12
+   },
+   "etykieta": {
+    "locus": "24",
+    "rodzaj": "Lf",
+    "slowa": [
+     "otaram"
+    ]
+   },
+   "zrodlo": "",
+   "pewnosc": null,
+   "uwaga": ""
+  },
+  {
+   "id": "f89v2-13",
+   "typ": "fragment",
+   "cechy": {
+    "czesc": null,
+    "liczba": null,
+    "kolor": null
+   },
+   "pozycja": {
+    "krag": null,
+    "kolejnosc": 13
+   },
+   "etykieta": {
+    "locus": "25",
+    "rodzaj": "Lf",
+    "slowa": [
+     "chtchy"
+    ]
+   },
+   "zrodlo": "",
+   "pewnosc": null,
+   "uwaga": ""
+  },
+  {
+   "id": "f89v2-14",
+   "typ": "fragment",
+   "cechy": {
+    "czesc": null,
+    "liczba": null,
+    "kolor": null
+   },
+   "pozycja": {
+    "krag": null,
+    "kolejnosc": 14
+   },
+   "etykieta": {
+    "locus": "28",
+    "rodzaj": "Lf",
+    "slowa": [
+     "daseky"
+    ]
+   },
+   "zrodlo": "",
+   "pewnosc": null,
+   "uwaga": ""
+  }
+ ]
+}

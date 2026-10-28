@@ -1,0 +1,122 @@
+{
+ "strona": "f57v",
+ "dzial": "cosmological",
+ "jezyk": "?",
+ "atomy": [
+  {
+   "id": "f57v-01",
+   "typ": "obiekt",
+   "cechy": {
+    "rodzaj": null,
+    "liczba": null,
+    "kolor": null
+   },
+   "pozycja": {
+    "krag": null,
+    "kolejnosc": 1
+   },
+   "etykieta": {
+    "locus": "1",
+    "rodzaj": "L0",
+    "slowa": [
+     "dairal"
+    ]
+   },
+   "zrodlo": "",
+   "pewnosc": null,
+   "uwaga": ""
+  },
+  {
+   "id": "f57v-02",
+   "typ": "obiekt",
+   "cechy": {
+    "rodzaj": null,
+    "liczba": null,
+    "kolor": null
+   },
+   "pozycja": {
+    "krag": null,
+    "kolejnosc": 2
+   },
+   "etykieta": {
+    "locus": "6",
+    "rodzaj": "L0",
+    "slowa": [
+     "otodarag"
+    ]
+   },
+   "zrodlo": "",
+   "pewnosc": null,
+   "uwaga": ""
+  },
+  {
+   "id": "f57v-03",
+   "typ": "obiekt",
+   "cechy": {
+    "rodzaj": null,
+    "liczba": null,
+    "kolor": null
+   },
+   "pozycja": {
+    "krag": null,
+    "kolejnosc": 3
+   },
+   "etykieta": {
+    "locus": "7",
+    "rodzaj": "L0",
+    "slowa": [
+     "oparairdly"
+    ]
+   },
+   "zrodlo": "",
+   "pewnosc": null,
+   "uwaga": ""
+  },
+  {
+   "id": "f57v-04",
+   "typ": "obiekt",
+   "cechy": {
+    "rodzaj": null,
+    "liczba": null,
+    "kolor": null
+   },
+   "pozycja": {
+    "krag": null,
+    "kolejnosc": 4
+   },
+   "etykieta": {
+    "locus": "8",
+    "rodzaj": "L0",
+    "slowa": [
+     "olkeedal"
+    ]
+   },
+   "zrodlo": "",
+   "pewnosc": null,
+   "uwaga": ""
+  },
+  {
+   "id": "f57v-05",
+   "typ": "obiekt",
+   "cechy": {
+    "rodzaj": null,
+    "liczba": null,
+    "kolor": null
+   },
+   "pozycja": {
+    "krag": null,
+    "kolejnosc": 5
+   },
+   "etykieta": {
+    "locus": "9",
+    "rodzaj": "L0",
+    "slowa": [
+     "otardaly"
+    ]
+   },
+   "zrodlo": "",
+   "pewnosc": null,
+   "uwaga": ""
+  }
+ ]
+}

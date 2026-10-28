@@ -1,0 +1,177 @@
+{
+ "strona": "f77v",
+ "dzial": "biological",
+ "jezyk": "B",
+ "atomy": [
+  {
+   "id": "f77v-01",
+   "typ": "rura",
+   "cechy": {
+    "ksztalt": null,
+    "zakonczenie": null,
+    "kolor": null
+   },
+   "pozycja": {
+    "krag": null,
+    "kolejnosc": 1
+   },
+   "etykieta": {
+    "locus": "1",
+    "rodzaj": "Lt",
+    "slowa": [
+     "okain",
+     "y",
+     "kal"
+    ]
+   },
+   "zrodlo": "",
+   "pewnosc": null,
+   "uwaga": ""
+  },
+  {
+   "id": "f77v-02",
+   "typ": "rura",
+   "cechy": {
+    "ksztalt": null,
+    "zakonczenie": null,
+    "kolor": null
+   },
+   "pozycja": {
+    "krag": null,
+    "kolejnosc": 2
+   },
+   "etykieta": {
+    "locus": "2",
+    "rodzaj": "Lt",
+    "slowa": [
+     "otol",
+     "shedy"
+    ]
+   },
+   "zrodlo": "",
+   "pewnosc": null,
+   "uwaga": ""
+  },
+  {
+   "id": "f77v-03",
+   "typ": "rura",
+   "cechy": {
+    "ksztalt": null,
+    "zakonczenie": null,
+    "kolor": null
+   },
+   "pozycja": {
+    "krag": null,
+    "kolejnosc": 3
+   },
+   "etykieta": {
+    "locus": "3",
+    "rodzaj": "Lt",
+    "slowa": [
+     "olkeedal"
+    ]
+   },
+   "zrodlo": "",
+   "pewnosc": null,
+   "uwaga": ""
+  },
+  {
+   "id": "f77v-04",
+   "typ": "rura",
+   "cechy": {
+    "ksztalt": null,
+    "zakonczenie": null,
+    "kolor": null
+   },
+   "pozycja": {
+    "krag": null,
+    "kolejnosc": 4
+   },
+   "etykieta": {
+    "locus": "4",
+    "rodzaj": "Lt",
+    "slowa": [
+     "otolor"
+    ]
+   },
+   "zrodlo": "",
+   "pewnosc": null,
+   "uwaga": ""
+  },
+  {
+   "id": "f77v-05",
+   "typ": "rura",
+   "cechy": {
+    "ksztalt": null,
+    "zakonczenie": null,
+    "kolor": null
+   },
+   "pozycja": {
+    "krag": null,
+    "kolejnosc": 5
+   },
+   "etykieta": {
+    "locus": "5",
+    "rodzaj": "Lt",
+    "slowa": [
+     "orchedal"
+    ]
+   },
+   "zrodlo": "",
+   "pewnosc": null,
+   "uwaga": ""
+  },
+  {
+   "id": "f77v-06",
+   "typ": "nimfa",
+   "cechy": {
+    "naga": null,
+    "w_obiekcie": null,
+    "korona": null,
+    "wlosy": null,
+    "trzyma": null,
+    "kierunek": null,
+    "gwiazda_promienie": null,
+    "gwiazda_ogon": null,
+    "gwiazda_kolor": null
+   },
+   "pozycja": {
+    "krag": null,
+    "kolejnosc": 6
+   },
+   "etykieta": {
+    "locus": "43",
+    "rodzaj": "Ln",
+    "slowa": [
+     "saroral"
+    ]
+   },
+   "zrodlo": "",
+   "pewnosc": null,
+   "uwaga": ""
+  },
+  {
+   "id": "f77v-07",
+   "typ": "rura",
+   "cechy": {
+    "ksztalt": null,
+    "zakonczenie": null,
+    "kolor": null
+   },
+   "pozycja": {
+    "krag": null,
+    "kolejnosc": 7
+   },
+   "etykieta": {
+    "locus": "44",
+    "rodzaj": "Lt",
+    "slowa": [
+     "okalo"
+    ]
+   },
+   "zrodlo": "",
+   "pewnosc": null,
+   "uwaga": ""
+  }
+ ]
+}

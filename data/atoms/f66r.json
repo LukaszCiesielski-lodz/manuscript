@@ -1,0 +1,1065 @@
+{
+ "strona": "f66r",
+ "dzial": "text",
+ "jezyk": "B",
+ "atomy": [
+  {
+   "id": "f66r-01",
+   "typ": "obiekt",
+   "cechy": {
+    "rodzaj": null,
+    "liczba": null,
+    "kolor": null
+   },
+   "pozycja": {
+    "krag": null,
+    "kolejnosc": 1
+   },
+   "etykieta": {
+    "locus": "1",
+    "rodzaj": "L0",
+    "slowa": [
+     "rary"
+    ]
+   },
+   "zrodlo": "",
+   "pewnosc": null,
+   "uwaga": ""
+  },
+  {
+   "id": "f66r-02",
+   "typ": "obiekt",
+   "cechy": {
+    "rodzaj": null,
+    "liczba": null,
+    "kolor": null
+   },
+   "pozycja": {
+    "krag": null,
+    "kolejnosc": 2
+   },
+   "etykieta": {
+    "locus": "2",
+    "rodzaj": "L0",
+    "slowa": [
+     "rals"
+    ]
+   },
+   "zrodlo": "",
+   "pewnosc": null,
+   "uwaga": ""
+  },
+  {
+   "id": "f66r-03",
+   "typ": "obiekt",
+   "cechy": {
+    "rodzaj": null,
+    "liczba": null,
+    "kolor": null
+   },
+   "pozycja": {
+    "krag": null,
+    "kolejnosc": 3
+   },
+   "etykieta": {
+    "locus": "3",
+    "rodzaj": "L0",
+    "slowa": [
+     "qor"
+    ]
+   },
+   "zrodlo": "",
+   "pewnosc": null,
+   "uwaga": ""
+  },
+  {
+   "id": "f66r-04",
+   "typ": "obiekt",
+   "cechy": {
+    "rodzaj": null,
+    "liczba": null,
+    "kolor": null
+   },
+   "pozycja": {
+    "krag": null,
+    "kolejnosc": 4
+   },
+   "etykieta": {
+    "locus": "4",
+    "rodzaj": "L0",
+    "slowa": [
+     "dary"
+    ]
+   },
+   "zrodlo": "",
+   "pewnosc": null,
+   "uwaga": ""
+  },
+  {
+   "id": "f66r-05",
+   "typ": "obiekt",
+   "cechy": {
+    "rodzaj": null,
+    "liczba": null,
+    "kolor": null
+   },
+   "pozycja": {
+    "krag": null,
+    "kolejnosc": 5
+   },
+   "etykieta": {
+    "locus": "5",
+    "rodzaj": "L0",
+    "slowa": [
+     "ykeol"
+    ]
+   },
+   "zrodlo": "",
+   "pewnosc": null,
+   "uwaga": ""
+  },
+  {
+   "id": "f66r-06",
+   "typ": "obiekt",
+   "cechy": {
+    "rodzaj": null,
+    "liczba": null,
+    "kolor": null
+   },
+   "pozycja": {
+    "krag": null,
+    "kolejnosc": 6
+   },
+   "etykieta": {
+    "locus": "6",
+    "rodzaj": "L0",
+    "slowa": [
+     "saly"
+    ]
+   },
+   "zrodlo": "",
+   "pewnosc": null,
+   "uwaga": ""
+  },
+  {
+   "id": "f66r-07",
+   "typ": "obiekt",
+   "cechy": {
+    "rodzaj": null,
+    "liczba": null,
+    "kolor": null
+   },
+   "pozycja": {
+    "krag": null,
+    "kolejnosc": 7
+   },
+   "etykieta": {
+    "locus": "7",
+    "rodzaj": "L0",
+    "slowa": [
+     "salf"
+    ]
+   },
+   "zrodlo": "",
+   "pewnosc": null,
+   "uwaga": ""
+  },
+  {
+   "id": "f66r-08",
+   "typ": "obiekt",
+   "cechy": {
+    "rodzaj": null,
+    "liczba": null,
+    "kolor": null
+   },
+   "pozycja": {
+    "krag": null,
+    "kolejnosc": 8
+   },
+   "etykieta": {
+    "locus": "8",
+    "rodzaj": "L0",
+    "slowa": [
+     "fary"
+    ]
+   },
+   "zrodlo": "",
+   "pewnosc": null,
+   "uwaga": ""
+  },
+  {
+   "id": "f66r-09",
+   "typ": "obiekt",
+   "cechy": {
+    "rodzaj": null,
+    "liczba": null,
+    "kolor": null
+   },
+   "pozycja": {
+    "krag": null,
+    "kolejnosc": 9
+   },
+   "etykieta": {
+    "locus": "9",
+    "rodzaj": "L0",
+    "slowa": [
+     "qotesy"
+    ]
+   },
+   "zrodlo": "",
+   "pewnosc": null,
+   "uwaga": ""
+  },
+  {
+   "id": "f66r-10",
+   "typ": "obiekt",
+   "cechy": {
+    "rodzaj": null,
+    "liczba": null,
+    "kolor": null
+   },
+   "pozycja": {
+    "krag": null,
+    "kolejnosc": 10
+   },
+   "etykieta": {
+    "locus": "10",
+    "rodzaj": "L0",
+    "slowa": [
+     "ykaly"
+    ]
+   },
+   "zrodlo": "",
+   "pewnosc": null,
+   "uwaga": ""
+  },
+  {
+   "id": "f66r-11",
+   "typ": "obiekt",
+   "cechy": {
+    "rodzaj": null,
+    "liczba": null,
+    "kolor": null
+   },
+   "pozycja": {
+    "krag": null,
+    "kolejnosc": 11
+   },
+   "etykieta": {
+    "locus": "11",
+    "rodzaj": "L0",
+    "slowa": [
+     "doly"
+    ]
+   },
+   "zrodlo": "",
+   "pewnosc": null,
+   "uwaga": ""
+  },
+  {
+   "id": "f66r-12",
+   "typ": "obiekt",
+   "cechy": {
+    "rodzaj": null,
+    "liczba": null,
+    "kolor": null
+   },
+   "pozycja": {
+    "krag": null,
+    "kolejnosc": 12
+   },
+   "etykieta": {
+    "locus": "12",
+    "rodzaj": "L0",
+    "slowa": [
+     "saiin"
+    ]
+   },
+   "zrodlo": "",
+   "pewnosc": null,
+   "uwaga": ""
+  },
+  {
+   "id": "f66r-13",
+   "typ": "obiekt",
+   "cechy": {
+    "rodzaj": null,
+    "liczba": null,
+    "kolor": null
+   },
+   "pozycja": {
+    "krag": null,
+    "kolejnosc": 13
+   },
+   "etykieta": {
+    "locus": "13",
+    "rodzaj": "L0",
+    "slowa": [
+     "qokal"
+    ]
+   },
+   "zrodlo": "",
+   "pewnosc": null,
+   "uwaga": ""
+  },
+  {
+   "id": "f66r-14",
+   "typ": "obiekt",
+   "cechy": {
+    "rodzaj": null,
+    "liczba": null,
+    "kolor": null
+   },
+   "pozycja": {
+    "krag": null,
+    "kolejnosc": 14
+   },
+   "etykieta": {
+    "locus": "14",
+    "rodzaj": "L0",
+    "slowa": [
+     "qolsa"
+    ]
+   },
+   "zrodlo": "",
+   "pewnosc": null,
+   "uwaga": ""
+  },
+  {
+   "id": "f66r-15",
+   "typ": "obiekt",
+   "cechy": {
+    "rodzaj": null,
+    "liczba": null,
+    "kolor": null
+   },
+   "pozycja": {
+    "krag": null,
+    "kolejnosc": 15
+   },
+   "etykieta": {
+    "locus": "15",
+    "rodzaj": "L0",
+    "slowa": [
+     "raral"
+    ]
+   },
+   "zrodlo": "",
+   "pewnosc": null,
+   "uwaga": ""
+  },
+  {
+   "id": "f66r-16",
+   "typ": "obiekt",
+   "cechy": {
+    "rodzaj": null,
+    "liczba": null,
+    "kolor": null
+   },
+   "pozycja": {
+    "krag": null,
+    "kolejnosc": 16
+   },
+   "etykieta": {
+    "locus": "16",
+    "rodzaj": "L0",
+    "slowa": [
+     "y"
+    ]
+   },
+   "zrodlo": "",
+   "pewnosc": null,
+   "uwaga": ""
+  },
+  {
+   "id": "f66r-17",
+   "typ": "obiekt",
+   "cechy": {
+    "rodzaj": null,
+    "liczba": null,
+    "kolor": null
+   },
+   "pozycja": {
+    "krag": null,
+    "kolejnosc": 17
+   },
+   "etykieta": {
+    "locus": "17",
+    "rodzaj": "L0",
+    "slowa": [
+     "o"
+    ]
+   },
+   "zrodlo": "",
+   "pewnosc": null,
+   "uwaga": ""
+  },
+  {
+   "id": "f66r-18",
+   "typ": "obiekt",
+   "cechy": {
+    "rodzaj": null,
+    "liczba": null,
+    "kolor": null
+   },
+   "pozycja": {
+    "krag": null,
+    "kolejnosc": 18
+   },
+   "etykieta": {
+    "locus": "18",
+    "rodzaj": "L0",
+    "slowa": [
+     "s"
+    ]
+   },
+   "zrodlo": "",
+   "pewnosc": null,
+   "uwaga": ""
+  },
+  {
+   "id": "f66r-19",
+   "typ": "obiekt",
+   "cechy": {
+    "rodzaj": null,
+    "liczba": null,
+    "kolor": null
+   },
+   "pozycja": {
+    "krag": null,
+    "kolejnosc": 19
+   },
+   "etykieta": {
+    "locus": "19",
+    "rodzaj": "L0",
+    "slowa": [
+     "sh"
+    ]
+   },
+   "zrodlo": "",
+   "pewnosc": null,
+   "uwaga": ""
+  },
+  {
+   "id": "f66r-20",
+   "typ": "obiekt",
+   "cechy": {
+    "rodzaj": null,
+    "liczba": null,
+    "kolor": null
+   },
+   "pozycja": {
+    "krag": null,
+    "kolejnosc": 20
+   },
+   "etykieta": {
+    "locus": "20",
+    "rodzaj": "L0",
+    "slowa": [
+     "y"
+    ]
+   },
+   "zrodlo": "",
+   "pewnosc": null,
+   "uwaga": ""
+  },
+  {
+   "id": "f66r-21",
+   "typ": "obiekt",
+   "cechy": {
+    "rodzaj": null,
+    "liczba": null,
+    "kolor": null
+   },
+   "pozycja": {
+    "krag": null,
+    "kolejnosc": 21
+   },
+   "etykieta": {
+    "locus": "21",
+    "rodzaj": "L0",
+    "slowa": [
+     "d"
+    ]
+   },
+   "zrodlo": "",
+   "pewnosc": null,
+   "uwaga": ""
+  },
+  {
+   "id": "f66r-22",
+   "typ": "obiekt",
+   "cechy": {
+    "rodzaj": null,
+    "liczba": null,
+    "kolor": null
+   },
+   "pozycja": {
+    "krag": null,
+    "kolejnosc": 22
+   },
+   "etykieta": {
+    "locus": "22",
+    "rodzaj": "L0",
+    "slowa": [
+     "o"
+    ]
+   },
+   "zrodlo": "",
+   "pewnosc": null,
+   "uwaga": ""
+  },
+  {
+   "id": "f66r-23",
+   "typ": "obiekt",
+   "cechy": {
+    "rodzaj": null,
+    "liczba": null,
+    "kolor": null
+   },
+   "pozycja": {
+    "krag": null,
+    "kolejnosc": 23
+   },
+   "etykieta": {
+    "locus": "23",
+    "rodzaj": "L0",
+    "slowa": [
+     "f"
+    ]
+   },
+   "zrodlo": "",
+   "pewnosc": null,
+   "uwaga": ""
+  },
+  {
+   "id": "f66r-24",
+   "typ": "obiekt",
+   "cechy": {
+    "rodzaj": null,
+    "liczba": null,
+    "kolor": null
+   },
+   "pozycja": {
+    "krag": null,
+    "kolejnosc": 24
+   },
+   "etykieta": {
+    "locus": "25",
+    "rodzaj": "L0",
+    "slowa": [
+     "x"
+    ]
+   },
+   "zrodlo": "",
+   "pewnosc": null,
+   "uwaga": ""
+  },
+  {
+   "id": "f66r-25",
+   "typ": "obiekt",
+   "cechy": {
+    "rodzaj": null,
+    "liczba": null,
+    "kolor": null
+   },
+   "pozycja": {
+    "krag": null,
+    "kolejnosc": 25
+   },
+   "etykieta": {
+    "locus": "26",
+    "rodzaj": "L0",
+    "slowa": [
+     "air"
+    ]
+   },
+   "zrodlo": "",
+   "pewnosc": null,
+   "uwaga": ""
+  },
+  {
+   "id": "f66r-26",
+   "typ": "obiekt",
+   "cechy": {
+    "rodzaj": null,
+    "liczba": null,
+    "kolor": null
+   },
+   "pozycja": {
+    "krag": null,
+    "kolejnosc": 26
+   },
+   "etykieta": {
+    "locus": "27",
+    "rodzaj": "L0",
+    "slowa": [
+     "d"
+    ]
+   },
+   "zrodlo": "",
+   "pewnosc": null,
+   "uwaga": ""
+  },
+  {
+   "id": "f66r-27",
+   "typ": "obiekt",
+   "cechy": {
+    "rodzaj": null,
+    "liczba": null,
+    "kolor": null
+   },
+   "pozycja": {
+    "krag": null,
+    "kolejnosc": 27
+   },
+   "etykieta": {
+    "locus": "28",
+    "rodzaj": "L0",
+    "slowa": [
+     "sh"
+    ]
+   },
+   "zrodlo": "",
+   "pewnosc": null,
+   "uwaga": ""
+  },
+  {
+   "id": "f66r-28",
+   "typ": "obiekt",
+   "cechy": {
+    "rodzaj": null,
+    "liczba": null,
+    "kolor": null
+   },
+   "pozycja": {
+    "krag": null,
+    "kolejnosc": 28
+   },
+   "etykieta": {
+    "locus": "29",
+    "rodzaj": "L0",
+    "slowa": [
+     "y"
+    ]
+   },
+   "zrodlo": "",
+   "pewnosc": null,
+   "uwaga": ""
+  },
+  {
+   "id": "f66r-29",
+   "typ": "obiekt",
+   "cechy": {
+    "rodzaj": null,
+    "liczba": null,
+    "kolor": null
+   },
+   "pozycja": {
+    "krag": null,
+    "kolejnosc": 29
+   },
+   "etykieta": {
+    "locus": "30",
+    "rodzaj": "L0",
+    "slowa": [
+     "f"
+    ]
+   },
+   "zrodlo": "",
+   "pewnosc": null,
+   "uwaga": ""
+  },
+  {
+   "id": "f66r-30",
+   "typ": "obiekt",
+   "cechy": {
+    "rodzaj": null,
+    "liczba": null,
+    "kolor": null
+   },
+   "pozycja": {
+    "krag": null,
+    "kolejnosc": 30
+   },
+   "etykieta": {
+    "locus": "31",
+    "rodzaj": "L0",
+    "slowa": [
+     "f"
+    ]
+   },
+   "zrodlo": "",
+   "pewnosc": null,
+   "uwaga": ""
+  },
+  {
+   "id": "f66r-31",
+   "typ": "obiekt",
+   "cechy": {
+    "rodzaj": null,
+    "liczba": null,
+    "kolor": null
+   },
+   "pozycja": {
+    "krag": null,
+    "kolejnosc": 31
+   },
+   "etykieta": {
+    "locus": "32",
+    "rodzaj": "L0",
+    "slowa": [
+     "y"
+    ]
+   },
+   "zrodlo": "",
+   "pewnosc": null,
+   "uwaga": ""
+  },
+  {
+   "id": "f66r-32",
+   "typ": "obiekt",
+   "cechy": {
+    "rodzaj": null,
+    "liczba": null,
+    "kolor": null
+   },
+   "pozycja": {
+    "krag": null,
+    "kolejnosc": 32
+   },
+   "etykieta": {
+    "locus": "33",
+    "rodzaj": "L0",
+    "slowa": [
+     "o"
+    ]
+   },
+   "zrodlo": "",
+   "pewnosc": null,
+   "uwaga": ""
+  },
+  {
+   "id": "f66r-33",
+   "typ": "obiekt",
+   "cechy": {
+    "rodzaj": null,
+    "liczba": null,
+    "kolor": null
+   },
+   "pozycja": {
+    "krag": null,
+    "kolejnosc": 33
+   },
+   "etykieta": {
+    "locus": "34",
+    "rodzaj": "L0",
+    "slowa": [
+     "d"
+    ]
+   },
+   "zrodlo": "",
+   "pewnosc": null,
+   "uwaga": ""
+  },
+  {
+   "id": "f66r-34",
+   "typ": "obiekt",
+   "cechy": {
+    "rodzaj": null,
+    "liczba": null,
+    "kolor": null
+   },
+   "pozycja": {
+    "krag": null,
+    "kolejnosc": 34
+   },
+   "etykieta": {
+    "locus": "35",
+    "rodzaj": "L0",
+    "slowa": [
+     "s"
+    ]
+   },
+   "zrodlo": "",
+   "pewnosc": null,
+   "uwaga": ""
+  },
+  {
+   "id": "f66r-35",
+   "typ": "obiekt",
+   "cechy": {
+    "rodzaj": null,
+    "liczba": null,
+    "kolor": null
+   },
+   "pozycja": {
+    "krag": null,
+    "kolejnosc": 35
+   },
+   "etykieta": {
+    "locus": "36",
+    "rodzaj": "L0",
+    "slowa": [
+     "f"
+    ]
+   },
+   "zrodlo": "",
+   "pewnosc": null,
+   "uwaga": ""
+  },
+  {
+   "id": "f66r-36",
+   "typ": "obiekt",
+   "cechy": {
+    "rodzaj": null,
+    "liczba": null,
+    "kolor": null
+   },
+   "pozycja": {
+    "krag": null,
+    "kolejnosc": 36
+   },
+   "etykieta": {
+    "locus": "37",
+    "rodzaj": "L0",
+    "slowa": [
+     "c"
+    ]
+   },
+   "zrodlo": "",
+   "pewnosc": null,
+   "uwaga": ""
+  },
+  {
+   "id": "f66r-37",
+   "typ": "obiekt",
+   "cechy": {
+    "rodzaj": null,
+    "liczba": null,
+    "kolor": null
+   },
+   "pozycja": {
+    "krag": null,
+    "kolejnosc": 37
+   },
+   "etykieta": {
+    "locus": "39",
+    "rodzaj": "L0",
+    "slowa": [
+     "x"
+    ]
+   },
+   "zrodlo": "",
+   "pewnosc": null,
+   "uwaga": ""
+  },
+  {
+   "id": "f66r-38",
+   "typ": "obiekt",
+   "cechy": {
+    "rodzaj": null,
+    "liczba": null,
+    "kolor": null
+   },
+   "pozycja": {
+    "krag": null,
+    "kolejnosc": 38
+   },
+   "etykieta": {
+    "locus": "40",
+    "rodzaj": "L0",
+    "slowa": [
+     "t"
+    ]
+   },
+   "zrodlo": "",
+   "pewnosc": null,
+   "uwaga": ""
+  },
+  {
+   "id": "f66r-39",
+   "typ": "obiekt",
+   "cechy": {
+    "rodzaj": null,
+    "liczba": null,
+    "kolor": null
+   },
+   "pozycja": {
+    "krag": null,
+    "kolejnosc": 39
+   },
+   "etykieta": {
+    "locus": "41",
+    "rodzaj": "L0",
+    "slowa": [
+     "o"
+    ]
+   },
+   "zrodlo": "",
+   "pewnosc": null,
+   "uwaga": ""
+  },
+  {
+   "id": "f66r-40",
+   "typ": "obiekt",
+   "cechy": {
+    "rodzaj": null,
+    "liczba": null,
+    "kolor": null
+   },
+   "pozycja": {
+    "krag": null,
+    "kolejnosc": 40
+   },
+   "etykieta": {
+    "locus": "43",
+    "rodzaj": "L0",
+    "slowa": [
+     "l"
+    ]
+   },
+   "zrodlo": "",
+   "pewnosc": null,
+   "uwaga": ""
+  },
+  {
+   "id": "f66r-41",
+   "typ": "obiekt",
+   "cechy": {
+    "rodzaj": null,
+    "liczba": null,
+    "kolor": null
+   },
+   "pozycja": {
+    "krag": null,
+    "kolejnosc": 41
+   },
+   "etykieta": {
+    "locus": "44",
+    "rodzaj": "L0",
+    "slowa": [
+     "r"
+    ]
+   },
+   "zrodlo": "",
+   "pewnosc": null,
+   "uwaga": ""
+  },
+  {
+   "id": "f66r-42",
+   "typ": "obiekt",
+   "cechy": {
+    "rodzaj": null,
+    "liczba": null,
+    "kolor": null
+   },
+   "pozycja": {
+    "krag": null,
+    "kolejnosc": 42
+   },
+   "etykieta": {
+    "locus": "45",
+    "rodzaj": "L0",
+    "slowa": [
+     "t"
+    ]
+   },
+   "zrodlo": "",
+   "pewnosc": null,
+   "uwaga": ""
+  },
+  {
+   "id": "f66r-43",
+   "typ": "obiekt",
+   "cechy": {
+    "rodzaj": null,
+    "liczba": null,
+    "kolor": null
+   },
+   "pozycja": {
+    "krag": null,
+    "kolejnosc": 43
+   },
+   "etykieta": {
+    "locus": "46",
+    "rodzaj": "L0",
+    "slowa": [
+     "o"
+    ]
+   },
+   "zrodlo": "",
+   "pewnosc": null,
+   "uwaga": ""
+  },
+  {
+   "id": "f66r-44",
+   "typ": "obiekt",
+   "cechy": {
+    "rodzaj": null,
+    "liczba": null,
+    "kolor": null
+   },
+   "pozycja": {
+    "krag": null,
+    "kolejnosc": 44
+   },
+   "etykieta": {
+    "locus": "47",
+    "rodzaj": "L0",
+    "slowa": [
+     "x"
+    ]
+   },
+   "zrodlo": "",
+   "pewnosc": null,
+   "uwaga": ""
+  },
+  {
+   "id": "f66r-45",
+   "typ": "obiekt",
+   "cechy": {
+    "rodzaj": null,
+    "liczba": null,
+    "kolor": null
+   },
+   "pozycja": {
+    "krag": null,
+    "kolejnosc": 45
+   },
+   "etykieta": {
+    "locus": "48",
+    "rodzaj": "L0",
+    "slowa": [
+     "p"
+    ]
+   },
+   "zrodlo": "",
+   "pewnosc": null,
+   "uwaga": ""
+  },
+  {
+   "id": "f66r-46",
+   "typ": "obiekt",
+   "cechy": {
+    "rodzaj": null,
+    "liczba": null,
+    "kolor": null
+   },
+   "pozycja": {
+    "krag": null,
+    "kolejnosc": 46
+   },
+   "etykieta": {
+    "locus": "49",
+    "rodzaj": "L0",
+    "slowa": [
+     "d"
+    ]
+   },
+   "zrodlo": "",
+   "pewnosc": null,
+   "uwaga": ""
+  }
+ ]
+}

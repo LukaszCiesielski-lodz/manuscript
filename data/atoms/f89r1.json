@@ -1,0 +1,314 @@
+{
+ "strona": "f89r1",
+ "dzial": "pharmaceutical",
+ "jezyk": "A",
+ "atomy": [
+  {
+   "id": "f89r1-01",
+   "typ": "naczynie",
+   "cechy": {
+    "ksztalt": null,
+    "pokrywka": null,
+    "nozki": null,
+    "segmenty": null,
+    "kolor": null
+   },
+   "pozycja": {
+    "krag": null,
+    "kolejnosc": 1
+   },
+   "etykieta": {
+    "locus": "1",
+    "rodzaj": "Lc",
+    "slowa": [
+     "okchshy"
+    ]
+   },
+   "zrodlo": "",
+   "pewnosc": null,
+   "uwaga": ""
+  },
+  {
+   "id": "f89r1-02",
+   "typ": "fragment",
+   "cechy": {
+    "czesc": null,
+    "liczba": null,
+    "kolor": null
+   },
+   "pozycja": {
+    "krag": null,
+    "kolejnosc": 2
+   },
+   "etykieta": {
+    "locus": "2",
+    "rodzaj": "Lf",
+    "slowa": [
+     "qkol"
+    ]
+   },
+   "zrodlo": "",
+   "pewnosc": null,
+   "uwaga": ""
+  },
+  {
+   "id": "f89r1-03",
+   "typ": "fragment",
+   "cechy": {
+    "czesc": null,
+    "liczba": null,
+    "kolor": null
+   },
+   "pozycja": {
+    "krag": null,
+    "kolejnosc": 3
+   },
+   "etykieta": {
+    "locus": "3",
+    "rodzaj": "Lf",
+    "slowa": [
+     "oldam"
+    ]
+   },
+   "zrodlo": "",
+   "pewnosc": null,
+   "uwaga": ""
+  },
+  {
+   "id": "f89r1-04",
+   "typ": "fragment",
+   "cechy": {
+    "czesc": null,
+    "liczba": null,
+    "kolor": null
+   },
+   "pozycja": {
+    "krag": null,
+    "kolejnosc": 4
+   },
+   "etykieta": {
+    "locus": "4",
+    "rodzaj": "Lf",
+    "slowa": [
+     "otoldy"
+    ]
+   },
+   "zrodlo": "",
+   "pewnosc": null,
+   "uwaga": ""
+  },
+  {
+   "id": "f89r1-05",
+   "typ": "fragment",
+   "cechy": {
+    "czesc": null,
+    "liczba": null,
+    "kolor": null
+   },
+   "pozycja": {
+    "krag": null,
+    "kolejnosc": 5
+   },
+   "etykieta": {
+    "locus": "5",
+    "rodzaj": "Lf",
+    "slowa": [
+     "ararchodaiin"
+    ]
+   },
+   "zrodlo": "",
+   "pewnosc": null,
+   "uwaga": ""
+  },
+  {
+   "id": "f89r1-06",
+   "typ": "naczynie",
+   "cechy": {
+    "ksztalt": null,
+    "pokrywka": null,
+    "nozki": null,
+    "segmenty": null,
+    "kolor": null
+   },
+   "pozycja": {
+    "krag": null,
+    "kolejnosc": 6
+   },
+   "etykieta": {
+    "locus": "11",
+    "rodzaj": "Lc",
+    "slowa": [
+     "ykyd"
+    ]
+   },
+   "zrodlo": "",
+   "pewnosc": null,
+   "uwaga": ""
+  },
+  {
+   "id": "f89r1-07",
+   "typ": "fragment",
+   "cechy": {
+    "czesc": null,
+    "liczba": null,
+    "kolor": null
+   },
+   "pozycja": {
+    "krag": null,
+    "kolejnosc": 7
+   },
+   "etykieta": {
+    "locus": "12",
+    "rodzaj": "Lf",
+    "slowa": [
+     "chol",
+     "ches"
+    ]
+   },
+   "zrodlo": "",
+   "pewnosc": null,
+   "uwaga": ""
+  },
+  {
+   "id": "f89r1-08",
+   "typ": "fragment",
+   "cechy": {
+    "czesc": null,
+    "liczba": null,
+    "kolor": null
+   },
+   "pozycja": {
+    "krag": null,
+    "kolejnosc": 8
+   },
+   "etykieta": {
+    "locus": "13",
+    "rodzaj": "Lf",
+    "slowa": [
+     "otorain"
+    ]
+   },
+   "zrodlo": "",
+   "pewnosc": null,
+   "uwaga": ""
+  },
+  {
+   "id": "f89r1-09",
+   "typ": "fragment",
+   "cechy": {
+    "czesc": null,
+    "liczba": null,
+    "kolor": null
+   },
+   "pozycja": {
+    "krag": null,
+    "kolejnosc": 9
+   },
+   "etykieta": {
+    "locus": "14",
+    "rodzaj": "Lf",
+    "slowa": [
+     "okaiin",
+     "dan"
+    ]
+   },
+   "zrodlo": "",
+   "pewnosc": null,
+   "uwaga": ""
+  },
+  {
+   "id": "f89r1-10",
+   "typ": "naczynie",
+   "cechy": {
+    "ksztalt": null,
+    "pokrywka": null,
+    "nozki": null,
+    "segmenty": null,
+    "kolor": null
+   },
+   "pozycja": {
+    "krag": null,
+    "kolejnosc": 10
+   },
+   "etykieta": {
+    "locus": "24",
+    "rodzaj": "Lc",
+    "slowa": [
+     "ykocfhy"
+    ]
+   },
+   "zrodlo": "",
+   "pewnosc": null,
+   "uwaga": ""
+  },
+  {
+   "id": "f89r1-11",
+   "typ": "fragment",
+   "cechy": {
+    "czesc": null,
+    "liczba": null,
+    "kolor": null
+   },
+   "pozycja": {
+    "krag": null,
+    "kolejnosc": 11
+   },
+   "etykieta": {
+    "locus": "25",
+    "rodzaj": "Lf",
+    "slowa": [
+     "saldam"
+    ]
+   },
+   "zrodlo": "",
+   "pewnosc": null,
+   "uwaga": ""
+  },
+  {
+   "id": "f89r1-12",
+   "typ": "fragment",
+   "cechy": {
+    "czesc": null,
+    "liczba": null,
+    "kolor": null
+   },
+   "pozycja": {
+    "krag": null,
+    "kolejnosc": 12
+   },
+   "etykieta": {
+    "locus": "26",
+    "rodzaj": "Lf",
+    "slowa": [
+     "sydarary"
+    ]
+   },
+   "zrodlo": "",
+   "pewnosc": null,
+   "uwaga": ""
+  },
+  {
+   "id": "f89r1-13",
+   "typ": "fragment",
+   "cechy": {
+    "czesc": null,
+    "liczba": null,
+    "kolor": null
+   },
+   "pozycja": {
+    "krag": null,
+    "kolejnosc": 13
+   },
+   "etykieta": {
+    "locus": "27",
+    "rodzaj": "Lf",
+    "slowa": [
+     "ydcpody"
+    ]
+   },
+   "zrodlo": "",
+   "pewnosc": null,
+   "uwaga": ""
+  }
+ ]
+}

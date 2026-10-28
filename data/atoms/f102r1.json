@@ -1,0 +1,105 @@
+{
+ "strona": "f102r1",
+ "dzial": "pharmaceutical",
+ "jezyk": "A",
+ "atomy": [
+  {
+   "id": "f102r1-01",
+   "typ": "naczynie",
+   "cechy": {
+    "ksztalt": null,
+    "pokrywka": null,
+    "nozki": null,
+    "segmenty": null,
+    "kolor": null
+   },
+   "pozycja": {
+    "krag": null,
+    "kolejnosc": 1
+   },
+   "etykieta": {
+    "locus": "1",
+    "rodzaj": "Lc",
+    "slowa": [
+     "daarod"
+    ]
+   },
+   "zrodlo": "",
+   "pewnosc": null,
+   "uwaga": ""
+  },
+  {
+   "id": "f102r1-02",
+   "typ": "fragment",
+   "cechy": {
+    "czesc": null,
+    "liczba": null,
+    "kolor": null
+   },
+   "pozycja": {
+    "krag": null,
+    "kolejnosc": 2
+   },
+   "etykieta": {
+    "locus": "2",
+    "rodzaj": "Lf",
+    "slowa": [
+     "otodeeodor"
+    ]
+   },
+   "zrodlo": "",
+   "pewnosc": null,
+   "uwaga": ""
+  },
+  {
+   "id": "f102r1-03",
+   "typ": "naczynie",
+   "cechy": {
+    "ksztalt": null,
+    "pokrywka": null,
+    "nozki": null,
+    "segmenty": null,
+    "kolor": null
+   },
+   "pozycja": {
+    "krag": null,
+    "kolejnosc": 3
+   },
+   "etykieta": {
+    "locus": "7",
+    "rodzaj": "Lc",
+    "slowa": [
+     "okolaly"
+    ]
+   },
+   "zrodlo": "",
+   "pewnosc": null,
+   "uwaga": ""
+  },
+  {
+   "id": "f102r1-04",
+   "typ": "naczynie",
+   "cechy": {
+    "ksztalt": null,
+    "pokrywka": null,
+    "nozki": null,
+    "segmenty": null,
+    "kolor": null
+   },
+   "pozycja": {
+    "krag": null,
+    "kolejnosc": 4
+   },
+   "etykieta": {
+    "locus": "12",
+    "rodzaj": "Lc",
+    "slowa": [
+     "ddardsh"
+    ]
+   },
+   "zrodlo": "",
+   "pewnosc": null,
+   "uwaga": ""
+  }
+ ]
+}

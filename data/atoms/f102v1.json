@@ -1,0 +1,216 @@
+{
+ "strona": "f102v1",
+ "dzial": "pharmaceutical",
+ "jezyk": "A",
+ "atomy": [
+  {
+   "id": "f102v1-01",
+   "typ": "naczynie",
+   "cechy": {
+    "ksztalt": null,
+    "pokrywka": null,
+    "nozki": null,
+    "segmenty": null,
+    "kolor": null
+   },
+   "pozycja": {
+    "krag": null,
+    "kolejnosc": 1
+   },
+   "etykieta": {
+    "locus": "1",
+    "rodzaj": "Lc",
+    "slowa": [
+     "keoraiiin"
+    ]
+   },
+   "zrodlo": "",
+   "pewnosc": null,
+   "uwaga": ""
+  },
+  {
+   "id": "f102v1-02",
+   "typ": "fragment",
+   "cechy": {
+    "czesc": null,
+    "liczba": null,
+    "kolor": null
+   },
+   "pozycja": {
+    "krag": null,
+    "kolejnosc": 2
+   },
+   "etykieta": {
+    "locus": "2",
+    "rodzaj": "Lf",
+    "slowa": [
+     "okeody"
+    ]
+   },
+   "zrodlo": "",
+   "pewnosc": null,
+   "uwaga": ""
+  },
+  {
+   "id": "f102v1-03",
+   "typ": "fragment",
+   "cechy": {
+    "czesc": null,
+    "liczba": null,
+    "kolor": null
+   },
+   "pozycja": {
+    "krag": null,
+    "kolejnosc": 3
+   },
+   "etykieta": {
+    "locus": "3",
+    "rodzaj": "Lf",
+    "slowa": [
+     "okeody"
+    ]
+   },
+   "zrodlo": "",
+   "pewnosc": null,
+   "uwaga": ""
+  },
+  {
+   "id": "f102v1-04",
+   "typ": "fragment",
+   "cechy": {
+    "czesc": null,
+    "liczba": null,
+    "kolor": null
+   },
+   "pozycja": {
+    "krag": null,
+    "kolejnosc": 4
+   },
+   "etykieta": {
+    "locus": "4",
+    "rodzaj": "Lf",
+    "slowa": [
+     "daiisaly"
+    ]
+   },
+   "zrodlo": "",
+   "pewnosc": null,
+   "uwaga": ""
+  },
+  {
+   "id": "f102v1-05",
+   "typ": "fragment",
+   "cechy": {
+    "czesc": null,
+    "liczba": null,
+    "kolor": null
+   },
+   "pozycja": {
+    "krag": null,
+    "kolejnosc": 5
+   },
+   "etykieta": {
+    "locus": "5",
+    "rodzaj": "Lf",
+    "slowa": [
+     "ypary"
+    ]
+   },
+   "zrodlo": "",
+   "pewnosc": null,
+   "uwaga": ""
+  },
+  {
+   "id": "f102v1-06",
+   "typ": "fragment",
+   "cechy": {
+    "czesc": null,
+    "liczba": null,
+    "kolor": null
+   },
+   "pozycja": {
+    "krag": null,
+    "kolejnosc": 6
+   },
+   "etykieta": {
+    "locus": "6",
+    "rodzaj": "Lf",
+    "slowa": [
+     "opchytcy"
+    ]
+   },
+   "zrodlo": "",
+   "pewnosc": null,
+   "uwaga": ""
+  },
+  {
+   "id": "f102v1-07",
+   "typ": "fragment",
+   "cechy": {
+    "czesc": null,
+    "liczba": null,
+    "kolor": null
+   },
+   "pozycja": {
+    "krag": null,
+    "kolejnosc": 7
+   },
+   "etykieta": {
+    "locus": "16",
+    "rodzaj": "Lf",
+    "slowa": [
+     "ypcholdy"
+    ]
+   },
+   "zrodlo": "",
+   "pewnosc": null,
+   "uwaga": ""
+  },
+  {
+   "id": "f102v1-08",
+   "typ": "fragment",
+   "cechy": {
+    "czesc": null,
+    "liczba": null,
+    "kolor": null
+   },
+   "pozycja": {
+    "krag": null,
+    "kolejnosc": 8
+   },
+   "etykieta": {
+    "locus": "17",
+    "rodzaj": "Lf",
+    "slowa": [
+     "loralody"
+    ]
+   },
+   "zrodlo": "",
+   "pewnosc": null,
+   "uwaga": ""
+  },
+  {
+   "id": "f102v1-09",
+   "typ": "fragment",
+   "cechy": {
+    "czesc": null,
+    "liczba": null,
+    "kolor": null
+   },
+   "pozycja": {
+    "krag": null,
+    "kolejnosc": 9
+   },
+   "etykieta": {
+    "locus": "18",
+    "rodzaj": "Lf",
+    "slowa": [
+     "opchdard"
+    ]
+   },
+   "zrodlo": "",
+   "pewnosc": null,
+   "uwaga": ""
+  }
+ ]
+}

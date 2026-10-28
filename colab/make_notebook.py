@@ -528,6 +528,29 @@ display(Markdown((lab.cfg.results_dir / "plant_pairs.md").read_text()))"""),
 ]
 
 
+atoms_cells = [
+    ("md", """# Voynich Lab – atomy ilustracji (szkic z modelu widzącego + test rebusu)
+
+Ilustracje rozebrane na atomy (jeden rekord na etykietę, cechy ze słownika `data/atoms/vocab.json`, zasady w
+`data/atoms/README.md`). Ten notebook robi dwie rzeczy: (1) `atoms_draft`: model widzący obrazy opisuje nimfy
+12 stron zodiaku w schemacie atomów i zapisuje szkic na `lab-results` (`atoms_draft/<strona>.json`, do poprawienia ręcznie
+i scalenia z `data/atoms/`); (2) `atoms`: test, czy jakaś cecha rysunku przewiduje etykietę, z kontrolami; rusza naprawdę
+dopiero przy ≥ 100 opisanych atomach, wcześniej sprawdza tylko metodę.
+
+**Runtime bez akceleratora** (CPU). Sekrety: `GITHUB_TOKEN`, `OPENROUTER_API_KEY`. Czas: ok. 10 min, koszt modelu ok. 0,3 USD."""),
+    cells[3],
+    ("code", """!python scripts/fetch_data.py"""),
+    cells[5],
+    ("code", cells[7][1].replace('theories=["all"],          # albo np. ["numbers", "literature"]', 'theories=["atoms_draft", "atoms"],')),
+    ("code", """lab.run("atoms_draft"); lab.push()
+lab.run("atoms"); lab.push()
+lab.report(); lab.push()
+from IPython.display import Markdown, display
+display(Markdown((lab.cfg.results_dir / "atoms_draft.md").read_text()))
+display(Markdown((lab.cfg.results_dir / "atoms.md").read_text()))"""),
+]
+
+
 def cell(kind, text):
     src = text.splitlines(keepends=True)
     if kind == "md":
@@ -549,8 +572,9 @@ for name, cs in (("Voynich_Lab.ipynb", cells), ("Voynich_Ilustracje.ipynb", illu
                  ("Voynich_Rejestr.ipynb", rejestr_cells), ("Voynich_Rejestr_GPU.ipynb", rejestr_gpu_cells),
                  ("Voynich_Klucz.ipynb", keystream_cells), ("Voynich_V7.ipynb", v7_cells),
                  ("Voynich_Klucz_Dlugosci.ipynb", lengthkey_cells), ("Voynich_Brute_Dlugosci.ipynb", brute_length_cells),
-                 ("Voynich_Sedzia.ipynb", judge_cells), ("Voynich_Rosliny.ipynb", plants_cells)):
-    base = nb_cpu if name in ("Voynich_Rejestr.ipynb", "Voynich_Klucz.ipynb", "Voynich_Rosliny.ipynb") else nb
+                 ("Voynich_Sedzia.ipynb", judge_cells), ("Voynich_Rosliny.ipynb", plants_cells),
+                 ("Voynich_Atomy.ipynb", atoms_cells)):
+    base = nb_cpu if name in ("Voynich_Rejestr.ipynb", "Voynich_Klucz.ipynb", "Voynich_Rosliny.ipynb", "Voynich_Atomy.ipynb") else nb
     out = Path(__file__).with_name(name)
     out.write_text(json.dumps({**base, "cells": [cell(k, t) for k, t in cs]}, indent=1, ensure_ascii=False), encoding="utf-8")
     print("wrote", out)

@@ -1,0 +1,679 @@
+{
+ "strona": "f68r1",
+ "dzial": "astronomical",
+ "jezyk": "?",
+ "atomy": [
+  {
+   "id": "f68r1-01",
+   "typ": "gwiazda",
+   "cechy": {
+    "promienie": null,
+    "ogon": null,
+    "wypelniona": null,
+    "kolor": null
+   },
+   "pozycja": {
+    "krag": null,
+    "kolejnosc": 1
+   },
+   "etykieta": {
+    "locus": "8",
+    "rodzaj": "Ls",
+    "slowa": [
+     "okodaly"
+    ]
+   },
+   "zrodlo": "",
+   "pewnosc": null,
+   "uwaga": ""
+  },
+  {
+   "id": "f68r1-02",
+   "typ": "gwiazda",
+   "cechy": {
+    "promienie": null,
+    "ogon": null,
+    "wypelniona": null,
+    "kolor": null
+   },
+   "pozycja": {
+    "krag": null,
+    "kolejnosc": 2
+   },
+   "etykieta": {
+    "locus": "9",
+    "rodzaj": "Ls",
+    "slowa": [
+     "odchecthy"
+    ]
+   },
+   "zrodlo": "",
+   "pewnosc": null,
+   "uwaga": ""
+  },
+  {
+   "id": "f68r1-03",
+   "typ": "gwiazda",
+   "cechy": {
+    "promienie": null,
+    "ogon": null,
+    "wypelniona": null,
+    "kolor": null
+   },
+   "pozycja": {
+    "krag": null,
+    "kolejnosc": 3
+   },
+   "etykieta": {
+    "locus": "10",
+    "rodzaj": "Ls",
+    "slowa": [
+     "otcheody"
+    ]
+   },
+   "zrodlo": "",
+   "pewnosc": null,
+   "uwaga": ""
+  },
+  {
+   "id": "f68r1-04",
+   "typ": "gwiazda",
+   "cechy": {
+    "promienie": null,
+    "ogon": null,
+    "wypelniona": null,
+    "kolor": null
+   },
+   "pozycja": {
+    "krag": null,
+    "kolejnosc": 4
+   },
+   "etykieta": {
+    "locus": "11",
+    "rodzaj": "Ls",
+    "slowa": [
+     "okoaly"
+    ]
+   },
+   "zrodlo": "",
+   "pewnosc": null,
+   "uwaga": ""
+  },
+  {
+   "id": "f68r1-05",
+   "typ": "gwiazda",
+   "cechy": {
+    "promienie": null,
+    "ogon": null,
+    "wypelniona": null,
+    "kolor": null
+   },
+   "pozycja": {
+    "krag": null,
+    "kolejnosc": 5
+   },
+   "etykieta": {
+    "locus": "12",
+    "rodzaj": "Ls",
+    "slowa": [
+     "chocfhy"
+    ]
+   },
+   "zrodlo": "",
+   "pewnosc": null,
+   "uwaga": ""
+  },
+  {
+   "id": "f68r1-06",
+   "typ": "gwiazda",
+   "cechy": {
+    "promienie": null,
+    "ogon": null,
+    "wypelniona": null,
+    "kolor": null
+   },
+   "pozycja": {
+    "krag": null,
+    "kolejnosc": 6
+   },
+   "etykieta": {
+    "locus": "13",
+    "rodzaj": "Ls",
+    "slowa": [
+     "octhey"
+    ]
+   },
+   "zrodlo": "",
+   "pewnosc": null,
+   "uwaga": ""
+  },
+  {
+   "id": "f68r1-07",
+   "typ": "gwiazda",
+   "cechy": {
+    "promienie": null,
+    "ogon": null,
+    "wypelniona": null,
+    "kolor": null
+   },
+   "pozycja": {
+    "krag": null,
+    "kolejnosc": 7
+   },
+   "etykieta": {
+    "locus": "14",
+    "rodzaj": "Ls",
+    "slowa": [
+     "otshey"
+    ]
+   },
+   "zrodlo": "",
+   "pewnosc": null,
+   "uwaga": ""
+  },
+  {
+   "id": "f68r1-08",
+   "typ": "gwiazda",
+   "cechy": {
+    "promienie": null,
+    "ogon": null,
+    "wypelniona": null,
+    "kolor": null
+   },
+   "pozycja": {
+    "krag": null,
+    "kolejnosc": 8
+   },
+   "etykieta": {
+    "locus": "15",
+    "rodzaj": "Ls",
+    "slowa": [
+     "otydy"
+    ]
+   },
+   "zrodlo": "",
+   "pewnosc": null,
+   "uwaga": ""
+  },
+  {
+   "id": "f68r1-09",
+   "typ": "gwiazda",
+   "cechy": {
+    "promienie": null,
+    "ogon": null,
+    "wypelniona": null,
+    "kolor": null
+   },
+   "pozycja": {
+    "krag": null,
+    "kolejnosc": 9
+   },
+   "etykieta": {
+    "locus": "16",
+    "rodzaj": "Ls",
+    "slowa": [
+     "okear"
+    ]
+   },
+   "zrodlo": "",
+   "pewnosc": null,
+   "uwaga": ""
+  },
+  {
+   "id": "f68r1-10",
+   "typ": "gwiazda",
+   "cechy": {
+    "promienie": null,
+    "ogon": null,
+    "wypelniona": null,
+    "kolor": null
+   },
+   "pozycja": {
+    "krag": null,
+    "kolejnosc": 10
+   },
+   "etykieta": {
+    "locus": "17",
+    "rodzaj": "Ls",
+    "slowa": [
+     "cphocthy"
+    ]
+   },
+   "zrodlo": "",
+   "pewnosc": null,
+   "uwaga": ""
+  },
+  {
+   "id": "f68r1-11",
+   "typ": "gwiazda",
+   "cechy": {
+    "promienie": null,
+    "ogon": null,
+    "wypelniona": null,
+    "kolor": null
+   },
+   "pozycja": {
+    "krag": null,
+    "kolejnosc": 11
+   },
+   "etykieta": {
+    "locus": "18",
+    "rodzaj": "Ls",
+    "slowa": [
+     "ytchody"
+    ]
+   },
+   "zrodlo": "",
+   "pewnosc": null,
+   "uwaga": ""
+  },
+  {
+   "id": "f68r1-12",
+   "typ": "gwiazda",
+   "cechy": {
+    "promienie": null,
+    "ogon": null,
+    "wypelniona": null,
+    "kolor": null
+   },
+   "pozycja": {
+    "krag": null,
+    "kolejnosc": 12
+   },
+   "etykieta": {
+    "locus": "19",
+    "rodzaj": "Ls",
+    "slowa": [
+     "otys"
+    ]
+   },
+   "zrodlo": "",
+   "pewnosc": null,
+   "uwaga": ""
+  },
+  {
+   "id": "f68r1-13",
+   "typ": "gwiazda",
+   "cechy": {
+    "promienie": null,
+    "ogon": null,
+    "wypelniona": null,
+    "kolor": null
+   },
+   "pozycja": {
+    "krag": null,
+    "kolejnosc": 13
+   },
+   "etykieta": {
+    "locus": "20",
+    "rodzaj": "Ls",
+    "slowa": [
+     "olor"
+    ]
+   },
+   "zrodlo": "",
+   "pewnosc": null,
+   "uwaga": ""
+  },
+  {
+   "id": "f68r1-14",
+   "typ": "gwiazda",
+   "cechy": {
+    "promienie": null,
+    "ogon": null,
+    "wypelniona": null,
+    "kolor": null
+   },
+   "pozycja": {
+    "krag": null,
+    "kolejnosc": 14
+   },
+   "etykieta": {
+    "locus": "21",
+    "rodzaj": "Ls",
+    "slowa": [
+     "ockhy"
+    ]
+   },
+   "zrodlo": "",
+   "pewnosc": null,
+   "uwaga": ""
+  },
+  {
+   "id": "f68r1-15",
+   "typ": "gwiazda",
+   "cechy": {
+    "promienie": null,
+    "ogon": null,
+    "wypelniona": null,
+    "kolor": null
+   },
+   "pozycja": {
+    "krag": null,
+    "kolejnosc": 15
+   },
+   "etykieta": {
+    "locus": "22",
+    "rodzaj": "Ls",
+    "slowa": [
+     "ofcheor"
+    ]
+   },
+   "zrodlo": "",
+   "pewnosc": null,
+   "uwaga": ""
+  },
+  {
+   "id": "f68r1-16",
+   "typ": "gwiazda",
+   "cechy": {
+    "promienie": null,
+    "ogon": null,
+    "wypelniona": null,
+    "kolor": null
+   },
+   "pozycja": {
+    "krag": null,
+    "kolejnosc": 16
+   },
+   "etykieta": {
+    "locus": "23",
+    "rodzaj": "Ls",
+    "slowa": [
+     "otchdy"
+    ]
+   },
+   "zrodlo": "",
+   "pewnosc": null,
+   "uwaga": ""
+  },
+  {
+   "id": "f68r1-17",
+   "typ": "gwiazda",
+   "cechy": {
+    "promienie": null,
+    "ogon": null,
+    "wypelniona": null,
+    "kolor": null
+   },
+   "pozycja": {
+    "krag": null,
+    "kolejnosc": 17
+   },
+   "etykieta": {
+    "locus": "24",
+    "rodzaj": "Ls",
+    "slowa": [
+     "otykchs"
+    ]
+   },
+   "zrodlo": "",
+   "pewnosc": null,
+   "uwaga": ""
+  },
+  {
+   "id": "f68r1-18",
+   "typ": "gwiazda",
+   "cechy": {
+    "promienie": null,
+    "ogon": null,
+    "wypelniona": null,
+    "kolor": null
+   },
+   "pozycja": {
+    "krag": null,
+    "kolejnosc": 18
+   },
+   "etykieta": {
+    "locus": "25",
+    "rodzaj": "Ls",
+    "slowa": [
+     "otol"
+    ]
+   },
+   "zrodlo": "",
+   "pewnosc": null,
+   "uwaga": ""
+  },
+  {
+   "id": "f68r1-19",
+   "typ": "gwiazda",
+   "cechy": {
+    "promienie": null,
+    "ogon": null,
+    "wypelniona": null,
+    "kolor": null
+   },
+   "pozycja": {
+    "krag": null,
+    "kolejnosc": 19
+   },
+   "etykieta": {
+    "locus": "26",
+    "rodzaj": "Ls",
+    "slowa": [
+     "otor"
+    ]
+   },
+   "zrodlo": "",
+   "pewnosc": null,
+   "uwaga": ""
+  },
+  {
+   "id": "f68r1-20",
+   "typ": "gwiazda",
+   "cechy": {
+    "promienie": null,
+    "ogon": null,
+    "wypelniona": null,
+    "kolor": null
+   },
+   "pozycja": {
+    "krag": null,
+    "kolejnosc": 20
+   },
+   "etykieta": {
+    "locus": "27",
+    "rodzaj": "Ls",
+    "slowa": [
+     "oiinar"
+    ]
+   },
+   "zrodlo": "",
+   "pewnosc": null,
+   "uwaga": ""
+  },
+  {
+   "id": "f68r1-21",
+   "typ": "gwiazda",
+   "cechy": {
+    "promienie": null,
+    "ogon": null,
+    "wypelniona": null,
+    "kolor": null
+   },
+   "pozycja": {
+    "krag": null,
+    "kolejnosc": 21
+   },
+   "etykieta": {
+    "locus": "28",
+    "rodzaj": "Ls",
+    "slowa": [
+     "okoldy"
+    ]
+   },
+   "zrodlo": "",
+   "pewnosc": null,
+   "uwaga": ""
+  },
+  {
+   "id": "f68r1-22",
+   "typ": "gwiazda",
+   "cechy": {
+    "promienie": null,
+    "ogon": null,
+    "wypelniona": null,
+    "kolor": null
+   },
+   "pozycja": {
+    "krag": null,
+    "kolejnosc": 22
+   },
+   "etykieta": {
+    "locus": "29",
+    "rodzaj": "Ls",
+    "slowa": [
+     "ykchdy"
+    ]
+   },
+   "zrodlo": "",
+   "pewnosc": null,
+   "uwaga": ""
+  },
+  {
+   "id": "f68r1-23",
+   "typ": "gwiazda",
+   "cechy": {
+    "promienie": null,
+    "ogon": null,
+    "wypelniona": null,
+    "kolor": null
+   },
+   "pozycja": {
+    "krag": null,
+    "kolejnosc": 23
+   },
+   "etykieta": {
+    "locus": "31",
+    "rodzaj": "Ls",
+    "slowa": [
+     "ocphy"
+    ]
+   },
+   "zrodlo": "",
+   "pewnosc": null,
+   "uwaga": ""
+  },
+  {
+   "id": "f68r1-24",
+   "typ": "gwiazda",
+   "cechy": {
+    "promienie": null,
+    "ogon": null,
+    "wypelniona": null,
+    "kolor": null
+   },
+   "pozycja": {
+    "krag": null,
+    "kolejnosc": 24
+   },
+   "etykieta": {
+    "locus": "32",
+    "rodzaj": "Ls",
+    "slowa": [
+     "okeeodal"
+    ]
+   },
+   "zrodlo": "",
+   "pewnosc": null,
+   "uwaga": ""
+  },
+  {
+   "id": "f68r1-25",
+   "typ": "gwiazda",
+   "cechy": {
+    "promienie": null,
+    "ogon": null,
+    "wypelniona": null,
+    "kolor": null
+   },
+   "pozycja": {
+    "krag": null,
+    "kolejnosc": 25
+   },
+   "etykieta": {
+    "locus": "33",
+    "rodzaj": "Ls",
+    "slowa": [
+     "okshor"
+    ]
+   },
+   "zrodlo": "",
+   "pewnosc": null,
+   "uwaga": ""
+  },
+  {
+   "id": "f68r1-26",
+   "typ": "gwiazda",
+   "cechy": {
+    "promienie": null,
+    "ogon": null,
+    "wypelniona": null,
+    "kolor": null
+   },
+   "pozycja": {
+    "krag": null,
+    "kolejnosc": 26
+   },
+   "etykieta": {
+    "locus": "34",
+    "rodzaj": "Ls",
+    "slowa": [
+     "osdaiin"
+    ]
+   },
+   "zrodlo": "",
+   "pewnosc": null,
+   "uwaga": ""
+  },
+  {
+   "id": "f68r1-27",
+   "typ": "gwiazda",
+   "cechy": {
+    "promienie": null,
+    "ogon": null,
+    "wypelniona": null,
+    "kolor": null
+   },
+   "pozycja": {
+    "krag": null,
+    "kolejnosc": 27
+   },
+   "etykieta": {
+    "locus": "35",
+    "rodzaj": "Ls",
+    "slowa": [
+     "otochedy"
+    ]
+   },
+   "zrodlo": "",
+   "pewnosc": null,
+   "uwaga": ""
+  },
+  {
+   "id": "f68r1-28",
+   "typ": "gwiazda",
+   "cechy": {
+    "promienie": null,
+    "ogon": null,
+    "wypelniona": null,
+    "kolor": null
+   },
+   "pozycja": {
+    "krag": null,
+    "kolejnosc": 28
+   },
+   "etykieta": {
+    "locus": "36",
+    "rodzaj": "Ls",
+    "slowa": [
+     "dolchedy"
+    ]
+   },
+   "zrodlo": "",
+   "pewnosc": null,
+   "uwaga": ""
+  }
+ ]
+}

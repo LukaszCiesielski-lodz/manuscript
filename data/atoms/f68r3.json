@@ -1,0 +1,275 @@
+{
+ "strona": "f68r3",
+ "dzial": "astronomical",
+ "jezyk": "?",
+ "atomy": [
+  {
+   "id": "f68r3-01",
+   "typ": "gwiazda",
+   "cechy": {
+    "promienie": null,
+    "ogon": null,
+    "wypelniona": null,
+    "kolor": null
+   },
+   "pozycja": {
+    "krag": null,
+    "kolejnosc": 1
+   },
+   "etykieta": {
+    "locus": "10",
+    "rodzaj": "Ls",
+    "slowa": [
+     "dchol",
+     "day"
+    ]
+   },
+   "zrodlo": "",
+   "pewnosc": null,
+   "uwaga": ""
+  },
+  {
+   "id": "f68r3-02",
+   "typ": "gwiazda",
+   "cechy": {
+    "promienie": null,
+    "ogon": null,
+    "wypelniona": null,
+    "kolor": null
+   },
+   "pozycja": {
+    "krag": null,
+    "kolejnosc": 2
+   },
+   "etykieta": {
+    "locus": "11",
+    "rodzaj": "Ls",
+    "slowa": [
+     "doaro"
+    ]
+   },
+   "zrodlo": "",
+   "pewnosc": null,
+   "uwaga": ""
+  },
+  {
+   "id": "f68r3-03",
+   "typ": "gwiazda",
+   "cechy": {
+    "promienie": null,
+    "ogon": null,
+    "wypelniona": null,
+    "kolor": null
+   },
+   "pozycja": {
+    "krag": null,
+    "kolejnosc": 3
+   },
+   "etykieta": {
+    "locus": "13",
+    "rodzaj": "Ls",
+    "slowa": [
+     "okos"
+    ]
+   },
+   "zrodlo": "",
+   "pewnosc": null,
+   "uwaga": ""
+  },
+  {
+   "id": "f68r3-04",
+   "typ": "gwiazda",
+   "cechy": {
+    "promienie": null,
+    "ogon": null,
+    "wypelniona": null,
+    "kolor": null
+   },
+   "pozycja": {
+    "krag": null,
+    "kolejnosc": 4
+   },
+   "etykieta": {
+    "locus": "14",
+    "rodzaj": "Ls",
+    "slowa": [
+     "otary"
+    ]
+   },
+   "zrodlo": "",
+   "pewnosc": null,
+   "uwaga": ""
+  },
+  {
+   "id": "f68r3-05",
+   "typ": "gwiazda",
+   "cechy": {
+    "promienie": null,
+    "ogon": null,
+    "wypelniona": null,
+    "kolor": null
+   },
+   "pozycja": {
+    "krag": null,
+    "kolejnosc": 5
+   },
+   "etykieta": {
+    "locus": "15",
+    "rodzaj": "Ls",
+    "slowa": [
+     "chky",
+     "oky"
+    ]
+   },
+   "zrodlo": "",
+   "pewnosc": null,
+   "uwaga": ""
+  },
+  {
+   "id": "f68r3-06",
+   "typ": "gwiazda",
+   "cechy": {
+    "promienie": null,
+    "ogon": null,
+    "wypelniona": null,
+    "kolor": null
+   },
+   "pozycja": {
+    "krag": null,
+    "kolejnosc": 6
+   },
+   "etykieta": {
+    "locus": "16",
+    "rodzaj": "Ls",
+    "slowa": [
+     "e",
+     "cphy"
+    ]
+   },
+   "zrodlo": "",
+   "pewnosc": null,
+   "uwaga": ""
+  },
+  {
+   "id": "f68r3-07",
+   "typ": "gwiazda",
+   "cechy": {
+    "promienie": null,
+    "ogon": null,
+    "wypelniona": null,
+    "kolor": null
+   },
+   "pozycja": {
+    "krag": null,
+    "kolejnosc": 7
+   },
+   "etykieta": {
+    "locus": "17",
+    "rodzaj": "Ls",
+    "slowa": [
+     "okolchy"
+    ]
+   },
+   "zrodlo": "",
+   "pewnosc": null,
+   "uwaga": ""
+  },
+  {
+   "id": "f68r3-08",
+   "typ": "gwiazda",
+   "cechy": {
+    "promienie": null,
+    "ogon": null,
+    "wypelniona": null,
+    "kolor": null
+   },
+   "pozycja": {
+    "krag": null,
+    "kolejnosc": 8
+   },
+   "etykieta": {
+    "locus": "18",
+    "rodzaj": "Ls",
+    "slowa": [
+     "o",
+     "cthyd"
+    ]
+   },
+   "zrodlo": "",
+   "pewnosc": null,
+   "uwaga": ""
+  },
+  {
+   "id": "f68r3-09",
+   "typ": "gwiazda",
+   "cechy": {
+    "promienie": null,
+    "ogon": null,
+    "wypelniona": null,
+    "kolor": null
+   },
+   "pozycja": {
+    "krag": null,
+    "kolejnosc": 9
+   },
+   "etykieta": {
+    "locus": "19",
+    "rodzaj": "Ls",
+    "slowa": [
+     "otydg"
+    ]
+   },
+   "zrodlo": "",
+   "pewnosc": null,
+   "uwaga": ""
+  },
+  {
+   "id": "f68r3-10",
+   "typ": "gwiazda",
+   "cechy": {
+    "promienie": null,
+    "ogon": null,
+    "wypelniona": null,
+    "kolor": null
+   },
+   "pozycja": {
+    "krag": null,
+    "kolejnosc": 10
+   },
+   "etykieta": {
+    "locus": "20",
+    "rodzaj": "Ls",
+    "slowa": [
+     "darall"
+    ]
+   },
+   "zrodlo": "",
+   "pewnosc": null,
+   "uwaga": ""
+  },
+  {
+   "id": "f68r3-11",
+   "typ": "gwiazda",
+   "cechy": {
+    "promienie": null,
+    "ogon": null,
+    "wypelniona": null,
+    "kolor": null
+   },
+   "pozycja": {
+    "krag": null,
+    "kolejnosc": 11
+   },
+   "etykieta": {
+    "locus": "21",
+    "rodzaj": "Ls",
+    "slowa": [
+     "okchody"
+    ]
+   },
+   "zrodlo": "",
+   "pewnosc": null,
+   "uwaga": ""
+  }
+ ]
+}

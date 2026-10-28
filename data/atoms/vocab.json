@@ -1,0 +1,83 @@
+{
+ "opis": "Słownik kontrolowany atomów ilustracji. Wartość cechy: \"bool\" (true/false), \"int\" (liczba ≥ 0) albo lista dozwolonych słów. null = nie wypełnione. Zapisujemy tylko to, co widać; interpretację (jaka to roślina, co znaczy gest) wpisujemy w 'uwaga', nie w cechy.",
+ "kolory": ["brak", "czerwony", "zolty", "niebieski", "zielony", "brazowy", "czarny", "inny"],
+ "typy": {
+  "nimfa": {
+   "dzialy": ["zodiac", "biological", "astronomical", "cosmological"],
+   "cechy": {
+    "naga": "bool",
+    "w_obiekcie": ["nic", "beczka", "kosz", "rura", "woda", "inne"],
+    "korona": "bool",
+    "wlosy": ["rozpuszczone", "upiete", "nakrycie", "nie_widac"],
+    "trzyma": ["gwiazda", "nic", "krzyz", "pierscien", "inne"],
+    "kierunek": ["lewo", "prawo", "przod"],
+    "gwiazda_promienie": "int",
+    "gwiazda_ogon": "bool",
+    "gwiazda_kolor": ["brak", "czerwony", "zolty", "niebieski", "zielony", "brazowy", "czarny", "inny"]
+   }
+  },
+  "gwiazda": {
+   "dzialy": ["astronomical", "cosmological", "stars", "zodiac"],
+   "cechy": {
+    "promienie": "int",
+    "ogon": "bool",
+    "wypelniona": "bool",
+    "kolor": ["brak", "czerwony", "zolty", "niebieski", "zielony", "brazowy", "czarny", "inny"]
+   }
+  },
+  "znak": {
+   "dzialy": ["zodiac"],
+   "cechy": {
+    "nazwa": ["baran", "byk", "bliznieta", "rak", "lew", "panna", "waga", "skorpion", "strzelec", "koziorozec", "wodnik", "ryby", "inne"],
+    "podwojony": "bool",
+    "kolor": ["brak", "czerwony", "zolty", "niebieski", "zielony", "brazowy", "czarny", "inny"]
+   }
+  },
+  "naczynie": {
+   "dzialy": ["pharmaceutical"],
+   "cechy": {
+    "ksztalt": ["walec", "kula", "stozek", "waza", "inne"],
+    "pokrywka": "bool",
+    "nozki": "bool",
+    "segmenty": "int",
+    "kolor": ["brak", "czerwony", "zolty", "niebieski", "zielony", "brazowy", "czarny", "inny"]
+   }
+  },
+  "fragment": {
+   "dzialy": ["pharmaceutical"],
+   "cechy": {
+    "czesc": ["korzen", "lisc", "kwiat", "lodyga", "owoc", "caly"],
+    "liczba": "int",
+    "kolor": ["brak", "czerwony", "zolty", "niebieski", "zielony", "brazowy", "czarny", "inny"]
+   }
+  },
+  "roslina": {
+   "dzialy": ["herbal"],
+   "cechy": {
+    "korzen_typ": ["palowy", "bulwa", "wloknisty", "klacze", "brak", "inne"],
+    "korzen_liczba": "int",
+    "lisc_ksztalt": ["lancetowaty", "okragly", "dloniasty", "pierzasty", "sercowaty", "inne"],
+    "lisc_liczba": "int",
+    "kwiat_liczba": "int",
+    "platki": "int",
+    "kwiat_kolor": ["brak", "czerwony", "zolty", "niebieski", "zielony", "brazowy", "czarny", "inny"]
+   }
+  },
+  "rura": {
+   "dzialy": ["biological"],
+   "cechy": {
+    "ksztalt": ["prosta", "zgieta", "rozgaleziona", "spirala"],
+    "zakonczenie": ["otwarte", "zamkniete", "kielich", "inne"],
+    "kolor": ["brak", "czerwony", "zolty", "niebieski", "zielony", "brazowy", "czarny", "inny"]
+   }
+  },
+  "obiekt": {
+   "dzialy": ["herbal", "cosmological", "astronomical", "stars", "text", "biological"],
+   "cechy": {
+    "rodzaj": ["gwiazda", "nimfa", "roslina", "naczynie", "budowla", "zwierze", "slonce", "ksiezyc", "inne"],
+    "liczba": "int",
+    "kolor": ["brak", "czerwony", "zolty", "niebieski", "zielony", "brazowy", "czarny", "inny"]
+   }
+  }
+ }
+}

@@ -1,0 +1,30 @@
+{
+ "strona": "f11v",
+ "dzial": "herbal",
+ "jezyk": "A",
+ "atomy": [
+  {
+   "id": "f11v-01",
+   "typ": "obiekt",
+   "cechy": {
+    "rodzaj": null,
+    "liczba": null,
+    "kolor": null
+   },
+   "pozycja": {
+    "krag": null,
+    "kolejnosc": 1
+   },
+   "etykieta": {
+    "locus": "5",
+    "rodzaj": "L0",
+    "slowa": [
+     "dd"
+    ]
+   },
+   "zrodlo": "",
+   "pewnosc": null,
+   "uwaga": ""
+  }
+ ]
+}

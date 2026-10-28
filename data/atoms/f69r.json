@@ -1,0 +1,538 @@
+{
+ "strona": "f69r",
+ "dzial": "cosmological",
+ "jezyk": "?",
+ "atomy": [
+  {
+   "id": "f69r-01",
+   "typ": "obiekt",
+   "cechy": {
+    "rodzaj": null,
+    "liczba": null,
+    "kolor": null
+   },
+   "pozycja": {
+    "krag": null,
+    "kolejnosc": 1
+   },
+   "etykieta": {
+    "locus": "5",
+    "rodzaj": "L0",
+    "slowa": [
+     "oteos",
+     "chop",
+     "otaike"
+    ]
+   },
+   "zrodlo": "",
+   "pewnosc": null,
+   "uwaga": ""
+  },
+  {
+   "id": "f69r-02",
+   "typ": "obiekt",
+   "cechy": {
+    "rodzaj": null,
+    "liczba": null,
+    "kolor": null
+   },
+   "pozycja": {
+    "krag": null,
+    "kolejnosc": 2
+   },
+   "etykieta": {
+    "locus": "6",
+    "rodzaj": "L0",
+    "slowa": [
+     "ar",
+     "odair",
+     "chtaly"
+    ]
+   },
+   "zrodlo": "",
+   "pewnosc": null,
+   "uwaga": ""
+  },
+  {
+   "id": "f69r-03",
+   "typ": "obiekt",
+   "cechy": {
+    "rodzaj": null,
+    "liczba": null,
+    "kolor": null
+   },
+   "pozycja": {
+    "krag": null,
+    "kolejnosc": 3
+   },
+   "etykieta": {
+    "locus": "7",
+    "rodzaj": "L0",
+    "slowa": [
+     "oto",
+     "dar",
+     "archol"
+    ]
+   },
+   "zrodlo": "",
+   "pewnosc": null,
+   "uwaga": ""
+  },
+  {
+   "id": "f69r-04",
+   "typ": "obiekt",
+   "cechy": {
+    "rodzaj": null,
+    "liczba": null,
+    "kolor": null
+   },
+   "pozycja": {
+    "krag": null,
+    "kolejnosc": 4
+   },
+   "etykieta": {
+    "locus": "8",
+    "rodzaj": "L0",
+    "slowa": [
+     "okeey",
+     "chey",
+     "dy"
+    ]
+   },
+   "zrodlo": "",
+   "pewnosc": null,
+   "uwaga": ""
+  },
+  {
+   "id": "f69r-05",
+   "typ": "obiekt",
+   "cechy": {
+    "rodzaj": null,
+    "liczba": null,
+    "kolor": null
+   },
+   "pozycja": {
+    "krag": null,
+    "kolejnosc": 5
+   },
+   "etykieta": {
+    "locus": "9",
+    "rodzaj": "L0",
+    "slowa": [
+     "dcho",
+     "char",
+     "ar"
+    ]
+   },
+   "zrodlo": "",
+   "pewnosc": null,
+   "uwaga": ""
+  },
+  {
+   "id": "f69r-06",
+   "typ": "obiekt",
+   "cechy": {
+    "rodzaj": null,
+    "liczba": null,
+    "kolor": null
+   },
+   "pozycja": {
+    "krag": null,
+    "kolejnosc": 6
+   },
+   "etykieta": {
+    "locus": "10",
+    "rodzaj": "L0",
+    "slowa": [
+     "ytal",
+     "air",
+     "al"
+    ]
+   },
+   "zrodlo": "",
+   "pewnosc": null,
+   "uwaga": ""
+  },
+  {
+   "id": "f69r-07",
+   "typ": "obiekt",
+   "cechy": {
+    "rodzaj": null,
+    "liczba": null,
+    "kolor": null
+   },
+   "pozycja": {
+    "krag": null,
+    "kolejnosc": 7
+   },
+   "etykieta": {
+    "locus": "11",
+    "rodzaj": "L0",
+    "slowa": [
+     "shy",
+     "chtairy"
+    ]
+   },
+   "zrodlo": "",
+   "pewnosc": null,
+   "uwaga": ""
+  },
+  {
+   "id": "f69r-08",
+   "typ": "obiekt",
+   "cechy": {
+    "rodzaj": null,
+    "liczba": null,
+    "kolor": null
+   },
+   "pozycja": {
+    "krag": null,
+    "kolejnosc": 8
+   },
+   "etykieta": {
+    "locus": "12",
+    "rodzaj": "L0",
+    "slowa": [
+     "yt",
+     "oetear"
+    ]
+   },
+   "zrodlo": "",
+   "pewnosc": null,
+   "uwaga": ""
+  },
+  {
+   "id": "f69r-09",
+   "typ": "obiekt",
+   "cechy": {
+    "rodzaj": null,
+    "liczba": null,
+    "kolor": null
+   },
+   "pozycja": {
+    "krag": null,
+    "kolejnosc": 9
+   },
+   "etykieta": {
+    "locus": "13",
+    "rodzaj": "L0",
+    "slowa": [
+     "ytey",
+     "cholam"
+    ]
+   },
+   "zrodlo": "",
+   "pewnosc": null,
+   "uwaga": ""
+  },
+  {
+   "id": "f69r-10",
+   "typ": "obiekt",
+   "cechy": {
+    "rodzaj": null,
+    "liczba": null,
+    "kolor": null
+   },
+   "pozycja": {
+    "krag": null,
+    "kolejnosc": 10
+   },
+   "etykieta": {
+    "locus": "14",
+    "rodzaj": "L0",
+    "slowa": [
+     "dair",
+     "ar",
+     "yteey",
+     "chdy"
+    ]
+   },
+   "zrodlo": "",
+   "pewnosc": null,
+   "uwaga": ""
+  },
+  {
+   "id": "f69r-11",
+   "typ": "obiekt",
+   "cechy": {
+    "rodzaj": null,
+    "liczba": null,
+    "kolor": null
+   },
+   "pozycja": {
+    "krag": null,
+    "kolejnosc": 11
+   },
+   "etykieta": {
+    "locus": "15",
+    "rodzaj": "L0",
+    "slowa": [
+     "okair",
+     "os",
+     "air"
+    ]
+   },
+   "zrodlo": "",
+   "pewnosc": null,
+   "uwaga": ""
+  },
+  {
+   "id": "f69r-12",
+   "typ": "obiekt",
+   "cechy": {
+    "rodzaj": null,
+    "liczba": null,
+    "kolor": null
+   },
+   "pozycja": {
+    "krag": null,
+    "kolejnosc": 12
+   },
+   "etykieta": {
+    "locus": "16",
+    "rodzaj": "L0",
+    "slowa": [
+     "chytos",
+     "oly"
+    ]
+   },
+   "zrodlo": "",
+   "pewnosc": null,
+   "uwaga": ""
+  },
+  {
+   "id": "f69r-13",
+   "typ": "obiekt",
+   "cechy": {
+    "rodzaj": null,
+    "liczba": null,
+    "kolor": null
+   },
+   "pozycja": {
+    "krag": null,
+    "kolejnosc": 13
+   },
+   "etykieta": {
+    "locus": "17",
+    "rodzaj": "L0",
+    "slowa": [
+     "chetar",
+     "araly"
+    ]
+   },
+   "zrodlo": "",
+   "pewnosc": null,
+   "uwaga": ""
+  },
+  {
+   "id": "f69r-14",
+   "typ": "obiekt",
+   "cechy": {
+    "rodzaj": null,
+    "liczba": null,
+    "kolor": null
+   },
+   "pozycja": {
+    "krag": null,
+    "kolejnosc": 14
+   },
+   "etykieta": {
+    "locus": "18",
+    "rodzaj": "L0",
+    "slowa": [
+     "dair",
+     "alody"
+    ]
+   },
+   "zrodlo": "",
+   "pewnosc": null,
+   "uwaga": ""
+  },
+  {
+   "id": "f69r-15",
+   "typ": "obiekt",
+   "cechy": {
+    "rodzaj": null,
+    "liczba": null,
+    "kolor": null
+   },
+   "pozycja": {
+    "krag": null,
+    "kolejnosc": 15
+   },
+   "etykieta": {
+    "locus": "19",
+    "rodzaj": "L0",
+    "slowa": [
+     "dal",
+     "daiin",
+     "otalam"
+    ]
+   },
+   "zrodlo": "",
+   "pewnosc": null,
+   "uwaga": ""
+  },
+  {
+   "id": "f69r-16",
+   "typ": "obiekt",
+   "cechy": {
+    "rodzaj": null,
+    "liczba": null,
+    "kolor": null
+   },
+   "pozycja": {
+    "krag": null,
+    "kolejnosc": 16
+   },
+   "etykieta": {
+    "locus": "20",
+    "rodzaj": "L0",
+    "slowa": [
+     "ytcheodytor"
+    ]
+   },
+   "zrodlo": "",
+   "pewnosc": null,
+   "uwaga": ""
+  },
+  {
+   "id": "f69r-17",
+   "typ": "obiekt",
+   "cechy": {
+    "rodzaj": null,
+    "liczba": null,
+    "kolor": null
+   },
+   "pozycja": {
+    "krag": null,
+    "kolejnosc": 17
+   },
+   "etykieta": {
+    "locus": "44",
+    "rodzaj": "L0",
+    "slowa": [
+     "y"
+    ]
+   },
+   "zrodlo": "",
+   "pewnosc": null,
+   "uwaga": ""
+  },
+  {
+   "id": "f69r-18",
+   "typ": "obiekt",
+   "cechy": {
+    "rodzaj": null,
+    "liczba": null,
+    "kolor": null
+   },
+   "pozycja": {
+    "krag": null,
+    "kolejnosc": 18
+   },
+   "etykieta": {
+    "locus": "45",
+    "rodzaj": "L0",
+    "slowa": [
+     "d"
+    ]
+   },
+   "zrodlo": "",
+   "pewnosc": null,
+   "uwaga": ""
+  },
+  {
+   "id": "f69r-19",
+   "typ": "obiekt",
+   "cechy": {
+    "rodzaj": null,
+    "liczba": null,
+    "kolor": null
+   },
+   "pozycja": {
+    "krag": null,
+    "kolejnosc": 19
+   },
+   "etykieta": {
+    "locus": "46",
+    "rodzaj": "L0",
+    "slowa": [
+     "o"
+    ]
+   },
+   "zrodlo": "",
+   "pewnosc": null,
+   "uwaga": ""
+  },
+  {
+   "id": "f69r-20",
+   "typ": "obiekt",
+   "cechy": {
+    "rodzaj": null,
+    "liczba": null,
+    "kolor": null
+   },
+   "pozycja": {
+    "krag": null,
+    "kolejnosc": 20
+   },
+   "etykieta": {
+    "locus": "47",
+    "rodzaj": "L0",
+    "slowa": [
+     "l"
+    ]
+   },
+   "zrodlo": "",
+   "pewnosc": null,
+   "uwaga": ""
+  },
+  {
+   "id": "f69r-21",
+   "typ": "obiekt",
+   "cechy": {
+    "rodzaj": null,
+    "liczba": null,
+    "kolor": null
+   },
+   "pozycja": {
+    "krag": null,
+    "kolejnosc": 21
+   },
+   "etykieta": {
+    "locus": "48",
+    "rodzaj": "L0",
+    "slowa": [
+     "s"
+    ]
+   },
+   "zrodlo": "",
+   "pewnosc": null,
+   "uwaga": ""
+  },
+  {
+   "id": "f69r-22",
+   "typ": "obiekt",
+   "cechy": {
+    "rodzaj": null,
+    "liczba": null,
+    "kolor": null
+   },
+   "pozycja": {
+    "krag": null,
+    "kolejnosc": 22
+   },
+   "etykieta": {
+    "locus": "49",
+    "rodzaj": "L0",
+    "slowa": [
+     "ed"
+    ]
+   },
+   "zrodlo": "",
+   "pewnosc": null,
+   "uwaga": ""
+  }
+ ]
+}

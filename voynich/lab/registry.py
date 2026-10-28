@@ -74,6 +74,8 @@ THEORIES = {t.name: t for t in [
     Theory("brute_length", "Brute force osobno na każdym zbiorze słów jednakowej długości", ("gpu",), "brute_length:run"),
     Theory("judge_probe", "Co widzi sędzia: słownictwo czy szyk", ("gpu",), "judge_probe:run"),
     Theory("plant_pairs", "Ta sama roślina w dwóch miejscach: czy strony dzielą słowa", (), "plant_pairs:run"),
+    Theory("atoms", "Rebus w rysunkach: cechy atomów ilustracji wobec etykiet", (), "atoms:run"),
+    Theory("atoms_draft", "Szkic atomów zodiaku z modelu widzącego (nie test)", ("openrouter", "images"), "atoms_draft:run"),
 ]}
 ALIASES = {"literature": ["naibbe_cipher", "cardan_grille", "hebrew_anagram"], "rejestr": ["labels", "records", "lists"],
            "rejestr_gpu": ["fields_lm", "v6", "cohesion"], "all": list(THEORIES)}

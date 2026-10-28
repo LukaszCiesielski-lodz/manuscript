@@ -1,0 +1,287 @@
+{
+ "strona": "f67v1",
+ "dzial": "astronomical",
+ "jezyk": "?",
+ "atomy": [
+  {
+   "id": "f67v1-01",
+   "typ": "obiekt",
+   "cechy": {
+    "rodzaj": null,
+    "liczba": null,
+    "kolor": null
+   },
+   "pozycja": {
+    "krag": null,
+    "kolejnosc": 1
+   },
+   "etykieta": {
+    "locus": "1",
+    "rodzaj": "L0",
+    "slowa": [
+     "damamm"
+    ]
+   },
+   "zrodlo": "",
+   "pewnosc": null,
+   "uwaga": ""
+  },
+  {
+   "id": "f67v1-02",
+   "typ": "obiekt",
+   "cechy": {
+    "rodzaj": null,
+    "liczba": null,
+    "kolor": null
+   },
+   "pozycja": {
+    "krag": null,
+    "kolejnosc": 2
+   },
+   "etykieta": {
+    "locus": "2",
+    "rodzaj": "L0",
+    "slowa": [
+     "dairkal"
+    ]
+   },
+   "zrodlo": "",
+   "pewnosc": null,
+   "uwaga": ""
+  },
+  {
+   "id": "f67v1-03",
+   "typ": "obiekt",
+   "cechy": {
+    "rodzaj": null,
+    "liczba": null,
+    "kolor": null
+   },
+   "pozycja": {
+    "krag": null,
+    "kolejnosc": 3
+   },
+   "etykieta": {
+    "locus": "3",
+    "rodzaj": "L0",
+    "slowa": [
+     "okal",
+     "ary"
+    ]
+   },
+   "zrodlo": "",
+   "pewnosc": null,
+   "uwaga": ""
+  },
+  {
+   "id": "f67v1-04",
+   "typ": "obiekt",
+   "cechy": {
+    "rodzaj": null,
+    "liczba": null,
+    "kolor": null
+   },
+   "pozycja": {
+    "krag": null,
+    "kolejnosc": 4
+   },
+   "etykieta": {
+    "locus": "4",
+    "rodzaj": "L0",
+    "slowa": [
+     "dar",
+     "echkalal"
+    ]
+   },
+   "zrodlo": "",
+   "pewnosc": null,
+   "uwaga": ""
+  },
+  {
+   "id": "f67v1-05",
+   "typ": "obiekt",
+   "cechy": {
+    "rodzaj": null,
+    "liczba": null,
+    "kolor": null
+   },
+   "pozycja": {
+    "krag": null,
+    "kolejnosc": 5
+   },
+   "etykieta": {
+    "locus": "5",
+    "rodzaj": "L0",
+    "slowa": [
+     "okol",
+     "aldy"
+    ]
+   },
+   "zrodlo": "",
+   "pewnosc": null,
+   "uwaga": ""
+  },
+  {
+   "id": "f67v1-06",
+   "typ": "obiekt",
+   "cechy": {
+    "rodzaj": null,
+    "liczba": null,
+    "kolor": null
+   },
+   "pozycja": {
+    "krag": null,
+    "kolejnosc": 6
+   },
+   "etykieta": {
+    "locus": "6",
+    "rodzaj": "L0",
+    "slowa": [
+     "dchesykchy"
+    ]
+   },
+   "zrodlo": "",
+   "pewnosc": null,
+   "uwaga": ""
+  },
+  {
+   "id": "f67v1-07",
+   "typ": "obiekt",
+   "cechy": {
+    "rodzaj": null,
+    "liczba": null,
+    "kolor": null
+   },
+   "pozycja": {
+    "krag": null,
+    "kolejnosc": 7
+   },
+   "etykieta": {
+    "locus": "7",
+    "rodzaj": "L0",
+    "slowa": [
+     "ykeodar"
+    ]
+   },
+   "zrodlo": "",
+   "pewnosc": null,
+   "uwaga": ""
+  },
+  {
+   "id": "f67v1-08",
+   "typ": "obiekt",
+   "cechy": {
+    "rodzaj": null,
+    "liczba": null,
+    "kolor": null
+   },
+   "pozycja": {
+    "krag": null,
+    "kolejnosc": 8
+   },
+   "etykieta": {
+    "locus": "8",
+    "rodzaj": "L0",
+    "slowa": [
+     "deeeoskol"
+    ]
+   },
+   "zrodlo": "",
+   "pewnosc": null,
+   "uwaga": ""
+  },
+  {
+   "id": "f67v1-09",
+   "typ": "obiekt",
+   "cechy": {
+    "rodzaj": null,
+    "liczba": null,
+    "kolor": null
+   },
+   "pozycja": {
+    "krag": null,
+    "kolejnosc": 9
+   },
+   "etykieta": {
+    "locus": "9",
+    "rodzaj": "L0",
+    "slowa": [
+     "ockhosam"
+    ]
+   },
+   "zrodlo": "",
+   "pewnosc": null,
+   "uwaga": ""
+  },
+  {
+   "id": "f67v1-10",
+   "typ": "obiekt",
+   "cechy": {
+    "rodzaj": null,
+    "liczba": null,
+    "kolor": null
+   },
+   "pozycja": {
+    "krag": null,
+    "kolejnosc": 10
+   },
+   "etykieta": {
+    "locus": "10",
+    "rodzaj": "L0",
+    "slowa": [
+     "kochardy"
+    ]
+   },
+   "zrodlo": "",
+   "pewnosc": null,
+   "uwaga": ""
+  },
+  {
+   "id": "f67v1-11",
+   "typ": "obiekt",
+   "cechy": {
+    "rodzaj": null,
+    "liczba": null,
+    "kolor": null
+   },
+   "pozycja": {
+    "krag": null,
+    "kolejnosc": 11
+   },
+   "etykieta": {
+    "locus": "11",
+    "rodzaj": "L0",
+    "slowa": [
+     "ochodare"
+    ]
+   },
+   "zrodlo": "",
+   "pewnosc": null,
+   "uwaga": ""
+  },
+  {
+   "id": "f67v1-12",
+   "typ": "obiekt",
+   "cechy": {
+    "rodzaj": null,
+    "liczba": null,
+    "kolor": null
+   },
+   "pozycja": {
+    "krag": null,
+    "kolejnosc": 12
+   },
+   "etykieta": {
+    "locus": "12",
+    "rodzaj": "L0",
+    "slowa": [
+     "ols",
+     "aiiny"
+    ]
+   },
+   "zrodlo": "",
+   "pewnosc": null,
+   "uwaga": ""
+  }
+ ]
+}

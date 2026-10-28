@@ -258,7 +258,8 @@ class NotebookTest(unittest.TestCase):
         for name in ("Voynich_Lab.ipynb", "Voynich_Ilustracje.ipynb", "Voynich_Brute.ipynb", "Voynich_Final.ipynb",
                      "Voynich_Notacja.ipynb", "Voynich_Rejestr.ipynb", "Voynich_Rejestr_GPU.ipynb",
                      "Voynich_Klucz.ipynb", "Voynich_V7.ipynb", "Voynich_Klucz_Dlugosci.ipynb",
-                     "Voynich_Brute_Dlugosci.ipynb", "Voynich_Sedzia.ipynb", "Voynich_Rosliny.ipynb"):
+                     "Voynich_Brute_Dlugosci.ipynb", "Voynich_Sedzia.ipynb", "Voynich_Rosliny.ipynb",
+                     "Voynich_Atomy.ipynb"):
             nb = json.loads((Path(__file__).resolve().parent.parent / "colab" / name).read_text(encoding="utf-8"))
             for i, c in enumerate(nb["cells"]):
                 if c["cell_type"] == "code":
@@ -973,3 +974,73 @@ class PlantPairsTest(unittest.TestCase):
             import torch  # noqa: F401
         except ImportError:
             self.assertEqual(judge_probe.run(LabConfig(quick=True)).verdict, "nierozstrzygnięta")
+
+
+class AtomsTest(unittest.TestCase):
+    def test_vocab_templates_and_validation(self):
+        import json
+        from voynich import atoms as A
+        vocab = A.load_vocab()
+        pages = A.templates(vocab=vocab)
+        n_labels = len(A.label_lines())
+        self.assertEqual(sum(len(p["atomy"]) for p in pages.values()), n_labels)
+        self.assertIn("f70v2", pages)
+        page = json.loads(json.dumps(pages["f70v2"]))
+        self.assertEqual(A.validate(page, vocab), [])
+        page["atomy"][0]["cechy"]["naga"] = "tak"            # not a bool
+        page["atomy"][1]["cechy"]["kolor_oczu"] = "zielony"   # unknown feature
+        page["atomy"][2]["typ"] = "smok"                      # unknown type
+        page["atomy"][3]["pewnosc"] = 7
+        errors = A.validate(page, vocab, "f70v2.json")
+        self.assertEqual(len(errors), 4)
+        self.assertTrue(all(e.startswith("f70v2.json/") for e in errors))
+        # The committed files validate and carry every label.
+        atoms = A.load(vocab=vocab)
+        self.assertEqual(len(atoms), n_labels)
+        self.assertEqual(A.features(["okaldal"]), {"pierwszy": "o", "drugi": "k", "ostatni": "l", "dlugosc": 7,
+                                                  "gallows": True, "prefiks2": "ok"})
+
+    def test_kappa(self):
+        from voynich import atoms as A
+        self.assertAlmostEqual(A.kappa([1, 2, 1, 2], [1, 2, 1, 2]), 1.0)
+        self.assertLess(abs(A.kappa([1, 1, 2, 2], [1, 2, 1, 2])), 1e-9)
+        self.assertTrue(A.kappa([None], [1]) != A.kappa([None], [1]))   # nan when nothing to compare
+
+    def test_scan_finds_planted_and_not_shuffled(self):
+        from voynich import atoms as A
+        vocab = A.load_vocab()
+        zodiac = [a for a in A.load(vocab=vocab) if a.section == "zodiac"]
+        done = A.filled(A.random_fill(zodiac, vocab, seed=1))
+        self.assertGreater(len(done), 250)
+        rows = A.pair_scan(A.plant(done, "nimfa.trzyma", 0.6, 0), shuffles=100, seed=0)
+        self.assertEqual((rows[0]["cecha"], rows[0]["etykieta"]), ("nimfa.trzyma", "pierwszy"))
+        self.assertGreater(rows[0]["z"], 5)
+        self.assertLess(rows[0]["p_adj"], 0.05)
+        rows = A.pair_scan(A.shuffle_features(done, 0), shuffles=100, seed=0)
+        self.assertFalse(any(A.significant(r) for r in rows))
+
+    def test_theory_runs_in_demo_mode_and_draft_without_client(self):
+        from voynich.lab.config import LabConfig
+        from voynich.lab.theories import atoms, atoms_draft
+        res = atoms.run(LabConfig(quick=True))
+        self.assertEqual(res.verdict, "nierozstrzygnięta")
+        self.assertTrue(all(c.passed for c in res.controls), [c.observed for c in res.controls])
+        self.assertEqual(atoms_draft.run(LabConfig(quick=True)).verdict, "nierozstrzygnięta")
+
+    def test_draft_assignment_and_fill(self):
+        from voynich import atoms as A
+        from voynich.lab.theories import atoms_draft as D
+        canvas = {"label": "71v and 72r", "folios": ["f71v", "f72r"]}
+        rounds = [{"znak": "byk"}, {"znak": "byk"}, {"znak": "bliznieta"}, {"znak": "rak"}, {"znak": "ryby"}]
+        self.assertEqual(D.assign_folios(rounds, canvas), ["f71v", "f72r1", "f72r2", "f72r3", None])
+        vocab = A.load_vocab()
+        tmpl = A.templates(vocab=vocab)["f72r2"]
+        roundel = {"znak": "bliznieta", "kregi": [{"krag": "zewn", "nimfy": [{"naga": True, "trzyma": "gwiazda", "gwiazda_promienie": 7.0,
+                                                                            "kierunek": "w górę"}]}]}
+        page, n, dropped = D.fill_page(tmpl, roundel, vocab)
+        self.assertEqual((n, dropped), (1, 1))
+        self.assertEqual(page["atomy"][0]["cechy"]["gwiazda_promienie"], 7)
+        self.assertIsNone(page["atomy"][0]["cechy"]["kierunek"])
+        self.assertEqual(page["atomy"][0]["zrodlo"], "vlm")
+        self.assertEqual(A.validate(page, vocab), [])
+        self.assertEqual(page["atomy"][1]["zrodlo"], "")

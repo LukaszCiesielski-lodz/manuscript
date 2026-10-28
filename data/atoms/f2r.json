@@ -1,0 +1,32 @@
+{
+ "strona": "f2r",
+ "dzial": "herbal",
+ "jezyk": "A",
+ "atomy": [
+  {
+   "id": "f2r-01",
+   "typ": "obiekt",
+   "cechy": {
+    "rodzaj": null,
+    "liczba": null,
+    "kolor": null
+   },
+   "pozycja": {
+    "krag": null,
+    "kolejnosc": 1
+   },
+   "etykieta": {
+    "locus": "15",
+    "rodzaj": "L0",
+    "slowa": [
+     "ios",
+     "an",
+     "on"
+    ]
+   },
+   "zrodlo": "",
+   "pewnosc": null,
+   "uwaga": ""
+  }
+ ]
+}

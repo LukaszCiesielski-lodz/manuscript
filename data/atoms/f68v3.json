@@ -1,0 +1,53 @@
+{
+ "strona": "f68v3",
+ "dzial": "cosmological",
+ "jezyk": "?",
+ "atomy": [
+  {
+   "id": "f68v3-01",
+   "typ": "obiekt",
+   "cechy": {
+    "rodzaj": null,
+    "liczba": null,
+    "kolor": null
+   },
+   "pozycja": {
+    "krag": null,
+    "kolejnosc": 1
+   },
+   "etykieta": {
+    "locus": "15",
+    "rodzaj": "L0",
+    "slowa": [
+     "otodol"
+    ]
+   },
+   "zrodlo": "",
+   "pewnosc": null,
+   "uwaga": ""
+  },
+  {
+   "id": "f68v3-02",
+   "typ": "obiekt",
+   "cechy": {
+    "rodzaj": null,
+    "liczba": null,
+    "kolor": null
+   },
+   "pozycja": {
+    "krag": null,
+    "kolejnosc": 2
+   },
+   "etykieta": {
+    "locus": "16",
+    "rodzaj": "L0",
+    "slowa": [
+     "opcholdg"
+    ]
+   },
+   "zrodlo": "",
+   "pewnosc": null,
+   "uwaga": ""
+  }
+ ]
+}

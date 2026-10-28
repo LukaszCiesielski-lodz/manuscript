@@ -85,7 +85,7 @@ class Lab:
             raise RuntimeError("Niekompletne dane – uruchom !python scripts/fetch_data.py:\n  " + "\n  ".join(problems))
         print(f"\n=== {theory.title} ({name}) ===", flush=True)
         fn = theory.load()
-        res = fn(self.cfg, self.client, self.vision) if name == "illustrations" else fn(self.cfg)
+        res = fn(self.cfg, self.client, self.vision) if "openrouter" in theory.needs else fn(self.cfg)
         res.save(self.cfg.results_dir)
         self.results[name] = res
         print(f"Werdykt: {res.verdict}. {res.summary}")
