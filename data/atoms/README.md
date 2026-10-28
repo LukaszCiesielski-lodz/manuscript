@@ -37,7 +37,7 @@ Typ domyślny wynika z rodzaju locus: `Lz`, `Ln` → nimfa; `Ls` → gwiazda; `L
 ## Skąd obrazy
 
 Skany: Beinecke (collections.library.yale.edu, MS 408) albo archive.org/details/voynich. Nazwy stron jak w transliteracji:
-`f70v2` to drugi panel rozkładanej karty 70v. Zodiak: f70v1 Ryby, f70v2 Baran (ciemny), f71r Baran (jasny), f71v Byk (jasny),
+`f70v2` to drugi panel rozkładanej karty 70v. Zodiak: f70v2 Ryby, f70v1 Baran (ciemny), f71r Baran (jasny), f71v Byk (jasny),
 f72r1 Byk (ciemny), f72r2 Bliźnięta, f72r3 Rak, f72v3 Lew, f72v2 Panna, f72v1 Waga, f73r Skorpion, f73v Strzelec.
 
 ## Szkic z modelu widzącego

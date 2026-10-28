@@ -81,6 +81,36 @@ def _nearest(point, centers):
     return min(range(len(centers)), key=lambda k: (point[0] - centers[k][0]) ** 2 + (point[1] - centers[k][1]) ** 2)
 
 
+# Which ZL panels each Beinecke canvas shows, left to right (voynich.nu, quires 10-12), how many nymphs
+# each roundel holds (Zandbergen's counts) and its sign. Pages are assigned from this table and the figure
+# counts; the sign the describer sees is only a check printed in the report.
+PANELS = {"1006200": ["f70v2"], "1006201": ["f70v1"], "1006202": ["f71r"], "1006203": ["f71v", "f72r1", "f72r2", "f72r3"],
+          "1006204": ["f72v3", "f72v2"], "1006205": ["f72v1"], "1006206": ["f73r"], "1006207": ["f73v"]}
+EXPECTED = {"f70v2": 29, "f70v1": 15, "f71r": 15, "f71v": 15, "f72r1": 15, "f72r2": 30, "f72r3": 30, "f72v3": 30,
+            "f72v2": 30, "f72v1": 30, "f73r": 30, "f73v": 30}
+SIGNS = {"f70v2": "ryby", "f70v1": "baran", "f71r": "baran", "f71v": "byk", "f72r1": "byk", "f72r2": "bliznieta", "f72r3": "rak",
+         "f72v3": "lew", "f72v2": "panna", "f72v1": "waga", "f73r": "skorpion", "f73v": "strzelec"}
+SIGN_PL = {"aries": "baran", "taurus": "byk", "gemini": "bliznieta", "cancer": "rak", "leo": "lew", "virgo": "panna", "libra": "waga",
+           "scorpio": "skorpion", "sagittarius": "strzelec", "capricorn": "koziorozec", "aquarius": "wodnik", "pisces": "ryby"}
+SIGN_PROMPT_EN = ('This is the centre of a medieval zodiac roundel. Which zodiac sign is the animal or figure? Answer only JSON: '
+                  '{"sign": "aries|taurus|gemini|cancer|leo|virgo|libra|scorpio|sagittarius|capricorn|aquarius|pisces|other"}')
+FIGURE_PROMPTS = ("human figure", "person")
+
+
+def merge_points(groups: list[list[tuple[float, float]]], min_dist: float) -> list[tuple[float, float]]:
+    """Union of point lists from several sources, points closer than min_dist taken as the same thing."""
+    out: list[tuple[float, float]] = []
+    for pts in groups:
+        for p in pts:
+            if all((p[0] - q[0]) ** 2 + (p[1] - q[1]) ** 2 >= min_dist ** 2 for q in out):
+                out.append(p)
+    return out
+
+
+def _shift(points, dx, dy, scale=1.0):
+    return [(x * scale + dx, y * scale + dy) for x, y in points]
+
+
 def zodiac(cfg: LabConfig, pointer: vision.Chat, describer: vision.Chat, detector: vision.Detector, vocab: dict,
            tmpl: dict, out_dir, res: TheoryResult) -> list[str]:
     from PIL import Image
@@ -89,60 +119,64 @@ def zodiac(cfg: LabConfig, pointer: vision.Chat, describer: vision.Chat, detecto
     prompt = vision.schema_prompt("nimfa", specs, "To wycinek z rękopisu: jedna postać (nimfa) z kręgu zodiaku, zwykle trzymająca gwiazdę.")
     canvases = [c for c in images.canvases() if any(images.base_folio(f) in ZODIAC_BASES for f in c["folios"])]
     for canvas in canvases:
+        panels = PANELS.get(str(canvas["iiif"])) or [f for f in tmpl if images.base_folio(f) in {images.base_folio(x) for x in canvas["folios"]}]
+        width = min(int(canvas.get("width") or 10 ** 6), cfg.atoms_image_width * max(1, len(panels)))
         try:
-            path = images.fetch(canvas, cfg.atoms_image_width, cfg.cache_dir / "folios", cfg.images_dir)
+            path = images.fetch(canvas, width, cfg.cache_dir / "folios", cfg.images_dir)
         except OSError as e:
             report.append(f"{canvas['label']}: brak skanu ({str(e)[:80]})")
             continue
         image = Image.open(path).convert("RGB")
         w, h = image.size
-        figures = pointer.points(image, "human figure")
-        stars = pointer.points(image, "star")
-        centers = pointer.points(image, "center of each circular diagram")
-        if not centers and figures:   # one roundel assumed: its centre is the mean of the figures
-            centers = [(sum(p[0] for p in figures) / len(figures), sum(p[1] for p in figures) / len(figures))]
-        try:
-            dino = detector.boxes(image, ["human figure", "star"])
-        except Exception as e:  # the second counter is a check, not a requirement
-            dino = {}
-            report.append(f"{canvas['label']}: Grounding DINO pominięty ({str(e)[:60]})")
-        if not figures or not centers:
-            report.append(f"{canvas['label']}: model nie wskazał postaci/środków (postaci {len(figures)}, środków {len(centers)})")
-            continue
+        scale = min(1.0, 2000 / w)
+        small = image.resize((int(w * scale), int(h * scale))) if scale < 1 else image
+        centers = _shift(pointer.points(small, "center of each circular diagram"), 0, 0, 1 / scale)
         centers = sorted(centers, key=lambda p: p[0])
-        groups: dict[int, list] = {k: [] for k in range(len(centers))}
-        for p in figures:
-            groups[_nearest(p, centers)].append(p)
-        signs = []
-        for k, c in enumerate(centers):
-            side = 0.12 * w
-            crop = image.crop((int(max(0, c[0] - side)), int(max(0, c[1] - side)), int(min(w, c[0] + side)), int(min(h, c[1] + side))))
-            signs.append({"znak": str(describer.json(crop, SIGN_PROMPT).get("znak") or "").lower()})
-        folios = assign_folios(signs, canvas)
+        if len(centers) != len(panels):
+            report.append(f"{canvas['label']}: model wskazał {len(centers)} środków, paneli {len(panels)}; środki ustawione równo")
+            centers = [((k + 0.5) / len(panels) * w, h / 2) for k in range(len(panels))]
+        radius = 0.5 * min(((a[0] - b[0]) ** 2 + (a[1] - b[1]) ** 2) ** 0.5 for a in centers for b in centers if a != b) if len(centers) > 1 else 0.47 * min(w, h)
         preview = []
-        for k, folio in enumerate(folios):
-            pts = groups[k]
-            if not folio or folio not in tmpl or not pts:
-                report.append(f"{canvas['label']}: koło '{signs[k]['znak']}' ({len(pts)} postaci) bez strony")
+        for k, (folio, c) in enumerate(zip(panels, centers)):
+            x0, y0 = int(max(0, c[0] - 1.05 * radius)), int(max(0, c[1] - 1.05 * radius))
+            crop = image.crop((x0, y0, int(min(w, c[0] + 1.05 * radius)), int(min(h, c[1] + 1.05 * radius))))
+            sources = [_shift(pointer.points(crop, what), x0, y0) for what in FIGURE_PROMPTS]
+            counts = {what: len(pts) for what, pts in zip(FIGURE_PROMPTS, sources)}
+            try:
+                boxes = detector.boxes(crop, ["person", "star"])
+                dino = _shift([((b[0] + b[2]) / 2, (b[1] + b[3]) / 2) for b in boxes.get("person", [])], x0, y0)
+                counts["dino"] = len(dino)
+                sources.append(dino)
+            except Exception as e:  # the second counter is a check, not a requirement
+                counts["dino"] = None
+                report.append(f"{canvas['label']}: Grounding DINO pominięty ({str(e)[:60]})")
+            pts = merge_points(sources, 0.045 * crop.width)
+            stars = _shift(pointer.points(crop, "star"), x0, y0)
+            side = int(0.35 * radius)
+            centre_crop = image.crop((int(max(0, c[0] - side)), int(max(0, c[1] - side)), int(min(w, c[0] + side)), int(min(h, c[1] + side))))
+            seen = str(describer.json(centre_crop, SIGN_PROMPT_EN).get("sign") or "").lower()
+            seen_pl = SIGN_PL.get(seen, seen or "?")
+            if folio not in tmpl or not pts:
+                report.append(f"{folio}: brak postaci (Molmo {counts}, oczekiwano {EXPECTED.get(folio)}); strona pominięta")
                 continue
-            layout = A.ring_layout(pts, centers[k])
+            layout = A.ring_layout(pts, c)
             descs = [describer.json(image.crop(A.crop_box(p, pts, w, h)), prompt) for p in pts]
             labels = sum(1 for a in tmpl[folio]["atomy"] if a["typ"] == "nimfa")
-            note = f"szkic z GPU: punktów {len(pts)}, etykiet {labels}; sprawdzić kolejność na PNG"
+            note = (f"szkic z GPU: postaci {len(pts)} (oczekiwano {EXPECTED.get(folio)}), etykiet {labels}; "
+                    f"model widzi znak '{seen_pl}', tabela mówi '{SIGNS.get(folio)}'; sprawdzić kolejność na PNG")
             page, dropped = _fill(tmpl[folio], "nimfa", pts, layout, descs, vocab, w, h, note)
             (out_dir / f"{folio}.json").write_text(json.dumps(page, indent=1, ensure_ascii=False) + "\n", encoding="utf-8")
             res.artifacts.append(f"atoms_vision/{folio}.json")
             written.append(folio)
-            preview.append((folio, pts, layout))
+            preview.append((folio, _shift(pts, 0, 0, scale), layout))
             rings = {}
             for lay in layout:
                 rings[lay["krag"]] = rings.get(lay["krag"], 0) + 1
-            report.append(f"{folio} ({signs[k]['znak']}): postaci {len(pts)} (DINO {len(dino.get('human figure', []))} na kanwie), "
-                          f"etykiet {labels}, kręgi {rings}, gwiazd {len([s for s in stars if _nearest(s, centers) == k])}, "
-                          f"odrzuconych wartości {dropped}")
+            report.append(f"{folio} ({SIGNS.get(folio)}; model widzi {seen_pl}): postaci {len(pts)} po scaleniu (Molmo {counts}), "
+                          f"oczekiwano {EXPECTED.get(folio)}, etykiet {labels}, kręgi {rings}, gwiazd {len(stars)}, odrzuconych wartości {dropped}")
         if preview:
-            png = out_dir / f"{canvas['label'].replace(' ', '_').replace('(', '').replace(')', '')}.png"
-            _preview(image, preview, png)
+            png = out_dir / f"{canvas['label'].replace(' ', '_').replace('(', '').replace(')', '')}_{canvas['iiif']}.png"
+            _preview(small, preview, png)
             res.artifacts.append(f"atoms_vision/{png.name}")
     res.metrics["zodiac"] = {"pages": written, "report": report}
     return report

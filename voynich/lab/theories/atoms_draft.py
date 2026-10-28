@@ -18,7 +18,7 @@ from .. import images
 from ..config import LabConfig
 from ..results import TheoryResult
 
-SIGN_FOLIOS = {"ryby": ["f70v1"], "baran": ["f70v2", "f71r"], "byk": ["f71v", "f72r1"], "bliznieta": ["f72r2"],
+SIGN_FOLIOS = {"ryby": ["f70v2"], "baran": ["f70v1", "f71r"], "byk": ["f71v", "f72r1"], "bliznieta": ["f72r2"],
                "rak": ["f72r3"], "lew": ["f72v3"], "panna": ["f72v2"], "waga": ["f72v1"], "skorpion": ["f73r"],
                "strzelec": ["f73v"]}
 ZODIAC_BASES = {"f70v", "f71r", "f71v", "f72r", "f72v", "f73r", "f73v"}
