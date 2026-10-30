@@ -377,12 +377,13 @@ def parse_points(text: str, width: float, height: float) -> list[tuple[float, fl
 
 
 def ring_layout(points: Sequence[tuple[float, float]], center: tuple[float, float] | None = None,
-                max_rings: int = 3, gap: float = 0.15) -> list[dict]:
+                max_rings: int = 3, gap: float = 0.15, min_size: int = 3) -> list[dict]:
     """Rings and clockwise order (from twelve o'clock) of points around a roundel.
 
     Returns one dict per input point, same order: krag ("zewn", "srod", "wewn"), kolejnosc (1-based within
     the ring), kat (degrees clockwise from the top), promien (relative to the largest radius). Rings are cut
-    where sorted radii jump by more than `gap` of the largest radius, at most `max_rings` rings.
+    where sorted radii jump by more than `gap` of the largest radius, at most `max_rings` rings; a ring with
+    fewer than `min_size` points is merged back into its neighbour.
     """
     if not points:
         return []
@@ -397,6 +398,16 @@ def ring_layout(points: Sequence[tuple[float, float]], center: tuple[float, floa
     cuts = sorted(((radii[order[k]] - radii[order[k + 1]]) / rmax, k) for k in range(len(order) - 1))
     cuts = [k for g, k in cuts if g >= gap]
     cuts = sorted(cuts, key=lambda k: -(radii[order[k]] - radii[order[k + 1]]))[: max_rings - 1]
+    # A ring of one or two points is a stray, not a ring: drop the cut that isolates it (smallest gap first).
+    while cuts:
+        borders = sorted(cuts)
+        sizes = [b - a for a, b in zip([-1] + borders, borders + [len(order) - 1])]
+        small = [k for k, size in enumerate(sizes) if size < min_size]
+        if not small:
+            break
+        k = small[0]
+        candidates = [borders[j] for j in (k - 1, k) if 0 <= j < len(borders)]
+        cuts.remove(min(candidates, key=lambda cut: radii[order[cut]] - radii[order[cut + 1]]))
     ring_of = {}
     ring = 0
     for pos, i in enumerate(order):

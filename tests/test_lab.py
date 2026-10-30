@@ -996,7 +996,7 @@ class AtomsTest(unittest.TestCase):
         self.assertTrue(all(e.startswith("f70v2.json/") for e in errors))
         # The committed files validate and carry every label.
         atoms = A.load(vocab=vocab)
-        self.assertEqual(len(atoms), n_labels)
+        self.assertEqual(sum(1 for a in atoms if a.etykieta), n_labels)     # drafts may add unlabelled points
         self.assertEqual(A.features(["okaldal"]), {"pierwszy": "o", "drugi": "k", "ostatni": "l", "dlugosc": 7,
                                                   "gallows": True, "prefiks2": "ok"})
 
@@ -1065,6 +1065,9 @@ class AtomsVisionTest(unittest.TestCase):
         self.assertEqual(A.ring_layout([]), [])
         one = A.ring_layout(pts[:12], (500, 500))
         self.assertTrue(all(d["krag"] == "zewn" for d in one))
+        stray = A.ring_layout(pts[:12] + [(500, 500 - 60)], (500, 500))      # one point far inside is not a ring
+        self.assertTrue(all(d["krag"] == "zewn" for d in stray))
+        self.assertEqual(stray[-1]["kolejnosc"], 1)                            # it is at twelve o'clock, so first
 
     def test_parse_points_crop_and_reading_order(self):
         from voynich import atoms as A
@@ -1092,5 +1095,16 @@ class AtomsVisionTest(unittest.TestCase):
                                                A.load_vocab()["typy"]["nimfa"]["cechy"])
         self.assertEqual((cleaned["naga"], cleaned["trzyma"], cleaned["gwiazda_promienie"], dropped), (True, None, 7, 1))
         self.assertEqual(atoms_vision.merge_points([[(0, 0), (10, 0)], [(1, 0), (50, 0)]], 5), [(0, 0), (10, 0), (50, 0)])
+        from PIL import Image
+        img = Image.new("L", (40, 30))
+        img.putpixel((31, 7), 255)
+        for k in range(4):
+            turned = atoms_vision.rotated(img, k)
+            pos = [(x, y) for y in range(turned.height) for x in range(turned.width) if turned.getpixel((x, y))][0]
+            rx, ry = atoms_vision.rotate_point((31.5, 7.5), k, 40, 30)          # the pixel's centre lands inside the moved pixel
+            self.assertTrue(pos[0] <= rx <= pos[0] + 1 and pos[1] <= ry <= pos[1] + 1, (k, pos, rx, ry))
+            back = atoms_vision.unrotate_point(atoms_vision.rotate_point((31.5, 7.5), k, 40, 30), k, 40, 30)
+            self.assertAlmostEqual(back[0], 31.5)
+            self.assertAlmostEqual(back[1], 7.5)
         self.assertEqual(set(atoms_vision.PANELS["1006203"]), {"f71v", "f72r1", "f72r2", "f72r3"})
         self.assertEqual(sum(atoms_vision.EXPECTED.values()), 299)

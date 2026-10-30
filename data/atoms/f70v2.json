@@ -7,19 +7,23 @@
    "id": "f70v2-01",
    "typ": "nimfa",
    "cechy": {
-    "naga": null,
-    "w_obiekcie": null,
-    "korona": null,
-    "wlosy": null,
-    "trzyma": null,
-    "kierunek": null,
-    "gwiazda_promienie": null,
-    "gwiazda_ogon": null,
-    "gwiazda_kolor": null
+    "naga": false,
+    "w_obiekcie": "beczka",
+    "korona": false,
+    "wlosy": "rozpuszczone",
+    "trzyma": "gwiazda",
+    "kierunek": "przod",
+    "gwiazda_promienie": 8,
+    "gwiazda_ogon": false,
+    "gwiazda_kolor": "inny"
    },
    "pozycja": {
-    "krag": null,
-    "kolejnosc": 1
+    "krag": "zewn",
+    "kolejnosc": 1,
+    "kat": 0.9,
+    "promien": 0.968,
+    "x": 0.5065,
+    "y": 0.1448
    },
    "etykieta": {
     "locus": "2",
@@ -28,27 +32,31 @@
      "otalalg"
     ]
    },
-   "zrodlo": "",
-   "pewnosc": null,
-   "uwaga": ""
+   "zrodlo": "vision",
+   "pewnosc": 1,
+   "uwaga": "szkic z GPU: postaci 28 (oczekiwano 29), etykiet 29; model widzi znak 'ryby', tabela mówi 'ryby'; sprawdzić kolejność na PNG"
   },
   {
    "id": "f70v2-02",
    "typ": "nimfa",
    "cechy": {
-    "naga": null,
-    "w_obiekcie": null,
-    "korona": null,
-    "wlosy": null,
-    "trzyma": null,
-    "kierunek": null,
-    "gwiazda_promienie": null,
-    "gwiazda_ogon": null,
-    "gwiazda_kolor": null
+    "naga": false,
+    "w_obiekcie": "beczka",
+    "korona": false,
+    "wlosy": "upiete",
+    "trzyma": "gwiazda",
+    "kierunek": "prawo",
+    "gwiazda_promienie": 8,
+    "gwiazda_ogon": false,
+    "gwiazda_kolor": "inny"
    },
    "pozycja": {
-    "krag": null,
-    "kolejnosc": 2
+    "krag": "zewn",
+    "kolejnosc": 2,
+    "kat": 12.2,
+    "promien": 0.93,
+    "x": 0.5631,
+    "y": 0.1638
    },
    "etykieta": {
     "locus": "3",
@@ -57,27 +65,31 @@
      "ykary"
     ]
    },
-   "zrodlo": "",
-   "pewnosc": null,
-   "uwaga": ""
+   "zrodlo": "vision",
+   "pewnosc": 1,
+   "uwaga": "szkic z GPU: postaci 28 (oczekiwano 29), etykiet 29; model widzi znak 'ryby', tabela mówi 'ryby'; sprawdzić kolejność na PNG"
   },
   {
    "id": "f70v2-03",
    "typ": "nimfa",
    "cechy": {
-    "naga": null,
-    "w_obiekcie": null,
-    "korona": null,
-    "wlosy": null,
-    "trzyma": null,
-    "kierunek": null,
-    "gwiazda_promienie": null,
-    "gwiazda_ogon": null,
-    "gwiazda_kolor": null
+    "naga": false,
+    "w_obiekcie": "beczka",
+    "korona": false,
+    "wlosy": "rozpuszczone",
+    "trzyma": "gwiazda",
+    "kierunek": "prawo",
+    "gwiazda_promienie": 6,
+    "gwiazda_ogon": false,
+    "gwiazda_kolor": "inny"
    },
    "pozycja": {
-    "krag": null,
-    "kolejnosc": 3
+    "krag": "zewn",
+    "kolejnosc": 3,
+    "kat": 29.4,
+    "promien": 0.959,
+    "x": 0.648,
+    "y": 0.1876
    },
    "etykieta": {
     "locus": "5",
@@ -86,27 +98,31 @@
      "oty"
     ]
    },
-   "zrodlo": "",
-   "pewnosc": null,
-   "uwaga": ""
+   "zrodlo": "vision",
+   "pewnosc": 1,
+   "uwaga": "szkic z GPU: postaci 28 (oczekiwano 29), etykiet 29; model widzi znak 'ryby', tabela mówi 'ryby'; sprawdzić kolejność na PNG"
   },
   {
    "id": "f70v2-04",
    "typ": "nimfa",
    "cechy": {
-    "naga": null,
-    "w_obiekcie": null,
-    "korona": null,
-    "wlosy": null,
-    "trzyma": null,
-    "kierunek": null,
-    "gwiazda_promienie": null,
-    "gwiazda_ogon": null,
-    "gwiazda_kolor": null
+    "naga": false,
+    "w_obiekcie": "nic",
+    "korona": false,
+    "wlosy": "upiete",
+    "trzyma": "gwiazda",
+    "kierunek": "prawo",
+    "gwiazda_promienie": 8,
+    "gwiazda_ogon": false,
+    "gwiazda_kolor": "brak"
    },
    "pozycja": {
-    "krag": null,
-    "kolejnosc": 4
+    "krag": "zewn",
+    "kolejnosc": 4,
+    "kat": 45.4,
+    "promien": 0.96,
+    "x": 0.714,
+    "y": 0.24
    },
    "etykieta": {
     "locus": "6",
@@ -116,27 +132,31 @@
      "ody"
     ]
    },
-   "zrodlo": "",
-   "pewnosc": null,
-   "uwaga": ""
+   "zrodlo": "vision",
+   "pewnosc": 1,
+   "uwaga": "szkic z GPU: postaci 28 (oczekiwano 29), etykiet 29; model widzi znak 'ryby', tabela mówi 'ryby'; sprawdzić kolejność na PNG"
   },
   {
    "id": "f70v2-05",
    "typ": "nimfa",
    "cechy": {
-    "naga": null,
-    "w_obiekcie": null,
-    "korona": null,
-    "wlosy": null,
-    "trzyma": null,
-    "kierunek": null,
-    "gwiazda_promienie": null,
-    "gwiazda_ogon": null,
-    "gwiazda_kolor": null
+    "naga": false,
+    "w_obiekcie": "nic",
+    "korona": false,
+    "wlosy": "upiete",
+    "trzyma": "gwiazda",
+    "kierunek": "prawo",
+    "gwiazda_promienie": 5,
+    "gwiazda_ogon": false,
+    "gwiazda_kolor": "brak"
    },
    "pozycja": {
-    "krag": null,
-    "kolejnosc": 5
+    "krag": "zewn",
+    "kolejnosc": 5,
+    "kat": 61.0,
+    "promien": 0.937,
+    "x": 0.7565,
+    "y": 0.3114
    },
    "etykieta": {
     "locus": "7",
@@ -146,27 +166,31 @@
      "ar"
     ]
    },
-   "zrodlo": "",
-   "pewnosc": null,
-   "uwaga": ""
+   "zrodlo": "vision",
+   "pewnosc": 1,
+   "uwaga": "szkic z GPU: postaci 28 (oczekiwano 29), etykiet 29; model widzi znak 'ryby', tabela mówi 'ryby'; sprawdzić kolejność na PNG"
   },
   {
    "id": "f70v2-06",
    "typ": "nimfa",
    "cechy": {
-    "naga": null,
+    "naga": false,
     "w_obiekcie": null,
-    "korona": null,
-    "wlosy": null,
-    "trzyma": null,
-    "kierunek": null,
-    "gwiazda_promienie": null,
-    "gwiazda_ogon": null,
-    "gwiazda_kolor": null
+    "korona": false,
+    "wlosy": "upiete",
+    "trzyma": "gwiazda",
+    "kierunek": "prawo",
+    "gwiazda_promienie": 8,
+    "gwiazda_ogon": false,
+    "gwiazda_kolor": "inny"
    },
    "pozycja": {
-    "krag": null,
-    "kolejnosc": 6
+    "krag": "zewn",
+    "kolejnosc": 6,
+    "kat": 80.3,
+    "promien": 0.955,
+    "x": 0.7942,
+    "y": 0.4067
    },
    "etykieta": {
     "locus": "8",
@@ -175,27 +199,31 @@
      "okala"
     ]
    },
-   "zrodlo": "",
-   "pewnosc": null,
-   "uwaga": ""
+   "zrodlo": "vision",
+   "pewnosc": 1,
+   "uwaga": "szkic z GPU: postaci 28 (oczekiwano 29), etykiet 29; model widzi znak 'ryby', tabela mówi 'ryby'; sprawdzić kolejność na PNG"
   },
   {
    "id": "f70v2-07",
    "typ": "nimfa",
    "cechy": {
-    "naga": null,
-    "w_obiekcie": null,
-    "korona": null,
-    "wlosy": null,
-    "trzyma": null,
-    "kierunek": null,
-    "gwiazda_promienie": null,
-    "gwiazda_ogon": null,
-    "gwiazda_kolor": null
+    "naga": false,
+    "w_obiekcie": "nic",
+    "korona": false,
+    "wlosy": "upiete",
+    "trzyma": "gwiazda",
+    "kierunek": "prawo",
+    "gwiazda_promienie": 5,
+    "gwiazda_ogon": false,
+    "gwiazda_kolor": "inny"
    },
    "pozycja": {
-    "krag": null,
-    "kolejnosc": 7
+    "krag": "zewn",
+    "kolejnosc": 7,
+    "kat": 102.5,
+    "promien": 0.949,
+    "x": 0.7895,
+    "y": 0.5257
    },
    "etykieta": {
     "locus": "9",
@@ -204,27 +232,31 @@
      "otody"
     ]
    },
-   "zrodlo": "",
-   "pewnosc": null,
-   "uwaga": ""
+   "zrodlo": "vision",
+   "pewnosc": 1,
+   "uwaga": "szkic z GPU: postaci 28 (oczekiwano 29), etykiet 29; model widzi znak 'ryby', tabela mówi 'ryby'; sprawdzić kolejność na PNG"
   },
   {
    "id": "f70v2-08",
    "typ": "nimfa",
    "cechy": {
-    "naga": null,
+    "naga": false,
     "w_obiekcie": null,
-    "korona": null,
-    "wlosy": null,
-    "trzyma": null,
-    "kierunek": null,
-    "gwiazda_promienie": null,
-    "gwiazda_ogon": null,
-    "gwiazda_kolor": null
+    "korona": false,
+    "wlosy": "upiete",
+    "trzyma": "gwiazda",
+    "kierunek": "prawo",
+    "gwiazda_promienie": 5,
+    "gwiazda_ogon": false,
+    "gwiazda_kolor": "brak"
    },
    "pozycja": {
-    "krag": null,
-    "kolejnosc": 8
+    "krag": "zewn",
+    "kolejnosc": 8,
+    "kat": 124.6,
+    "promien": 0.94,
+    "x": 0.7423,
+    "y": 0.6324
    },
    "etykieta": {
     "locus": "10",
@@ -233,27 +265,31 @@
      "otald"
     ]
    },
-   "zrodlo": "",
-   "pewnosc": null,
-   "uwaga": ""
+   "zrodlo": "vision",
+   "pewnosc": 1,
+   "uwaga": "szkic z GPU: postaci 28 (oczekiwano 29), etykiet 29; model widzi znak 'ryby', tabela mówi 'ryby'; sprawdzić kolejność na PNG"
   },
   {
    "id": "f70v2-09",
    "typ": "nimfa",
    "cechy": {
-    "naga": null,
+    "naga": false,
     "w_obiekcie": null,
-    "korona": null,
-    "wlosy": null,
-    "trzyma": null,
-    "kierunek": null,
-    "gwiazda_promienie": null,
-    "gwiazda_ogon": null,
-    "gwiazda_kolor": null
+    "korona": true,
+    "wlosy": "nakrycie",
+    "trzyma": "gwiazda",
+    "kierunek": "prawo",
+    "gwiazda_promienie": 5,
+    "gwiazda_ogon": false,
+    "gwiazda_kolor": "inny"
    },
    "pozycja": {
-    "krag": null,
-    "kolejnosc": 9
+    "krag": "zewn",
+    "kolejnosc": 9,
+    "kat": 143.9,
+    "promien": 0.952,
+    "x": 0.6763,
+    "y": 0.7086
    },
    "etykieta": {
     "locus": "11",
@@ -262,27 +298,31 @@
      "otaldar"
     ]
    },
-   "zrodlo": "",
-   "pewnosc": null,
-   "uwaga": ""
+   "zrodlo": "vision",
+   "pewnosc": 1,
+   "uwaga": "szkic z GPU: postaci 28 (oczekiwano 29), etykiet 29; model widzi znak 'ryby', tabela mówi 'ryby'; sprawdzić kolejność na PNG"
   },
   {
    "id": "f70v2-10",
    "typ": "nimfa",
    "cechy": {
-    "naga": null,
-    "w_obiekcie": null,
-    "korona": null,
-    "wlosy": null,
-    "trzyma": null,
-    "kierunek": null,
-    "gwiazda_promienie": null,
-    "gwiazda_ogon": null,
-    "gwiazda_kolor": null
+    "naga": false,
+    "w_obiekcie": "nic",
+    "korona": false,
+    "wlosy": "nie_widac",
+    "trzyma": "gwiazda",
+    "kierunek": "prawo",
+    "gwiazda_promienie": 8,
+    "gwiazda_ogon": false,
+    "gwiazda_kolor": "inny"
    },
    "pozycja": {
-    "krag": null,
-    "kolejnosc": 10
+    "krag": "zewn",
+    "kolejnosc": 10,
+    "kat": 166.9,
+    "promien": 1.0,
+    "x": 0.5725,
+    "y": 0.7753
    },
    "etykieta": {
     "locus": "12",
@@ -291,27 +331,31 @@
      "okody"
     ]
    },
-   "zrodlo": "",
-   "pewnosc": null,
-   "uwaga": ""
+   "zrodlo": "vision",
+   "pewnosc": 1,
+   "uwaga": "szkic z GPU: postaci 28 (oczekiwano 29), etykiet 29; model widzi znak 'ryby', tabela mówi 'ryby'; sprawdzić kolejność na PNG"
   },
   {
    "id": "f70v2-11",
    "typ": "nimfa",
    "cechy": {
-    "naga": null,
-    "w_obiekcie": null,
-    "korona": null,
-    "wlosy": null,
-    "trzyma": null,
-    "kierunek": null,
-    "gwiazda_promienie": null,
-    "gwiazda_ogon": null,
-    "gwiazda_kolor": null
+    "naga": false,
+    "w_obiekcie": "nic",
+    "korona": false,
+    "wlosy": "nie_widac",
+    "trzyma": "gwiazda",
+    "kierunek": "prawo",
+    "gwiazda_promienie": 5,
+    "gwiazda_ogon": false,
+    "gwiazda_kolor": "brak"
    },
    "pozycja": {
-    "krag": null,
-    "kolejnosc": 11
+    "krag": "zewn",
+    "kolejnosc": 11,
+    "kat": 190.7,
+    "promien": 0.991,
+    "x": 0.4451,
+    "y": 0.7753
    },
    "etykieta": {
     "locus": "13",
@@ -320,27 +364,31 @@
      "opysam"
     ]
    },
-   "zrodlo": "",
-   "pewnosc": null,
-   "uwaga": ""
+   "zrodlo": "vision",
+   "pewnosc": 1,
+   "uwaga": "szkic z GPU: postaci 28 (oczekiwano 29), etykiet 29; model widzi znak 'ryby', tabela mówi 'ryby'; sprawdzić kolejność na PNG"
   },
   {
    "id": "f70v2-12",
    "typ": "nimfa",
    "cechy": {
-    "naga": null,
+    "naga": false,
     "w_obiekcie": null,
-    "korona": null,
-    "wlosy": null,
-    "trzyma": null,
-    "kierunek": null,
-    "gwiazda_promienie": null,
-    "gwiazda_ogon": null,
-    "gwiazda_kolor": null
+    "korona": false,
+    "wlosy": "rozpuszczone",
+    "trzyma": "gwiazda",
+    "kierunek": "prawo",
+    "gwiazda_promienie": 8,
+    "gwiazda_ogon": false,
+    "gwiazda_kolor": "inny"
    },
    "pozycja": {
-    "krag": null,
-    "kolejnosc": 12
+    "krag": "zewn",
+    "kolejnosc": 12,
+    "kat": 211.0,
+    "promien": 0.993,
+    "x": 0.3432,
+    "y": 0.7353
    },
    "etykieta": {
     "locus": "14",
@@ -349,27 +397,31 @@
      "chckhhy"
     ]
    },
-   "zrodlo": "",
-   "pewnosc": null,
-   "uwaga": ""
+   "zrodlo": "vision",
+   "pewnosc": 1,
+   "uwaga": "szkic z GPU: postaci 28 (oczekiwano 29), etykiet 29; model widzi znak 'ryby', tabela mówi 'ryby'; sprawdzić kolejność na PNG"
   },
   {
    "id": "f70v2-13",
    "typ": "nimfa",
    "cechy": {
-    "naga": null,
+    "naga": false,
     "w_obiekcie": null,
-    "korona": null,
-    "wlosy": null,
-    "trzyma": null,
-    "kierunek": null,
-    "gwiazda_promienie": null,
-    "gwiazda_ogon": null,
-    "gwiazda_kolor": null
+    "korona": false,
+    "wlosy": "rozpuszczone",
+    "trzyma": "gwiazda",
+    "kierunek": "prawo",
+    "gwiazda_promienie": 8,
+    "gwiazda_ogon": false,
+    "gwiazda_kolor": "brak"
    },
    "pozycja": {
-    "krag": null,
-    "kolejnosc": 13
+    "krag": "zewn",
+    "kolejnosc": 13,
+    "kat": 235.1,
+    "promien": 0.883,
+    "x": 0.2772,
+    "y": 0.6229
    },
    "etykieta": {
     "locus": "15",
@@ -378,27 +430,31 @@
      "otaly"
     ]
    },
-   "zrodlo": "",
-   "pewnosc": null,
-   "uwaga": ""
+   "zrodlo": "vision",
+   "pewnosc": 1,
+   "uwaga": "szkic z GPU: postaci 28 (oczekiwano 29), etykiet 29; model widzi znak 'ryby', tabela mówi 'ryby'; sprawdzić kolejność na PNG"
   },
   {
    "id": "f70v2-14",
    "typ": "nimfa",
    "cechy": {
-    "naga": null,
-    "w_obiekcie": null,
-    "korona": null,
-    "wlosy": null,
-    "trzyma": null,
-    "kierunek": null,
-    "gwiazda_promienie": null,
-    "gwiazda_ogon": null,
-    "gwiazda_kolor": null
+    "naga": false,
+    "w_obiekcie": "nic",
+    "korona": false,
+    "wlosy": "upiete",
+    "trzyma": "gwiazda",
+    "kierunek": "prawo",
+    "gwiazda_promienie": 6,
+    "gwiazda_ogon": false,
+    "gwiazda_kolor": "brak"
    },
    "pozycja": {
-    "krag": null,
-    "kolejnosc": 14
+    "krag": "zewn",
+    "kolejnosc": 14,
+    "kat": 255.3,
+    "promien": 0.868,
+    "x": 0.2413,
+    "y": 0.5305
    },
    "etykieta": {
     "locus": "16",
@@ -408,27 +464,31 @@
      "arar"
     ]
    },
-   "zrodlo": "",
-   "pewnosc": null,
-   "uwaga": ""
+   "zrodlo": "vision",
+   "pewnosc": 1,
+   "uwaga": "szkic z GPU: postaci 28 (oczekiwano 29), etykiet 29; model widzi znak 'ryby', tabela mówi 'ryby'; sprawdzić kolejność na PNG"
   },
   {
    "id": "f70v2-15",
    "typ": "nimfa",
    "cechy": {
-    "naga": null,
-    "w_obiekcie": null,
-    "korona": null,
-    "wlosy": null,
-    "trzyma": null,
-    "kierunek": null,
-    "gwiazda_promienie": null,
-    "gwiazda_ogon": null,
-    "gwiazda_kolor": null
+    "naga": false,
+    "w_obiekcie": "nic",
+    "korona": false,
+    "wlosy": "rozpuszczone",
+    "trzyma": "gwiazda",
+    "kierunek": "przod",
+    "gwiazda_promienie": 6,
+    "gwiazda_ogon": false,
+    "gwiazda_kolor": "inny"
    },
    "pozycja": {
-    "krag": null,
-    "kolejnosc": 15
+    "krag": "zewn",
+    "kolejnosc": 15,
+    "kat": 281.0,
+    "promien": 0.892,
+    "x": 0.23,
+    "y": 0.4038
    },
    "etykieta": {
     "locus": "17",
@@ -437,27 +497,31 @@
      "otaldy"
     ]
    },
-   "zrodlo": "",
-   "pewnosc": null,
-   "uwaga": ""
+   "zrodlo": "vision",
+   "pewnosc": 1,
+   "uwaga": "szkic z GPU: postaci 28 (oczekiwano 29), etykiet 29; model widzi znak 'ryby', tabela mówi 'ryby'; sprawdzić kolejność na PNG"
   },
   {
    "id": "f70v2-16",
    "typ": "nimfa",
    "cechy": {
-    "naga": null,
-    "w_obiekcie": null,
-    "korona": null,
-    "wlosy": null,
-    "trzyma": null,
-    "kierunek": null,
-    "gwiazda_promienie": null,
-    "gwiazda_ogon": null,
-    "gwiazda_kolor": null
+    "naga": false,
+    "w_obiekcie": "nic",
+    "korona": false,
+    "wlosy": "rozpuszczone",
+    "trzyma": "gwiazda",
+    "kierunek": "przod",
+    "gwiazda_promienie": 6,
+    "gwiazda_ogon": false,
+    "gwiazda_kolor": "inny"
    },
    "pozycja": {
-    "krag": null,
-    "kolejnosc": 16
+    "krag": "zewn",
+    "kolejnosc": 16,
+    "kat": 303.5,
+    "promien": 0.839,
+    "x": 0.2847,
+    "y": 0.3086
    },
    "etykieta": {
     "locus": "18",
@@ -466,27 +530,31 @@
      "okeoly"
     ]
    },
-   "zrodlo": "",
-   "pewnosc": null,
-   "uwaga": ""
+   "zrodlo": "vision",
+   "pewnosc": 1,
+   "uwaga": "szkic z GPU: postaci 28 (oczekiwano 29), etykiet 29; model widzi znak 'ryby', tabela mówi 'ryby'; sprawdzić kolejność na PNG"
   },
   {
    "id": "f70v2-17",
    "typ": "nimfa",
    "cechy": {
-    "naga": null,
-    "w_obiekcie": null,
-    "korona": null,
-    "wlosy": null,
-    "trzyma": null,
-    "kierunek": null,
-    "gwiazda_promienie": null,
-    "gwiazda_ogon": null,
-    "gwiazda_kolor": null
+    "naga": false,
+    "w_obiekcie": "nic",
+    "korona": false,
+    "wlosy": "rozpuszczone",
+    "trzyma": "gwiazda",
+    "kierunek": "prawo",
+    "gwiazda_promienie": 5,
+    "gwiazda_ogon": false,
+    "gwiazda_kolor": "brak"
    },
    "pozycja": {
-    "krag": null,
-    "kolejnosc": 17
+    "krag": "zewn",
+    "kolejnosc": 17,
+    "kat": 319.1,
+    "promien": 0.911,
+    "x": 0.3168,
+    "y": 0.2352
    },
    "etykieta": {
     "locus": "19",
@@ -495,27 +563,31 @@
      "okydy"
     ]
    },
-   "zrodlo": "",
-   "pewnosc": null,
-   "uwaga": ""
+   "zrodlo": "vision",
+   "pewnosc": 1,
+   "uwaga": "szkic z GPU: postaci 28 (oczekiwano 29), etykiet 29; model widzi znak 'ryby', tabela mówi 'ryby'; sprawdzić kolejność na PNG"
   },
   {
    "id": "f70v2-18",
    "typ": "nimfa",
    "cechy": {
-    "naga": null,
-    "w_obiekcie": null,
-    "korona": null,
-    "wlosy": null,
-    "trzyma": null,
-    "kierunek": null,
-    "gwiazda_promienie": null,
-    "gwiazda_ogon": null,
-    "gwiazda_kolor": null
+    "naga": false,
+    "w_obiekcie": "beczka",
+    "korona": false,
+    "wlosy": "rozpuszczone",
+    "trzyma": "gwiazda",
+    "kierunek": "przod",
+    "gwiazda_promienie": 6,
+    "gwiazda_ogon": false,
+    "gwiazda_kolor": "inny"
    },
    "pozycja": {
-    "krag": null,
-    "kolejnosc": 18
+    "krag": "zewn",
+    "kolejnosc": 18,
+    "kat": 336.2,
+    "promien": 0.945,
+    "x": 0.3838,
+    "y": 0.1781
    },
    "etykieta": {
     "locus": "20",
@@ -524,27 +596,31 @@
      "okees"
     ]
    },
-   "zrodlo": "",
-   "pewnosc": null,
-   "uwaga": ""
+   "zrodlo": "vision",
+   "pewnosc": 1,
+   "uwaga": "szkic z GPU: postaci 28 (oczekiwano 29), etykiet 29; model widzi znak 'ryby', tabela mówi 'ryby'; sprawdzić kolejność na PNG"
   },
   {
    "id": "f70v2-19",
    "typ": "nimfa",
    "cechy": {
-    "naga": null,
-    "w_obiekcie": null,
-    "korona": null,
-    "wlosy": null,
-    "trzyma": null,
-    "kierunek": null,
-    "gwiazda_promienie": null,
-    "gwiazda_ogon": null,
-    "gwiazda_kolor": null
+    "naga": false,
+    "w_obiekcie": "beczka",
+    "korona": false,
+    "wlosy": "rozpuszczone",
+    "trzyma": "gwiazda",
+    "kierunek": "przod",
+    "gwiazda_promienie": 5,
+    "gwiazda_ogon": false,
+    "gwiazda_kolor": "inny"
    },
    "pozycja": {
-    "krag": null,
-    "kolejnosc": 19
+    "krag": "zewn",
+    "kolejnosc": 19,
+    "kat": 350.0,
+    "promien": 0.968,
+    "x": 0.4499,
+    "y": 0.1495
    },
    "etykieta": {
     "locus": "22",
@@ -554,27 +630,31 @@
      "am"
     ]
    },
-   "zrodlo": "",
-   "pewnosc": null,
-   "uwaga": ""
+   "zrodlo": "vision",
+   "pewnosc": 1,
+   "uwaga": "szkic z GPU: postaci 28 (oczekiwano 29), etykiet 29; model widzi znak 'ryby', tabela mówi 'ryby'; sprawdzić kolejność na PNG"
   },
   {
    "id": "f70v2-20",
    "typ": "nimfa",
    "cechy": {
-    "naga": null,
-    "w_obiekcie": null,
-    "korona": null,
-    "wlosy": null,
-    "trzyma": null,
-    "kierunek": null,
-    "gwiazda_promienie": null,
-    "gwiazda_ogon": null,
-    "gwiazda_kolor": null
+    "naga": false,
+    "w_obiekcie": "nic",
+    "korona": false,
+    "wlosy": "rozpuszczone",
+    "trzyma": "gwiazda",
+    "kierunek": "przod",
+    "gwiazda_promienie": 6,
+    "gwiazda_ogon": false,
+    "gwiazda_kolor": "brak"
    },
    "pozycja": {
-    "krag": null,
-    "kolejnosc": 20
+    "krag": "wewn",
+    "kolejnosc": 1,
+    "kat": 14.1,
+    "promien": 0.62,
+    "x": 0.5489,
+    "y": 0.2638
    },
    "etykieta": {
     "locus": "23",
@@ -584,27 +664,31 @@
      "al"
     ]
    },
-   "zrodlo": "",
-   "pewnosc": null,
-   "uwaga": ""
+   "zrodlo": "vision",
+   "pewnosc": 1,
+   "uwaga": "szkic z GPU: postaci 28 (oczekiwano 29), etykiet 29; model widzi znak 'ryby', tabela mówi 'ryby'; sprawdzić kolejność na PNG"
   },
   {
    "id": "f70v2-21",
    "typ": "nimfa",
    "cechy": {
-    "naga": null,
-    "w_obiekcie": null,
-    "korona": null,
-    "wlosy": null,
-    "trzyma": null,
-    "kierunek": null,
-    "gwiazda_promienie": null,
-    "gwiazda_ogon": null,
-    "gwiazda_kolor": null
+    "naga": false,
+    "w_obiekcie": "nic",
+    "korona": false,
+    "wlosy": "rozpuszczone",
+    "trzyma": "gwiazda",
+    "kierunek": "prawo",
+    "gwiazda_promienie": 5,
+    "gwiazda_ogon": false,
+    "gwiazda_kolor": "brak"
    },
    "pozycja": {
-    "krag": null,
-    "kolejnosc": 21
+    "krag": "wewn",
+    "kolejnosc": 2,
+    "kat": 42.0,
+    "promien": 0.612,
+    "x": 0.6291,
+    "y": 0.3114
    },
    "etykieta": {
     "locus": "24",
@@ -613,27 +697,31 @@
      "otalar"
     ]
    },
-   "zrodlo": "",
-   "pewnosc": null,
-   "uwaga": ""
+   "zrodlo": "vision",
+   "pewnosc": 1,
+   "uwaga": "szkic z GPU: postaci 28 (oczekiwano 29), etykiet 29; model widzi znak 'ryby', tabela mówi 'ryby'; sprawdzić kolejność na PNG"
   },
   {
    "id": "f70v2-22",
    "typ": "nimfa",
    "cechy": {
-    "naga": null,
-    "w_obiekcie": null,
-    "korona": null,
-    "wlosy": null,
-    "trzyma": null,
-    "kierunek": null,
-    "gwiazda_promienie": null,
-    "gwiazda_ogon": null,
-    "gwiazda_kolor": null
+    "naga": true,
+    "w_obiekcie": "beczka",
+    "korona": false,
+    "wlosy": "upiete",
+    "trzyma": "gwiazda",
+    "kierunek": "prawo",
+    "gwiazda_promienie": 5,
+    "gwiazda_ogon": false,
+    "gwiazda_kolor": "zolty"
    },
    "pozycja": {
-    "krag": null,
-    "kolejnosc": 22
+    "krag": "wewn",
+    "kolejnosc": 3,
+    "kat": 80.2,
+    "promien": 0.601,
+    "x": 0.6857,
+    "y": 0.4257
    },
    "etykieta": {
     "locus": "25",
@@ -642,27 +730,31 @@
      "otalam"
     ]
    },
-   "zrodlo": "",
-   "pewnosc": null,
-   "uwaga": ""
+   "zrodlo": "vision",
+   "pewnosc": 1,
+   "uwaga": "szkic z GPU: postaci 28 (oczekiwano 29), etykiet 29; model widzi znak 'ryby', tabela mówi 'ryby'; sprawdzić kolejność na PNG"
   },
   {
    "id": "f70v2-23",
    "typ": "nimfa",
    "cechy": {
-    "naga": null,
+    "naga": false,
     "w_obiekcie": null,
-    "korona": null,
-    "wlosy": null,
-    "trzyma": null,
-    "kierunek": null,
-    "gwiazda_promienie": null,
-    "gwiazda_ogon": null,
-    "gwiazda_kolor": null
+    "korona": false,
+    "wlosy": "rozpuszczone",
+    "trzyma": "gwiazda",
+    "kierunek": "prawo",
+    "gwiazda_promienie": 5,
+    "gwiazda_ogon": false,
+    "gwiazda_kolor": "zolty"
    },
    "pozycja": {
-    "krag": null,
-    "kolejnosc": 23
+    "krag": "wewn",
+    "kolejnosc": 4,
+    "kat": 119.4,
+    "promien": 0.61,
+    "x": 0.6669,
+    "y": 0.5562
    },
    "etykieta": {
     "locus": "26",
@@ -671,27 +763,31 @@
      "dolaram"
     ]
    },
-   "zrodlo": "",
-   "pewnosc": null,
-   "uwaga": ""
+   "zrodlo": "vision",
+   "pewnosc": 1,
+   "uwaga": "szkic z GPU: postaci 28 (oczekiwano 29), etykiet 29; model widzi znak 'ryby', tabela mówi 'ryby'; sprawdzić kolejność na PNG"
   },
   {
    "id": "f70v2-24",
    "typ": "nimfa",
    "cechy": {
-    "naga": null,
+    "naga": false,
     "w_obiekcie": null,
-    "korona": null,
-    "wlosy": null,
-    "trzyma": null,
-    "kierunek": null,
-    "gwiazda_promienie": null,
-    "gwiazda_ogon": null,
-    "gwiazda_kolor": null
+    "korona": false,
+    "wlosy": "rozpuszczone",
+    "trzyma": "gwiazda",
+    "kierunek": "prawo",
+    "gwiazda_promienie": 6,
+    "gwiazda_ogon": false,
+    "gwiazda_kolor": "brak"
    },
    "pozycja": {
-    "krag": null,
-    "kolejnosc": 24
+    "krag": "wewn",
+    "kolejnosc": 5,
+    "kat": 151.7,
+    "promien": 0.64,
+    "x": 0.5961,
+    "y": 0.6419
    },
    "etykieta": {
     "locus": "27",
@@ -700,27 +796,31 @@
      "okaram"
     ]
    },
-   "zrodlo": "",
-   "pewnosc": null,
-   "uwaga": ""
+   "zrodlo": "vision",
+   "pewnosc": 1,
+   "uwaga": "szkic z GPU: postaci 28 (oczekiwano 29), etykiet 29; model widzi znak 'ryby', tabela mówi 'ryby'; sprawdzić kolejność na PNG"
   },
   {
    "id": "f70v2-25",
    "typ": "nimfa",
    "cechy": {
-    "naga": null,
+    "naga": false,
     "w_obiekcie": null,
-    "korona": null,
-    "wlosy": null,
-    "trzyma": null,
-    "kierunek": null,
-    "gwiazda_promienie": null,
-    "gwiazda_ogon": null,
-    "gwiazda_kolor": null
+    "korona": false,
+    "wlosy": "rozpuszczone",
+    "trzyma": "gwiazda",
+    "kierunek": "prawo",
+    "gwiazda_promienie": 6,
+    "gwiazda_ogon": false,
+    "gwiazda_kolor": "zolty"
    },
    "pozycja": {
-    "krag": null,
-    "kolejnosc": 25
+    "krag": "wewn",
+    "kolejnosc": 6,
+    "kat": 186.7,
+    "promien": 0.656,
+    "x": 0.4782,
+    "y": 0.6705
    },
    "etykieta": {
     "locus": "28",
@@ -729,27 +829,31 @@
      "oteosal"
     ]
    },
-   "zrodlo": "",
-   "pewnosc": null,
-   "uwaga": ""
+   "zrodlo": "vision",
+   "pewnosc": 1,
+   "uwaga": "szkic z GPU: postaci 28 (oczekiwano 29), etykiet 29; model widzi znak 'ryby', tabela mówi 'ryby'; sprawdzić kolejność na PNG"
   },
   {
    "id": "f70v2-26",
    "typ": "nimfa",
    "cechy": {
-    "naga": null,
-    "w_obiekcie": null,
-    "korona": null,
-    "wlosy": null,
-    "trzyma": null,
-    "kierunek": null,
-    "gwiazda_promienie": null,
-    "gwiazda_ogon": null,
-    "gwiazda_kolor": null
+    "naga": false,
+    "w_obiekcie": "nic",
+    "korona": false,
+    "wlosy": "rozpuszczone",
+    "trzyma": "gwiazda",
+    "kierunek": "prawo",
+    "gwiazda_promienie": 8,
+    "gwiazda_ogon": false,
+    "gwiazda_kolor": "zolty"
    },
    "pozycja": {
-    "krag": null,
-    "kolejnosc": 26
+    "krag": "wewn",
+    "kolejnosc": 7,
+    "kat": 231.5,
+    "promien": 0.622,
+    "x": 0.3508,
+    "y": 0.5848
    },
    "etykieta": {
     "locus": "29",
@@ -758,27 +862,31 @@
      "salols"
     ]
    },
-   "zrodlo": "",
-   "pewnosc": null,
-   "uwaga": ""
+   "zrodlo": "vision",
+   "pewnosc": 1,
+   "uwaga": "szkic z GPU: postaci 28 (oczekiwano 29), etykiet 29; model widzi znak 'ryby', tabela mówi 'ryby'; sprawdzić kolejność na PNG"
   },
   {
    "id": "f70v2-27",
    "typ": "nimfa",
    "cechy": {
-    "naga": null,
+    "naga": false,
     "w_obiekcie": null,
-    "korona": null,
-    "wlosy": null,
-    "trzyma": null,
-    "kierunek": null,
-    "gwiazda_promienie": null,
-    "gwiazda_ogon": null,
-    "gwiazda_kolor": null
+    "korona": false,
+    "wlosy": "rozpuszczone",
+    "trzyma": "gwiazda",
+    "kierunek": "prawo",
+    "gwiazda_promienie": 8,
+    "gwiazda_ogon": false,
+    "gwiazda_kolor": "inny"
    },
    "pozycja": {
-    "krag": null,
-    "kolejnosc": 27
+    "krag": "wewn",
+    "kolejnosc": 8,
+    "kat": 267.2,
+    "promien": 0.612,
+    "x": 0.3121,
+    "y": 0.4686
    },
    "etykieta": {
     "locus": "30",
@@ -787,27 +895,31 @@
      "okaldal"
     ]
    },
-   "zrodlo": "",
-   "pewnosc": null,
-   "uwaga": ""
+   "zrodlo": "vision",
+   "pewnosc": 1,
+   "uwaga": "szkic z GPU: postaci 28 (oczekiwano 29), etykiet 29; model widzi znak 'ryby', tabela mówi 'ryby'; sprawdzić kolejność na PNG"
   },
   {
    "id": "f70v2-28",
    "typ": "nimfa",
    "cechy": {
-    "naga": null,
-    "w_obiekcie": null,
-    "korona": null,
-    "wlosy": null,
-    "trzyma": null,
-    "kierunek": null,
-    "gwiazda_promienie": null,
-    "gwiazda_ogon": null,
-    "gwiazda_kolor": null
+    "naga": false,
+    "w_obiekcie": "nic",
+    "korona": false,
+    "wlosy": "rozpuszczone",
+    "trzyma": "gwiazda",
+    "kierunek": "prawo",
+    "gwiazda_promienie": 6,
+    "gwiazda_ogon": false,
+    "gwiazda_kolor": "inny"
    },
    "pozycja": {
-    "krag": null,
-    "kolejnosc": 28
+    "krag": "wewn",
+    "kolejnosc": 9,
+    "kat": 334.3,
+    "promien": 0.618,
+    "x": 0.4187,
+    "y": 0.2781
    },
    "etykieta": {
     "locus": "31",
@@ -816,9 +928,9 @@
      "ykolaiin"
     ]
    },
-   "zrodlo": "",
-   "pewnosc": null,
-   "uwaga": ""
+   "zrodlo": "vision",
+   "pewnosc": 1,
+   "uwaga": "szkic z GPU: postaci 28 (oczekiwano 29), etykiet 29; model widzi znak 'ryby', tabela mówi 'ryby'; sprawdzić kolejność na PNG"
   },
   {
    "id": "f70v2-29",

@@ -95,6 +95,28 @@ SIGN_PL = {"aries": "baran", "taurus": "byk", "gemini": "bliznieta", "cancer": "
 SIGN_PROMPT_EN = ('This is the centre of a medieval zodiac roundel. Which zodiac sign is the animal or figure? Answer only JSON: '
                   '{"sign": "aries|taurus|gemini|cancer|leo|virgo|libra|scorpio|sagittarius|capricorn|aquarius|pisces|other"}')
 FIGURE_PROMPTS = ("human figure", "person")
+ROTATIONS = (0, 1, 2, 3)          # quarter turns of the roundel crop: nymphs lie feet to the centre, so each stands up in some turn
+MERGE_RADIUS = 0.065              # of the crop width: two points closer than this are one figure
+CENTRE_EXCLUSION = 0.22           # of the roundel radius: the sign's own figures (Gemini, Virgo, Sagittarius) live here
+
+
+def rotate_point(p: tuple[float, float], k: int, width: float, height: float) -> tuple[float, float]:
+    """Where a point of a (width x height) image lands after k quarter turns counter-clockwise (PIL ROTATE_90 k times)."""
+    x, y = p
+    for _ in range(k % 4):
+        x, y, width, height = y, width - x, height, width
+    return (x, y)
+
+
+def unrotate_point(p: tuple[float, float], k: int, width: float, height: float) -> tuple[float, float]:
+    """Inverse of rotate_point: a point seen in the rotated image, back in the original (width x height) image."""
+    return rotate_point(p, (-k) % 4, *((height, width) if k % 2 else (width, height)))
+
+
+def rotated(image, k: int):
+    from PIL import Image
+    ops = {1: Image.Transpose.ROTATE_90, 2: Image.Transpose.ROTATE_180, 3: Image.Transpose.ROTATE_270}
+    return image.transpose(ops[k]) if k % 4 else image
 
 
 def merge_points(groups: list[list[tuple[float, float]]], min_dist: float) -> list[tuple[float, float]]:
@@ -140,8 +162,13 @@ def zodiac(cfg: LabConfig, pointer: vision.Chat, describer: vision.Chat, detecto
         for k, (folio, c) in enumerate(zip(panels, centers)):
             x0, y0 = int(max(0, c[0] - 1.05 * radius)), int(max(0, c[1] - 1.05 * radius))
             crop = image.crop((x0, y0, int(min(w, c[0] + 1.05 * radius)), int(min(h, c[1] + 1.05 * radius))))
-            sources = [_shift(pointer.points(crop, what), x0, y0) for what in FIGURE_PROMPTS]
-            counts = {what: len(pts) for what, pts in zip(FIGURE_PROMPTS, sources)}
+            sources, counts = [], {}
+            for what in FIGURE_PROMPTS:
+                for k in ROTATIONS:
+                    turned = rotated(crop, k)
+                    found = [unrotate_point(q, k, crop.width, crop.height) for q in pointer.points(turned, what)]
+                    sources.append(_shift(found, x0, y0))
+                    counts[f"{what}@{90 * k}"] = len(found)
             try:
                 boxes = detector.boxes(crop, ["person", "star"])
                 dino = _shift([((b[0] + b[2]) / 2, (b[1] + b[3]) / 2) for b in boxes.get("person", [])], x0, y0)
@@ -150,7 +177,8 @@ def zodiac(cfg: LabConfig, pointer: vision.Chat, describer: vision.Chat, detecto
             except Exception as e:  # the second counter is a check, not a requirement
                 counts["dino"] = None
                 report.append(f"{canvas['label']}: Grounding DINO pominięty ({str(e)[:60]})")
-            pts = merge_points(sources, 0.045 * crop.width)
+            pts = merge_points(sources, MERGE_RADIUS * crop.width)
+            pts = [q for q in pts if (q[0] - c[0]) ** 2 + (q[1] - c[1]) ** 2 >= (CENTRE_EXCLUSION * radius) ** 2]
             stars = _shift(pointer.points(crop, "star"), x0, y0)
             side = int(0.35 * radius)
             centre_crop = image.crop((int(max(0, c[0] - side)), int(max(0, c[1] - side)), int(min(w, c[0] + side)), int(min(h, c[1] + side))))
@@ -225,7 +253,8 @@ def run(cfg: LabConfig) -> TheoryResult:
         hypothesis="(szkic, nie test) Otwarte modele widzące na własnym GPU opisują atomy ilustracji w schemacie data/atoms, "
                    "z kolejnością nimf policzoną z geometrii, żeby ludzie poprawiali zamiast zaczynać od zera.",
         method=(f"Molmo2 ({cfg.atoms_pointer}) wskazuje punktami środki kół, postaci i gwiazdy; Grounding DINO ({cfg.atoms_detector}) "
-                "liczy te same klasy ramkami jako kontrola; postaci przypisane do najbliższego środka, kręgi i kolejność zgodnie "
+                "liczy te same klasy ramkami jako kontrola; wycinek każdego koła wskazywany w czterech obrotach (nimfy leżą stopami do środka); "
+                "postaci przypisane do najbliższego środka, kręgi i kolejność zgodnie "
                 f"z ruchem wskazówek zegara z geometrii (voynich.atoms.ring_layout); Qwen3-VL ({cfg.atoms_describer}) opisuje wycinek "
                 "wokół każdej postaci według słownika 'nimfa' (wartości spoza słownika odrzucone); znak w środku koła wskazuje "
                 "stronę ZL. Wynik: pliki stron w atoms_vision/ (zrodlo 'vision', pewnosc 1) i PNG z numerami punktów."),

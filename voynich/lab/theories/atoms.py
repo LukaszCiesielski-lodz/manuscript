@@ -88,14 +88,14 @@ def run(cfg: LabConfig) -> TheoryResult:
         done, kappas = _kappa_filter(done, res)
     res.metrics["kappa"] = kappas
     # Controls on the same material.
-    key = "nimfa.trzyma" if any(a.typ == "nimfa" and a.cechy.get("trzyma") is not None for a in done) else None
-    if key is None:
-        counts = defaultdict(int)
-        for a in done:
-            for k, v in a.cechy.items():
-                if v is not None:
-                    counts[f"{a.typ}.{k}"] += 1
-        key = max(counts, key=counts.get) if counts else "nimfa.trzyma"
+    # The planted control needs a feature that actually varies: the most filled one with at least three values.
+    values = defaultdict(list)
+    for a in done:
+        for k, v in a.cechy.items():
+            if v is not None:
+                values[f"{a.typ}.{k}"].append(v)
+    varied = {k: v for k, v in values.items() if len(set(v)) >= 3} or values
+    key = max(varied, key=lambda k: len(varied[k])) if varied else "nimfa.trzyma"
     planted = A.pair_scan(A.plant(done, key, 0.6, cfg.seed), shuffles, cfg.seed)
     hit = next((r for r in planted if r["cecha"] == key and r["etykieta"] == "pierwszy"), None)
     res.control(f"podłożony pierwszy glif według {key} wykryty", "p popr. < 0,05 i z ≥ 5",
