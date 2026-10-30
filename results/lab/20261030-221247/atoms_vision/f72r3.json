@@ -1,0 +1,1001 @@
+{
+ "strona": "f72r3",
+ "dzial": "zodiac",
+ "jezyk": "?",
+ "atomy": [
+  {
+   "id": "f72r3-01",
+   "typ": "nimfa",
+   "cechy": {
+    "naga": true,
+    "w_obiekcie": null,
+    "korona": false,
+    "wlosy": "upiete",
+    "trzyma": "gwiazda",
+    "kierunek": "przod",
+    "gwiazda_promienie": 8,
+    "gwiazda_ogon": false,
+    "gwiazda_kolor": "zolty"
+   },
+   "pozycja": {
+    "krag": "zewn",
+    "kolejnosc": 1,
+    "kat": 0.1,
+    "promien": 0.929,
+    "x": 0.7932,
+    "y": 0.151
+   },
+   "etykieta": {
+    "locus": "2",
+    "rodzaj": "Lz",
+    "slowa": [
+     "olkalaiin"
+    ]
+   },
+   "zrodlo": "vision",
+   "pewnosc": 1,
+   "uwaga": "szkic z GPU: postaci 30 (oczekiwano 30), etykiet 29; model widzi znak 'rak', tabela mówi 'rak'; sprawdzić kolejność na PNG"
+  },
+  {
+   "id": "f72r3-02",
+   "typ": "nimfa",
+   "cechy": {
+    "naga": true,
+    "w_obiekcie": null,
+    "korona": false,
+    "wlosy": "rozpuszczone",
+    "trzyma": "gwiazda",
+    "kierunek": "prawo",
+    "gwiazda_promienie": 8,
+    "gwiazda_ogon": false,
+    "gwiazda_kolor": "inny"
+   },
+   "pozycja": {
+    "krag": "zewn",
+    "kolejnosc": 2,
+    "kat": 23.4,
+    "promien": 0.919,
+    "x": 0.8352,
+    "y": 0.18
+   },
+   "etykieta": {
+    "locus": "3",
+    "rodzaj": "Lz",
+    "slowa": [
+     "olalsy"
+    ]
+   },
+   "zrodlo": "vision",
+   "pewnosc": 1,
+   "uwaga": "szkic z GPU: postaci 30 (oczekiwano 30), etykiet 29; model widzi znak 'rak', tabela mówi 'rak'; sprawdzić kolejność na PNG"
+  },
+  {
+   "id": "f72r3-03",
+   "typ": "nimfa",
+   "cechy": {
+    "naga": null,
+    "w_obiekcie": null,
+    "korona": null,
+    "wlosy": "nie_widac",
+    "trzyma": "gwiazda",
+    "kierunek": "prawo",
+    "gwiazda_promienie": 8,
+    "gwiazda_ogon": false,
+    "gwiazda_kolor": "inny"
+   },
+   "pozycja": {
+    "krag": "zewn",
+    "kolejnosc": 3,
+    "kat": 47.8,
+    "promien": 0.938,
+    "x": 0.8734,
+    "y": 0.2525
+   },
+   "etykieta": {
+    "locus": "4",
+    "rodzaj": "Lz",
+    "slowa": [
+     "oraiinam"
+    ]
+   },
+   "zrodlo": "vision",
+   "pewnosc": 1,
+   "uwaga": "szkic z GPU: postaci 30 (oczekiwano 30), etykiet 29; model widzi znak 'rak', tabela mówi 'rak'; sprawdzić kolejność na PNG"
+  },
+  {
+   "id": "f72r3-04",
+   "typ": "nimfa",
+   "cechy": {
+    "naga": true,
+    "w_obiekcie": null,
+    "korona": false,
+    "wlosy": "upiete",
+    "trzyma": "gwiazda",
+    "kierunek": "prawo",
+    "gwiazda_promienie": 8,
+    "gwiazda_ogon": false,
+    "gwiazda_kolor": "brak"
+   },
+   "pozycja": {
+    "krag": "zewn",
+    "kolejnosc": 4,
+    "kat": 72.9,
+    "promien": 0.916,
+    "x": 0.8944,
+    "y": 0.3757
+   },
+   "etykieta": {
+    "locus": "5",
+    "rodzaj": "Lz",
+    "slowa": [
+     "osarsheeeo"
+    ]
+   },
+   "zrodlo": "vision",
+   "pewnosc": 1,
+   "uwaga": "szkic z GPU: postaci 30 (oczekiwano 30), etykiet 29; model widzi znak 'rak', tabela mówi 'rak'; sprawdzić kolejność na PNG"
+  },
+  {
+   "id": "f72r3-05",
+   "typ": "nimfa",
+   "cechy": {
+    "naga": true,
+    "w_obiekcie": null,
+    "korona": false,
+    "wlosy": "nie_widac",
+    "trzyma": "gwiazda",
+    "kierunek": "prawo",
+    "gwiazda_promienie": 5,
+    "gwiazda_ogon": false,
+    "gwiazda_kolor": "czerwony"
+   },
+   "pozycja": {
+    "krag": "zewn",
+    "kolejnosc": 5,
+    "kat": 116.5,
+    "promien": 0.926,
+    "x": 0.889,
+    "y": 0.6075
+   },
+   "etykieta": {
+    "locus": "7",
+    "rodzaj": "Lz",
+    "slowa": [
+     "opoiiinoin",
+     "al",
+     "ches"
+    ]
+   },
+   "zrodlo": "vision",
+   "pewnosc": 1,
+   "uwaga": "szkic z GPU: postaci 30 (oczekiwano 30), etykiet 29; model widzi znak 'rak', tabela mówi 'rak'; sprawdzić kolejność na PNG"
+  },
+  {
+   "id": "f72r3-06",
+   "typ": "nimfa",
+   "cechy": {
+    "naga": true,
+    "w_obiekcie": null,
+    "korona": false,
+    "wlosy": "rozpuszczone",
+    "trzyma": "gwiazda",
+    "kierunek": "prawo",
+    "gwiazda_promienie": 6,
+    "gwiazda_ogon": false,
+    "gwiazda_kolor": "brak"
+   },
+   "pozycja": {
+    "krag": "zewn",
+    "kolejnosc": 6,
+    "kat": 155.7,
+    "promien": 0.99,
+    "x": 0.8401,
+    "y": 0.7742
+   },
+   "etykieta": {
+    "locus": "8",
+    "rodzaj": "Lz",
+    "slowa": [
+     "ypaiin",
+     "alaly"
+    ]
+   },
+   "zrodlo": "vision",
+   "pewnosc": 1,
+   "uwaga": "szkic z GPU: postaci 30 (oczekiwano 30), etykiet 29; model widzi znak 'rak', tabela mówi 'rak'; sprawdzić kolejność na PNG"
+  },
+  {
+   "id": "f72r3-07",
+   "typ": "nimfa",
+   "cechy": {
+    "naga": true,
+    "w_obiekcie": null,
+    "korona": false,
+    "wlosy": "nie_widac",
+    "trzyma": "gwiazda",
+    "kierunek": "przod",
+    "gwiazda_promienie": 8,
+    "gwiazda_ogon": false,
+    "gwiazda_kolor": "inny"
+   },
+   "pozycja": {
+    "krag": "zewn",
+    "kolejnosc": 7,
+    "kat": 186.3,
+    "promien": 0.994,
+    "x": 0.7804,
+    "y": 0.8032
+   },
+   "etykieta": {
+    "locus": "9",
+    "rodzaj": "Lz",
+    "slowa": [
+     "oteey",
+     "daiin"
+    ]
+   },
+   "zrodlo": "vision",
+   "pewnosc": 1,
+   "uwaga": "szkic z GPU: postaci 30 (oczekiwano 30), etykiet 29; model widzi znak 'rak', tabela mówi 'rak'; sprawdzić kolejność na PNG"
+  },
+  {
+   "id": "f72r3-08",
+   "typ": "nimfa",
+   "cechy": {
+    "naga": true,
+    "w_obiekcie": null,
+    "korona": false,
+    "wlosy": "nie_widac",
+    "trzyma": "gwiazda",
+    "kierunek": "prawo",
+    "gwiazda_promienie": 8,
+    "gwiazda_ogon": false,
+    "gwiazda_kolor": "brak"
+   },
+   "pozycja": {
+    "krag": "zewn",
+    "kolejnosc": 8,
+    "kat": 211.6,
+    "promien": 1.0,
+    "x": 0.7323,
+    "y": 0.7568
+   },
+   "etykieta": {
+    "locus": "10",
+    "rodzaj": "Lz",
+    "slowa": [
+     "oeeodaiin"
+    ]
+   },
+   "zrodlo": "vision",
+   "pewnosc": 1,
+   "uwaga": "szkic z GPU: postaci 30 (oczekiwano 30), etykiet 29; model widzi znak 'rak', tabela mówi 'rak'; sprawdzić kolejność na PNG"
+  },
+  {
+   "id": "f72r3-09",
+   "typ": "nimfa",
+   "cechy": {
+    "naga": true,
+    "w_obiekcie": null,
+    "korona": false,
+    "wlosy": "rozpuszczone",
+    "trzyma": "gwiazda",
+    "kierunek": "przod",
+    "gwiazda_promienie": 8,
+    "gwiazda_ogon": false,
+    "gwiazda_kolor": "brak"
+   },
+   "pozycja": {
+    "krag": "zewn",
+    "kolejnosc": 9,
+    "kat": 240.1,
+    "promien": 0.978,
+    "x": 0.6948,
+    "y": 0.6329
+   },
+   "etykieta": {
+    "locus": "11",
+    "rodzaj": "Lz",
+    "slowa": [
+     "ofsholdy"
+    ]
+   },
+   "zrodlo": "vision",
+   "pewnosc": 1,
+   "uwaga": "szkic z GPU: postaci 30 (oczekiwano 30), etykiet 29; model widzi znak 'rak', tabela mówi 'rak'; sprawdzić kolejność na PNG"
+  },
+  {
+   "id": "f72r3-10",
+   "typ": "nimfa",
+   "cechy": {
+    "naga": false,
+    "w_obiekcie": null,
+    "korona": false,
+    "wlosy": "rozpuszczone",
+    "trzyma": "gwiazda",
+    "kierunek": "prawo",
+    "gwiazda_promienie": 6,
+    "gwiazda_ogon": false,
+    "gwiazda_kolor": "brak"
+   },
+   "pozycja": {
+    "krag": "zewn",
+    "kolejnosc": 10,
+    "kat": 291.4,
+    "promien": 0.94,
+    "x": 0.6916,
+    "y": 0.3503
+   },
+   "etykieta": {
+    "locus": "12",
+    "rodzaj": "Lz",
+    "slowa": [
+     "opoeey",
+     "okaiin"
+    ]
+   },
+   "zrodlo": "vision",
+   "pewnosc": 1,
+   "uwaga": "szkic z GPU: postaci 30 (oczekiwano 30), etykiet 29; model widzi znak 'rak', tabela mówi 'rak'; sprawdzić kolejność na PNG"
+  },
+  {
+   "id": "f72r3-11",
+   "typ": "nimfa",
+   "cechy": {
+    "naga": true,
+    "w_obiekcie": null,
+    "korona": false,
+    "wlosy": "rozpuszczone",
+    "trzyma": "gwiazda",
+    "kierunek": "prawo",
+    "gwiazda_promienie": 6,
+    "gwiazda_ogon": false,
+    "gwiazda_kolor": "brak"
+   },
+   "pozycja": {
+    "krag": "zewn",
+    "kolejnosc": 11,
+    "kat": 314.6,
+    "promien": 0.94,
+    "x": 0.7155,
+    "y": 0.2423
+   },
+   "etykieta": {
+    "locus": "13",
+    "rodzaj": "Lz",
+    "slowa": [
+     "ykolairol"
+    ]
+   },
+   "zrodlo": "vision",
+   "pewnosc": 1,
+   "uwaga": "szkic z GPU: postaci 30 (oczekiwano 30), etykiet 29; model widzi znak 'rak', tabela mówi 'rak'; sprawdzić kolejność na PNG"
+  },
+  {
+   "id": "f72r3-12",
+   "typ": "nimfa",
+   "cechy": {
+    "naga": true,
+    "w_obiekcie": null,
+    "korona": true,
+    "wlosy": "rozpuszczone",
+    "trzyma": "gwiazda",
+    "kierunek": "prawo",
+    "gwiazda_promienie": 8,
+    "gwiazda_ogon": false,
+    "gwiazda_kolor": "brak"
+   },
+   "pozycja": {
+    "krag": "zewn",
+    "kolejnosc": 12,
+    "kat": 337.8,
+    "promien": 0.925,
+    "x": 0.7525,
+    "y": 0.1756
+   },
+   "etykieta": {
+    "locus": "15",
+    "rodzaj": "Lz",
+    "slowa": [
+     "oralkam"
+    ]
+   },
+   "zrodlo": "vision",
+   "pewnosc": 1,
+   "uwaga": "szkic z GPU: postaci 30 (oczekiwano 30), etykiet 29; model widzi znak 'rak', tabela mówi 'rak'; sprawdzić kolejność na PNG"
+  },
+  {
+   "id": "f72r3-13",
+   "typ": "nimfa",
+   "cechy": {
+    "naga": true,
+    "w_obiekcie": null,
+    "korona": false,
+    "wlosy": "rozpuszczone",
+    "trzyma": "gwiazda",
+    "kierunek": "prawo",
+    "gwiazda_promienie": 5,
+    "gwiazda_ogon": false,
+    "gwiazda_kolor": "inny"
+   },
+   "pozycja": {
+    "krag": "srod",
+    "kolejnosc": 1,
+    "kat": 25.6,
+    "promien": 0.652,
+    "x": 0.8256,
+    "y": 0.267
+   },
+   "etykieta": {
+    "locus": "16",
+    "rodzaj": "Lz",
+    "slowa": [
+     "ytairal"
+    ]
+   },
+   "zrodlo": "vision",
+   "pewnosc": 1,
+   "uwaga": "szkic z GPU: postaci 30 (oczekiwano 30), etykiet 29; model widzi znak 'rak', tabela mówi 'rak'; sprawdzić kolejność na PNG"
+  },
+  {
+   "id": "f72r3-14",
+   "typ": "nimfa",
+   "cechy": {
+    "naga": false,
+    "w_obiekcie": null,
+    "korona": false,
+    "wlosy": "rozpuszczone",
+    "trzyma": "gwiazda",
+    "kierunek": "prawo",
+    "gwiazda_promienie": 8,
+    "gwiazda_ogon": false,
+    "gwiazda_kolor": "brak"
+   },
+   "pozycja": {
+    "krag": "srod",
+    "kolejnosc": 2,
+    "kat": 53.5,
+    "promien": 0.665,
+    "x": 0.8549,
+    "y": 0.3322
+   },
+   "etykieta": {
+    "locus": "17",
+    "rodzaj": "Lz",
+    "slowa": [
+     "oeeesaiin"
+    ]
+   },
+   "zrodlo": "vision",
+   "pewnosc": 1,
+   "uwaga": "szkic z GPU: postaci 30 (oczekiwano 30), etykiet 29; model widzi znak 'rak', tabela mówi 'rak'; sprawdzić kolejność na PNG"
+  },
+  {
+   "id": "f72r3-15",
+   "typ": "nimfa",
+   "cechy": {
+    "naga": false,
+    "w_obiekcie": null,
+    "korona": false,
+    "wlosy": "nie_widac",
+    "trzyma": "gwiazda",
+    "kierunek": "przod",
+    "gwiazda_promienie": 8,
+    "gwiazda_ogon": false,
+    "gwiazda_kolor": "brak"
+   },
+   "pozycja": {
+    "krag": "srod",
+    "kolejnosc": 3,
+    "kat": 78.0,
+    "promien": 0.677,
+    "x": 0.8697,
+    "y": 0.4191
+   },
+   "etykieta": {
+    "locus": "18",
+    "rodzaj": "Lz",
+    "slowa": [
+     "ory"
+    ]
+   },
+   "zrodlo": "vision",
+   "pewnosc": 1,
+   "uwaga": "szkic z GPU: postaci 30 (oczekiwano 30), etykiet 29; model widzi znak 'rak', tabela mówi 'rak'; sprawdzić kolejność na PNG"
+  },
+  {
+   "id": "f72r3-16",
+   "typ": "nimfa",
+   "cechy": {
+    "naga": false,
+    "w_obiekcie": null,
+    "korona": false,
+    "wlosy": "rozpuszczone",
+    "trzyma": "gwiazda",
+    "kierunek": "prawo",
+    "gwiazda_promienie": 5,
+    "gwiazda_ogon": false,
+    "gwiazda_kolor": "brak"
+   },
+   "pozycja": {
+    "krag": "srod",
+    "kolejnosc": 4,
+    "kat": 105.2,
+    "promien": 0.682,
+    "x": 0.8692,
+    "y": 0.5278
+   },
+   "etykieta": {
+    "locus": "19",
+    "rodzaj": "Lz",
+    "slowa": [
+     "ochey",
+     "fydy"
+    ]
+   },
+   "zrodlo": "vision",
+   "pewnosc": 1,
+   "uwaga": "szkic z GPU: postaci 30 (oczekiwano 30), etykiet 29; model widzi znak 'rak', tabela mówi 'rak'; sprawdzić kolejność na PNG"
+  },
+  {
+   "id": "f72r3-17",
+   "typ": "nimfa",
+   "cechy": {
+    "naga": true,
+    "w_obiekcie": null,
+    "korona": false,
+    "wlosy": "nie_widac",
+    "trzyma": "gwiazda",
+    "kierunek": "przod",
+    "gwiazda_promienie": 8,
+    "gwiazda_ogon": false,
+    "gwiazda_kolor": "inny"
+   },
+   "pozycja": {
+    "krag": "srod",
+    "kolejnosc": 5,
+    "kat": 148.7,
+    "promien": 0.733,
+    "x": 0.8372,
+    "y": 0.68
+   },
+   "etykieta": {
+    "locus": "20",
+    "rodzaj": "Lz",
+    "slowa": [
+     "o",
+     "eeesaly"
+    ]
+   },
+   "zrodlo": "vision",
+   "pewnosc": 1,
+   "uwaga": "szkic z GPU: postaci 30 (oczekiwano 30), etykiet 29; model widzi znak 'rak', tabela mówi 'rak'; sprawdzić kolejność na PNG"
+  },
+  {
+   "id": "f72r3-18",
+   "typ": "nimfa",
+   "cechy": {
+    "naga": true,
+    "w_obiekcie": null,
+    "korona": false,
+    "wlosy": "rozpuszczone",
+    "trzyma": "gwiazda",
+    "kierunek": "prawo",
+    "gwiazda_promienie": 8,
+    "gwiazda_ogon": false,
+    "gwiazda_kolor": "zolty"
+   },
+   "pozycja": {
+    "krag": "srod",
+    "kolejnosc": 6,
+    "kat": 194.8,
+    "promien": 0.735,
+    "x": 0.7713,
+    "y": 0.709
+   },
+   "etykieta": {
+    "locus": "21",
+    "rodzaj": "Lz",
+    "slowa": [
+     "ykaraiin",
+     "airal"
+    ]
+   },
+   "zrodlo": "vision",
+   "pewnosc": 1,
+   "uwaga": "szkic z GPU: postaci 30 (oczekiwano 30), etykiet 29; model widzi znak 'rak', tabela mówi 'rak'; sprawdzić kolejność na PNG"
+  },
+  {
+   "id": "f72r3-19",
+   "typ": "nimfa",
+   "cechy": {
+    "naga": true,
+    "w_obiekcie": null,
+    "korona": false,
+    "wlosy": "rozpuszczone",
+    "trzyma": "gwiazda",
+    "kierunek": "prawo",
+    "gwiazda_promienie": 6,
+    "gwiazda_ogon": false,
+    "gwiazda_kolor": "brak"
+   },
+   "pozycja": {
+    "krag": "srod",
+    "kolejnosc": 7,
+    "kat": 232.0,
+    "promien": 0.705,
+    "x": 0.7286,
+    "y": 0.6148
+   },
+   "etykieta": {
+    "locus": "22",
+    "rodzaj": "Lz",
+    "slowa": [
+     "okalar"
+    ]
+   },
+   "zrodlo": "vision",
+   "pewnosc": 1,
+   "uwaga": "szkic z GPU: postaci 30 (oczekiwano 30), etykiet 29; model widzi znak 'rak', tabela mówi 'rak'; sprawdzić kolejność na PNG"
+  },
+  {
+   "id": "f72r3-20",
+   "typ": "nimfa",
+   "cechy": {
+    "naga": true,
+    "w_obiekcie": null,
+    "korona": false,
+    "wlosy": "rozpuszczone",
+    "trzyma": "gwiazda",
+    "kierunek": "prawo",
+    "gwiazda_promienie": 8,
+    "gwiazda_ogon": false,
+    "gwiazda_kolor": "brak"
+   },
+   "pozycja": {
+    "krag": "srod",
+    "kolejnosc": 8,
+    "kat": 257.9,
+    "promien": 0.651,
+    "x": 0.7192,
+    "y": 0.5133
+   },
+   "etykieta": {
+    "locus": "23",
+    "rodzaj": "Lz",
+    "slowa": [
+     "orara"
+    ]
+   },
+   "zrodlo": "vision",
+   "pewnosc": 1,
+   "uwaga": "szkic z GPU: postaci 30 (oczekiwano 30), etykiet 29; model widzi znak 'rak', tabela mówi 'rak'; sprawdzić kolejność na PNG"
+  },
+  {
+   "id": "f72r3-21",
+   "typ": "nimfa",
+   "cechy": {
+    "naga": true,
+    "w_obiekcie": null,
+    "korona": false,
+    "wlosy": "rozpuszczone",
+    "trzyma": "gwiazda",
+    "kierunek": "prawo",
+    "gwiazda_promienie": 6,
+    "gwiazda_ogon": false,
+    "gwiazda_kolor": "zolty"
+   },
+   "pozycja": {
+    "krag": "srod",
+    "kolejnosc": 9,
+    "kat": 296.9,
+    "promien": 0.688,
+    "x": 0.7219,
+    "y": 0.3612
+   },
+   "etykieta": {
+    "locus": "24",
+    "rodzaj": "Lz",
+    "slowa": [
+     "olaiin",
+     "olaikhy"
+    ]
+   },
+   "zrodlo": "vision",
+   "pewnosc": 1,
+   "uwaga": "szkic z GPU: postaci 30 (oczekiwano 30), etykiet 29; model widzi znak 'rak', tabela mówi 'rak'; sprawdzić kolejność na PNG"
+  },
+  {
+   "id": "f72r3-22",
+   "typ": "nimfa",
+   "cechy": {
+    "naga": true,
+    "w_obiekcie": null,
+    "korona": false,
+    "wlosy": "rozpuszczone",
+    "trzyma": "gwiazda",
+    "kierunek": "prawo",
+    "gwiazda_promienie": 8,
+    "gwiazda_ogon": false,
+    "gwiazda_kolor": "inny"
+   },
+   "pozycja": {
+    "krag": "srod",
+    "kolejnosc": 10,
+    "kat": 328.1,
+    "promien": 0.677,
+    "x": 0.7515,
+    "y": 0.2713
+   },
+   "etykieta": {
+    "locus": "25",
+    "rodzaj": "Lz",
+    "slowa": [
+     "olfsheoral"
+    ]
+   },
+   "zrodlo": "vision",
+   "pewnosc": 1,
+   "uwaga": "szkic z GPU: postaci 30 (oczekiwano 30), etykiet 29; model widzi znak 'rak', tabela mówi 'rak'; sprawdzić kolejność na PNG"
+  },
+  {
+   "id": "f72r3-23",
+   "typ": "nimfa",
+   "cechy": {
+    "naga": true,
+    "w_obiekcie": null,
+    "korona": false,
+    "wlosy": "upiete",
+    "trzyma": "gwiazda",
+    "kierunek": "prawo",
+    "gwiazda_promienie": 8,
+    "gwiazda_ogon": false,
+    "gwiazda_kolor": "inny"
+   },
+   "pozycja": {
+    "krag": "srod",
+    "kolejnosc": 11,
+    "kat": 358.5,
+    "promien": 0.661,
+    "x": 0.791,
+    "y": 0.2423
+   },
+   "etykieta": {
+    "locus": "27",
+    "rodzaj": "Lz",
+    "slowa": [
+     "opalal"
+    ]
+   },
+   "zrodlo": "vision",
+   "pewnosc": 1,
+   "uwaga": "szkic z GPU: postaci 30 (oczekiwano 30), etykiet 29; model widzi znak 'rak', tabela mówi 'rak'; sprawdzić kolejność na PNG"
+  },
+  {
+   "id": "f72r3-24",
+   "typ": "nimfa",
+   "cechy": {
+    "naga": true,
+    "w_obiekcie": null,
+    "korona": false,
+    "wlosy": "rozpuszczone",
+    "trzyma": "gwiazda",
+    "kierunek": "prawo",
+    "gwiazda_promienie": 8,
+    "gwiazda_ogon": false,
+    "gwiazda_kolor": "brak"
+   },
+   "pozycja": {
+    "krag": "wewn",
+    "kolejnosc": 1,
+    "kat": 54.6,
+    "promien": 0.316,
+    "x": 0.8229,
+    "y": 0.4046
+   },
+   "etykieta": {
+    "locus": "28",
+    "rodzaj": "Lz",
+    "slowa": [
+     "yfary"
+    ]
+   },
+   "zrodlo": "vision",
+   "pewnosc": 1,
+   "uwaga": "szkic z GPU: postaci 30 (oczekiwano 30), etykiet 29; model widzi znak 'rak', tabela mówi 'rak'; sprawdzić kolejność na PNG"
+  },
+  {
+   "id": "f72r3-25",
+   "typ": "nimfa",
+   "cechy": {
+    "naga": true,
+    "w_obiekcie": null,
+    "korona": true,
+    "wlosy": "rozpuszczone",
+    "trzyma": "gwiazda",
+    "kierunek": "prawo",
+    "gwiazda_promienie": 8,
+    "gwiazda_ogon": false,
+    "gwiazda_kolor": "zolty"
+   },
+   "pozycja": {
+    "krag": "wewn",
+    "kolejnosc": 2,
+    "kat": 112.8,
+    "promien": 0.351,
+    "x": 0.8305,
+    "y": 0.5133
+   },
+   "etykieta": {
+    "locus": "29",
+    "rodzaj": "Lz",
+    "slowa": [
+     "oraiiral"
+    ]
+   },
+   "zrodlo": "vision",
+   "pewnosc": 1,
+   "uwaga": "szkic z GPU: postaci 30 (oczekiwano 30), etykiet 29; model widzi znak 'rak', tabela mówi 'rak'; sprawdzić kolejność na PNG"
+  },
+  {
+   "id": "f72r3-26",
+   "typ": "nimfa",
+   "cechy": {
+    "naga": true,
+    "w_obiekcie": null,
+    "korona": false,
+    "wlosy": "nie_widac",
+    "trzyma": "gwiazda",
+    "kierunek": "prawo",
+    "gwiazda_promienie": 6,
+    "gwiazda_ogon": false,
+    "gwiazda_kolor": "inny"
+   },
+   "pozycja": {
+    "krag": "wewn",
+    "kolejnosc": 3,
+    "kat": 176.1,
+    "promien": 0.371,
+    "x": 0.796,
+    "y": 0.5931
+   },
+   "etykieta": {
+    "locus": "30",
+    "rodzaj": "Lz",
+    "slowa": [
+     "ytoar",
+     "shar"
+    ]
+   },
+   "zrodlo": "vision",
+   "pewnosc": 1,
+   "uwaga": "szkic z GPU: postaci 30 (oczekiwano 30), etykiet 29; model widzi znak 'rak', tabela mówi 'rak'; sprawdzić kolejność na PNG"
+  },
+  {
+   "id": "f72r3-27",
+   "typ": "nimfa",
+   "cechy": {
+    "naga": true,
+    "w_obiekcie": null,
+    "korona": false,
+    "wlosy": "rozpuszczone",
+    "trzyma": "gwiazda",
+    "kierunek": "prawo",
+    "gwiazda_promienie": 8,
+    "gwiazda_ogon": false,
+    "gwiazda_kolor": "brak"
+   },
+   "pozycja": {
+    "krag": "wewn",
+    "kolejnosc": 4,
+    "kat": 217.5,
+    "promien": 0.413,
+    "x": 0.7639,
+    "y": 0.5786
+   },
+   "etykieta": {
+    "locus": "31",
+    "rodzaj": "Lz",
+    "slowa": [
+     "octho"
+    ]
+   },
+   "zrodlo": "vision",
+   "pewnosc": 1,
+   "uwaga": "szkic z GPU: postaci 30 (oczekiwano 30), etykiet 29; model widzi znak 'rak', tabela mówi 'rak'; sprawdzić kolejność na PNG"
+  },
+  {
+   "id": "f72r3-28",
+   "typ": "nimfa",
+   "cechy": {
+    "naga": true,
+    "w_obiekcie": null,
+    "korona": false,
+    "wlosy": "rozpuszczone",
+    "trzyma": "gwiazda",
+    "kierunek": "prawo",
+    "gwiazda_promienie": 8,
+    "gwiazda_ogon": false,
+    "gwiazda_kolor": "zolty"
+   },
+   "pozycja": {
+    "krag": "wewn",
+    "kolejnosc": 5,
+    "kat": 264.7,
+    "promien": 0.319,
+    "x": 0.7562,
+    "y": 0.4771
+   },
+   "etykieta": {
+    "locus": "32",
+    "rodzaj": "Lz",
+    "slowa": [
+     "aral"
+    ]
+   },
+   "zrodlo": "vision",
+   "pewnosc": 1,
+   "uwaga": "szkic z GPU: postaci 30 (oczekiwano 30), etykiet 29; model widzi znak 'rak', tabela mówi 'rak'; sprawdzić kolejność na PNG"
+  },
+  {
+   "id": "f72r3-29",
+   "typ": "nimfa",
+   "cechy": {
+    "naga": true,
+    "w_obiekcie": null,
+    "korona": false,
+    "wlosy": "rozpuszczone",
+    "trzyma": "gwiazda",
+    "kierunek": "prawo",
+    "gwiazda_promienie": 8,
+    "gwiazda_ogon": false,
+    "gwiazda_kolor": "zolty"
+   },
+   "pozycja": {
+    "krag": "wewn",
+    "kolejnosc": 6,
+    "kat": 303.7,
+    "promien": 0.33,
+    "x": 0.7612,
+    "y": 0.4046
+   },
+   "etykieta": {
+    "locus": "33",
+    "rodzaj": "Lz",
+    "slowa": [
+     "oletal"
+    ]
+   },
+   "zrodlo": "vision",
+   "pewnosc": 1,
+   "uwaga": "szkic z GPU: postaci 30 (oczekiwano 30), etykiet 29; model widzi znak 'rak', tabela mówi 'rak'; sprawdzić kolejność na PNG"
+  },
+  {
+   "id": "f72r3-x30",
+   "typ": "nimfa",
+   "cechy": {
+    "naga": true,
+    "w_obiekcie": null,
+    "korona": false,
+    "wlosy": "rozpuszczone",
+    "trzyma": "gwiazda",
+    "kierunek": "prawo",
+    "gwiazda_promienie": 8,
+    "gwiazda_ogon": false,
+    "gwiazda_kolor": "zolty"
+   },
+   "pozycja": {
+    "krag": "wewn",
+    "kolejnosc": 7,
+    "kat": 356.5,
+    "promien": 0.312,
+    "x": 0.7908,
+    "y": 0.3612
+   },
+   "etykieta": null,
+   "zrodlo": "vision",
+   "pewnosc": 1,
+   "uwaga": "punkt bez etykiety; szkic z GPU: postaci 30 (oczekiwano 30), etykiet 29; model widzi znak 'rak', tabela mówi 'rak'; sprawdzić kolejność na PNG"
+  }
+ ]
+}

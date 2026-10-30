@@ -1,0 +1,993 @@
+{
+ "strona": "f73r",
+ "dzial": "zodiac",
+ "jezyk": "?",
+ "atomy": [
+  {
+   "id": "f73r-01",
+   "typ": "nimfa",
+   "cechy": {
+    "naga": true,
+    "w_obiekcie": null,
+    "korona": true,
+    "wlosy": "rozpuszczone",
+    "trzyma": "gwiazda",
+    "kierunek": "prawo",
+    "gwiazda_promienie": 8,
+    "gwiazda_ogon": false,
+    "gwiazda_kolor": "zolty"
+   },
+   "pozycja": {
+    "krag": "zewn",
+    "kolejnosc": 1,
+    "kat": 7.7,
+    "promien": 0.977,
+    "x": 0.5058,
+    "y": 0.1279
+   },
+   "etykieta": {
+    "locus": "1",
+    "rodzaj": "Lz",
+    "slowa": [
+     "otaly"
+    ]
+   },
+   "zrodlo": "vision",
+   "pewnosc": 1,
+   "uwaga": "szkic z GPU: postaci 29 (oczekiwano 30), etykiet 30; model widzi znak 'strzelec', tabela mówi 'skorpion'; sprawdzić kolejność na PNG"
+  },
+  {
+   "id": "f73r-02",
+   "typ": "nimfa",
+   "cechy": {
+    "naga": true,
+    "w_obiekcie": null,
+    "korona": false,
+    "wlosy": "rozpuszczone",
+    "trzyma": "gwiazda",
+    "kierunek": "prawo",
+    "gwiazda_promienie": 8,
+    "gwiazda_ogon": false,
+    "gwiazda_kolor": "inny"
+   },
+   "pozycja": {
+    "krag": "zewn",
+    "kolejnosc": 2,
+    "kat": 18.2,
+    "promien": 0.938,
+    "x": 0.572,
+    "y": 0.1517
+   },
+   "etykieta": {
+    "locus": "2",
+    "rodzaj": "Lz",
+    "slowa": [
+     "chockhy"
+    ]
+   },
+   "zrodlo": "vision",
+   "pewnosc": 1,
+   "uwaga": "szkic z GPU: postaci 29 (oczekiwano 30), etykiet 30; model widzi znak 'strzelec', tabela mówi 'skorpion'; sprawdzić kolejność na PNG"
+  },
+  {
+   "id": "f73r-03",
+   "typ": "nimfa",
+   "cechy": {
+    "naga": true,
+    "w_obiekcie": null,
+    "korona": false,
+    "wlosy": "rozpuszczone",
+    "trzyma": "gwiazda",
+    "kierunek": "prawo",
+    "gwiazda_promienie": 8,
+    "gwiazda_ogon": false,
+    "gwiazda_kolor": "brak"
+   },
+   "pozycja": {
+    "krag": "zewn",
+    "kolejnosc": 3,
+    "kat": 20.5,
+    "promien": 0.296,
+    "x": 0.4945,
+    "y": 0.3414
+   },
+   "etykieta": {
+    "locus": "3",
+    "rodzaj": "Lz",
+    "slowa": [
+     "otedy"
+    ]
+   },
+   "zrodlo": "vision",
+   "pewnosc": 1,
+   "uwaga": "szkic z GPU: postaci 29 (oczekiwano 30), etykiet 30; model widzi znak 'strzelec', tabela mówi 'skorpion'; sprawdzić kolejność na PNG"
+  },
+  {
+   "id": "f73r-04",
+   "typ": "nimfa",
+   "cechy": {
+    "naga": true,
+    "w_obiekcie": null,
+    "korona": false,
+    "wlosy": "rozpuszczone",
+    "trzyma": "gwiazda",
+    "kierunek": "prawo",
+    "gwiazda_promienie": 8,
+    "gwiazda_ogon": false,
+    "gwiazda_kolor": "zolty"
+   },
+   "pozycja": {
+    "krag": "zewn",
+    "kolejnosc": 4,
+    "kat": 23.5,
+    "promien": 0.591,
+    "x": 0.5484,
+    "y": 0.2596
+   },
+   "etykieta": {
+    "locus": "4",
+    "rodzaj": "Lz",
+    "slowa": [
+     "yteeody"
+    ]
+   },
+   "zrodlo": "vision",
+   "pewnosc": 1,
+   "uwaga": "szkic z GPU: postaci 29 (oczekiwano 30), etykiet 30; model widzi znak 'strzelec', tabela mówi 'skorpion'; sprawdzić kolejność na PNG"
+  },
+  {
+   "id": "f73r-05",
+   "typ": "nimfa",
+   "cechy": {
+    "naga": true,
+    "w_obiekcie": null,
+    "korona": false,
+    "wlosy": "upiete",
+    "trzyma": "gwiazda",
+    "kierunek": "prawo",
+    "gwiazda_promienie": 5,
+    "gwiazda_ogon": false,
+    "gwiazda_kolor": "brak"
+   },
+   "pozycja": {
+    "krag": "zewn",
+    "kolejnosc": 5,
+    "kat": 45.6,
+    "promien": 0.603,
+    "x": 0.6288,
+    "y": 0.2967
+   },
+   "etykieta": {
+    "locus": "6",
+    "rodzaj": "Lz",
+    "slowa": [
+     "otaly"
+    ]
+   },
+   "zrodlo": "vision",
+   "pewnosc": 1,
+   "uwaga": "szkic z GPU: postaci 29 (oczekiwano 30), etykiet 30; model widzi znak 'strzelec', tabela mówi 'skorpion'; sprawdzić kolejność na PNG"
+  },
+  {
+   "id": "f73r-06",
+   "typ": "nimfa",
+   "cechy": {
+    "naga": true,
+    "w_obiekcie": null,
+    "korona": false,
+    "wlosy": "rozpuszczone",
+    "trzyma": "gwiazda",
+    "kierunek": "prawo",
+    "gwiazda_promienie": 8,
+    "gwiazda_ogon": false,
+    "gwiazda_kolor": "brak"
+   },
+   "pozycja": {
+    "krag": "zewn",
+    "kolejnosc": 6,
+    "kat": 73.0,
+    "promien": 0.313,
+    "x": 0.5749,
+    "y": 0.3986
+   },
+   "etykieta": {
+    "locus": "7",
+    "rodzaj": "Lz",
+    "slowa": [
+     "okeody"
+    ]
+   },
+   "zrodlo": "vision",
+   "pewnosc": 1,
+   "uwaga": "szkic z GPU: postaci 29 (oczekiwano 30), etykiet 30; model widzi znak 'strzelec', tabela mówi 'skorpion'; sprawdzić kolejność na PNG"
+  },
+  {
+   "id": "f73r-07",
+   "typ": "nimfa",
+   "cechy": {
+    "naga": true,
+    "w_obiekcie": null,
+    "korona": false,
+    "wlosy": "rozpuszczone",
+    "trzyma": "gwiazda",
+    "kierunek": "prawo",
+    "gwiazda_promienie": 6,
+    "gwiazda_ogon": false,
+    "gwiazda_kolor": "zolty"
+   },
+   "pozycja": {
+    "krag": "zewn",
+    "kolejnosc": 7,
+    "kat": 73.1,
+    "promien": 0.663,
+    "x": 0.712,
+    "y": 0.3674
+   },
+   "etykieta": {
+    "locus": "8",
+    "rodzaj": "Lz",
+    "slowa": [
+     "oteedyl"
+    ]
+   },
+   "zrodlo": "vision",
+   "pewnosc": 1,
+   "uwaga": "szkic z GPU: postaci 29 (oczekiwano 30), etykiet 30; model widzi znak 'strzelec', tabela mówi 'skorpion'; sprawdzić kolejność na PNG"
+  },
+  {
+   "id": "f73r-08",
+   "typ": "nimfa",
+   "cechy": {
+    "naga": true,
+    "w_obiekcie": null,
+    "korona": false,
+    "wlosy": "rozpuszczone",
+    "trzyma": "gwiazda",
+    "kierunek": "prawo",
+    "gwiazda_promienie": 8,
+    "gwiazda_ogon": false,
+    "gwiazda_kolor": "brak"
+   },
+   "pozycja": {
+    "krag": "zewn",
+    "kolejnosc": 8,
+    "kat": 97.7,
+    "promien": 0.698,
+    "x": 0.7356,
+    "y": 0.4559
+   },
+   "etykieta": {
+    "locus": "9",
+    "rodzaj": "Lz",
+    "slowa": [
+     "ykeedy"
+    ]
+   },
+   "zrodlo": "vision",
+   "pewnosc": 1,
+   "uwaga": "szkic z GPU: postaci 29 (oczekiwano 30), etykiet 30; model widzi znak 'strzelec', tabela mówi 'skorpion'; sprawdzić kolejność na PNG"
+  },
+  {
+   "id": "f73r-09",
+   "typ": "nimfa",
+   "cechy": {
+    "naga": false,
+    "w_obiekcie": null,
+    "korona": false,
+    "wlosy": "nie_widac",
+    "trzyma": "gwiazda",
+    "kierunek": "prawo",
+    "gwiazda_promienie": 5,
+    "gwiazda_ogon": false,
+    "gwiazda_kolor": "brak"
+   },
+   "pozycja": {
+    "krag": "zewn",
+    "kolejnosc": 9,
+    "kat": 119.6,
+    "promien": 0.755,
+    "x": 0.7214,
+    "y": 0.5422
+   },
+   "etykieta": {
+    "locus": "10",
+    "rodzaj": "Lz",
+    "slowa": [
+     "okeey"
+    ]
+   },
+   "zrodlo": "vision",
+   "pewnosc": 1,
+   "uwaga": "szkic z GPU: postaci 29 (oczekiwano 30), etykiet 30; model widzi znak 'strzelec', tabela mówi 'skorpion'; sprawdzić kolejność na PNG"
+  },
+  {
+   "id": "f73r-10",
+   "typ": "nimfa",
+   "cechy": {
+    "naga": false,
+    "w_obiekcie": null,
+    "korona": false,
+    "wlosy": "rozpuszczone",
+    "trzyma": "gwiazda",
+    "kierunek": "prawo",
+    "gwiazda_promienie": 8,
+    "gwiazda_ogon": false,
+    "gwiazda_kolor": "brak"
+   },
+   "pozycja": {
+    "krag": "zewn",
+    "kolejnosc": 10,
+    "kat": 123.4,
+    "promien": 0.414,
+    "x": 0.5938,
+    "y": 0.4976
+   },
+   "etykieta": {
+    "locus": "11",
+    "rodzaj": "Lz",
+    "slowa": [
+     "okeedy"
+    ]
+   },
+   "zrodlo": "vision",
+   "pewnosc": 1,
+   "uwaga": "szkic z GPU: postaci 29 (oczekiwano 30), etykiet 30; model widzi znak 'strzelec', tabela mówi 'skorpion'; sprawdzić kolejność na PNG"
+  },
+  {
+   "id": "f73r-11",
+   "typ": "nimfa",
+   "cechy": {
+    "naga": false,
+    "w_obiekcie": null,
+    "korona": false,
+    "wlosy": "rozpuszczone",
+    "trzyma": "gwiazda",
+    "kierunek": "prawo",
+    "gwiazda_promienie": 8,
+    "gwiazda_ogon": false,
+    "gwiazda_kolor": "brak"
+   },
+   "pozycja": {
+    "krag": "zewn",
+    "kolejnosc": 11,
+    "kat": 145.0,
+    "promien": 0.823,
+    "x": 0.6458,
+    "y": 0.6352
+   },
+   "etykieta": {
+    "locus": "12",
+    "rodzaj": "Lz",
+    "slowa": [
+     "ykeeory"
+    ]
+   },
+   "zrodlo": "vision",
+   "pewnosc": 1,
+   "uwaga": "szkic z GPU: postaci 29 (oczekiwano 30), etykiet 30; model widzi znak 'strzelec', tabela mówi 'skorpion'; sprawdzić kolejność na PNG"
+  },
+  {
+   "id": "f73r-12",
+   "typ": "nimfa",
+   "cechy": {
+    "naga": null,
+    "w_obiekcie": null,
+    "korona": null,
+    "wlosy": "nie_widac",
+    "trzyma": "gwiazda",
+    "kierunek": "przod",
+    "gwiazda_promienie": 5,
+    "gwiazda_ogon": false,
+    "gwiazda_kolor": "brak"
+   },
+   "pozycja": {
+    "krag": "zewn",
+    "kolejnosc": 12,
+    "kat": 167.5,
+    "promien": 0.446,
+    "x": 0.4917,
+    "y": 0.5615
+   },
+   "etykieta": {
+    "locus": "13",
+    "rodzaj": "Lz",
+    "slowa": [
+     "oteeosy"
+    ]
+   },
+   "zrodlo": "vision",
+   "pewnosc": 1,
+   "uwaga": "szkic z GPU: postaci 29 (oczekiwano 30), etykiet 30; model widzi znak 'strzelec', tabela mówi 'skorpion'; sprawdzić kolejność na PNG"
+  },
+  {
+   "id": "f73r-13",
+   "typ": "nimfa",
+   "cechy": {
+    "naga": false,
+    "w_obiekcie": null,
+    "korona": false,
+    "wlosy": "nie_widac",
+    "trzyma": "gwiazda",
+    "kierunek": "przod",
+    "gwiazda_promienie": 5,
+    "gwiazda_ogon": false,
+    "gwiazda_kolor": "brak"
+   },
+   "pozycja": {
+    "krag": "zewn",
+    "kolejnosc": 13,
+    "kat": 168.7,
+    "promien": 0.881,
+    "x": 0.5229,
+    "y": 0.6939
+   },
+   "etykieta": {
+    "locus": "14",
+    "rodzaj": "Lz",
+    "slowa": [
+     "shekal"
+    ]
+   },
+   "zrodlo": "vision",
+   "pewnosc": 1,
+   "uwaga": "szkic z GPU: postaci 29 (oczekiwano 30), etykiet 30; model widzi znak 'strzelec', tabela mówi 'skorpion'; sprawdzić kolejność na PNG"
+  },
+  {
+   "id": "f73r-14",
+   "typ": "nimfa",
+   "cechy": {
+    "naga": false,
+    "w_obiekcie": null,
+    "korona": false,
+    "wlosy": "rozpuszczone",
+    "trzyma": "gwiazda",
+    "kierunek": "prawo",
+    "gwiazda_promienie": 5,
+    "gwiazda_ogon": false,
+    "gwiazda_kolor": "brak"
+   },
+   "pozycja": {
+    "krag": "zewn",
+    "kolejnosc": 14,
+    "kat": 186.7,
+    "promien": 0.455,
+    "x": 0.4302,
+    "y": 0.5667
+   },
+   "etykieta": {
+    "locus": "15",
+    "rodzaj": "Lz",
+    "slowa": [
+     "oteedyy"
+    ]
+   },
+   "zrodlo": "vision",
+   "pewnosc": 1,
+   "uwaga": "szkic z GPU: postaci 29 (oczekiwano 30), etykiet 30; model widzi znak 'strzelec', tabela mówi 'skorpion'; sprawdzić kolejność na PNG"
+  },
+  {
+   "id": "f73r-15",
+   "typ": "nimfa",
+   "cechy": {
+    "naga": null,
+    "w_obiekcie": null,
+    "korona": null,
+    "wlosy": null,
+    "trzyma": null,
+    "kierunek": null,
+    "gwiazda_promienie": 6,
+    "gwiazda_ogon": false,
+    "gwiazda_kolor": "zolty"
+   },
+   "pozycja": {
+    "krag": "zewn",
+    "kolejnosc": 15,
+    "kat": 192.2,
+    "promien": 0.849,
+    "x": 0.3782,
+    "y": 0.6835
+   },
+   "etykieta": {
+    "locus": "16",
+    "rodzaj": "Lz",
+    "slowa": [
+     "okedal"
+    ]
+   },
+   "zrodlo": "vision",
+   "pewnosc": 1,
+   "uwaga": "szkic z GPU: postaci 29 (oczekiwano 30), etykiet 30; model widzi znak 'strzelec', tabela mówi 'skorpion'; sprawdzić kolejność na PNG"
+  },
+  {
+   "id": "f73r-16",
+   "typ": "nimfa",
+   "cechy": {
+    "naga": false,
+    "w_obiekcie": null,
+    "korona": false,
+    "wlosy": "rozpuszczone",
+    "trzyma": "gwiazda",
+    "kierunek": "prawo",
+    "gwiazda_promienie": 5,
+    "gwiazda_ogon": false,
+    "gwiazda_kolor": "brak"
+   },
+   "pozycja": {
+    "krag": "zewn",
+    "kolejnosc": 16,
+    "kat": 209.3,
+    "promien": 0.816,
+    "x": 0.2884,
+    "y": 0.6471
+   },
+   "etykieta": {
+    "locus": "17",
+    "rodzaj": "Lz",
+    "slowa": [
+     "chdy"
+    ]
+   },
+   "zrodlo": "vision",
+   "pewnosc": 1,
+   "uwaga": "szkic z GPU: postaci 29 (oczekiwano 30), etykiet 30; model widzi znak 'strzelec', tabela mówi 'skorpion'; sprawdzić kolejność na PNG"
+  },
+  {
+   "id": "f73r-17",
+   "typ": "nimfa",
+   "cechy": {
+    "naga": false,
+    "w_obiekcie": null,
+    "korona": false,
+    "wlosy": "nie_widac",
+    "trzyma": "gwiazda",
+    "kierunek": "prawo",
+    "gwiazda_promienie": 6,
+    "gwiazda_ogon": false,
+    "gwiazda_kolor": "brak"
+   },
+   "pozycja": {
+    "krag": "zewn",
+    "kolejnosc": 17,
+    "kat": 214.9,
+    "promien": 0.475,
+    "x": 0.3404,
+    "y": 0.5474
+   },
+   "etykieta": {
+    "locus": "18",
+    "rodzaj": "Lz",
+    "slowa": [
+     "dalshey"
+    ]
+   },
+   "zrodlo": "vision",
+   "pewnosc": 1,
+   "uwaga": "szkic z GPU: postaci 29 (oczekiwano 30), etykiet 30; model widzi znak 'strzelec', tabela mówi 'skorpion'; sprawdzić kolejność na PNG"
+  },
+  {
+   "id": "f73r-18",
+   "typ": "nimfa",
+   "cechy": {
+    "naga": true,
+    "w_obiekcie": null,
+    "korona": false,
+    "wlosy": "nie_widac",
+    "trzyma": "gwiazda",
+    "kierunek": "prawo",
+    "gwiazda_promienie": 5,
+    "gwiazda_ogon": false,
+    "gwiazda_kolor": "brak"
+   },
+   "pozycja": {
+    "krag": "zewn",
+    "kolejnosc": 18,
+    "kat": 223.5,
+    "promien": 0.713,
+    "x": 0.2506,
+    "y": 0.5868
+   },
+   "etykieta": {
+    "locus": "19",
+    "rodzaj": "Lz",
+    "slowa": [
+     "opaiin"
+    ]
+   },
+   "zrodlo": "vision",
+   "pewnosc": 1,
+   "uwaga": "szkic z GPU: postaci 29 (oczekiwano 30), etykiet 30; model widzi znak 'strzelec', tabela mówi 'skorpion'; sprawdzić kolejność na PNG"
+  },
+  {
+   "id": "f73r-19",
+   "typ": "nimfa",
+   "cechy": {
+    "naga": true,
+    "w_obiekcie": null,
+    "korona": false,
+    "wlosy": "rozpuszczone",
+    "trzyma": "gwiazda",
+    "kierunek": "przod",
+    "gwiazda_promienie": 5,
+    "gwiazda_ogon": false,
+    "gwiazda_kolor": "brak"
+   },
+   "pozycja": {
+    "krag": "zewn",
+    "kolejnosc": 19,
+    "kat": 244.3,
+    "promien": 0.404,
+    "x": 0.3026,
+    "y": 0.4812
+   },
+   "etykieta": {
+    "locus": "20",
+    "rodzaj": "Lz",
+    "slowa": [
+     "okeos"
+    ]
+   },
+   "zrodlo": "vision",
+   "pewnosc": 1,
+   "uwaga": "szkic z GPU: postaci 29 (oczekiwano 30), etykiet 30; model widzi znak 'strzelec', tabela mówi 'skorpion'; sprawdzić kolejność na PNG"
+  },
+  {
+   "id": "f73r-20",
+   "typ": "nimfa",
+   "cechy": {
+    "naga": true,
+    "w_obiekcie": null,
+    "korona": false,
+    "wlosy": "rozpuszczone",
+    "trzyma": "gwiazda",
+    "kierunek": "prawo",
+    "gwiazda_promienie": 8,
+    "gwiazda_ogon": false,
+    "gwiazda_kolor": "brak"
+   },
+   "pozycja": {
+    "krag": "zewn",
+    "kolejnosc": 20,
+    "kat": 247.7,
+    "promien": 0.73,
+    "x": 0.1749,
+    "y": 0.5124
+   },
+   "etykieta": {
+    "locus": "21",
+    "rodzaj": "Lz",
+    "slowa": [
+     "otey"
+    ]
+   },
+   "zrodlo": "vision",
+   "pewnosc": 1,
+   "uwaga": "szkic z GPU: postaci 29 (oczekiwano 30), etykiet 30; model widzi znak 'strzelec', tabela mówi 'skorpion'; sprawdzić kolejność na PNG"
+  },
+  {
+   "id": "f73r-21",
+   "typ": "nimfa",
+   "cechy": {
+    "naga": true,
+    "w_obiekcie": null,
+    "korona": false,
+    "wlosy": "rozpuszczone",
+    "trzyma": "gwiazda",
+    "kierunek": "prawo",
+    "gwiazda_promienie": 8,
+    "gwiazda_ogon": false,
+    "gwiazda_kolor": "brak"
+   },
+   "pozycja": {
+    "krag": "zewn",
+    "kolejnosc": 21,
+    "kat": 273.9,
+    "promien": 0.747,
+    "x": 0.1466,
+    "y": 0.4113
+   },
+   "etykieta": {
+    "locus": "23",
+    "rodzaj": "Lz",
+    "slowa": [
+     "okary"
+    ]
+   },
+   "zrodlo": "vision",
+   "pewnosc": 1,
+   "uwaga": "szkic z GPU: postaci 29 (oczekiwano 30), etykiet 30; model widzi znak 'strzelec', tabela mówi 'skorpion'; sprawdzić kolejność na PNG"
+  },
+  {
+   "id": "f73r-22",
+   "typ": "nimfa",
+   "cechy": {
+    "naga": true,
+    "w_obiekcie": null,
+    "korona": false,
+    "wlosy": "rozpuszczone",
+    "trzyma": "gwiazda",
+    "kierunek": "prawo",
+    "gwiazda_promienie": 8,
+    "gwiazda_ogon": false,
+    "gwiazda_kolor": "brak"
+   },
+   "pozycja": {
+    "krag": "zewn",
+    "kolejnosc": 22,
+    "kat": 280.2,
+    "promien": 0.616,
+    "x": 0.2033,
+    "y": 0.3934
+   },
+   "etykieta": {
+    "locus": "24",
+    "rodzaj": "Lz",
+    "slowa": [
+     "okeeody"
+    ]
+   },
+   "zrodlo": "vision",
+   "pewnosc": 1,
+   "uwaga": "szkic z GPU: postaci 29 (oczekiwano 30), etykiet 30; model widzi znak 'strzelec', tabela mówi 'skorpion'; sprawdzić kolejność na PNG"
+  },
+  {
+   "id": "f73r-23",
+   "typ": "nimfa",
+   "cechy": {
+    "naga": true,
+    "w_obiekcie": null,
+    "korona": false,
+    "wlosy": "rozpuszczone",
+    "trzyma": "gwiazda",
+    "kierunek": "prawo",
+    "gwiazda_promienie": 8,
+    "gwiazda_ogon": false,
+    "gwiazda_kolor": "brak"
+   },
+   "pozycja": {
+    "krag": "zewn",
+    "kolejnosc": 23,
+    "kat": 293.1,
+    "promien": 0.687,
+    "x": 0.1929,
+    "y": 0.3436
+   },
+   "etykieta": {
+    "locus": "25",
+    "rodzaj": "Lz",
+    "slowa": [
+     "oyteedy"
+    ]
+   },
+   "zrodlo": "vision",
+   "pewnosc": 1,
+   "uwaga": "szkic z GPU: postaci 29 (oczekiwano 30), etykiet 30; model widzi znak 'strzelec', tabela mówi 'skorpion'; sprawdzić kolejność na PNG"
+  },
+  {
+   "id": "f73r-24",
+   "typ": "nimfa",
+   "cechy": {
+    "naga": true,
+    "w_obiekcie": null,
+    "korona": false,
+    "wlosy": "rozpuszczone",
+    "trzyma": "gwiazda",
+    "kierunek": "przod",
+    "gwiazda_promienie": 5,
+    "gwiazda_ogon": false,
+    "gwiazda_kolor": "brak"
+   },
+   "pozycja": {
+    "krag": "zewn",
+    "kolejnosc": 24,
+    "kat": 315.4,
+    "promien": 0.65,
+    "x": 0.2647,
+    "y": 0.2841
+   },
+   "etykieta": {
+    "locus": "26",
+    "rodzaj": "Lz",
+    "slowa": [
+     "oky"
+    ]
+   },
+   "zrodlo": "vision",
+   "pewnosc": 1,
+   "uwaga": "szkic z GPU: postaci 29 (oczekiwano 30), etykiet 30; model widzi znak 'strzelec', tabela mówi 'skorpion'; sprawdzić kolejność na PNG"
+  },
+  {
+   "id": "f73r-25",
+   "typ": "nimfa",
+   "cechy": {
+    "naga": true,
+    "w_obiekcie": null,
+    "korona": false,
+    "wlosy": "rozpuszczone",
+    "trzyma": "gwiazda",
+    "kierunek": "prawo",
+    "gwiazda_promienie": 5,
+    "gwiazda_ogon": false,
+    "gwiazda_kolor": "brak"
+   },
+   "pozycja": {
+    "krag": "zewn",
+    "kolejnosc": 25,
+    "kat": 328.0,
+    "promien": 0.318,
+    "x": 0.3829,
+    "y": 0.3436
+   },
+   "etykieta": {
+    "locus": "27",
+    "rodzaj": "Lz",
+    "slowa": [
+     "chefy"
+    ]
+   },
+   "zrodlo": "vision",
+   "pewnosc": 1,
+   "uwaga": "szkic z GPU: postaci 29 (oczekiwano 30), etykiet 30; model widzi znak 'strzelec', tabela mówi 'skorpion'; sprawdzić kolejność na PNG"
+  },
+  {
+   "id": "f73r-26",
+   "typ": "nimfa",
+   "cechy": {
+    "naga": true,
+    "w_obiekcie": null,
+    "korona": false,
+    "wlosy": "rozpuszczone",
+    "trzyma": "gwiazda",
+    "kierunek": "prawo",
+    "gwiazda_promienie": 5,
+    "gwiazda_ogon": false,
+    "gwiazda_kolor": "brak"
+   },
+   "pozycja": {
+    "krag": "zewn",
+    "kolejnosc": 26,
+    "kat": 335.2,
+    "promien": 0.65,
+    "x": 0.3404,
+    "y": 0.2447
+   },
+   "etykieta": {
+    "locus": "28",
+    "rodzaj": "Lz",
+    "slowa": [
+     "otal"
+    ]
+   },
+   "zrodlo": "vision",
+   "pewnosc": 1,
+   "uwaga": "szkic z GPU: postaci 29 (oczekiwano 30), etykiet 30; model widzi znak 'strzelec', tabela mówi 'skorpion'; sprawdzić kolejność na PNG"
+  },
+  {
+   "id": "f73r-27",
+   "typ": "nimfa",
+   "cechy": {
+    "naga": true,
+    "w_obiekcie": null,
+    "korona": true,
+    "wlosy": "rozpuszczone",
+    "trzyma": "gwiazda",
+    "kierunek": "prawo",
+    "gwiazda_promienie": 8,
+    "gwiazda_ogon": false,
+    "gwiazda_kolor": "inny"
+   },
+   "pozycja": {
+    "krag": "zewn",
+    "kolejnosc": 27,
+    "kat": 336.9,
+    "promien": 1.0,
+    "x": 0.2912,
+    "y": 0.1428
+   },
+   "etykieta": {
+    "locus": "29",
+    "rodzaj": "Lz",
+    "slowa": [
+     "chek"
+    ]
+   },
+   "zrodlo": "vision",
+   "pewnosc": 1,
+   "uwaga": "szkic z GPU: postaci 29 (oczekiwano 30), etykiet 30; model widzi znak 'strzelec', tabela mówi 'skorpion'; sprawdzić kolejność na PNG"
+  },
+  {
+   "id": "f73r-28",
+   "typ": "nimfa",
+   "cechy": {
+    "naga": true,
+    "w_obiekcie": null,
+    "korona": false,
+    "wlosy": "rozpuszczone",
+    "trzyma": "gwiazda",
+    "kierunek": "prawo",
+    "gwiazda_promienie": 8,
+    "gwiazda_ogon": false,
+    "gwiazda_kolor": "brak"
+   },
+   "pozycja": {
+    "krag": "zewn",
+    "kolejnosc": 28,
+    "kat": 351.2,
+    "promien": 0.955,
+    "x": 0.3924,
+    "y": 0.1353
+   },
+   "etykieta": {
+    "locus": "30",
+    "rodzaj": "Lz",
+    "slowa": [
+     "ar"
+    ]
+   },
+   "zrodlo": "vision",
+   "pewnosc": 1,
+   "uwaga": "szkic z GPU: postaci 29 (oczekiwano 30), etykiet 30; model widzi znak 'strzelec', tabela mówi 'skorpion'; sprawdzić kolejność na PNG"
+  },
+  {
+   "id": "f73r-29",
+   "typ": "nimfa",
+   "cechy": {
+    "naga": true,
+    "w_obiekcie": null,
+    "korona": false,
+    "wlosy": "upiete",
+    "trzyma": "gwiazda",
+    "kierunek": "prawo",
+    "gwiazda_promienie": 8,
+    "gwiazda_ogon": false,
+    "gwiazda_kolor": "brak"
+   },
+   "pozycja": {
+    "krag": "zewn",
+    "kolejnosc": 29,
+    "kat": 357.2,
+    "promien": 0.615,
+    "x": 0.4397,
+    "y": 0.2372
+   },
+   "etykieta": {
+    "locus": "31",
+    "rodzaj": "Lz",
+    "slowa": [
+     "kar"
+    ]
+   },
+   "zrodlo": "vision",
+   "pewnosc": 1,
+   "uwaga": "szkic z GPU: postaci 29 (oczekiwano 30), etykiet 30; model widzi znak 'strzelec', tabela mówi 'skorpion'; sprawdzić kolejność na PNG"
+  },
+  {
+   "id": "f73r-30",
+   "typ": "nimfa",
+   "cechy": {
+    "naga": null,
+    "w_obiekcie": null,
+    "korona": null,
+    "wlosy": null,
+    "trzyma": null,
+    "kierunek": null,
+    "gwiazda_promienie": null,
+    "gwiazda_ogon": null,
+    "gwiazda_kolor": null
+   },
+   "pozycja": {
+    "krag": null,
+    "kolejnosc": 30
+   },
+   "etykieta": {
+    "locus": "32",
+    "rodzaj": "Lz",
+    "slowa": [
+     "okeeos"
+    ]
+   },
+   "zrodlo": "",
+   "pewnosc": null,
+   "uwaga": ""
+  }
+ ]
+}

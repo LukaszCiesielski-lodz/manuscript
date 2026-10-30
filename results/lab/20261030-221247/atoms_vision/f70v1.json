@@ -1,0 +1,512 @@
+{
+ "strona": "f70v1",
+ "dzial": "zodiac",
+ "jezyk": "?",
+ "atomy": [
+  {
+   "id": "f70v1-01",
+   "typ": "nimfa",
+   "cechy": {
+    "naga": false,
+    "w_obiekcie": "nic",
+    "korona": false,
+    "wlosy": "upiete",
+    "trzyma": "gwiazda",
+    "kierunek": "prawo",
+    "gwiazda_promienie": 8,
+    "gwiazda_ogon": false,
+    "gwiazda_kolor": "zolty"
+   },
+   "pozycja": {
+    "krag": "zewn",
+    "kolejnosc": 1,
+    "kat": 37.1,
+    "promien": 0.945,
+    "x": 0.7561,
+    "y": 0.2703
+   },
+   "etykieta": {
+    "locus": "2",
+    "rodzaj": "Lz",
+    "slowa": [
+     "otalchy",
+     "tar",
+     "am",
+     "dy"
+    ]
+   },
+   "zrodlo": "vision",
+   "pewnosc": 1,
+   "uwaga": "szkic z GPU: postaci 15 (oczekiwano 15), etykiet 15; model widzi znak 'byk', tabela mówi 'baran'; sprawdzić kolejność na PNG"
+  },
+  {
+   "id": "f70v1-02",
+   "typ": "nimfa",
+   "cechy": {
+    "naga": false,
+    "w_obiekcie": null,
+    "korona": false,
+    "wlosy": "rozpuszczone",
+    "trzyma": "gwiazda",
+    "kierunek": "prawo",
+    "gwiazda_promienie": 6,
+    "gwiazda_ogon": false,
+    "gwiazda_kolor": "inny"
+   },
+   "pozycja": {
+    "krag": "zewn",
+    "kolejnosc": 2,
+    "kat": 77.3,
+    "promien": 0.908,
+    "x": 0.8573,
+    "y": 0.4133
+   },
+   "etykieta": {
+    "locus": "3",
+    "rodzaj": "Lz",
+    "slowa": [
+     "opchey",
+     "sal"
+    ]
+   },
+   "zrodlo": "vision",
+   "pewnosc": 1,
+   "uwaga": "szkic z GPU: postaci 15 (oczekiwano 15), etykiet 15; model widzi znak 'byk', tabela mówi 'baran'; sprawdzić kolejność na PNG"
+  },
+  {
+   "id": "f70v1-03",
+   "typ": "nimfa",
+   "cechy": {
+    "naga": false,
+    "w_obiekcie": null,
+    "korona": false,
+    "wlosy": "upiete",
+    "trzyma": "gwiazda",
+    "kierunek": "prawo",
+    "gwiazda_promienie": 8,
+    "gwiazda_ogon": false,
+    "gwiazda_kolor": "inny"
+   },
+   "pozycja": {
+    "krag": "zewn",
+    "kolejnosc": 3,
+    "kat": 109.4,
+    "promien": 0.833,
+    "x": 0.8251,
+    "y": 0.5365
+   },
+   "etykieta": {
+    "locus": "4",
+    "rodzaj": "Lz",
+    "slowa": [
+     "otakaizan"
+    ]
+   },
+   "zrodlo": "vision",
+   "pewnosc": 1,
+   "uwaga": "szkic z GPU: postaci 15 (oczekiwano 15), etykiet 15; model widzi znak 'byk', tabela mówi 'baran'; sprawdzić kolejność na PNG"
+  },
+  {
+   "id": "f70v1-04",
+   "typ": "nimfa",
+   "cechy": {
+    "naga": false,
+    "w_obiekcie": null,
+    "korona": false,
+    "wlosy": "rozpuszczone",
+    "trzyma": "gwiazda",
+    "kierunek": "przod",
+    "gwiazda_promienie": 5,
+    "gwiazda_ogon": false,
+    "gwiazda_kolor": "brak"
+   },
+   "pozycja": {
+    "krag": "zewn",
+    "kolejnosc": 4,
+    "kat": 135.7,
+    "promien": 0.858,
+    "x": 0.7653,
+    "y": 0.6239
+   },
+   "etykieta": {
+    "locus": "5",
+    "rodzaj": "Lz",
+    "slowa": [
+     "okalal"
+    ]
+   },
+   "zrodlo": "vision",
+   "pewnosc": 1,
+   "uwaga": "szkic z GPU: postaci 15 (oczekiwano 15), etykiet 15; model widzi znak 'byk', tabela mówi 'baran'; sprawdzić kolejność na PNG"
+  },
+  {
+   "id": "f70v1-05",
+   "typ": "nimfa",
+   "cechy": {
+    "naga": false,
+    "w_obiekcie": null,
+    "korona": false,
+    "wlosy": "upiete",
+    "trzyma": "gwiazda",
+    "kierunek": "przod",
+    "gwiazda_promienie": 6,
+    "gwiazda_ogon": false,
+    "gwiazda_kolor": "brak"
+   },
+   "pozycja": {
+    "krag": "zewn",
+    "kolejnosc": 5,
+    "kat": 172.5,
+    "promien": 0.853,
+    "x": 0.6088,
+    "y": 0.6835
+   },
+   "etykieta": {
+    "locus": "6",
+    "rodzaj": "Lz",
+    "slowa": [
+     "otaly"
+    ]
+   },
+   "zrodlo": "vision",
+   "pewnosc": 1,
+   "uwaga": "szkic z GPU: postaci 15 (oczekiwano 15), etykiet 15; model widzi znak 'byk', tabela mówi 'baran'; sprawdzić kolejność na PNG"
+  },
+  {
+   "id": "f70v1-06",
+   "typ": "nimfa",
+   "cechy": {
+    "naga": false,
+    "w_obiekcie": "nic",
+    "korona": false,
+    "wlosy": "nie_widac",
+    "trzyma": "gwiazda",
+    "kierunek": "prawo",
+    "gwiazda_promienie": 6,
+    "gwiazda_ogon": false,
+    "gwiazda_kolor": "brak"
+   },
+   "pozycja": {
+    "krag": "zewn",
+    "kolejnosc": 6,
+    "kat": 209.1,
+    "promien": 0.862,
+    "x": 0.4385,
+    "y": 0.6597
+   },
+   "etykieta": {
+    "locus": "7",
+    "rodzaj": "Lz",
+    "slowa": [
+     "oalcheg"
+    ]
+   },
+   "zrodlo": "vision",
+   "pewnosc": 1,
+   "uwaga": "szkic z GPU: postaci 15 (oczekiwano 15), etykiet 15; model widzi znak 'byk', tabela mówi 'baran'; sprawdzić kolejność na PNG"
+  },
+  {
+   "id": "f70v1-07",
+   "typ": "nimfa",
+   "cechy": {
+    "naga": false,
+    "w_obiekcie": "nic",
+    "korona": false,
+    "wlosy": "rozpuszczone",
+    "trzyma": "gwiazda",
+    "kierunek": "prawo",
+    "gwiazda_promienie": 5,
+    "gwiazda_ogon": false,
+    "gwiazda_kolor": "brak"
+   },
+   "pozycja": {
+    "krag": "zewn",
+    "kolejnosc": 7,
+    "kat": 240.6,
+    "promien": 0.915,
+    "x": 0.317,
+    "y": 0.581
+   },
+   "etykieta": {
+    "locus": "8",
+    "rodzaj": "Lz",
+    "slowa": [
+     "otchodals"
+    ]
+   },
+   "zrodlo": "vision",
+   "pewnosc": 1,
+   "uwaga": "szkic z GPU: postaci 15 (oczekiwano 15), etykiet 15; model widzi znak 'byk', tabela mówi 'baran'; sprawdzić kolejność na PNG"
+  },
+  {
+   "id": "f70v1-08",
+   "typ": "nimfa",
+   "cechy": {
+    "naga": false,
+    "w_obiekcie": "nic",
+    "korona": false,
+    "wlosy": "rozpuszczone",
+    "trzyma": "gwiazda",
+    "kierunek": "prawo",
+    "gwiazda_promienie": 6,
+    "gwiazda_ogon": false,
+    "gwiazda_kolor": "brak"
+   },
+   "pozycja": {
+    "krag": "zewn",
+    "kolejnosc": 8,
+    "kat": 271.8,
+    "promien": 0.993,
+    "x": 0.2544,
+    "y": 0.457
+   },
+   "etykieta": {
+    "locus": "9",
+    "rodzaj": "Lz",
+    "slowa": [
+     "okolshy"
+    ]
+   },
+   "zrodlo": "vision",
+   "pewnosc": 1,
+   "uwaga": "szkic z GPU: postaci 15 (oczekiwano 15), etykiet 15; model widzi znak 'byk', tabela mówi 'baran'; sprawdzić kolejność na PNG"
+  },
+  {
+   "id": "f70v1-09",
+   "typ": "nimfa",
+   "cechy": {
+    "naga": false,
+    "w_obiekcie": null,
+    "korona": false,
+    "wlosy": "rozpuszczone",
+    "trzyma": "gwiazda",
+    "kierunek": "przod",
+    "gwiazda_promienie": 6,
+    "gwiazda_ogon": false,
+    "gwiazda_kolor": "zolty"
+   },
+   "pozycja": {
+    "krag": "zewn",
+    "kolejnosc": 9,
+    "kat": 316.3,
+    "promien": 1.0,
+    "x": 0.351,
+    "y": 0.2782
+   },
+   "etykieta": {
+    "locus": "10",
+    "rodzaj": "Lz",
+    "slowa": [
+     "otshshdy"
+    ]
+   },
+   "zrodlo": "vision",
+   "pewnosc": 1,
+   "uwaga": "szkic z GPU: postaci 15 (oczekiwano 15), etykiet 15; model widzi znak 'byk', tabela mówi 'baran'; sprawdzić kolejność na PNG"
+  },
+  {
+   "id": "f70v1-10",
+   "typ": "nimfa",
+   "cechy": {
+    "naga": true,
+    "w_obiekcie": "beczka",
+    "korona": false,
+    "wlosy": "rozpuszczone",
+    "trzyma": "gwiazda",
+    "kierunek": "prawo",
+    "gwiazda_promienie": 8,
+    "gwiazda_ogon": false,
+    "gwiazda_kolor": "brak"
+   },
+   "pozycja": {
+    "krag": "zewn",
+    "kolejnosc": 10,
+    "kat": 359.8,
+    "promien": 0.999,
+    "x": 0.572,
+    "y": 0.2067
+   },
+   "etykieta": {
+    "locus": "11",
+    "rodzaj": "Lz",
+    "slowa": [
+     "otal",
+     "ypsharal"
+    ]
+   },
+   "zrodlo": "vision",
+   "pewnosc": 1,
+   "uwaga": "szkic z GPU: postaci 15 (oczekiwano 15), etykiet 15; model widzi znak 'byk', tabela mówi 'baran'; sprawdzić kolejność na PNG"
+  },
+  {
+   "id": "f70v1-11",
+   "typ": "nimfa",
+   "cechy": {
+    "naga": false,
+    "w_obiekcie": null,
+    "korona": false,
+    "wlosy": "rozpuszczone",
+    "trzyma": "gwiazda",
+    "kierunek": "przod",
+    "gwiazda_promienie": 6,
+    "gwiazda_ogon": false,
+    "gwiazda_kolor": "zolty"
+   },
+   "pozycja": {
+    "krag": "wewn",
+    "kolejnosc": 1,
+    "kat": 61.6,
+    "promien": 0.485,
+    "x": 0.71,
+    "y": 0.4054
+   },
+   "etykieta": {
+    "locus": "13",
+    "rodzaj": "Lz",
+    "slowa": [
+     "okoly"
+    ]
+   },
+   "zrodlo": "vision",
+   "pewnosc": 1,
+   "uwaga": "szkic z GPU: postaci 15 (oczekiwano 15), etykiet 15; model widzi znak 'byk', tabela mówi 'baran'; sprawdzić kolejność na PNG"
+  },
+  {
+   "id": "f70v1-12",
+   "typ": "nimfa",
+   "cechy": {
+    "naga": false,
+    "w_obiekcie": null,
+    "korona": false,
+    "wlosy": "upiete",
+    "trzyma": "gwiazda",
+    "kierunek": "prawo",
+    "gwiazda_promienie": 8,
+    "gwiazda_ogon": false,
+    "gwiazda_kolor": "zolty"
+   },
+   "pozycja": {
+    "krag": "wewn",
+    "kolejnosc": 2,
+    "kat": 147.4,
+    "promien": 0.42,
+    "x": 0.6456,
+    "y": 0.5564
+   },
+   "etykieta": {
+    "locus": "14",
+    "rodzaj": "Lz",
+    "slowa": [
+     "otalaiin"
+    ]
+   },
+   "zrodlo": "vision",
+   "pewnosc": 1,
+   "uwaga": "szkic z GPU: postaci 15 (oczekiwano 15), etykiet 15; model widzi znak 'byk', tabela mówi 'baran'; sprawdzić kolejność na PNG"
+  },
+  {
+   "id": "f70v1-13",
+   "typ": "nimfa",
+   "cechy": {
+    "naga": false,
+    "w_obiekcie": null,
+    "korona": false,
+    "wlosy": "rozpuszczone",
+    "trzyma": "gwiazda",
+    "kierunek": "przod",
+    "gwiazda_promienie": 6,
+    "gwiazda_ogon": false,
+    "gwiazda_kolor": "brak"
+   },
+   "pozycja": {
+    "krag": "wewn",
+    "kolejnosc": 3,
+    "kat": 243.6,
+    "promien": 0.484,
+    "x": 0.4339,
+    "y": 0.5206
+   },
+   "etykieta": {
+    "locus": "15",
+    "rodzaj": "Lz",
+    "slowa": [
+     "oteo",
+     "alals",
+     "araly"
+    ]
+   },
+   "zrodlo": "vision",
+   "pewnosc": 1,
+   "uwaga": "szkic z GPU: postaci 15 (oczekiwano 15), etykiet 15; model widzi znak 'byk', tabela mówi 'baran'; sprawdzić kolejność na PNG"
+  },
+  {
+   "id": "f70v1-14",
+   "typ": "nimfa",
+   "cechy": {
+    "naga": false,
+    "w_obiekcie": "beczka",
+    "korona": false,
+    "wlosy": "upiete",
+    "trzyma": "gwiazda",
+    "kierunek": "prawo",
+    "gwiazda_promienie": 6,
+    "gwiazda_ogon": false,
+    "gwiazda_kolor": "zolty"
+   },
+   "pozycja": {
+    "krag": "wewn",
+    "kolejnosc": 4,
+    "kat": 315.6,
+    "promien": 0.538,
+    "x": 0.4523,
+    "y": 0.3656
+   },
+   "etykieta": {
+    "locus": "16",
+    "rodzaj": "Lz",
+    "slowa": [
+     "oteoeey",
+     "otal",
+     "okealar"
+    ]
+   },
+   "zrodlo": "vision",
+   "pewnosc": 1,
+   "uwaga": "szkic z GPU: postaci 15 (oczekiwano 15), etykiet 15; model widzi znak 'byk', tabela mówi 'baran'; sprawdzić kolejność na PNG"
+  },
+  {
+   "id": "f70v1-15",
+   "typ": "nimfa",
+   "cechy": {
+    "naga": false,
+    "w_obiekcie": "beczka",
+    "korona": false,
+    "wlosy": "rozpuszczone",
+    "trzyma": "gwiazda",
+    "kierunek": "prawo",
+    "gwiazda_promienie": 6,
+    "gwiazda_ogon": false,
+    "gwiazda_kolor": "brak"
+   },
+   "pozycja": {
+    "krag": "wewn",
+    "kolejnosc": 5,
+    "kat": 355.3,
+    "promien": 0.562,
+    "x": 0.5582,
+    "y": 0.3203
+   },
+   "etykieta": {
+    "locus": "17",
+    "rodzaj": "Lz",
+    "slowa": [
+     "otear",
+     "araydy"
+    ]
+   },
+   "zrodlo": "vision",
+   "pewnosc": 1,
+   "uwaga": "szkic z GPU: postaci 15 (oczekiwano 15), etykiet 15; model widzi znak 'byk', tabela mówi 'baran'; sprawdzić kolejność na PNG"
+  }
+ ]
+}

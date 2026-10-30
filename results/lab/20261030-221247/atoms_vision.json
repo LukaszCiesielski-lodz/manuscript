@@ -1,0 +1,75 @@
+{
+ "theory": "atoms_vision",
+ "hypothesis": "(szkic, nie test) Otwarte modele widzące na własnym GPU opisują atomy ilustracji w schemacie data/atoms, z kolejnością nimf policzoną z geometrii, żeby ludzie poprawiali zamiast zaczynać od zera.",
+ "method": "Molmo2 (allenai/Molmo2-8B) wskazuje punktami środki kół, postaci i gwiazdy; Grounding DINO (IDEA-Research/grounding-dino-base) liczy te same klasy ramkami jako kontrola; wycinek każdego koła wskazywany w czterech obrotach (nimfy leżą stopami do środka); postaci przypisane do najbliższego środka, kręgi i kolejność zgodnie z ruchem wskazówek zegara z geometrii (voynich.atoms.ring_layout); Qwen3-VL (Qwen/Qwen3-VL-8B-Instruct) opisuje wycinek wokół każdej postaci według słownika 'nimfa' (wartości spoza słownika odrzucone); znak w środku koła wskazuje stronę ZL. Wynik: pliki stron w atoms_vision/ (zrodlo 'vision', pewnosc 1) i PNG z numerami punktów.",
+ "verdict": "nierozstrzygnięta",
+ "summary": "Szkic 12 stron w atoms_vision/ (do sprawdzenia na PNG, poprawienia i scalenia z data/atoms).",
+ "metrics": {
+  "zodiac": {
+   "pages": [
+    "f70v2",
+    "f70v1",
+    "f71r",
+    "f71v",
+    "f72r1",
+    "f72r2",
+    "f72r3",
+    "f72v3",
+    "f72v2",
+    "f72v1",
+    "f73r",
+    "f73v"
+   ],
+   "report": [
+    "f70v2 (ryby; model widzi ryby): postaci 28 po scaleniu (Molmo {'human figure@0': 28, 'human figure@90': 27, 'human figure@180': 28, 'human figure@270': 28, 'person@0': 26, 'person@90': 23, 'person@180': 28, 'person@270': 27, 'dino': 6}), oczekiwano 29, etykiet 29, kręgi {'zewn': 18, 'wewn': 10}, gwiazd 1, odrzuconych wartości 0",
+    "f70v1 (baran; model widzi byk): postaci 15 po scaleniu (Molmo {'human figure@0': 15, 'human figure@90': 15, 'human figure@180': 15, 'human figure@270': 15, 'person@0': 15, 'person@90': 15, 'person@180': 15, 'person@270': 15, 'dino': 13}), oczekiwano 15, etykiet 15, kręgi {'zewn': 10, 'wewn': 5}, gwiazd 14, odrzuconych wartości 0",
+    "f71r (baran; model widzi baran): postaci 15 po scaleniu (Molmo {'human figure@0': 15, 'human figure@90': 15, 'human figure@180': 15, 'human figure@270': 15, 'person@0': 15, 'person@90': 15, 'person@180': 15, 'person@270': 15, 'dino': 15}), oczekiwano 15, etykiet 15, kręgi {'zewn': 10, 'wewn': 5}, gwiazd 15, odrzuconych wartości 0",
+    "f71v (byk; model widzi byk): postaci 15 po scaleniu (Molmo {'human figure@0': 15, 'human figure@90': 16, 'human figure@180': 16, 'human figure@270': 15, 'person@0': 15, 'person@90': 16, 'person@180': 16, 'person@270': 15, 'dino': 14}), oczekiwano 15, etykiet 15, kręgi {'zewn': 10, 'wewn': 5}, gwiazd 15, odrzuconych wartości 0",
+    "f72r1 (byk; model widzi byk): postaci 18 po scaleniu (Molmo {'human figure@0': 18, 'human figure@90': 17, 'human figure@180': 17, 'human figure@270': 17, 'person@0': 18, 'person@90': 17, 'person@180': 17, 'person@270': 16, 'dino': 6}), oczekiwano 15, etykiet 15, kręgi {'zewn': 18}, gwiazd 17, odrzuconych wartości 0",
+    "f72r2 (bliznieta; model widzi waga): postaci 37 po scaleniu (Molmo {'human figure@0': 35, 'human figure@90': 32, 'human figure@180': 36, 'human figure@270': 34, 'person@0': 40, 'person@90': 32, 'person@180': 1, 'person@270': 37, 'dino': 14}), oczekiwano 30, etykiet 29, kręgi {'srod': 19, 'zewn': 9, 'wewn': 9}, gwiazd 23, odrzuconych wartości 0",
+    "f72r3 (rak; model widzi rak): postaci 30 po scaleniu (Molmo {'human figure@0': 30, 'human figure@90': 21, 'human figure@180': 27, 'human figure@270': 29, 'person@0': 27, 'person@90': 20, 'person@180': 26, 'person@270': 29, 'dino': 9}), oczekiwano 30, etykiet 29, kręgi {'zewn': 12, 'srod': 11, 'wewn': 7}, gwiazd 1, odrzuconych wartości 0",
+    "f72v3 (lew; model widzi baran): postaci 35 po scaleniu (Molmo {'human figure@0': 7, 'human figure@90': 42, 'human figure@180': 60, 'human figure@270': 1, 'person@0': 0, 'person@90': 0, 'person@180': 0, 'person@270': 0, 'dino': 8}), oczekiwano 30, etykiet 30, kręgi {'zewn': 22, 'wewn': 13}, gwiazd 1, odrzuconych wartości 0",
+    "f72v2 (panna; model widzi waga): postaci 34 po scaleniu (Molmo {'human figure@0': 1, 'human figure@90': 21, 'human figure@180': 21, 'human figure@270': 29, 'person@0': 1, 'person@90': 22, 'person@180': 22, 'person@270': 29, 'dino': 2}), oczekiwano 30, etykiet 30, kręgi {'wewn': 29, 'zewn': 5}, gwiazd 23, odrzuconych wartości 0",
+    "f72v1 (waga; model widzi waga): postaci 39 po scaleniu (Molmo {'human figure@0': 34, 'human figure@90': 46, 'human figure@180': 37, 'human figure@270': 31, 'person@0': 34, 'person@90': 42, 'person@180': 38, 'person@270': 25, 'dino': 9}), oczekiwano 30, etykiet 28, kręgi {'zewn': 39}, gwiazd 29, odrzuconych wartości 0",
+    "f73r (skorpion; model widzi strzelec): postaci 29 po scaleniu (Molmo {'human figure@0': 10, 'human figure@90': 16, 'human figure@180': 26, 'human figure@270': 21, 'person@0': 10, 'person@90': 0, 'person@180': 0, 'person@270': 0, 'dino': 12}), oczekiwano 30, etykiet 30, kręgi {'zewn': 29}, gwiazd 1, odrzuconych wartości 0",
+    "f73v (strzelec; model widzi waga): postaci 26 po scaleniu (Molmo {'human figure@0': 1, 'human figure@90': 27, 'human figure@180': 1, 'human figure@270': 1, 'person@0': 1, 'person@90': 1, 'person@180': 0, 'person@270': 1, 'dino': 9}), oczekiwano 30, etykiet 29, kręgi {'zewn': 3, 'wewn': 23}, gwiazd 14, odrzuconych wartości 0"
+   ]
+  }
+ },
+ "controls": [],
+ "evidence": [
+  "Strony: f70v2 (ryby; model widzi ryby): postaci 28 po scaleniu (Molmo {'human figure@0': 28, 'human figure@90': 27, 'human figure@180': 28, 'human figure@270': 28, 'person@0': 26, 'person@90': 23, 'person@180': 28, 'person@270': 27, 'dino': 6}), oczekiwano 29, etykiet 29, kręgi {'zewn': 18, 'wewn': 10}, gwiazd 1, odrzuconych wartości 0; f70v1 (baran; model widzi byk): postaci 15 po scaleniu (Molmo {'human figure@0': 15, 'human figure@90': 15, 'human figure@180': 15, 'human figure@270': 15, 'person@0': 15, 'person@90': 15, 'person@180': 15, 'person@270': 15, 'dino': 13}), oczekiwano 15, etykiet 15, kręgi {'zewn': 10, 'wewn': 5}, gwiazd 14, odrzuconych wartości 0; f71r (baran; model widzi baran): postaci 15 po scaleniu (Molmo {'human figure@0': 15, 'human figure@90': 15, 'human figure@180': 15, 'human figure@270': 15, 'person@0': 15, 'person@90': 15, 'person@180': 15, 'person@270': 15, 'dino': 15}), oczekiwano 15, etykiet 15, kręgi {'zewn': 10, 'wewn': 5}, gwiazd 15, odrzuconych wartości 0; f71v (byk; model widzi byk): postaci 15 po scaleniu (Molmo {'human figure@0': 15, 'human figure@90': 16, 'human figure@180': 16, 'human figure@270': 15, 'person@0': 15, 'person@90': 16, 'person@180': 16, 'person@270': 15, 'dino': 14}), oczekiwano 15, etykiet 15, kręgi {'zewn': 10, 'wewn': 5}, gwiazd 15, odrzuconych wartości 0; f72r1 (byk; model widzi byk): postaci 18 po scaleniu (Molmo {'human figure@0': 18, 'human figure@90': 17, 'human figure@180': 17, 'human figure@270': 17, 'person@0': 18, 'person@90': 17, 'person@180': 17, 'person@270': 16, 'dino': 6}), oczekiwano 15, etykiet 15, kręgi {'zewn': 18}, gwiazd 17, odrzuconych wartości 0; f72r2 (bliznieta; model widzi waga): postaci 37 po scaleniu (Molmo {'human figure@0': 35, 'human figure@90': 32, 'human figure@180': 36, 'human figure@270': 34, 'person@0': 40, 'person@90': 32, 'person@180': 1, 'person@270': 37, 'dino': 14}), oczekiwano 30, etykiet 29, kręgi {'srod': 19, 'zewn': 9, 'wewn': 9}, gwiazd 23, odrzuconych wartości 0; f72r3 (rak; model widzi rak): postaci 30 po scaleniu (Molmo {'human figure@0': 30, 'human figure@90': 21, 'human figure@180': 27, 'human figure@270': 29, 'person@0': 27, 'person@90': 20, 'person@180': 26, 'person@270': 29, 'dino': 9}), oczekiwano 30, etykiet 29, kręgi {'zewn': 12, 'srod': 11, 'wewn': 7}, gwiazd 1, odrzuconych wartości 0; f72v3 (lew; model widzi baran): postaci 35 po scaleniu (Molmo {'human figure@0': 7, 'human figure@90': 42, 'human figure@180': 60, 'human figure@270': 1, 'person@0': 0, 'person@90': 0, 'person@180': 0, 'person@270': 0, 'dino': 8}), oczekiwano 30, etykiet 30, kręgi {'zewn': 22, 'wewn': 13}, gwiazd 1, odrzuconych wartości 0; f72v2 (panna; model widzi waga): postaci 34 po scaleniu (Molmo {'human figure@0': 1, 'human figure@90': 21, 'human figure@180': 21, 'human figure@270': 29, 'person@0': 1, 'person@90': 22, 'person@180': 22, 'person@270': 29, 'dino': 2}), oczekiwano 30, etykiet 30, kręgi {'wewn': 29, 'zewn': 5}, gwiazd 23, odrzuconych wartości 0; f72v1 (waga; model widzi waga): postaci 39 po scaleniu (Molmo {'human figure@0': 34, 'human figure@90': 46, 'human figure@180': 37, 'human figure@270': 31, 'person@0': 34, 'person@90': 42, 'person@180': 38, 'person@270': 25, 'dino': 9}), oczekiwano 30, etykiet 28, kręgi {'zewn': 39}, gwiazd 29, odrzuconych wartości 0; f73r (skorpion; model widzi strzelec): postaci 29 po scaleniu (Molmo {'human figure@0': 10, 'human figure@90': 16, 'human figure@180': 26, 'human figure@270': 21, 'person@0': 10, 'person@90': 0, 'person@180': 0, 'person@270': 0, 'dino': 12}), oczekiwano 30, etykiet 30, kręgi {'zewn': 29}, gwiazd 1, odrzuconych wartości 0; f73v (strzelec; model widzi waga): postaci 26 po scaleniu (Molmo {'human figure@0': 1, 'human figure@90': 27, 'human figure@180': 1, 'human figure@270': 1, 'person@0': 1, 'person@90': 1, 'person@180': 0, 'person@270': 1, 'dino': 9}), oczekiwano 30, etykiet 29, kręgi {'zewn': 3, 'wewn': 23}, gwiazd 14, odrzuconych wartości 0."
+ ],
+ "caveats": [
+  "Kolejność nimf z geometrii zakłada, że loci transliteracji idą zgodnie z ruchem wskazówek zegara od góry w każdym kręgu; PNG z numerami służy do sprawdzenia tego na oko.",
+  "Modele liczą drobne rzeczy (promienie) niepewnie; pewnosc 1 dla wszystkich wartości.",
+  "To nie jest test: werdykt zawsze 'nierozstrzygnięta'."
+ ],
+ "references": [
+  "Molmo2 (Ai2 2025), Qwen3-VL (Alibaba 2025), Grounding DINO (IDEA 2023), all Apache 2.0 on Hugging Face"
+ ],
+ "artifacts": [
+  "atoms_vision/f70v2.json",
+  "atoms_vision/70v_part_1006200.png",
+  "atoms_vision/f70v1.json",
+  "atoms_vision/70v_part_1006201.png",
+  "atoms_vision/f71r.json",
+  "atoms_vision/71r_1006202.png",
+  "atoms_vision/f71v.json",
+  "atoms_vision/f72r1.json",
+  "atoms_vision/f72r2.json",
+  "atoms_vision/f72r3.json",
+  "atoms_vision/71v_and_72r_1006203.png",
+  "atoms_vision/f72v3.json",
+  "atoms_vision/f72v2.json",
+  "atoms_vision/72v_part_1006204.png",
+  "atoms_vision/f72v1.json",
+  "atoms_vision/72v_part_1006205.png",
+  "atoms_vision/f73r.json",
+  "atoms_vision/73r_1006206.png",
+  "atoms_vision/f73v.json",
+  "atoms_vision/73v_1006207.png"
+ ],
+ "seconds": 2954.892541885376,
+ "council": {}
+}
