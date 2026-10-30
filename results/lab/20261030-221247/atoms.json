@@ -1,0 +1,458 @@
+{
+ "theory": "atoms",
+ "hypothesis": "Rebus w rysunkach: jakaś widoczna cecha narysowanej rzeczy (liczba promieni, kolor, kształt, gest) przewiduje coś w etykiecie napisanej obok (pierwszy glif, długość, końcówkę).",
+ "method": "Atomy ilustracji z data/atoms (jeden rekord na etykietę, cechy ze słownika kontrolowanego, wpisane przez ludzi; szkic z modelu widzącego osobno). Dla każdej pary (cecha rysunku, cecha etykiety) informacja wzajemna wobec etykiet przetasowanych w obrębie strony (2000 tasowań), poprawka Bonferroniego na liczbę par. Cechy o zgodności dwóch osób kappa < 0.6 wykluczone. Kontrole: pierwszy glif etykiety podłożony według cechy w 60% atomów (musi wyjść p popr. < 0,05, z ≥ 5); cechy przetasowane między atomami strony (żadna para p popr. < 0,05 i z ≥ 4).",
+ "verdict": "nierozstrzygnięta",
+ "summary": "Brak pary po poprawce (najlepsza nimfa.gwiazda_kolor×dlugosc (n=102, MI 0.282 wobec 0.178, z = +2.5, p popr. 0.92)); opisanych atomów 102, do obalenia potrzeba ≥ 200 i najlepszej z < 2.",
+ "metrics": {
+  "annotation": {
+   "atoms": 855,
+   "filled": 102,
+   "pages": 51,
+   "pages_filled": 5,
+   "sources": [
+    "vision"
+   ],
+   "per_section": {
+    "zodiac": 102
+   }
+  },
+  "kappa": {},
+  "controls": {
+   "planted_z": 20.479450381127705,
+   "shuffled_best_z": 2.23825826295778
+  },
+  "pairs": [
+   {
+    "cecha": "nimfa.gwiazda_kolor",
+    "etykieta": "dlugosc",
+    "n": 102,
+    "mi": 0.28227281295156165,
+    "null_mean": 0.17810467049942663,
+    "z": 2.490528548014005,
+    "p": 0.01699150424787606,
+    "p_adj": 0.9175412293853072
+   },
+   {
+    "cecha": "nimfa.naga",
+    "etykieta": "ostatni",
+    "n": 101,
+    "mi": 0.18761242956856505,
+    "null_mean": 0.14042630600643946,
+    "z": 1.5348866208340348,
+    "p": 0.07746126936531735,
+    "p_adj": 1.0
+   },
+   {
+    "cecha": "nimfa.korona",
+    "etykieta": "drugi",
+    "n": 101,
+    "mi": 0.12585777553960278,
+    "null_mean": 0.07922141011155721,
+    "z": 1.4850485340739723,
+    "p": 0.07896051974012994,
+    "p_adj": 1.0
+   },
+   {
+    "cecha": "nimfa.w_obiekcie",
+    "etykieta": "gallows",
+    "n": 37,
+    "mi": 0.05256029784702223,
+    "null_mean": 0.02351076905747173,
+    "z": 1.178567309564586,
+    "p": 0.36431784107946025,
+    "p_adj": 1.0
+   },
+   {
+    "cecha": "nimfa.kierunek",
+    "etykieta": "pierwszy",
+    "n": 102,
+    "mi": 0.0813054736046072,
+    "null_mean": 0.055354853403094297,
+    "z": 1.0774744352981211,
+    "p": 0.1519240379810095,
+    "p_adj": 1.0
+   },
+   {
+    "cecha": "nimfa.naga",
+    "etykieta": "pierwszy",
+    "n": 101,
+    "mi": 0.09728878606198565,
+    "null_mean": 0.07898480653580993,
+    "z": 0.8628797489412106,
+    "p": 0.37831084457771114,
+    "p_adj": 1.0
+   },
+   {
+    "cecha": "nimfa.gwiazda_kolor",
+    "etykieta": "pierwszy",
+    "n": 102,
+    "mi": 0.15402676496032,
+    "null_mean": 0.12861919187226795,
+    "z": 0.794671641279475,
+    "p": 0.19890054972513743,
+    "p_adj": 1.0
+   },
+   {
+    "cecha": "nimfa.korona",
+    "etykieta": "prefiks2",
+    "n": 101,
+    "mi": 0.15682712689708625,
+    "null_mean": 0.12714730443339822,
+    "z": 0.7148473516176961,
+    "p": 0.23438280859570215,
+    "p_adj": 1.0
+   },
+   {
+    "cecha": "nimfa.gwiazda_promienie",
+    "etykieta": "drugi",
+    "n": 102,
+    "mi": 0.23695487992491118,
+    "null_mean": 0.21100342261592303,
+    "z": 0.6472320889587556,
+    "p": 0.2478760619690155,
+    "p_adj": 1.0
+   },
+   {
+    "cecha": "nimfa.gwiazda_promienie",
+    "etykieta": "prefiks2",
+    "n": 102,
+    "mi": 0.3816726471592814,
+    "null_mean": 0.3567090094867888,
+    "z": 0.6318560861098163,
+    "p": 0.2518740629685157,
+    "p_adj": 1.0
+   },
+   {
+    "cecha": "nimfa.kierunek",
+    "etykieta": "ostatni",
+    "n": 102,
+    "mi": 0.11167072415813449,
+    "null_mean": 0.09738386443456903,
+    "z": 0.4525993291240723,
+    "p": 0.2928535732133933,
+    "p_adj": 1.0
+   },
+   {
+    "cecha": "nimfa.gwiazda_promienie",
+    "etykieta": "pierwszy",
+    "n": 102,
+    "mi": 0.10648424458135088,
+    "null_mean": 0.09670903126853882,
+    "z": 0.4193800690664723,
+    "p": 0.31784107946026985,
+    "p_adj": 1.0
+   },
+   {
+    "cecha": "nimfa.gwiazda_promienie",
+    "etykieta": "dlugosc",
+    "n": 102,
+    "mi": 0.12532792481365335,
+    "null_mean": 0.11203714028616289,
+    "z": 0.36335628662320935,
+    "p": 0.3173413293353323,
+    "p_adj": 1.0
+   },
+   {
+    "cecha": "nimfa.korona",
+    "etykieta": "ostatni",
+    "n": 101,
+    "mi": 0.05868717892841048,
+    "null_mean": 0.053458128143731826,
+    "z": 0.24481666147386838,
+    "p": 0.335832083958021,
+    "p_adj": 1.0
+   },
+   {
+    "cecha": "nimfa.gwiazda_kolor",
+    "etykieta": "gallows",
+    "n": 102,
+    "mi": 0.031483024156490055,
+    "null_mean": 0.027191326091450207,
+    "z": 0.24020985683299204,
+    "p": 0.32533733133433285,
+    "p_adj": 1.0
+   },
+   {
+    "cecha": "nimfa.korona",
+    "etykieta": "dlugosc",
+    "n": 101,
+    "mi": 0.049994342944784054,
+    "null_mean": 0.0494721776958903,
+    "z": 0.023441535531206634,
+    "p": 0.4592703648175912,
+    "p_adj": 1.0
+   },
+   {
+    "cecha": "nimfa.trzyma",
+    "etykieta": "pierwszy",
+    "n": 102,
+    "mi": 0.0,
+    "null_mean": 0.0,
+    "z": 0.0,
+    "p": 1.0,
+    "p_adj": 1.0
+   },
+   {
+    "cecha": "nimfa.trzyma",
+    "etykieta": "drugi",
+    "n": 102,
+    "mi": 0.0,
+    "null_mean": 0.0,
+    "z": 0.0,
+    "p": 1.0,
+    "p_adj": 1.0
+   },
+   {
+    "cecha": "nimfa.trzyma",
+    "etykieta": "ostatni",
+    "n": 102,
+    "mi": 0.0,
+    "null_mean": 0.0,
+    "z": 0.0,
+    "p": 1.0,
+    "p_adj": 1.0
+   },
+   {
+    "cecha": "nimfa.trzyma",
+    "etykieta": "dlugosc",
+    "n": 102,
+    "mi": 0.0,
+    "null_mean": 0.0,
+    "z": 0.0,
+    "p": 1.0,
+    "p_adj": 1.0
+   },
+   {
+    "cecha": "nimfa.trzyma",
+    "etykieta": "gallows",
+    "n": 102,
+    "mi": 0.0,
+    "null_mean": 0.0,
+    "z": 0.0,
+    "p": 1.0,
+    "p_adj": 1.0
+   },
+   {
+    "cecha": "nimfa.trzyma",
+    "etykieta": "prefiks2",
+    "n": 102,
+    "mi": 0.0,
+    "null_mean": 0.0,
+    "z": 0.0,
+    "p": 1.0,
+    "p_adj": 1.0
+   },
+   {
+    "cecha": "nimfa.gwiazda_ogon",
+    "etykieta": "pierwszy",
+    "n": 102,
+    "mi": 0.0,
+    "null_mean": 0.0,
+    "z": 0.0,
+    "p": 1.0,
+    "p_adj": 1.0
+   },
+   {
+    "cecha": "nimfa.gwiazda_ogon",
+    "etykieta": "drugi",
+    "n": 102,
+    "mi": 0.0,
+    "null_mean": 0.0,
+    "z": 0.0,
+    "p": 1.0,
+    "p_adj": 1.0
+   },
+   {
+    "cecha": "nimfa.gwiazda_ogon",
+    "etykieta": "ostatni",
+    "n": 102,
+    "mi": 0.0,
+    "null_mean": 0.0,
+    "z": 0.0,
+    "p": 1.0,
+    "p_adj": 1.0
+   },
+   {
+    "cecha": "nimfa.gwiazda_ogon",
+    "etykieta": "dlugosc",
+    "n": 102,
+    "mi": 0.0,
+    "null_mean": 0.0,
+    "z": 0.0,
+    "p": 1.0,
+    "p_adj": 1.0
+   },
+   {
+    "cecha": "nimfa.gwiazda_ogon",
+    "etykieta": "gallows",
+    "n": 102,
+    "mi": 0.0,
+    "null_mean": 0.0,
+    "z": 0.0,
+    "p": 1.0,
+    "p_adj": 1.0
+   },
+   {
+    "cecha": "nimfa.gwiazda_ogon",
+    "etykieta": "prefiks2",
+    "n": 102,
+    "mi": 0.0,
+    "null_mean": 0.0,
+    "z": 0.0,
+    "p": 1.0,
+    "p_adj": 1.0
+   },
+   {
+    "cecha": "nimfa.w_obiekcie",
+    "etykieta": "drugi",
+    "n": 37,
+    "mi": 0.09368010165384334,
+    "null_mean": 0.09876468269880025,
+    "z": -0.11828797322355704,
+    "p": 0.504247876061969,
+    "p_adj": 1.0
+   },
+   {
+    "cecha": "nimfa.wlosy",
+    "etykieta": "gallows",
+    "n": 102,
+    "mi": 0.025139871566787778,
+    "null_mean": 0.028018455697541363,
+    "z": -0.1392180656847558,
+    "p": 0.46526736631684157,
+    "p_adj": 1.0
+   },
+   {
+    "cecha": "nimfa.gwiazda_kolor",
+    "etykieta": "prefiks2",
+    "n": 102,
+    "mi": 0.4664136652388338,
+    "null_mean": 0.47750555735132594,
+    "z": -0.23621888727248103,
+    "p": 0.5782108945527237,
+    "p_adj": 1.0
+   },
+   {
+    "cecha": "nimfa.w_obiekcie",
+    "etykieta": "dlugosc",
+    "n": 37,
+    "mi": 0.10264885460030411,
+    "null_mean": 0.11834046331764776,
+    "z": -0.23779213013024497,
+    "p": 0.5342328835582209,
+    "p_adj": 1.0
+   },
+   {
+    "cecha": "nimfa.kierunek",
+    "etykieta": "dlugosc",
+    "n": 102,
+    "mi": 0.07038687787111228,
+    "null_mean": 0.0773012874901887,
+    "z": -0.25783508868330174,
+    "p": 0.5557221389305347,
+    "p_adj": 1.0
+   },
+   {
+    "cecha": "nimfa.wlosy",
+    "etykieta": "dlugosc",
+    "n": 102,
+    "mi": 0.13327991813025958,
+    "null_mean": 0.14368544049484344,
+    "z": -0.26654105926303834,
+    "p": 0.5697151424287856,
+    "p_adj": 1.0
+   },
+   {
+    "cecha": "nimfa.kierunek",
+    "etykieta": "gallows",
+    "n": 102,
+    "mi": 0.006237419565506091,
+    "null_mean": 0.01156887862422444,
+    "z": -0.44877237638699013,
+    "p": 0.6051974012993503,
+    "p_adj": 1.0
+   },
+   {
+    "cecha": "nimfa.gwiazda_promienie",
+    "etykieta": "gallows",
+    "n": 102,
+    "mi": 0.009804617777055566,
+    "null_mean": 0.017766753173111462,
+    "z": -0.45829640536809635,
+    "p": 0.5837081459270365,
+    "p_adj": 1.0
+   },
+   {
+    "cecha": "nimfa.naga",
+    "etykieta": "dlugosc",
+    "n": 101,
+    "mi": 0.0607236599486847,
+    "null_mean": 0.0747877117667022,
+    "z": -0.6221646547094654,
+    "p": 0.7321339330334833,
+    "p_adj": 1.0
+   },
+   {
+    "cecha": "nimfa.korona",
+    "etykieta": "pierwszy",
+    "n": 101,
+    "mi": 0.022196490409305332,
+    "null_mean": 0.0380570530603763,
+    "z": -0.6266586580579869,
+    "p": 0.6526736631684158,
+    "p_adj": 1.0
+   },
+   {
+    "cecha": "nimfa.gwiazda_kolor",
+    "etykieta": "drugi",
+    "n": 102,
+    "mi": 0.25028192513908243,
+    "null_mean": 0.2840821357054674,
+    "z": -0.7507520033264933,
+    "p": 0.7651174412793603,
+    "p_adj": 1.0
+   },
+   {
+    "cecha": "nimfa.naga",
+    "etykieta": "prefiks2",
+    "n": 101,
+    "mi": 0.44282727327588506,
+    "null_mean": 0.48011631850941733,
+    "z": -0.8130407063505626,
+    "p": 0.7876061969015492,
+    "p_adj": 1.0
+   }
+  ],
+  "n_pairs": 54
+ },
+ "controls": [
+  {
+   "name": "podłożony pierwszy glif według nimfa.wlosy wykryty",
+   "expectation": "p popr. < 0,05 i z ≥ 5",
+   "observed": "z = 20.5, p popr. 0.000",
+   "passed": true
+  },
+  {
+   "name": "cechy przetasowane między atomami strony bez związku",
+   "expectation": "żadna para p popr. < 0,05 i z ≥ 4",
+   "observed": "najlepsza para nimfa.gwiazda_promienie×drugi z = +2.2, p popr. 1.00",
+   "passed": true
+  }
+ ],
+ "evidence": [
+  "Atomów 855 na 51 stronach; opisanych (≥ 1 cecha i etykieta) 102 na 5 stronach; źródła: vision; działy: {'zodiac': 102}.",
+  "Par (cecha rysunku × cecha etykiety) z ≥ 30 atomami: 54. Najsilniejsze: nimfa.gwiazda_kolor×dlugosc (n=102, MI 0.282 wobec 0.178, z = +2.5, p popr. 0.92); nimfa.naga×ostatni (n=101, MI 0.188 wobec 0.140, z = +1.5, p popr. 1.00); nimfa.korona×drugi (n=101, MI 0.126 wobec 0.079, z = +1.5, p popr. 1.00); nimfa.w_obiekcie×gallows (n=37, MI 0.053 wobec 0.024, z = +1.2, p popr. 1.00); nimfa.kierunek×pierwszy (n=102, MI 0.081 wobec 0.055, z = +1.1, p popr. 1.00)."
+ ],
+ "caveats": [
+  "Cechy wpisane przez ludzi: błędy odczytu i uznaniowość (co jest 'jednym liściem') obniżają moc testu; kappa to mierzy.",
+  "Test szuka zależności cecha-po-cesze; rebus łączący kilka cech naraz w jeden glif wymaga więcej danych."
+ ],
+ "references": [
+  "Zandbergen, voynich.nu: descriptions of the zodiac and pharmaceutical pages",
+  "Cohen (1960), A coefficient of agreement for nominal scales"
+ ],
+ "artifacts": [],
+ "seconds": 21.45046615600586,
+ "council": {}
+}
