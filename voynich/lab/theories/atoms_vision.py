@@ -131,11 +131,11 @@ def zodiac(cfg: LabConfig, pointer: vision.Chat, describer: vision.Chat, detecto
         scale = min(1.0, 2000 / w)
         small = image.resize((int(w * scale), int(h * scale))) if scale < 1 else image
         centers = _shift(pointer.points(small, "center of each circular diagram"), 0, 0, 1 / scale)
-        centers = sorted(centers, key=lambda p: p[0])
+        centers = sorted((p for p in centers if 0.03 * w < p[0] < 0.97 * w and 0.03 * h < p[1] < 0.97 * h), key=lambda p: p[0])
         if len(centers) != len(panels):
             report.append(f"{canvas['label']}: model wskazał {len(centers)} środków, paneli {len(panels)}; środki ustawione równo")
             centers = [((k + 0.5) / len(panels) * w, h / 2) for k in range(len(panels))]
-        radius = 0.5 * min(((a[0] - b[0]) ** 2 + (a[1] - b[1]) ** 2) ** 0.5 for a in centers for b in centers if a != b) if len(centers) > 1 else 0.47 * min(w, h)
+        radius = 0.47 * min(h, w / len(panels))      # panels of a foldout are of equal width; the centre only shifts the crop
         preview = []
         for k, (folio, c) in enumerate(zip(panels, centers)):
             x0, y0 = int(max(0, c[0] - 1.05 * radius)), int(max(0, c[1] - 1.05 * radius))

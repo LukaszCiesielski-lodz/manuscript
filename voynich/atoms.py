@@ -349,22 +349,25 @@ def summary(atoms: Sequence[Atom]) -> dict:
 # ---------- geometry for drafts from vision models (pure Python; see lab/vision.py for the models)
 
 POINT_COORDS = re.compile(r'coords="([^"]*)"')
-POINT_TRIPLE = re.compile(r"(\d+) (\d{1,4}) (\d{1,4})")
+POINT_FRAME = re.compile(r"(?:^|\t|:|,|;)\s*([0-9.]+) ([0-9. ]+)")     # "<frame> <idx> <x> <y> <idx> <x> <y> ..."
+POINT_TRIPLE = re.compile(r"(\d+) (\d{3,4}) (\d{3,4})")                # idx, x, y with x and y scaled by 1000
 POINT_XY_ATTR = re.compile(r'x\d*="([\d.]+)"\s+y\d*="([\d.]+)"')
 
 
 def parse_points(text: str, width: float, height: float) -> list[tuple[float, float]]:
     """Pixel points from a pointing model's reply.
 
-    Molmo2 writes <points ... coords="1 123 456, 2 234 567"/> with coordinates scaled by 1000;
-    the first Molmo wrote <point x="12.3" y="45.6"> in percent. Both are read; out-of-image points dropped.
+    Molmo2 writes <points ... coords="1 1 523 110 2 601 095"/>: a frame number, then triples of index, x, y
+    with x and y scaled by 1000 (the regexes are the model card's). The first Molmo wrote
+    <point x="12.3" y="45.6"> in percent. Both are read; points outside the image are dropped.
     """
     out = []
     for coords in POINT_COORDS.findall(text):
-        for _, x, y in POINT_TRIPLE.findall(coords):
-            px, py = float(x) / 1000 * width, float(y) / 1000 * height
-            if 0 <= px <= width and 0 <= py <= height:
-                out.append((px, py))
+        for _, rest in POINT_FRAME.findall(coords):
+            for _, x, y in POINT_TRIPLE.findall(rest):
+                px, py = float(x) / 1000 * width, float(y) / 1000 * height
+                if 0 <= px <= width and 0 <= py <= height:
+                    out.append((px, py))
     if not out:
         for x, y in POINT_XY_ATTR.findall(text):
             px, py = float(x) / 100 * width, float(y) / 100 * height

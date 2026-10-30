@@ -1068,8 +1068,10 @@ class AtomsVisionTest(unittest.TestCase):
 
     def test_parse_points_crop_and_reading_order(self):
         from voynich import atoms as A
-        text = 'Here: <points alt="figures" coords="1 100 200, 2 300 400; 3 1200 50"/> done'
-        self.assertEqual(A.parse_points(text, 1000, 500), [(100.0, 100.0), (300.0, 200.0)])   # third is outside
+        text = 'Here: <points alt="figures" coords="1 1 523 110 2 601 095"/> done'       # frame, then idx x y triples
+        self.assertEqual(A.parse_points(text, 1000, 500), [(523.0, 55.0), (601.0, 47.5)])
+        self.assertEqual(A.parse_points('<points coords="1 1 523 110, 1 2 601 095"/>', 1000, 500), [(523.0, 55.0), (601.0, 47.5)])
+        self.assertEqual(A.parse_points('<points coords="1 1 1200 110"/>', 1000, 500), [])      # outside the image
         self.assertEqual(A.parse_points('<point x="10.0" y="20.0" alt="a">a</point>', 1000, 500), [(100.0, 100.0)])
         self.assertEqual(A.parse_points("There are 30 figures.", 1000, 500), [])
         pts = [(10, 10), (50, 10), (90, 10), (10, 60)]
