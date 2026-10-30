@@ -1,0 +1,50 @@
+{
+ "theory": "atoms",
+ "hypothesis": "Rebus w rysunkach: jakaś widoczna cecha narysowanej rzeczy (liczba promieni, kolor, kształt, gest) przewiduje coś w etykiecie napisanej obok (pierwszy glif, długość, końcówkę).",
+ "method": "Atomy ilustracji z data/atoms (jeden rekord na etykietę, cechy ze słownika kontrolowanego, wpisane przez ludzi; szkic z modelu widzącego osobno). Dla każdej pary (cecha rysunku, cecha etykiety) informacja wzajemna wobec etykiet przetasowanych w obrębie strony (2000 tasowań), poprawka Bonferroniego na liczbę par. Cechy o zgodności dwóch osób kappa < 0.6 wykluczone. Kontrole: pierwszy glif etykiety podłożony według cechy w 60% atomów (musi wyjść p popr. < 0,05, z ≥ 5); cechy przetasowane między atomami strony (żadna para p popr. < 0,05 i z ≥ 4).",
+ "verdict": "nierozstrzygnięta",
+ "summary": "Dane niekompletne: opisanych 0 z 853 atomów (próg 100). Metoda sprawdzona na losowym wypełnieniu: podłożony glif z = 68, przetasowane cechy bez związku.",
+ "metrics": {
+  "annotation": {
+   "atoms": 853,
+   "filled": 0,
+   "pages": 51,
+   "pages_filled": 0,
+   "sources": [],
+   "per_section": {}
+  },
+  "kappa": {},
+  "controls": {
+   "planted_z": 68.310537991555,
+   "shuffled_best_z": 3.274095959286595
+  }
+ },
+ "controls": [
+  {
+   "name": "podłożony pierwszy glif według nimfa.trzyma wykryty",
+   "expectation": "p popr. < 0,05 i z ≥ 5",
+   "observed": "z = 68.3, p popr. 0.000",
+   "passed": true
+  },
+  {
+   "name": "cechy przetasowane między atomami strony bez związku",
+   "expectation": "żadna para p popr. < 0,05 i z ≥ 4",
+   "observed": "najlepsza para gwiazda.ogon×ostatni z = +3.3, p popr. 1.00",
+   "passed": true
+  }
+ ],
+ "evidence": [
+  "Atomów 853 na 51 stronach; opisanych (≥ 1 cecha i etykieta) 0 na 0 stronach; źródła: brak; działy: –.",
+  "Za mało opisanych atomów (próg 100): kontrole metody liczone na szablonach wypełnionych losowo; test właściwy czeka na dane."
+ ],
+ "caveats": [
+  "Szablony leżą w data/atoms (jeden plik na stronę); wypełnienie 'cechy' według data/atoms/README.md uruchamia test."
+ ],
+ "references": [
+  "Zandbergen, voynich.nu: descriptions of the zodiac and pharmaceutical pages",
+  "Cohen (1960), A coefficient of agreement for nominal scales"
+ ],
+ "artifacts": [],
+ "seconds": 79.52884483337402,
+ "council": {}
+}
