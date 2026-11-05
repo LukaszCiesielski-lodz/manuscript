@@ -10,9 +10,9 @@
     "naga": false,
     "w_obiekcie": "beczka",
     "korona": false,
-    "wlosy": "rozpuszczone",
+    "wlosy": "upiete",
     "trzyma": "gwiazda",
-    "kierunek": "przod",
+    "kierunek": "prawo",
     "gwiazda_promienie": 8,
     "gwiazda_ogon": false,
     "gwiazda_kolor": "inny"
@@ -20,10 +20,10 @@
    "pozycja": {
     "krag": "zewn",
     "kolejnosc": 1,
-    "kat": 0.9,
-    "promien": 0.968,
-    "x": 0.5065,
-    "y": 0.1448
+    "kat": 12.2,
+    "promien": 0.93,
+    "x": 0.5631,
+    "y": 0.1638
    },
    "etykieta": {
     "locus": "2",
@@ -43,20 +43,20 @@
     "naga": false,
     "w_obiekcie": "beczka",
     "korona": false,
-    "wlosy": "upiete",
+    "wlosy": "rozpuszczone",
     "trzyma": "gwiazda",
     "kierunek": "prawo",
-    "gwiazda_promienie": 8,
+    "gwiazda_promienie": 6,
     "gwiazda_ogon": false,
     "gwiazda_kolor": "inny"
    },
    "pozycja": {
     "krag": "zewn",
     "kolejnosc": 2,
-    "kat": 12.2,
-    "promien": 0.93,
-    "x": 0.5631,
-    "y": 0.1638
+    "kat": 29.4,
+    "promien": 0.959,
+    "x": 0.648,
+    "y": 0.1876
    },
    "etykieta": {
     "locus": "3",
@@ -74,22 +74,22 @@
    "typ": "nimfa",
    "cechy": {
     "naga": false,
-    "w_obiekcie": "beczka",
+    "w_obiekcie": "nic",
     "korona": false,
-    "wlosy": "rozpuszczone",
+    "wlosy": "upiete",
     "trzyma": "gwiazda",
     "kierunek": "prawo",
-    "gwiazda_promienie": 6,
+    "gwiazda_promienie": 8,
     "gwiazda_ogon": false,
-    "gwiazda_kolor": "inny"
+    "gwiazda_kolor": "brak"
    },
    "pozycja": {
     "krag": "zewn",
     "kolejnosc": 3,
-    "kat": 29.4,
-    "promien": 0.959,
-    "x": 0.648,
-    "y": 0.1876
+    "kat": 45.4,
+    "promien": 0.96,
+    "x": 0.714,
+    "y": 0.24
    },
    "etykieta": {
     "locus": "5",
@@ -112,17 +112,17 @@
     "wlosy": "upiete",
     "trzyma": "gwiazda",
     "kierunek": "prawo",
-    "gwiazda_promienie": 8,
+    "gwiazda_promienie": 5,
     "gwiazda_ogon": false,
     "gwiazda_kolor": "brak"
    },
    "pozycja": {
     "krag": "zewn",
     "kolejnosc": 4,
-    "kat": 45.4,
-    "promien": 0.96,
-    "x": 0.714,
-    "y": 0.24
+    "kat": 61.0,
+    "promien": 0.937,
+    "x": 0.7565,
+    "y": 0.3114
    },
    "etykieta": {
     "locus": "6",
@@ -141,22 +141,22 @@
    "typ": "nimfa",
    "cechy": {
     "naga": false,
-    "w_obiekcie": "nic",
+    "w_obiekcie": null,
     "korona": false,
     "wlosy": "upiete",
     "trzyma": "gwiazda",
     "kierunek": "prawo",
-    "gwiazda_promienie": 5,
+    "gwiazda_promienie": 8,
     "gwiazda_ogon": false,
-    "gwiazda_kolor": "brak"
+    "gwiazda_kolor": "inny"
    },
    "pozycja": {
     "krag": "zewn",
     "kolejnosc": 5,
-    "kat": 61.0,
-    "promien": 0.937,
-    "x": 0.7565,
-    "y": 0.3114
+    "kat": 80.3,
+    "promien": 0.955,
+    "x": 0.7942,
+    "y": 0.4067
    },
    "etykieta": {
     "locus": "7",
@@ -175,22 +175,22 @@
    "typ": "nimfa",
    "cechy": {
     "naga": false,
-    "w_obiekcie": null,
+    "w_obiekcie": "nic",
     "korona": false,
     "wlosy": "upiete",
     "trzyma": "gwiazda",
     "kierunek": "prawo",
-    "gwiazda_promienie": 8,
+    "gwiazda_promienie": 5,
     "gwiazda_ogon": false,
     "gwiazda_kolor": "inny"
    },
    "pozycja": {
     "krag": "zewn",
     "kolejnosc": 6,
-    "kat": 80.3,
-    "promien": 0.955,
-    "x": 0.7942,
-    "y": 0.4067
+    "kat": 102.5,
+    "promien": 0.949,
+    "x": 0.7895,
+    "y": 0.5257
    },
    "etykieta": {
     "locus": "8",
@@ -208,22 +208,22 @@
    "typ": "nimfa",
    "cechy": {
     "naga": false,
-    "w_obiekcie": "nic",
+    "w_obiekcie": null,
     "korona": false,
     "wlosy": "upiete",
     "trzyma": "gwiazda",
     "kierunek": "prawo",
     "gwiazda_promienie": 5,
     "gwiazda_ogon": false,
-    "gwiazda_kolor": "inny"
+    "gwiazda_kolor": "brak"
    },
    "pozycja": {
     "krag": "zewn",
     "kolejnosc": 7,
-    "kat": 102.5,
-    "promien": 0.949,
-    "x": 0.7895,
-    "y": 0.5257
+    "kat": 124.6,
+    "promien": 0.94,
+    "x": 0.7423,
+    "y": 0.6324
    },
    "etykieta": {
     "locus": "9",
@@ -242,21 +242,21 @@
    "cechy": {
     "naga": false,
     "w_obiekcie": null,
-    "korona": false,
-    "wlosy": "upiete",
+    "korona": true,
+    "wlosy": "nakrycie",
     "trzyma": "gwiazda",
     "kierunek": "prawo",
     "gwiazda_promienie": 5,
     "gwiazda_ogon": false,
-    "gwiazda_kolor": "brak"
+    "gwiazda_kolor": "inny"
    },
    "pozycja": {
     "krag": "zewn",
     "kolejnosc": 8,
-    "kat": 124.6,
-    "promien": 0.94,
-    "x": 0.7423,
-    "y": 0.6324
+    "kat": 143.9,
+    "promien": 0.952,
+    "x": 0.6763,
+    "y": 0.7086
    },
    "etykieta": {
     "locus": "10",
@@ -274,22 +274,22 @@
    "typ": "nimfa",
    "cechy": {
     "naga": false,
-    "w_obiekcie": null,
-    "korona": true,
-    "wlosy": "nakrycie",
+    "w_obiekcie": "nic",
+    "korona": false,
+    "wlosy": "nie_widac",
     "trzyma": "gwiazda",
     "kierunek": "prawo",
-    "gwiazda_promienie": 5,
+    "gwiazda_promienie": 8,
     "gwiazda_ogon": false,
     "gwiazda_kolor": "inny"
    },
    "pozycja": {
     "krag": "zewn",
     "kolejnosc": 9,
-    "kat": 143.9,
-    "promien": 0.952,
-    "x": 0.6763,
-    "y": 0.7086
+    "kat": 166.9,
+    "promien": 1.0,
+    "x": 0.5725,
+    "y": 0.7753
    },
    "etykieta": {
     "locus": "11",
@@ -312,16 +312,16 @@
     "wlosy": "nie_widac",
     "trzyma": "gwiazda",
     "kierunek": "prawo",
-    "gwiazda_promienie": 8,
+    "gwiazda_promienie": 5,
     "gwiazda_ogon": false,
-    "gwiazda_kolor": "inny"
+    "gwiazda_kolor": "brak"
    },
    "pozycja": {
     "krag": "zewn",
     "kolejnosc": 10,
-    "kat": 166.9,
-    "promien": 1.0,
-    "x": 0.5725,
+    "kat": 190.7,
+    "promien": 0.991,
+    "x": 0.4451,
     "y": 0.7753
    },
    "etykieta": {
@@ -340,22 +340,22 @@
    "typ": "nimfa",
    "cechy": {
     "naga": false,
-    "w_obiekcie": "nic",
+    "w_obiekcie": null,
     "korona": false,
-    "wlosy": "nie_widac",
+    "wlosy": "rozpuszczone",
     "trzyma": "gwiazda",
     "kierunek": "prawo",
-    "gwiazda_promienie": 5,
+    "gwiazda_promienie": 8,
     "gwiazda_ogon": false,
-    "gwiazda_kolor": "brak"
+    "gwiazda_kolor": "inny"
    },
    "pozycja": {
     "krag": "zewn",
     "kolejnosc": 11,
-    "kat": 190.7,
-    "promien": 0.991,
-    "x": 0.4451,
-    "y": 0.7753
+    "kat": 211.0,
+    "promien": 0.993,
+    "x": 0.3432,
+    "y": 0.7353
    },
    "etykieta": {
     "locus": "13",
@@ -380,15 +380,15 @@
     "kierunek": "prawo",
     "gwiazda_promienie": 8,
     "gwiazda_ogon": false,
-    "gwiazda_kolor": "inny"
+    "gwiazda_kolor": "brak"
    },
    "pozycja": {
     "krag": "zewn",
     "kolejnosc": 12,
-    "kat": 211.0,
-    "promien": 0.993,
-    "x": 0.3432,
-    "y": 0.7353
+    "kat": 235.1,
+    "promien": 0.883,
+    "x": 0.2772,
+    "y": 0.6229
    },
    "etykieta": {
     "locus": "14",
@@ -406,22 +406,22 @@
    "typ": "nimfa",
    "cechy": {
     "naga": false,
-    "w_obiekcie": null,
+    "w_obiekcie": "nic",
     "korona": false,
-    "wlosy": "rozpuszczone",
+    "wlosy": "upiete",
     "trzyma": "gwiazda",
     "kierunek": "prawo",
-    "gwiazda_promienie": 8,
+    "gwiazda_promienie": 6,
     "gwiazda_ogon": false,
     "gwiazda_kolor": "brak"
    },
    "pozycja": {
     "krag": "zewn",
     "kolejnosc": 13,
-    "kat": 235.1,
-    "promien": 0.883,
-    "x": 0.2772,
-    "y": 0.6229
+    "kat": 255.3,
+    "promien": 0.868,
+    "x": 0.2413,
+    "y": 0.5305
    },
    "etykieta": {
     "locus": "15",
@@ -441,20 +441,20 @@
     "naga": false,
     "w_obiekcie": "nic",
     "korona": false,
-    "wlosy": "upiete",
+    "wlosy": "rozpuszczone",
     "trzyma": "gwiazda",
-    "kierunek": "prawo",
+    "kierunek": "przod",
     "gwiazda_promienie": 6,
     "gwiazda_ogon": false,
-    "gwiazda_kolor": "brak"
+    "gwiazda_kolor": "inny"
    },
    "pozycja": {
     "krag": "zewn",
     "kolejnosc": 14,
-    "kat": 255.3,
-    "promien": 0.868,
-    "x": 0.2413,
-    "y": 0.5305
+    "kat": 281.0,
+    "promien": 0.892,
+    "x": 0.23,
+    "y": 0.4038
    },
    "etykieta": {
     "locus": "16",
@@ -485,10 +485,10 @@
    "pozycja": {
     "krag": "zewn",
     "kolejnosc": 15,
-    "kat": 281.0,
-    "promien": 0.892,
-    "x": 0.23,
-    "y": 0.4038
+    "kat": 303.5,
+    "promien": 0.839,
+    "x": 0.2847,
+    "y": 0.3086
    },
    "etykieta": {
     "locus": "17",
@@ -510,18 +510,18 @@
     "korona": false,
     "wlosy": "rozpuszczone",
     "trzyma": "gwiazda",
-    "kierunek": "przod",
-    "gwiazda_promienie": 6,
+    "kierunek": "prawo",
+    "gwiazda_promienie": 5,
     "gwiazda_ogon": false,
-    "gwiazda_kolor": "inny"
+    "gwiazda_kolor": "brak"
    },
    "pozycja": {
     "krag": "zewn",
     "kolejnosc": 16,
-    "kat": 303.5,
-    "promien": 0.839,
-    "x": 0.2847,
-    "y": 0.3086
+    "kat": 319.1,
+    "promien": 0.911,
+    "x": 0.3168,
+    "y": 0.2352
    },
    "etykieta": {
     "locus": "18",
@@ -539,22 +539,22 @@
    "typ": "nimfa",
    "cechy": {
     "naga": false,
-    "w_obiekcie": "nic",
+    "w_obiekcie": "beczka",
     "korona": false,
     "wlosy": "rozpuszczone",
     "trzyma": "gwiazda",
-    "kierunek": "prawo",
-    "gwiazda_promienie": 5,
+    "kierunek": "przod",
+    "gwiazda_promienie": 6,
     "gwiazda_ogon": false,
-    "gwiazda_kolor": "brak"
+    "gwiazda_kolor": "inny"
    },
    "pozycja": {
     "krag": "zewn",
     "kolejnosc": 17,
-    "kat": 319.1,
-    "promien": 0.911,
-    "x": 0.3168,
-    "y": 0.2352
+    "kat": 336.2,
+    "promien": 0.945,
+    "x": 0.3838,
+    "y": 0.1781
    },
    "etykieta": {
     "locus": "19",
@@ -577,17 +577,17 @@
     "wlosy": "rozpuszczone",
     "trzyma": "gwiazda",
     "kierunek": "przod",
-    "gwiazda_promienie": 6,
+    "gwiazda_promienie": 5,
     "gwiazda_ogon": false,
     "gwiazda_kolor": "inny"
    },
    "pozycja": {
     "krag": "zewn",
     "kolejnosc": 18,
-    "kat": 336.2,
-    "promien": 0.945,
-    "x": 0.3838,
-    "y": 0.1781
+    "kat": 350.0,
+    "promien": 0.968,
+    "x": 0.4499,
+    "y": 0.1495
    },
    "etykieta": {
     "locus": "20",
@@ -605,22 +605,22 @@
    "typ": "nimfa",
    "cechy": {
     "naga": false,
-    "w_obiekcie": "beczka",
+    "w_obiekcie": "nic",
     "korona": false,
     "wlosy": "rozpuszczone",
     "trzyma": "gwiazda",
     "kierunek": "przod",
-    "gwiazda_promienie": 5,
+    "gwiazda_promienie": 6,
     "gwiazda_ogon": false,
-    "gwiazda_kolor": "inny"
+    "gwiazda_kolor": "brak"
    },
    "pozycja": {
-    "krag": "zewn",
-    "kolejnosc": 19,
-    "kat": 350.0,
-    "promien": 0.968,
-    "x": 0.4499,
-    "y": 0.1495
+    "krag": "wewn",
+    "kolejnosc": 1,
+    "kat": 14.1,
+    "promien": 0.62,
+    "x": 0.5489,
+    "y": 0.2638
    },
    "etykieta": {
     "locus": "22",
@@ -643,18 +643,18 @@
     "korona": false,
     "wlosy": "rozpuszczone",
     "trzyma": "gwiazda",
-    "kierunek": "przod",
-    "gwiazda_promienie": 6,
+    "kierunek": "prawo",
+    "gwiazda_promienie": 5,
     "gwiazda_ogon": false,
     "gwiazda_kolor": "brak"
    },
    "pozycja": {
     "krag": "wewn",
-    "kolejnosc": 1,
-    "kat": 14.1,
-    "promien": 0.62,
-    "x": 0.5489,
-    "y": 0.2638
+    "kolejnosc": 2,
+    "kat": 42.0,
+    "promien": 0.612,
+    "x": 0.6291,
+    "y": 0.3114
    },
    "etykieta": {
     "locus": "23",
@@ -670,39 +670,6 @@
   },
   {
    "id": "f70v2-21",
-   "typ": "nimfa",
-   "cechy": {
-    "naga": false,
-    "w_obiekcie": "nic",
-    "korona": false,
-    "wlosy": "rozpuszczone",
-    "trzyma": "gwiazda",
-    "kierunek": "prawo",
-    "gwiazda_promienie": 5,
-    "gwiazda_ogon": false,
-    "gwiazda_kolor": "brak"
-   },
-   "pozycja": {
-    "krag": "wewn",
-    "kolejnosc": 2,
-    "kat": 42.0,
-    "promien": 0.612,
-    "x": 0.6291,
-    "y": 0.3114
-   },
-   "etykieta": {
-    "locus": "24",
-    "rodzaj": "Lz",
-    "slowa": [
-     "otalar"
-    ]
-   },
-   "zrodlo": "vision",
-   "pewnosc": 1,
-   "uwaga": "szkic z GPU: postaci 28 (oczekiwano 29), etykiet 29; model widzi znak 'ryby', tabela mówi 'ryby'; sprawdzić kolejność na PNG"
-  },
-  {
-   "id": "f70v2-22",
    "typ": "nimfa",
    "cechy": {
     "naga": true,
@@ -722,6 +689,39 @@
     "promien": 0.601,
     "x": 0.6857,
     "y": 0.4257
+   },
+   "etykieta": {
+    "locus": "24",
+    "rodzaj": "Lz",
+    "slowa": [
+     "otalar"
+    ]
+   },
+   "zrodlo": "vision",
+   "pewnosc": 1,
+   "uwaga": "szkic z GPU: postaci 28 (oczekiwano 29), etykiet 29; model widzi znak 'ryby', tabela mówi 'ryby'; sprawdzić kolejność na PNG"
+  },
+  {
+   "id": "f70v2-22",
+   "typ": "nimfa",
+   "cechy": {
+    "naga": false,
+    "w_obiekcie": null,
+    "korona": false,
+    "wlosy": "rozpuszczone",
+    "trzyma": "gwiazda",
+    "kierunek": "prawo",
+    "gwiazda_promienie": 5,
+    "gwiazda_ogon": false,
+    "gwiazda_kolor": "zolty"
+   },
+   "pozycja": {
+    "krag": "wewn",
+    "kolejnosc": 4,
+    "kat": 119.4,
+    "promien": 0.61,
+    "x": 0.6669,
+    "y": 0.5562
    },
    "etykieta": {
     "locus": "25",
@@ -744,17 +744,17 @@
     "wlosy": "rozpuszczone",
     "trzyma": "gwiazda",
     "kierunek": "prawo",
-    "gwiazda_promienie": 5,
+    "gwiazda_promienie": 6,
     "gwiazda_ogon": false,
-    "gwiazda_kolor": "zolty"
+    "gwiazda_kolor": "brak"
    },
    "pozycja": {
     "krag": "wewn",
-    "kolejnosc": 4,
-    "kat": 119.4,
-    "promien": 0.61,
-    "x": 0.6669,
-    "y": 0.5562
+    "kolejnosc": 5,
+    "kat": 151.7,
+    "promien": 0.64,
+    "x": 0.5961,
+    "y": 0.6419
    },
    "etykieta": {
     "locus": "26",
@@ -779,15 +779,15 @@
     "kierunek": "prawo",
     "gwiazda_promienie": 6,
     "gwiazda_ogon": false,
-    "gwiazda_kolor": "brak"
+    "gwiazda_kolor": "zolty"
    },
    "pozycja": {
     "krag": "wewn",
-    "kolejnosc": 5,
-    "kat": 151.7,
-    "promien": 0.64,
-    "x": 0.5961,
-    "y": 0.6419
+    "kolejnosc": 6,
+    "kat": 186.7,
+    "promien": 0.656,
+    "x": 0.4782,
+    "y": 0.6705
    },
    "etykieta": {
     "locus": "27",
@@ -802,39 +802,6 @@
   },
   {
    "id": "f70v2-25",
-   "typ": "nimfa",
-   "cechy": {
-    "naga": false,
-    "w_obiekcie": null,
-    "korona": false,
-    "wlosy": "rozpuszczone",
-    "trzyma": "gwiazda",
-    "kierunek": "prawo",
-    "gwiazda_promienie": 6,
-    "gwiazda_ogon": false,
-    "gwiazda_kolor": "zolty"
-   },
-   "pozycja": {
-    "krag": "wewn",
-    "kolejnosc": 6,
-    "kat": 186.7,
-    "promien": 0.656,
-    "x": 0.4782,
-    "y": 0.6705
-   },
-   "etykieta": {
-    "locus": "28",
-    "rodzaj": "Lz",
-    "slowa": [
-     "oteosal"
-    ]
-   },
-   "zrodlo": "vision",
-   "pewnosc": 1,
-   "uwaga": "szkic z GPU: postaci 28 (oczekiwano 29), etykiet 29; model widzi znak 'ryby', tabela mówi 'ryby'; sprawdzić kolejność na PNG"
-  },
-  {
-   "id": "f70v2-26",
    "typ": "nimfa",
    "cechy": {
     "naga": false,
@@ -854,6 +821,39 @@
     "promien": 0.622,
     "x": 0.3508,
     "y": 0.5848
+   },
+   "etykieta": {
+    "locus": "28",
+    "rodzaj": "Lz",
+    "slowa": [
+     "oteosal"
+    ]
+   },
+   "zrodlo": "vision",
+   "pewnosc": 1,
+   "uwaga": "szkic z GPU: postaci 28 (oczekiwano 29), etykiet 29; model widzi znak 'ryby', tabela mówi 'ryby'; sprawdzić kolejność na PNG"
+  },
+  {
+   "id": "f70v2-26",
+   "typ": "nimfa",
+   "cechy": {
+    "naga": false,
+    "w_obiekcie": null,
+    "korona": false,
+    "wlosy": "rozpuszczone",
+    "trzyma": "gwiazda",
+    "kierunek": "prawo",
+    "gwiazda_promienie": 8,
+    "gwiazda_ogon": false,
+    "gwiazda_kolor": "inny"
+   },
+   "pozycja": {
+    "krag": "wewn",
+    "kolejnosc": 8,
+    "kat": 267.2,
+    "promien": 0.612,
+    "x": 0.3121,
+    "y": 0.4686
    },
    "etykieta": {
     "locus": "29",
@@ -876,17 +876,17 @@
     "wlosy": "rozpuszczone",
     "trzyma": "gwiazda",
     "kierunek": "prawo",
-    "gwiazda_promienie": 8,
+    "gwiazda_promienie": 6,
     "gwiazda_ogon": false,
     "gwiazda_kolor": "inny"
    },
    "pozycja": {
     "krag": "wewn",
-    "kolejnosc": 8,
-    "kat": 267.2,
-    "promien": 0.612,
-    "x": 0.3121,
-    "y": 0.4686
+    "kolejnosc": 9,
+    "kat": 302.5,
+    "promien": 0.621,
+    "x": 0.3395,
+    "y": 0.3505
    },
    "etykieta": {
     "locus": "30",
@@ -915,7 +915,7 @@
    },
    "pozycja": {
     "krag": "wewn",
-    "kolejnosc": 9,
+    "kolejnosc": 10,
     "kat": 334.3,
     "promien": 0.618,
     "x": 0.4187,

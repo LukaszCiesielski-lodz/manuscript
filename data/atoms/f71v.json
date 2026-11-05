@@ -15,7 +15,7 @@
     "kierunek": "prawo",
     "gwiazda_promienie": 5,
     "gwiazda_ogon": false,
-    "gwiazda_kolor": "inny"
+    "gwiazda_kolor": "zolty"
    },
    "pozycja": {
     "krag": "zewn",
@@ -35,7 +35,7 @@
    },
    "zrodlo": "vision",
    "pewnosc": 1,
-   "uwaga": "szkic z GPU: postaci 16 (oczekiwano 15), etykiet 15; model widzi znak 'byk', tabela mówi 'byk'; sprawdzić kolejność na PNG"
+   "uwaga": "szkic z GPU: postaci 15 (oczekiwano 15), etykiet 15; model widzi znak 'byk', tabela mówi 'byk'; sprawdzić kolejność na PNG"
   },
   {
    "id": "f71v-02",
@@ -68,7 +68,7 @@
    },
    "zrodlo": "vision",
    "pewnosc": 1,
-   "uwaga": "szkic z GPU: postaci 16 (oczekiwano 15), etykiet 15; model widzi znak 'byk', tabela mówi 'byk'; sprawdzić kolejność na PNG"
+   "uwaga": "szkic z GPU: postaci 15 (oczekiwano 15), etykiet 15; model widzi znak 'byk', tabela mówi 'byk'; sprawdzić kolejność na PNG"
   },
   {
    "id": "f71v-03",
@@ -101,7 +101,7 @@
    },
    "zrodlo": "vision",
    "pewnosc": 1,
-   "uwaga": "szkic z GPU: postaci 16 (oczekiwano 15), etykiet 15; model widzi znak 'byk', tabela mówi 'byk'; sprawdzić kolejność na PNG"
+   "uwaga": "szkic z GPU: postaci 15 (oczekiwano 15), etykiet 15; model widzi znak 'byk', tabela mówi 'byk'; sprawdzić kolejność na PNG"
   },
   {
    "id": "f71v-04",
@@ -110,12 +110,12 @@
     "naga": false,
     "w_obiekcie": "nic",
     "korona": false,
-    "wlosy": "rozpuszczone",
+    "wlosy": "upiete",
     "trzyma": "gwiazda",
     "kierunek": "prawo",
     "gwiazda_promienie": 8,
     "gwiazda_ogon": false,
-    "gwiazda_kolor": "zolty"
+    "gwiazda_kolor": "brak"
    },
    "pozycja": {
     "krag": "zewn",
@@ -134,7 +134,7 @@
    },
    "zrodlo": "vision",
    "pewnosc": 1,
-   "uwaga": "szkic z GPU: postaci 16 (oczekiwano 15), etykiet 15; model widzi znak 'byk', tabela mówi 'byk'; sprawdzić kolejność na PNG"
+   "uwaga": "szkic z GPU: postaci 15 (oczekiwano 15), etykiet 15; model widzi znak 'byk', tabela mówi 'byk'; sprawdzić kolejność na PNG"
   },
   {
    "id": "f71v-05",
@@ -143,7 +143,7 @@
     "naga": false,
     "w_obiekcie": null,
     "korona": false,
-    "wlosy": "rozpuszczone",
+    "wlosy": "nie_widac",
     "trzyma": "gwiazda",
     "kierunek": "przod",
     "gwiazda_promienie": 8,
@@ -167,7 +167,7 @@
    },
    "zrodlo": "vision",
    "pewnosc": 1,
-   "uwaga": "szkic z GPU: postaci 16 (oczekiwano 15), etykiet 15; model widzi znak 'byk', tabela mówi 'byk'; sprawdzić kolejność na PNG"
+   "uwaga": "szkic z GPU: postaci 15 (oczekiwano 15), etykiet 15; model widzi znak 'byk', tabela mówi 'byk'; sprawdzić kolejność na PNG"
   },
   {
    "id": "f71v-06",
@@ -179,7 +179,7 @@
     "wlosy": "nie_widac",
     "trzyma": "gwiazda",
     "kierunek": "przod",
-    "gwiazda_promienie": 6,
+    "gwiazda_promienie": 8,
     "gwiazda_ogon": false,
     "gwiazda_kolor": "brak"
    },
@@ -200,7 +200,7 @@
    },
    "zrodlo": "vision",
    "pewnosc": 1,
-   "uwaga": "szkic z GPU: postaci 16 (oczekiwano 15), etykiet 15; model widzi znak 'byk', tabela mówi 'byk'; sprawdzić kolejność na PNG"
+   "uwaga": "szkic z GPU: postaci 15 (oczekiwano 15), etykiet 15; model widzi znak 'byk', tabela mówi 'byk'; sprawdzić kolejność na PNG"
   },
   {
    "id": "f71v-07",
@@ -233,7 +233,7 @@
    },
    "zrodlo": "vision",
    "pewnosc": 1,
-   "uwaga": "szkic z GPU: postaci 16 (oczekiwano 15), etykiet 15; model widzi znak 'byk', tabela mówi 'byk'; sprawdzić kolejność na PNG"
+   "uwaga": "szkic z GPU: postaci 15 (oczekiwano 15), etykiet 15; model widzi znak 'byk', tabela mówi 'byk'; sprawdzić kolejność na PNG"
   },
   {
    "id": "f71v-08",
@@ -244,7 +244,7 @@
     "korona": false,
     "wlosy": "rozpuszczone",
     "trzyma": "gwiazda",
-    "kierunek": "prawo",
+    "kierunek": "przod",
     "gwiazda_promienie": 8,
     "gwiazda_ogon": false,
     "gwiazda_kolor": "czerwony"
@@ -268,7 +268,7 @@
    },
    "zrodlo": "vision",
    "pewnosc": 1,
-   "uwaga": "szkic z GPU: postaci 16 (oczekiwano 15), etykiet 15; model widzi znak 'byk', tabela mówi 'byk'; sprawdzić kolejność na PNG"
+   "uwaga": "szkic z GPU: postaci 15 (oczekiwano 15), etykiet 15; model widzi znak 'byk', tabela mówi 'byk'; sprawdzić kolejność na PNG"
   },
   {
    "id": "f71v-09",
@@ -277,9 +277,9 @@
     "naga": false,
     "w_obiekcie": null,
     "korona": true,
-    "wlosy": "rozpuszczone",
+    "wlosy": "nie_widac",
     "trzyma": "gwiazda",
-    "kierunek": "przod",
+    "kierunek": "prawo",
     "gwiazda_promienie": 8,
     "gwiazda_ogon": false,
     "gwiazda_kolor": "inny"
@@ -303,7 +303,7 @@
    },
    "zrodlo": "vision",
    "pewnosc": 1,
-   "uwaga": "szkic z GPU: postaci 16 (oczekiwano 15), etykiet 15; model widzi znak 'byk', tabela mówi 'byk'; sprawdzić kolejność na PNG"
+   "uwaga": "szkic z GPU: postaci 15 (oczekiwano 15), etykiet 15; model widzi znak 'byk', tabela mówi 'byk'; sprawdzić kolejność na PNG"
   },
   {
    "id": "f71v-10",
@@ -337,7 +337,7 @@
    },
    "zrodlo": "vision",
    "pewnosc": 1,
-   "uwaga": "szkic z GPU: postaci 16 (oczekiwano 15), etykiet 15; model widzi znak 'byk', tabela mówi 'byk'; sprawdzić kolejność na PNG"
+   "uwaga": "szkic z GPU: postaci 15 (oczekiwano 15), etykiet 15; model widzi znak 'byk', tabela mówi 'byk'; sprawdzić kolejność na PNG"
   },
   {
    "id": "f71v-11",
@@ -354,7 +354,7 @@
     "gwiazda_kolor": "zolty"
    },
    "pozycja": {
-    "krag": "srod",
+    "krag": "wewn",
     "kolejnosc": 1,
     "kat": 10.4,
     "promien": 0.496,
@@ -370,7 +370,7 @@
    },
    "zrodlo": "vision",
    "pewnosc": 1,
-   "uwaga": "szkic z GPU: postaci 16 (oczekiwano 15), etykiet 15; model widzi znak 'byk', tabela mówi 'byk'; sprawdzić kolejność na PNG"
+   "uwaga": "szkic z GPU: postaci 15 (oczekiwano 15), etykiet 15; model widzi znak 'byk', tabela mówi 'byk'; sprawdzić kolejność na PNG"
   },
   {
    "id": "f71v-12",
@@ -387,7 +387,7 @@
     "gwiazda_kolor": "czerwony"
    },
    "pozycja": {
-    "krag": "srod",
+    "krag": "wewn",
     "kolejnosc": 2,
     "kat": 84.0,
     "promien": 0.538,
@@ -403,7 +403,7 @@
    },
    "zrodlo": "vision",
    "pewnosc": 1,
-   "uwaga": "szkic z GPU: postaci 16 (oczekiwano 15), etykiet 15; model widzi znak 'byk', tabela mówi 'byk'; sprawdzić kolejność na PNG"
+   "uwaga": "szkic z GPU: postaci 15 (oczekiwano 15), etykiet 15; model widzi znak 'byk', tabela mówi 'byk'; sprawdzić kolejność na PNG"
   },
   {
    "id": "f71v-13",
@@ -415,12 +415,12 @@
     "wlosy": "nakrycie",
     "trzyma": "gwiazda",
     "kierunek": "przod",
-    "gwiazda_promienie": 8,
+    "gwiazda_promienie": 6,
     "gwiazda_ogon": false,
     "gwiazda_kolor": "inny"
    },
    "pozycja": {
-    "krag": "srod",
+    "krag": "wewn",
     "kolejnosc": 3,
     "kat": 162.7,
     "promien": 0.598,
@@ -436,7 +436,7 @@
    },
    "zrodlo": "vision",
    "pewnosc": 1,
-   "uwaga": "szkic z GPU: postaci 16 (oczekiwano 15), etykiet 15; model widzi znak 'byk', tabela mówi 'byk'; sprawdzić kolejność na PNG"
+   "uwaga": "szkic z GPU: postaci 15 (oczekiwano 15), etykiet 15; model widzi znak 'byk', tabela mówi 'byk'; sprawdzić kolejność na PNG"
   },
   {
    "id": "f71v-14",
@@ -444,16 +444,16 @@
    "cechy": {
     "naga": false,
     "w_obiekcie": null,
-    "korona": false,
+    "korona": true,
     "wlosy": "nie_widac",
     "trzyma": "gwiazda",
     "kierunek": "prawo",
     "gwiazda_promienie": 8,
     "gwiazda_ogon": false,
-    "gwiazda_kolor": "brak"
+    "gwiazda_kolor": "inny"
    },
    "pozycja": {
-    "krag": "srod",
+    "krag": "wewn",
     "kolejnosc": 4,
     "kat": 239.8,
     "promien": 0.487,
@@ -470,7 +470,7 @@
    },
    "zrodlo": "vision",
    "pewnosc": 1,
-   "uwaga": "szkic z GPU: postaci 16 (oczekiwano 15), etykiet 15; model widzi znak 'byk', tabela mówi 'byk'; sprawdzić kolejność na PNG"
+   "uwaga": "szkic z GPU: postaci 15 (oczekiwano 15), etykiet 15; model widzi znak 'byk', tabela mówi 'byk'; sprawdzić kolejność na PNG"
   },
   {
    "id": "f71v-15",
@@ -487,7 +487,7 @@
     "gwiazda_kolor": "zolty"
    },
    "pozycja": {
-    "krag": "srod",
+    "krag": "wewn",
     "kolejnosc": 5,
     "kat": 296.9,
     "promien": 0.431,
@@ -503,34 +503,7 @@
    },
    "zrodlo": "vision",
    "pewnosc": 1,
-   "uwaga": "szkic z GPU: postaci 16 (oczekiwano 15), etykiet 15; model widzi znak 'byk', tabela mówi 'byk'; sprawdzić kolejność na PNG"
-  },
-  {
-   "id": "f71v-x16",
-   "typ": "nimfa",
-   "cechy": {
-    "naga": false,
-    "w_obiekcie": "nic",
-    "korona": false,
-    "wlosy": "nie_widac",
-    "trzyma": "nic",
-    "kierunek": "prawo",
-    "gwiazda_promienie": null,
-    "gwiazda_ogon": false,
-    "gwiazda_kolor": "brak"
-   },
-   "pozycja": {
-    "krag": "wewn",
-    "kolejnosc": 1,
-    "kat": 169.5,
-    "promien": 0.095,
-    "x": 0.1595,
-    "y": 0.4802
-   },
-   "etykieta": null,
-   "zrodlo": "vision",
-   "pewnosc": 1,
-   "uwaga": "punkt bez etykiety; szkic z GPU: postaci 16 (oczekiwano 15), etykiet 15; model widzi znak 'byk', tabela mówi 'byk'; sprawdzić kolejność na PNG"
+   "uwaga": "szkic z GPU: postaci 15 (oczekiwano 15), etykiet 15; model widzi znak 'byk', tabela mówi 'byk'; sprawdzić kolejność na PNG"
   }
  ]
 }

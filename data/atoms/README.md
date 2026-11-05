@@ -55,8 +55,8 @@ ktoś poprawi cechy, niech sprawdzi na PNG, czy numer 7 to naprawdę siódma ety
 z liczbą etykiet, pole `uwaga` to mówi i dopasowanie jest zgadywane.
 
 Scalanie szkicu do `data/atoms`: `python scripts/merge_atoms.py results/lab/<przebieg>/atoms_vision` bierze tylko strony,
-na których liczba znalezionych postaci zgadza się z liczbą nimf (±1), i nie nadpisuje stron z wpisami ludzi. Stan: 5 stron
-zodiaku (f70v2, f70v1, f71r, f71v, f72r3) ma szkic `vision`; cechy w nim bywają błędne (np. `w_obiekcie` dla nimf w wannach),
+na których liczba znalezionych postaci zgadza się z liczbą nimf (±1), i nie nadpisuje stron z wpisami ludzi. Stan: 6 stron
+zodiaku (f70v2, f70v1, f71r, f71v, f72r3, f73r) ma szkic `vision`; cechy w nim bywają błędne (np. `w_obiekcie` dla nimf w wannach),
 więc poprawiając, zmień `zrodlo` na swoje imię i podnieś `pewnosc`.
 
 ## Sprawdzenie i test

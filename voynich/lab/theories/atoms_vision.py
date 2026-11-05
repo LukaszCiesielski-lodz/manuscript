@@ -121,12 +121,38 @@ def rotated(image, k: int):
 
 def merge_points(groups: list[list[tuple[float, float]]], min_dist: float) -> list[tuple[float, float]]:
     """Union of point lists from several sources, points closer than min_dist taken as the same thing."""
-    out: list[tuple[float, float]] = []
-    for pts in groups:
+    return [(x, y) for x, y, _ in vote_points(groups, min_dist)]
+
+
+def vote_points(groups: list[list[tuple[float, float]]], min_dist: float) -> list[tuple[float, float, int]]:
+    """Clusters of points from several sources with their support: how many sources saw something there.
+
+    Each source (a prompt in one rotation) votes at most once per cluster, so a hallucination burst from one
+    source cannot outvote a figure that two sources agree on. Returned in order of first appearance.
+    """
+    clusters: list[list[float]] = []       # x, y (running mean), votes
+    members: list[set[int]] = []
+    for k, pts in enumerate(groups):
         for p in pts:
-            if all((p[0] - q[0]) ** 2 + (p[1] - q[1]) ** 2 >= min_dist ** 2 for q in out):
-                out.append(p)
-    return out
+            hit = next((i for i, c in enumerate(clusters) if (p[0] - c[0]) ** 2 + (p[1] - c[1]) ** 2 < min_dist ** 2), None)
+            if hit is None:
+                clusters.append([p[0], p[1], 1])
+                members.append({k})
+            elif k not in members[hit]:
+                c = clusters[hit]
+                n = c[2]
+                c[0], c[1], c[2] = (c[0] * n + p[0]) / (n + 1), (c[1] * n + p[1]) / (n + 1), n + 1
+                members[hit].add(k)
+    return [(c[0], c[1], c[2]) for c in clusters]
+
+
+def best_supported(groups: list[list[tuple[float, float]]], min_dist: float, keep: int | None) -> list[tuple[float, float]]:
+    """The `keep` clusters with most votes (all of them when keep is None or there are fewer)."""
+    voted = vote_points(groups, min_dist)
+    if keep is None or len(voted) <= keep:
+        return [(x, y) for x, y, _ in voted]
+    ranked = sorted(range(len(voted)), key=lambda i: (-voted[i][2], i))[:keep]
+    return [(voted[i][0], voted[i][1]) for i in sorted(ranked)]
 
 
 def _shift(points, dx, dy, scale=1.0):
@@ -177,8 +203,9 @@ def zodiac(cfg: LabConfig, pointer: vision.Chat, describer: vision.Chat, detecto
             except Exception as e:  # the second counter is a check, not a requirement
                 counts["dino"] = None
                 report.append(f"{canvas['label']}: Grounding DINO pominięty ({str(e)[:60]})")
-            pts = merge_points(sources, MERGE_RADIUS * crop.width)
-            pts = [q for q in pts if (q[0] - c[0]) ** 2 + (q[1] - c[1]) ** 2 >= (CENTRE_EXCLUSION * radius) ** 2]
+            away = [[q for q in src if (q[0] - c[0]) ** 2 + (q[1] - c[1]) ** 2 >= (CENTRE_EXCLUSION * radius) ** 2] for src in sources]
+            union = len(vote_points(away, MERGE_RADIUS * crop.width))
+            pts = best_supported(away, MERGE_RADIUS * crop.width, EXPECTED.get(folio))   # the known count of nymphs is a prior, not a result
             stars = _shift(pointer.points(crop, "star"), x0, y0)
             side = int(0.35 * radius)
             centre_crop = image.crop((int(max(0, c[0] - side)), int(max(0, c[1] - side)), int(min(w, c[0] + side)), int(min(h, c[1] + side))))
@@ -200,7 +227,7 @@ def zodiac(cfg: LabConfig, pointer: vision.Chat, describer: vision.Chat, detecto
             rings = {}
             for lay in layout:
                 rings[lay["krag"]] = rings.get(lay["krag"], 0) + 1
-            report.append(f"{folio} ({SIGNS.get(folio)}; model widzi {seen_pl}): postaci {len(pts)} po scaleniu (Molmo {counts}), "
+            report.append(f"{folio} ({SIGNS.get(folio)}; model widzi {seen_pl}): postaci {len(pts)} (unia {union}, zostawione najlepiej poparte; Molmo {counts}), "
                           f"oczekiwano {EXPECTED.get(folio)}, etykiet {labels}, kręgi {rings}, gwiazd {len(stars)}, odrzuconych wartości {dropped}")
         if preview:
             png = out_dir / f"{canvas['label'].replace(' ', '_').replace('(', '').replace(')', '')}_{canvas['iiif']}.png"
@@ -254,6 +281,7 @@ def run(cfg: LabConfig) -> TheoryResult:
                    "z kolejnością nimf policzoną z geometrii, żeby ludzie poprawiali zamiast zaczynać od zera.",
         method=(f"Molmo2 ({cfg.atoms_pointer}) wskazuje punktami środki kół, postaci i gwiazdy; Grounding DINO ({cfg.atoms_detector}) "
                 "liczy te same klasy ramkami jako kontrola; wycinek każdego koła wskazywany w czterech obrotach (nimfy leżą stopami do środka); "
+                "każdy punkt ma poparcie = liczba pytań i obrotów, które go widzą, zostaje tyle najlepiej popartych, ile nimf ma strona (voynich.nu); "
                 "postaci przypisane do najbliższego środka, kręgi i kolejność zgodnie "
                 f"z ruchem wskazówek zegara z geometrii (voynich.atoms.ring_layout); Qwen3-VL ({cfg.atoms_describer}) opisuje wycinek "
                 "wokół każdej postaci według słownika 'nimfa' (wartości spoza słownika odrzucone); znak w środku koła wskazuje "

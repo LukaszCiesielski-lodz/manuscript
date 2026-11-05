@@ -1094,7 +1094,11 @@ class AtomsVisionTest(unittest.TestCase):
         cleaned, dropped = atoms_vision._clean({"naga": "true", "trzyma": "miecz", "gwiazda_promienie": 7.0},
                                                A.load_vocab()["typy"]["nimfa"]["cechy"])
         self.assertEqual((cleaned["naga"], cleaned["trzyma"], cleaned["gwiazda_promienie"], dropped), (True, None, 7, 1))
-        self.assertEqual(atoms_vision.merge_points([[(0, 0), (10, 0)], [(1, 0), (50, 0)]], 5), [(0, 0), (10, 0), (50, 0)])
+        self.assertEqual(atoms_vision.merge_points([[(0, 0), (10, 0)], [(1, 0), (50, 0)]], 5), [(0.5, 0.0), (10, 0), (50, 0)])
+        voted = atoms_vision.vote_points([[(0, 0), (10, 0)], [(1, 0), (50, 0)], [(2, 0), (2.5, 0)]], 5)
+        self.assertEqual([v for _, _, v in voted], [3, 1, 1])                 # a source votes once per cluster
+        self.assertEqual(atoms_vision.best_supported([[(0, 0), (10, 0)], [(1, 0), (50, 0)]], 5, 1), [(0.5, 0.0)])
+        self.assertEqual(len(atoms_vision.best_supported([[(0, 0), (10, 0)], [(1, 0), (50, 0)]], 5, None)), 3)
         from PIL import Image
         img = Image.new("L", (40, 30))
         img.putpixel((31, 7), 255)

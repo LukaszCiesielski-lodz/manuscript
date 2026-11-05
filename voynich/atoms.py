@@ -377,7 +377,7 @@ def parse_points(text: str, width: float, height: float) -> list[tuple[float, fl
 
 
 def ring_layout(points: Sequence[tuple[float, float]], center: tuple[float, float] | None = None,
-                max_rings: int = 3, gap: float = 0.15, min_size: int = 3) -> list[dict]:
+                max_rings: int = 3, gap: float = 0.12, min_size: int = 4) -> list[dict]:
     """Rings and clockwise order (from twelve o'clock) of points around a roundel.
 
     Returns one dict per input point, same order: krag ("zewn", "srod", "wewn"), kolejnosc (1-based within
