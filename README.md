@@ -120,6 +120,46 @@ Laboratorium porównuje z 17 językami Biblii (baskijski dołączył jako 13., h
 Sekrety Colaba: `GITHUB_TOKEN`, `OPENROUTER_API_KEY`. Wyniki trafiają na gałąź `lab-results`.
 Z wiersza poleceń: `python -m voynich.lab.runner --theories numbers,literature --quick --no-council`.
 
+## Stan badań (6 listopada 2026)
+
+Trzy tygodnie, 38 teorii zamienionych w testy z kontrolami, 25 przebiegów na Colabie (A100 i CPU) na gałęzi `lab-results`,
+110 testów kodu. Każdy test musi znaleźć efekt podłożony celowo i nie znajdować go w danych losowych; bez tego werdykt
+brzmi „metoda niewiarygodna”. Wiersze w tabeli wyżej mają liczby; tu streszczenie.
+
+**Wykluczone (kontrole przeszły):**
+- Szyfr podstawieniowy, prosty i homofoniczny, dla 53 języków i słowników epoki. Trzy łamacze (brute force trójek słów,
+  wspinaczka z modelem n-gramowym, NeuroDecipher) odzyskują klucz z tekstu kontrolnego w 94–100%, a z rękopisu wyciągają
+  tyle samo co z bełkotu. Dotyczy też kluczy innych dla każdej długości słowa (`brute_length`: słowa o 5–8 glifach czytane
+  jako słowa języka w 0–8%, tyle co bełkot; zaszyfrowany tekst 97–100%) i klucza zapisanego w odstępach (`keystream`:
+  żadne cięcie, przesunięcie ani odczyt strumienia glifów nie koduje rękopisu krócej niż odstępy EVA).
+- Zapis niejęzykowy ze składnią: chorał, tabulatura tańca, program (`notation`, z = 65–145 wobec −1 rękopisu); listy
+  średniowieczne: martyrologium, Apicius, glosariusz Alphita (`lists`, z = 64–113).
+- Daleka składnia: w czterech transliteracjach słowo nic nie mówi o słowie 2–7 miejsc dalej (z ≈ −1), czego nie ma żaden
+  język, szyfr zachowujący szyk, notacja ani lista.
+- Tekst opisujący obrazki: akapity nie cytują etykiet swojej strony (`labels`, z = +1,4), strony z tą samą rośliną dzielą
+  słów mniej niż losowe strony (`plant_pairs`, z = −2), podobieństwo rysunków nie idzie w parze z podobieństwem słów
+  (Mantel r = 0,08).
+
+**Niewyjaśnione:**
+- Generator bez treści v7 (kopiuj z sąsiedztwa i przerabiaj) trafia 21 z 23 miar statystycznych, ale sędzia-transformer
+  wciąż odróżnia go od rękopisu (AUC 0,642 wobec 0,531 dla rękopisu z samym sobą). Trwały ślad: rękopis ma więcej słów
+  jednorazowych, niż daje przerabianie sąsiadów. Test `judge_probe` (słownictwo czy szyk?) czeka na uruchomienie.
+- Etykiety przy rysunkach to osobny zasób nazw: inne początki, inne długości, połowa nigdy nie pada w akapitach.
+- Sąsiednie słowa niosą o sobie mniej informacji niż losowe słowa tego samego wiersza (z = −24; bełkot +11, łacina +47).
+  Tłumaczy to słownictwo krawędzi wiersza, ale sama cecha nie była wcześniej opisana.
+- Sztywne kawałki po 3 glify kodują rękopis krócej niż jego własne słowa (3,32 wobec 3,90 bitu na glif); w łacinie słowa
+  wygrywają z kawałkami.
+
+**Wniosek roboczy:** tekst nie niesie treści w żadnym sensie, w jakim niosą ją język, szyfr zachowujący szyk, notacja
+czy lista. Najbardziej prawdopodobny jest zapis bez treści z nawyku skryby, z możliwą domieszką prawdziwych nazw
+(etykiety). To opinia oparta na liczbach, nie dowód: wszystko jest publiczne i powtarzalne.
+
+**Tor otwarty, obraz–etykieta (atomy):** rysunki rozbierane na atomy, jeden rekord na etykietę (853 loci na 51 stronach),
+cechy tylko obserwowalne ze słownika kontrolowanego; szkic na własnym GPU otwartymi modelami (Molmo2, Qwen3-VL, Grounding
+DINO) z kolejnością nimf policzoną z geometrii. Po czterech przebiegach 7 z 12 kół zodiaku ma poprawną liczbę postaci,
+131 atomów jest scalonych, test `atoms` działa (kontrole OK, nic po poprawce; obalenie wymaga ≥ 200 atomów). Instrukcja
+dla osób wypełniających: [`data/atoms/README.md`](data/atoms/README.md).
+
 ## Uruchomienie
 
 ```bash
