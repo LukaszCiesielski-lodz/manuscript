@@ -102,5 +102,142 @@
  ],
  "artifacts": [],
  "seconds": 34.989810943603516,
- "council": {}
+ "council": {
+  "members": [
+   "z-ai/glm-5.3-flash",
+   "openai/gpt-6-luna",
+   "inception/mercury-3",
+   "tencent/hy3"
+  ],
+  "chair": "openai/gpt-6-luna",
+  "round1": {
+   "z-ai/glm-5.3-flash": {
+    "raw": "```json\n{\n  \"werdykt\": \"potwierdzona\",\n  \"pewność\": 0.6,\n  \"najmocniejszy_dowód\": \"Po dopasowaniu słownictwa (same słowo wspólne ≥2 razy, 247 wierszy) AUC sędziego spada z 0.690 do 0.566, blisko poziomu kontrolnego prawdziwe–prawdziwe (0.532). Efekt sędziego znika, gdy wiersze mają porównywalne słownictwo — to bezpośrednio wspiera hipotezę, że sygnał siedzi w słownictwie, nie w szyku ani kształcie słów. Zgodne z tym najsilniejsza pojedyncza cecha: hapaksy (AUC 0.58).\",\n  \"słabości\": [\n    \"Różnica 0.566 vs 0.532 (dopasowane vs kontrola) jest mała i bez podanego błędu/istotności; przy 247 wierszach może być szumem.\",\n    \"Zastrzeżenie raportu jest realne: dopasowanie słownictwa redukuje zbiór i osłabia uczenie sędziego, więc spadek AUC częściowo może wynikać z braku danych, nie z istoty efektu.\",\n    \"Część hipotezy o „słowach nowych” nie znajduje potwierdzenia: cecha unseen ma AUC 0.52, czyli blisko zera; wspiera się tylko komponent rzadkości (hapaksy, 0.58).\",\n    \"Żadna pojedyncza cecha nie tłumaczy większości sygnału sędziego (0.690); korelacje z cechami są niespójne między korpusami (np. words: −0.08 w prawdziwych vs −0.23 w v7), co osłabia interpretację mechanizmu.\"\n  ],\n  \"inne_wyjaśnienia\": [\n    \"Sędzia może wykorzystywać kombinację cech (np. interakcję długości i częstości), której pojedyncze AUC nie ujawniają — wówczas atrybucja do słownictwa jest pośrednia.\",\n    \"Spadek AUC po dopasowaniu słownictwa może odzwierciedlać selekcję łatwiejszych/wzajemnie podobnych wierszy, a nie usunięcie sygnału słownictwowego.\",\n    \"v7 jako punkt odniesienia może różnić się od prawdziwych na więcej sposobów niż słownictwo; sędzia mógł łapać dowolną z tych różnic, a dopasowanie słownictwa przy okazji wyrównało też inne cechy.\"\n  ],\n  \"następny_test\": \"Ablacja słownictwa zamiast selekcji wierszy: wytrenować sędziego na pełnych wierszach, ale w czasie testu zamaskować słowa rzadkie/nowe do wspólnego tokenu <UNK> (zachowując liczbę słów i szyk) i zmierzyć AUC; równolegle kontrola z zamaskowaniem losowej porcji słów o tej samej częstotliwości. Jeśli AUC spadnie do poziomu prawdziwe–prawdziwe tylko przy maskowaniu słów rzadkich — hipoteza o słownictwie dostaje bezpośrednie, nieobciążone selekcją potwierdzenie; jeśli nie — werdykt należy zmienić na nierozstrzygniętą.\"\n}\n```",
+    "json": {
+     "werdykt": "potwierdzona",
+     "pewność": 0.6,
+     "najmocniejszy_dowód": "Po dopasowaniu słownictwa (same słowo wspólne ≥2 razy, 247 wierszy) AUC sędziego spada z 0.690 do 0.566, blisko poziomu kontrolnego prawdziwe–prawdziwe (0.532). Efekt sędziego znika, gdy wiersze mają porównywalne słownictwo — to bezpośrednio wspiera hipotezę, że sygnał siedzi w słownictwie, nie w szyku ani kształcie słów. Zgodne z tym najsilniejsza pojedyncza cecha: hapaksy (AUC 0.58).",
+     "słabości": [
+      "Różnica 0.566 vs 0.532 (dopasowane vs kontrola) jest mała i bez podanego błędu/istotności; przy 247 wierszach może być szumem.",
+      "Zastrzeżenie raportu jest realne: dopasowanie słownictwa redukuje zbiór i osłabia uczenie sędziego, więc spadek AUC częściowo może wynikać z braku danych, nie z istoty efektu.",
+      "Część hipotezy o „słowach nowych” nie znajduje potwierdzenia: cecha unseen ma AUC 0.52, czyli blisko zera; wspiera się tylko komponent rzadkości (hapaksy, 0.58).",
+      "Żadna pojedyncza cecha nie tłumaczy większości sygnału sędziego (0.690); korelacje z cechami są niespójne między korpusami (np. words: −0.08 w prawdziwych vs −0.23 w v7), co osłabia interpretację mechanizmu."
+     ],
+     "inne_wyjaśnienia": [
+      "Sędzia może wykorzystywać kombinację cech (np. interakcję długości i częstości), której pojedyncze AUC nie ujawniają — wówczas atrybucja do słownictwa jest pośrednia.",
+      "Spadek AUC po dopasowaniu słownictwa może odzwierciedlać selekcję łatwiejszych/wzajemnie podobnych wierszy, a nie usunięcie sygnału słownictwowego.",
+      "v7 jako punkt odniesienia może różnić się od prawdziwych na więcej sposobów niż słownictwo; sędzia mógł łapać dowolną z tych różnic, a dopasowanie słownictwa przy okazji wyrównało też inne cechy."
+     ],
+     "następny_test": "Ablacja słownictwa zamiast selekcji wierszy: wytrenować sędziego na pełnych wierszach, ale w czasie testu zamaskować słowa rzadkie/nowe do wspólnego tokenu <UNK> (zachowując liczbę słów i szyk) i zmierzyć AUC; równolegle kontrola z zamaskowaniem losowej porcji słów o tej samej częstotliwości. Jeśli AUC spadnie do poziomu prawdziwe–prawdziwe tylko przy maskowaniu słów rzadkich — hipoteza o słownictwie dostaje bezpośrednie, nieobciążone selekcją potwierdzenie; jeśli nie — werdykt należy zmienić na nierozstrzygniętą."
+    }
+   },
+   "openai/gpt-6-luna": {
+    "raw": "{\n  \"werdykt\": \"metoda niewiarygodna\",\n  \"pewność\": 0.96,\n  \"najmocniejszy_dowód\": \"Kontrole prawdziwe–prawdziwe i czułość na zmienione glify przeszły, ale raport nie zawiera wymaganej kontroli na danych przetasowanych. Zgodnie z kryterium oceny nie można więc uznać metody za wiarygodną.\",\n  \"słabości\": [\n    \"AUC spada z 0,690 do 0,566 po dopasowaniu słownictwa, ale analizę ograniczono do 247 wierszy, a sam raport wskazuje, że mniejsza liczba danych może obniżać AUC.\",\n    \"Najsilniejsza pojedyncza cecha, udział hapaksów, ma tylko AUC 0,58; korelacje wyniku sędziego z podanymi cechami są słabe.\",\n    \"Brak wyników kontroli na danych przetasowanych oraz brak niepewności statystycznej dla AUC.\"\n  ],\n  \"inne_wyjaśnienia\": [\n    \"Sędzia może wykorzystywać kombinację cech lub artefakt podziału danych, którego nie ujmują osobne miary.\",\n    \"Spadek AUC po dopasowaniu może wynikać z mniejszej próby, a nie z usunięcia sygnału słownikowego.\"\n  ],\n  \"następny_test\": \"Powtórzyć cały pipeline z kontrolą na danych przetasowanych, zachowując ten sam podział, liczebność i procedurę uczenia; sprawdzić, czy sędzia nie uzyskuje tam efektu.\"\n}",
+    "json": {
+     "werdykt": "metoda niewiarygodna",
+     "pewność": 0.96,
+     "najmocniejszy_dowód": "Kontrole prawdziwe–prawdziwe i czułość na zmienione glify przeszły, ale raport nie zawiera wymaganej kontroli na danych przetasowanych. Zgodnie z kryterium oceny nie można więc uznać metody za wiarygodną.",
+     "słabości": [
+      "AUC spada z 0,690 do 0,566 po dopasowaniu słownictwa, ale analizę ograniczono do 247 wierszy, a sam raport wskazuje, że mniejsza liczba danych może obniżać AUC.",
+      "Najsilniejsza pojedyncza cecha, udział hapaksów, ma tylko AUC 0,58; korelacje wyniku sędziego z podanymi cechami są słabe.",
+      "Brak wyników kontroli na danych przetasowanych oraz brak niepewności statystycznej dla AUC."
+     ],
+     "inne_wyjaśnienia": [
+      "Sędzia może wykorzystywać kombinację cech lub artefakt podziału danych, którego nie ujmują osobne miary.",
+      "Spadek AUC po dopasowaniu może wynikać z mniejszej próby, a nie z usunięcia sygnału słownikowego."
+     ],
+     "następny_test": "Powtórzyć cały pipeline z kontrolą na danych przetasowanych, zachowując ten sam podział, liczebność i procedurę uczenia; sprawdzić, czy sędzia nie uzyskuje tam efektu."
+    }
+   },
+   "inception/mercury-3": {
+    "raw": "{\"werdykt\": \"nierozstrzygnięta\", \"pewność\": 0.45, \"najmocniejszy_dowód\": \"Sędzia osiąga AUC 0.690 wobec v7 przy kontroli prawdziwe–prawdziwe 0.532 oraz czułości 0.862, co świadczy o realnym sygnale, a spadek do 0.566 po dopasowaniu słownictwa kierunkowo wspiera rolę słownictwa.\", \"słabości\": [\"Brak odpowiednika kontroli dla zestawu z dopasowanym słownictwem (np. losowy podzbiór o równej liczbie wierszy); nie wiadomo, czy spadek AUC 0.689→0.566 wynika z usunięcia sygnału, czy z mniejszego zbioru treningowego.\", \"Brak jednoznacznego progu dla AUC po dopasowaniu słownictwa — zastrzeżenie mówi o porównaniu względnym, ale nie podano wartości granicznej.\", \"Korelacje Spearmana sędziego z pojedynczymi cechami są niskie; nie wyjaśniają mechanizmu ani nie dowodzą, że sędzia używa właśnie tych cech.\"], \"inne_wyjaśnienia\": [\"Sędzia może korzystać z kombinacji drobnych cech tekstowych (nie tylko pojedynczych cech), które nie zostały osobno uwzględnione.\", \"Wybór wierszy najprawdziwszych/najfałszywszych sugeruje wrażliwość na konkretne wzorce literowe, a nie tylko częstość słów.\", \"Efekt może pochodzić z różnic w długości lub budowie słów (kształt graficzny), które nie zostały wprost wykluczone.\"], \"następny_test\": \"Wykonaj permutację słów w wierszach (losowa zmiana kolejności słów przy zachowaniu zbioru słów) dla prawdziwych i v7; jeżeli sędzia nadal uzyska AUC zdecydowanie odbiegające od 0.5, sygnał leży w samym słownictwie (a nie szyku); dodatkowo przeprowadź kontrolę z losowym podzbiorem o liczbie wierszy równej zbiorowi z dopasowanym słownictwem, aby oddzielić efekt wielkości próby.\"}",
+    "json": {
+     "werdykt": "nierozstrzygnięta",
+     "pewność": 0.45,
+     "najmocniejszy_dowód": "Sędzia osiąga AUC 0.690 wobec v7 przy kontroli prawdziwe–prawdziwe 0.532 oraz czułości 0.862, co świadczy o realnym sygnale, a spadek do 0.566 po dopasowaniu słownictwa kierunkowo wspiera rolę słownictwa.",
+     "słabości": [
+      "Brak odpowiednika kontroli dla zestawu z dopasowanym słownictwem (np. losowy podzbiór o równej liczbie wierszy); nie wiadomo, czy spadek AUC 0.689→0.566 wynika z usunięcia sygnału, czy z mniejszego zbioru treningowego.",
+      "Brak jednoznacznego progu dla AUC po dopasowaniu słownictwa — zastrzeżenie mówi o porównaniu względnym, ale nie podano wartości granicznej.",
+      "Korelacje Spearmana sędziego z pojedynczymi cechami są niskie; nie wyjaśniają mechanizmu ani nie dowodzą, że sędzia używa właśnie tych cech."
+     ],
+     "inne_wyjaśnienia": [
+      "Sędzia może korzystać z kombinacji drobnych cech tekstowych (nie tylko pojedynczych cech), które nie zostały osobno uwzględnione.",
+      "Wybór wierszy najprawdziwszych/najfałszywszych sugeruje wrażliwość na konkretne wzorce literowe, a nie tylko częstość słów.",
+      "Efekt może pochodzić z różnic w długości lub budowie słów (kształt graficzny), które nie zostały wprost wykluczone."
+     ],
+     "następny_test": "Wykonaj permutację słów w wierszach (losowa zmiana kolejności słów przy zachowaniu zbioru słów) dla prawdziwych i v7; jeżeli sędzia nadal uzyska AUC zdecydowanie odbiegające od 0.5, sygnał leży w samym słownictwie (a nie szyku); dodatkowo przeprowadź kontrolę z losowym podzbiorem o liczbie wierszy równej zbiorowi z dopasowanym słownictwem, aby oddzielić efekt wielkości próby."
+    }
+   },
+   "tencent/hy3": {
+    "raw": "{\n  \"werdykt\": \"potwierdzona\",\n  \"pewność\": 0.75,\n  \"najmocniejszy_dowód\": \"Spadek AUC sędziego z 0.690 (pełne dane) do 0.566 (tylko wspólne słowa obecne w obu korpusach ≥2 razy) przy zachowaniu poprawności kontroli (real-vs-real 0.532, czułość 0.862), co wskazuje, że efekt sędziego opiera się na rzadkim słownictwie, a nie na mierzonych cechach strukturalnych (AUC cech 0.48–0.58).\",\n  \"słabości\": [\n    \"Dopasowanie słownictwa redukuje liczbę wierszy do 247, co osłabia uczenie sędziego i może sztucznie obniżać AUC niezależnie od braku różnic w słownictwie.\",\n    \"Test bada tylko 7 cech wiersza; nie wyklucza, że sędzia używa niezmierzonych kombinacji cech (np. n-gramów glifów) ani bezpośrednio nie bada szyku słów jako takiego.\"\n  ],\n  \"inne_wyjaśnienia\": [\n    \"Sędzia może reagować na specyficzne wzorce częstościowe słów wspólnych, których nie oddają pojedyncze miary hapaksów czy długości.\",\n    \"Różnica między 0.690 a 0.566 może wynikać z szumu metody przy mniejszej próbie, a nie całkowitego braku innych sygnałów.\"\n  ],\n  \"następny_test\": \"Test sędziego na wierszach v7 z przetasowanym wewnątrz-wierszowym szykiem słów (zachowane słownictwo, zerowany szyk), aby bezpośrednio ocenić wpływ szyku niezależnie od redukcji liczby wierszy.\"\n}",
+    "json": {
+     "werdykt": "potwierdzona",
+     "pewność": 0.75,
+     "najmocniejszy_dowód": "Spadek AUC sędziego z 0.690 (pełne dane) do 0.566 (tylko wspólne słowa obecne w obu korpusach ≥2 razy) przy zachowaniu poprawności kontroli (real-vs-real 0.532, czułość 0.862), co wskazuje, że efekt sędziego opiera się na rzadkim słownictwie, a nie na mierzonych cechach strukturalnych (AUC cech 0.48–0.58).",
+     "słabości": [
+      "Dopasowanie słownictwa redukuje liczbę wierszy do 247, co osłabia uczenie sędziego i może sztucznie obniżać AUC niezależnie od braku różnic w słownictwie.",
+      "Test bada tylko 7 cech wiersza; nie wyklucza, że sędzia używa niezmierzonych kombinacji cech (np. n-gramów glifów) ani bezpośrednio nie bada szyku słów jako takiego."
+     ],
+     "inne_wyjaśnienia": [
+      "Sędzia może reagować na specyficzne wzorce częstościowe słów wspólnych, których nie oddają pojedyncze miary hapaksów czy długości.",
+      "Różnica między 0.690 a 0.566 może wynikać z szumu metody przy mniejszej próbie, a nie całkowitego braku innych sygnałów."
+     ],
+     "następny_test": "Test sędziego na wierszach v7 z przetasowanym wewnątrz-wierszowym szykiem słów (zachowane słownictwo, zerowany szyk), aby bezpośrednio ocenić wpływ szyku niezależnie od redukcji liczby wierszy."
+    }
+   }
+  },
+  "round2": {
+   "z-ai/glm-5.3-flash": {
+    "raw": "```json\n{\n  \"ranking\": [\"C\", \"B\", \"D\"],\n  \"uwagi\": \"C najlepiej oddaje stan dowodów: sygnał sędziego jest realny (AUC 0.690 przy kontroli prawdziwe–prawdziwe 0.532 i czułości 0.862), ale kluczowy wniosek hipotezy — że sygnałem jest słownictwo — opiera się na spadku AUC do 0.566 na zredukowanym zbiorze 247 wierszy, a raport sam przyznaje, że mniejsza próba może obniżać AUC. Brak kontroli z losowym podzbiorem równej liczebności sprawia, że spadek 0.690→0.566 nie dowodzi roli słownictwa. C proponuje też test permutacji szyku słów, który bezpośrednio rozstrzyga hipotezę (słownictwo vs szyk). B ma rację co do litery kryteriów: w raporcie nie ma kontroli na danych przetasowanych ani kontroli efektu podłożonego celowo, więc wg zasad testu nie można uznać metody za w pełni wiarygodną; jego werdykt jest zgodny z regulaminem, ale pomija, że dostępne kontrole (prawdziwe–prawdziwe, czułość) przeszły i sygnał wygląda na realny — pewność 0.96 wydaje się przesadzona. D najmniej uzasadniony: potwierdza hipotezę, mimo że sam wymienia konfundencję liczebności próby, która podważa główny dowód (spadek AUC po dopasowaniu); interpretacja 'efekt opiera się na rzadkim słownictwie' jest nadinterpretacją danych — hapax jako pojedyncza cecha ma AUC tylko 0.58, a korelacje sędziego z cechami są słabe. Co test wyklucza: pojedyncze cechy strukturalne (liczba słów, długość, top10, pierwszy/ostatni wiersz) nie niosą sygnału. Czego nie bada: szyku słów, kształtu/n-gramów glifów, oraz brak kontroli przetasowanej i brak niepewności statystycznej AUC.\",\n  \"werdykt\": \"nierozstrzygnięta\",\n  \"pewność\": 0.6,\n  \"zmiana_zdania\": \"nie — od początku oceniam, że sygnał sędziego jest realny, ale hipoteza o słownictwie jako jego źródle nie została udowodniona z powodu konfundencji liczebności próby w analizie z dopasowanym słownictwem i braku kontroli na danych przetasowanych\",\n  \"następny_test\": \"Dwa uzupełniające się testy: (1) permutacja szyku słów w wierszach przy zachowaniu zbioru słów — jeśli AUC sędziego pozostaje wysokie, sygnał leży w słownictwie, nie w szyku; (2) kontrola z losowym podzbiorem 247 wierszy o pełnym słownictwie, aby oddzielić efekt redukcji danych od rzeczywistego usunięcia sygnału słownikowego.\"\n}\n```",
+    "json": {
+     "ranking": [
+      "C",
+      "B",
+      "D"
+     ],
+     "uwagi": "C najlepiej oddaje stan dowodów: sygnał sędziego jest realny (AUC 0.690 przy kontroli prawdziwe–prawdziwe 0.532 i czułości 0.862), ale kluczowy wniosek hipotezy — że sygnałem jest słownictwo — opiera się na spadku AUC do 0.566 na zredukowanym zbiorze 247 wierszy, a raport sam przyznaje, że mniejsza próba może obniżać AUC. Brak kontroli z losowym podzbiorem równej liczebności sprawia, że spadek 0.690→0.566 nie dowodzi roli słownictwa. C proponuje też test permutacji szyku słów, który bezpośrednio rozstrzyga hipotezę (słownictwo vs szyk). B ma rację co do litery kryteriów: w raporcie nie ma kontroli na danych przetasowanych ani kontroli efektu podłożonego celowo, więc wg zasad testu nie można uznać metody za w pełni wiarygodną; jego werdykt jest zgodny z regulaminem, ale pomija, że dostępne kontrole (prawdziwe–prawdziwe, czułość) przeszły i sygnał wygląda na realny — pewność 0.96 wydaje się przesadzona. D najmniej uzasadniony: potwierdza hipotezę, mimo że sam wymienia konfundencję liczebności próby, która podważa główny dowód (spadek AUC po dopasowaniu); interpretacja 'efekt opiera się na rzadkim słownictwie' jest nadinterpretacją danych — hapax jako pojedyncza cecha ma AUC tylko 0.58, a korelacje sędziego z cechami są słabe. Co test wyklucza: pojedyncze cechy strukturalne (liczba słów, długość, top10, pierwszy/ostatni wiersz) nie niosą sygnału. Czego nie bada: szyku słów, kształtu/n-gramów glifów, oraz brak kontroli przetasowanej i brak niepewności statystycznej AUC.",
+     "werdykt": "nierozstrzygnięta",
+     "pewność": 0.6,
+     "zmiana_zdania": "nie — od początku oceniam, że sygnał sędziego jest realny, ale hipoteza o słownictwie jako jego źródle nie została udowodniona z powodu konfundencji liczebności próby w analizie z dopasowanym słownictwem i braku kontroli na danych przetasowanych",
+     "następny_test": "Dwa uzupełniające się testy: (1) permutacja szyku słów w wierszach przy zachowaniu zbioru słów — jeśli AUC sędziego pozostaje wysokie, sygnał leży w słownictwie, nie w szyku; (2) kontrola z losowym podzbiorem 247 wierszy o pełnym słownictwie, aby oddzielić efekt redukcji danych od rzeczywistego usunięcia sygnału słownikowego."
+    }
+   },
+   "openai/gpt-6-luna": {
+    "raw": "{\n  \"ranking\": [\"C\", \"A\", \"D\"],\n  \"uwagi\": \"C najlepiej ocenia siłę wniosku: sygnał sędziego jest wiarygodny według podanych kontroli, ale jego przypisanie słownictwu pozostaje niepewne. A trafnie wskazuje ważne ograniczenia i proponuje najmocniejszy następny test, lecz zbyt stanowczo uznaje, że efekt „znika”: AUC 0,566 nie jest równe kontroli 0,532, a bez niepewności statystycznej i kontroli o tej samej liczbie wierszy nie wiadomo, co oznacza ta różnica. D także nadmiernie potwierdza hipotezę: zaliczone kontrole i niskie AUC pojedynczych cech nie dowodzą, że sędzia opiera się na słownictwie, ani nie wykluczają szyku czy kształtu słów. C również przesadza z wnioskiem o proponowanym teście: samo przetasowanie kolejności nie dowodzi, że pozostały sygnał pochodzi wyłącznie ze słownictwa; potrzebne byłyby porównywalne próby i kontrola artefaktów. Raport nie podaje niepewności AUC, a dopasowanie obejmuje tylko 247 wierszy. Hapax ma słaby sygnał (AUC 0,58), a „unseen” prawie żaden (0,52). B nie ma wśród przedstawionych opinii.\",\n  \"werdykt\": \"nierozstrzygnięta\",\n  \"pewność\": 0.82,\n  \"zmiana_zdania\": \"tak — nie przyjmuję automatycznego werdyktu „potwierdzona”. Kontrole wspierają wiarygodność wykrycia różnicy, ale raport nie rozdziela wpływu słownictwa od spadku liczby wierszy ani bezpośrednio nie testuje szyku i kształtu słów.\"\n}",
+    "json": {
+     "ranking": [
+      "C",
+      "A",
+      "D"
+     ],
+     "uwagi": "C najlepiej ocenia siłę wniosku: sygnał sędziego jest wiarygodny według podanych kontroli, ale jego przypisanie słownictwu pozostaje niepewne. A trafnie wskazuje ważne ograniczenia i proponuje najmocniejszy następny test, lecz zbyt stanowczo uznaje, że efekt „znika”: AUC 0,566 nie jest równe kontroli 0,532, a bez niepewności statystycznej i kontroli o tej samej liczbie wierszy nie wiadomo, co oznacza ta różnica. D także nadmiernie potwierdza hipotezę: zaliczone kontrole i niskie AUC pojedynczych cech nie dowodzą, że sędzia opiera się na słownictwie, ani nie wykluczają szyku czy kształtu słów. C również przesadza z wnioskiem o proponowanym teście: samo przetasowanie kolejności nie dowodzi, że pozostały sygnał pochodzi wyłącznie ze słownictwa; potrzebne byłyby porównywalne próby i kontrola artefaktów. Raport nie podaje niepewności AUC, a dopasowanie obejmuje tylko 247 wierszy. Hapax ma słaby sygnał (AUC 0,58), a „unseen” prawie żaden (0,52). B nie ma wśród przedstawionych opinii.",
+     "werdykt": "nierozstrzygnięta",
+     "pewność": 0.82,
+     "zmiana_zdania": "tak — nie przyjmuję automatycznego werdyktu „potwierdzona”. Kontrole wspierają wiarygodność wykrycia różnicy, ale raport nie rozdziela wpływu słownictwa od spadku liczby wierszy ani bezpośrednio nie testuje szyku i kształtu słów."
+    }
+   },
+   "tencent/hy3": {
+    "raw": "{\n  \"ranking\": [\"B\", \"C\", \"A\"],\n  \"uwagi\": \"B słusznie wskazuje, że zgodnie z zasadami rady test jest niewiarygodny bez kontroli na danych przetasowanych (w raporcie jej brak; jest tylko prawdziwe-prawdziwe). A błędnie uznaje hipotezę za potwierdzoną, ignorując zastrzeżenie raportu, że spadek AUC po dopasowaniu słownictwa może wynikać z mniejszej liczby wierszy (247), a nie tylko z usunięcia sygnału. C trafnie widzi brak istotności i wpływ wielkości próby, ale nie dyskwalifikuje metody tak rygorystycznie jak wymaga to reguła o kontrolach.\",\n  \"werdykt\": \"metoda niewiarygodna\",\n  \"pewność\": 0.95,\n  \"zmiana_zdania\": \"nie, raport od początku nie spełniał wymogu kontroli przetasowania określonego w zasadach oceny\"\n}",
+    "json": {
+     "ranking": [
+      "B",
+      "C",
+      "A"
+     ],
+     "uwagi": "B słusznie wskazuje, że zgodnie z zasadami rady test jest niewiarygodny bez kontroli na danych przetasowanych (w raporcie jej brak; jest tylko prawdziwe-prawdziwe). A błędnie uznaje hipotezę za potwierdzoną, ignorując zastrzeżenie raportu, że spadek AUC po dopasowaniu słownictwa może wynikać z mniejszej liczby wierszy (247), a nie tylko z usunięcia sygnału. C trafnie widzi brak istotności i wpływ wielkości próby, ale nie dyskwalifikuje metody tak rygorystycznie jak wymaga to reguła o kontrolach.",
+     "werdykt": "metoda niewiarygodna",
+     "pewność": 0.95,
+     "zmiana_zdania": "nie, raport od początku nie spełniał wymogu kontroli przetasowania określonego w zasadach oceny"
+    }
+   }
+  },
+  "synthesis": "## Werdykt rady\n**Metoda niewiarygodna według przyjętych kryteriów; hipoteza nierozstrzygnięta.** Kontrole prawdziwe–prawdziwe (AUC 0,532) i czułość na zmienione glify (0,862) przeszły, ale brak kontroli na danych przetasowanych uniemożliwia uznanie metody za wiarygodną.\n\n## Poziom zgody\nOpinie różniły się co do etykiety werdyktu, lecz zgodnie wskazywały, że przypisanie sygnału słownictwu nie jest dowiedzione. Zgodnie z regułą oceny brak wymaganej kontroli przesądza o niewiarygodności metody.\n\n## Co test naprawdę pokazuje\nSędzia odróżniał korpusy (AUC 0,690), a po dopasowaniu słownictwa wynik spadł do 0,566 na 247 wierszach. To **kierunkowo** wspiera rolę słownictwa, ale jej nie rozstrzyga. Żadna z badanych cech pojedynczo nie daje silnego rozróżnienia; hapaksy osiągają AUC 0,58, a „unseen” 0,52.\n\n## Główne zastrzeżenia\nSpadek AUC może wynikać z mniejszej próby, a nie z usunięcia sygnału słownikowego; nie podano niepewności wyników. Test nie rozdziela bezpośrednio wpływu słownictwa od szyku ani kształtu słów. Niskie AUC pojedynczych cech nie wyklucza ich kombinacji.\n\n## Rekomendowany następny eksperyment\nPowtórzyć cały test na próbach o jednakowej liczebności, z kontrolą na danych przetasowanych oraz kontrolą efektu podłożonego celowo. W tym samym eksperymencie porównać dane z zachowanym słownictwem, lecz przetasowanym szykiem; pozwoli to lepiej oddzielić wpływ słownictwa od kolejności.",
+  "failed": {
+   "inception/mercury-3": "OpenRouter: inception/mercury-3 zwrócił pustą odpowiedź (model rozumujący zużył limit tokenów)"
+  },
+  "votes": {
+   "nierozstrzygnięta": 2,
+   "metoda niewiarygodna": 1
+  }
+ }
 }
