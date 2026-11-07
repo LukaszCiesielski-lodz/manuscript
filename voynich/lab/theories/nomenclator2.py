@@ -187,7 +187,9 @@ def run(cfg: LabConfig) -> TheoryResult:
             f"v7 {p['v7']['held_out_bits']:.2f}, przetasowany {p['shuffled']['held_out_bits']:.2f} bitu; odczyt rękopisu: „{p['manuscript']['sample'][0][:40]}”.")
     hits = [l for l in ok if per_lang[l]["manuscript"]["held_out_bits"] <= per_lang[l]["v7"]["held_out_bits"] - 0.15
             and per_lang[l]["manuscript"]["held_out_bits"] <= per_lang[l]["controls"][str(round(per_lang[l]["r_star"], 3))]["held_out_bits"] + 0.3]
-    flat = [l for l in ok if per_lang[l]["manuscript"]["held_out_bits"] >= per_lang[l]["v7"]["held_out_bits"] - 0.05]
+    # refuted: the mirror of a hit; not 0.15 bit better than gibberish and more than 0.3 bit above the control at r*
+    flat = [l for l in ok if per_lang[l]["manuscript"]["held_out_bits"] > per_lang[l]["v7"]["held_out_bits"] - 0.15
+            and per_lang[l]["manuscript"]["held_out_bits"] > per_lang[l]["controls"][str(round(per_lang[l]["r_star"], 3))]["held_out_bits"] + 0.3]
     if hits:
         res.decide(True)
         res.summary = "Klucz z wierszy nieparzystych czyta parzyste lepiej niż bełkot: " + ", ".join(
@@ -195,8 +197,10 @@ def run(cfg: LabConfig) -> TheoryResult:
     elif ok and len(flat) == len(ok):
         res.decide(False)
         res.summary = (f"Łamacz czyta kontrole ({', '.join(f'{l} {per_lang[l]['controls']['0.0']['accuracy']:.2f}' for l in ok)}), "
-                       "ale rękopis odczytany jako nomenklator nie jest bliższy językowi niż bełkot v7: " + "; ".join(
-                           f"{l} {per_lang[l]['manuscript']['held_out_bits']:.2f} wobec {per_lang[l]['v7']['held_out_bits']:.2f} bitu (naturalnie {per_lang[l]['natural_bits']:.2f})" for l in ok) + ".")
+                       "ale rękopis odczytany jako nomenklator nie jest bliższy językowi niż bełkot v7 i leży daleko od kontroli z tą samą "
+                       "stopą pomyłek: " + "; ".join(
+                           f"{l} {per_lang[l]['manuscript']['held_out_bits']:.2f} wobec v7 {per_lang[l]['v7']['held_out_bits']:.2f} i kontroli "
+                           f"{per_lang[l]['controls'][str(round(per_lang[l]['r_star'], 3))]['held_out_bits']:.2f} bitu" for l in ok) + ".")
     else:
         res.decide(None)
         res.summary = "Łamacz nie czyta kontroli albo wynik leży pomiędzy progami."
