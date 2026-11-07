@@ -259,12 +259,98 @@ class NotebookTest(unittest.TestCase):
                      "Voynich_Notacja.ipynb", "Voynich_Rejestr.ipynb", "Voynich_Rejestr_GPU.ipynb",
                      "Voynich_Klucz.ipynb", "Voynich_V7.ipynb", "Voynich_Klucz_Dlugosci.ipynb",
                      "Voynich_Brute_Dlugosci.ipynb", "Voynich_Sedzia.ipynb", "Voynich_Rosliny.ipynb",
-                     "Voynich_Atomy.ipynb", "Voynich_Atomy_GPU.ipynb"):
+                     "Voynich_Atomy.ipynb", "Voynich_Atomy_GPU.ipynb", "Voynich_Bomba.ipynb"):
             nb = json.loads((Path(__file__).resolve().parent.parent / "colab" / name).read_text(encoding="utf-8"))
             for i, c in enumerate(nb["cells"]):
                 if c["cell_type"] == "code":
                     src = "".join(l for l in c["source"] if not l.lstrip().startswith(("!", "%")))
                     compile(src, f"{name} komórka {i}", "exec")
+
+
+class BombaTest(unittest.TestCase):
+    """The last attack: nomenclator solver, cribs, hapax controls."""
+
+    @staticmethod
+    def _cipher(keys=1, seed=3):
+        from collections import Counter
+        from voynich import corpus, eva
+        from voynich.lab import nomen2 as N
+        words = corpus.load_reference("Latin")[:30000]
+        top = N.top_words(words[:20000], 50)
+        lm = N.UnitBigram(N.plaintext_lines(words[:20000], top, 2))
+        held = N.plaintext_lines(words[20000:], top, 2)
+        ms = [l for l in corpus.load_voynich() if l.kind.startswith("P") and l.words]
+        pool = [w for w, _ in Counter(tuple(eva.glyphs(w)) for l in ms for w in l.words).most_common(300)]
+        lines, truth, dd = N.encipher(held, pool, seed, keys=keys)
+        return N, lm, lines, truth, dd
+
+    def test_true_key_beats_merged_key_under_full_likelihood(self):
+        import numpy as np
+        from collections import Counter, defaultdict
+        N, lm, lines, truth, dd = self._cipher()
+        sym = N.symbol_lines(lines, dd)
+        inv = N.inventory(sym, 1)
+        votes = defaultdict(Counter)
+        for sl, tl in zip(sym, truth):
+            for s, u in zip(sl, tl):
+                votes[s][u] += 1
+        sid = {s: i for i, s in enumerate(inv)}
+        enc = [np.array([sid[s] for s in l]) for l in sym if l]
+        S, A = len(inv), len(lm.units)
+        a = np.concatenate([np.concatenate([[S], l]) for l in enc])
+        b = np.concatenate([np.concatenate([l, [S]]) for l in enc])
+        freq = np.bincount(np.concatenate(enc), minlength=S).astype(float)
+        true = [lm.index[votes[s].most_common(1)[0][0]] for s in inv]
+        common = Counter(u for l in truth for u in l).most_common(2)
+        merged = [lm.index[common[i % 2][0]] for i in range(S)]          # every symbol one of two frequent units
+        key = np.array([true + [0], merged + [0]])
+        full, lm_only = N.full_loglik(np, key, a, b, freq, lm.logp, A)
+        self.assertGreater(full[0], full[1])
+
+    def test_neighbour_counts_match_loop(self):
+        import numpy as np
+        from voynich.lab import nomen2 as N
+        rng = np.random.default_rng(0)
+        key = rng.integers(0, 7, size=(3, 11))
+        nb = rng.integers(0, 11, size=40)
+        got = N.neighbour_counts(np, key, nb, 7)
+        for r in range(3):
+            want = np.bincount(key[r, nb], minlength=7)
+            self.assertTrue(np.array_equal(got[r], want))
+
+    def test_solver_reads_small_cipher_and_is_deterministic(self):
+        N, lm, lines, truth, dd = self._cipher()
+        a = N.attack(lines, dd, lm, 40, 4, 1, truth=truth, prefer_gpu=False)
+        b = N.attack(lines, dd, lm, 40, 4, 1, truth=truth, prefer_gpu=False)
+        self.assertGreaterEqual(a["accuracy"], 0.6)
+        self.assertEqual(a["key"], b["key"])
+
+    def test_cribs_planted_list_found_shuffled_not(self):
+        import random
+        from voynich.lab import cribs as C
+        words = C.diagram_words("f69v", ("Ri",))
+        self.assertEqual(len(words), 28)
+        names = C.LISTS["mansions_latin"]
+        fake = C.plant(names, words, 1)
+        self.assertGreaterEqual(C.test(fake, names, 0, 30, 1)["z"], 5)
+        other = list(names)
+        random.Random(5).shuffle(other)
+        self.assertLess(C.test(fake, other, 0, 30, 1)["z"], 3)
+
+    def test_hapax_controls_shape(self):
+        from voynich.lab.theories import hapax_source as H
+        pages = [[[("a", "b"), ("c",)], [("a", "c")]], [[("b",)], [("a", "b", "c")]]]
+        planted = H.plant_local(pages, 1.0, 0)
+        self.assertEqual([len(p) for p in planted], [2, 2])
+        self.assertEqual(planted[0][0], pages[0][0])             # nothing above the first line
+        dealt = H.shuffle_pages(pages, 0)
+        self.assertEqual(sorted(map(str, (l for p in dealt for l in p))), sorted(map(str, (l for p in pages for l in p))))
+
+    def test_registered(self):
+        from voynich.lab.registry import THEORIES, expand
+        self.assertEqual(expand(["bomba"]), ["hapax_source", "cribs", "nomenclator2"])
+        for t in ("hapax_source", "cribs", "nomenclator2"):
+            self.assertTrue(callable(THEORIES[t].load()))
 
 
 class HuntTest(unittest.TestCase):

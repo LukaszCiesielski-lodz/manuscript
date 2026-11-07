@@ -551,6 +551,36 @@ display(Markdown((lab.cfg.results_dir / "atoms.md").read_text()))"""),
 ]
 
 
+# The last attack: two-key nomenclator with miscopying (GPU), cribs from the diagrams and the hapax source (CPU parts).
+bomba_cells = [
+    ("md", """# Voynich Lab – bomba: ostatni atak
+
+Trzy teorie naraz. (1) `hapax_source`: przy jakiej stopie pomyłek kopisty nomenklator ma tyle hapaksów co rękopis i czy stoją
+one tam, gdzie stawiają je pomyłki (ok. 3 min). (2) `cribs`: 28 słów promienistych f69v wobec 28 stacji Księżyca, koła po
+12 słów wobec znaków i miesięcy, z kontrolą listy ukrytej w glifach (ok. 5 min). (3) `nomenclator2`: nomenklator z dwoma
+kluczami i pomyłkami po hebrajsku, arabsku i łacinie; łamacz Gibbsa z 256 łańcuchami naraz na GPU (cupy) musi najpierw
+przeczytać kontrole tej samej wielkości co rękopis (ok. 30–40 min).
+
+**Runtime: GPU A100.** Sekrety: `GITHUB_TOKEN`, `OPENROUTER_API_KEY`. Czas: ok. 45 min. Wyniki po każdej teorii na `lab-results`."""),
+    cells[1], cells[3],
+    ("code", """!python scripts/fetch_data.py
+try:
+    import cupy; print("cupy", cupy.__version__, "GPU:", cupy.cuda.runtime.getDeviceCount())
+except Exception as e:
+    print("brak cupy (", e, ") - instaluję"); import subprocess; subprocess.run("pip -q install cupy-cuda12x", shell=True)"""),
+    cells[5],
+    ("code", cells[7][1].replace('theories=["all"],          # albo np. ["numbers", "literature"]', 'theories=["bomba"],')),
+    ("code", """lab.run("hapax_source"); lab.push()
+lab.run("cribs"); lab.push()
+lab.run("nomenclator2"); lab.push()
+lab.convene(["hapax_source", "cribs", "nomenclator2"])
+lab.report(); lab.push()
+from IPython.display import Markdown, display
+for t in ("hapax_source", "cribs", "nomenclator2"):
+    display(Markdown((lab.cfg.results_dir / f"{t}.md").read_text()))"""),
+]
+
+
 def cell(kind, text):
     src = text.splitlines(keepends=True)
     if kind == "md":
@@ -602,7 +632,8 @@ for name, cs in (("Voynich_Lab.ipynb", cells), ("Voynich_Ilustracje.ipynb", illu
                  ("Voynich_Klucz.ipynb", keystream_cells), ("Voynich_V7.ipynb", v7_cells),
                  ("Voynich_Klucz_Dlugosci.ipynb", lengthkey_cells), ("Voynich_Brute_Dlugosci.ipynb", brute_length_cells),
                  ("Voynich_Sedzia.ipynb", judge_cells), ("Voynich_Rosliny.ipynb", plants_cells),
-                 ("Voynich_Atomy.ipynb", atoms_cells), ("Voynich_Atomy_GPU.ipynb", atoms_gpu_cells)):
+                 ("Voynich_Atomy.ipynb", atoms_cells), ("Voynich_Atomy_GPU.ipynb", atoms_gpu_cells),
+                 ("Voynich_Bomba.ipynb", bomba_cells)):
     base = nb_cpu if name in ("Voynich_Rejestr.ipynb", "Voynich_Klucz.ipynb", "Voynich_Rosliny.ipynb", "Voynich_Atomy.ipynb") else nb
     out = Path(__file__).with_name(name)
     out.write_text(json.dumps({**base, "cells": [cell(k, t) for k, t in cs]}, indent=1, ensure_ascii=False), encoding="utf-8")

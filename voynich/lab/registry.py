@@ -78,9 +78,13 @@ THEORIES = {t.name: t for t in [
     Theory("atoms_draft", "Szkic atomów zodiaku z modelu widzącego (nie test)", ("openrouter", "images"), "atoms_draft:run"),
     Theory("atoms_vision", "Szkic atomów na własnym GPU: Molmo2 + geometria + Qwen3-VL (nie test)", ("gpu", "images"), "atoms_vision:run"),
     Theory("catalog", "Analiza przekrojowa: katalog rycin Zandbergena wobec tekstu", (), "catalog:run"),
+    Theory("hapax_source", "Skąd hapaksy: pomyłki kopisty nomenklatora czy kopiowanie z sąsiedztwa", (), "hapax_source:run"),
+    Theory("cribs", "Ściągi z diagramów: 28 stacji Księżyca, znaki zodiaku i miesiące w kołach", (), "cribs:run"),
+    Theory("nomenclator2", "Nomenklator z dwoma kluczami i pomyłkami: hebrajski, arabski, łacina (Gibbs na GPU)", ("gpu",), "nomenclator2:run"),
 ]}
 ALIASES = {"literature": ["naibbe_cipher", "cardan_grille", "hebrew_anagram"], "rejestr": ["labels", "records", "lists"],
-           "rejestr_gpu": ["fields_lm", "v6", "cohesion"], "all": list(THEORIES)}
+           "rejestr_gpu": ["fields_lm", "v6", "cohesion"],
+           "bomba": ["hapax_source", "cribs", "nomenclator2"], "all": list(THEORIES)}
 
 
 def expand(names: list[str]) -> list[str]:

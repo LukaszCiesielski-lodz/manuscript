@@ -58,6 +58,13 @@ class LabConfig:
     brute_triples: int = 0         # most frequent distinct triples per text; 0 = 4000 (800 in quick mode)
     brute_tokenize: str = "glyphs" # "glyphs" (ch, sh, cth... as one symbol) or "chars" (raw EVA letters)
 
+    # The last attack (theories "nomenclator2", "hapax_source", "cribs"): a two-key nomenclator with miscopying.
+    nomen2_languages: list[str] = field(default_factory=lambda: ["Hebrew", "Arabic", "Latin"])
+    nomen2_chains: int = 256       # Gibbs chains sampled at once (cupy on the GPU; capped at 16 in numpy)
+    nomen2_sweeps: int = 600
+    nomen2_units: int = 200        # most frequent plaintext words written whole; the rest is spelled
+    nomen2_pool: int = 800         # code words drawn from the manuscript's most frequent types
+
     # The wheel (volvelle) search and the transformer judge (theories "wheel", "adversary").
     wheel_rings: int = 3
     wheel_cells: int = 24
