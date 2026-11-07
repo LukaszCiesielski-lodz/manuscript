@@ -1,0 +1,128 @@
+{
+ "theory": "hapax_source",
+ "hypothesis": "Słowa jednorazowe (hapaksy) rękopisu to pomyłki kopisty nomenklatora: zniekształcone słowa kodowe, a nie kopie słów z sąsiednich wierszy.",
+ "method": "(1) r* = stopa pomyłek (jeden glif zmieniony, dodany albo usunięty), przy której nomenklator tej samej wielkości i z tych samych słów kodowych ma udział hapaksów w tokenach jak rękopis (Hebrew, Arabic, Latin). (2) Lokalność: jak często częsty sąsiad hapaksu (o jeden glif) stoi w 5 wierszach nad nim, wobec tych samych wierszy innej strony (200 losowań); nadwyżka lokalna rękopisu, bełkotu v7 i nomenklatora przy r*. Kontrole: kopie z 3 wierszy wyżej podłożone w 10% słów nomenklatora muszą dać z ≥ 5; wiersze rękopisu rozdane losowo na strony nie mogą dać z ≥ 3.",
+ "verdict": "nierozstrzygnięta",
+ "summary": "Hapaksy nie wykluczają nomenklatora: przy r* ≈ 0.21 pomyłki dają tyle hapaksów co rękopis i podobną lokalność (×2.07 wobec ×1.96, ×1.86, ×1.79), ale bełkot v7 jest prawie tak samo blisko (×1.58, z różnicy +2.4). Lokalność nie odróżnia pomyłek od kopiowania z sąsiedztwa.",
+ "metrics": {
+  "tokens": 34820,
+  "hapax_token_share": 0.13716255025847215,
+  "hapax_type_share": 0.6805357651752636,
+  "lines_per_page": 20,
+  "v7_hapax_token_share": 0.11044767591349312,
+  "rates": {
+   "Hebrew": {
+    "r_star": 0.2088355129594261,
+    "hapax_by_rate": {
+     "0.0": 0.0011773151471643935,
+     "0.05": 0.03965541995692749,
+     "0.1": 0.07152907394113424,
+     "0.2": 0.13260588657573583,
+     "0.3": 0.18417803302225413,
+     "0.5": 0.2686862885857861
+    }
+   },
+   "Arabic": {
+    "r_star": 0.20915685309966803,
+    "hapax_by_rate": {
+     "0.0": 0.0011199172984148863,
+     "0.05": 0.03982885366413967,
+     "0.1": 0.07164599127038823,
+     "0.2": 0.13243739949460143,
+     "0.3": 0.18403974270617965,
+     "0.5": 0.2728003675626005
+    }
+   },
+   "Latin": {
+    "r_star": 0.20877362425107937,
+    "hapax_by_rate": {
+     "0.0": 0.001148534183248629,
+     "0.05": 0.03775806127429868,
+     "0.1": 0.07051999885146581,
+     "0.2": 0.13265569816521663,
+     "0.3": 0.18402388951101156,
+     "0.5": 0.2718293278203692
+    }
+   }
+  },
+  "locality": {
+   "manuscript": {
+    "hapaxes_with_neighbour": 3419,
+    "hapax_share": 0.6805357651752636,
+    "local_rate": 0.08277274056741737,
+    "other_page_rate": 0.04005557180462123,
+    "ratio": 2.0664476086162837,
+    "z": 13.59870235648826
+   },
+   "v7": {
+    "hapaxes_with_neighbour": 2821,
+    "hapax_share": 0.5885218450296849,
+    "local_rate": 0.07231478199220134,
+    "other_page_rate": 0.04575505140021269,
+    "ratio": 1.5804764671702498,
+    "z": 7.208347584556124
+   },
+   "Hebrew r*": {
+    "hapaxes_with_neighbour": 4787,
+    "hapax_share": 0.7934062292909212,
+    "local_rate": 0.09275120116983497,
+    "other_page_rate": 0.04724775433465636,
+    "ratio": 1.9630816845363104,
+    "z": 15.76025822711523
+   },
+   "Arabic r*": {
+    "hapaxes_with_neighbour": 4653,
+    "hapax_share": 0.7819006044325051,
+    "local_rate": 0.10638297872340426,
+    "other_page_rate": 0.057164195142918546,
+    "ratio": 1.861007199654116,
+    "z": 14.452570309645196
+   },
+   "Latin r*": {
+    "hapaxes_with_neighbour": 4703,
+    "hapax_share": 0.7882234861157578,
+    "local_rate": 0.1348075696364023,
+    "other_page_rate": 0.07543057622793961,
+    "ratio": 1.7871740662438338,
+    "z": 15.980183978106433
+   }
+  },
+  "excess_z": {
+   "Hebrew r*": -0.4417420947427505,
+   "Arabic r*": -0.99570122445567,
+   "Latin r*": -2.4299363992302365,
+   "v7": 2.3826355835936894
+  }
+ },
+ "controls": [
+  {
+   "name": "kopie z wierszy powyżej (10% słów nomenklatora) wykryte",
+   "expectation": "z ≥ 5",
+   "observed": "z = 126.2",
+   "passed": true
+  },
+  {
+   "name": "wiersze rękopisu rozdane losowo na strony bez lokalności",
+   "expectation": "z < 3",
+   "observed": "z = 0.4",
+   "passed": true
+  }
+ ],
+ "evidence": [
+  "Udział hapaksów w tokenach: rękopis 0.137, v7 0.110; nomenklator osiąga go przy r* = Hebrew 0.21, Arabic 0.21, Latin 0.21 (co piąte słowo kodowe przepisane z błędem).",
+  "Lokalność hapaksów (sąsiad w 5 wierszach nad / w innej stronie, nadwyżka, z): manuscript 0.083/0.040 (×2.07, z = 13.6, n = 3419); v7 0.072/0.046 (×1.58, z = 7.2, n = 2821); Hebrew r* 0.093/0.047 (×1.96, z = 15.8, n = 4787); Arabic r* 0.106/0.057 (×1.86, z = 14.5, n = 4653); Latin r* 0.135/0.075 (×1.79, z = 16.0, n = 4703).",
+  "Nadwyżka lokalna rękopisu wobec modeli (z różnicy): Hebrew r* -0.4, Arabic r* -1.0, Latin r* -2.4, v7 +2.4."
+ ],
+ "caveats": [
+  "Lokalność nomenklatora zależy od tematu tekstu jawnego: Biblia ma imiona i wątki ciągnące się przez strony, zielnik mógłby mieć ich więcej albo mniej.",
+  "Pomyłka modelowana jako jeden glif; prawdziwy kopista myli też całe słowa i pomija wiersze."
+ ],
+ "references": [
+  "Rozanova & Temerev, arXiv:2608.17096 (2026)",
+  "Timm & Schinner, Cryptologia 44 (2020)",
+  "Zhang & Sheng, arXiv:2610.34499 (2026)"
+ ],
+ "artifacts": [],
+ "seconds": 21.12932777404785,
+ "council": {}
+}
