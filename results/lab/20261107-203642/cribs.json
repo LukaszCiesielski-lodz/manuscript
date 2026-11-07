@@ -1,0 +1,690 @@
+{
+ "theory": "cribs",
+ "hypothesis": "Słowa w kołach diagramów to nazwy tego, co diagram pokazuje, zapisane szyfrem literowym: 28 słów f69v = 28 stacji Księżyca, 12 słów f67r1/f67v1/f67r2 = znaki zodiaku albo miesiące.",
+ "method": "Dla każdego diagramu i każdej listy (stacje po arabsku i łacinie Agryppy; znaki po łacinie, włosku, arabsku, hebrajsku; miesiące w 6 językach) każdy początek i kierunek listy, klucz glif → litera dopasowany twardym EM (ścieżka edycyjna, większość liter na glif); wynik = średnie podobieństwo odczytu i nazwy. Null: ta sama procedura wobec 1000 przetasowań kolejności nazw, p z poprawką Bonferroniego po parach. Kontrola: lista zapisana losowym kluczem homofonicznym w glifach rękopisu z 10% szumu musi dać z ≥ 5.",
+ "verdict": "obalona",
+ "summary": "Żadne z 32 zestawień koła z listą nazw nie wypada lepiej niż te same nazwy w przypadkowej kolejności (najlepsze f67v1 × months_catalan, z = +3.8, p popr. 0.10), choć ta sama procedura znajduje listę ukrytą w glifach rękopisu (z ≥ 10).",
+ "metrics": {
+  "pairs": [
+   {
+    "folio": "f67v1",
+    "list": "months_catalan",
+    "words": 12,
+    "score": 0.4131283068783069,
+    "null_mean": 0.35252357804232803,
+    "z": 3.7611435510201936,
+    "p": 0.002997002997002997,
+    "start": 6,
+    "direction": -1,
+    "readings": [
+     "jilill~juliol",
+     "jiubaig~juny",
+     "maig~maig",
+     "jib~abril",
+     "mamg~marc",
+     "jeebraer~febrer"
+    ],
+    "p_adj": 0.0959040959040959
+   },
+   {
+    "folio": "f67v1",
+    "list": "months_french",
+    "words": 12,
+    "score": 0.39246031746031745,
+    "null_mean": 0.3487965939153439,
+    "z": 2.9724278469359784,
+    "p": 0.007992007992007992,
+    "start": 6,
+    "direction": -1,
+    "readings": [
+     "jieiee~juillet",
+     "jiubais~juin",
+     "mais~mai",
+     "jib~avril",
+     "mams~mars",
+     "jeevraer~fevrier"
+    ],
+    "p_adj": 0.25574425574425574
+   },
+   {
+    "folio": "f67v1",
+    "list": "signs_italian",
+    "words": 12,
+    "score": 0.4019179894179894,
+    "null_mean": 0.36281243386243384,
+    "z": 2.733449100901841,
+    "p": 0.01098901098901099,
+    "start": 7,
+    "direction": 1,
+    "readings": [
+     "sroroo~scorpione",
+     "srgotri~sagittario",
+     "ctri~capricorno",
+     "sro~aquario",
+     "ctci~pesci",
+     "seeietee~ariete"
+    ],
+    "p_adj": 0.3516483516483517
+   },
+   {
+    "folio": "f67r2",
+    "list": "signs_arabic",
+    "words": 12,
+    "score": 0.44345238095238093,
+    "null_mean": 0.40773095238095236,
+    "z": 2.310821584947179,
+    "p": 0.026973026973026972,
+    "start": 0,
+    "direction": -1,
+    "readings": [
+     "hajamal~hamal",
+     "uhual~hut",
+     "a~dalw",
+     "ajauaw~jady",
+     "jaw~qaws",
+     "ajal~aqrab"
+    ],
+    "p_adj": 0.8631368631368631
+   },
+   {
+    "folio": "f67r1",
+    "list": "signs_latin",
+    "words": 12,
+    "score": 0.4013437950937951,
+    "null_mean": 0.3737127886002886,
+    "z": 1.6385965074403415,
+    "p": 0.07692307692307693,
+    "start": 0,
+    "direction": 1,
+    "readings": [
+     "arises~aries",
+     "araas~taurus",
+     "eccini~gemini",
+     "sacce~cancer",
+     "eaeini~leo",
+     "arccs~virgo"
+    ],
+    "p_adj": 1.0
+   },
+   {
+    "folio": "f67r2",
+    "list": "signs_hebrew",
+    "words": 12,
+    "score": 0.3817460317460317,
+    "null_mean": 0.3598835317460317,
+    "z": 1.3362055862387834,
+    "p": 0.1008991008991009,
+    "start": 3,
+    "direction": -1,
+    "readings": [
+     "sadatli~sartan",
+     "oeoli~teomim",
+     "r~shor",
+     "rdaole~tale",
+     "dae~dagim",
+     "adli~dli"
+    ],
+    "p_adj": 1.0
+   },
+   {
+    "folio": "f67r1",
+    "list": "months_latin",
+    "words": 12,
+    "score": 0.39685846560846566,
+    "null_mean": 0.3779173941798942,
+    "z": 1.2303867213040482,
+    "p": 0.11688311688311688,
+    "start": 6,
+    "direction": 1,
+    "readings": [
+     "iumius~iulius",
+     "iuias~augustus",
+     "reembe~september",
+     "saeer~october",
+     "rirmbe~november",
+     "iuees~december"
+    ],
+    "p_adj": 1.0
+   },
+   {
+    "folio": "f67r2",
+    "list": "months_italian",
+    "words": 12,
+    "score": 0.3682208994708995,
+    "null_mean": 0.3519593584656085,
+    "z": 1.152554738817246,
+    "p": 0.11588411588411589,
+    "start": 7,
+    "direction": 1,
+    "readings": [
+     "agagsio~agosto",
+     "bebio~settembre",
+     "o~ottobre",
+     "oagbie~novembre",
+     "age~dicembre",
+     "gaio~gennaio"
+    ],
+    "p_adj": 1.0
+   },
+   {
+    "folio": "f67r1",
+    "list": "signs_hebrew",
+    "words": 12,
+    "score": 0.37232142857142864,
+    "null_mean": 0.3571697420634921,
+    "z": 1.0135767216730176,
+    "p": 0.16183816183816183,
+    "start": 2,
+    "direction": 1,
+    "readings": [
+     "teomie~teomim",
+     "tetae~sartan",
+     "aaaoye~arye",
+     "eaaaa~betula",
+     "ataoye~moznayim",
+     "teaae~akrav"
+    ],
+    "p_adj": 1.0
+   },
+   {
+    "folio": "f67v1",
+    "list": "months_occitan",
+    "words": 12,
+    "score": 0.364484126984127,
+    "null_mean": 0.35194375,
+    "z": 0.8248400532647164,
+    "p": 0.1888111888111888,
+    "start": 6,
+    "direction": -1,
+    "readings": [
+     "jbebee~julhet",
+     "jburnbs~junh",
+     "mnbs~mai",
+     "jbr~abril",
+     "mnms~mars",
+     "jeemrner~febrier"
+    ],
+    "p_adj": 1.0
+   },
+   {
+    "folio": "f67r1",
+    "list": "months_catalan",
+    "words": 12,
+    "score": 0.3543650793650794,
+    "null_mean": 0.3484325396825397,
+    "z": 0.4517875739203859,
+    "p": 0.3026973026973027,
+    "start": 0,
+    "direction": -1,
+    "readings": [
+     "egener~gener",
+     "egemr~desembre",
+     "nrrebr~novembre",
+     "rmrrn~octubre",
+     "nenebr~setembre",
+     "egrrr~agost"
+    ],
+    "p_adj": 1.0
+   },
+   {
+    "folio": "f67v1",
+    "list": "months_latin",
+    "words": 12,
+    "score": 0.38310185185185186,
+    "null_mean": 0.379723082010582,
+    "z": 0.22726546049964155,
+    "p": 0.3906093906093906,
+    "start": 7,
+    "direction": -1,
+    "readings": [
+     "aususs~augustus",
+     "auusius~iulius",
+     "iius~iunius",
+     "aus~maius",
+     "iiis~aprilis",
+     "auarriur~martius"
+    ],
+    "p_adj": 1.0
+   },
+   {
+    "folio": "f67r2",
+    "list": "signs_latin",
+    "words": 12,
+    "score": 0.36238275613275617,
+    "null_mean": 0.36078322510822514,
+    "z": 0.09852888141461678,
+    "p": 0.4255744255744256,
+    "start": 6,
+    "direction": 1,
+    "readings": [
+     "liaibeo~libra",
+     "rareo~scorpio",
+     "s~sagittarius",
+     "saireu~capricornus",
+     "aiu~aquarius",
+     "iaeo~pisces"
+    ],
+    "p_adj": 1.0
+   },
+   {
+    "folio": "f67r2",
+    "list": "months_latin",
+    "words": 12,
+    "score": 0.3648478835978836,
+    "null_mean": 0.3654875,
+    "z": -0.040566411582774846,
+    "p": 0.4745254745254745,
+    "start": 5,
+    "direction": 1,
+    "readings": [
+     "irbrius~iunius",
+     "iuius~iulius",
+     "a~augustus",
+     "abriur~september",
+     "brr~october",
+     "rbus~november"
+    ],
+    "p_adj": 1.0
+   },
+   {
+    "folio": "f67r1",
+    "list": "months_german",
+    "words": 12,
+    "score": 0.34774531024531025,
+    "null_mean": 0.34857260401635404,
+    "z": -0.0576818627569266,
+    "p": 0.4915084915084915,
+    "start": 0,
+    "direction": -1,
+    "readings": [
+     "aunnen~jenner",
+     "auamn~christmonat",
+     "trrnoa~wintermonat",
+     "nmrrt~weinmonat",
+     "tatnoa~herbstmonat",
+     "aurrn~augst"
+    ],
+    "p_adj": 1.0
+   },
+   {
+    "folio": "f67r2",
+    "list": "months_german",
+    "words": 12,
+    "score": 0.33815235690235684,
+    "null_mean": 0.33943893097643096,
+    "z": -0.07814526722381486,
+    "p": 0.4945054945054945,
+    "start": 0,
+    "direction": -1,
+    "readings": [
+     "jnennnt~jenner",
+     "mrmnt~christmonat",
+     "a~wintermonat",
+     "aenmna~weinmonat",
+     "ena~herbstmonat",
+     "nent~augst"
+    ],
+    "p_adj": 1.0
+   },
+   {
+    "folio": "f69v",
+    "list": "mansions_arabic",
+    "words": 28,
+    "score": 0.35606575963718823,
+    "null_mean": 0.35710664682539683,
+    "z": -0.1385751202103376,
+    "p": 0.5154845154845155,
+    "start": 0,
+    "direction": 1,
+    "readings": [
+     "saaaa~sharatan",
+     "saas~butayn",
+     "shsaa~thuraya",
+     "aaaaa~dabaran",
+     "ahsba~haqa",
+     "saana~hana"
+    ],
+    "p_adj": 1.0
+   },
+   {
+    "folio": "f67r2",
+    "list": "months_occitan",
+    "words": 12,
+    "score": 0.35714285714285715,
+    "null_mean": 0.35983650793650795,
+    "z": -0.16329910207766968,
+    "p": 0.5204795204795205,
+    "start": 8,
+    "direction": 1,
+    "readings": [
+     "seeembr~setembre",
+     "ocobr~octobre",
+     "a~novembre",
+     "aeeobr~decembre",
+     "eer~genier",
+     "eebr~febrier"
+    ],
+    "p_adj": 1.0
+   },
+   {
+    "folio": "f67r1",
+    "list": "months_french",
+    "words": 12,
+    "score": 0.34308862433862436,
+    "null_mean": 0.34549097222222225,
+    "z": -0.1685805400547983,
+    "p": 0.5224775224775224,
+    "start": 0,
+    "direction": -1,
+    "readings": [
+     "aaevie~janvier",
+     "aaame~decembre",
+     "errebr~novembre",
+     "emrre~octobre",
+     "eaeebr~septembre",
+     "aarre~aoust"
+    ],
+    "p_adj": 1.0
+   },
+   {
+    "folio": "f67v1",
+    "list": "signs_latin",
+    "words": 12,
+    "score": 0.35666786916786913,
+    "null_mean": 0.3604609247234247,
+    "z": -0.25073629077985166,
+    "p": 0.5744255744255744,
+    "start": 8,
+    "direction": -1,
+    "readings": [
+     "sisiss~sagittarius",
+     "siorpio~scorpio",
+     "ipio~libra",
+     "sir~virgo",
+     "ipio~leo",
+     "searrper~cancer"
+    ],
+    "p_adj": 1.0
+   },
+   {
+    "folio": "f67v1",
+    "list": "signs_arabic",
+    "words": 12,
+    "score": 0.38419312169312175,
+    "null_mean": 0.38938442460317463,
+    "z": -0.32384606761875395,
+    "p": 0.6003996003996004,
+    "start": 10,
+    "direction": 1,
+    "readings": [
+     "aawaww~dalw",
+     "aahraaa~hut",
+     "jaaa~hamal",
+     "aar~thawr",
+     "jaja~jawza",
+     "aqsrnaqn~saratan"
+    ],
+    "p_adj": 1.0
+   },
+   {
+    "folio": "f67r1",
+    "list": "months_italian",
+    "words": 12,
+    "score": 0.3592923280423281,
+    "null_mean": 0.36582113095238095,
+    "z": -0.46888940167250137,
+    "p": 0.6663336663336663,
+    "start": 2,
+    "direction": 1,
+    "readings": [
+     "emarzo~marzo",
+     "emeio~aprile",
+     "oggaio~maggio",
+     "oiggo~giugno",
+     "oeoaio~luglio",
+     "emggo~agosto"
+    ],
+    "p_adj": 1.0
+   },
+   {
+    "folio": "f67v1",
+    "list": "signs_hebrew",
+    "words": 12,
+    "score": 0.3389550264550265,
+    "null_mean": 0.34724113756613756,
+    "z": -0.5164110756216753,
+    "p": 0.6663336663336663,
+    "start": 10,
+    "direction": 1,
+    "readings": [
+     "sdidii~dli",
+     "sdaradm~dagim",
+     "tadm~tale",
+     "sdr~shor",
+     "tatm~teomim",
+     "sktrnakn~sartan"
+    ],
+    "p_adj": 1.0
+   },
+   {
+    "folio": "f67v1",
+    "list": "months_german",
+    "words": 12,
+    "score": 0.3341931216931217,
+    "null_mean": 0.3420243296055796,
+    "z": -0.5443512859698766,
+    "p": 0.6833166833166833,
+    "start": 1,
+    "direction": -1,
+    "readings": [
+     "hononn~hornung",
+     "hoennot~jenner",
+     "mnot~christmonat",
+     "hon~wintermonat",
+     "mnmt~weinmonat",
+     "haustnat~herbstmonat"
+    ],
+    "p_adj": 1.0
+   },
+   {
+    "folio": "f67r2",
+    "list": "signs_italian",
+    "words": 12,
+    "score": 0.34328703703703706,
+    "null_mean": 0.351311541005291,
+    "z": -0.5523956132146685,
+    "p": 0.6993006993006993,
+    "start": 7,
+    "direction": 1,
+    "readings": [
+     "sreriie~scorpione",
+     "rgrie~sagittario",
+     "c~capricorno",
+     "cerrii~aquario",
+     "eri~pesci",
+     "reie~ariete"
+    ],
+    "p_adj": 1.0
+   },
+   {
+    "folio": "f67r1",
+    "list": "months_occitan",
+    "words": 12,
+    "score": 0.33948412698412694,
+    "null_mean": 0.34741468253968255,
+    "z": -0.5725963745187869,
+    "p": 0.6843156843156843,
+    "start": 5,
+    "direction": -1,
+    "readings": [
+     "merune~junh",
+     "memae~mai",
+     "boorie~abril",
+     "eaoob~mars",
+     "bmbrie~febrier",
+     "meooe~genier"
+    ],
+    "p_adj": 1.0
+   },
+   {
+    "folio": "f67r2",
+    "list": "months_french",
+    "words": 12,
+    "score": 0.34722222222222227,
+    "null_mean": 0.35679067460317465,
+    "z": -0.5999834853035055,
+    "p": 0.7172827172827173,
+    "start": 9,
+    "direction": 1,
+    "readings": [
+     "ooaobre~octobre",
+     "eoere~novembre",
+     "j~decembre",
+     "jaoeri~janvier",
+     "aoi~fevrier",
+     "oare~mars"
+    ],
+    "p_adj": 1.0
+   },
+   {
+    "folio": "f69v",
+    "list": "mansions_latin",
+    "words": 28,
+    "score": 0.4442602040816327,
+    "null_mean": 0.4489856292517007,
+    "z": -0.6573878973518433,
+    "p": 0.7232767232767233,
+    "start": 15,
+    "direction": 1,
+    "readings": [
+     "alhha~azubene",
+     "alha~alchil",
+     "alaal~alchas",
+     "alhha~allatha",
+     "alaha~abnahaya",
+     "ahhaa~abeda"
+    ],
+    "p_adj": 1.0
+   },
+   {
+    "folio": "f67r2",
+    "list": "months_catalan",
+    "words": 12,
+    "score": 0.345734126984127,
+    "null_mean": 0.3597550595238095,
+    "z": -0.9280554705625595,
+    "p": 0.8291708291708292,
+    "start": 9,
+    "direction": 1,
+    "readings": [
+     "oeaebre~octubre",
+     "bmbre~novembre",
+     "g~desembre",
+     "gaebrr~gener",
+     "aer~febrer",
+     "eare~marc"
+    ],
+    "p_adj": 1.0
+   },
+   {
+    "folio": "f67r1",
+    "list": "signs_arabic",
+    "words": 12,
+    "score": 0.3890873015873016,
+    "null_mean": 0.4015386904761905,
+    "z": -0.939319290327159,
+    "p": 0.8311688311688312,
+    "start": 4,
+    "direction": 1,
+    "readings": [
+     "jbaraa~asad",
+     "jbjha~sunbula",
+     "maaaan~mizan",
+     "ahaam~aqrab",
+     "mjmaan~qaws",
+     "jbaaa~jady"
+    ],
+    "p_adj": 1.0
+   },
+   {
+    "folio": "f67v1",
+    "list": "months_italian",
+    "words": 12,
+    "score": 0.3473875661375661,
+    "null_mean": 0.3616861441798942,
+    "z": -0.9631690622946523,
+    "p": 0.8331668331668332,
+    "start": 3,
+    "direction": 1,
+    "readings": [
+     "birirr~aprile",
+     "biaagio~maggio",
+     "egio~giugno",
+     "bia~luglio",
+     "egeo~agosto",
+     "betmogeo~settembre"
+    ],
+    "p_adj": 1.0
+   },
+   {
+    "folio": "f67r1",
+    "list": "signs_italian",
+    "words": 12,
+    "score": 0.34391534391534395,
+    "null_mean": 0.3667380291005291,
+    "z": -1.5614602672150544,
+    "p": 0.964035964035964,
+    "start": 1,
+    "direction": -1,
+    "readings": [
+     "arcero~toro",
+     "araeo~ariete",
+     "prrcci~pesci",
+     "oerrp~aquario",
+     "papcci~capricorno",
+     "arrro~sagittario"
+    ],
+    "p_adj": 1.0
+   }
+  ],
+  "planted_z": {
+   "mansions_arabic": 30.71161457122712,
+   "mansions_latin": 27.27956281487845,
+   "signs_latin": 10.793141010856637,
+   "signs_italian": 11.79449148482425,
+   "signs_arabic": 13.999173239839793,
+   "signs_hebrew": 14.276636921517984,
+   "months_latin": 9.618253893870246,
+   "months_french": 11.348432174338694,
+   "months_occitan": 10.63768378579839,
+   "months_catalan": 12.543847136065505,
+   "months_italian": 12.428472691942648,
+   "months_german": 9.85936325381735
+  }
+ },
+ "controls": [
+  {
+   "name": "lista zapisana szyfrem w glifach rękopisu odnaleziona",
+   "expectation": "z ≥ 5 dla każdej listy",
+   "observed": "najsłabsza z = 9.6 (months_latin)",
+   "passed": true
+  }
+ ],
+ "evidence": [
+  "Pary diagram–lista (podobieństwo odczytu do nazwy wobec tasowań, z, p popr.): f67v1 × months_catalan: 0.413 wobec 0.353, z = +3.8, p popr. 0.10; f67v1 × months_french: 0.392 wobec 0.349, z = +3.0, p popr. 0.26; f67v1 × signs_italian: 0.402 wobec 0.363, z = +2.7, p popr. 0.35; f67r2 × signs_arabic: 0.443 wobec 0.408, z = +2.3, p popr. 0.86; f67r1 × signs_latin: 0.401 wobec 0.374, z = +1.6, p popr. 1.00; f67r2 × signs_hebrew: 0.382 wobec 0.360, z = +1.3, p popr. 1.00; f67r1 × months_latin: 0.397 wobec 0.378, z = +1.2, p popr. 1.00; f67r2 × months_italian: 0.368 wobec 0.352, z = +1.2, p popr. 1.00; f67r1 × signs_hebrew: 0.372 wobec 0.357, z = +1.0, p popr. 1.00; f67v1 × months_occitan: 0.364 wobec 0.352, z = +0.8, p popr. 1.00; f67r1 × months_catalan: 0.354 wobec 0.348, z = +0.5, p popr. 1.00; f67v1 × months_latin: 0.383 wobec 0.380, z = +0.2, p popr. 1.00; f67r2 × signs_latin: 0.362 wobec 0.361, z = +0.1, p popr. 1.00; f67r2 × months_latin: 0.365 wobec 0.365, z = -0.0, p popr. 1.00; f67r1 × months_german: 0.348 wobec 0.349, z = -0.1, p popr. 1.00; f67r2 × months_german: 0.338 wobec 0.339, z = -0.1, p popr. 1.00; f69v × mansions_arabic: 0.356 wobec 0.357, z = -0.1, p popr. 1.00; f67r2 × months_occitan: 0.357 wobec 0.360, z = -0.2, p popr. 1.00; f67r1 × months_french: 0.343 wobec 0.345, z = -0.2, p popr. 1.00; f67v1 × signs_latin: 0.357 wobec 0.360, z = -0.3, p popr. 1.00; f67v1 × signs_arabic: 0.384 wobec 0.389, z = -0.3, p popr. 1.00; f67r1 × months_italian: 0.359 wobec 0.366, z = -0.5, p popr. 1.00; f67v1 × signs_hebrew: 0.339 wobec 0.347, z = -0.5, p popr. 1.00; f67v1 × months_german: 0.334 wobec 0.342, z = -0.5, p popr. 1.00; f67r2 × signs_italian: 0.343 wobec 0.351, z = -0.6, p popr. 1.00; f67r1 × months_occitan: 0.339 wobec 0.347, z = -0.6, p popr. 1.00; f67r2 × months_french: 0.347 wobec 0.357, z = -0.6, p popr. 1.00; f69v × mansions_latin: 0.444 wobec 0.449, z = -0.7, p popr. 1.00; f67r2 × months_catalan: 0.346 wobec 0.360, z = -0.9, p popr. 1.00; f67r1 × signs_arabic: 0.389 wobec 0.402, z = -0.9, p popr. 1.00; f67v1 × months_italian: 0.347 wobec 0.362, z = -1.0, p popr. 1.00; f67r1 × signs_italian: 0.344 wobec 0.367, z = -1.6, p popr. 1.00.",
+  "Najlepsza para f67v1 × months_catalan, pierwsze odczyty: jilill~juliol, jiubaig~juny, maig~maig, jib~abril, mamg~marc, jeebraer~febrer."
+ ],
+ "caveats": [
+  "Sprawdzany jest szyfr literowy (glif → litera, z homofonami); nazwy skrócone, zapisane sylabami albo kodem całego słowa nie zostałyby znalezione.",
+  "Pisownia nazw z jednego źródła na listę; średniowieczne warianty (Alnath/Alnach, Albotain/Albothaim) różnią się o 1–2 litery.",
+  "Kolejność słów w kole przyjęta z transliteracji (Takahashi/ZL); błąd kierunku czytania pokrywa przeszukanie obu kierunków."
+ ],
+ "references": [
+  "Zandbergen, voynich.nu: f69v, 28 radial words and the lunar mansions",
+  "Agrippa, De occulta philosophia II.33 (mansions)",
+  "Wikipedia: Lunar station (Arabic manāzil)"
+ ],
+ "artifacts": [],
+ "seconds": 941.902092218399,
+ "council": {}
+}
