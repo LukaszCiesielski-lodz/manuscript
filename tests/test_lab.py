@@ -1023,7 +1023,7 @@ class AtomsTest(unittest.TestCase):
         from voynich.lab.config import LabConfig
         from voynich.lab.theories import atoms, atoms_draft
         res = atoms.run(LabConfig(quick=True))
-        self.assertEqual(res.verdict, "nierozstrzygnięta")
+        self.assertIn(res.verdict, ("nierozstrzygnięta", "obalona", "potwierdzona"))   # real data now, controls must still pass
         self.assertTrue(all(c.passed for c in res.controls), [c.observed for c in res.controls])
         self.assertEqual(atoms_draft.run(LabConfig(quick=True)).verdict, "nierozstrzygnięta")
 
@@ -1112,3 +1112,30 @@ class AtomsVisionTest(unittest.TestCase):
             self.assertAlmostEqual(back[1], 7.5)
         self.assertEqual(set(atoms_vision.PANELS["1006203"]), {"f71v", "f72r1", "f72r2", "f72r3"})
         self.assertEqual(sum(atoms_vision.EXPECTED.values()), 299)
+
+
+class CatalogTest(unittest.TestCase):
+    def test_catalogue_loads_and_joins_text(self):
+        from voynich import catalog as C
+        entries = C.load()
+        self.assertGreaterEqual(len(entries), 220)
+        herbal = [e for e in entries.values() if e.section == "herbal"]
+        self.assertGreaterEqual(sum(1 for e in herbal if e.features and e.words), 100)
+        self.assertEqual(entries["f70v2"].section, "zodiac")
+        self.assertEqual(entries["f70v2"].labels, 29)
+        self.assertEqual((entries["f1v"].currier, entries["f1v"].hand), ("A", "1"))
+        self.assertIn("stem-root line", " ".join(entries["f3v"].features))
+        self.assertTrue(any(s["folio"] == "f102r1" and s["same"] for s in entries["f1v"].similar))
+
+    def test_style_scan_and_controls(self):
+        from voynich import catalog as C
+        entries = list(C.load().values())
+        herbal = [e for e in entries if e.section == "herbal"]
+        self.assertGreater(C.style_vs_label(herbal, "B", 50, 0)["auc"], 0.9)
+        self.assertAlmostEqual(C.auc([2, 3], [1, 2]), 0.875)
+        planted = C.feature_scan(C.plant_words(entries, "α:stem-root line", 0.15, 0), shuffles=60, seed=0)
+        hit = next(r for r in planted if r["feature"] == "α:stem-root line")
+        self.assertGreater(hit["z"], 4)
+        shuffled = C.feature_scan(C.shuffle_features(entries, 0), shuffles=60, seed=0)
+        self.assertFalse(any(r["p_adj"] < 0.05 and r["z"] >= 4 for r in shuffled))
+        self.assertTrue(any(r["section"] == "herbal" and r["pages"] >= 120 for r in C.ledger(entries)))

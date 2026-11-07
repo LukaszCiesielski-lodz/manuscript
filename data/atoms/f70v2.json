@@ -7,23 +7,23 @@
    "id": "f70v2-01",
    "typ": "nimfa",
    "cechy": {
-    "naga": false,
-    "w_obiekcie": "beczka",
+    "naga": true,
+    "w_obiekcie": "nic",
     "korona": false,
     "wlosy": "upiete",
     "trzyma": "gwiazda",
     "kierunek": "prawo",
     "gwiazda_promienie": 8,
     "gwiazda_ogon": false,
-    "gwiazda_kolor": "inny"
+    "gwiazda_kolor": "brak"
    },
    "pozycja": {
     "krag": "zewn",
     "kolejnosc": 1,
-    "kat": 12.2,
-    "promien": 0.93,
-    "x": 0.5631,
-    "y": 0.1638
+    "kat": 12.8,
+    "promien": 0.955,
+    "x": 0.5663,
+    "y": 0.1629
    },
    "etykieta": {
     "locus": "2",
@@ -43,7 +43,7 @@
     "naga": false,
     "w_obiekcie": "beczka",
     "korona": false,
-    "wlosy": "rozpuszczone",
+    "wlosy": "upiete",
     "trzyma": "gwiazda",
     "kierunek": "prawo",
     "gwiazda_promienie": 6,
@@ -53,10 +53,10 @@
    "pozycja": {
     "krag": "zewn",
     "kolejnosc": 2,
-    "kat": 29.4,
-    "promien": 0.959,
-    "x": 0.648,
-    "y": 0.1876
+    "kat": 29.1,
+    "promien": 0.965,
+    "x": 0.6446,
+    "y": 0.1906
    },
    "etykieta": {
     "locus": "3",
@@ -74,21 +74,21 @@
    "typ": "nimfa",
    "cechy": {
     "naga": false,
-    "w_obiekcie": "nic",
+    "w_obiekcie": "beczka",
     "korona": false,
     "wlosy": "upiete",
     "trzyma": "gwiazda",
     "kierunek": "prawo",
     "gwiazda_promienie": 8,
     "gwiazda_ogon": false,
-    "gwiazda_kolor": "brak"
+    "gwiazda_kolor": "inny"
    },
    "pozycja": {
     "krag": "zewn",
     "kolejnosc": 3,
-    "kat": 45.4,
-    "promien": 0.96,
-    "x": 0.714,
+    "kat": 44.9,
+    "promien": 0.972,
+    "x": 0.7105,
     "y": 0.24
    },
    "etykieta": {
@@ -114,15 +114,15 @@
     "kierunek": "prawo",
     "gwiazda_promienie": 5,
     "gwiazda_ogon": false,
-    "gwiazda_kolor": "brak"
+    "gwiazda_kolor": "zolty"
    },
    "pozycja": {
     "krag": "zewn",
     "kolejnosc": 4,
-    "kat": 61.0,
-    "promien": 0.937,
-    "x": 0.7565,
-    "y": 0.3114
+    "kat": 60.8,
+    "promien": 0.956,
+    "x": 0.7557,
+    "y": 0.3106
    },
    "etykieta": {
     "locus": "6",
@@ -146,17 +146,17 @@
     "wlosy": "upiete",
     "trzyma": "gwiazda",
     "kierunek": "prawo",
-    "gwiazda_promienie": 8,
+    "gwiazda_promienie": 5,
     "gwiazda_ogon": false,
     "gwiazda_kolor": "inny"
    },
    "pozycja": {
     "krag": "zewn",
     "kolejnosc": 5,
-    "kat": 80.3,
-    "promien": 0.955,
-    "x": 0.7942,
-    "y": 0.4067
+    "kat": 81.2,
+    "promien": 0.969,
+    "x": 0.7931,
+    "y": 0.4118
    },
    "etykieta": {
     "locus": "7",
@@ -175,7 +175,7 @@
    "typ": "nimfa",
    "cechy": {
     "naga": false,
-    "w_obiekcie": "nic",
+    "w_obiekcie": null,
     "korona": false,
     "wlosy": "upiete",
     "trzyma": "gwiazda",
@@ -187,10 +187,10 @@
    "pozycja": {
     "krag": "zewn",
     "kolejnosc": 6,
-    "kat": 102.5,
-    "promien": 0.949,
+    "kat": 102.4,
+    "promien": 0.968,
     "x": 0.7895,
-    "y": 0.5257
+    "y": 0.5254
    },
    "etykieta": {
     "locus": "8",
@@ -208,22 +208,22 @@
    "typ": "nimfa",
    "cechy": {
     "naga": false,
-    "w_obiekcie": null,
-    "korona": false,
+    "w_obiekcie": "nic",
+    "korona": true,
     "wlosy": "upiete",
     "trzyma": "gwiazda",
     "kierunek": "prawo",
     "gwiazda_promienie": 5,
     "gwiazda_ogon": false,
-    "gwiazda_kolor": "brak"
+    "gwiazda_kolor": "zolty"
    },
    "pozycja": {
     "krag": "zewn",
     "kolejnosc": 7,
-    "kat": 124.6,
-    "promien": 0.94,
-    "x": 0.7423,
-    "y": 0.6324
+    "kat": 124.0,
+    "promien": 0.968,
+    "x": 0.7459,
+    "y": 0.6312
    },
    "etykieta": {
     "locus": "9",
@@ -243,20 +243,20 @@
     "naga": false,
     "w_obiekcie": null,
     "korona": true,
-    "wlosy": "nakrycie",
+    "wlosy": "upiete",
     "trzyma": "gwiazda",
     "kierunek": "prawo",
-    "gwiazda_promienie": 5,
+    "gwiazda_promienie": 6,
     "gwiazda_ogon": false,
     "gwiazda_kolor": "inny"
    },
    "pozycja": {
     "krag": "zewn",
     "kolejnosc": 8,
-    "kat": 143.9,
-    "promien": 0.952,
-    "x": 0.6763,
-    "y": 0.7086
+    "kat": 143.7,
+    "promien": 0.958,
+    "x": 0.6744,
+    "y": 0.7045
    },
    "etykieta": {
     "locus": "10",
@@ -279,17 +279,17 @@
     "wlosy": "nie_widac",
     "trzyma": "gwiazda",
     "kierunek": "prawo",
-    "gwiazda_promienie": 8,
+    "gwiazda_promienie": 6,
     "gwiazda_ogon": false,
-    "gwiazda_kolor": "inny"
+    "gwiazda_kolor": "brak"
    },
    "pozycja": {
     "krag": "zewn",
     "kolejnosc": 9,
-    "kat": 166.9,
-    "promien": 1.0,
-    "x": 0.5725,
-    "y": 0.7753
+    "kat": 165.9,
+    "promien": 0.988,
+    "x": 0.5751,
+    "y": 0.7638
    },
    "etykieta": {
     "locus": "11",
@@ -311,7 +311,7 @@
     "korona": false,
     "wlosy": "nie_widac",
     "trzyma": "gwiazda",
-    "kierunek": "prawo",
+    "kierunek": "lewo",
     "gwiazda_promienie": 5,
     "gwiazda_ogon": false,
     "gwiazda_kolor": "brak"
@@ -320,9 +320,9 @@
     "krag": "zewn",
     "kolejnosc": 10,
     "kat": 190.7,
-    "promien": 0.991,
-    "x": 0.4451,
-    "y": 0.7753
+    "promien": 0.981,
+    "x": 0.4468,
+    "y": 0.7656
    },
    "etykieta": {
     "locus": "12",
@@ -352,10 +352,10 @@
    "pozycja": {
     "krag": "zewn",
     "kolejnosc": 11,
-    "kat": 211.0,
-    "promien": 0.993,
-    "x": 0.3432,
-    "y": 0.7353
+    "kat": 210.6,
+    "promien": 1.0,
+    "x": 0.3473,
+    "y": 0.7328
    },
    "etykieta": {
     "locus": "13",
@@ -373,9 +373,9 @@
    "typ": "nimfa",
    "cechy": {
     "naga": false,
-    "w_obiekcie": null,
+    "w_obiekcie": "nic",
     "korona": false,
-    "wlosy": "rozpuszczone",
+    "wlosy": "upiete",
     "trzyma": "gwiazda",
     "kierunek": "prawo",
     "gwiazda_promienie": 8,
@@ -385,10 +385,10 @@
    "pozycja": {
     "krag": "zewn",
     "kolejnosc": 12,
-    "kat": 235.1,
-    "promien": 0.883,
-    "x": 0.2772,
-    "y": 0.6229
+    "kat": 235.4,
+    "promien": 0.91,
+    "x": 0.2744,
+    "y": 0.6235
    },
    "etykieta": {
     "locus": "14",
@@ -408,7 +408,7 @@
     "naga": false,
     "w_obiekcie": "nic",
     "korona": false,
-    "wlosy": "upiete",
+    "wlosy": "rozpuszczone",
     "trzyma": "gwiazda",
     "kierunek": "prawo",
     "gwiazda_promienie": 6,
@@ -418,10 +418,10 @@
    "pozycja": {
     "krag": "zewn",
     "kolejnosc": 13,
-    "kat": 255.3,
-    "promien": 0.868,
-    "x": 0.2413,
-    "y": 0.5305
+    "kat": 255.5,
+    "promien": 0.896,
+    "x": 0.2382,
+    "y": 0.5301
    },
    "etykieta": {
     "locus": "15",
@@ -444,17 +444,17 @@
     "wlosy": "rozpuszczone",
     "trzyma": "gwiazda",
     "kierunek": "przod",
-    "gwiazda_promienie": 6,
+    "gwiazda_promienie": 5,
     "gwiazda_ogon": false,
     "gwiazda_kolor": "inny"
    },
    "pozycja": {
     "krag": "zewn",
     "kolejnosc": 14,
-    "kat": 281.0,
-    "promien": 0.892,
-    "x": 0.23,
-    "y": 0.4038
+    "kat": 280.8,
+    "promien": 0.917,
+    "x": 0.2283,
+    "y": 0.4042
    },
    "etykieta": {
     "locus": "16",
@@ -473,22 +473,22 @@
    "typ": "nimfa",
    "cechy": {
     "naga": false,
-    "w_obiekcie": "nic",
+    "w_obiekcie": null,
     "korona": false,
     "wlosy": "rozpuszczone",
     "trzyma": "gwiazda",
     "kierunek": "przod",
-    "gwiazda_promienie": 6,
+    "gwiazda_promienie": 5,
     "gwiazda_ogon": false,
-    "gwiazda_kolor": "inny"
+    "gwiazda_kolor": "zolty"
    },
    "pozycja": {
     "krag": "zewn",
     "kolejnosc": 15,
-    "kat": 303.5,
-    "promien": 0.839,
-    "x": 0.2847,
-    "y": 0.3086
+    "kat": 305.0,
+    "promien": 0.893,
+    "x": 0.2796,
+    "y": 0.2963
    },
    "etykieta": {
     "locus": "17",
@@ -513,15 +513,15 @@
     "kierunek": "prawo",
     "gwiazda_promienie": 5,
     "gwiazda_ogon": false,
-    "gwiazda_kolor": "brak"
+    "gwiazda_kolor": "inny"
    },
    "pozycja": {
     "krag": "zewn",
     "kolejnosc": 16,
-    "kat": 319.1,
-    "promien": 0.911,
-    "x": 0.3168,
-    "y": 0.2352
+    "kat": 320.6,
+    "promien": 0.942,
+    "x": 0.3201,
+    "y": 0.2276
    },
    "etykieta": {
     "locus": "18",
@@ -543,7 +543,7 @@
     "korona": false,
     "wlosy": "rozpuszczone",
     "trzyma": "gwiazda",
-    "kierunek": "przod",
+    "kierunek": "prawo",
     "gwiazda_promienie": 6,
     "gwiazda_ogon": false,
     "gwiazda_kolor": "inny"
@@ -551,10 +551,10 @@
    "pozycja": {
     "krag": "zewn",
     "kolejnosc": 17,
-    "kat": 336.2,
-    "promien": 0.945,
-    "x": 0.3838,
-    "y": 0.1781
+    "kat": 338.1,
+    "promien": 0.966,
+    "x": 0.3925,
+    "y": 0.1741
    },
    "etykieta": {
     "locus": "19",
@@ -576,7 +576,7 @@
     "korona": false,
     "wlosy": "rozpuszczone",
     "trzyma": "gwiazda",
-    "kierunek": "przod",
+    "kierunek": "prawo",
     "gwiazda_promienie": 5,
     "gwiazda_ogon": false,
     "gwiazda_kolor": "inny"
@@ -584,10 +584,10 @@
    "pozycja": {
     "krag": "zewn",
     "kolejnosc": 18,
-    "kat": 350.0,
-    "promien": 0.968,
-    "x": 0.4499,
-    "y": 0.1495
+    "kat": 352.1,
+    "promien": 0.981,
+    "x": 0.4611,
+    "y": 0.15
    },
    "etykieta": {
     "locus": "20",
@@ -609,18 +609,18 @@
     "korona": false,
     "wlosy": "rozpuszczone",
     "trzyma": "gwiazda",
-    "kierunek": "przod",
+    "kierunek": "prawo",
     "gwiazda_promienie": 6,
     "gwiazda_ogon": false,
-    "gwiazda_kolor": "brak"
+    "gwiazda_kolor": "zolty"
    },
    "pozycja": {
     "krag": "wewn",
     "kolejnosc": 1,
-    "kat": 14.1,
-    "promien": 0.62,
-    "x": 0.5489,
-    "y": 0.2638
+    "kat": 14.2,
+    "promien": 0.655,
+    "x": 0.5508,
+    "y": 0.2571
    },
    "etykieta": {
     "locus": "22",
@@ -651,10 +651,10 @@
    "pozycja": {
     "krag": "wewn",
     "kolejnosc": 2,
-    "kat": 42.0,
-    "promien": 0.612,
-    "x": 0.6291,
-    "y": 0.3114
+    "kat": 41.3,
+    "promien": 0.623,
+    "x": 0.627,
+    "y": 0.3102
    },
    "etykieta": {
     "locus": "23",
@@ -675,20 +675,20 @@
     "naga": true,
     "w_obiekcie": "beczka",
     "korona": false,
-    "wlosy": "upiete",
+    "wlosy": "rozpuszczone",
     "trzyma": "gwiazda",
     "kierunek": "prawo",
-    "gwiazda_promienie": 5,
+    "gwiazda_promienie": 6,
     "gwiazda_ogon": false,
     "gwiazda_kolor": "zolty"
    },
    "pozycja": {
     "krag": "wewn",
     "kolejnosc": 3,
-    "kat": 80.2,
-    "promien": 0.601,
-    "x": 0.6857,
-    "y": 0.4257
+    "kat": 81.2,
+    "promien": 0.631,
+    "x": 0.6915,
+    "y": 0.4282
    },
    "etykieta": {
     "locus": "24",
@@ -713,15 +713,15 @@
     "kierunek": "prawo",
     "gwiazda_promienie": 5,
     "gwiazda_ogon": false,
-    "gwiazda_kolor": "zolty"
+    "gwiazda_kolor": "brak"
    },
    "pozycja": {
     "krag": "wewn",
     "kolejnosc": 4,
-    "kat": 119.4,
-    "promien": 0.61,
-    "x": 0.6669,
-    "y": 0.5562
+    "kat": 120.1,
+    "promien": 0.638,
+    "x": 0.6698,
+    "y": 0.5606
    },
    "etykieta": {
     "locus": "25",
@@ -739,22 +739,22 @@
    "typ": "nimfa",
    "cechy": {
     "naga": false,
-    "w_obiekcie": null,
+    "w_obiekcie": "nic",
     "korona": false,
     "wlosy": "rozpuszczone",
     "trzyma": "gwiazda",
     "kierunek": "prawo",
-    "gwiazda_promienie": 6,
+    "gwiazda_promienie": 8,
     "gwiazda_ogon": false,
     "gwiazda_kolor": "brak"
    },
    "pozycja": {
     "krag": "wewn",
     "kolejnosc": 5,
-    "kat": 151.7,
-    "promien": 0.64,
-    "x": 0.5961,
-    "y": 0.6419
+    "kat": 153.1,
+    "promien": 0.616,
+    "x": 0.5867,
+    "y": 0.6339
    },
    "etykieta": {
     "locus": "26",
@@ -772,22 +772,22 @@
    "typ": "nimfa",
    "cechy": {
     "naga": false,
-    "w_obiekcie": null,
+    "w_obiekcie": "nic",
     "korona": false,
     "wlosy": "rozpuszczone",
     "trzyma": "gwiazda",
     "kierunek": "prawo",
     "gwiazda_promienie": 6,
     "gwiazda_ogon": false,
-    "gwiazda_kolor": "zolty"
+    "gwiazda_kolor": "inny"
    },
    "pozycja": {
     "krag": "wewn",
     "kolejnosc": 6,
-    "kat": 186.7,
-    "promien": 0.656,
-    "x": 0.4782,
-    "y": 0.6705
+    "kat": 187.7,
+    "promien": 0.652,
+    "x": 0.4753,
+    "y": 0.6644
    },
    "etykieta": {
     "locus": "27",
@@ -805,7 +805,7 @@
    "typ": "nimfa",
    "cechy": {
     "naga": false,
-    "w_obiekcie": "nic",
+    "w_obiekcie": null,
     "korona": false,
     "wlosy": "rozpuszczone",
     "trzyma": "gwiazda",
@@ -817,9 +817,9 @@
    "pozycja": {
     "krag": "wewn",
     "kolejnosc": 7,
-    "kat": 231.5,
-    "promien": 0.622,
-    "x": 0.3508,
+    "kat": 230.4,
+    "promien": 0.62,
+    "x": 0.3567,
     "y": 0.5848
    },
    "etykieta": {
@@ -838,22 +838,22 @@
    "typ": "nimfa",
    "cechy": {
     "naga": false,
-    "w_obiekcie": null,
+    "w_obiekcie": "nic",
     "korona": false,
     "wlosy": "rozpuszczone",
     "trzyma": "gwiazda",
     "kierunek": "prawo",
-    "gwiazda_promienie": 8,
+    "gwiazda_promienie": 6,
     "gwiazda_ogon": false,
     "gwiazda_kolor": "inny"
    },
    "pozycja": {
     "krag": "wewn",
     "kolejnosc": 8,
-    "kat": 267.2,
-    "promien": 0.612,
-    "x": 0.3121,
-    "y": 0.4686
+    "kat": 268.2,
+    "promien": 0.601,
+    "x": 0.3194,
+    "y": 0.4649
    },
    "etykieta": {
     "locus": "29",
@@ -871,11 +871,11 @@
    "typ": "nimfa",
    "cechy": {
     "naga": false,
-    "w_obiekcie": null,
+    "w_obiekcie": "nic",
     "korona": false,
     "wlosy": "rozpuszczone",
     "trzyma": "gwiazda",
-    "kierunek": "prawo",
+    "kierunek": "przod",
     "gwiazda_promienie": 6,
     "gwiazda_ogon": false,
     "gwiazda_kolor": "inny"
@@ -883,9 +883,9 @@
    "pozycja": {
     "krag": "wewn",
     "kolejnosc": 9,
-    "kat": 302.5,
-    "promien": 0.621,
-    "x": 0.3395,
+    "kat": 302.9,
+    "promien": 0.629,
+    "x": 0.3414,
     "y": 0.3505
    },
    "etykieta": {
@@ -904,22 +904,22 @@
    "typ": "nimfa",
    "cechy": {
     "naga": false,
-    "w_obiekcie": "nic",
+    "w_obiekcie": null,
     "korona": false,
     "wlosy": "rozpuszczone",
     "trzyma": "gwiazda",
     "kierunek": "prawo",
     "gwiazda_promienie": 6,
     "gwiazda_ogon": false,
-    "gwiazda_kolor": "inny"
+    "gwiazda_kolor": "zolty"
    },
    "pozycja": {
     "krag": "wewn",
     "kolejnosc": 10,
-    "kat": 334.3,
-    "promien": 0.618,
-    "x": 0.4187,
-    "y": 0.2781
+    "kat": 337.3,
+    "promien": 0.638,
+    "x": 0.4272,
+    "y": 0.2717
    },
    "etykieta": {
     "locus": "31",

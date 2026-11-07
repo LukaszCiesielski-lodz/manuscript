@@ -7,19 +7,23 @@
    "id": "f72r1-01",
    "typ": "nimfa",
    "cechy": {
-    "naga": null,
+    "naga": true,
     "w_obiekcie": null,
-    "korona": null,
-    "wlosy": null,
-    "trzyma": null,
-    "kierunek": null,
-    "gwiazda_promienie": null,
-    "gwiazda_ogon": null,
-    "gwiazda_kolor": null
+    "korona": false,
+    "wlosy": "rozpuszczone",
+    "trzyma": "gwiazda",
+    "kierunek": "prawo",
+    "gwiazda_promienie": 8,
+    "gwiazda_ogon": false,
+    "gwiazda_kolor": "brak"
    },
    "pozycja": {
-    "krag": null,
-    "kolejnosc": 1
+    "krag": "zewn",
+    "kolejnosc": 1,
+    "kat": 28.3,
+    "promien": 0.75,
+    "x": 0.403,
+    "y": 0.2406
    },
    "etykieta": {
     "locus": "2",
@@ -28,27 +32,31 @@
      "oshodady"
     ]
    },
-   "zrodlo": "",
-   "pewnosc": null,
-   "uwaga": ""
+   "zrodlo": "vision",
+   "pewnosc": 1,
+   "uwaga": "szkic z GPU: postaci 15 (oczekiwano 15), etykiet 15; model widzi znak 'byk', tabela mówi 'byk'; sprawdzić kolejność na PNG"
   },
   {
    "id": "f72r1-02",
    "typ": "nimfa",
    "cechy": {
-    "naga": null,
+    "naga": true,
     "w_obiekcie": null,
-    "korona": null,
-    "wlosy": null,
-    "trzyma": null,
-    "kierunek": null,
-    "gwiazda_promienie": null,
-    "gwiazda_ogon": null,
-    "gwiazda_kolor": null
+    "korona": false,
+    "wlosy": "rozpuszczone",
+    "trzyma": "gwiazda",
+    "kierunek": "prawo",
+    "gwiazda_promienie": 8,
+    "gwiazda_ogon": false,
+    "gwiazda_kolor": "brak"
    },
    "pozycja": {
-    "krag": null,
-    "kolejnosc": 2
+    "krag": "zewn",
+    "kolejnosc": 2,
+    "kat": 53.0,
+    "promien": 0.743,
+    "x": 0.4317,
+    "y": 0.3161
    },
    "etykieta": {
     "locus": "3",
@@ -57,27 +65,31 @@
      "chdaiirdainy"
     ]
    },
-   "zrodlo": "",
-   "pewnosc": null,
-   "uwaga": ""
+   "zrodlo": "vision",
+   "pewnosc": 1,
+   "uwaga": "szkic z GPU: postaci 15 (oczekiwano 15), etykiet 15; model widzi znak 'byk', tabela mówi 'byk'; sprawdzić kolejność na PNG"
   },
   {
    "id": "f72r1-03",
    "typ": "nimfa",
    "cechy": {
-    "naga": null,
+    "naga": true,
     "w_obiekcie": null,
-    "korona": null,
-    "wlosy": null,
-    "trzyma": null,
-    "kierunek": null,
-    "gwiazda_promienie": null,
-    "gwiazda_ogon": null,
-    "gwiazda_kolor": null
+    "korona": false,
+    "wlosy": "rozpuszczone",
+    "trzyma": "gwiazda",
+    "kierunek": "prawo",
+    "gwiazda_promienie": 8,
+    "gwiazda_ogon": false,
+    "gwiazda_kolor": "brak"
    },
    "pozycja": {
-    "krag": null,
-    "kolejnosc": 3
+    "krag": "zewn",
+    "kolejnosc": 3,
+    "kat": 147.8,
+    "promien": 0.668,
+    "x": 0.403,
+    "y": 0.6757
    },
    "etykieta": {
     "locus": "4",
@@ -88,27 +100,31 @@
      "ary"
     ]
    },
-   "zrodlo": "",
-   "pewnosc": null,
-   "uwaga": ""
+   "zrodlo": "vision",
+   "pewnosc": 1,
+   "uwaga": "szkic z GPU: postaci 15 (oczekiwano 15), etykiet 15; model widzi znak 'byk', tabela mówi 'byk'; sprawdzić kolejność na PNG"
   },
   {
    "id": "f72r1-04",
    "typ": "nimfa",
    "cechy": {
-    "naga": null,
+    "naga": true,
     "w_obiekcie": null,
-    "korona": null,
-    "wlosy": null,
-    "trzyma": null,
-    "kierunek": null,
-    "gwiazda_promienie": null,
-    "gwiazda_ogon": null,
-    "gwiazda_kolor": null
+    "korona": false,
+    "wlosy": "nie_widac",
+    "trzyma": "gwiazda",
+    "kierunek": "prawo",
+    "gwiazda_promienie": 6,
+    "gwiazda_ogon": false,
+    "gwiazda_kolor": "brak"
    },
    "pozycja": {
-    "krag": null,
-    "kolejnosc": 4
+    "krag": "zewn",
+    "kolejnosc": 4,
+    "kat": 206.4,
+    "promien": 0.639,
+    "x": 0.3257,
+    "y": 0.6783
    },
    "etykieta": {
     "locus": "5",
@@ -117,27 +133,31 @@
      "okalam"
     ]
    },
-   "zrodlo": "",
-   "pewnosc": null,
-   "uwaga": ""
+   "zrodlo": "vision",
+   "pewnosc": 1,
+   "uwaga": "szkic z GPU: postaci 15 (oczekiwano 15), etykiet 15; model widzi znak 'byk', tabela mówi 'byk'; sprawdzić kolejność na PNG"
   },
   {
    "id": "f72r1-05",
    "typ": "nimfa",
    "cechy": {
-    "naga": null,
+    "naga": true,
     "w_obiekcie": null,
-    "korona": null,
-    "wlosy": null,
-    "trzyma": null,
-    "kierunek": null,
-    "gwiazda_promienie": null,
-    "gwiazda_ogon": null,
-    "gwiazda_kolor": null
+    "korona": false,
+    "wlosy": "rozpuszczone",
+    "trzyma": "gwiazda",
+    "kierunek": "prawo",
+    "gwiazda_promienie": 8,
+    "gwiazda_ogon": false,
+    "gwiazda_kolor": "brak"
    },
    "pozycja": {
-    "krag": null,
-    "kolejnosc": 5
+    "krag": "zewn",
+    "kolejnosc": 5,
+    "kat": 252.1,
+    "promien": 0.633,
+    "x": 0.2872,
+    "y": 0.5442
    },
    "etykieta": {
     "locus": "6",
@@ -146,27 +166,31 @@
      "ytalshdy"
     ]
    },
-   "zrodlo": "",
-   "pewnosc": null,
-   "uwaga": ""
+   "zrodlo": "vision",
+   "pewnosc": 1,
+   "uwaga": "szkic z GPU: postaci 15 (oczekiwano 15), etykiet 15; model widzi znak 'byk', tabela mówi 'byk'; sprawdzić kolejność na PNG"
   },
   {
    "id": "f72r1-06",
    "typ": "nimfa",
    "cechy": {
-    "naga": null,
-    "w_obiekcie": null,
-    "korona": null,
-    "wlosy": null,
-    "trzyma": null,
-    "kierunek": null,
-    "gwiazda_promienie": null,
-    "gwiazda_ogon": null,
-    "gwiazda_kolor": null
+    "naga": false,
+    "w_obiekcie": "nic",
+    "korona": false,
+    "wlosy": "upiete",
+    "trzyma": "gwiazda",
+    "kierunek": "prawo",
+    "gwiazda_promienie": 8,
+    "gwiazda_ogon": false,
+    "gwiazda_kolor": "brak"
    },
    "pozycja": {
-    "krag": null,
-    "kolejnosc": 6
+    "krag": "zewn",
+    "kolejnosc": 6,
+    "kat": 265.6,
+    "promien": 0.934,
+    "x": 0.2475,
+    "y": 0.5004
    },
    "etykieta": {
     "locus": "7",
@@ -176,27 +200,31 @@
      "alif"
     ]
    },
-   "zrodlo": "",
-   "pewnosc": null,
-   "uwaga": ""
+   "zrodlo": "vision",
+   "pewnosc": 1,
+   "uwaga": "szkic z GPU: postaci 15 (oczekiwano 15), etykiet 15; model widzi znak 'byk', tabela mówi 'byk'; sprawdzić kolejność na PNG"
   },
   {
    "id": "f72r1-07",
    "typ": "nimfa",
    "cechy": {
-    "naga": null,
+    "naga": false,
     "w_obiekcie": null,
-    "korona": null,
-    "wlosy": null,
-    "trzyma": null,
-    "kierunek": null,
-    "gwiazda_promienie": null,
-    "gwiazda_ogon": null,
-    "gwiazda_kolor": null
+    "korona": false,
+    "wlosy": "rozpuszczone",
+    "trzyma": "gwiazda",
+    "kierunek": "prawo",
+    "gwiazda_promienie": 8,
+    "gwiazda_ogon": false,
+    "gwiazda_kolor": "brak"
    },
    "pozycja": {
-    "krag": null,
-    "kolejnosc": 7
+    "krag": "zewn",
+    "kolejnosc": 7,
+    "kat": 286.3,
+    "promien": 1.0,
+    "x": 0.244,
+    "y": 0.3752
    },
    "etykieta": {
     "locus": "8",
@@ -205,27 +233,31 @@
      "otaraldy"
     ]
    },
-   "zrodlo": "",
-   "pewnosc": null,
-   "uwaga": ""
+   "zrodlo": "vision",
+   "pewnosc": 1,
+   "uwaga": "szkic z GPU: postaci 15 (oczekiwano 15), etykiet 15; model widzi znak 'byk', tabela mówi 'byk'; sprawdzić kolejność na PNG"
   },
   {
    "id": "f72r1-08",
    "typ": "nimfa",
    "cechy": {
-    "naga": null,
+    "naga": true,
     "w_obiekcie": null,
-    "korona": null,
-    "wlosy": null,
-    "trzyma": null,
-    "kierunek": null,
-    "gwiazda_promienie": null,
-    "gwiazda_ogon": null,
-    "gwiazda_kolor": null
+    "korona": false,
+    "wlosy": "rozpuszczone",
+    "trzyma": "gwiazda",
+    "kierunek": "przod",
+    "gwiazda_promienie": 8,
+    "gwiazda_ogon": false,
+    "gwiazda_kolor": "brak"
    },
    "pozycja": {
-    "krag": null,
-    "kolejnosc": 8
+    "krag": "zewn",
+    "kolejnosc": 8,
+    "kat": 287.6,
+    "promien": 0.654,
+    "x": 0.2847,
+    "y": 0.4047
    },
    "etykieta": {
     "locus": "9",
@@ -235,27 +267,31 @@
      "otain"
     ]
    },
-   "zrodlo": "",
-   "pewnosc": null,
-   "uwaga": ""
+   "zrodlo": "vision",
+   "pewnosc": 1,
+   "uwaga": "szkic z GPU: postaci 15 (oczekiwano 15), etykiet 15; model widzi znak 'byk', tabela mówi 'byk'; sprawdzić kolejność na PNG"
   },
   {
    "id": "f72r1-09",
    "typ": "nimfa",
    "cechy": {
-    "naga": null,
+    "naga": true,
     "w_obiekcie": null,
-    "korona": null,
-    "wlosy": null,
-    "trzyma": null,
-    "kierunek": null,
-    "gwiazda_promienie": null,
-    "gwiazda_ogon": null,
-    "gwiazda_kolor": null
+    "korona": false,
+    "wlosy": "rozpuszczone",
+    "trzyma": "gwiazda",
+    "kierunek": "prawo",
+    "gwiazda_promienie": 8,
+    "gwiazda_ogon": false,
+    "gwiazda_kolor": "inny"
    },
    "pozycja": {
-    "krag": null,
-    "kolejnosc": 9
+    "krag": "zewn",
+    "kolejnosc": 9,
+    "kat": 319.4,
+    "promien": 0.707,
+    "x": 0.3044,
+    "y": 0.2846
    },
    "etykieta": {
     "locus": "10",
@@ -266,27 +302,31 @@
      "ainam"
     ]
    },
-   "zrodlo": "",
-   "pewnosc": null,
-   "uwaga": ""
+   "zrodlo": "vision",
+   "pewnosc": 1,
+   "uwaga": "szkic z GPU: postaci 15 (oczekiwano 15), etykiet 15; model widzi znak 'byk', tabela mówi 'byk'; sprawdzić kolejność na PNG"
   },
   {
    "id": "f72r1-10",
    "typ": "nimfa",
    "cechy": {
-    "naga": null,
+    "naga": true,
     "w_obiekcie": null,
-    "korona": null,
-    "wlosy": null,
-    "trzyma": null,
-    "kierunek": null,
-    "gwiazda_promienie": null,
-    "gwiazda_ogon": null,
-    "gwiazda_kolor": null
+    "korona": false,
+    "wlosy": "rozpuszczone",
+    "trzyma": "gwiazda",
+    "kierunek": "prawo",
+    "gwiazda_promienie": 8,
+    "gwiazda_ogon": false,
+    "gwiazda_kolor": "inny"
    },
    "pozycja": {
-    "krag": null,
-    "kolejnosc": 10
+    "krag": "zewn",
+    "kolejnosc": 10,
+    "kat": 356.8,
+    "promien": 0.716,
+    "x": 0.3552,
+    "y": 0.2212
    },
    "etykieta": {
     "locus": "11",
@@ -296,27 +336,31 @@
      "sharam"
     ]
    },
-   "zrodlo": "",
-   "pewnosc": null,
-   "uwaga": ""
+   "zrodlo": "vision",
+   "pewnosc": 1,
+   "uwaga": "szkic z GPU: postaci 15 (oczekiwano 15), etykiet 15; model widzi znak 'byk', tabela mówi 'byk'; sprawdzić kolejność na PNG"
   },
   {
    "id": "f72r1-11",
    "typ": "nimfa",
    "cechy": {
-    "naga": null,
-    "w_obiekcie": null,
-    "korona": null,
-    "wlosy": null,
-    "trzyma": null,
-    "kierunek": null,
-    "gwiazda_promienie": null,
-    "gwiazda_ogon": null,
-    "gwiazda_kolor": null
+    "naga": true,
+    "w_obiekcie": "beczka",
+    "korona": false,
+    "wlosy": "upiete",
+    "trzyma": "gwiazda",
+    "kierunek": "prawo",
+    "gwiazda_promienie": 8,
+    "gwiazda_ogon": false,
+    "gwiazda_kolor": "brak"
    },
    "pozycja": {
-    "krag": null,
-    "kolejnosc": 11
+    "krag": "wewn",
+    "kolejnosc": 1,
+    "kat": 2.2,
+    "promien": 0.408,
+    "x": 0.3619,
+    "y": 0.3302
    },
    "etykieta": {
     "locus": "13",
@@ -325,27 +369,31 @@
      "ofaralar"
     ]
    },
-   "zrodlo": "",
-   "pewnosc": null,
-   "uwaga": ""
+   "zrodlo": "vision",
+   "pewnosc": 1,
+   "uwaga": "szkic z GPU: postaci 15 (oczekiwano 15), etykiet 15; model widzi znak 'byk', tabela mówi 'byk'; sprawdzić kolejność na PNG"
   },
   {
    "id": "f72r1-12",
    "typ": "nimfa",
    "cechy": {
-    "naga": null,
+    "naga": true,
     "w_obiekcie": null,
-    "korona": null,
-    "wlosy": null,
-    "trzyma": null,
-    "kierunek": null,
-    "gwiazda_promienie": null,
-    "gwiazda_ogon": null,
-    "gwiazda_kolor": null
+    "korona": false,
+    "wlosy": "upiete",
+    "trzyma": "gwiazda",
+    "kierunek": "prawo",
+    "gwiazda_promienie": 6,
+    "gwiazda_ogon": false,
+    "gwiazda_kolor": "brak"
    },
    "pozycja": {
-    "krag": null,
-    "kolejnosc": 12
+    "krag": "wewn",
+    "kolejnosc": 2,
+    "kat": 55.7,
+    "promien": 0.407,
+    "x": 0.4006,
+    "y": 0.3935
    },
    "etykieta": {
     "locus": "14",
@@ -354,27 +402,31 @@
      "otchoshy"
     ]
    },
-   "zrodlo": "",
-   "pewnosc": null,
-   "uwaga": ""
+   "zrodlo": "vision",
+   "pewnosc": 1,
+   "uwaga": "szkic z GPU: postaci 15 (oczekiwano 15), etykiet 15; model widzi znak 'byk', tabela mówi 'byk'; sprawdzić kolejność na PNG"
   },
   {
    "id": "f72r1-13",
    "typ": "nimfa",
    "cechy": {
-    "naga": null,
+    "naga": true,
     "w_obiekcie": null,
-    "korona": null,
-    "wlosy": null,
-    "trzyma": null,
-    "kierunek": null,
-    "gwiazda_promienie": null,
-    "gwiazda_ogon": null,
-    "gwiazda_kolor": null
+    "korona": false,
+    "wlosy": "upiete",
+    "trzyma": "gwiazda",
+    "kierunek": "prawo",
+    "gwiazda_promienie": 8,
+    "gwiazda_ogon": false,
+    "gwiazda_kolor": "brak"
    },
    "pozycja": {
-    "krag": null,
-    "kolejnosc": 13
+    "krag": "wewn",
+    "kolejnosc": 3,
+    "kat": 125.3,
+    "promien": 0.376,
+    "x": 0.3971,
+    "y": 0.5522
    },
    "etykieta": {
     "locus": "15",
@@ -383,27 +435,31 @@
      "otchdal"
     ]
    },
-   "zrodlo": "",
-   "pewnosc": null,
-   "uwaga": ""
+   "zrodlo": "vision",
+   "pewnosc": 1,
+   "uwaga": "szkic z GPU: postaci 15 (oczekiwano 15), etykiet 15; model widzi znak 'byk', tabela mówi 'byk'; sprawdzić kolejność na PNG"
   },
   {
    "id": "f72r1-14",
    "typ": "nimfa",
    "cechy": {
-    "naga": null,
-    "w_obiekcie": null,
-    "korona": null,
-    "wlosy": null,
-    "trzyma": null,
-    "kierunek": null,
-    "gwiazda_promienie": null,
-    "gwiazda_ogon": null,
-    "gwiazda_kolor": null
+    "naga": false,
+    "w_obiekcie": "nic",
+    "korona": false,
+    "wlosy": "nie_widac",
+    "trzyma": "gwiazda",
+    "kierunek": "prawo",
+    "gwiazda_promienie": 6,
+    "gwiazda_ogon": false,
+    "gwiazda_kolor": "zolty"
    },
    "pozycja": {
-    "krag": null,
-    "kolejnosc": 14
+    "krag": "wewn",
+    "kolejnosc": 4,
+    "kat": 202.3,
+    "promien": 0.306,
+    "x": 0.3459,
+    "y": 0.5756
    },
    "etykieta": {
     "locus": "16",
@@ -413,27 +469,31 @@
      "ary"
     ]
    },
-   "zrodlo": "",
-   "pewnosc": null,
-   "uwaga": ""
+   "zrodlo": "vision",
+   "pewnosc": 1,
+   "uwaga": "szkic z GPU: postaci 15 (oczekiwano 15), etykiet 15; model widzi znak 'byk', tabela mówi 'byk'; sprawdzić kolejność na PNG"
   },
   {
    "id": "f72r1-15",
    "typ": "nimfa",
    "cechy": {
-    "naga": null,
+    "naga": true,
     "w_obiekcie": null,
-    "korona": null,
-    "wlosy": null,
-    "trzyma": null,
-    "kierunek": null,
-    "gwiazda_promienie": null,
-    "gwiazda_ogon": null,
-    "gwiazda_kolor": null
+    "korona": false,
+    "wlosy": "rozpuszczone",
+    "trzyma": "gwiazda",
+    "kierunek": "przod",
+    "gwiazda_promienie": 5,
+    "gwiazda_ogon": false,
+    "gwiazda_kolor": "zolty"
    },
    "pozycja": {
-    "krag": null,
-    "kolejnosc": 15
+    "krag": "wewn",
+    "kolejnosc": 5,
+    "kat": 260.5,
+    "promien": 0.369,
+    "x": 0.316,
+    "y": 0.4966
    },
    "etykieta": {
     "locus": "17",
@@ -442,9 +502,9 @@
      "otainy"
     ]
    },
-   "zrodlo": "",
-   "pewnosc": null,
-   "uwaga": ""
+   "zrodlo": "vision",
+   "pewnosc": 1,
+   "uwaga": "szkic z GPU: postaci 15 (oczekiwano 15), etykiet 15; model widzi znak 'byk', tabela mówi 'byk'; sprawdzić kolejność na PNG"
   }
  ]
 }

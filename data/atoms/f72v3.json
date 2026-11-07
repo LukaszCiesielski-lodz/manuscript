@@ -7,19 +7,23 @@
    "id": "f72v3-01",
    "typ": "nimfa",
    "cechy": {
-    "naga": null,
+    "naga": true,
     "w_obiekcie": null,
-    "korona": null,
-    "wlosy": null,
-    "trzyma": null,
-    "kierunek": null,
-    "gwiazda_promienie": null,
-    "gwiazda_ogon": null,
-    "gwiazda_kolor": null
+    "korona": false,
+    "wlosy": "rozpuszczone",
+    "trzyma": "gwiazda",
+    "kierunek": "prawo",
+    "gwiazda_promienie": 6,
+    "gwiazda_ogon": false,
+    "gwiazda_kolor": "brak"
    },
    "pozycja": {
-    "krag": null,
-    "kolejnosc": 1
+    "krag": "zewn",
+    "kolejnosc": 1,
+    "kat": 4.3,
+    "promien": 0.819,
+    "x": 0.393,
+    "y": 0.1885
    },
    "etykieta": {
     "locus": "2",
@@ -28,27 +32,31 @@
      "ocham"
     ]
    },
-   "zrodlo": "",
-   "pewnosc": null,
-   "uwaga": ""
+   "zrodlo": "vision",
+   "pewnosc": 1,
+   "uwaga": "szkic z GPU: postaci 30 (oczekiwano 30), etykiet 30; model widzi znak 'baran', tabela mówi 'lew'; sprawdzić kolejność na PNG"
   },
   {
    "id": "f72v3-02",
    "typ": "nimfa",
    "cechy": {
-    "naga": null,
+    "naga": true,
     "w_obiekcie": null,
-    "korona": null,
-    "wlosy": null,
-    "trzyma": null,
-    "kierunek": null,
-    "gwiazda_promienie": null,
-    "gwiazda_ogon": null,
-    "gwiazda_kolor": null
+    "korona": false,
+    "wlosy": "rozpuszczone",
+    "trzyma": "gwiazda",
+    "kierunek": "prawo",
+    "gwiazda_promienie": 8,
+    "gwiazda_ogon": false,
+    "gwiazda_kolor": "brak"
    },
    "pozycja": {
-    "krag": null,
-    "kolejnosc": 2
+    "krag": "zewn",
+    "kolejnosc": 2,
+    "kat": 15.0,
+    "promien": 0.888,
+    "x": 0.4287,
+    "y": 0.1746
    },
    "etykieta": {
     "locus": "3",
@@ -57,27 +65,31 @@
      "orchey"
     ]
    },
-   "zrodlo": "",
-   "pewnosc": null,
-   "uwaga": ""
+   "zrodlo": "vision",
+   "pewnosc": 1,
+   "uwaga": "szkic z GPU: postaci 30 (oczekiwano 30), etykiet 30; model widzi znak 'baran', tabela mówi 'lew'; sprawdzić kolejność na PNG"
   },
   {
    "id": "f72v3-03",
    "typ": "nimfa",
    "cechy": {
-    "naga": null,
+    "naga": true,
     "w_obiekcie": null,
-    "korona": null,
-    "wlosy": null,
-    "trzyma": null,
-    "kierunek": null,
-    "gwiazda_promienie": null,
-    "gwiazda_ogon": null,
-    "gwiazda_kolor": null
+    "korona": false,
+    "wlosy": "rozpuszczone",
+    "trzyma": "gwiazda",
+    "kierunek": "prawo",
+    "gwiazda_promienie": 5,
+    "gwiazda_ogon": false,
+    "gwiazda_kolor": "brak"
    },
    "pozycja": {
-    "krag": null,
-    "kolejnosc": 3
+    "krag": "zewn",
+    "kolejnosc": 3,
+    "kat": 33.9,
+    "promien": 0.852,
+    "x": 0.4809,
+    "y": 0.2249
    },
    "etykieta": {
     "locus": "4",
@@ -86,27 +98,31 @@
      "okam"
     ]
    },
-   "zrodlo": "",
-   "pewnosc": null,
-   "uwaga": ""
+   "zrodlo": "vision",
+   "pewnosc": 1,
+   "uwaga": "szkic z GPU: postaci 30 (oczekiwano 30), etykiet 30; model widzi znak 'baran', tabela mówi 'lew'; sprawdzić kolejność na PNG"
   },
   {
    "id": "f72v3-04",
    "typ": "nimfa",
    "cechy": {
-    "naga": null,
+    "naga": true,
     "w_obiekcie": null,
-    "korona": null,
-    "wlosy": null,
-    "trzyma": null,
-    "kierunek": null,
-    "gwiazda_promienie": null,
-    "gwiazda_ogon": null,
-    "gwiazda_kolor": null
+    "korona": false,
+    "wlosy": "rozpuszczone",
+    "trzyma": "gwiazda",
+    "kierunek": "prawo",
+    "gwiazda_promienie": 6,
+    "gwiazda_ogon": false,
+    "gwiazda_kolor": "brak"
    },
    "pozycja": {
-    "krag": null,
-    "kolejnosc": 4
+    "krag": "zewn",
+    "kolejnosc": 4,
+    "kat": 51.7,
+    "promien": 0.92,
+    "x": 0.5335,
+    "y": 0.2707
    },
    "etykieta": {
     "locus": "5",
@@ -115,27 +131,31 @@
      "okey"
     ]
    },
-   "zrodlo": "",
-   "pewnosc": null,
-   "uwaga": ""
+   "zrodlo": "vision",
+   "pewnosc": 1,
+   "uwaga": "szkic z GPU: postaci 30 (oczekiwano 30), etykiet 30; model widzi znak 'baran', tabela mówi 'lew'; sprawdzić kolejność na PNG"
   },
   {
    "id": "f72v3-05",
    "typ": "nimfa",
    "cechy": {
-    "naga": null,
+    "naga": false,
     "w_obiekcie": null,
-    "korona": null,
-    "wlosy": null,
-    "trzyma": null,
-    "kierunek": null,
-    "gwiazda_promienie": null,
-    "gwiazda_ogon": null,
-    "gwiazda_kolor": null
+    "korona": false,
+    "wlosy": "rozpuszczone",
+    "trzyma": "gwiazda",
+    "kierunek": "prawo",
+    "gwiazda_promienie": 5,
+    "gwiazda_ogon": false,
+    "gwiazda_kolor": "brak"
    },
    "pozycja": {
-    "krag": null,
-    "kolejnosc": 5
+    "krag": "zewn",
+    "kolejnosc": 5,
+    "kat": 71.2,
+    "promien": 0.876,
+    "x": 0.5562,
+    "y": 0.3675
    },
    "etykieta": {
     "locus": "6",
@@ -144,27 +164,31 @@
      "otcheody"
     ]
    },
-   "zrodlo": "",
-   "pewnosc": null,
-   "uwaga": ""
+   "zrodlo": "vision",
+   "pewnosc": 1,
+   "uwaga": "szkic z GPU: postaci 30 (oczekiwano 30), etykiet 30; model widzi znak 'baran', tabela mówi 'lew'; sprawdzić kolejność na PNG"
   },
   {
    "id": "f72v3-06",
    "typ": "nimfa",
    "cechy": {
-    "naga": null,
+    "naga": false,
     "w_obiekcie": null,
-    "korona": null,
-    "wlosy": null,
-    "trzyma": null,
-    "kierunek": null,
-    "gwiazda_promienie": null,
-    "gwiazda_ogon": null,
-    "gwiazda_kolor": null
+    "korona": false,
+    "wlosy": "nie_widac",
+    "trzyma": "gwiazda",
+    "kierunek": "prawo",
+    "gwiazda_promienie": 5,
+    "gwiazda_ogon": false,
+    "gwiazda_kolor": "brak"
    },
    "pozycja": {
-    "krag": null,
-    "kolejnosc": 6
+    "krag": "zewn",
+    "kolejnosc": 6,
+    "kat": 82.3,
+    "promien": 0.837,
+    "x": 0.5562,
+    "y": 0.4243
    },
    "etykieta": {
     "locus": "7",
@@ -173,27 +197,31 @@
      "okyeeshy"
     ]
    },
-   "zrodlo": "",
-   "pewnosc": null,
-   "uwaga": ""
+   "zrodlo": "vision",
+   "pewnosc": 1,
+   "uwaga": "szkic z GPU: postaci 30 (oczekiwano 30), etykiet 30; model widzi znak 'baran', tabela mówi 'lew'; sprawdzić kolejność na PNG"
   },
   {
    "id": "f72v3-07",
    "typ": "nimfa",
    "cechy": {
-    "naga": null,
+    "naga": false,
     "w_obiekcie": null,
-    "korona": null,
-    "wlosy": null,
-    "trzyma": null,
-    "kierunek": null,
-    "gwiazda_promienie": null,
-    "gwiazda_ogon": null,
-    "gwiazda_kolor": null
+    "korona": false,
+    "wlosy": "rozpuszczone",
+    "trzyma": "gwiazda",
+    "kierunek": "prawo",
+    "gwiazda_promienie": 5,
+    "gwiazda_ogon": false,
+    "gwiazda_kolor": "brak"
    },
    "pozycja": {
-    "krag": null,
-    "kolejnosc": 7
+    "krag": "zewn",
+    "kolejnosc": 7,
+    "kat": 101.5,
+    "promien": 0.846,
+    "x": 0.5562,
+    "y": 0.5184
    },
    "etykieta": {
     "locus": "8",
@@ -202,27 +230,31 @@
      "cyofaiin"
     ]
    },
-   "zrodlo": "",
-   "pewnosc": null,
-   "uwaga": ""
+   "zrodlo": "vision",
+   "pewnosc": 1,
+   "uwaga": "szkic z GPU: postaci 30 (oczekiwano 30), etykiet 30; model widzi znak 'baran', tabela mówi 'lew'; sprawdzić kolejność na PNG"
   },
   {
    "id": "f72v3-08",
    "typ": "nimfa",
    "cechy": {
-    "naga": null,
+    "naga": false,
     "w_obiekcie": null,
-    "korona": null,
-    "wlosy": null,
-    "trzyma": null,
-    "kierunek": null,
-    "gwiazda_promienie": null,
-    "gwiazda_ogon": null,
-    "gwiazda_kolor": null
+    "korona": false,
+    "wlosy": "nie_widac",
+    "trzyma": "gwiazda",
+    "kierunek": "prawo",
+    "gwiazda_promienie": 5,
+    "gwiazda_ogon": false,
+    "gwiazda_kolor": "brak"
    },
    "pozycja": {
-    "krag": null,
-    "kolejnosc": 8
+    "krag": "zewn",
+    "kolejnosc": 8,
+    "kat": 112.5,
+    "promien": 0.86,
+    "x": 0.5488,
+    "y": 0.572
    },
    "etykieta": {
     "locus": "9",
@@ -231,9 +263,9 @@
      "okaly"
     ]
    },
-   "zrodlo": "",
-   "pewnosc": null,
-   "uwaga": ""
+   "zrodlo": "vision",
+   "pewnosc": 1,
+   "uwaga": "szkic z GPU: postaci 30 (oczekiwano 30), etykiet 30; model widzi znak 'baran', tabela mówi 'lew'; sprawdzić kolejność na PNG"
   },
   {
    "id": "f72v3-09",
@@ -250,8 +282,12 @@
     "gwiazda_kolor": null
    },
    "pozycja": {
-    "krag": null,
-    "kolejnosc": 9
+    "krag": "zewn",
+    "kolejnosc": 9,
+    "kat": 127.1,
+    "promien": 0.777,
+    "x": 0.5118,
+    "y": 0.6186
    },
    "etykieta": {
     "locus": "10",
@@ -260,9 +296,9 @@
      "otoly"
     ]
    },
-   "zrodlo": "",
-   "pewnosc": null,
-   "uwaga": ""
+   "zrodlo": "vision",
+   "pewnosc": 1,
+   "uwaga": "szkic z GPU: postaci 30 (oczekiwano 30), etykiet 30; model widzi znak 'baran', tabela mówi 'lew'; sprawdzić kolejność na PNG"
   },
   {
    "id": "f72v3-10",
@@ -271,16 +307,20 @@
     "naga": null,
     "w_obiekcie": null,
     "korona": null,
-    "wlosy": null,
-    "trzyma": null,
-    "kierunek": null,
-    "gwiazda_promienie": null,
-    "gwiazda_ogon": null,
-    "gwiazda_kolor": null
+    "wlosy": "nie_widac",
+    "trzyma": "gwiazda",
+    "kierunek": "prawo",
+    "gwiazda_promienie": 8,
+    "gwiazda_ogon": false,
+    "gwiazda_kolor": "brak"
    },
    "pozycja": {
-    "krag": null,
-    "kolejnosc": 10
+    "krag": "zewn",
+    "kolejnosc": 10,
+    "kat": 127.4,
+    "promien": 1.0,
+    "x": 0.5488,
+    "y": 0.6653
    },
    "etykieta": {
     "locus": "11",
@@ -289,9 +329,9 @@
      "ofalals"
     ]
    },
-   "zrodlo": "",
-   "pewnosc": null,
-   "uwaga": ""
+   "zrodlo": "vision",
+   "pewnosc": 1,
+   "uwaga": "szkic z GPU: postaci 30 (oczekiwano 30), etykiet 30; model widzi znak 'baran', tabela mówi 'lew'; sprawdzić kolejność na PNG"
   },
   {
    "id": "f72v3-11",
@@ -308,8 +348,12 @@
     "gwiazda_kolor": null
    },
    "pozycja": {
-    "krag": null,
-    "kolejnosc": 11
+    "krag": "zewn",
+    "kolejnosc": 11,
+    "kat": 146.0,
+    "promien": 0.901,
+    "x": 0.4871,
+    "y": 0.7119
    },
    "etykieta": {
     "locus": "12",
@@ -319,27 +363,31 @@
      "ocfhhy"
     ]
    },
-   "zrodlo": "",
-   "pewnosc": null,
-   "uwaga": ""
+   "zrodlo": "vision",
+   "pewnosc": 1,
+   "uwaga": "szkic z GPU: postaci 30 (oczekiwano 30), etykiet 30; model widzi znak 'baran', tabela mówi 'lew'; sprawdzić kolejność na PNG"
   },
   {
    "id": "f72v3-12",
    "typ": "nimfa",
    "cechy": {
-    "naga": null,
+    "naga": false,
     "w_obiekcie": null,
-    "korona": null,
-    "wlosy": null,
-    "trzyma": null,
-    "kierunek": null,
-    "gwiazda_promienie": null,
-    "gwiazda_ogon": null,
-    "gwiazda_kolor": null
+    "korona": false,
+    "wlosy": "rozpuszczone",
+    "trzyma": "gwiazda",
+    "kierunek": "prawo",
+    "gwiazda_promienie": 6,
+    "gwiazda_ogon": false,
+    "gwiazda_kolor": "brak"
    },
    "pozycja": {
-    "krag": null,
-    "kolejnosc": 12
+    "krag": "zewn",
+    "kolejnosc": 12,
+    "kat": 157.5,
+    "promien": 0.919,
+    "x": 0.4548,
+    "y": 0.7462
    },
    "etykieta": {
     "locus": "13",
@@ -349,27 +397,31 @@
      "chepy"
     ]
    },
-   "zrodlo": "",
-   "pewnosc": null,
-   "uwaga": ""
+   "zrodlo": "vision",
+   "pewnosc": 1,
+   "uwaga": "szkic z GPU: postaci 30 (oczekiwano 30), etykiet 30; model widzi znak 'baran', tabela mówi 'lew'; sprawdzić kolejność na PNG"
   },
   {
    "id": "f72v3-13",
    "typ": "nimfa",
    "cechy": {
-    "naga": null,
+    "naga": false,
     "w_obiekcie": null,
-    "korona": null,
-    "wlosy": null,
-    "trzyma": null,
-    "kierunek": null,
-    "gwiazda_promienie": null,
-    "gwiazda_ogon": null,
-    "gwiazda_kolor": null
+    "korona": false,
+    "wlosy": "rozpuszczone",
+    "trzyma": "gwiazda",
+    "kierunek": "przod",
+    "gwiazda_promienie": 6,
+    "gwiazda_ogon": false,
+    "gwiazda_kolor": "brak"
    },
    "pozycja": {
-    "krag": null,
-    "kolejnosc": 13
+    "krag": "zewn",
+    "kolejnosc": 13,
+    "kat": 243.0,
+    "promien": 0.878,
+    "x": 0.2137,
+    "y": 0.5953
    },
    "etykieta": {
     "locus": "14",
@@ -379,27 +431,31 @@
      "deeal"
     ]
    },
-   "zrodlo": "",
-   "pewnosc": null,
-   "uwaga": ""
+   "zrodlo": "vision",
+   "pewnosc": 1,
+   "uwaga": "szkic z GPU: postaci 30 (oczekiwano 30), etykiet 30; model widzi znak 'baran', tabela mówi 'lew'; sprawdzić kolejność na PNG"
   },
   {
    "id": "f72v3-14",
    "typ": "nimfa",
    "cechy": {
-    "naga": null,
-    "w_obiekcie": null,
-    "korona": null,
-    "wlosy": null,
-    "trzyma": null,
-    "kierunek": null,
-    "gwiazda_promienie": null,
-    "gwiazda_ogon": null,
-    "gwiazda_kolor": null
+    "naga": false,
+    "w_obiekcie": "nic",
+    "korona": false,
+    "wlosy": "rozpuszczone",
+    "trzyma": "gwiazda",
+    "kierunek": "przod",
+    "gwiazda_promienie": 8,
+    "gwiazda_ogon": false,
+    "gwiazda_kolor": "brak"
    },
    "pozycja": {
-    "krag": null,
-    "kolejnosc": 14
+    "krag": "zewn",
+    "kolejnosc": 14,
+    "kat": 254.0,
+    "promien": 0.855,
+    "x": 0.2053,
+    "y": 0.5409
    },
    "etykieta": {
     "locus": "15",
@@ -408,27 +464,31 @@
      "chealpy"
     ]
    },
-   "zrodlo": "",
-   "pewnosc": null,
-   "uwaga": ""
+   "zrodlo": "vision",
+   "pewnosc": 1,
+   "uwaga": "szkic z GPU: postaci 30 (oczekiwano 30), etykiet 30; model widzi znak 'baran', tabela mówi 'lew'; sprawdzić kolejność na PNG"
   },
   {
    "id": "f72v3-15",
    "typ": "nimfa",
    "cechy": {
-    "naga": null,
+    "naga": true,
     "w_obiekcie": null,
-    "korona": null,
-    "wlosy": null,
-    "trzyma": null,
-    "kierunek": null,
-    "gwiazda_promienie": null,
-    "gwiazda_ogon": null,
-    "gwiazda_kolor": null
+    "korona": false,
+    "wlosy": "rozpuszczone",
+    "trzyma": "gwiazda",
+    "kierunek": "przod",
+    "gwiazda_promienie": 8,
+    "gwiazda_ogon": false,
+    "gwiazda_kolor": "brak"
    },
    "pozycja": {
-    "krag": null,
-    "kolejnosc": 15
+    "krag": "zewn",
+    "kolejnosc": 15,
+    "kat": 270.2,
+    "promien": 0.822,
+    "x": 0.2053,
+    "y": 0.4608
    },
    "etykieta": {
     "locus": "16",
@@ -437,27 +497,31 @@
      "okeeol"
     ]
    },
-   "zrodlo": "",
-   "pewnosc": null,
-   "uwaga": ""
+   "zrodlo": "vision",
+   "pewnosc": 1,
+   "uwaga": "szkic z GPU: postaci 30 (oczekiwano 30), etykiet 30; model widzi znak 'baran', tabela mówi 'lew'; sprawdzić kolejność na PNG"
   },
   {
    "id": "f72v3-16",
    "typ": "nimfa",
    "cechy": {
-    "naga": null,
+    "naga": false,
     "w_obiekcie": null,
-    "korona": null,
-    "wlosy": null,
-    "trzyma": null,
-    "kierunek": null,
-    "gwiazda_promienie": null,
-    "gwiazda_ogon": null,
-    "gwiazda_kolor": null
+    "korona": false,
+    "wlosy": "rozpuszczone",
+    "trzyma": "gwiazda",
+    "kierunek": "przod",
+    "gwiazda_promienie": 8,
+    "gwiazda_ogon": false,
+    "gwiazda_kolor": "brak"
    },
    "pozycja": {
-    "krag": null,
-    "kolejnosc": 16
+    "krag": "zewn",
+    "kolejnosc": 16,
+    "kat": 293.7,
+    "promien": 0.855,
+    "x": 0.2137,
+    "y": 0.3465
    },
    "etykieta": {
     "locus": "17",
@@ -466,27 +530,31 @@
      "okaly"
     ]
    },
-   "zrodlo": "",
-   "pewnosc": null,
-   "uwaga": ""
+   "zrodlo": "vision",
+   "pewnosc": 1,
+   "uwaga": "szkic z GPU: postaci 30 (oczekiwano 30), etykiet 30; model widzi znak 'baran', tabela mówi 'lew'; sprawdzić kolejność na PNG"
   },
   {
    "id": "f72v3-17",
    "typ": "nimfa",
    "cechy": {
-    "naga": null,
+    "naga": true,
     "w_obiekcie": null,
-    "korona": null,
-    "wlosy": null,
-    "trzyma": null,
-    "kierunek": null,
-    "gwiazda_promienie": null,
-    "gwiazda_ogon": null,
-    "gwiazda_kolor": null
+    "korona": false,
+    "wlosy": "nie_widac",
+    "trzyma": "gwiazda",
+    "kierunek": "prawo",
+    "gwiazda_promienie": 5,
+    "gwiazda_ogon": false,
+    "gwiazda_kolor": "brak"
    },
    "pozycja": {
-    "krag": null,
-    "kolejnosc": 17
+    "krag": "zewn",
+    "kolejnosc": 17,
+    "kat": 328.0,
+    "promien": 0.816,
+    "x": 0.288,
+    "y": 0.2301
    },
    "etykieta": {
     "locus": "18",
@@ -495,27 +563,31 @@
      "okaldy"
     ]
    },
-   "zrodlo": "",
-   "pewnosc": null,
-   "uwaga": ""
+   "zrodlo": "vision",
+   "pewnosc": 1,
+   "uwaga": "szkic z GPU: postaci 30 (oczekiwano 30), etykiet 30; model widzi znak 'baran', tabela mówi 'lew'; sprawdzić kolejność na PNG"
   },
   {
    "id": "f72v3-18",
    "typ": "nimfa",
    "cechy": {
-    "naga": null,
+    "naga": true,
     "w_obiekcie": null,
-    "korona": null,
-    "wlosy": null,
-    "trzyma": null,
-    "kierunek": null,
-    "gwiazda_promienie": null,
-    "gwiazda_ogon": null,
-    "gwiazda_kolor": null
+    "korona": false,
+    "wlosy": "rozpuszczone",
+    "trzyma": "gwiazda",
+    "kierunek": "prawo",
+    "gwiazda_promienie": 6,
+    "gwiazda_ogon": false,
+    "gwiazda_kolor": "brak"
    },
    "pozycja": {
-    "krag": null,
-    "kolejnosc": 18
+    "krag": "zewn",
+    "kolejnosc": 18,
+    "kat": 340.6,
+    "promien": 0.861,
+    "x": 0.3194,
+    "y": 0.1899
    },
    "etykieta": {
     "locus": "19",
@@ -524,27 +596,31 @@
      "okeolyd"
     ]
    },
-   "zrodlo": "",
-   "pewnosc": null,
-   "uwaga": ""
+   "zrodlo": "vision",
+   "pewnosc": 1,
+   "uwaga": "szkic z GPU: postaci 30 (oczekiwano 30), etykiet 30; model widzi znak 'baran', tabela mówi 'lew'; sprawdzić kolejność na PNG"
   },
   {
    "id": "f72v3-19",
    "typ": "nimfa",
    "cechy": {
-    "naga": null,
+    "naga": true,
     "w_obiekcie": null,
-    "korona": null,
-    "wlosy": null,
-    "trzyma": null,
-    "kierunek": null,
-    "gwiazda_promienie": null,
-    "gwiazda_ogon": null,
-    "gwiazda_kolor": null
+    "korona": false,
+    "wlosy": "rozpuszczone",
+    "trzyma": "gwiazda",
+    "kierunek": "prawo",
+    "gwiazda_promienie": 5,
+    "gwiazda_ogon": false,
+    "gwiazda_kolor": "inny"
    },
    "pozycja": {
-    "krag": null,
-    "kolejnosc": 19
+    "krag": "wewn",
+    "kolejnosc": 1,
+    "kat": 16.6,
+    "promien": 0.512,
+    "x": 0.4111,
+    "y": 0.2974
    },
    "etykieta": {
     "locus": "21",
@@ -553,27 +629,31 @@
      "choleey"
     ]
    },
-   "zrodlo": "",
-   "pewnosc": null,
-   "uwaga": ""
+   "zrodlo": "vision",
+   "pewnosc": 1,
+   "uwaga": "szkic z GPU: postaci 30 (oczekiwano 30), etykiet 30; model widzi znak 'baran', tabela mówi 'lew'; sprawdzić kolejność na PNG"
   },
   {
    "id": "f72v3-20",
    "typ": "nimfa",
    "cechy": {
-    "naga": null,
+    "naga": true,
     "w_obiekcie": null,
-    "korona": null,
-    "wlosy": null,
-    "trzyma": null,
-    "kierunek": null,
-    "gwiazda_promienie": null,
-    "gwiazda_ogon": null,
-    "gwiazda_kolor": null
+    "korona": false,
+    "wlosy": "rozpuszczone",
+    "trzyma": "gwiazda",
+    "kierunek": "prawo",
+    "gwiazda_promienie": 5,
+    "gwiazda_ogon": false,
+    "gwiazda_kolor": "inny"
    },
    "pozycja": {
-    "krag": null,
-    "kolejnosc": 20
+    "krag": "wewn",
+    "kolejnosc": 2,
+    "kat": 43.7,
+    "promien": 0.491,
+    "x": 0.452,
+    "y": 0.343
    },
    "etykieta": {
     "locus": "22",
@@ -582,27 +662,31 @@
      "oky"
     ]
    },
-   "zrodlo": "",
-   "pewnosc": null,
-   "uwaga": ""
+   "zrodlo": "vision",
+   "pewnosc": 1,
+   "uwaga": "szkic z GPU: postaci 30 (oczekiwano 30), etykiet 30; model widzi znak 'baran', tabela mówi 'lew'; sprawdzić kolejność na PNG"
   },
   {
    "id": "f72v3-21",
    "typ": "nimfa",
    "cechy": {
-    "naga": null,
+    "naga": false,
     "w_obiekcie": null,
-    "korona": null,
-    "wlosy": null,
-    "trzyma": null,
-    "kierunek": null,
-    "gwiazda_promienie": null,
-    "gwiazda_ogon": null,
-    "gwiazda_kolor": null
+    "korona": false,
+    "wlosy": "nie_widac",
+    "trzyma": "gwiazda",
+    "kierunek": "prawo",
+    "gwiazda_promienie": 6,
+    "gwiazda_ogon": false,
+    "gwiazda_kolor": "brak"
    },
    "pozycja": {
-    "krag": null,
-    "kolejnosc": 21
+    "krag": "wewn",
+    "kolejnosc": 3,
+    "kat": 83.2,
+    "promien": 0.485,
+    "x": 0.4824,
+    "y": 0.4426
    },
    "etykieta": {
     "locus": "23",
@@ -611,9 +695,9 @@
      "chcthhy"
     ]
    },
-   "zrodlo": "",
-   "pewnosc": null,
-   "uwaga": ""
+   "zrodlo": "vision",
+   "pewnosc": 1,
+   "uwaga": "szkic z GPU: postaci 30 (oczekiwano 30), etykiet 30; model widzi znak 'baran', tabela mówi 'lew'; sprawdzić kolejność na PNG"
   },
   {
    "id": "f72v3-22",
@@ -630,8 +714,12 @@
     "gwiazda_kolor": null
    },
    "pozycja": {
-    "krag": null,
-    "kolejnosc": 22
+    "krag": "wewn",
+    "kolejnosc": 4,
+    "kat": 117.9,
+    "promien": 0.455,
+    "x": 0.4654,
+    "y": 0.5331
    },
    "etykieta": {
     "locus": "24",
@@ -640,27 +728,31 @@
      "laly"
     ]
    },
-   "zrodlo": "",
-   "pewnosc": null,
-   "uwaga": ""
+   "zrodlo": "vision",
+   "pewnosc": 1,
+   "uwaga": "szkic z GPU: postaci 30 (oczekiwano 30), etykiet 30; model widzi znak 'baran', tabela mówi 'lew'; sprawdzić kolejność na PNG"
   },
   {
    "id": "f72v3-23",
    "typ": "nimfa",
    "cechy": {
-    "naga": null,
+    "naga": false,
     "w_obiekcie": null,
-    "korona": null,
-    "wlosy": null,
-    "trzyma": null,
-    "kierunek": null,
-    "gwiazda_promienie": null,
-    "gwiazda_ogon": null,
-    "gwiazda_kolor": null
+    "korona": false,
+    "wlosy": "nie_widac",
+    "trzyma": "gwiazda",
+    "kierunek": "prawo",
+    "gwiazda_promienie": 5,
+    "gwiazda_ogon": false,
+    "gwiazda_kolor": "czerwony"
    },
    "pozycja": {
-    "krag": null,
-    "kolejnosc": 23
+    "krag": "wewn",
+    "kolejnosc": 5,
+    "kat": 148.1,
+    "promien": 0.497,
+    "x": 0.4358,
+    "y": 0.6031
    },
    "etykieta": {
     "locus": "25",
@@ -669,27 +761,31 @@
      "oeedy"
     ]
    },
-   "zrodlo": "",
-   "pewnosc": null,
-   "uwaga": ""
+   "zrodlo": "vision",
+   "pewnosc": 1,
+   "uwaga": "szkic z GPU: postaci 30 (oczekiwano 30), etykiet 30; model widzi znak 'baran', tabela mówi 'lew'; sprawdzić kolejność na PNG"
   },
   {
    "id": "f72v3-24",
    "typ": "nimfa",
    "cechy": {
-    "naga": null,
+    "naga": true,
     "w_obiekcie": null,
-    "korona": null,
-    "wlosy": null,
-    "trzyma": null,
-    "kierunek": null,
-    "gwiazda_promienie": null,
-    "gwiazda_ogon": null,
-    "gwiazda_kolor": null
+    "korona": false,
+    "wlosy": "rozpuszczone",
+    "trzyma": "gwiazda",
+    "kierunek": "prawo",
+    "gwiazda_promienie": 5,
+    "gwiazda_ogon": false,
+    "gwiazda_kolor": "brak"
    },
    "pozycja": {
-    "krag": null,
-    "kolejnosc": 24
+    "krag": "wewn",
+    "kolejnosc": 6,
+    "kat": 185.9,
+    "promien": 0.541,
+    "x": 0.3682,
+    "y": 0.642
    },
    "etykieta": {
     "locus": "26",
@@ -698,27 +794,31 @@
      "odairan"
     ]
    },
-   "zrodlo": "",
-   "pewnosc": null,
-   "uwaga": ""
+   "zrodlo": "vision",
+   "pewnosc": 1,
+   "uwaga": "szkic z GPU: postaci 30 (oczekiwano 30), etykiet 30; model widzi znak 'baran', tabela mówi 'lew'; sprawdzić kolejność na PNG"
   },
   {
    "id": "f72v3-25",
    "typ": "nimfa",
    "cechy": {
-    "naga": null,
+    "naga": false,
     "w_obiekcie": null,
-    "korona": null,
-    "wlosy": null,
-    "trzyma": null,
-    "kierunek": null,
-    "gwiazda_promienie": null,
-    "gwiazda_ogon": null,
-    "gwiazda_kolor": null
+    "korona": false,
+    "wlosy": "nie_widac",
+    "trzyma": "gwiazda",
+    "kierunek": "prawo",
+    "gwiazda_promienie": 5,
+    "gwiazda_ogon": false,
+    "gwiazda_kolor": "brak"
    },
    "pozycja": {
-    "krag": null,
-    "kolejnosc": 25
+    "krag": "wewn",
+    "kolejnosc": 7,
+    "kat": 204.6,
+    "promien": 0.413,
+    "x": 0.3435,
+    "y": 0.5875
    },
    "etykieta": {
     "locus": "27",
@@ -727,27 +827,31 @@
      "okary"
     ]
    },
-   "zrodlo": "",
-   "pewnosc": null,
-   "uwaga": ""
+   "zrodlo": "vision",
+   "pewnosc": 1,
+   "uwaga": "szkic z GPU: postaci 30 (oczekiwano 30), etykiet 30; model widzi znak 'baran', tabela mówi 'lew'; sprawdzić kolejność na PNG"
   },
   {
    "id": "f72v3-26",
    "typ": "nimfa",
    "cechy": {
-    "naga": null,
+    "naga": false,
     "w_obiekcie": null,
-    "korona": null,
-    "wlosy": null,
-    "trzyma": null,
-    "kierunek": null,
-    "gwiazda_promienie": null,
-    "gwiazda_ogon": null,
-    "gwiazda_kolor": null
+    "korona": false,
+    "wlosy": "rozpuszczone",
+    "trzyma": "gwiazda",
+    "kierunek": "prawo",
+    "gwiazda_promienie": 5,
+    "gwiazda_ogon": false,
+    "gwiazda_kolor": "brak"
    },
    "pozycja": {
-    "krag": null,
-    "kolejnosc": 26
+    "krag": "wewn",
+    "kolejnosc": 8,
+    "kat": 231.3,
+    "promien": 0.512,
+    "x": 0.2951,
+    "y": 0.5689
    },
    "etykieta": {
     "locus": "28",
@@ -756,9 +860,9 @@
      "oeesaiin"
     ]
    },
-   "zrodlo": "",
-   "pewnosc": null,
-   "uwaga": ""
+   "zrodlo": "vision",
+   "pewnosc": 1,
+   "uwaga": "szkic z GPU: postaci 30 (oczekiwano 30), etykiet 30; model widzi znak 'baran', tabela mówi 'lew'; sprawdzić kolejność na PNG"
   },
   {
    "id": "f72v3-27",
@@ -775,8 +879,12 @@
     "gwiazda_kolor": null
    },
    "pozycja": {
-    "krag": null,
-    "kolejnosc": 27
+    "krag": "wewn",
+    "kolejnosc": 9,
+    "kat": 254.3,
+    "promien": 0.413,
+    "x": 0.2956,
+    "y": 0.4993
    },
    "etykieta": {
     "locus": "29",
@@ -785,9 +893,9 @@
      "oteesed"
     ]
    },
-   "zrodlo": "",
-   "pewnosc": null,
-   "uwaga": ""
+   "zrodlo": "vision",
+   "pewnosc": 1,
+   "uwaga": "szkic z GPU: postaci 30 (oczekiwano 30), etykiet 30; model widzi znak 'baran', tabela mówi 'lew'; sprawdzić kolejność na PNG"
   },
   {
    "id": "f72v3-28",
@@ -804,8 +912,12 @@
     "gwiazda_kolor": null
    },
    "pozycja": {
-    "krag": null,
-    "kolejnosc": 28
+    "krag": "wewn",
+    "kolejnosc": 10,
+    "kat": 279.3,
+    "promien": 0.393,
+    "x": 0.2976,
+    "y": 0.4406
    },
    "etykieta": {
     "locus": "30",
@@ -814,27 +926,31 @@
      "opal"
     ]
    },
-   "zrodlo": "",
-   "pewnosc": null,
-   "uwaga": ""
+   "zrodlo": "vision",
+   "pewnosc": 1,
+   "uwaga": "szkic z GPU: postaci 30 (oczekiwano 30), etykiet 30; model widzi znak 'baran', tabela mówi 'lew'; sprawdzić kolejność na PNG"
   },
   {
    "id": "f72v3-29",
    "typ": "nimfa",
    "cechy": {
-    "naga": null,
+    "naga": true,
     "w_obiekcie": null,
-    "korona": null,
-    "wlosy": null,
-    "trzyma": null,
-    "kierunek": null,
-    "gwiazda_promienie": null,
-    "gwiazda_ogon": null,
-    "gwiazda_kolor": null
+    "korona": false,
+    "wlosy": "rozpuszczone",
+    "trzyma": "gwiazda",
+    "kierunek": "prawo",
+    "gwiazda_promienie": 5,
+    "gwiazda_ogon": false,
+    "gwiazda_kolor": "brak"
    },
    "pozycja": {
-    "krag": null,
-    "kolejnosc": 29
+    "krag": "wewn",
+    "kolejnosc": 11,
+    "kat": 321.3,
+    "promien": 0.496,
+    "x": 0.3141,
+    "y": 0.3322
    },
    "etykieta": {
     "locus": "31",
@@ -843,27 +959,31 @@
      "otaly"
     ]
    },
-   "zrodlo": "",
-   "pewnosc": null,
-   "uwaga": ""
+   "zrodlo": "vision",
+   "pewnosc": 1,
+   "uwaga": "szkic z GPU: postaci 30 (oczekiwano 30), etykiet 30; model widzi znak 'baran', tabela mówi 'lew'; sprawdzić kolejność na PNG"
   },
   {
    "id": "f72v3-30",
    "typ": "nimfa",
    "cechy": {
-    "naga": null,
+    "naga": true,
     "w_obiekcie": null,
-    "korona": null,
-    "wlosy": null,
-    "trzyma": null,
-    "kierunek": null,
-    "gwiazda_promienie": null,
-    "gwiazda_ogon": null,
-    "gwiazda_kolor": null
+    "korona": false,
+    "wlosy": "rozpuszczone",
+    "trzyma": "gwiazda",
+    "kierunek": "prawo",
+    "gwiazda_promienie": 8,
+    "gwiazda_ogon": false,
+    "gwiazda_kolor": "brak"
    },
    "pozycja": {
-    "krag": null,
-    "kolejnosc": 30
+    "krag": "wewn",
+    "kolejnosc": 12,
+    "kat": 353.6,
+    "promien": 0.536,
+    "x": 0.3674,
+    "y": 0.2835
    },
    "etykieta": {
     "locus": "32",
@@ -873,9 +993,9 @@
      "yty"
     ]
    },
-   "zrodlo": "",
-   "pewnosc": null,
-   "uwaga": ""
+   "zrodlo": "vision",
+   "pewnosc": 1,
+   "uwaga": "szkic z GPU: postaci 30 (oczekiwano 30), etykiet 30; model widzi znak 'baran', tabela mówi 'lew'; sprawdzić kolejność na PNG"
   }
  ]
 }

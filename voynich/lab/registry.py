@@ -77,6 +77,7 @@ THEORIES = {t.name: t for t in [
     Theory("atoms", "Rebus w rysunkach: cechy atomów ilustracji wobec etykiet", (), "atoms:run"),
     Theory("atoms_draft", "Szkic atomów zodiaku z modelu widzącego (nie test)", ("openrouter", "images"), "atoms_draft:run"),
     Theory("atoms_vision", "Szkic atomów na własnym GPU: Molmo2 + geometria + Qwen3-VL (nie test)", ("gpu", "images"), "atoms_vision:run"),
+    Theory("catalog", "Analiza przekrojowa: katalog rycin Zandbergena wobec tekstu", (), "catalog:run"),
 ]}
 ALIASES = {"literature": ["naibbe_cipher", "cardan_grille", "hebrew_anagram"], "rejestr": ["labels", "records", "lists"],
            "rejestr_gpu": ["fields_lm", "v6", "cohesion"], "all": list(THEORIES)}
