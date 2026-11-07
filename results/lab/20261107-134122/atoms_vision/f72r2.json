@@ -1,0 +1,993 @@
+{
+ "strona": "f72r2",
+ "dzial": "zodiac",
+ "jezyk": "?",
+ "atomy": [
+  {
+   "id": "f72r2-01",
+   "typ": "nimfa",
+   "cechy": {
+    "naga": true,
+    "w_obiekcie": null,
+    "korona": false,
+    "wlosy": "rozpuszczone",
+    "trzyma": "gwiazda",
+    "kierunek": "prawo",
+    "gwiazda_promienie": 8,
+    "gwiazda_ogon": false,
+    "gwiazda_kolor": "brak"
+   },
+   "pozycja": {
+    "krag": "zewn",
+    "kolejnosc": 1,
+    "kat": 6.7,
+    "promien": 0.89,
+    "x": 0.5961,
+    "y": 0.136
+   },
+   "etykieta": {
+    "locus": "1",
+    "rodzaj": "Lz",
+    "slowa": [
+     "ofchdamy"
+    ]
+   },
+   "zrodlo": "vision",
+   "pewnosc": 1,
+   "uwaga": "szkic z GPU: postaci 30 (oczekiwano 30), etykiet 29; model widzi znak 'waga', tabela mówi 'bliznieta'; sprawdzić kolejność na PNG"
+  },
+  {
+   "id": "f72r2-02",
+   "typ": "nimfa",
+   "cechy": {
+    "naga": true,
+    "w_obiekcie": null,
+    "korona": true,
+    "wlosy": "upiete",
+    "trzyma": "gwiazda",
+    "kierunek": "prawo",
+    "gwiazda_promienie": 6,
+    "gwiazda_ogon": false,
+    "gwiazda_kolor": "inny"
+   },
+   "pozycja": {
+    "krag": "zewn",
+    "kolejnosc": 2,
+    "kat": 26.2,
+    "promien": 0.934,
+    "x": 0.6357,
+    "y": 0.1532
+   },
+   "etykieta": {
+    "locus": "2",
+    "rodzaj": "Lz",
+    "slowa": [
+     "oklairdy"
+    ]
+   },
+   "zrodlo": "vision",
+   "pewnosc": 1,
+   "uwaga": "szkic z GPU: postaci 30 (oczekiwano 30), etykiet 29; model widzi znak 'waga', tabela mówi 'bliznieta'; sprawdzić kolejność na PNG"
+  },
+  {
+   "id": "f72r2-03",
+   "typ": "nimfa",
+   "cechy": {
+    "naga": false,
+    "w_obiekcie": null,
+    "korona": false,
+    "wlosy": "rozpuszczone",
+    "trzyma": "gwiazda",
+    "kierunek": "prawo",
+    "gwiazda_promienie": 8,
+    "gwiazda_ogon": false,
+    "gwiazda_kolor": "brak"
+   },
+   "pozycja": {
+    "krag": "zewn",
+    "kolejnosc": 3,
+    "kat": 118.5,
+    "promien": 1.0,
+    "x": 0.695,
+    "y": 0.646
+   },
+   "etykieta": {
+    "locus": "3",
+    "rodzaj": "Lz",
+    "slowa": [
+     "okaram"
+    ]
+   },
+   "zrodlo": "vision",
+   "pewnosc": 1,
+   "uwaga": "szkic z GPU: postaci 30 (oczekiwano 30), etykiet 29; model widzi znak 'waga', tabela mówi 'bliznieta'; sprawdzić kolejność na PNG"
+  },
+  {
+   "id": "f72r2-04",
+   "typ": "nimfa",
+   "cechy": {
+    "naga": true,
+    "w_obiekcie": null,
+    "korona": false,
+    "wlosy": "rozpuszczone",
+    "trzyma": "gwiazda",
+    "kierunek": "prawo",
+    "gwiazda_promienie": 5,
+    "gwiazda_ogon": false,
+    "gwiazda_kolor": "brak"
+   },
+   "pozycja": {
+    "krag": "zewn",
+    "kolejnosc": 4,
+    "kat": 318.3,
+    "promien": 0.904,
+    "x": 0.5064,
+    "y": 0.2141
+   },
+   "etykieta": {
+    "locus": "4",
+    "rodzaj": "Lz",
+    "slowa": [
+     "okairy"
+    ]
+   },
+   "zrodlo": "vision",
+   "pewnosc": 1,
+   "uwaga": "szkic z GPU: postaci 30 (oczekiwano 30), etykiet 29; model widzi znak 'waga', tabela mówi 'bliznieta'; sprawdzić kolejność na PNG"
+  },
+  {
+   "id": "f72r2-05",
+   "typ": "nimfa",
+   "cechy": {
+    "naga": true,
+    "w_obiekcie": null,
+    "korona": false,
+    "wlosy": "upiete",
+    "trzyma": "gwiazda",
+    "kierunek": "prawo",
+    "gwiazda_promienie": 5,
+    "gwiazda_ogon": false,
+    "gwiazda_kolor": "brak"
+   },
+   "pozycja": {
+    "krag": "zewn",
+    "kolejnosc": 5,
+    "kat": 335.7,
+    "promien": 0.938,
+    "x": 0.5338,
+    "y": 0.1469
+   },
+   "etykieta": {
+    "locus": "5",
+    "rodzaj": "Lz",
+    "slowa": [
+     "okealar"
+    ]
+   },
+   "zrodlo": "vision",
+   "pewnosc": 1,
+   "uwaga": "szkic z GPU: postaci 30 (oczekiwano 30), etykiet 29; model widzi znak 'waga', tabela mówi 'bliznieta'; sprawdzić kolejność na PNG"
+  },
+  {
+   "id": "f72r2-06",
+   "typ": "nimfa",
+   "cechy": {
+    "naga": true,
+    "w_obiekcie": null,
+    "korona": false,
+    "wlosy": "rozpuszczone",
+    "trzyma": "gwiazda",
+    "kierunek": "prawo",
+    "gwiazda_promienie": 8,
+    "gwiazda_ogon": false,
+    "gwiazda_kolor": "brak"
+   },
+   "pozycja": {
+    "krag": "zewn",
+    "kolejnosc": 6,
+    "kat": 352.3,
+    "promien": 0.901,
+    "x": 0.5676,
+    "y": 0.1327
+   },
+   "etykieta": {
+    "locus": "7",
+    "rodzaj": "Lz",
+    "slowa": [
+     "otaraldy"
+    ]
+   },
+   "zrodlo": "vision",
+   "pewnosc": 1,
+   "uwaga": "szkic z GPU: postaci 30 (oczekiwano 30), etykiet 29; model widzi znak 'waga', tabela mówi 'bliznieta'; sprawdzić kolejność na PNG"
+  },
+  {
+   "id": "f72r2-07",
+   "typ": "nimfa",
+   "cechy": {
+    "naga": true,
+    "w_obiekcie": null,
+    "korona": false,
+    "wlosy": "rozpuszczone",
+    "trzyma": "gwiazda",
+    "kierunek": "prawo",
+    "gwiazda_promienie": 8,
+    "gwiazda_ogon": false,
+    "gwiazda_kolor": "brak"
+   },
+   "pozycja": {
+    "krag": "srod",
+    "kolejnosc": 1,
+    "kat": 8.4,
+    "promien": 0.636,
+    "x": 0.5948,
+    "y": 0.2312
+   },
+   "etykieta": {
+    "locus": "8",
+    "rodzaj": "Lz",
+    "slowa": [
+     "okalar"
+    ]
+   },
+   "zrodlo": "vision",
+   "pewnosc": 1,
+   "uwaga": "szkic z GPU: postaci 30 (oczekiwano 30), etykiet 29; model widzi znak 'waga', tabela mówi 'bliznieta'; sprawdzić kolejność na PNG"
+  },
+  {
+   "id": "f72r2-08",
+   "typ": "nimfa",
+   "cechy": {
+    "naga": true,
+    "w_obiekcie": null,
+    "korona": false,
+    "wlosy": "upiete",
+    "trzyma": "gwiazda",
+    "kierunek": "prawo",
+    "gwiazda_promienie": 8,
+    "gwiazda_ogon": false,
+    "gwiazda_kolor": "brak"
+   },
+   "pozycja": {
+    "krag": "srod",
+    "kolejnosc": 2,
+    "kat": 31.5,
+    "promien": 0.604,
+    "x": 0.6232,
+    "y": 0.2743
+   },
+   "etykieta": {
+    "locus": "9",
+    "rodzaj": "Lz",
+    "slowa": [
+     "okal"
+    ]
+   },
+   "zrodlo": "vision",
+   "pewnosc": 1,
+   "uwaga": "szkic z GPU: postaci 30 (oczekiwano 30), etykiet 29; model widzi znak 'waga', tabela mówi 'bliznieta'; sprawdzić kolejność na PNG"
+  },
+  {
+   "id": "f72r2-09",
+   "typ": "nimfa",
+   "cechy": {
+    "naga": true,
+    "w_obiekcie": null,
+    "korona": false,
+    "wlosy": "upiete",
+    "trzyma": "gwiazda",
+    "kierunek": "prawo",
+    "gwiazda_promienie": 8,
+    "gwiazda_ogon": false,
+    "gwiazda_kolor": "brak"
+   },
+   "pozycja": {
+    "krag": "srod",
+    "kolejnosc": 3,
+    "kat": 55.6,
+    "promien": 0.611,
+    "x": 0.6473,
+    "y": 0.3378
+   },
+   "etykieta": {
+    "locus": "10",
+    "rodzaj": "Lz",
+    "slowa": [
+     "okaly"
+    ]
+   },
+   "zrodlo": "vision",
+   "pewnosc": 1,
+   "uwaga": "szkic z GPU: postaci 30 (oczekiwano 30), etykiet 29; model widzi znak 'waga', tabela mówi 'bliznieta'; sprawdzić kolejność na PNG"
+  },
+  {
+   "id": "f72r2-10",
+   "typ": "nimfa",
+   "cechy": {
+    "naga": true,
+    "w_obiekcie": null,
+    "korona": false,
+    "wlosy": "rozpuszczone",
+    "trzyma": "gwiazda",
+    "kierunek": "prawo",
+    "gwiazda_promienie": 8,
+    "gwiazda_ogon": false,
+    "gwiazda_kolor": "brak"
+   },
+   "pozycja": {
+    "krag": "srod",
+    "kolejnosc": 4,
+    "kat": 87.2,
+    "promien": 0.582,
+    "x": 0.6571,
+    "y": 0.4562
+   },
+   "etykieta": {
+    "locus": "11",
+    "rodzaj": "Lz",
+    "slowa": [
+     "okal"
+    ]
+   },
+   "zrodlo": "vision",
+   "pewnosc": 1,
+   "uwaga": "szkic z GPU: postaci 30 (oczekiwano 30), etykiet 29; model widzi znak 'waga', tabela mówi 'bliznieta'; sprawdzić kolejność na PNG"
+  },
+  {
+   "id": "f72r2-11",
+   "typ": "nimfa",
+   "cechy": {
+    "naga": true,
+    "w_obiekcie": null,
+    "korona": false,
+    "wlosy": "upiete",
+    "trzyma": "gwiazda",
+    "kierunek": "prawo",
+    "gwiazda_promienie": 8,
+    "gwiazda_ogon": false,
+    "gwiazda_kolor": "brak"
+   },
+   "pozycja": {
+    "krag": "srod",
+    "kolejnosc": 5,
+    "kat": 121.6,
+    "promien": 0.586,
+    "x": 0.6467,
+    "y": 0.5821
+   },
+   "etykieta": {
+    "locus": "12",
+    "rodzaj": "Lz",
+    "slowa": [
+     "okeey",
+     "ary"
+    ]
+   },
+   "zrodlo": "vision",
+   "pewnosc": 1,
+   "uwaga": "szkic z GPU: postaci 30 (oczekiwano 30), etykiet 29; model widzi znak 'waga', tabela mówi 'bliznieta'; sprawdzić kolejność na PNG"
+  },
+  {
+   "id": "f72r2-12",
+   "typ": "nimfa",
+   "cechy": {
+    "naga": true,
+    "w_obiekcie": null,
+    "korona": false,
+    "wlosy": "rozpuszczone",
+    "trzyma": "gwiazda",
+    "kierunek": "prawo",
+    "gwiazda_promienie": 6,
+    "gwiazda_ogon": false,
+    "gwiazda_kolor": "brak"
+   },
+   "pozycja": {
+    "krag": "srod",
+    "kolejnosc": 6,
+    "kat": 156.7,
+    "promien": 0.636,
+    "x": 0.6151,
+    "y": 0.6857
+   },
+   "etykieta": {
+    "locus": "13",
+    "rodzaj": "Lz",
+    "slowa": [
+     "oteeary"
+    ]
+   },
+   "zrodlo": "vision",
+   "pewnosc": 1,
+   "uwaga": "szkic z GPU: postaci 30 (oczekiwano 30), etykiet 29; model widzi znak 'waga', tabela mówi 'bliznieta'; sprawdzić kolejność na PNG"
+  },
+  {
+   "id": "f72r2-13",
+   "typ": "nimfa",
+   "cechy": {
+    "naga": true,
+    "w_obiekcie": null,
+    "korona": false,
+    "wlosy": "rozpuszczone",
+    "trzyma": "gwiazda",
+    "kierunek": "przod",
+    "gwiazda_promienie": 8,
+    "gwiazda_ogon": false,
+    "gwiazda_kolor": "brak"
+   },
+   "pozycja": {
+    "krag": "srod",
+    "kolejnosc": 7,
+    "kat": 184.9,
+    "promien": 0.645,
+    "x": 0.576,
+    "y": 0.7077
+   },
+   "etykieta": {
+    "locus": "14",
+    "rodzaj": "Lz",
+    "slowa": [
+     "otair",
+     "dy"
+    ]
+   },
+   "zrodlo": "vision",
+   "pewnosc": 1,
+   "uwaga": "szkic z GPU: postaci 30 (oczekiwano 30), etykiet 29; model widzi znak 'waga', tabela mówi 'bliznieta'; sprawdzić kolejność na PNG"
+  },
+  {
+   "id": "f72r2-14",
+   "typ": "nimfa",
+   "cechy": {
+    "naga": false,
+    "w_obiekcie": null,
+    "korona": false,
+    "wlosy": "rozpuszczone",
+    "trzyma": "gwiazda",
+    "kierunek": "prawo",
+    "gwiazda_promienie": 5,
+    "gwiazda_ogon": false,
+    "gwiazda_kolor": "brak"
+   },
+   "pozycja": {
+    "krag": "srod",
+    "kolejnosc": 8,
+    "kat": 205.3,
+    "promien": 0.674,
+    "x": 0.5463,
+    "y": 0.6952
+   },
+   "etykieta": {
+    "locus": "15",
+    "rodzaj": "Lz",
+    "slowa": [
+     "okaircham"
+    ]
+   },
+   "zrodlo": "vision",
+   "pewnosc": 1,
+   "uwaga": "szkic z GPU: postaci 30 (oczekiwano 30), etykiet 29; model widzi znak 'waga', tabela mówi 'bliznieta'; sprawdzić kolejność na PNG"
+  },
+  {
+   "id": "f72r2-15",
+   "typ": "nimfa",
+   "cechy": {
+    "naga": false,
+    "w_obiekcie": null,
+    "korona": false,
+    "wlosy": "rozpuszczone",
+    "trzyma": "gwiazda",
+    "kierunek": "prawo",
+    "gwiazda_promienie": 5,
+    "gwiazda_ogon": false,
+    "gwiazda_kolor": "brak"
+   },
+   "pozycja": {
+    "krag": "srod",
+    "kolejnosc": 9,
+    "kat": 223.4,
+    "promien": 0.709,
+    "x": 0.5209,
+    "y": 0.6597
+   },
+   "etykieta": {
+    "locus": "16",
+    "rodzaj": "Lz",
+    "slowa": [
+     "okeal"
+    ]
+   },
+   "zrodlo": "vision",
+   "pewnosc": 1,
+   "uwaga": "szkic z GPU: postaci 30 (oczekiwano 30), etykiet 29; model widzi znak 'waga', tabela mówi 'bliznieta'; sprawdzić kolejność na PNG"
+  },
+  {
+   "id": "f72r2-16",
+   "typ": "nimfa",
+   "cechy": {
+    "naga": false,
+    "w_obiekcie": null,
+    "korona": false,
+    "wlosy": "rozpuszczone",
+    "trzyma": "gwiazda",
+    "kierunek": "prawo",
+    "gwiazda_promienie": 5,
+    "gwiazda_ogon": false,
+    "gwiazda_kolor": "czerwony"
+   },
+   "pozycja": {
+    "krag": "srod",
+    "kolejnosc": 10,
+    "kat": 238.7,
+    "promien": 0.655,
+    "x": 0.5117,
+    "y": 0.5944
+   },
+   "etykieta": {
+    "locus": "17",
+    "rodzaj": "Lz",
+    "slowa": [
+     "otarcr"
+    ]
+   },
+   "zrodlo": "vision",
+   "pewnosc": 1,
+   "uwaga": "szkic z GPU: postaci 30 (oczekiwano 30), etykiet 29; model widzi znak 'waga', tabela mówi 'bliznieta'; sprawdzić kolejność na PNG"
+  },
+  {
+   "id": "f72r2-17",
+   "typ": "nimfa",
+   "cechy": {
+    "naga": false,
+    "w_obiekcie": null,
+    "korona": false,
+    "wlosy": "rozpuszczone",
+    "trzyma": "gwiazda",
+    "kierunek": "przod",
+    "gwiazda_promienie": 5,
+    "gwiazda_ogon": false,
+    "gwiazda_kolor": "brak"
+   },
+   "pozycja": {
+    "krag": "srod",
+    "kolejnosc": 11,
+    "kat": 255.2,
+    "promien": 0.658,
+    "x": 0.5018,
+    "y": 0.53
+   },
+   "etykieta": {
+    "locus": "18",
+    "rodzaj": "Lz",
+    "slowa": [
+     "okaly"
+    ]
+   },
+   "zrodlo": "vision",
+   "pewnosc": 1,
+   "uwaga": "szkic z GPU: postaci 30 (oczekiwano 30), etykiet 29; model widzi znak 'waga', tabela mówi 'bliznieta'; sprawdzić kolejność na PNG"
+  },
+  {
+   "id": "f72r2-18",
+   "typ": "nimfa",
+   "cechy": {
+    "naga": true,
+    "w_obiekcie": null,
+    "korona": false,
+    "wlosy": "rozpuszczone",
+    "trzyma": "gwiazda",
+    "kierunek": "prawo",
+    "gwiazda_promienie": 8,
+    "gwiazda_ogon": false,
+    "gwiazda_kolor": "brak"
+   },
+   "pozycja": {
+    "krag": "srod",
+    "kolejnosc": 12,
+    "kat": 274.9,
+    "promien": 0.649,
+    "x": 0.5006,
+    "y": 0.4462
+   },
+   "etykieta": {
+    "locus": "19",
+    "rodzaj": "Lz",
+    "slowa": [
+     "orary"
+    ]
+   },
+   "zrodlo": "vision",
+   "pewnosc": 1,
+   "uwaga": "szkic z GPU: postaci 30 (oczekiwano 30), etykiet 29; model widzi znak 'waga', tabela mówi 'bliznieta'; sprawdzić kolejność na PNG"
+  },
+  {
+   "id": "f72r2-19",
+   "typ": "nimfa",
+   "cechy": {
+    "naga": true,
+    "w_obiekcie": null,
+    "korona": false,
+    "wlosy": "rozpuszczone",
+    "trzyma": "gwiazda",
+    "kierunek": "prawo",
+    "gwiazda_promienie": 5,
+    "gwiazda_ogon": false,
+    "gwiazda_kolor": "brak"
+   },
+   "pozycja": {
+    "krag": "srod",
+    "kolejnosc": 13,
+    "kat": 300.3,
+    "promien": 0.652,
+    "x": 0.5113,
+    "y": 0.3439
+   },
+   "etykieta": {
+    "locus": "20",
+    "rodzaj": "Lz",
+    "slowa": [
+     "okyd"
+    ]
+   },
+   "zrodlo": "vision",
+   "pewnosc": 1,
+   "uwaga": "szkic z GPU: postaci 30 (oczekiwano 30), etykiet 29; model widzi znak 'waga', tabela mówi 'bliznieta'; sprawdzić kolejność na PNG"
+  },
+  {
+   "id": "f72r2-20",
+   "typ": "nimfa",
+   "cechy": {
+    "naga": true,
+    "w_obiekcie": null,
+    "korona": false,
+    "wlosy": "rozpuszczone",
+    "trzyma": "gwiazda",
+    "kierunek": "prawo",
+    "gwiazda_promienie": 8,
+    "gwiazda_ogon": false,
+    "gwiazda_kolor": "brak"
+   },
+   "pozycja": {
+    "krag": "srod",
+    "kolejnosc": 14,
+    "kat": 325.0,
+    "promien": 0.66,
+    "x": 0.5347,
+    "y": 0.2644
+   },
+   "etykieta": {
+    "locus": "21",
+    "rodzaj": "Lz",
+    "slowa": [
+     "otolam"
+    ]
+   },
+   "zrodlo": "vision",
+   "pewnosc": 1,
+   "uwaga": "szkic z GPU: postaci 30 (oczekiwano 30), etykiet 29; model widzi znak 'waga', tabela mówi 'bliznieta'; sprawdzić kolejność na PNG"
+  },
+  {
+   "id": "f72r2-21",
+   "typ": "nimfa",
+   "cechy": {
+    "naga": true,
+    "w_obiekcie": null,
+    "korona": false,
+    "wlosy": "upiete",
+    "trzyma": "gwiazda",
+    "kierunek": "prawo",
+    "gwiazda_promienie": 6,
+    "gwiazda_ogon": false,
+    "gwiazda_kolor": "brak"
+   },
+   "pozycja": {
+    "krag": "srod",
+    "kolejnosc": 15,
+    "kat": 350.8,
+    "promien": 0.635,
+    "x": 0.5701,
+    "y": 0.2322
+   },
+   "etykieta": {
+    "locus": "23",
+    "rodzaj": "Lz",
+    "slowa": [
+     "otal"
+    ]
+   },
+   "zrodlo": "vision",
+   "pewnosc": 1,
+   "uwaga": "szkic z GPU: postaci 30 (oczekiwano 30), etykiet 29; model widzi znak 'waga', tabela mówi 'bliznieta'; sprawdzić kolejność na PNG"
+  },
+  {
+   "id": "f72r2-22",
+   "typ": "nimfa",
+   "cechy": {
+    "naga": true,
+    "w_obiekcie": null,
+    "korona": false,
+    "wlosy": "rozpuszczone",
+    "trzyma": "gwiazda",
+    "kierunek": "prawo",
+    "gwiazda_promienie": 8,
+    "gwiazda_ogon": false,
+    "gwiazda_kolor": "zolty"
+   },
+   "pozycja": {
+    "krag": "wewn",
+    "kolejnosc": 1,
+    "kat": 12.2,
+    "promien": 0.353,
+    "x": 0.5925,
+    "y": 0.3378
+   },
+   "etykieta": {
+    "locus": "24",
+    "rodzaj": "Lz",
+    "slowa": [
+     "ralal"
+    ]
+   },
+   "zrodlo": "vision",
+   "pewnosc": 1,
+   "uwaga": "szkic z GPU: postaci 30 (oczekiwano 30), etykiet 29; model widzi znak 'waga', tabela mówi 'bliznieta'; sprawdzić kolejność na PNG"
+  },
+  {
+   "id": "f72r2-23",
+   "typ": "nimfa",
+   "cechy": {
+    "naga": true,
+    "w_obiekcie": null,
+    "korona": false,
+    "wlosy": "rozpuszczone",
+    "trzyma": "gwiazda",
+    "kierunek": "prawo",
+    "gwiazda_promienie": 6,
+    "gwiazda_ogon": false,
+    "gwiazda_kolor": "zolty"
+   },
+   "pozycja": {
+    "krag": "wewn",
+    "kolejnosc": 2,
+    "kat": 49.8,
+    "promien": 0.335,
+    "x": 0.6156,
+    "y": 0.386
+   },
+   "etykieta": {
+    "locus": "25",
+    "rodzaj": "Lz",
+    "slowa": [
+     "okam"
+    ]
+   },
+   "zrodlo": "vision",
+   "pewnosc": 1,
+   "uwaga": "szkic z GPU: postaci 30 (oczekiwano 30), etykiet 29; model widzi znak 'waga', tabela mówi 'bliznieta'; sprawdzić kolejność na PNG"
+  },
+  {
+   "id": "f72r2-24",
+   "typ": "nimfa",
+   "cechy": {
+    "naga": true,
+    "w_obiekcie": null,
+    "korona": false,
+    "wlosy": "rozpuszczone",
+    "trzyma": "gwiazda",
+    "kierunek": "prawo",
+    "gwiazda_promienie": 8,
+    "gwiazda_ogon": false,
+    "gwiazda_kolor": "inny"
+   },
+   "pozycja": {
+    "krag": "wewn",
+    "kolejnosc": 3,
+    "kat": 100.7,
+    "promien": 0.307,
+    "x": 0.6215,
+    "y": 0.4884
+   },
+   "etykieta": {
+    "locus": "26",
+    "rodzaj": "Lz",
+    "slowa": [
+     "otalshy"
+    ]
+   },
+   "zrodlo": "vision",
+   "pewnosc": 1,
+   "uwaga": "szkic z GPU: postaci 30 (oczekiwano 30), etykiet 29; model widzi znak 'waga', tabela mówi 'bliznieta'; sprawdzić kolejność na PNG"
+  },
+  {
+   "id": "f72r2-25",
+   "typ": "nimfa",
+   "cechy": {
+    "naga": true,
+    "w_obiekcie": null,
+    "korona": false,
+    "wlosy": "nie_widac",
+    "trzyma": "gwiazda",
+    "kierunek": "lewo",
+    "gwiazda_promienie": 8,
+    "gwiazda_ogon": false,
+    "gwiazda_kolor": "inny"
+   },
+   "pozycja": {
+    "krag": "wewn",
+    "kolejnosc": 4,
+    "kat": 158.3,
+    "promien": 0.327,
+    "x": 0.5984,
+    "y": 0.5808
+   },
+   "etykieta": {
+    "locus": "27",
+    "rodzaj": "Lz",
+    "slowa": [
+     "okaldy"
+    ]
+   },
+   "zrodlo": "vision",
+   "pewnosc": 1,
+   "uwaga": "szkic z GPU: postaci 30 (oczekiwano 30), etykiet 29; model widzi znak 'waga', tabela mówi 'bliznieta'; sprawdzić kolejność na PNG"
+  },
+  {
+   "id": "f72r2-26",
+   "typ": "nimfa",
+   "cechy": {
+    "naga": false,
+    "w_obiekcie": null,
+    "korona": false,
+    "wlosy": "rozpuszczone",
+    "trzyma": "gwiazda",
+    "kierunek": "przod",
+    "gwiazda_promienie": 8,
+    "gwiazda_ogon": false,
+    "gwiazda_kolor": "brak"
+   },
+   "pozycja": {
+    "krag": "wewn",
+    "kolejnosc": 5,
+    "kat": 195.2,
+    "promien": 0.361,
+    "x": 0.5709,
+    "y": 0.5976
+   },
+   "etykieta": {
+    "locus": "28",
+    "rodzaj": "Lz",
+    "slowa": [
+     "chosar"
+    ]
+   },
+   "zrodlo": "vision",
+   "pewnosc": 1,
+   "uwaga": "szkic z GPU: postaci 30 (oczekiwano 30), etykiet 29; model widzi znak 'waga', tabela mówi 'bliznieta'; sprawdzić kolejność na PNG"
+  },
+  {
+   "id": "f72r2-27",
+   "typ": "nimfa",
+   "cechy": {
+    "naga": false,
+    "w_obiekcie": null,
+    "korona": false,
+    "wlosy": "rozpuszczone",
+    "trzyma": "gwiazda",
+    "kierunek": "prawo",
+    "gwiazda_promienie": 8,
+    "gwiazda_ogon": false,
+    "gwiazda_kolor": "brak"
+   },
+   "pozycja": {
+    "krag": "wewn",
+    "kolejnosc": 6,
+    "kat": 221.0,
+    "promien": 0.383,
+    "x": 0.551,
+    "y": 0.5751
+   },
+   "etykieta": {
+    "locus": "29",
+    "rodzaj": "Lz",
+    "slowa": [
+     "otam"
+    ]
+   },
+   "zrodlo": "vision",
+   "pewnosc": 1,
+   "uwaga": "szkic z GPU: postaci 30 (oczekiwano 30), etykiet 29; model widzi znak 'waga', tabela mówi 'bliznieta'; sprawdzić kolejność na PNG"
+  },
+  {
+   "id": "f72r2-28",
+   "typ": "nimfa",
+   "cechy": {
+    "naga": true,
+    "w_obiekcie": null,
+    "korona": false,
+    "wlosy": "nie_widac",
+    "trzyma": "gwiazda",
+    "kierunek": "prawo",
+    "gwiazda_promienie": 8,
+    "gwiazda_ogon": false,
+    "gwiazda_kolor": "brak"
+   },
+   "pozycja": {
+    "krag": "wewn",
+    "kolejnosc": 7,
+    "kat": 257.6,
+    "promien": 0.354,
+    "x": 0.539,
+    "y": 0.4955
+   },
+   "etykieta": {
+    "locus": "30",
+    "rodzaj": "Lz",
+    "slowa": [
+     "ainaly"
+    ]
+   },
+   "zrodlo": "vision",
+   "pewnosc": 1,
+   "uwaga": "szkic z GPU: postaci 30 (oczekiwano 30), etykiet 29; model widzi znak 'waga', tabela mówi 'bliznieta'; sprawdzić kolejność na PNG"
+  },
+  {
+   "id": "f72r2-29",
+   "typ": "nimfa",
+   "cechy": {
+    "naga": true,
+    "w_obiekcie": null,
+    "korona": true,
+    "wlosy": "upiete",
+    "trzyma": "gwiazda",
+    "kierunek": "prawo",
+    "gwiazda_promienie": 5,
+    "gwiazda_ogon": false,
+    "gwiazda_kolor": "brak"
+   },
+   "pozycja": {
+    "krag": "wewn",
+    "kolejnosc": 8,
+    "kat": 311.2,
+    "promien": 0.352,
+    "x": 0.5492,
+    "y": 0.3801
+   },
+   "etykieta": {
+    "locus": "31",
+    "rodzaj": "Lz",
+    "slowa": [
+     "okarcham"
+    ]
+   },
+   "zrodlo": "vision",
+   "pewnosc": 1,
+   "uwaga": "szkic z GPU: postaci 30 (oczekiwano 30), etykiet 29; model widzi znak 'waga', tabela mówi 'bliznieta'; sprawdzić kolejność na PNG"
+  },
+  {
+   "id": "f72r2-x30",
+   "typ": "nimfa",
+   "cechy": {
+    "naga": true,
+    "w_obiekcie": null,
+    "korona": false,
+    "wlosy": "rozpuszczone",
+    "trzyma": "gwiazda",
+    "kierunek": "prawo",
+    "gwiazda_promienie": 8,
+    "gwiazda_ogon": false,
+    "gwiazda_kolor": "brak"
+   },
+   "pozycja": {
+    "krag": "wewn",
+    "kolejnosc": 9,
+    "kat": 343.6,
+    "promien": 0.364,
+    "x": 0.5699,
+    "y": 0.3362
+   },
+   "etykieta": null,
+   "zrodlo": "vision",
+   "pewnosc": 1,
+   "uwaga": "punkt bez etykiety; szkic z GPU: postaci 30 (oczekiwano 30), etykiet 29; model widzi znak 'waga', tabela mówi 'bliznieta'; sprawdzić kolejność na PNG"
+  }
+ ]
+}

@@ -1,0 +1,965 @@
+{
+ "strona": "f70v2",
+ "dzial": "zodiac",
+ "jezyk": "?",
+ "atomy": [
+  {
+   "id": "f70v2-01",
+   "typ": "nimfa",
+   "cechy": {
+    "naga": true,
+    "w_obiekcie": "nic",
+    "korona": false,
+    "wlosy": "upiete",
+    "trzyma": "gwiazda",
+    "kierunek": "prawo",
+    "gwiazda_promienie": 8,
+    "gwiazda_ogon": false,
+    "gwiazda_kolor": "brak"
+   },
+   "pozycja": {
+    "krag": "zewn",
+    "kolejnosc": 1,
+    "kat": 12.8,
+    "promien": 0.955,
+    "x": 0.5663,
+    "y": 0.1629
+   },
+   "etykieta": {
+    "locus": "2",
+    "rodzaj": "Lz",
+    "slowa": [
+     "otalalg"
+    ]
+   },
+   "zrodlo": "vision",
+   "pewnosc": 1,
+   "uwaga": "szkic z GPU: postaci 28 (oczekiwano 29), etykiet 29; model widzi znak 'ryby', tabela mówi 'ryby'; sprawdzić kolejność na PNG"
+  },
+  {
+   "id": "f70v2-02",
+   "typ": "nimfa",
+   "cechy": {
+    "naga": false,
+    "w_obiekcie": "beczka",
+    "korona": false,
+    "wlosy": "upiete",
+    "trzyma": "gwiazda",
+    "kierunek": "prawo",
+    "gwiazda_promienie": 6,
+    "gwiazda_ogon": false,
+    "gwiazda_kolor": "inny"
+   },
+   "pozycja": {
+    "krag": "zewn",
+    "kolejnosc": 2,
+    "kat": 29.1,
+    "promien": 0.965,
+    "x": 0.6446,
+    "y": 0.1906
+   },
+   "etykieta": {
+    "locus": "3",
+    "rodzaj": "Lz",
+    "slowa": [
+     "ykary"
+    ]
+   },
+   "zrodlo": "vision",
+   "pewnosc": 1,
+   "uwaga": "szkic z GPU: postaci 28 (oczekiwano 29), etykiet 29; model widzi znak 'ryby', tabela mówi 'ryby'; sprawdzić kolejność na PNG"
+  },
+  {
+   "id": "f70v2-03",
+   "typ": "nimfa",
+   "cechy": {
+    "naga": false,
+    "w_obiekcie": "beczka",
+    "korona": false,
+    "wlosy": "upiete",
+    "trzyma": "gwiazda",
+    "kierunek": "prawo",
+    "gwiazda_promienie": 8,
+    "gwiazda_ogon": false,
+    "gwiazda_kolor": "inny"
+   },
+   "pozycja": {
+    "krag": "zewn",
+    "kolejnosc": 3,
+    "kat": 44.9,
+    "promien": 0.972,
+    "x": 0.7105,
+    "y": 0.24
+   },
+   "etykieta": {
+    "locus": "5",
+    "rodzaj": "Lz",
+    "slowa": [
+     "oty"
+    ]
+   },
+   "zrodlo": "vision",
+   "pewnosc": 1,
+   "uwaga": "szkic z GPU: postaci 28 (oczekiwano 29), etykiet 29; model widzi znak 'ryby', tabela mówi 'ryby'; sprawdzić kolejność na PNG"
+  },
+  {
+   "id": "f70v2-04",
+   "typ": "nimfa",
+   "cechy": {
+    "naga": false,
+    "w_obiekcie": "nic",
+    "korona": false,
+    "wlosy": "upiete",
+    "trzyma": "gwiazda",
+    "kierunek": "prawo",
+    "gwiazda_promienie": 5,
+    "gwiazda_ogon": false,
+    "gwiazda_kolor": "zolty"
+   },
+   "pozycja": {
+    "krag": "zewn",
+    "kolejnosc": 4,
+    "kat": 60.8,
+    "promien": 0.956,
+    "x": 0.7557,
+    "y": 0.3106
+   },
+   "etykieta": {
+    "locus": "6",
+    "rodzaj": "Lz",
+    "slowa": [
+     "oky",
+     "ody"
+    ]
+   },
+   "zrodlo": "vision",
+   "pewnosc": 1,
+   "uwaga": "szkic z GPU: postaci 28 (oczekiwano 29), etykiet 29; model widzi znak 'ryby', tabela mówi 'ryby'; sprawdzić kolejność na PNG"
+  },
+  {
+   "id": "f70v2-05",
+   "typ": "nimfa",
+   "cechy": {
+    "naga": false,
+    "w_obiekcie": null,
+    "korona": false,
+    "wlosy": "upiete",
+    "trzyma": "gwiazda",
+    "kierunek": "prawo",
+    "gwiazda_promienie": 5,
+    "gwiazda_ogon": false,
+    "gwiazda_kolor": "inny"
+   },
+   "pozycja": {
+    "krag": "zewn",
+    "kolejnosc": 5,
+    "kat": 81.2,
+    "promien": 0.969,
+    "x": 0.7931,
+    "y": 0.4118
+   },
+   "etykieta": {
+    "locus": "7",
+    "rodzaj": "Lz",
+    "slowa": [
+     "oty",
+     "ar"
+    ]
+   },
+   "zrodlo": "vision",
+   "pewnosc": 1,
+   "uwaga": "szkic z GPU: postaci 28 (oczekiwano 29), etykiet 29; model widzi znak 'ryby', tabela mówi 'ryby'; sprawdzić kolejność na PNG"
+  },
+  {
+   "id": "f70v2-06",
+   "typ": "nimfa",
+   "cechy": {
+    "naga": false,
+    "w_obiekcie": null,
+    "korona": false,
+    "wlosy": "upiete",
+    "trzyma": "gwiazda",
+    "kierunek": "prawo",
+    "gwiazda_promienie": 5,
+    "gwiazda_ogon": false,
+    "gwiazda_kolor": "inny"
+   },
+   "pozycja": {
+    "krag": "zewn",
+    "kolejnosc": 6,
+    "kat": 102.4,
+    "promien": 0.968,
+    "x": 0.7895,
+    "y": 0.5254
+   },
+   "etykieta": {
+    "locus": "8",
+    "rodzaj": "Lz",
+    "slowa": [
+     "okala"
+    ]
+   },
+   "zrodlo": "vision",
+   "pewnosc": 1,
+   "uwaga": "szkic z GPU: postaci 28 (oczekiwano 29), etykiet 29; model widzi znak 'ryby', tabela mówi 'ryby'; sprawdzić kolejność na PNG"
+  },
+  {
+   "id": "f70v2-07",
+   "typ": "nimfa",
+   "cechy": {
+    "naga": false,
+    "w_obiekcie": "nic",
+    "korona": true,
+    "wlosy": "upiete",
+    "trzyma": "gwiazda",
+    "kierunek": "prawo",
+    "gwiazda_promienie": 5,
+    "gwiazda_ogon": false,
+    "gwiazda_kolor": "zolty"
+   },
+   "pozycja": {
+    "krag": "zewn",
+    "kolejnosc": 7,
+    "kat": 124.0,
+    "promien": 0.968,
+    "x": 0.7459,
+    "y": 0.6312
+   },
+   "etykieta": {
+    "locus": "9",
+    "rodzaj": "Lz",
+    "slowa": [
+     "otody"
+    ]
+   },
+   "zrodlo": "vision",
+   "pewnosc": 1,
+   "uwaga": "szkic z GPU: postaci 28 (oczekiwano 29), etykiet 29; model widzi znak 'ryby', tabela mówi 'ryby'; sprawdzić kolejność na PNG"
+  },
+  {
+   "id": "f70v2-08",
+   "typ": "nimfa",
+   "cechy": {
+    "naga": false,
+    "w_obiekcie": null,
+    "korona": true,
+    "wlosy": "upiete",
+    "trzyma": "gwiazda",
+    "kierunek": "prawo",
+    "gwiazda_promienie": 6,
+    "gwiazda_ogon": false,
+    "gwiazda_kolor": "inny"
+   },
+   "pozycja": {
+    "krag": "zewn",
+    "kolejnosc": 8,
+    "kat": 143.7,
+    "promien": 0.958,
+    "x": 0.6744,
+    "y": 0.7045
+   },
+   "etykieta": {
+    "locus": "10",
+    "rodzaj": "Lz",
+    "slowa": [
+     "otald"
+    ]
+   },
+   "zrodlo": "vision",
+   "pewnosc": 1,
+   "uwaga": "szkic z GPU: postaci 28 (oczekiwano 29), etykiet 29; model widzi znak 'ryby', tabela mówi 'ryby'; sprawdzić kolejność na PNG"
+  },
+  {
+   "id": "f70v2-09",
+   "typ": "nimfa",
+   "cechy": {
+    "naga": false,
+    "w_obiekcie": "nic",
+    "korona": false,
+    "wlosy": "nie_widac",
+    "trzyma": "gwiazda",
+    "kierunek": "prawo",
+    "gwiazda_promienie": 6,
+    "gwiazda_ogon": false,
+    "gwiazda_kolor": "brak"
+   },
+   "pozycja": {
+    "krag": "zewn",
+    "kolejnosc": 9,
+    "kat": 165.9,
+    "promien": 0.988,
+    "x": 0.5751,
+    "y": 0.7638
+   },
+   "etykieta": {
+    "locus": "11",
+    "rodzaj": "Lz",
+    "slowa": [
+     "otaldar"
+    ]
+   },
+   "zrodlo": "vision",
+   "pewnosc": 1,
+   "uwaga": "szkic z GPU: postaci 28 (oczekiwano 29), etykiet 29; model widzi znak 'ryby', tabela mówi 'ryby'; sprawdzić kolejność na PNG"
+  },
+  {
+   "id": "f70v2-10",
+   "typ": "nimfa",
+   "cechy": {
+    "naga": false,
+    "w_obiekcie": "nic",
+    "korona": false,
+    "wlosy": "nie_widac",
+    "trzyma": "gwiazda",
+    "kierunek": "lewo",
+    "gwiazda_promienie": 5,
+    "gwiazda_ogon": false,
+    "gwiazda_kolor": "brak"
+   },
+   "pozycja": {
+    "krag": "zewn",
+    "kolejnosc": 10,
+    "kat": 190.7,
+    "promien": 0.981,
+    "x": 0.4468,
+    "y": 0.7656
+   },
+   "etykieta": {
+    "locus": "12",
+    "rodzaj": "Lz",
+    "slowa": [
+     "okody"
+    ]
+   },
+   "zrodlo": "vision",
+   "pewnosc": 1,
+   "uwaga": "szkic z GPU: postaci 28 (oczekiwano 29), etykiet 29; model widzi znak 'ryby', tabela mówi 'ryby'; sprawdzić kolejność na PNG"
+  },
+  {
+   "id": "f70v2-11",
+   "typ": "nimfa",
+   "cechy": {
+    "naga": false,
+    "w_obiekcie": null,
+    "korona": false,
+    "wlosy": "rozpuszczone",
+    "trzyma": "gwiazda",
+    "kierunek": "prawo",
+    "gwiazda_promienie": 8,
+    "gwiazda_ogon": false,
+    "gwiazda_kolor": "inny"
+   },
+   "pozycja": {
+    "krag": "zewn",
+    "kolejnosc": 11,
+    "kat": 210.6,
+    "promien": 1.0,
+    "x": 0.3473,
+    "y": 0.7328
+   },
+   "etykieta": {
+    "locus": "13",
+    "rodzaj": "Lz",
+    "slowa": [
+     "opysam"
+    ]
+   },
+   "zrodlo": "vision",
+   "pewnosc": 1,
+   "uwaga": "szkic z GPU: postaci 28 (oczekiwano 29), etykiet 29; model widzi znak 'ryby', tabela mówi 'ryby'; sprawdzić kolejność na PNG"
+  },
+  {
+   "id": "f70v2-12",
+   "typ": "nimfa",
+   "cechy": {
+    "naga": false,
+    "w_obiekcie": "nic",
+    "korona": false,
+    "wlosy": "upiete",
+    "trzyma": "gwiazda",
+    "kierunek": "prawo",
+    "gwiazda_promienie": 8,
+    "gwiazda_ogon": false,
+    "gwiazda_kolor": "brak"
+   },
+   "pozycja": {
+    "krag": "zewn",
+    "kolejnosc": 12,
+    "kat": 235.4,
+    "promien": 0.91,
+    "x": 0.2744,
+    "y": 0.6235
+   },
+   "etykieta": {
+    "locus": "14",
+    "rodzaj": "Lz",
+    "slowa": [
+     "chckhhy"
+    ]
+   },
+   "zrodlo": "vision",
+   "pewnosc": 1,
+   "uwaga": "szkic z GPU: postaci 28 (oczekiwano 29), etykiet 29; model widzi znak 'ryby', tabela mówi 'ryby'; sprawdzić kolejność na PNG"
+  },
+  {
+   "id": "f70v2-13",
+   "typ": "nimfa",
+   "cechy": {
+    "naga": false,
+    "w_obiekcie": "nic",
+    "korona": false,
+    "wlosy": "rozpuszczone",
+    "trzyma": "gwiazda",
+    "kierunek": "prawo",
+    "gwiazda_promienie": 6,
+    "gwiazda_ogon": false,
+    "gwiazda_kolor": "brak"
+   },
+   "pozycja": {
+    "krag": "zewn",
+    "kolejnosc": 13,
+    "kat": 255.5,
+    "promien": 0.896,
+    "x": 0.2382,
+    "y": 0.5301
+   },
+   "etykieta": {
+    "locus": "15",
+    "rodzaj": "Lz",
+    "slowa": [
+     "otaly"
+    ]
+   },
+   "zrodlo": "vision",
+   "pewnosc": 1,
+   "uwaga": "szkic z GPU: postaci 28 (oczekiwano 29), etykiet 29; model widzi znak 'ryby', tabela mówi 'ryby'; sprawdzić kolejność na PNG"
+  },
+  {
+   "id": "f70v2-14",
+   "typ": "nimfa",
+   "cechy": {
+    "naga": false,
+    "w_obiekcie": "nic",
+    "korona": false,
+    "wlosy": "rozpuszczone",
+    "trzyma": "gwiazda",
+    "kierunek": "przod",
+    "gwiazda_promienie": 5,
+    "gwiazda_ogon": false,
+    "gwiazda_kolor": "inny"
+   },
+   "pozycja": {
+    "krag": "zewn",
+    "kolejnosc": 14,
+    "kat": 280.8,
+    "promien": 0.917,
+    "x": 0.2283,
+    "y": 0.4042
+   },
+   "etykieta": {
+    "locus": "16",
+    "rodzaj": "Lz",
+    "slowa": [
+     "otal",
+     "arar"
+    ]
+   },
+   "zrodlo": "vision",
+   "pewnosc": 1,
+   "uwaga": "szkic z GPU: postaci 28 (oczekiwano 29), etykiet 29; model widzi znak 'ryby', tabela mówi 'ryby'; sprawdzić kolejność na PNG"
+  },
+  {
+   "id": "f70v2-15",
+   "typ": "nimfa",
+   "cechy": {
+    "naga": false,
+    "w_obiekcie": null,
+    "korona": false,
+    "wlosy": "rozpuszczone",
+    "trzyma": "gwiazda",
+    "kierunek": "przod",
+    "gwiazda_promienie": 5,
+    "gwiazda_ogon": false,
+    "gwiazda_kolor": "zolty"
+   },
+   "pozycja": {
+    "krag": "zewn",
+    "kolejnosc": 15,
+    "kat": 305.0,
+    "promien": 0.893,
+    "x": 0.2796,
+    "y": 0.2963
+   },
+   "etykieta": {
+    "locus": "17",
+    "rodzaj": "Lz",
+    "slowa": [
+     "otaldy"
+    ]
+   },
+   "zrodlo": "vision",
+   "pewnosc": 1,
+   "uwaga": "szkic z GPU: postaci 28 (oczekiwano 29), etykiet 29; model widzi znak 'ryby', tabela mówi 'ryby'; sprawdzić kolejność na PNG"
+  },
+  {
+   "id": "f70v2-16",
+   "typ": "nimfa",
+   "cechy": {
+    "naga": false,
+    "w_obiekcie": "nic",
+    "korona": false,
+    "wlosy": "rozpuszczone",
+    "trzyma": "gwiazda",
+    "kierunek": "prawo",
+    "gwiazda_promienie": 5,
+    "gwiazda_ogon": false,
+    "gwiazda_kolor": "inny"
+   },
+   "pozycja": {
+    "krag": "zewn",
+    "kolejnosc": 16,
+    "kat": 320.6,
+    "promien": 0.942,
+    "x": 0.3201,
+    "y": 0.2276
+   },
+   "etykieta": {
+    "locus": "18",
+    "rodzaj": "Lz",
+    "slowa": [
+     "okeoly"
+    ]
+   },
+   "zrodlo": "vision",
+   "pewnosc": 1,
+   "uwaga": "szkic z GPU: postaci 28 (oczekiwano 29), etykiet 29; model widzi znak 'ryby', tabela mówi 'ryby'; sprawdzić kolejność na PNG"
+  },
+  {
+   "id": "f70v2-17",
+   "typ": "nimfa",
+   "cechy": {
+    "naga": false,
+    "w_obiekcie": "beczka",
+    "korona": false,
+    "wlosy": "rozpuszczone",
+    "trzyma": "gwiazda",
+    "kierunek": "prawo",
+    "gwiazda_promienie": 6,
+    "gwiazda_ogon": false,
+    "gwiazda_kolor": "inny"
+   },
+   "pozycja": {
+    "krag": "zewn",
+    "kolejnosc": 17,
+    "kat": 338.1,
+    "promien": 0.966,
+    "x": 0.3925,
+    "y": 0.1741
+   },
+   "etykieta": {
+    "locus": "19",
+    "rodzaj": "Lz",
+    "slowa": [
+     "okydy"
+    ]
+   },
+   "zrodlo": "vision",
+   "pewnosc": 1,
+   "uwaga": "szkic z GPU: postaci 28 (oczekiwano 29), etykiet 29; model widzi znak 'ryby', tabela mówi 'ryby'; sprawdzić kolejność na PNG"
+  },
+  {
+   "id": "f70v2-18",
+   "typ": "nimfa",
+   "cechy": {
+    "naga": false,
+    "w_obiekcie": "beczka",
+    "korona": false,
+    "wlosy": "rozpuszczone",
+    "trzyma": "gwiazda",
+    "kierunek": "prawo",
+    "gwiazda_promienie": 5,
+    "gwiazda_ogon": false,
+    "gwiazda_kolor": "inny"
+   },
+   "pozycja": {
+    "krag": "zewn",
+    "kolejnosc": 18,
+    "kat": 352.1,
+    "promien": 0.981,
+    "x": 0.4611,
+    "y": 0.15
+   },
+   "etykieta": {
+    "locus": "20",
+    "rodzaj": "Lz",
+    "slowa": [
+     "okees"
+    ]
+   },
+   "zrodlo": "vision",
+   "pewnosc": 1,
+   "uwaga": "szkic z GPU: postaci 28 (oczekiwano 29), etykiet 29; model widzi znak 'ryby', tabela mówi 'ryby'; sprawdzić kolejność na PNG"
+  },
+  {
+   "id": "f70v2-19",
+   "typ": "nimfa",
+   "cechy": {
+    "naga": false,
+    "w_obiekcie": "nic",
+    "korona": false,
+    "wlosy": "rozpuszczone",
+    "trzyma": "gwiazda",
+    "kierunek": "prawo",
+    "gwiazda_promienie": 6,
+    "gwiazda_ogon": false,
+    "gwiazda_kolor": "zolty"
+   },
+   "pozycja": {
+    "krag": "wewn",
+    "kolejnosc": 1,
+    "kat": 14.2,
+    "promien": 0.655,
+    "x": 0.5508,
+    "y": 0.2571
+   },
+   "etykieta": {
+    "locus": "22",
+    "rodzaj": "Lz",
+    "slowa": [
+     "otar",
+     "am"
+    ]
+   },
+   "zrodlo": "vision",
+   "pewnosc": 1,
+   "uwaga": "szkic z GPU: postaci 28 (oczekiwano 29), etykiet 29; model widzi znak 'ryby', tabela mówi 'ryby'; sprawdzić kolejność na PNG"
+  },
+  {
+   "id": "f70v2-20",
+   "typ": "nimfa",
+   "cechy": {
+    "naga": false,
+    "w_obiekcie": "nic",
+    "korona": false,
+    "wlosy": "rozpuszczone",
+    "trzyma": "gwiazda",
+    "kierunek": "prawo",
+    "gwiazda_promienie": 5,
+    "gwiazda_ogon": false,
+    "gwiazda_kolor": "brak"
+   },
+   "pozycja": {
+    "krag": "wewn",
+    "kolejnosc": 2,
+    "kat": 41.3,
+    "promien": 0.623,
+    "x": 0.627,
+    "y": 0.3102
+   },
+   "etykieta": {
+    "locus": "23",
+    "rodzaj": "Lz",
+    "slowa": [
+     "otar",
+     "al"
+    ]
+   },
+   "zrodlo": "vision",
+   "pewnosc": 1,
+   "uwaga": "szkic z GPU: postaci 28 (oczekiwano 29), etykiet 29; model widzi znak 'ryby', tabela mówi 'ryby'; sprawdzić kolejność na PNG"
+  },
+  {
+   "id": "f70v2-21",
+   "typ": "nimfa",
+   "cechy": {
+    "naga": true,
+    "w_obiekcie": "beczka",
+    "korona": false,
+    "wlosy": "rozpuszczone",
+    "trzyma": "gwiazda",
+    "kierunek": "prawo",
+    "gwiazda_promienie": 6,
+    "gwiazda_ogon": false,
+    "gwiazda_kolor": "zolty"
+   },
+   "pozycja": {
+    "krag": "wewn",
+    "kolejnosc": 3,
+    "kat": 81.2,
+    "promien": 0.631,
+    "x": 0.6915,
+    "y": 0.4282
+   },
+   "etykieta": {
+    "locus": "24",
+    "rodzaj": "Lz",
+    "slowa": [
+     "otalar"
+    ]
+   },
+   "zrodlo": "vision",
+   "pewnosc": 1,
+   "uwaga": "szkic z GPU: postaci 28 (oczekiwano 29), etykiet 29; model widzi znak 'ryby', tabela mówi 'ryby'; sprawdzić kolejność na PNG"
+  },
+  {
+   "id": "f70v2-22",
+   "typ": "nimfa",
+   "cechy": {
+    "naga": false,
+    "w_obiekcie": null,
+    "korona": false,
+    "wlosy": "rozpuszczone",
+    "trzyma": "gwiazda",
+    "kierunek": "prawo",
+    "gwiazda_promienie": 5,
+    "gwiazda_ogon": false,
+    "gwiazda_kolor": "brak"
+   },
+   "pozycja": {
+    "krag": "wewn",
+    "kolejnosc": 4,
+    "kat": 120.1,
+    "promien": 0.638,
+    "x": 0.6698,
+    "y": 0.5606
+   },
+   "etykieta": {
+    "locus": "25",
+    "rodzaj": "Lz",
+    "slowa": [
+     "otalam"
+    ]
+   },
+   "zrodlo": "vision",
+   "pewnosc": 1,
+   "uwaga": "szkic z GPU: postaci 28 (oczekiwano 29), etykiet 29; model widzi znak 'ryby', tabela mówi 'ryby'; sprawdzić kolejność na PNG"
+  },
+  {
+   "id": "f70v2-23",
+   "typ": "nimfa",
+   "cechy": {
+    "naga": false,
+    "w_obiekcie": "nic",
+    "korona": false,
+    "wlosy": "rozpuszczone",
+    "trzyma": "gwiazda",
+    "kierunek": "prawo",
+    "gwiazda_promienie": 8,
+    "gwiazda_ogon": false,
+    "gwiazda_kolor": "brak"
+   },
+   "pozycja": {
+    "krag": "wewn",
+    "kolejnosc": 5,
+    "kat": 153.1,
+    "promien": 0.616,
+    "x": 0.5867,
+    "y": 0.6339
+   },
+   "etykieta": {
+    "locus": "26",
+    "rodzaj": "Lz",
+    "slowa": [
+     "dolaram"
+    ]
+   },
+   "zrodlo": "vision",
+   "pewnosc": 1,
+   "uwaga": "szkic z GPU: postaci 28 (oczekiwano 29), etykiet 29; model widzi znak 'ryby', tabela mówi 'ryby'; sprawdzić kolejność na PNG"
+  },
+  {
+   "id": "f70v2-24",
+   "typ": "nimfa",
+   "cechy": {
+    "naga": false,
+    "w_obiekcie": "nic",
+    "korona": false,
+    "wlosy": "rozpuszczone",
+    "trzyma": "gwiazda",
+    "kierunek": "prawo",
+    "gwiazda_promienie": 6,
+    "gwiazda_ogon": false,
+    "gwiazda_kolor": "inny"
+   },
+   "pozycja": {
+    "krag": "wewn",
+    "kolejnosc": 6,
+    "kat": 187.7,
+    "promien": 0.652,
+    "x": 0.4753,
+    "y": 0.6644
+   },
+   "etykieta": {
+    "locus": "27",
+    "rodzaj": "Lz",
+    "slowa": [
+     "okaram"
+    ]
+   },
+   "zrodlo": "vision",
+   "pewnosc": 1,
+   "uwaga": "szkic z GPU: postaci 28 (oczekiwano 29), etykiet 29; model widzi znak 'ryby', tabela mówi 'ryby'; sprawdzić kolejność na PNG"
+  },
+  {
+   "id": "f70v2-25",
+   "typ": "nimfa",
+   "cechy": {
+    "naga": false,
+    "w_obiekcie": null,
+    "korona": false,
+    "wlosy": "rozpuszczone",
+    "trzyma": "gwiazda",
+    "kierunek": "prawo",
+    "gwiazda_promienie": 8,
+    "gwiazda_ogon": false,
+    "gwiazda_kolor": "zolty"
+   },
+   "pozycja": {
+    "krag": "wewn",
+    "kolejnosc": 7,
+    "kat": 230.4,
+    "promien": 0.62,
+    "x": 0.3567,
+    "y": 0.5848
+   },
+   "etykieta": {
+    "locus": "28",
+    "rodzaj": "Lz",
+    "slowa": [
+     "oteosal"
+    ]
+   },
+   "zrodlo": "vision",
+   "pewnosc": 1,
+   "uwaga": "szkic z GPU: postaci 28 (oczekiwano 29), etykiet 29; model widzi znak 'ryby', tabela mówi 'ryby'; sprawdzić kolejność na PNG"
+  },
+  {
+   "id": "f70v2-26",
+   "typ": "nimfa",
+   "cechy": {
+    "naga": false,
+    "w_obiekcie": "nic",
+    "korona": false,
+    "wlosy": "rozpuszczone",
+    "trzyma": "gwiazda",
+    "kierunek": "prawo",
+    "gwiazda_promienie": 6,
+    "gwiazda_ogon": false,
+    "gwiazda_kolor": "inny"
+   },
+   "pozycja": {
+    "krag": "wewn",
+    "kolejnosc": 8,
+    "kat": 268.2,
+    "promien": 0.601,
+    "x": 0.3194,
+    "y": 0.4649
+   },
+   "etykieta": {
+    "locus": "29",
+    "rodzaj": "Lz",
+    "slowa": [
+     "salols"
+    ]
+   },
+   "zrodlo": "vision",
+   "pewnosc": 1,
+   "uwaga": "szkic z GPU: postaci 28 (oczekiwano 29), etykiet 29; model widzi znak 'ryby', tabela mówi 'ryby'; sprawdzić kolejność na PNG"
+  },
+  {
+   "id": "f70v2-27",
+   "typ": "nimfa",
+   "cechy": {
+    "naga": false,
+    "w_obiekcie": "nic",
+    "korona": false,
+    "wlosy": "rozpuszczone",
+    "trzyma": "gwiazda",
+    "kierunek": "przod",
+    "gwiazda_promienie": 6,
+    "gwiazda_ogon": false,
+    "gwiazda_kolor": "inny"
+   },
+   "pozycja": {
+    "krag": "wewn",
+    "kolejnosc": 9,
+    "kat": 302.9,
+    "promien": 0.629,
+    "x": 0.3414,
+    "y": 0.3505
+   },
+   "etykieta": {
+    "locus": "30",
+    "rodzaj": "Lz",
+    "slowa": [
+     "okaldal"
+    ]
+   },
+   "zrodlo": "vision",
+   "pewnosc": 1,
+   "uwaga": "szkic z GPU: postaci 28 (oczekiwano 29), etykiet 29; model widzi znak 'ryby', tabela mówi 'ryby'; sprawdzić kolejność na PNG"
+  },
+  {
+   "id": "f70v2-28",
+   "typ": "nimfa",
+   "cechy": {
+    "naga": false,
+    "w_obiekcie": null,
+    "korona": false,
+    "wlosy": "rozpuszczone",
+    "trzyma": "gwiazda",
+    "kierunek": "prawo",
+    "gwiazda_promienie": 6,
+    "gwiazda_ogon": false,
+    "gwiazda_kolor": "zolty"
+   },
+   "pozycja": {
+    "krag": "wewn",
+    "kolejnosc": 10,
+    "kat": 337.3,
+    "promien": 0.638,
+    "x": 0.4272,
+    "y": 0.2717
+   },
+   "etykieta": {
+    "locus": "31",
+    "rodzaj": "Lz",
+    "slowa": [
+     "ykolaiin"
+    ]
+   },
+   "zrodlo": "vision",
+   "pewnosc": 1,
+   "uwaga": "szkic z GPU: postaci 28 (oczekiwano 29), etykiet 29; model widzi znak 'ryby', tabela mówi 'ryby'; sprawdzić kolejność na PNG"
+  },
+  {
+   "id": "f70v2-29",
+   "typ": "nimfa",
+   "cechy": {
+    "naga": null,
+    "w_obiekcie": null,
+    "korona": null,
+    "wlosy": null,
+    "trzyma": null,
+    "kierunek": null,
+    "gwiazda_promienie": null,
+    "gwiazda_ogon": null,
+    "gwiazda_kolor": null
+   },
+   "pozycja": {
+    "krag": null,
+    "kolejnosc": 29
+   },
+   "etykieta": {
+    "locus": "33",
+    "rodzaj": "Lz",
+    "slowa": [
+     "otolal"
+    ]
+   },
+   "zrodlo": "",
+   "pewnosc": null,
+   "uwaga": ""
+  }
+ ]
+}

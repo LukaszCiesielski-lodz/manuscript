@@ -1,0 +1,998 @@
+{
+ "strona": "f72v2",
+ "dzial": "zodiac",
+ "jezyk": "?",
+ "atomy": [
+  {
+   "id": "f72v2-01",
+   "typ": "nimfa",
+   "cechy": {
+    "naga": null,
+    "w_obiekcie": null,
+    "korona": null,
+    "wlosy": null,
+    "trzyma": null,
+    "kierunek": null,
+    "gwiazda_promienie": null,
+    "gwiazda_ogon": null,
+    "gwiazda_kolor": null
+   },
+   "pozycja": {
+    "krag": "zewn",
+    "kolejnosc": 1,
+    "kat": 242.9,
+    "promien": 0.935,
+    "x": 0.5485,
+    "y": 0.6404
+   },
+   "etykieta": {
+    "locus": "2",
+    "rodzaj": "Lz",
+    "slowa": [
+     "oeedey"
+    ]
+   },
+   "zrodlo": "vision",
+   "pewnosc": 1,
+   "uwaga": "szkic z GPU: postaci 30 (oczekiwano 30), etykiet 30; model widzi znak 'waga', tabela mówi 'panna'; sprawdzić kolejność na PNG"
+  },
+  {
+   "id": "f72v2-02",
+   "typ": "nimfa",
+   "cechy": {
+    "naga": null,
+    "w_obiekcie": null,
+    "korona": null,
+    "wlosy": null,
+    "trzyma": null,
+    "kierunek": null,
+    "gwiazda_promienie": null,
+    "gwiazda_ogon": null,
+    "gwiazda_kolor": null
+   },
+   "pozycja": {
+    "krag": "zewn",
+    "kolejnosc": 2,
+    "kat": 264.7,
+    "promien": 0.795,
+    "x": 0.5595,
+    "y": 0.4927
+   },
+   "etykieta": {
+    "locus": "3",
+    "rodzaj": "Lz",
+    "slowa": [
+     "oeeodaiin"
+    ]
+   },
+   "zrodlo": "vision",
+   "pewnosc": 1,
+   "uwaga": "szkic z GPU: postaci 30 (oczekiwano 30), etykiet 30; model widzi znak 'waga', tabela mówi 'panna'; sprawdzić kolejność na PNG"
+  },
+  {
+   "id": "f72v2-03",
+   "typ": "nimfa",
+   "cechy": {
+    "naga": false,
+    "w_obiekcie": null,
+    "korona": false,
+    "wlosy": "rozpuszczone",
+    "trzyma": "gwiazda",
+    "kierunek": "prawo",
+    "gwiazda_promienie": 5,
+    "gwiazda_ogon": false,
+    "gwiazda_kolor": "brak"
+   },
+   "pozycja": {
+    "krag": "zewn",
+    "kolejnosc": 3,
+    "kat": 275.4,
+    "promien": 0.795,
+    "x": 0.5595,
+    "y": 0.4305
+   },
+   "etykieta": {
+    "locus": "4",
+    "rodzaj": "Lz",
+    "slowa": [
+     "okeoram"
+    ]
+   },
+   "zrodlo": "vision",
+   "pewnosc": 1,
+   "uwaga": "szkic z GPU: postaci 30 (oczekiwano 30), etykiet 30; model widzi znak 'waga', tabela mówi 'panna'; sprawdzić kolejność na PNG"
+  },
+  {
+   "id": "f72v2-04",
+   "typ": "nimfa",
+   "cechy": {
+    "naga": false,
+    "w_obiekcie": null,
+    "korona": false,
+    "wlosy": "rozpuszczone",
+    "trzyma": "gwiazda",
+    "kierunek": "przod",
+    "gwiazda_promienie": 6,
+    "gwiazda_ogon": false,
+    "gwiazda_kolor": "brak"
+   },
+   "pozycja": {
+    "krag": "zewn",
+    "kolejnosc": 4,
+    "kat": 287.6,
+    "promien": 0.83,
+    "x": 0.5595,
+    "y": 0.3566
+   },
+   "etykieta": {
+    "locus": "5",
+    "rodzaj": "Lz",
+    "slowa": [
+     "air",
+     "aim"
+    ]
+   },
+   "zrodlo": "vision",
+   "pewnosc": 1,
+   "uwaga": "szkic z GPU: postaci 30 (oczekiwano 30), etykiet 30; model widzi znak 'waga', tabela mówi 'panna'; sprawdzić kolejność na PNG"
+  },
+  {
+   "id": "f72v2-05",
+   "typ": "nimfa",
+   "cechy": {
+    "naga": true,
+    "w_obiekcie": null,
+    "korona": false,
+    "wlosy": "rozpuszczone",
+    "trzyma": "gwiazda",
+    "kierunek": "prawo",
+    "gwiazda_promienie": 8,
+    "gwiazda_ogon": false,
+    "gwiazda_kolor": "brak"
+   },
+   "pozycja": {
+    "krag": "zewn",
+    "kolejnosc": 5,
+    "kat": 298.3,
+    "promien": 1.0,
+    "x": 0.5359,
+    "y": 0.263
+   },
+   "etykieta": {
+    "locus": "6",
+    "rodzaj": "Lz",
+    "slowa": [
+     "oshesy"
+    ]
+   },
+   "zrodlo": "vision",
+   "pewnosc": 1,
+   "uwaga": "szkic z GPU: postaci 30 (oczekiwano 30), etykiet 30; model widzi znak 'waga', tabela mówi 'panna'; sprawdzić kolejność na PNG"
+  },
+  {
+   "id": "f72v2-06",
+   "typ": "nimfa",
+   "cechy": {
+    "naga": true,
+    "w_obiekcie": null,
+    "korona": false,
+    "wlosy": "rozpuszczone",
+    "trzyma": "gwiazda",
+    "kierunek": "prawo",
+    "gwiazda_promienie": 8,
+    "gwiazda_ogon": false,
+    "gwiazda_kolor": "inny"
+   },
+   "pozycja": {
+    "krag": "srod",
+    "kolejnosc": 1,
+    "kat": 11.9,
+    "promien": 0.583,
+    "x": 0.802,
+    "y": 0.2229
+   },
+   "etykieta": {
+    "locus": "7",
+    "rodzaj": "Lz",
+    "slowa": [
+     "okeary"
+    ]
+   },
+   "zrodlo": "vision",
+   "pewnosc": 1,
+   "uwaga": "szkic z GPU: postaci 30 (oczekiwano 30), etykiet 30; model widzi znak 'waga', tabela mówi 'panna'; sprawdzić kolejność na PNG"
+  },
+  {
+   "id": "f72v2-07",
+   "typ": "nimfa",
+   "cechy": {
+    "naga": true,
+    "w_obiekcie": null,
+    "korona": false,
+    "wlosy": "rozpuszczone",
+    "trzyma": "gwiazda",
+    "kierunek": "prawo",
+    "gwiazda_promienie": 8,
+    "gwiazda_ogon": false,
+    "gwiazda_kolor": "brak"
+   },
+   "pozycja": {
+    "krag": "srod",
+    "kolejnosc": 2,
+    "kat": 32.8,
+    "promien": 0.601,
+    "x": 0.8566,
+    "y": 0.25
+   },
+   "etykieta": {
+    "locus": "8",
+    "rodzaj": "Lz",
+    "slowa": [
+     "cheoetey"
+    ]
+   },
+   "zrodlo": "vision",
+   "pewnosc": 1,
+   "uwaga": "szkic z GPU: postaci 30 (oczekiwano 30), etykiet 30; model widzi znak 'waga', tabela mówi 'panna'; sprawdzić kolejność na PNG"
+  },
+  {
+   "id": "f72v2-08",
+   "typ": "nimfa",
+   "cechy": {
+    "naga": false,
+    "w_obiekcie": null,
+    "korona": false,
+    "wlosy": "rozpuszczone",
+    "trzyma": "gwiazda",
+    "kierunek": "prawo",
+    "gwiazda_promienie": 8,
+    "gwiazda_ogon": false,
+    "gwiazda_kolor": "brak"
+   },
+   "pozycja": {
+    "krag": "srod",
+    "kolejnosc": 3,
+    "kat": 53.6,
+    "promien": 0.602,
+    "x": 0.8988,
+    "y": 0.3121
+   },
+   "etykieta": {
+    "locus": "9",
+    "rodzaj": "Lz",
+    "slowa": [
+     "cheoldy"
+    ]
+   },
+   "zrodlo": "vision",
+   "pewnosc": 1,
+   "uwaga": "szkic z GPU: postaci 30 (oczekiwano 30), etykiet 30; model widzi znak 'waga', tabela mówi 'panna'; sprawdzić kolejność na PNG"
+  },
+  {
+   "id": "f72v2-09",
+   "typ": "nimfa",
+   "cechy": {
+    "naga": false,
+    "w_obiekcie": null,
+    "korona": false,
+    "wlosy": "rozpuszczone",
+    "trzyma": "gwiazda",
+    "kierunek": "prawo",
+    "gwiazda_promienie": 5,
+    "gwiazda_ogon": false,
+    "gwiazda_kolor": "brak"
+   },
+   "pozycja": {
+    "krag": "srod",
+    "kolejnosc": 4,
+    "kat": 96.1,
+    "promien": 0.582,
+    "x": 0.9239,
+    "y": 0.4878
+   },
+   "etykieta": {
+    "locus": "10",
+    "rodzaj": "Lz",
+    "slowa": [
+     "sheoeky"
+    ]
+   },
+   "zrodlo": "vision",
+   "pewnosc": 1,
+   "uwaga": "szkic z GPU: postaci 30 (oczekiwano 30), etykiet 30; model widzi znak 'waga', tabela mówi 'panna'; sprawdzić kolejność na PNG"
+  },
+  {
+   "id": "f72v2-10",
+   "typ": "nimfa",
+   "cechy": {
+    "naga": false,
+    "w_obiekcie": null,
+    "korona": false,
+    "wlosy": "nie_widac",
+    "trzyma": "gwiazda",
+    "kierunek": "prawo",
+    "gwiazda_promienie": 6,
+    "gwiazda_ogon": false,
+    "gwiazda_kolor": "brak"
+   },
+   "pozycja": {
+    "krag": "srod",
+    "kolejnosc": 5,
+    "kat": 118.3,
+    "promien": 0.592,
+    "x": 0.9087,
+    "y": 0.5794
+   },
+   "etykieta": {
+    "locus": "11",
+    "rodzaj": "Lz",
+    "slowa": [
+     "oteodar"
+    ]
+   },
+   "zrodlo": "vision",
+   "pewnosc": 1,
+   "uwaga": "szkic z GPU: postaci 30 (oczekiwano 30), etykiet 30; model widzi znak 'waga', tabela mówi 'panna'; sprawdzić kolejność na PNG"
+  },
+  {
+   "id": "f72v2-11",
+   "typ": "nimfa",
+   "cechy": {
+    "naga": false,
+    "w_obiekcie": null,
+    "korona": false,
+    "wlosy": "rozpuszczone",
+    "trzyma": "gwiazda",
+    "kierunek": "prawo",
+    "gwiazda_promienie": 8,
+    "gwiazda_ogon": false,
+    "gwiazda_kolor": "brak"
+   },
+   "pozycja": {
+    "krag": "srod",
+    "kolejnosc": 6,
+    "kat": 135.5,
+    "promien": 0.618,
+    "x": 0.8853,
+    "y": 0.6465
+   },
+   "etykieta": {
+    "locus": "12",
+    "rodzaj": "Lz",
+    "slowa": [
+     "ofchdysd"
+    ]
+   },
+   "zrodlo": "vision",
+   "pewnosc": 1,
+   "uwaga": "szkic z GPU: postaci 30 (oczekiwano 30), etykiet 30; model widzi znak 'waga', tabela mówi 'panna'; sprawdzić kolejność na PNG"
+  },
+  {
+   "id": "f72v2-12",
+   "typ": "nimfa",
+   "cechy": {
+    "naga": false,
+    "w_obiekcie": null,
+    "korona": false,
+    "wlosy": "nie_widac",
+    "trzyma": "gwiazda",
+    "kierunek": "prawo",
+    "gwiazda_promienie": 8,
+    "gwiazda_ogon": false,
+    "gwiazda_kolor": "brak"
+   },
+   "pozycja": {
+    "krag": "srod",
+    "kolejnosc": 7,
+    "kat": 153.7,
+    "promien": 0.628,
+    "x": 0.8439,
+    "y": 0.6977
+   },
+   "etykieta": {
+    "locus": "13",
+    "rodzaj": "Lz",
+    "slowa": [
+     "oteoyd"
+    ]
+   },
+   "zrodlo": "vision",
+   "pewnosc": 1,
+   "uwaga": "szkic z GPU: postaci 30 (oczekiwano 30), etykiet 30; model widzi znak 'waga', tabela mówi 'panna'; sprawdzić kolejność na PNG"
+  },
+  {
+   "id": "f72v2-13",
+   "typ": "nimfa",
+   "cechy": {
+    "naga": false,
+    "w_obiekcie": null,
+    "korona": false,
+    "wlosy": "rozpuszczone",
+    "trzyma": "gwiazda",
+    "kierunek": "przod",
+    "gwiazda_promienie": 8,
+    "gwiazda_ogon": false,
+    "gwiazda_kolor": "brak"
+   },
+   "pozycja": {
+    "krag": "srod",
+    "kolejnosc": 8,
+    "kat": 171.4,
+    "promien": 0.618,
+    "x": 0.7946,
+    "y": 0.7179
+   },
+   "etykieta": {
+    "locus": "14",
+    "rodzaj": "Lz",
+    "slowa": [
+     "yteody"
+    ]
+   },
+   "zrodlo": "vision",
+   "pewnosc": 1,
+   "uwaga": "szkic z GPU: postaci 30 (oczekiwano 30), etykiet 30; model widzi znak 'waga', tabela mówi 'panna'; sprawdzić kolejność na PNG"
+  },
+  {
+   "id": "f72v2-14",
+   "typ": "nimfa",
+   "cechy": {
+    "naga": false,
+    "w_obiekcie": null,
+    "korona": false,
+    "wlosy": "rozpuszczone",
+    "trzyma": "gwiazda",
+    "kierunek": "prawo",
+    "gwiazda_promienie": 6,
+    "gwiazda_ogon": false,
+    "gwiazda_kolor": "inny"
+   },
+   "pozycja": {
+    "krag": "srod",
+    "kolejnosc": 9,
+    "kat": 188.8,
+    "promien": 0.628,
+    "x": 0.7444,
+    "y": 0.7221
+   },
+   "etykieta": {
+    "locus": "15",
+    "rodzaj": "Lz",
+    "slowa": [
+     "okeody"
+    ]
+   },
+   "zrodlo": "vision",
+   "pewnosc": 1,
+   "uwaga": "szkic z GPU: postaci 30 (oczekiwano 30), etykiet 30; model widzi znak 'waga', tabela mówi 'panna'; sprawdzić kolejność na PNG"
+  },
+  {
+   "id": "f72v2-15",
+   "typ": "nimfa",
+   "cechy": {
+    "naga": false,
+    "w_obiekcie": null,
+    "korona": false,
+    "wlosy": "rozpuszczone",
+    "trzyma": "gwiazda",
+    "kierunek": "przod",
+    "gwiazda_promienie": 8,
+    "gwiazda_ogon": false,
+    "gwiazda_kolor": "brak"
+   },
+   "pozycja": {
+    "krag": "srod",
+    "kolejnosc": 10,
+    "kat": 208.6,
+    "promien": 0.627,
+    "x": 0.6902,
+    "y": 0.6923
+   },
+   "etykieta": {
+    "locus": "16",
+    "rodzaj": "Lz",
+    "slowa": [
+     "okeoldy"
+    ]
+   },
+   "zrodlo": "vision",
+   "pewnosc": 1,
+   "uwaga": "szkic z GPU: postaci 30 (oczekiwano 30), etykiet 30; model widzi znak 'waga', tabela mówi 'panna'; sprawdzić kolejność na PNG"
+  },
+  {
+   "id": "f72v2-16",
+   "typ": "nimfa",
+   "cechy": {
+    "naga": false,
+    "w_obiekcie": null,
+    "korona": false,
+    "wlosy": "rozpuszczone",
+    "trzyma": "gwiazda",
+    "kierunek": "prawo",
+    "gwiazda_promienie": 8,
+    "gwiazda_ogon": false,
+    "gwiazda_kolor": "brak"
+   },
+   "pozycja": {
+    "krag": "srod",
+    "kolejnosc": 11,
+    "kat": 224.6,
+    "promien": 0.63,
+    "x": 0.6522,
+    "y": 0.6497
+   },
+   "etykieta": {
+    "locus": "17",
+    "rodzaj": "Lz",
+    "slowa": [
+     "ykeeor"
+    ]
+   },
+   "zrodlo": "vision",
+   "pewnosc": 1,
+   "uwaga": "szkic z GPU: postaci 30 (oczekiwano 30), etykiet 30; model widzi znak 'waga', tabela mówi 'panna'; sprawdzić kolejność na PNG"
+  },
+  {
+   "id": "f72v2-17",
+   "typ": "nimfa",
+   "cechy": {
+    "naga": false,
+    "w_obiekcie": null,
+    "korona": false,
+    "wlosy": "rozpuszczone",
+    "trzyma": "gwiazda",
+    "kierunek": "prawo",
+    "gwiazda_promienie": 6,
+    "gwiazda_ogon": false,
+    "gwiazda_kolor": "brak"
+   },
+   "pozycja": {
+    "krag": "srod",
+    "kolejnosc": 12,
+    "kat": 259.3,
+    "promien": 0.571,
+    "x": 0.6207,
+    "y": 0.5062
+   },
+   "etykieta": {
+    "locus": "18",
+    "rodzaj": "Lz",
+    "slowa": [
+     "opaiinam"
+    ]
+   },
+   "zrodlo": "vision",
+   "pewnosc": 1,
+   "uwaga": "szkic z GPU: postaci 30 (oczekiwano 30), etykiet 30; model widzi znak 'waga', tabela mówi 'panna'; sprawdzić kolejność na PNG"
+  },
+  {
+   "id": "f72v2-18",
+   "typ": "nimfa",
+   "cechy": {
+    "naga": false,
+    "w_obiekcie": null,
+    "korona": false,
+    "wlosy": "rozpuszczone",
+    "trzyma": "gwiazda",
+    "kierunek": "prawo",
+    "gwiazda_promienie": 6,
+    "gwiazda_ogon": false,
+    "gwiazda_kolor": "brak"
+   },
+   "pozycja": {
+    "krag": "srod",
+    "kolejnosc": 13,
+    "kat": 302.3,
+    "promien": 0.615,
+    "x": 0.6318,
+    "y": 0.3242
+   },
+   "etykieta": {
+    "locus": "19",
+    "rodzaj": "Lz",
+    "slowa": [
+     "cheoldy"
+    ]
+   },
+   "zrodlo": "vision",
+   "pewnosc": 1,
+   "uwaga": "szkic z GPU: postaci 30 (oczekiwano 30), etykiet 30; model widzi znak 'waga', tabela mówi 'panna'; sprawdzić kolejność na PNG"
+  },
+  {
+   "id": "f72v2-19",
+   "typ": "nimfa",
+   "cechy": {
+    "naga": true,
+    "w_obiekcie": null,
+    "korona": false,
+    "wlosy": "rozpuszczone",
+    "trzyma": "gwiazda",
+    "kierunek": "prawo",
+    "gwiazda_promienie": 8,
+    "gwiazda_ogon": false,
+    "gwiazda_kolor": "brak"
+   },
+   "pozycja": {
+    "krag": "srod",
+    "kolejnosc": 14,
+    "kat": 320.4,
+    "promien": 0.569,
+    "x": 0.6735,
+    "y": 0.2783
+   },
+   "etykieta": {
+    "locus": "21",
+    "rodzaj": "Lz",
+    "slowa": [
+     "okaiin"
+    ]
+   },
+   "zrodlo": "vision",
+   "pewnosc": 1,
+   "uwaga": "szkic z GPU: postaci 30 (oczekiwano 30), etykiet 30; model widzi znak 'waga', tabela mówi 'panna'; sprawdzić kolejność na PNG"
+  },
+  {
+   "id": "f72v2-20",
+   "typ": "nimfa",
+   "cechy": {
+    "naga": true,
+    "w_obiekcie": null,
+    "korona": false,
+    "wlosy": "rozpuszczone",
+    "trzyma": "gwiazda",
+    "kierunek": "prawo",
+    "gwiazda_promienie": 8,
+    "gwiazda_ogon": false,
+    "gwiazda_kolor": "brak"
+   },
+   "pozycja": {
+    "krag": "wewn",
+    "kolejnosc": 1,
+    "kat": 14.5,
+    "promien": 0.348,
+    "x": 0.7932,
+    "y": 0.3205
+   },
+   "etykieta": {
+    "locus": "22",
+    "rodzaj": "Lz",
+    "slowa": [
+     "ockhol"
+    ]
+   },
+   "zrodlo": "vision",
+   "pewnosc": 1,
+   "uwaga": "szkic z GPU: postaci 30 (oczekiwano 30), etykiet 30; model widzi znak 'waga', tabela mówi 'panna'; sprawdzić kolejność na PNG"
+  },
+  {
+   "id": "f72v2-21",
+   "typ": "nimfa",
+   "cechy": {
+    "naga": true,
+    "w_obiekcie": null,
+    "korona": false,
+    "wlosy": "rozpuszczone",
+    "trzyma": "gwiazda",
+    "kierunek": "prawo",
+    "gwiazda_promienie": 8,
+    "gwiazda_ogon": false,
+    "gwiazda_kolor": "brak"
+   },
+   "pozycja": {
+    "krag": "wewn",
+    "kolejnosc": 2,
+    "kat": 36.1,
+    "promien": 0.362,
+    "x": 0.8267,
+    "y": 0.3393
+   },
+   "etykieta": {
+    "locus": "23",
+    "rodzaj": "Lz",
+    "slowa": [
+     "oeedy"
+    ]
+   },
+   "zrodlo": "vision",
+   "pewnosc": 1,
+   "uwaga": "szkic z GPU: postaci 30 (oczekiwano 30), etykiet 30; model widzi znak 'waga', tabela mówi 'panna'; sprawdzić kolejność na PNG"
+  },
+  {
+   "id": "f72v2-22",
+   "typ": "nimfa",
+   "cechy": {
+    "naga": false,
+    "w_obiekcie": null,
+    "korona": false,
+    "wlosy": "rozpuszczone",
+    "trzyma": "gwiazda",
+    "kierunek": "prawo",
+    "gwiazda_promienie": 8,
+    "gwiazda_ogon": false,
+    "gwiazda_kolor": "brak"
+   },
+   "pozycja": {
+    "krag": "wewn",
+    "kolejnosc": 3,
+    "kat": 63.5,
+    "promien": 0.387,
+    "x": 0.8621,
+    "y": 0.3896
+   },
+   "etykieta": {
+    "locus": "24",
+    "rodzaj": "Lz",
+    "slowa": [
+     "opalg"
+    ]
+   },
+   "zrodlo": "vision",
+   "pewnosc": 1,
+   "uwaga": "szkic z GPU: postaci 30 (oczekiwano 30), etykiet 30; model widzi znak 'waga', tabela mówi 'panna'; sprawdzić kolejność na PNG"
+  },
+  {
+   "id": "f72v2-23",
+   "typ": "nimfa",
+   "cechy": {
+    "naga": true,
+    "w_obiekcie": null,
+    "korona": false,
+    "wlosy": "nie_widac",
+    "trzyma": "gwiazda",
+    "kierunek": "prawo",
+    "gwiazda_promienie": 8,
+    "gwiazda_ogon": false,
+    "gwiazda_kolor": "brak"
+   },
+   "pozycja": {
+    "krag": "wewn",
+    "kolejnosc": 4,
+    "kat": 94.5,
+    "promien": 0.359,
+    "x": 0.8652,
+    "y": 0.4736
+   },
+   "etykieta": {
+    "locus": "25",
+    "rodzaj": "Lz",
+    "slowa": [
+     "okeeom"
+    ]
+   },
+   "zrodlo": "vision",
+   "pewnosc": 1,
+   "uwaga": "szkic z GPU: postaci 30 (oczekiwano 30), etykiet 30; model widzi znak 'waga', tabela mówi 'panna'; sprawdzić kolejność na PNG"
+  },
+  {
+   "id": "f72v2-24",
+   "typ": "nimfa",
+   "cechy": {
+    "naga": false,
+    "w_obiekcie": null,
+    "korona": false,
+    "wlosy": "rozpuszczone",
+    "trzyma": "gwiazda",
+    "kierunek": "prawo",
+    "gwiazda_promienie": 8,
+    "gwiazda_ogon": false,
+    "gwiazda_kolor": "brak"
+   },
+   "pozycja": {
+    "krag": "wewn",
+    "kolejnosc": 5,
+    "kat": 129.1,
+    "promien": 0.382,
+    "x": 0.8489,
+    "y": 0.5628
+   },
+   "etykieta": {
+    "locus": "26",
+    "rodzaj": "Lz",
+    "slowa": [
+     "olkar"
+    ]
+   },
+   "zrodlo": "vision",
+   "pewnosc": 1,
+   "uwaga": "szkic z GPU: postaci 30 (oczekiwano 30), etykiet 30; model widzi znak 'waga', tabela mówi 'panna'; sprawdzić kolejność na PNG"
+  },
+  {
+   "id": "f72v2-25",
+   "typ": "nimfa",
+   "cechy": {
+    "naga": true,
+    "w_obiekcie": null,
+    "korona": false,
+    "wlosy": "rozpuszczone",
+    "trzyma": "gwiazda",
+    "kierunek": "przod",
+    "gwiazda_promienie": 8,
+    "gwiazda_ogon": false,
+    "gwiazda_kolor": "brak"
+   },
+   "pozycja": {
+    "krag": "wewn",
+    "kolejnosc": 6,
+    "kat": 155.2,
+    "promien": 0.357,
+    "x": 0.8098,
+    "y": 0.5975
+   },
+   "etykieta": {
+    "locus": "27",
+    "rodzaj": "Lz",
+    "slowa": [
+     "oeedaly"
+    ]
+   },
+   "zrodlo": "vision",
+   "pewnosc": 1,
+   "uwaga": "szkic z GPU: postaci 30 (oczekiwano 30), etykiet 30; model widzi znak 'waga', tabela mówi 'panna'; sprawdzić kolejność na PNG"
+  },
+  {
+   "id": "f72v2-26",
+   "typ": "nimfa",
+   "cechy": {
+    "naga": true,
+    "w_obiekcie": null,
+    "korona": false,
+    "wlosy": "nie_widac",
+    "trzyma": "gwiazda",
+    "kierunek": "prawo",
+    "gwiazda_promienie": 8,
+    "gwiazda_ogon": false,
+    "gwiazda_kolor": "brak"
+   },
+   "pozycja": {
+    "krag": "wewn",
+    "kolejnosc": 7,
+    "kat": 185.8,
+    "promien": 0.365,
+    "x": 0.7602,
+    "y": 0.6142
+   },
+   "etykieta": {
+    "locus": "28",
+    "rodzaj": "Lz",
+    "slowa": [
+     "cheosy"
+    ]
+   },
+   "zrodlo": "vision",
+   "pewnosc": 1,
+   "uwaga": "szkic z GPU: postaci 30 (oczekiwano 30), etykiet 30; model widzi znak 'waga', tabela mówi 'panna'; sprawdzić kolejność na PNG"
+  },
+  {
+   "id": "f72v2-27",
+   "typ": "nimfa",
+   "cechy": {
+    "naga": false,
+    "w_obiekcie": null,
+    "korona": false,
+    "wlosy": "nie_widac",
+    "trzyma": "gwiazda",
+    "kierunek": "prawo",
+    "gwiazda_promienie": 8,
+    "gwiazda_ogon": false,
+    "gwiazda_kolor": "brak"
+   },
+   "pozycja": {
+    "krag": "wewn",
+    "kolejnosc": 8,
+    "kat": 216.9,
+    "promien": 0.417,
+    "x": 0.7033,
+    "y": 0.6015
+   },
+   "etykieta": {
+    "locus": "29",
+    "rodzaj": "Lz",
+    "slowa": [
+     "ofcheay"
+    ]
+   },
+   "zrodlo": "vision",
+   "pewnosc": 1,
+   "uwaga": "szkic z GPU: postaci 30 (oczekiwano 30), etykiet 30; model widzi znak 'waga', tabela mówi 'panna'; sprawdzić kolejność na PNG"
+  },
+  {
+   "id": "f72v2-28",
+   "typ": "nimfa",
+   "cechy": {
+    "naga": false,
+    "w_obiekcie": null,
+    "korona": false,
+    "wlosy": "nie_widac",
+    "trzyma": "gwiazda",
+    "kierunek": "prawo",
+    "gwiazda_promienie": 8,
+    "gwiazda_ogon": false,
+    "gwiazda_kolor": "brak"
+   },
+   "pozycja": {
+    "krag": "wewn",
+    "kolejnosc": 9,
+    "kat": 244.0,
+    "promien": 0.375,
+    "x": 0.6803,
+    "y": 0.5308
+   },
+   "etykieta": {
+    "locus": "30",
+    "rodzaj": "Lz",
+    "slowa": [
+     "yteedy"
+    ]
+   },
+   "zrodlo": "vision",
+   "pewnosc": 1,
+   "uwaga": "szkic z GPU: postaci 30 (oczekiwano 30), etykiet 30; model widzi znak 'waga', tabela mówi 'panna'; sprawdzić kolejność na PNG"
+  },
+  {
+   "id": "f72v2-29",
+   "typ": "nimfa",
+   "cechy": {
+    "naga": true,
+    "w_obiekcie": null,
+    "korona": false,
+    "wlosy": "rozpuszczone",
+    "trzyma": "gwiazda",
+    "kierunek": "prawo",
+    "gwiazda_promienie": 8,
+    "gwiazda_ogon": false,
+    "gwiazda_kolor": "brak"
+   },
+   "pozycja": {
+    "krag": "wewn",
+    "kolejnosc": 10,
+    "kat": 274.5,
+    "promien": 0.326,
+    "x": 0.6837,
+    "y": 0.4511
+   },
+   "etykieta": {
+    "locus": "31",
+    "rodzaj": "Lz",
+    "slowa": [
+     "onaiin"
+    ]
+   },
+   "zrodlo": "vision",
+   "pewnosc": 1,
+   "uwaga": "szkic z GPU: postaci 30 (oczekiwano 30), etykiet 30; model widzi znak 'waga', tabela mówi 'panna'; sprawdzić kolejność na PNG"
+  },
+  {
+   "id": "f72v2-30",
+   "typ": "nimfa",
+   "cechy": {
+    "naga": true,
+    "w_obiekcie": null,
+    "korona": false,
+    "wlosy": "rozpuszczone",
+    "trzyma": "gwiazda",
+    "kierunek": "prawo",
+    "gwiazda_promienie": 8,
+    "gwiazda_ogon": false,
+    "gwiazda_kolor": "inny"
+   },
+   "pozycja": {
+    "krag": "wewn",
+    "kolejnosc": 11,
+    "kat": 346.4,
+    "promien": 0.291,
+    "x": 0.7518,
+    "y": 0.3431
+   },
+   "etykieta": {
+    "locus": "32",
+    "rodzaj": "Lz",
+    "slowa": [
+     "okeorar"
+    ]
+   },
+   "zrodlo": "vision",
+   "pewnosc": 1,
+   "uwaga": "szkic z GPU: postaci 30 (oczekiwano 30), etykiet 30; model widzi znak 'waga', tabela mówi 'panna'; sprawdzić kolejność na PNG"
+  }
+ ]
+}
