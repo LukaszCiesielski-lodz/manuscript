@@ -17,7 +17,7 @@ from ..results import TheoryResult
 
 def run(cfg: LabConfig) -> TheoryResult:
     t0 = time.time()
-    shuffles = 30 if cfg.quick else 200
+    shuffles = 30 if cfg.quick else 1000   # 1000: p popr. < 0,05 must be reachable with 32 pairs
     res = TheoryResult(
         theory="cribs",
         hypothesis="Słowa w kołach diagramów to nazwy tego, co diagram pokazuje, zapisane szyfrem literowym: 28 słów f69v = 28 stacji "
