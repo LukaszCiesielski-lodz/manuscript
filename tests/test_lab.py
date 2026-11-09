@@ -346,6 +346,18 @@ class BombaTest(unittest.TestCase):
         dealt = H.shuffle_pages(pages, 0)
         self.assertEqual(sorted(map(str, (l for p in dealt for l in p))), sorted(map(str, (l for p in pages for l in p))))
 
+    def test_polybius_reads_control_and_pairs_phase(self):
+        from voynich.lab import polybius as P
+        self.assertEqual(P.pairs([1, 2, 3, 12, 5], 0), [1, 26])
+        self.assertEqual(P.pairs([1, 2, 3, 12, 5], 1), [11, 76])
+        txt = P.letters("Latin")
+        lm = P.TrigramLM(txt[:150000])
+        enc, truth = P.encode(txt[150000:154000], 1)
+        sym = P.pairs(enc)
+        key, _ = P.solve(sym, lm, 20000, 4, 0)
+        acc = sum(lm.alphabet[key[s]] == t for s, t in zip(sym, truth)) / len(truth)
+        self.assertGreaterEqual(acc, 0.8)
+
     def test_registered(self):
         from voynich.lab.registry import THEORIES, expand
         self.assertEqual(expand(["bomba"]), ["hapax_source", "cribs", "nomenclator2"])

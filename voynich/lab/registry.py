@@ -80,6 +80,7 @@ THEORIES = {t.name: t for t in [
     Theory("catalog", "Analiza przekrojowa: katalog rycin Zandbergena wobec tekstu", (), "catalog:run"),
     Theory("hapax_source", "Skąd hapaksy: pomyłki kopisty nomenklatora czy kopiowanie z sąsiedztwa", (), "hapax_source:run"),
     Theory("cribs", "Ściągi z diagramów: 28 stacji Księżyca, znaki zodiaku i miesiące w kołach", (), "cribs:run"),
+    Theory("polybius", "Polibiusz w długościach słów: dwie długości = jedna litera", (), "polybius:run"),
     Theory("nomenclator2", "Nomenklator z dwoma kluczami i pomyłkami: hebrajski, arabski, łacina (Gibbs na GPU)", ("gpu",), "nomenclator2:run"),
 ]}
 ALIASES = {"literature": ["naibbe_cipher", "cardan_grille", "hebrew_anagram"], "rejestr": ["labels", "records", "lists"],
