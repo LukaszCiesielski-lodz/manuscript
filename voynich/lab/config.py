@@ -65,6 +65,12 @@ class LabConfig:
     nomen2_units: int = 200        # most frequent plaintext words written whole; the rest is spelled
     nomen2_pool: int = 800         # code words drawn from the manuscript's most frequent types
 
+    # The master card (theory "master_card"): a table of word pieces in ordered columns.
+    card_columns: int = 6
+    card_budgets: list[int] = field(default_factory=lambda: [40, 80, 120, 200])
+    card_population: int = 512     # cards scored at once on the GPU (capped at 32 in numpy)
+    card_generations: int = 600    # (capped at 150 in numpy)
+
     # The wheel (volvelle) search and the transformer judge (theories "wheel", "adversary").
     wheel_rings: int = 3
     wheel_cells: int = 24

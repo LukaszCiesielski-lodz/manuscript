@@ -581,6 +581,34 @@ for t in ("hapax_source", "cribs", "nomenclator2"):
 ]
 
 
+# The master card (GPU, ~15 min): can one small table of word pieces write the manuscript?
+karta_cells = [
+    ("md", """# Voynich Lab – karta matka
+
+Czy skrybowie pisali z jednej karty-wzornika? Karta to tabela kawałków słów w kolumnach od początku do końca słowa; słowo
+składa się, biorąc z każdej kolumny co najwyżej jeden kawałek. Test szuka najmniejszej karty, z której da się złożyć
+słowa rękopisu, i porównuje ją z łaciną, włoskim, bełkotem v7, rękopisem z przetasowanymi glifami i tekstem pisanym znaną
+kartą (kontrola). Potem sprawdza, czy języki A i B Curriera to dwie wersje jednej karty. Wynik: tabela karty
+`master_card/karta.md` na `lab-results`.
+
+**Runtime: GPU A100.** Sekrety: `GITHUB_TOKEN`, `OPENROUTER_API_KEY`. Czas: ok. 15–20 min."""),
+    cells[1], cells[3],
+    ("code", """!python scripts/fetch_data.py
+try:
+    import cupy; print("cupy", cupy.__version__, "GPU:", cupy.cuda.runtime.getDeviceCount())
+except Exception as e:
+    print("brak cupy (", e, ") - instaluję"); import subprocess; subprocess.run("pip -q install cupy-cuda12x", shell=True)"""),
+    cells[5],
+    ("code", cells[7][1].replace('theories=["all"],          # albo np. ["numbers", "literature"]', 'theories=["master_card"],')),
+    ("code", """lab.run("master_card"); lab.push()
+lab.convene(["master_card"])
+lab.report(); lab.push()
+from IPython.display import Markdown, display
+display(Markdown((lab.cfg.results_dir / "master_card.md").read_text()))
+display(Markdown((lab.cfg.results_dir / "master_card" / "karta.md").read_text()))"""),
+]
+
+
 def cell(kind, text):
     src = text.splitlines(keepends=True)
     if kind == "md":
@@ -633,7 +661,7 @@ for name, cs in (("Voynich_Lab.ipynb", cells), ("Voynich_Ilustracje.ipynb", illu
                  ("Voynich_Klucz_Dlugosci.ipynb", lengthkey_cells), ("Voynich_Brute_Dlugosci.ipynb", brute_length_cells),
                  ("Voynich_Sedzia.ipynb", judge_cells), ("Voynich_Rosliny.ipynb", plants_cells),
                  ("Voynich_Atomy.ipynb", atoms_cells), ("Voynich_Atomy_GPU.ipynb", atoms_gpu_cells),
-                 ("Voynich_Bomba.ipynb", bomba_cells)):
+                 ("Voynich_Bomba.ipynb", bomba_cells), ("Voynich_Karta.ipynb", karta_cells)):
     base = nb_cpu if name in ("Voynich_Rejestr.ipynb", "Voynich_Klucz.ipynb", "Voynich_Rosliny.ipynb", "Voynich_Atomy.ipynb") else nb
     out = Path(__file__).with_name(name)
     out.write_text(json.dumps({**base, "cells": [cell(k, t) for k, t in cs]}, indent=1, ensure_ascii=False), encoding="utf-8")

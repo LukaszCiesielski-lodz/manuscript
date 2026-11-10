@@ -259,7 +259,8 @@ class NotebookTest(unittest.TestCase):
                      "Voynich_Notacja.ipynb", "Voynich_Rejestr.ipynb", "Voynich_Rejestr_GPU.ipynb",
                      "Voynich_Klucz.ipynb", "Voynich_V7.ipynb", "Voynich_Klucz_Dlugosci.ipynb",
                      "Voynich_Brute_Dlugosci.ipynb", "Voynich_Sedzia.ipynb", "Voynich_Rosliny.ipynb",
-                     "Voynich_Atomy.ipynb", "Voynich_Atomy_GPU.ipynb", "Voynich_Bomba.ipynb"):
+                     "Voynich_Atomy.ipynb", "Voynich_Atomy_GPU.ipynb", "Voynich_Bomba.ipynb",
+                     "Voynich_Karta.ipynb"):
             nb = json.loads((Path(__file__).resolve().parent.parent / "colab" / name).read_text(encoding="utf-8"))
             for i, c in enumerate(nb["cells"]):
                 if c["cell_type"] == "code":
@@ -357,6 +358,36 @@ class BombaTest(unittest.TestCase):
         key, _ = P.solve(sym, lm, 20000, 4, 0)
         acc = sum(lm.alphabet[key[s]] == t for s, t in zip(sym, truth)) / len(truth)
         self.assertGreaterEqual(acc, 0.8)
+
+    def test_card_parser_matches_brute_force(self):
+        import numpy as np
+        from voynich.lab import card as K
+        chunks = [("a",), ("b",), ("c",), ("a", "b"), ("b", "c")]
+        enc = K.Encoded([("a", "b", "c"), ("c", "a"), ("a", "b"), ("b",), ("a", "a")], chunks)
+        card = np.zeros((5, 3), bool)
+        card[3, 0] = card[2, 1] = card[1, 2] = True                    # ab | c | b
+
+        def brute(w, i=0, col=0):
+            if i == len(w):
+                return col > 0
+            for n in (1, 2):
+                g = tuple(w[i:i + n])
+                if g in chunks and any(card[chunks.index(g), k] and brute(w, i + n, k + 1) for k in range(col, 3)):
+                    return True
+            return False
+        self.assertEqual(K.parsed(np, card[None], enc)[0].tolist(), [brute(w) for w in enc.fit_types])
+
+    def test_true_card_writes_its_text_and_evolution_finds_a_card(self):
+        from voynich import corpus, eva
+        from voynich.lab import card as K
+        ms = [tuple(eva.glyphs(w)) for l in corpus.load_voynich() if l.kind.startswith("P") for w in l.words][:6000]
+        chunks = K.chunk_inventory(ms)
+        syn, true = K.synthetic(chunks, 4000, 3, noise=0.0)
+        enc = K.Encoded(syn, chunks)
+        self.assertAlmostEqual(K.evaluate(true, enc, prefer_gpu=False), 1.0)
+        r = K.evolve(enc, syn, chunks, 60, 6, 8, 40, 0, prefer_gpu=False)
+        self.assertGreater(r["coverage"], 0.3)
+        self.assertLessEqual(r["size"], 60)
 
     def test_registered(self):
         from voynich.lab.registry import THEORIES, expand
