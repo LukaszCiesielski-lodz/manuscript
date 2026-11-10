@@ -389,6 +389,17 @@ class BombaTest(unittest.TestCase):
         self.assertGreater(r["coverage"], 0.3)
         self.assertLessEqual(r["size"], 60)
 
+    def test_prune_finds_small_full_card(self):
+        from voynich import corpus, eva
+        from voynich.lab import card as K
+        ms = [tuple(eva.glyphs(w)) for l in corpus.load_voynich() if l.kind.startswith("P") for w in l.words][:6000]
+        chunks = K.chunk_inventory(ms)
+        syn, true = K.synthetic(chunks, 3000, 5, noise=0.0)
+        enc = K.Encoded(syn, chunks)
+        r = K.prune(enc, chunks, 6, 1.0, 2, 0, prefer_gpu=False)
+        self.assertAlmostEqual(K.evaluate(r["card"], enc, prefer_gpu=False), 1.0)
+        self.assertLessEqual(r["size"], 2 * int(true.sum()))
+
     def test_registered(self):
         from voynich.lab.registry import THEORIES, expand
         self.assertEqual(expand(["bomba"]), ["hapax_source", "cribs", "nomenclator2"])

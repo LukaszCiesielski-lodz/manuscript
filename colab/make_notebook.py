@@ -588,10 +588,12 @@ karta_cells = [
 Czy skrybowie pisali z jednej karty-wzornika? Karta to tabela kawałków słów w kolumnach od początku do końca słowa; słowo
 składa się, biorąc z każdej kolumny co najwyżej jeden kawałek. Test szuka najmniejszej karty, z której da się złożyć
 słowa rękopisu, i porównuje ją z łaciną, włoskim, bełkotem v7, rękopisem z przetasowanymi glifami i tekstem pisanym znaną
-kartą (kontrola). Potem sprawdza, czy języki A i B Curriera to dwie wersje jednej karty. Wynik: tabela karty
-`master_card/karta.md` na `lab-results`.
+kartą (kontrola), i sprawdza, czy języki A i B Curriera to dwie wersje jednej karty (`master_card`). Najpierw `master_card_full`:
+GPU szuka najmniejszej karty, z której da się złożyć 100% słów (256 kart przycina kartę pełną naraz, każda w swojej
+kolejności, potem ewolucja zmniejsza najlepszą), i porównuje jej rozmiar z łaciną, włoskim, v7 i rękopisem przetasowanym.
+Wyniki: `master_card/karta.md` i `master_card_full/karta100.md` na `lab-results`.
 
-**Runtime: GPU A100.** Sekrety: `GITHUB_TOKEN`, `OPENROUTER_API_KEY`. Czas: ok. 15–20 min."""),
+**Runtime: GPU A100.** Sekrety: `GITHUB_TOKEN`, `OPENROUTER_API_KEY`. Czas: ok. 45–60 min."""),
     cells[1], cells[3],
     ("code", """!python scripts/fetch_data.py
 try:
@@ -599,11 +601,14 @@ try:
 except Exception as e:
     print("brak cupy (", e, ") - instaluję"); import subprocess; subprocess.run("pip -q install cupy-cuda12x", shell=True)"""),
     cells[5],
-    ("code", cells[7][1].replace('theories=["all"],          # albo np. ["numbers", "literature"]', 'theories=["master_card"],')),
-    ("code", """lab.run("master_card"); lab.push()
-lab.convene(["master_card"])
-lab.report(); lab.push()
+    ("code", cells[7][1].replace('theories=["all"],          # albo np. ["numbers", "literature"]', 'theories=["master_card_full", "master_card"],')),
+    ("code", """lab.run("master_card_full"); lab.push()
 from IPython.display import Markdown, display
+display(Markdown((lab.cfg.results_dir / "master_card_full.md").read_text()))
+display(Markdown((lab.cfg.results_dir / "master_card_full" / "karta100.md").read_text()))"""),
+    ("code", """lab.run("master_card"); lab.push()
+lab.convene(["master_card_full", "master_card"])
+lab.report(); lab.push()
 display(Markdown((lab.cfg.results_dir / "master_card.md").read_text()))
 display(Markdown((lab.cfg.results_dir / "master_card" / "karta.md").read_text()))"""),
 ]

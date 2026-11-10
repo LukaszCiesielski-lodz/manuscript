@@ -135,7 +135,7 @@ def mutate(card: np.ndarray, budget: int, r: random.Random, chunk_p: np.ndarray)
 
 
 def evolve(enc: Encoded, tokens: Sequence[Word], chunks: Sequence[Word], budget: int, K: int = 6, population: int = 32,
-           generations: int = 300, seed: int = 0, prefer_gpu: bool = True, log=None) -> dict:
+           generations: int = 300, seed: int = 0, prefer_gpu: bool = True, log=None, init: np.ndarray | None = None) -> dict:
     """Best card of at most `budget` entries for the corpus; returns the card, its coverage and its size."""
     xp = array_module(prefer_gpu)
     dev = {"ids": xp.asarray(enc.ids), "lengths": xp.asarray(enc.lengths), "weights": xp.asarray(enc.weights)}
@@ -149,7 +149,11 @@ def evolve(enc: Encoded, tokens: Sequence[Word], chunks: Sequence[Word], budget:
                 if j is not None:
                     freq[j] += n
     chunk_p = (freq + 1) / (freq + 1).sum()
-    start = heuristic_card(chunks, positions(tokens, chunks), freq, budget, K)
+    start = heuristic_card(chunks, positions(tokens, chunks), freq, budget, K) if init is None else init.copy()
+    while start.sum() > budget:
+        on = np.argwhere(start)
+        a, b = on[r.randrange(len(on))]
+        start[a, b] = False
     pop = [start] + [mutate(start, budget, r, chunk_p) for _ in range(population - 1)]
     keep = max(2, population // 4)
     best = (-1.0, None)
@@ -223,3 +227,69 @@ def table(card: np.ndarray, chunks: Sequence[Word], freq: Sequence[float] | None
             ids.sort(key=lambda j: -freq[j])
         cols.append([sep.join(chunks[j]) for j in ids])
     return cols
+
+
+def piece_frequency(enc: Encoded, chunks: Sequence[Word]) -> np.ndarray:
+    index = {g: i for i, g in enumerate(chunks)}
+    freq = np.zeros(len(chunks))
+    for w, n in zip(enc.fit_types, enc.weights):
+        for k in range(1, enc.n_max + 1):
+            for i in range(len(w) - k + 1):
+                j = index.get(w[i:i + k])
+                if j is not None:
+                    freq[j] += n
+    return freq
+
+
+def prune(enc: Encoded, chunks: Sequence[Word], K: int = 6, target: float = 1.0, population: int = 8, seed: int = 0,
+          prefer_gpu: bool = True, log=None) -> dict:
+    """Smallest card found by pruning the full card: every one of `population` cards removes the entries one at a time,
+    each in its own order, and keeps a removal only when the card still writes `target` of the tokens. Orders: half
+    random, half rare-and-long pieces first (with noise). All cards are checked at once at every step."""
+    xp = array_module(prefer_gpu)
+    dev = {"ids": xp.asarray(enc.ids), "lengths": xp.asarray(enc.lengths), "weights": xp.asarray(enc.weights)}
+    freq = piece_frequency(enc, chunks)
+    full = np.repeat((freq > 0)[:, None], K, 1)                 # pieces absent from this corpus are never needed
+    target = min(target, float(_host(coverage(xp, xp.asarray(full[None]), enc, dev))[0]))
+    entries = np.argwhere(full)
+    E = len(entries)
+    rng = np.random.default_rng(seed)
+    orders = []
+    key = np.array([-len(chunks[a]) * 10.0 + np.log1p(freq[a]) for a, _ in entries])
+    for p in range(population):
+        if p % 2:
+            orders.append(np.argsort(key + rng.normal(0, 1.0, E)))
+        else:
+            orders.append(rng.permutation(E))
+    orders = np.stack(orders)
+    cards = xp.asarray(np.repeat(full[None], population, 0))
+    rows = xp.arange(population)
+    for t in range(E):
+        a = xp.asarray(entries[orders[:, t], 0])
+        b = xp.asarray(entries[orders[:, t], 1])
+        cards[rows, a, b] = False
+        bad = coverage(xp, cards, enc, dev) < target - 1e-9
+        cards[rows[bad], a[bad], b[bad]] = True
+        if log and (t + 1) % max(1, E // 5) == 0:
+            log(f"    krok {t + 1}/{E}: najmniejsza karta {int(_host(cards.sum((1, 2))).min())} wpisów")
+    cards_h = _host(cards)
+    sizes = cards_h.sum((1, 2))
+    best = int(sizes.argmin())
+    return {"card": cards_h[best], "size": int(sizes[best]), "sizes": sizes.tolist(), "target": target,
+            "backend": xp.__name__}
+
+
+def shrink(enc: Encoded, tokens: Sequence[Word], chunks: Sequence[Word], card: np.ndarray, target: float, K: int = 6,
+           population: int = 32, generations: int = 60, rounds: int = 10, seed: int = 0, prefer_gpu: bool = True,
+           log=None) -> np.ndarray:
+    """Make a card that writes `target` of the tokens smaller: evolution under budget size - 1, as long as it still
+    reaches the target."""
+    best = card
+    for k in range(rounds):
+        r = evolve(enc, tokens, chunks, int(best.sum()) - 1, K, population, generations, seed + k, prefer_gpu, init=best)
+        if r["coverage"] < target - 1e-9:
+            break
+        best = r["card"]
+        if log:
+            log(f"    zmniejszona do {int(best.sum())} wpisów")
+    return best

@@ -70,6 +70,7 @@ class LabConfig:
     card_budgets: list[int] = field(default_factory=lambda: [40, 80, 120, 200])
     card_population: int = 512     # cards scored at once on the GPU (capped at 32 in numpy)
     card_generations: int = 600    # (capped at 150 in numpy)
+    card_prune_population: int = 256  # cards pruning the full card at once, each in its own order (theory master_card_full)
 
     # The wheel (volvelle) search and the transformer judge (theories "wheel", "adversary").
     wheel_rings: int = 3

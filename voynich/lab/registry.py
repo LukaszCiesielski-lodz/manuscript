@@ -82,6 +82,7 @@ THEORIES = {t.name: t for t in [
     Theory("cribs", "Ściągi z diagramów: 28 stacji Księżyca, znaki zodiaku i miesiące w kołach", (), "cribs:run"),
     Theory("polybius", "Polibiusz w długościach słów: dwie długości = jedna litera", (), "polybius:run"),
     Theory("master_card", "Karta matka: czy słowa składano z jednej tabeli kawałków", ("gpu",), "master_card:run"),
+    Theory("master_card_full", "Karta matka na 100% słów: jak mała może być", ("gpu",), "master_card_full:run"),
     Theory("nomenclator2", "Nomenklator z dwoma kluczami i pomyłkami: hebrajski, arabski, łacina (Gibbs na GPU)", ("gpu",), "nomenclator2:run"),
 ]}
 ALIASES = {"literature": ["naibbe_cipher", "cardan_grille", "hebrew_anagram"], "rejestr": ["labels", "records", "lists"],
