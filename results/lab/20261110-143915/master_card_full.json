@@ -1,0 +1,132 @@
+{
+ "theory": "master_card_full",
+ "hypothesis": "Istnieje mała karta matka, z której da się złożyć każde słowo rękopisu (100%), znacznie mniejsza niż dla języka.",
+ "method": "Karta pełna (6 kolumn, wszystkie kawałki n ≤ 3 we wszystkich kolumnach) składa 100% słów. 256 kart przycina ją naraz, każda w swojej kolejności (połowa losowo, połowa najpierw rzadkie i długie kawałki): wpis znika, gdy bez niego nadal składa się cel (100% i 99% tokenów). Najmniejszą kartę zmniejsza dalej ewolucja (populacja 256, 100 pokoleń na rundę, do 40 rund) pod budżetem o jeden wpis mniejszym. cupy/GPU. Te same kroki dla łaciny, włoskiego, bełkotu v7, rękopisu z glifami przetasowanymi w słowie i tekstu pisanego znaną kartą 40 wpisów (kontrola).",
+ "verdict": "potwierdzona",
+ "summary": "Każde słowo rękopisu da się złożyć z karty 242 wpisów (99% słów: 132); łacina potrzebuje 639, włoski 556, rękopis z przetasowanymi glifami 563, bełkot v7 211.",
+ "metrics": {
+  "sizes": {
+   "rękopis": {
+    "1.0": {
+     "pruned": 248,
+     "final": 242,
+     "target": 1.0,
+     "pieces": 576,
+     "types": 7018
+    },
+    "0.99": {
+     "pruned": 172,
+     "final": 132,
+     "target": 0.99,
+     "pieces": 576,
+     "types": 7018
+    }
+   },
+   "syntetyczny (karta 40 wpisów)": {
+    "1.0": {
+     "pruned": 40,
+     "final": 40,
+     "target": 1.0,
+     "pieces": 576,
+     "types": 6229
+    },
+    "0.99": {
+     "pruned": 59,
+     "final": 40,
+     "target": 0.99,
+     "pieces": 576,
+     "types": 6229
+    }
+   },
+   "łacina": {
+    "1.0": {
+     "pruned": 639,
+     "final": 639,
+     "target": 1.0,
+     "pieces": 1325,
+     "types": 7098
+    },
+    "0.99": {
+     "pruned": 617,
+     "final": 562,
+     "target": 0.99,
+     "pieces": 1325,
+     "types": 7098
+    }
+   },
+   "włoski": {
+    "1.0": {
+     "pruned": 558,
+     "final": 556,
+     "target": 0.9997128087306146,
+     "pieces": 1108,
+     "types": 4191
+    },
+    "0.99": {
+     "pruned": 465,
+     "final": 422,
+     "target": 0.99,
+     "pieces": 1108,
+     "types": 4191
+    }
+   },
+   "v7": {
+    "1.0": {
+     "pruned": 213,
+     "final": 211,
+     "target": 1.0,
+     "pieces": 568,
+     "types": 6539
+    },
+    "0.99": {
+     "pruned": 165,
+     "final": 125,
+     "target": 0.99,
+     "pieces": 568,
+     "types": 6539
+    }
+   },
+   "przetasowany w słowie": {
+    "1.0": {
+     "pruned": 563,
+     "final": 563,
+     "target": 1.0,
+     "pieces": 1165,
+     "types": 6952
+    },
+    "0.99": {
+     "pruned": 396,
+     "final": 355,
+     "target": 0.99,
+     "pieces": 1165,
+     "types": 6952
+    }
+   }
+  }
+ },
+ "controls": [
+  {
+   "name": "tekst pisany kartą 40 wpisów: znaleziona karta na 100%",
+   "expectation": "≤ 80 wpisów",
+   "observed": "40 wpisów",
+   "passed": true
+  }
+ ],
+ "evidence": [
+  "Najmniejsza karta (wpisy; cel 100% / 99% tokenów, w nawiasie osiągalny sufit): rękopis: 242 / 132; syntetyczny (karta 40 wpisów): 40 / 40; łacina: 639 / 562; włoski: 556 (1.000) / 422; v7: 211 / 125; przetasowany w słowie: 563 / 355."
+ ],
+ "caveats": [
+  "Wpisy potrzebne tylko dla jednego słowa (hapaksu) też liczą się do karty; 99% to miara odporniejsza na pojedyncze dziwne słowa.",
+  "Przycinanie i ewolucja znajdują małą kartę, nie dowodzą, że mniejszej nie ma."
+ ],
+ "references": [
+  "Stolfi, crust–mantle–core paradigm of Voynichese words",
+  "Rugg, Cryptologia 28 (2004)"
+ ],
+ "artifacts": [
+  "master_card_full/karta100.md",
+  "master_card_full/karta100.json"
+ ],
+ "seconds": 27670.702362298965,
+ "council": {}
+}
