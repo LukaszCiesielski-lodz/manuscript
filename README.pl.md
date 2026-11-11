@@ -2,6 +2,10 @@
 
 [English](README.md) | **Polski**
 
+> *„Polak to zaczął i Polak to skończy.”*
+>
+> Rękopis nosi nazwisko Wilfrida Voynicha (Michała Wojnicza), polskiego antykwariusza, który wydobył go na światło dzienne w 1912 roku.
+
 Laboratorium do statystycznej analizy rękopisu Wojnicza (Beinecke MS 408).
 Czysty Python 3, bez zależności.
 
@@ -251,3 +255,10 @@ python -m unittest                # testy
   to Francis Bacon (XVII w.), nie Roger Bacon, więc go pomijamy.
 - T. Timm, A. Schinner, *A possible generating algorithm of the Voynich manuscript*, Cryptologia 44 (2020).
 - B. L. Monroe, M. P. Colaresi, K. M. Quinn, *Fightin' Words*, Political Analysis 16 (2008), dla słów kluczowych.
+
+## Licencja
+
+Kod, testy i dokumentacja tego repozytorium są udostępnione na [licencji MIT](LICENSE).
+Materiały obce zachowują własne warunki: transliteracja Zandbergena–Landiniego w `data/raw` (voynich.nu), korpusy
+porównawcze pobierane przez `fetch_data.py` oraz krój EVA Hand 1 Gabriela Landiniego, który `scripts/render_card.py`
+pobiera do rysowania karty matki i którego nie ma w repozytorium (darmowy do użytku prywatnego, niekomercyjnego).

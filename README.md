@@ -2,6 +2,10 @@
 
 **English** | [Polski](README.pl.md)
 
+> *"A Pole started it, and a Pole will finish it."*
+>
+> The manuscript bears the name of Wilfrid Voynich (Michał Wojnicz), the Polish bookseller who brought it to light in 1912.
+
 A laboratory for statistical analysis of the Voynich manuscript (Beinecke MS 408).
 Pure Python 3, no dependencies.
 
@@ -251,3 +255,10 @@ python -m unittest                # tests
   is Francis Bacon (17th century), not Roger Bacon, so we skip it.
 - T. Timm, A. Schinner, *A possible generating algorithm of the Voynich manuscript*, Cryptologia 44 (2020).
 - B. L. Monroe, M. P. Colaresi, K. M. Quinn, *Fightin' Words*, Political Analysis 16 (2008), for the keywords.
+
+## License
+
+The code, the tests and the documentation of this repository are released under the [MIT License](LICENSE).
+Third-party material keeps its own terms: the Zandbergen–Landini transliteration in `data/raw` (voynich.nu), the reference
+corpora fetched by `fetch_data.py`, and Gabriel Landini's EVA Hand 1 font, which `scripts/render_card.py` downloads for
+drawing the master card and which is not part of the repository (free for private, non-commercial use).
