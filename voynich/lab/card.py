@@ -293,3 +293,17 @@ def shrink(enc: Encoded, tokens: Sequence[Word], chunks: Sequence[Word], card: n
         if log:
             log(f"    zmniejszona do {int(best.sum())} wpisów")
     return best
+
+
+def card_from_table(columns: Sequence[Sequence[str]], chunks: Sequence[Word]) -> np.ndarray:
+    """A card stored as columns of piece strings (voynich.lab.card.table) back as the matrix over `chunks`."""
+    by_name: dict[str, int] = {}
+    for j, g in enumerate(chunks):
+        by_name.setdefault("".join(g), j)
+    card = np.zeros((len(chunks), len(columns)), dtype=bool)
+    for k, col in enumerate(columns):
+        for name in col:
+            if name not in by_name:
+                raise KeyError(f"piece {name!r} of column {k + 1} is not among the chunks")
+            card[by_name[name], k] = True
+    return card

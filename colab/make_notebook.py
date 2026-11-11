@@ -614,6 +614,30 @@ display(Markdown((lab.cfg.results_dir / "master_card" / "karta.md").read_text())
 ]
 
 
+# One word = one letter? (GPU, ~30 min on an A100): the solver on streams of choices from the master card.
+strumien_cells = [
+    ("md", """# Voynich Lab – strumień liter w karcie matce
+
+Czy jedno słowo rękopisu to jedna litera tekstu jawnego? Karta matka (242 wpisy, `data/card/karta_matka.json`) rozbija każde
+słowo na wybory w 6 kolumnach. Każda kolumna i każda para kolumn daje strumień symboli, jeden na słowo. Etap 1 (CPU): ile
+symbol mówi o następnym, wobec słów przetasowanych w wierszach. Etap 2 (GPU): łamacz homofoniczny na strumieniach, które
+mówią najwięcej, po łacinie, włosku i niemiecku: rękopis wobec rękopisu ze słowami przetasowanymi w wierszach. Kontrole:
+litery prawdziwego tekstu ukryte w tych samych strumieniach, które łamacz musi odczytać.
+
+**Runtime: GPU (A100 ok. 20–30 min, L4 ok. 1–1,5 h).** Sekrety: `GITHUB_TOKEN`, `OPENROUTER_API_KEY`."""),
+    cells[1], cells[3],
+    ("code", """!python scripts/fetch_data.py
+import torch; print("torch", torch.__version__, "GPU:", torch.cuda.is_available())"""),
+    cells[5],
+    ("code", cells[7][1].replace('theories=["all"],          # albo np. ["numbers", "literature"]', 'theories=["card_stream"],')),
+    ("code", """lab.run("card_stream"); lab.push()
+lab.convene(["card_stream"])
+lab.report(); lab.push()
+from IPython.display import Markdown, display
+display(Markdown((lab.cfg.results_dir / "card_stream.md").read_text()))"""),
+]
+
+
 def cell(kind, text):
     src = text.splitlines(keepends=True)
     if kind == "md":
@@ -666,7 +690,8 @@ for name, cs in (("Voynich_Lab.ipynb", cells), ("Voynich_Ilustracje.ipynb", illu
                  ("Voynich_Klucz_Dlugosci.ipynb", lengthkey_cells), ("Voynich_Brute_Dlugosci.ipynb", brute_length_cells),
                  ("Voynich_Sedzia.ipynb", judge_cells), ("Voynich_Rosliny.ipynb", plants_cells),
                  ("Voynich_Atomy.ipynb", atoms_cells), ("Voynich_Atomy_GPU.ipynb", atoms_gpu_cells),
-                 ("Voynich_Bomba.ipynb", bomba_cells), ("Voynich_Karta.ipynb", karta_cells)):
+                 ("Voynich_Bomba.ipynb", bomba_cells), ("Voynich_Karta.ipynb", karta_cells),
+                 ("Voynich_Strumien.ipynb", strumien_cells)):
     base = nb_cpu if name in ("Voynich_Rejestr.ipynb", "Voynich_Klucz.ipynb", "Voynich_Rosliny.ipynb", "Voynich_Atomy.ipynb") else nb
     out = Path(__file__).with_name(name)
     out.write_text(json.dumps({**base, "cells": [cell(k, t) for k, t in cs]}, indent=1, ensure_ascii=False), encoding="utf-8")

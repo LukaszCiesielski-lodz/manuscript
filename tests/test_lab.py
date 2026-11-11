@@ -260,7 +260,7 @@ class NotebookTest(unittest.TestCase):
                      "Voynich_Klucz.ipynb", "Voynich_V7.ipynb", "Voynich_Klucz_Dlugosci.ipynb",
                      "Voynich_Brute_Dlugosci.ipynb", "Voynich_Sedzia.ipynb", "Voynich_Rosliny.ipynb",
                      "Voynich_Atomy.ipynb", "Voynich_Atomy_GPU.ipynb", "Voynich_Bomba.ipynb",
-                     "Voynich_Karta.ipynb"):
+                     "Voynich_Karta.ipynb", "Voynich_Strumien.ipynb"):
             nb = json.loads((Path(__file__).resolve().parent.parent / "colab" / name).read_text(encoding="utf-8"))
             for i, c in enumerate(nb["cells"]):
                 if c["cell_type"] == "code":
@@ -1383,3 +1383,57 @@ class SheetOrderTest(unittest.TestCase):
     def test_registered(self):
         from voynich.lab.registry import THEORIES
         self.assertTrue(callable(THEORIES["sheet_order"].load()))
+
+
+class CardStreamTest(unittest.TestCase):
+    """One word = one letter: streams of card choices, their memory, hiding a text in a stream and reading it back."""
+
+    def test_streams_and_memory(self):
+        import numpy as np
+        from voynich.lab import cardchoice as C, cardstream as CS
+        codes = np.array([[1, 0], [2, 1], [-1, -1], [1, 1], [2, 0], [1, 1]])
+        lay = C.Layout([3, 3], [0, 0], [0])
+        st = CS.streams(codes, lay)
+        self.assertEqual(st["k1"], [[1, 2], [1, 2, 1]])                 # the word the card cannot write is left out
+        self.assertEqual(st["k1+k2"], [[2, 5], [3, 4, 3]])
+        import random
+        r = random.Random(0)
+        chain = []
+        for _ in range(300):                                            # a stream with memory: each symbol follows the last
+            line, s = [], r.randrange(6)
+            for _ in range(9):
+                s = (s + 1) % 6 if r.random() < 0.7 else r.randrange(6)
+                line.append(s)
+            chain.append(line)
+        self.assertGreater(CS.sequence_information(chain, 30, 0)["z"], 8)
+        self.assertLess(abs(CS.sequence_information(CS.shuffle_lines([[r.randrange(6) for _ in range(9)] for _ in range(300)], 1), 30, 0)["z"]), 3)
+
+    def test_hidden_text_is_read(self):
+        import random
+        from voynich.lab import cardstream as CS, hillclimb as H
+        from voynich.lab.polybius import letters
+        text = letters("Latin")
+        r = random.Random(0)
+        template = [[r.choice(range(30)) for _ in range(9)] for _ in range(1500)]
+        lm = H.NgramModel.fit(CS.pieces(text[:60000], template), 4)
+        hid, truth = CS.hide(text[60000:], template, 1)
+        self.assertEqual([len(l) for l in hid], [len(l) for l in template])
+        self.assertEqual(len(truth), 30)
+        self.assertGreater(CS.sequence_information(hid, 10, 0)["excess"], 0.2)
+        got = CS.solve(hid, lm, 4, 8, 1, H.Backend(prefer_gpu=False))
+        self.assertGreater(CS.accuracy(got["key"], truth, hid), 0.6)
+        shuffled = CS.solve(CS.shuffle_lines(hid, 2), lm, 4, 8, 1, H.Backend(prefer_gpu=False))
+        self.assertGreater(shuffled["held_out_bits"], got["held_out_bits"] + 0.15)
+
+    def test_card_file_writes_every_word(self):
+        import json
+        from voynich.lab import card as K
+        from voynich.lab.config import ROOT
+        from voynich.lab.theories.card_choice import manuscript_layout
+        from voynich.lab.registry import THEORIES
+        _, ms, _, _, _ = manuscript_layout()
+        chunks = K.chunk_inventory(ms)
+        card = K.card_from_table(json.loads((ROOT / "data" / "card" / "karta_matka.json").read_text(encoding="utf-8"))["1.0"], chunks)
+        self.assertEqual(int(card.sum()), 242)
+        self.assertAlmostEqual(K.evaluate(card, K.Encoded(ms, chunks, max_len=18), prefer_gpu=False), 1.0)
+        self.assertTrue(callable(THEORIES["card_stream"].load()))

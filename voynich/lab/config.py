@@ -72,6 +72,11 @@ class LabConfig:
     card_generations: int = 600    # (capped at 150 in numpy)
     card_prune_population: int = 256  # cards pruning the full card at once, each in its own order (theory master_card_full)
     card_choice_permutations: int = 200  # line shuffles among the pages of a section (theory card_choice)
+    # One word = one letter (theory "card_stream"): the homophonic solver on streams of card choices.
+    stream_languages: list[str] = field(default_factory=lambda: ["Latin", "Italian", "German"])
+    stream_top: int = 6            # streams (columns and pairs of columns) with most memory given to the solver
+    stream_population: int = 64    # keys climbing at once on the GPU (8 in numpy)
+    stream_sweeps: int = 12        # passes over the symbols; in a pass every letter is tried for every symbol
 
     # The wheel (volvelle) search and the transformer judge (theories "wheel", "adversary").
     wheel_rings: int = 3
