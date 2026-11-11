@@ -181,7 +181,9 @@ brzmi „metoda niewiarygodna”. Wiersze w tabeli wyżej mają liczby; tu stres
   wyjaśnić kartami pisanymi w różnym czasie i przeszytymi potem w innej kolejności (`card_choice`, nierozstrzygnięta). Dryf nawyków jako zegar to potwierdza
   (`sheet_order`): dwie karty jednego arkusza, odległe w oprawionej księdze, mają te same nawyki (z = 6,4), karty sąsiednie nie (z = 0,5).
   Rękopis pisano arkuszami przed złożeniem składek, a arkusze jednej składki nie są sobie bliższe niż arkusze różnych składek:
-  [`docs/arkusze.md`](docs/arkusze.md): [`docs/karta_matka_100.md`](docs/karta_matka_100.md). Colab (przebieg 20261107-203642
+  [`docs/arkusze.md`](docs/arkusze.md). Jak taka karta mogła wyglądać na pulpicie skryby: [`docs/karta_matka_rekonstrukcja.jpg`](docs/karta_matka_rekonstrukcja.jpg)
+  (132 kawałki, 99% słów) i [`docs/karta_matka_rekonstrukcja_242.jpg`](docs/karta_matka_rekonstrukcja_242.jpg) (każde słowo); rysuje je
+  `scripts/render_card.py`. To rekonstrukcja komputerowa: kawałki są z testu, pergamin, liniowanie i układ to domysł: [`docs/karta_matka_100.md`](docs/karta_matka_100.md). Colab (przebieg 20261107-203642
   na `lab-results`) powtórzył `hapax_source` i `cribs` z tymi samymi liczbami; `nomenclator2` na GPU zerwał się
   i został na wyniku z CPU.
 
