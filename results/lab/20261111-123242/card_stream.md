@@ -25,10 +25,28 @@
 - Pominięcie kolumny liczy się jako symbol; jeśli słowa bez wpisu w danej kolumnie były pustymi znakami, łamacz dostaje tekst z wtrąceniami i traci część sygnału.
 - Strumienie par kolumn mają po kilkaset symboli; łamacz bierze pod uwagę tylko symbole z co najmniej 10 wystąpieniami.
 
+## Rada modeli
+
+## Werdykt rady
+
+**Obalona w zakresie sprawdzonej hipotezy:** jedna litera na słowo, kodowana wyborem z jednej lub dwóch kolumn. Poziom zgody jest **pełny**; oceny niezależne były zgodne co do werdyktu i głównych ograniczeń.
+
+## Co test naprawdę pokazuje
+
+Kontrole metody przeszły: podłożony tekst dał nadmiar pamięci 0,40–0,51 bitu, a łamacz odzyskiwał go z trafnością bliską 100%. W rękopisie najlepszy strumień osiągnął 0,049 bitu (k1+k3), a wyniki łamacza pozostały o co najmniej 2,6 bitu na symbol gorsze od języka naturalnego. Niewielka poprawa względem danych przetasowanych (do 0,34 bitu) nie stanowi porównywalnego sygnału tekstu.
+
+## Główne zastrzeżenia
+
+Wynik nie rozstrzyga wariantów niebadanych: kodowania przez co najmniej trzy kolumny, szyfru Naibbe ani słów-wypełniaczy. Brak wpisu w kolumnie potraktowano jako symbol, co mogłoby osłabić wykrywalność. Łamacz objął tylko sześć wybranych strumieni; raport nie podaje też korekty niepewności za wybór spośród wielu strumieni.
+
+## Rekomendowany następny eksperyment
+
+Przetestować **wariant Naibbe na całych słowach**, z kontrolnym tekstem ukrytym według tego samego schematu i porównaniem z danymi przetasowanymi.
+
 ## Literatura
 
 - Greshko, Cryptologia (2025): the Naibbe cipher
 - Nuhn, Schamper & Ney, ACL 2013
 - Van Eycke, AZdecrypt
 
-_Czas: 272 s · 2026-11-11 12:37_
+_Czas: 272 s · 2026-11-11 12:41_

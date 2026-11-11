@@ -363,5 +363,93 @@
  ],
  "artifacts": [],
  "seconds": 272.2245020866394,
- "council": {}
+ "council": {
+  "members": [
+   "z-ai/glm-5.3-flash",
+   "openai/gpt-6-luna",
+   "tencent/hy3"
+  ],
+  "chair": "openai/gpt-6-luna",
+  "round1": {
+   "z-ai/glm-5.3-flash": {
+    "raw": "```json\n{\n  \"werdykt\": \"obalona\",\n  \"pewność\": 0.8,\n  \"najmocniejszy_dowód\": \"Kontrole metody przeszły jednoznacznie: ukryta łacina w tych samych strumieniach daje nadmiar pamięci 0.40–0.51 bitu (z = 98–251) i jest odczytywana przez łamacz z trafnością ~100%, podczas gdy rękopis daje najwyżej 0.049 bitu (k1+k3) i odczyt gorszy o ≥2.6 bitu na symbol od języka naturalnego.\",\n  \"słabości\": [\n    \"Test obejmuje tylko literę w jednej lub dwóch kolumnach; warianty z literą rozłożoną na ≥3 kolumny, szyfr Naibbe i słowa-wypełniacze pozostają niesprawdzone.\",\n    \"Etap 2 działa tylko na 6 najlepszych strumieniach i symbolach z ≥10 wystąpieniami; słabe strumienie (np. k1, k2, k6 mają 29–50 symboli) są praktycznie nietestowane łamaczem.\",\n    \"Jeśli pominięcie kolumny nie było symbolem, lecz pustym znakiem, łamacz mógł stracić część sygnału — raport sam to przyznaje.\",\n    \"Małe zyski łamacza (+0.1–0.3 bitu) w kilku parach mogą być szumem lub efektem znanego nawyku na styku słów, co osłabia interpretację, ale nie ratuje hipotezy.\"\n  ],\n  \"inne_wyjaśnienia\": [\n    \"Niska pamięć strumieni może wynikać z tego, że wybory kolumn kodują coś innego niż litery (np. sylaby, gramatykę, formatowanie), a nie z braku struktury — nadmiary 0.02–0.05 bitu ze z = 4–12 wskazują na jakąś słabą strukturę.\",\n    \"Zyski +0.1–0.34 bitu łamacza na rękopisie mogą pochodzić z nielosowego porządku słów (przetasowanie je usuwa), a nie z tekstu litera po literze.\"\n  ],\n  \"następny_test\": \"Test wariantu Naibbe: litera jako całe słowo z wieloma zamiennikami (słowo = symbol homofoniczny). To największa luka w pokryciu hipotezy; wystarczy powtórzyć etap 1 (pamięć ponad tasowanie słów) na strumieniu całych słów z kontrolą ukrytego tekstu kodowanego tym samym schematem.\"\n}\n```",
+    "json": {
+     "werdykt": "obalona",
+     "pewność": 0.8,
+     "najmocniejszy_dowód": "Kontrole metody przeszły jednoznacznie: ukryta łacina w tych samych strumieniach daje nadmiar pamięci 0.40–0.51 bitu (z = 98–251) i jest odczytywana przez łamacz z trafnością ~100%, podczas gdy rękopis daje najwyżej 0.049 bitu (k1+k3) i odczyt gorszy o ≥2.6 bitu na symbol od języka naturalnego.",
+     "słabości": [
+      "Test obejmuje tylko literę w jednej lub dwóch kolumnach; warianty z literą rozłożoną na ≥3 kolumny, szyfr Naibbe i słowa-wypełniacze pozostają niesprawdzone.",
+      "Etap 2 działa tylko na 6 najlepszych strumieniach i symbolach z ≥10 wystąpieniami; słabe strumienie (np. k1, k2, k6 mają 29–50 symboli) są praktycznie nietestowane łamaczem.",
+      "Jeśli pominięcie kolumny nie było symbolem, lecz pustym znakiem, łamacz mógł stracić część sygnału — raport sam to przyznaje.",
+      "Małe zyski łamacza (+0.1–0.3 bitu) w kilku parach mogą być szumem lub efektem znanego nawyku na styku słów, co osłabia interpretację, ale nie ratuje hipotezy."
+     ],
+     "inne_wyjaśnienia": [
+      "Niska pamięć strumieni może wynikać z tego, że wybory kolumn kodują coś innego niż litery (np. sylaby, gramatykę, formatowanie), a nie z braku struktury — nadmiary 0.02–0.05 bitu ze z = 4–12 wskazują na jakąś słabą strukturę.",
+      "Zyski +0.1–0.34 bitu łamacza na rękopisie mogą pochodzić z nielosowego porządku słów (przetasowanie je usuwa), a nie z tekstu litera po literze."
+     ],
+     "następny_test": "Test wariantu Naibbe: litera jako całe słowo z wieloma zamiennikami (słowo = symbol homofoniczny). To największa luka w pokryciu hipotezy; wystarczy powtórzyć etap 1 (pamięć ponad tasowanie słów) na strumieniu całych słów z kontrolą ukrytego tekstu kodowanego tym samym schematem."
+    }
+   },
+   "openai/gpt-6-luna": {
+    "raw": "{\n  \"werdykt\": \"obalona\",\n  \"pewność\": 0.88,\n  \"najmocniejszy_dowód\": \"Kontrole metody działają: ukryty tekst daje wyraźny nadmiar pamięci (0,40–0,51 bitu) i łamacz odzyskuje go z wysoką trafnością. Dla rękopisu najlepsza pamięć wynosi tylko 0,049 bitu, a wyniki łamacza są o co najmniej 2,6 bitu na symbol gorsze od języka naturalnego. Przetasowanie słów zmienia ocenę najwyżej o 0,34 bitu, bez uzyskania wyniku zbliżonego do tekstu.\",\n  \"słabości\": [\n    \"Test obejmuje tylko jedną literę na słowo kodowaną przez jedną albo dwie kolumny; nie sprawdza trzech lub więcej kolumn ani innych układów.\",\n    \"Brak wpisu w kolumnie traktowano jako symbol, co mogłoby rozcieńczyć sygnał, jeśli oznaczał pusty znak.\",\n    \"Łamacz zastosowano do sześciu wybranych strumieni, trzech języków i symboli występujących co najmniej 10 razy; zakres poszukiwań jest ograniczony.\"\n  ],\n  \"inne_wyjaśnienia\": [\n    \"Małe różnice między rękopisem a przetasowaniem mogą wynikać z nawyków na granicach słów, a nie z kodowania liter.\",\n    \"Słaby wynik może być skutkiem nieujętego wariantu hipotezy, np. pominiętych kolumn lub pustych znaków; raport nie pozwala ocenić takich wariantów.\"\n  ],\n  \"następny_test\": \"Powtórzyć test z góry ustalonym wariantem, w którym brak wpisu jest pomijany zamiast kodowany jako symbol, zachowując kontrolę ukrytego tekstu oraz pełną kontrol",
+    "json": {}
+   },
+   "tencent/hy3": {
+    "raw": "{\n  \"werdykt\": \"obalona\",\n  \"pewność\": 0.95,\n  \"najmocniejszy_dowód\": \"Kontrole metody przeszły (ukryta łacina w k3/k3+k4 wykryta z nadmiarem 0.40-0.51 bitu, łamacz czytał ukryty tekst z trafnością 99-100%), ale w rękopisie najlepszy strumień (k1+k3) miał nadmiar tylko 0.049 bitu, a łamacz dla rękopisu uzyskał wynik o ~2.6 bitu gorszy od naturalnego języka i nielepszy od przetasowania.\",\n  \"słabości\": [\n    \"Strumienie par kolumn mają mało symboli (niektóre poniżej 50, np. k1: 34 symbole), co ogranicza moc statystyczną łamacza.\",\n    \"Pominięcie kolumny liczone jako symbol; jeśli słowa bez wpisu były pustymi znakami, łamacz tracił sygnał (nie zbadano wpływu pustych znaków).\",\n    \"Test ogranicza się do 1 lub 2 kolumn na literę; nie uwzględniono wag ani pozycji wewnątrz słowa poza wyborem.\"\n  ],\n  \"inne_wyjaśnienia\": [\n    \"Litera rozłożona na 3 lub więcej kolumn (nie testowano).\",\n    \"Szyfr Naibbe: całe słowo to homofon litery, a nie wybór z kolumny (nie testowano).\",\n    \"Słowa-wypełniacze między literami jawnego tekstu (nie testowano).\"\n  ],\n  \"następny_test\": \"Test szyfru Naibbe: traktujemy całe słowa rękopisu jako homofony liter, bez rozbijania na kolumny, i sprawdzamy łamaczem homofonicznym z kontrolą na ukrytym tekście o tej samej długości.\"\n}",
+    "json": {
+     "werdykt": "obalona",
+     "pewność": 0.95,
+     "najmocniejszy_dowód": "Kontrole metody przeszły (ukryta łacina w k3/k3+k4 wykryta z nadmiarem 0.40-0.51 bitu, łamacz czytał ukryty tekst z trafnością 99-100%), ale w rękopisie najlepszy strumień (k1+k3) miał nadmiar tylko 0.049 bitu, a łamacz dla rękopisu uzyskał wynik o ~2.6 bitu gorszy od naturalnego języka i nielepszy od przetasowania.",
+     "słabości": [
+      "Strumienie par kolumn mają mało symboli (niektóre poniżej 50, np. k1: 34 symbole), co ogranicza moc statystyczną łamacza.",
+      "Pominięcie kolumny liczone jako symbol; jeśli słowa bez wpisu były pustymi znakami, łamacz tracił sygnał (nie zbadano wpływu pustych znaków).",
+      "Test ogranicza się do 1 lub 2 kolumn na literę; nie uwzględniono wag ani pozycji wewnątrz słowa poza wyborem."
+     ],
+     "inne_wyjaśnienia": [
+      "Litera rozłożona na 3 lub więcej kolumn (nie testowano).",
+      "Szyfr Naibbe: całe słowo to homofon litery, a nie wybór z kolumny (nie testowano).",
+      "Słowa-wypełniacze między literami jawnego tekstu (nie testowano)."
+     ],
+     "następny_test": "Test szyfru Naibbe: traktujemy całe słowa rękopisu jako homofony liter, bez rozbijania na kolumny, i sprawdzamy łamaczem homofonicznym z kontrolą na ukrytym tekście o tej samej długości."
+    }
+   }
+  },
+  "round2": {
+   "z-ai/glm-5.3-flash": {
+    "raw": "{\"ranking\": [\"C\", \"B\"], \"uwagi\": \"Obie opinie są dobrze ugruntowane w danych i zgodne co do istoty: kontrole metody przeszły (nadmiar pamięci 0,40–0,51 bitu dla ukrytej łaciny, trafność łamacza 99–100% na kontrolach), podczas gdy dla rękopisu najlepszy nadmiar to zaledwie 0,049 bitu (k1+k3, z=11), a łamacz daje wyniki o ~2,6 bitu na symbol gorsze od języka naturalnego, z zyskiem z kolejności słów ≤ +0,34 bitu — to za mało, by domknąć lukę. C jest lepsza, bo precyzyjniej punktuje słabości (małe próbki strumieni, np. k1: 34 symbole, 43 symbole dla k2 — liczba symboli ≠ liczba wystąpień, ale potwierdza niską moc) i proponuje konkretny, dobrze uzasadniony następny test (szyfr Naibbe: całe słowo jako homofon litery), który jest naturalnym następcą po obaleniu wariantu kolumnowego i najbardziej zmieniłby ocenę. Opinia B jest merytorycznie zbieżna, ale jej następny test jest ucięty i mniej konkretny; drobna nieścisłość: C nazywa strumienie „mającymi poniżej 50 symboli\" — dotyczy to strumieni pojedynczych kolumn, pary mają setki, lecz wniosek o ograniczonej mocy pozostaje słuszny. Obie słusznie oddzielają to, co test wyklucza (1–2 kolumny na literę, słowo = litera), od czegoś, czego nie bada (≥3 kolumny, Naibbe, wypełniacze, puste znaki przy braku wpisu). Zakres poszukiwań łamacza (6 strumieni × 3 języki, symbole ≥10 wystąpień) jest ograniczony, ale kontrola potwierdza, że metoda wykryłaby sygnał w tych samych warunkach, więc ograniczenie nie podważa werdyktu.\", \"werdykt\": \"obalona\", \"pewność\": 0.9, \"zmiana_zdania\": \"nie — werdykt obalony wynika wprost z kontrastu: kontrole dają 0,40–0,51 bitu i 99–100% trafności, rękopis 0,049 bitu i wynik łamacza ~2,6 bitu gorszy od języka; pozostają jedynie nieprzetestowane warianty (Naibbe, ≥3 kolumny), które wymagają osobnych testów\"}",
+    "json": {}
+   },
+   "openai/gpt-6-luna": {
+    "raw": "{\n  \"ranking\": [\"A\", \"C\"],\n  \"uwagi\": \"A jest lepiej uzasadniona: zauważa, że łamacz daje małe dodatnie zyski względem przetasowania (do 0,34 bitu), więc nie twierdzi, że kolejność słów nie ma żadnego efektu. C myli się, pisząc, że wynik jest „nielepszy od przetasowania”; dodatnie zyski są w kilku porównaniach, choć są małe i nie zbliżają wyniku do języka naturalnego. Obie opinie trafnie wskazują ograniczony zakres testu i zasadną lukę: nie sprawdzono szyfru Naibbe. Kontrole wykryły celowo ukryty tekst, ale porównanie z przetasowaniem nie jest całkiem zerowe: odnotowano małe zyski, które raport wiąże z efektem na granicach słów. To osłabia kategoryczne twierdzenia, lecz nie przypomina sygnału ukrytego tekstu. Dodatkowe zastrzeżenia: etap 2 bada tylko sześć wybranych strumieni, a część strumieni ma bardzo mało symboli; raport nie podaje też niepewności ani korekty za wybór spośród wielu strumieni. Najbardziej rozstrzygający następny test to wariant Naibbe na całych słowach, z kontrolą ukrytego tekstu kodowanego tym samym schematem oraz przetasowanymi danymi.\",\n  \"werdykt\": \"Obalona w zakresie sprawdzonej hipotezy: jedna litera na słowo kodowana wyborem z jednej lub dwóch kolumn. Kontrole pokazują, że metoda potrafi wykryć podłożony tekst, a w rękopisie nie znajduje porównywalnego sygnału. Wynik nie obala wariantów, których raport nie bada, w tym Naibbe, kodowania przez co najmniej trzy kolumny ani wypełniaczy.\",\n  \"pewność\": 0.88,\n  \"zmiana_zdania\": \"nie — dane mocno przeczą testowanemu wariantowi, ale nie uzasadniają wniosku o wszystkich możliwych hipotezach dotyczących rękopisu.\"\n}",
+    "json": {
+     "ranking": [
+      "A",
+      "C"
+     ],
+     "uwagi": "A jest lepiej uzasadniona: zauważa, że łamacz daje małe dodatnie zyski względem przetasowania (do 0,34 bitu), więc nie twierdzi, że kolejność słów nie ma żadnego efektu. C myli się, pisząc, że wynik jest „nielepszy od przetasowania”; dodatnie zyski są w kilku porównaniach, choć są małe i nie zbliżają wyniku do języka naturalnego. Obie opinie trafnie wskazują ograniczony zakres testu i zasadną lukę: nie sprawdzono szyfru Naibbe. Kontrole wykryły celowo ukryty tekst, ale porównanie z przetasowaniem nie jest całkiem zerowe: odnotowano małe zyski, które raport wiąże z efektem na granicach słów. To osłabia kategoryczne twierdzenia, lecz nie przypomina sygnału ukrytego tekstu. Dodatkowe zastrzeżenia: etap 2 bada tylko sześć wybranych strumieni, a część strumieni ma bardzo mało symboli; raport nie podaje też niepewności ani korekty za wybór spośród wielu strumieni. Najbardziej rozstrzygający następny test to wariant Naibbe na całych słowach, z kontrolą ukrytego tekstu kodowanego tym samym schematem oraz przetasowanymi danymi.",
+     "werdykt": "Obalona w zakresie sprawdzonej hipotezy: jedna litera na słowo kodowana wyborem z jednej lub dwóch kolumn. Kontrole pokazują, że metoda potrafi wykryć podłożony tekst, a w rękopisie nie znajduje porównywalnego sygnału. Wynik nie obala wariantów, których raport nie bada, w tym Naibbe, kodowania przez co najmniej trzy kolumny ani wypełniaczy.",
+     "pewność": 0.88,
+     "zmiana_zdania": "nie — dane mocno przeczą testowanemu wariantowi, ale nie uzasadniają wniosku o wszystkich możliwych hipotezach dotyczących rękopisu."
+    }
+   },
+   "tencent/hy3": {
+    "raw": "{\n  \"ranking\": [\"A\", \"B\"],\n  \"uwagi\": \"Opinia A jest lepiej uzasadniona danymi: precyzyjnie przywołuje konkretne wartości z raportu (nadmiar 0.049 bitu dla k1+k3, z=11, 817 symboli; 0.40–0.51 bitu dla ukrytej łaciny, z=98–251) oraz trafnie wskazuje najpoważniejszą lukę metodologiczną – brak testu szyfru Naibbe (litera jako całe słowo). Opinia B poprawnie streszcza wyniki, ale jej uzasadnienie jest bardziej ogólne, a propozycja następnego testu (pominięcie kolumn jako pusty znak) jest w raporcie jedynie zastrzeżeniem pobocznym, podczas gdy A trafnie wskazuje niezbadany rdzeń hipotezy (Naibbe). B nie myli się merytorycznie, lecz jest mniej kompletna.\",\n  \"werdykt\": \"obalona (dla wariantu: jedna litera na słowo w 1–2 kolumnach karty matki)\",\n  \"pewność\": 0.85,\n  \"zmiana_zdania\": \"nie, raport zawiera poprawne kontrole (metoda odczytuje ukryty tekst) i jednoznacznie negatywny wynik dla badanego wariantu; test wyklucza tę konkretną hipotezę, nie badając jednak jej rozszerzeń (Naibbe, 3+ kolumny).\"\n}",
+    "json": {
+     "ranking": [
+      "A",
+      "B"
+     ],
+     "uwagi": "Opinia A jest lepiej uzasadniona danymi: precyzyjnie przywołuje konkretne wartości z raportu (nadmiar 0.049 bitu dla k1+k3, z=11, 817 symboli; 0.40–0.51 bitu dla ukrytej łaciny, z=98–251) oraz trafnie wskazuje najpoważniejszą lukę metodologiczną – brak testu szyfru Naibbe (litera jako całe słowo). Opinia B poprawnie streszcza wyniki, ale jej uzasadnienie jest bardziej ogólne, a propozycja następnego testu (pominięcie kolumn jako pusty znak) jest w raporcie jedynie zastrzeżeniem pobocznym, podczas gdy A trafnie wskazuje niezbadany rdzeń hipotezy (Naibbe). B nie myli się merytorycznie, lecz jest mniej kompletna.",
+     "werdykt": "obalona (dla wariantu: jedna litera na słowo w 1–2 kolumnach karty matki)",
+     "pewność": 0.85,
+     "zmiana_zdania": "nie, raport zawiera poprawne kontrole (metoda odczytuje ukryty tekst) i jednoznacznie negatywny wynik dla badanego wariantu; test wyklucza tę konkretną hipotezę, nie badając jednak jej rozszerzeń (Naibbe, 3+ kolumny)."
+    }
+   }
+  },
+  "synthesis": "## Werdykt rady\n\n**Obalona w zakresie sprawdzonej hipotezy:** jedna litera na słowo, kodowana wyborem z jednej lub dwóch kolumn. Poziom zgody jest **pełny**; oceny niezależne były zgodne co do werdyktu i głównych ograniczeń.\n\n## Co test naprawdę pokazuje\n\nKontrole metody przeszły: podłożony tekst dał nadmiar pamięci 0,40–0,51 bitu, a łamacz odzyskiwał go z trafnością bliską 100%. W rękopisie najlepszy strumień osiągnął 0,049 bitu (k1+k3), a wyniki łamacza pozostały o co najmniej 2,6 bitu na symbol gorsze od języka naturalnego. Niewielka poprawa względem danych przetasowanych (do 0,34 bitu) nie stanowi porównywalnego sygnału tekstu.\n\n## Główne zastrzeżenia\n\nWynik nie rozstrzyga wariantów niebadanych: kodowania przez co najmniej trzy kolumny, szyfru Naibbe ani słów-wypełniaczy. Brak wpisu w kolumnie potraktowano jako symbol, co mogłoby osłabić wykrywalność. Łamacz objął tylko sześć wybranych strumieni; raport nie podaje też korekty niepewności za wybór spośród wielu strumieni.\n\n## Rekomendowany następny eksperyment\n\nPrzetestować **wariant Naibbe na całych słowach**, z kontrolnym tekstem ukrytym według tego samego schematu i porównaniem z danymi przetasowanymi.",
+  "failed": {},
+  "votes": {
+   "obalona": 2
+  }
+ }
 }
