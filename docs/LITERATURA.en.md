@@ -68,6 +68,15 @@ For each paper: what we take from it for the tests.
 - Forums (voynich.ninja, r/voynich) put forward number hypotheses without statistical tests; none has passed peer review.
   → the `numbers` theory: 5 number systems from before 1450 and a continuity test of the zodiac labels with planted numbers.
 
+## Word structure (background for the master card)
+
+- J. Stolfi, *A grammar for Voynichese words* (2000): core, mantle and crust of a word; the first word grammar based on statistics.
+- G. Rugg, *An elegant hoax?*, Cryptologia 28 (2004): a table of prefixes, midfixes and suffixes with a Cardan grille.
+- ThomasCoon (Voynich Ninja forum, 2016) and M. Zattera, *A New Transliteration Alphabet Brings New Evidence of Word Structure in the Voynich Manuscript*, CEUR Workshop Proceedings 3313 (2022), [paper 10](https://ceur-ws.org/Vol-3313/paper10.pdf): slot alphabets, 12 consecutive slots with a few glyphs in each.
+- Overview: https://www.voynich.nu/a3_para.html
+  → the `master_card` and `master_card_full` theories: the same structure, but a table found by search, writing every word,
+  measured by the same procedure against Latin, Italian, shuffled glyphs and a text written from a known card.
+
 ## Other undeciphered scripts (methods)
 
 - Rao et al., *A Markov model of the Indus script*, PNAS 106 (2009); Yadav et al., PLoS ONE 5 (2010): n-grams for the Indus script.

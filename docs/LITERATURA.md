@@ -68,6 +68,15 @@ Przy każdej pracy: co z niej bierzemy do testów.
 - Fora (voynich.ninja, r/voynich) zgłaszają hipotezy liczbowe bez testów statystycznych; żadna nie przeszła recenzji.
   → teoria `numbers`: 5 systemów liczbowych sprzed 1450 r. i test ciągłości etykiet zodiaku z liczbami podłożonymi.
 
+## Budowa słów (tło dla karty matki)
+
+- J. Stolfi, *A grammar for Voynichese words* (2000): rdzeń, płaszcz i skorupa słowa; pierwsza gramatyka słowa oparta na statystyce.
+- G. Rugg, *An elegant hoax?*, Cryptologia 28 (2004): tabela przedrostków, środków i końcówek z kratką Cardana.
+- ThomasCoon (forum Voynich Ninja, 2016) i M. Zattera, *A New Transliteration Alphabet Brings New Evidence of Word Structure in the Voynich Manuscript*, CEUR Workshop Proceedings 3313 (2022), [paper 10](https://ceur-ws.org/Vol-3313/paper10.pdf): alfabety slotowe, 12 kolejnych miejsc z kilkoma znakami w każdym.
+- Przegląd: https://www.voynich.nu/a3_para.html
+  → teorie `master_card`, `master_card_full`: ta sama budowa, ale tabela znaleziona przez wyszukiwanie, składająca każde słowo,
+  zmierzona tą samą procedurą wobec łaciny, włoskiego, przetasowanych glifów i tekstu pisanego znaną kartą.
+
 ## Inne pisma nieodczytane (metody)
 
 - Rao i in., *A Markov model of the Indus script*, PNAS 106 (2009); Yadav i in., PLoS ONE 5 (2010): n-gramy dla pisma Indusu.

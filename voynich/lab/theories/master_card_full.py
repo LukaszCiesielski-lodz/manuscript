@@ -39,7 +39,8 @@ def run(cfg: LabConfig) -> TheoryResult:
                 f"składa się cel (100% i 99% tokenów). Najmniejszą kartę zmniejsza dalej ewolucja (populacja {s_pop}, {s_gens} pokoleń na rundę, "
                 f"do {s_rounds} rund) pod budżetem o jeden wpis mniejszym. {'cupy/GPU' if gpu else 'numpy/CPU'}. Te same kroki dla łaciny, "
                 "włoskiego, bełkotu v7, rękopisu z glifami przetasowanymi w słowie i tekstu pisanego znaną kartą 40 wpisów (kontrola)."),
-        references=["Stolfi, crust–mantle–core paradigm of Voynichese words", "Rugg, Cryptologia 28 (2004)"])
+        references=["Stolfi, crust–mantle–core paradigm of Voynichese words", "Rugg, Cryptologia 28 (2004)",
+                    "Zattera, CEUR-WS 3313 (2022): the slot alphabet"])
     pages = [tuple(eva.glyphs(w)) for l in corpus.load_voynich() if l.kind.startswith("P") for w in l.words]
     ms = pages[:6000] if cfg.quick else pages
     n = len(ms)

@@ -50,6 +50,7 @@ def run(cfg: LabConfig) -> TheoryResult:
                 "liczby tokenów. A wobec B: karta jednego języka Curriera na drugim, wobec dwóch losowych połówek stron jednego języka."),
         references=["Stolfi, A prefix-midfix-suffix decomposition of Voynichese words (crust–mantle–core paradigm)",
                     "Rugg, Cryptologia 28 (2004): Cardan grille and a table of syllables",
+                    "Zattera, CEUR-WS 3313 (2022): the slot alphabet",
                     "Timm & Schinner, Cryptologia 44 (2020)"])
     pages = _tokens_by_page()
     ms = [w for p in pages.values() for w in p]

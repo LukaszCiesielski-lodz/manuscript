@@ -198,7 +198,11 @@ is "method unreliable". The rows in the table above give the numbers; here is a 
 - Master card (`master_card`, 10 Nov): a single table of 120 word pieces in 6 columns is enough to assemble 96% of the
   words of the manuscript, against 70–74% for Latin, Italian and the manuscript with shuffled glyphs. Currier languages A
   and B fit in the same card. This is the simplest mechanism that explains how five scribes wrote fluently by shared
-  rules: [`docs/karta_matka.en.md`](docs/karta_matka.en.md). The card that assembles every word without exception
+  rules: [`docs/karta_matka.en.md`](docs/karta_matka.en.md). The idea itself is not new: Stolfi's word grammar (2000),
+  Rugg's table of prefixes, midfixes and suffixes (2004) and the 12-slot alphabets of ThomasCoon (2016) and Zattera (2022)
+  describe the same structure, built by hand. New here, as far as we know: the card is found by search, writes every
+  word, and is measured by the same procedure against Latin, Italian, shuffled glyphs and a control text written from a
+  known card. The card that assembles every word without exception
   (`master_card_full`) has 242 entries (GPU): 2.6 times fewer than for Latin (639) and 2.3 times fewer than for the
   manuscript with shuffled glyphs (563), but as many as for v7 gibberish (211); for 99% of the words: 132 entries against
   562 for Latin: [`docs/karta_matka_100.en.md`](docs/karta_matka_100.en.md). So the card describes how the words were
@@ -310,6 +314,10 @@ python -m unittest                # tests
   downloaded by `fetch_data.py` (they are not in the repository). Note: "bacon" in this collection
   is Francis Bacon (17th century), not Roger Bacon, so we skip it.
 - T. Timm, A. Schinner, *A possible generating algorithm of the Voynich manuscript*, Cryptologia 44 (2020).
+- Earlier models of the structure of Voynich words, which the master card measures rather than invents: J. Stolfi,
+  *A grammar for Voynichese words* (2000); G. Rugg, Cryptologia 28 (2004); the slot alphabets of ThomasCoon (2016) and
+  M. Zattera, *A New Transliteration Alphabet Brings New Evidence of Word Structure in the Voynich Manuscript*, CEUR Workshop Proceedings 3313 (2022), [paper 10](https://ceur-ws.org/Vol-3313/paper10.pdf);
+  overview: [voynich.nu, word structure](https://www.voynich.nu/a3_para.html).
 - B. L. Monroe, M. P. Colaresi, K. M. Quinn, *Fightin' Words*, Political Analysis 16 (2008), for the keywords.
 
 ## License

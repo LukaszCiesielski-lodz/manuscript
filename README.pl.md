@@ -195,7 +195,11 @@ brzmi „metoda niewiarygodna”. Wiersze w tabeli wyżej mają liczby; tu stres
 - Karta matka (`master_card`, 10.11): jedna tabela 120 kawałków słów w 6 kolumnach wystarcza, żeby złożyć 96% słów rękopisu,
   wobec 70–74% dla łaciny, włoskiego i rękopisu z przetasowanymi glifami. Języki A i B Curriera mieszczą się w tej samej
   karcie. To najprostszy mechanizm, który tłumaczy, jak pięciu skrybów pisało płynnie według wspólnych reguł:
-  [`docs/karta_matka.md`](docs/karta_matka.md). Karta, która składa każde słowo bez wyjątku (`master_card_full`), ma
+  [`docs/karta_matka.md`](docs/karta_matka.md). Sama idea nie jest nowa: gramatyka słowa Stolfiego (2000), tabela
+  przedrostków, środków i końcówek Rugga (2004) oraz 12-miejscowe alfabety slotowe ThomasCoona (2016) i Zattery (2022)
+  opisują tę samą budowę, ułożoną ręcznie. Nowe u nas, o ile wiemy: karta jest znaleziona przez wyszukiwanie, składa
+  każde słowo i jest zmierzona tą samą procedurą wobec łaciny, włoskiego, przetasowanych glifów i tekstu kontrolnego
+  pisanego znaną kartą. Karta, która składa każde słowo bez wyjątku (`master_card_full`), ma
   242 wpisy (GPU): 2,6 raza mniej niż dla łaciny (639) i 2,3 raza mniej niż dla rękopisu z przetasowanymi glifami (563),
   ale tyle co dla bełkotu v7 (211); na 99% słów: 132 wpisy wobec 562 dla łaciny: [`docs/karta_matka_100.md`](docs/karta_matka_100.md).
   Karta opisuje więc, jak budowano słowa, a nie czy coś znaczą. Jak mogła wyglądać na pulpicie skryby:
@@ -301,6 +305,10 @@ python -m unittest                # testy
   pobierane przez `fetch_data.py` (nie są w repozytorium). Uwaga: „bacon” w tym zbiorze
   to Francis Bacon (XVII w.), nie Roger Bacon, więc go pomijamy.
 - T. Timm, A. Schinner, *A possible generating algorithm of the Voynich manuscript*, Cryptologia 44 (2020).
+- Wcześniejsze modele budowy słów rękopisu, które karta matka mierzy, a nie wymyśla: J. Stolfi,
+  *A grammar for Voynichese words* (2000); G. Rugg, Cryptologia 28 (2004); alfabety slotowe ThomasCoona (2016) i
+  M. Zattera, *A New Transliteration Alphabet Brings New Evidence of Word Structure in the Voynich Manuscript*, CEUR Workshop Proceedings 3313 (2022), [paper 10](https://ceur-ws.org/Vol-3313/paper10.pdf);
+  przegląd: [voynich.nu, budowa słów](https://www.voynich.nu/a3_para.html).
 - B. L. Monroe, M. P. Colaresi, K. M. Quinn, *Fightin' Words*, Political Analysis 16 (2008), dla słów kluczowych.
 
 ## Licencja
