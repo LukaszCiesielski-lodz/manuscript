@@ -1,0 +1,367 @@
+{
+ "theory": "card_stream",
+ "hypothesis": "Jedno słowo rękopisu to jedna litera tekstu jawnego: literę niesie wybór z jednej kolumny karty matki (albo para wyborów z dwóch kolumn), reszta słowa to wypełniacz.",
+ "method": "Karta matka 242 wpisów (GPU, składa 100% słów) rozbija każde słowo na wybory w 6 kolumnach; każda kolumna i każda para kolumn daje strumień symboli, jeden na słowo (21 strumieni). Etap 1: ile symbol mówi o następnym symbolu wiersza ponad to samo po przetasowaniu słów w wierszach (100 tasowań). Etap 2: łamacz homofoniczny (64 kluczy, 12 przejść po symbolach: dla symbolu wszystkie litery naraz; model 4-gramowy liter bez spacji, cuda) na 6 strumieniach z największym nadmiarem, w językach: Latin, Italian, German; klucz z co drugiego wiersza, ocena na pozostałych (bity na symbol); rękopis wobec rękopisu ze słowami przetasowanymi w wierszach. Kontrole: litery prawdziwego tekstu ukryte w tych samych strumieniach (te same symbole, częstości i długości wierszy, kilka symboli na częstą literę).",
+ "verdict": "obalona",
+ "summary": "Żaden strumień wyborów z karty nie niesie tekstu litera po literze. Pamięć najlepszego strumienia to 0.049 bitu (k1+k3) wobec 0.40 bitu dla ukrytej łaciny. Łamacz, który czyta ukryty tekst (18 par język–strumień z działającą kontrolą), z rękopisu wyciąga ciąg o co najmniej 2.6 bitu na symbol gorszy niż język; kolejność słów pomaga mu najwyżej o +0.34 bitu, tyle co znany nawyk na styku słów.",
+ "metrics": {
+  "sequence": {
+   "k1": {
+    "observed": 0.07222687545639203,
+    "excess": 0.03138029347935978,
+    "z": 21.63074331343026,
+    "symbols": 34
+   },
+   "k1+k2": {
+    "observed": 0.9308556145013062,
+    "excess": 0.04096850889095083,
+    "z": 9.351721639223964,
+    "symbols": 602
+   },
+   "k1+k3": {
+    "observed": 1.0911503625360384,
+    "excess": 0.048794692571142884,
+    "z": 10.571541119652395,
+    "symbols": 817
+   },
+   "k1+k4": {
+    "observed": 0.6674676943335787,
+    "excess": 0.000559843758052625,
+    "z": 0.12237589933167713,
+    "symbols": 777
+   },
+   "k1+k5": {
+    "observed": 0.5261373914202655,
+    "excess": 0.020374141135295898,
+    "z": 4.600045749081261,
+    "symbols": 609
+   },
+   "k1+k6": {
+    "observed": 0.5549984980306,
+    "excess": 0.04467813818092481,
+    "z": 11.721487431876527,
+    "symbols": 530
+   },
+   "k2": {
+    "observed": 0.0655351832652516,
+    "excess": 0.016582755823302354,
+    "z": 10.484360112572466,
+    "symbols": 43
+   },
+   "k2+k3": {
+    "observed": 0.7511812898123595,
+    "excess": 0.02154545510134742,
+    "z": 4.344732405542583,
+    "symbols": 707
+   },
+   "k2+k4": {
+    "observed": 0.5298147691918716,
+    "excess": -0.0063032998764045445,
+    "z": -1.4126653304196466,
+    "symbols": 773
+   },
+   "k2+k5": {
+    "observed": 0.44664346320303927,
+    "excess": -0.001947019514450754,
+    "z": -0.4727124146773387,
+    "symbols": 627
+   },
+   "k2+k6": {
+    "observed": 0.40000010050203183,
+    "excess": 0.015539574093773934,
+    "z": 3.787901065606884,
+    "symbols": 482
+   },
+   "k3": {
+    "observed": 0.05916286216181697,
+    "excess": 0.014026842978345874,
+    "z": 11.808867610037183,
+    "symbols": 46
+   },
+   "k3+k4": {
+    "observed": 0.3790385846729615,
+    "excess": 0.003985205229619371,
+    "z": 0.8953083701190362,
+    "symbols": 639
+   },
+   "k3+k5": {
+    "observed": 0.36789847355977334,
+    "excess": 0.011313947785273892,
+    "z": 2.9190677760081765,
+    "symbols": 597
+   },
+   "k3+k6": {
+    "observed": 0.30775176097183227,
+    "excess": 0.01875347456618348,
+    "z": 5.811348148304108,
+    "symbols": 475
+   },
+   "k4": {
+    "observed": 0.038909742138062,
+    "excess": 0.0022593848103168793,
+    "z": 1.8285889786424137,
+    "symbols": 50
+   },
+   "k4+k5": {
+    "observed": 0.22825500093761336,
+    "excess": -0.002937073394200823,
+    "z": -0.7854693436177028,
+    "symbols": 522
+   },
+   "k4+k6": {
+    "observed": 0.22403015229214698,
+    "excess": 2.1808070811146774e-06,
+    "z": 0.0006976959359268354,
+    "symbols": 451
+   },
+   "k5": {
+    "observed": 0.024448178159871777,
+    "excess": 0.0004476642637111297,
+    "z": 0.4134584981857631,
+    "symbols": 46
+   },
+   "k5+k6": {
+    "observed": 0.15146143923663125,
+    "excess": -0.00398566320402563,
+    "z": -1.432479284703452,
+    "symbols": 333
+   },
+   "k6": {
+    "observed": 0.022588317051437462,
+    "excess": 0.004445090472041047,
+    "z": 4.625556973241039,
+    "symbols": 29
+   }
+  },
+  "sequence_control": {
+   "k3": {
+    "observed": 0.5803966012879611,
+    "excess": 0.5131000559211857,
+    "z": 250.88826512344377,
+    "symbols": 46
+   },
+   "k3+k4": {
+    "observed": 1.0427939688745298,
+    "excess": 0.4029460242833759,
+    "z": 98.33617591776363,
+    "symbols": 599
+   }
+  },
+  "solver": {
+   "Latin k1+k3": {
+    "natural": 3.138894276915112,
+    "control_accuracy": 0.9955350453986994,
+    "control_bits": 3.3939892325756986,
+    "manuscript": 5.8139129361423905,
+    "shuffled": 5.935606464228722,
+    "gain": 0.1216935280863316,
+    "symbols": 257,
+    "lead": false
+   },
+   "Latin k1+k6": {
+    "natural": 3.138894276915112,
+    "control_accuracy": 0.9993804213135068,
+    "control_bits": 3.275078337035023,
+    "manuscript": 5.739874908493838,
+    "shuffled": 5.932503284338336,
+    "gain": 0.19262837584449777,
+    "symbols": 146,
+    "lead": false
+   },
+   "Latin k1+k2": {
+    "natural": 3.138894276915112,
+    "control_accuracy": 0.9988469384738196,
+    "control_bits": 3.2873469092641585,
+    "manuscript": 5.853912043764138,
+    "shuffled": 5.966843146296027,
+    "gain": 0.11293110253188843,
+    "symbols": 239,
+    "lead": false
+   },
+   "Latin k1": {
+    "natural": 3.138894276915112,
+    "control_accuracy": 1.0,
+    "control_bits": 3.0921211565066877,
+    "manuscript": 5.787755130039839,
+    "shuffled": 5.764271541649294,
+    "gain": -0.023483588390544874,
+    "symbols": 33,
+    "lead": false
+   },
+   "Latin k2+k3": {
+    "natural": 3.138894276915112,
+    "control_accuracy": 0.9975853331345953,
+    "control_bits": 3.361882792778701,
+    "manuscript": 5.805197851430123,
+    "shuffled": 5.954996654075544,
+    "gain": 0.14979880264542178,
+    "symbols": 213,
+    "lead": false
+   },
+   "Latin k1+k5": {
+    "natural": 3.138894276915112,
+    "control_accuracy": 0.9985758789497107,
+    "control_bits": 3.308017725127524,
+    "manuscript": 5.714620557688063,
+    "shuffled": 5.869313955211393,
+    "gain": 0.15469339752332978,
+    "symbols": 144,
+    "lead": false
+   },
+   "Italian k1+k3": {
+    "natural": 3.1926312520275975,
+    "control_accuracy": 0.9922671142548855,
+    "control_bits": 3.4754961709949024,
+    "manuscript": 6.380894322341901,
+    "shuffled": 6.6431530952464755,
+    "gain": 0.2622587729045742,
+    "symbols": 257,
+    "lead": false
+   },
+   "Italian k1+k6": {
+    "natural": 3.1926312520275975,
+    "control_accuracy": 0.9979637608451868,
+    "control_bits": 3.3420655605885017,
+    "manuscript": 6.289376930659952,
+    "shuffled": 6.628420503725957,
+    "gain": 0.3390435730660055,
+    "symbols": 146,
+    "lead": false
+   },
+   "Italian k1+k2": {
+    "natural": 3.1926312520275975,
+    "control_accuracy": 0.9958995840585269,
+    "control_bits": 3.3585487963613265,
+    "manuscript": 6.4123079720059755,
+    "shuffled": 6.607735285743847,
+    "gain": 0.1954273137378717,
+    "symbols": 239,
+    "lead": false
+   },
+   "Italian k1": {
+    "natural": 3.1926312520275975,
+    "control_accuracy": 1.0,
+    "control_bits": 3.1650186303221655,
+    "manuscript": 6.317098389443055,
+    "shuffled": 6.541311222045064,
+    "gain": 0.2242128326020092,
+    "symbols": 33,
+    "lead": false
+   },
+   "Italian k2+k3": {
+    "natural": 3.1926312520275975,
+    "control_accuracy": 0.9981508544841778,
+    "control_bits": 3.434823951344236,
+    "manuscript": 6.448181944245841,
+    "shuffled": 6.6158420317889535,
+    "gain": 0.1676600875431129,
+    "symbols": 213,
+    "lead": false
+   },
+   "Italian k1+k5": {
+    "natural": 3.1926312520275975,
+    "control_accuracy": 0.9974206172729698,
+    "control_bits": 3.372642226746695,
+    "manuscript": 6.335890603417184,
+    "shuffled": 6.618430228251638,
+    "gain": 0.2825396248344543,
+    "symbols": 144,
+    "lead": false
+   },
+   "German k1+k3": {
+    "natural": 3.041182887632012,
+    "control_accuracy": 0.9947411124800913,
+    "control_bits": 3.3148792935117184,
+    "manuscript": 6.393232720549412,
+    "shuffled": 6.59645146515418,
+    "gain": 0.20321874460476774,
+    "symbols": 257,
+    "lead": false
+   },
+   "German k1+k6": {
+    "natural": 3.041182887632012,
+    "control_accuracy": 0.9990556014638178,
+    "control_bits": 3.170558291930182,
+    "manuscript": 6.349913507357316,
+    "shuffled": 6.113317784322824,
+    "gain": -0.23659572303449217,
+    "symbols": 146,
+    "lead": false
+   },
+   "German k1+k2": {
+    "natural": 3.041182887632012,
+    "control_accuracy": 0.9979623176421948,
+    "control_bits": 3.1846808972484735,
+    "manuscript": 6.389903185722103,
+    "shuffled": 6.428128171654919,
+    "gain": 0.03822498593281587,
+    "symbols": 239,
+    "lead": false
+   },
+   "German k1": {
+    "natural": 3.041182887632012,
+    "control_accuracy": 1.0,
+    "control_bits": 2.9583286109476603,
+    "manuscript": 5.889293972222777,
+    "shuffled": 5.854255901328669,
+    "gain": -0.035038070894108486,
+    "symbols": 33,
+    "lead": false
+   },
+   "German k2+k3": {
+    "natural": 3.041182887632012,
+    "control_accuracy": 0.9977666607110952,
+    "control_bits": 3.2244200555836335,
+    "manuscript": 6.156286066675288,
+    "shuffled": 6.2640802002453455,
+    "gain": 0.1077941335700574,
+    "symbols": 213,
+    "lead": false
+   },
+   "German k1+k5": {
+    "natural": 3.041182887632012,
+    "control_accuracy": 0.9989035087719298,
+    "control_bits": 3.178191600853429,
+    "manuscript": 6.076182849763746,
+    "shuffled": 6.258824598233875,
+    "gain": 0.18264174847012882,
+    "symbols": 144,
+    "lead": false
+   }
+  }
+ },
+ "controls": [
+  {
+   "name": "litery łaciny ukryte w kolumnie 3 i w parze kolumn 3+4: pamięć strumienia",
+   "expectation": "nadmiar ≥ 0,2 bitu i z ≥ 10 w obu",
+   "observed": "k3: 0.51 bitu (z = 251); k3+k4: 0.40 bitu (z = 98)",
+   "passed": true
+  },
+  {
+   "name": "łamacz czyta tekst ukryty w strumieniu (trafność klucza ≥ 50%)",
+   "expectation": "co najmniej jeden strumień w każdym języku",
+   "observed": "Latin: k1+k3 100%, k1+k6 100%, k1+k2 100%, k1 100%, k2+k3 100%, k1+k5 100%; Italian: k1+k3 99%, k1+k6 100%, k1+k2 100%, k1 100%, k2+k3 100%, k1+k5 100%; German: k1+k3 99%, k1+k6 100%, k1+k2 100%, k1 100%, k2+k3 100%, k1+k5 100%",
+   "passed": true
+  }
+ ],
+ "evidence": [
+  "Pamięć strumieni rękopisu (bity, które symbol mówi o następnym, ponad tasowanie; od największej): k1+k3 0.049 (z = 11, 817 symboli); k1+k6 0.045 (z = 12, 530 symboli); k1+k2 0.041 (z = 9, 602 symboli); k1 0.031 (z = 22, 34 symboli); k2+k3 0.022 (z = 4, 707 symboli); k1+k5 0.020 (z = 5, 609 symboli); k3+k6 0.019 (z = 6, 475 symboli); k2 0.017 (z = 10, 43 symboli); najsłabszy k2+k4 -0.006. Ukryty tekst łaciński: k3 0.51, k3+k4 0.40.",
+  "Odczyt strumienia k1+k3 najlepszym kluczem (Latin), pierwsze wiersze: ?isttteieresiieno?ccivsiiec?iciiadeaeianipe?itaeta?teiaaceeiinineaticiins?inma?reeteaa?a",
+  "Latin (bity na symbol; kontrola = trafność klucza na ukrytym tekście): k1+k3: kontrola 100%, rękopis 5.81, przetasowany 5.94, zysk +0.12, naturalny 3.14; k1+k6: kontrola 100%, rękopis 5.74, przetasowany 5.93, zysk +0.19, naturalny 3.14; k1+k2: kontrola 100%, rękopis 5.85, przetasowany 5.97, zysk +0.11, naturalny 3.14; k1: kontrola 100%, rękopis 5.79, przetasowany 5.76, zysk -0.02, naturalny 3.14; k2+k3: kontrola 100%, rękopis 5.81, przetasowany 5.95, zysk +0.15, naturalny 3.14; k1+k5: kontrola 100%, rękopis 5.71, przetasowany 5.87, zysk +0.15, naturalny 3.14.",
+  "Italian (bity na symbol; kontrola = trafność klucza na ukrytym tekście): k1+k3: kontrola 99%, rękopis 6.38, przetasowany 6.64, zysk +0.26, naturalny 3.19; k1+k6: kontrola 100%, rękopis 6.29, przetasowany 6.63, zysk +0.34, naturalny 3.19; k1+k2: kontrola 100%, rękopis 6.41, przetasowany 6.61, zysk +0.20, naturalny 3.19; k1: kontrola 100%, rękopis 6.32, przetasowany 6.54, zysk +0.22, naturalny 3.19; k2+k3: kontrola 100%, rękopis 6.45, przetasowany 6.62, zysk +0.17, naturalny 3.19; k1+k5: kontrola 100%, rękopis 6.34, przetasowany 6.62, zysk +0.28, naturalny 3.19.",
+  "German (bity na symbol; kontrola = trafność klucza na ukrytym tekście): k1+k3: kontrola 99%, rękopis 6.39, przetasowany 6.60, zysk +0.20, naturalny 3.04; k1+k6: kontrola 100%, rękopis 6.35, przetasowany 6.11, zysk -0.24, naturalny 3.04; k1+k2: kontrola 100%, rękopis 6.39, przetasowany 6.43, zysk +0.04, naturalny 3.04; k1: kontrola 100%, rękopis 5.89, przetasowany 5.85, zysk -0.04, naturalny 3.04; k2+k3: kontrola 100%, rękopis 6.16, przetasowany 6.26, zysk +0.11, naturalny 3.04; k1+k5: kontrola 100%, rękopis 6.08, przetasowany 6.26, zysk +0.18, naturalny 3.04."
+ ],
+ "caveats": [
+  "Sprawdzone: litera w jednej kolumnie albo w parze kolumn, jedno słowo = jedna litera. Nie sprawdzone: litera rozłożona na trzy i więcej kolumn, litera jako całe słowo z wieloma zamiennikami (szyfr Naibbe), słowa-wypełniacze między literami.",
+  "Pominięcie kolumny liczy się jako symbol; jeśli słowa bez wpisu w danej kolumnie były pustymi znakami, łamacz dostaje tekst z wtrąceniami i traci część sygnału.",
+  "Strumienie par kolumn mają po kilkaset symboli; łamacz bierze pod uwagę tylko symbole z co najmniej 10 wystąpieniami."
+ ],
+ "references": [
+  "Greshko, Cryptologia (2025): the Naibbe cipher",
+  "Nuhn, Schamper & Ney, ACL 2013",
+  "Van Eycke, AZdecrypt"
+ ],
+ "artifacts": [],
+ "seconds": 272.2245020866394,
+ "council": {}
+}
