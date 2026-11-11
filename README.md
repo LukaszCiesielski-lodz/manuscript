@@ -1,251 +1,253 @@
-# Rękopis Wojnicza w liczbach
+# The Voynich manuscript in numbers
 
-Laboratorium do statystycznej analizy rękopisu Wojnicza (Beinecke MS 408).
-Czysty Python 3, bez zależności.
+**English** | [Polski](README.pl.md)
 
-**Nie odczytaliśmy rękopisu.** Nikt tego jeszcze wiarygodnie nie zrobił.
-Ten projekt robi rzecz skromniejszą, ale sprawdzalną: mierzy tekst tymi samymi
-miarami co 12 języków, atakuje go łamaczem szyfrów z obowiązkowymi próbami
-kontrolnymi i sprawdza, które hipotezy przetrwają kontakt z danymi.
+A laboratory for statistical analysis of the Voynich manuscript (Beinecke MS 408).
+Pure Python 3, no dependencies.
 
-Raport z wykresami: [`docs/index.html`](docs/index.html) (otwórz w przeglądarce).
+**We have not read the manuscript.** Nobody has done so credibly yet.
+This project does something more modest but verifiable: it measures the text with the same
+measures as 12 languages, attacks it with a cipher solver with mandatory control
+tests, and checks which hypotheses survive contact with the data.
 
-## Najważniejsze wyniki
+Report with charts: [`docs/index.html`](docs/index.html) (open in a browser; the report page is in Polish).
 
-Liczby z `docs/results.json` (35 000 słów na tekst; języki to ten sam fragment
-Biblii, rękopis liczony w glifach).
+## Key results
 
-| | rękopis | 12 języków |
+Numbers from `docs/results.json` (35 000 words per text; the languages are the same passage
+of the Bible, the manuscript is counted in glyphs).
+
+| | manuscript | 12 languages |
 |---|---|---|
-| entropia warunkowa h₂ (bity/znak) | **2,30** | 2,89–3,65 |
-| sztywność kolejności znaków w słowie | **0,88** | 0,66–0,74 (wietnamski 0,90) |
-| gęstość słownika (słowa z „sąsiadem” o 1 znak) | **99%** | 43–87% (wietnamski 98%) |
-| kolejne słowa różniące się 1 znakiem | **4,4%** | 0,1–1,4% |
+| conditional entropy h₂ (bits/character) | **2.30** | 2.89–3.65 |
+| rigidity of character order within a word | **0.88** | 0.66–0.74 (Vietnamese 0.90) |
+| vocabulary density (words with a “neighbour” 1 character away) | **99%** | 43–87% (Vietnamese 98%) |
+| consecutive words differing by 1 character | **4.4%** | 0.1–1.4% |
 
-1. **Szyfr podstawieniowy (prosty i homofoniczny) wykluczony dla 11 z 12 języków.**
-   Łamacz (`voynich/cipher.py`) odzyskuje 93–100% liter szyfrów kontrolnych, a na
-   rękopisie najlepszy klucz zostawia lukę 1,07–1,55 bita na znak względem tego,
-   co tekst „wie” sam o sobie. Wyjątek: wietnamski (91 liter z tonami), gdzie
-   łamacz nie łamie nawet kontroli (46% liter), więc brak werdyktu.
-2. **Tekst jest zbyt przewidywalny jak na język** i żadne podstawienie znaków
-   tego nie zmienia (test `test_substitution_leaves_fingerprint_unchanged`).
-3. **Glify mają stałe miejsca w słowie**: `q` na początku w 99%, `n` na końcu w 98%.
-4. **Sąsiednie słowa są do siebie podobne** dwa razy częściej niż po przetasowaniu
-   (test permutacyjny); w łacinie i włoskim odwrotnie.
-5. **Wiersz jest jednostką**: `m` i `g` ponad 6× częściej w ostatnim słowie wiersza,
-   `p` ok. 2,4× częściej w pierwszym.
-6. **Zgodne z językiem**: prawo Zipfa i słownictwo zależne od działu.
-7. **Hipoteza samocytowania** (Timm i Schinner 2020) częściowo: nasz generator
-   odtwarza gęstość słownika i podobieństwo sąsiadów (nawet z nadmiarem), ale nie
-   niską entropię: h₂ = 2,65 zamiast 2,30.
+1. **Substitution cipher (simple and homophonic) ruled out for 11 of 12 languages.**
+   The solver (`voynich/cipher.py`) recovers 93–100% of the letters of control ciphers, while on
+   the manuscript the best key leaves a gap of 1.07–1.55 bits per character relative to what
+   the text “knows” about itself. Exception: Vietnamese (91 letters with tones), where
+   the solver does not break even the control (46% of letters), so there is no verdict.
+2. **The text is too predictable for a language**, and no substitution of characters
+   changes that (test `test_substitution_leaves_fingerprint_unchanged`).
+3. **Glyphs have fixed positions in the word**: `q` at the start in 99% of cases, `n` at the end in 98%.
+4. **Adjacent words are similar to each other** twice as often as after shuffling
+   (permutation test); in Latin and Italian it is the other way round.
+5. **The line is a unit**: `m` and `g` are more than 6× as frequent in the last word of a line,
+   `p` about 2.4× as frequent in the first.
+6. **Consistent with language**: Zipf's law and section-dependent vocabulary.
+7. **The self-citation hypothesis** (Timm and Schinner 2020) partly: our generator
+   reproduces the vocabulary density and the similarity of neighbours (even in excess), but not
+   the low entropy: h₂ = 2.65 instead of 2.30.
 
-### Etap 2: łacina średniowieczna, szyfry sylabiczne, lepszy generator
+### Stage 2: medieval Latin, syllabic ciphers, a better generator
 
-8. **Łacina średniowieczna wykluczona** (11 tekstów z VII–XV w. plus Kolumella:
-   Izydor, Hugo od św. Wiktora, Tomasz z Akwinu, Złota legenda, Kempis i inne).
-   Na mapie odcisków palca (`docs/index.html#medieval`) tworzą zwarte skupisko
-   z Wulgatą, daleko od rękopisu. Łamacz z modelem łaciny średniowiecznej łamie
-   kontrole w 99,7–99,8%, a na rękopisie zostawia lukę 1,15 bita (zielnik) i 1,33 bita (dialekt B).
-9. **Skróty skrybów nie pomagają**: łacina ze skrótami (`⁊`, `-ꝰ`, `-ꝝ`, `ꝯ-`, kreska
-   zamiast m/n) ma h₂ ≈ 3,5 zamiast 3,3, czyli jest dalej od rękopisu (2,3).
-10. **Słowo = sylaba wykluczone**: łacina rozbita na sylaby ma 621–766 różnych sylab na 13 tys.,
-    rękopis 3800 różnych słów; sylaby mają 2,3 litery, słowa rękopisu 4,0 glifu.
-11. **Szyfr sylabiczny/rozwlekły słowo za słowem mało prawdopodobny**: każdy taki kod
-    zachowuje powtórzenia słów, a rękopis powtarza słowo zaraz po sobie w 0,83% par
-    (55 różnych słów), najbardziej powtarzalny z 24 tekstów porównawczych w 0,22%.
-    Przykładowy kod sylabiczny obniża entropię łaciny (3,3 → 2,9) i usztywnia
-    pozycje glifów, ale daje za długie słowa.
-12. **Generator**: samo kopiowanie słów ze zmianami, nawet podpatrzonymi u skryby
-    (14 663 par), daje h₂ ≈ 3,0. Dopiero dodanie gramatyki kształtu słowa (trigramy
-    glifów uczone na liście różnych słów, bez częstości) daje h₂ = 2,30 i przy okazji
-    trafia w h₃ (2,04 vs 2,08), sztywność glifów, gęstość słownika i powtórzenia.
-    Parametry dobrane tylko pod h₂ i podobnych sąsiadów. Nie odtwarza liczby hapaksów
-    (45% vs 69%), długości słów (5,1 vs 4,3), nachylenia Zipfa ani efektów końca wiersza.
+8. **Medieval Latin ruled out** (11 texts from the 7th–15th centuries plus Columella:
+   Isidore, Hugh of Saint Victor, Thomas Aquinas, the Golden Legend, Kempis and others).
+   On the fingerprint map (`docs/index.html#medieval`) they form a tight cluster
+   with the Vulgate, far from the manuscript. The solver with a medieval Latin model breaks
+   the controls at 99.7–99.8%, while on the manuscript it leaves a gap of 1.15 bits (herbal section) and 1.33 bits (dialect B).
+9. **Scribal abbreviations do not help**: Latin with abbreviations (`⁊`, `-ꝰ`, `-ꝝ`, `ꝯ-`, a stroke
+   instead of m/n) has h₂ ≈ 3.5 instead of 3.3, so it is further from the manuscript (2.3).
+10. **Word = syllable ruled out**: Latin split into syllables has 621–766 distinct syllables per 13 thousand,
+    the manuscript 3800 distinct words; syllables have 2.3 letters, the manuscript's words 4.0 glyphs.
+11. **A syllabic/verbose word-by-word cipher is unlikely**: every such code
+    preserves word repetitions, and the manuscript repeats a word immediately after itself in 0.83% of pairs
+    (55 distinct words), while the most repetitive of the 24 comparison texts does so in 0.22%.
+    A sample syllabic code lowers the entropy of Latin (3.3 → 2.9) and makes
+    glyph positions more rigid, but gives words that are too long.
+12. **Generator**: merely copying words with changes, even changes observed in the scribe
+    (14 663 pairs), gives h₂ ≈ 3.0. Only adding a grammar of word shape (glyph trigrams
+    learned on the list of distinct words, without frequencies) gives h₂ = 2.30 and, along the way,
+    hits h₃ (2.04 vs 2.08), glyph rigidity, vocabulary density and repetitions.
+    The parameters were tuned only for h₂ and similar neighbours. It does not reproduce the number of hapaxes
+    (45% vs 69%), word lengths (5.1 vs 4.3), the Zipf slope or the line-end effects.
 
-Wykluczamy konkretne hipotezy, nie wszystkie. Model trigramowy nie wychwyci
-szyfrów przestawieniowych, sylabicznych ani nomenklatorów (kodów całych słów).
+We rule out specific hypotheses, not all of them. A trigram model will not catch
+transposition ciphers, syllabic ciphers or nomenclators (codes for whole words).
 
-## Etap 3: Voynich Lab na Colabie
+## Stage 3: Voynich Lab on Colab
 
-`colab/Voynich_Lab.ipynb` uruchamia na GPU (Colab Pro, High-RAM) testy hipotez z kontrolami metody,
-a każdy wynik omawia rada modeli przez OpenRouter (opinie → wzajemna recenzja → synteza przewodniczącego).
-Werdykt testu wynika tylko z liczb i kontroli; rada go komentuje. Przegląd literatury: [`docs/LITERATURA.md`](docs/LITERATURA.md).
+`colab/Voynich_Lab.ipynb` runs hypothesis tests with method controls on a GPU (Colab Pro, High-RAM),
+and each result is discussed by a council of models via OpenRouter (opinions → mutual review → the chair's synthesis).
+The verdict of a test follows only from the numbers and the controls; the council comments on it. Literature review: [`docs/LITERATURA.en.md`](docs/LITERATURA.en.md).
 
-| teoria | test | wynik lokalny (CPU, tryb szybki) |
+| theory | test | local result (CPU, quick mode) |
 |---|---|---|
-| `numbers` | 5 systemów liczbowych sprzed 1450 r.; etykiety zodiaku jako dni 1–30 | obalona |
-| `illustrations` | słowa przy rysunkach; CLIP + test Mantela; nazwy roślin od modelu wizyjnego jako criby | części B i C tylko na Colabie |
-| `generative` | transformer znakowy, brakujące strony, klasyfikator prawdziwe/wygenerowane; opcjonalnie SDXL+LoRA | tylko na Colabie |
-| `naibbe_cipher` | szyfr Naibbe (Greshko 2025), rekonstrukcja z opisu | nierozstrzygnięta |
-| `cardan_grille` | bełkot z kratki Cardana (Rugg 2004) | obalona |
-| `hebrew_anagram` | hebrajskie anagramy (Hauer i Kondrak 2016) z kontrolą swoistości | metoda niewiarygodna |
-| `basque` | baskijski pod szyfrem podstawieniowym: Leizarraga 1571 i prasa współczesna | obalona (luka 0,96–0,99 bita) |
-| `nomenclator` | księga kodów słowo-za-słowo, łamacz na poziomie słów; rozstrzyga zysk z szyku słów | obalona dla łaciny, włoskiego, niemieckiego (rękopis ±0,01 bita, zakodowany tekst +0,13–0,47) |
-| `hoax` | tekst bez treści z reguł skryby (generator v5 „tabela skryby”), reguły z foliów nieparzystych, sprawdzian na parzystych | nierozstrzygnięta: v5 działami 16/22 miar, klasyfikator wierszy AUC 0,78–0,80 (prawdziwe vs prawdziwe 0,55; v4: 0,998); odtwarza dynamikę długości słów (korelacja sąsiadów +0,156 wobec +0,159), ale nie powtórzeń w wierszu |
-| `syntax` | zależność między różnymi słowami odległymi o 2–7 słów (informacja wzajemna ponad tasowanie w stronie i miejscu w wierszu), osobno powtórzenia i warianty | obalona: częste słowa bez zależności (z = −1,2; 5 tekstów językowych z ≥ 3,7), za to nadmiar powtórzeń i wariantów (z ≈ 9), profil płaski z odległością |
-| `romance` | język (proto)romański (Cheshire 2019): łacina ludowa (Egeria, ok. 400), starofrancuski (IX–XIII w.), Biblie: włoski, hiszpański, portugalski, francuski, rumuński | obalona: luka 1,09–1,26 bita przy kontrolach 99–100%; każdy tekst romański ma daleką składnię (z ≥ 11), rękopis nie (z = −1,2) |
-| `lengths` | słowa zamienione na liczby znaków: autokorelacja sąsiadów, zygzak krótkie–długie, wykładnik DFA, efekt wiersza; 20 tekstów językowych, generatory, ciąg losowy | obalona: sąsiednie długości dodatnio skorelowane (+0,16; w 17 z 20 języków ujemnie), najsilniejsza pamięć długozasięgowa (DFA 0,60 wobec 0,47–0,58), całe wiersze „długie” lub „krótkie” |
-| `brute` | brute force: każda z 4000 najczęstszych trójek kolejnych słów pod jednym kluczem litera-za-glif w ~53 językach epoki (Biblie, korpusy historyczne UD, łacina średniowieczna, aramejski Targumu Onkelosa, syryjska Peszitta); zgodność kluczy między trójkami, klucz z połowy wierszy sprawdzany na drugiej | obalona (Colab A100, 51 leksykonów, 4000 trójek, 39 min): w żadnym języku rękopis nie wygrywa z bełkotem v5 – najwyżej 25% słów w słowniku pod wspólnym kluczem (starofrancuski; bełkot 30%), zaszyfrowany prawdziwy tekst 96–100%; 3 pisma nietestowalne (amharski, hindi, hebrajski biblijny); aramejski i syryjski (lokalnie, 800 trójek): rękopis 14% i 25% słów, bełkot 15% i 30%, zaszyfrowany tekst 98–100% |
-| `wheel`, `adversary`, `genres` | odjechane pomysły średniowieczne: tarcza Llulla (volvelle) ewoluowana na GPU na rękopisie i tekstach kontrolnych, najlepsza tarcza pisze tekst oceniany jak generatory; transformer-sędzia uczony na GPU przeciw każdemu generatorowi bez treści; litania i imiona barbarzyńskie (Ars Notoria, Liber Iuratus) mierzone jak rękopis | do uruchomienia w Colabie: `colab/Voynich_Kolo.ipynb` |
-| `transcriptions`, `cognate`, `hillclimb` | łamacze z literatury: czy podpis rękopisu trzyma w transliteracjach Curriera, FSG, v101, Takahashiego; NeuroDecipher (Luo, Cao, Barzilay 2019): miękki klucz glif–litera i transport optymalny między słownictwem rękopisu a słownikiem każdego języka, kontrola na zaszyfrowanym tekście z szumem pisowni; atak homofoniczny jak w AZdecrypt: tysiące wspinaczy na GPU z modelem 4-gramowym, klucz z wierszy nieparzystych oceniany na parzystych | do uruchomienia w Colabie: `colab/Voynich_Lamacze.ipynb` |
-| `phonotactics` | czy słowa są zbudowane jak słowa mówione: algorytm Suchotina wyznacza „samogłoski” rękopisu i każdego z ~50 języków, słowa zamienione na wzorce spółgłoska–samogłoska, rozkłady porównane dywergencją Jensena-Shannona; kontrola: glify przetasowane w słowie | nierozstrzygnięta (lokalnie): samogłoski o, a, e, y; naprzemienność C/V 0,80 jak w łacinie; rozkład wzorców w odległości 0,21 bita od najbliższego języka (starofrancuski), gdy języki leżą od siebie 0,13 (mediana) do 0,26; bełkot v5 wypada tak samo |
-| `length_code` | treść w długościach słów: ciąg liczb glifów jako kod liter, cyfr lub bitów parzystości; pojemność, struktura wobec tasowań w wierszu, odczyt cyfra–litera wspinaczką z modelem 4-gramowym 8 języków, odczyt Bacona; kontrola: łacina wszczepiona jako długości | obalona (lokalnie): 9 wartości, 2,7 bita/słowo, trzy długości to 75% ciągu; odczyt jako litery nie przebija ciągu przetasowanego w żadnym języku (≤ 0,06 bita), bity parzystości bez struktury; kontrola odzyskuje wszczepioną łacinę |
-| `chronology` | strzałka czasu kopiowania: czy hapaksy mają źródła (sąsiadów o jeden glif) na kartach wcześniejszych; tło tasujące strony tylko w obrębie bloków działu i języka, osobno wewnątrz bloków; kontrole: syntetyczne kopiowanie (musi pokazać strzałkę), łacina (nie może) | obalona (lokalnie): z = −12 przy tasowaniu całego kodeksu, ale 0,0 w obrębie bloków i od −2,1 do +1,0 wewnątrz bloków; sygnał globalny to układ działów; kontrole z = +21 i +12, łacina −0,5 |
-| `hands` | czy słowa kształtuje ręka skryby (Davis 2020), czy treść: klasyfikator wierszy z odłożonymi kartami, pary rąk w tym samym dziale i języku wobec losowego rozdania kart; efekt działu w tej samej ręce | obalona (lokalnie): ręce różnią się w zielniku B (AUC 0,72–0,90, z = +2,3 do +3,5), ale dział w tej samej ręce różnicuje mocniej (0,73–0,97); reguły słów idą za treścią lub trybem pisania, nie za skrybą |
-| `notation` | zapis niejęzykowy: chorał gregoriański z bazy Cantus (63 tys. melodii Volpiano; słowa tekstu, sylaby, neumy), tabulatura basse danse (Bruksela 9085), kod Pythona jako kontrast, łacina i bełkot v5 przez baterię podpisu rękopisu (8 kryteriów, cecha definiująca: brak składni na odległość); osobny notebook `colab/Voynich_Notacja.ipynb` | obalona (lokalnie): chorał i kod mają bardzo silną składnię na odległość (jednostki niespokrewnione z = 62–166, rękopis −1,3); dzielą z rękopisem tylko dynamikę długości (dodatnia korelacja sąsiadów, DFA 0,67–0,71 wobec 0,60 rękopisu i 0,52 łaciny) |
-| `labels`, `records`, `lists` | tor „zapis rekordowy” (część CPU, `colab/Voynich_Rejestr.ipynb`, bez jednostek GPU): etykiety przy rysunkach jako podsłownik nazw i ich cytowanie przez akapity strony; wiersz jako rekord o polach (miejsce słowa odczytane z samego słowa, foliały odłożone; informacja wzajemna klasy słowa i miejsca; przewidywanie pola z sąsiadów); podpis rękopisu wobec list średniowiecznych (martyrologium Usuarda, Apicius, glosariusz Alphita, `data/lists/`) | lokalnie (szybki tryb): etykiety są osobnym podsłownikiem (hapaksy z = +12, o- +27, q- −12, długość +11), ale akapity nie cytują etykiet swojej strony ponad tło (z = +1,4); reszta do uruchomienia |
-| `fields_lm`, `v6`, `cohesion` | tor „zapis rekordowy” (część GPU, `colab/Voynich_Rejestr_GPU.ipynb`): zysk małego GPT z tokenów pozycji słowa; generator v6 (v5 z tłumieniem słów już użytych, 18 ustawień ewoluowanych na CPU na karcie foliałów nieparzystych, finaliści na parzystych, sędzia-transformer na GPU); spójność strony (sędzia par wierszy z tej samej strony wobec pseudostron) | `v6` nierozstrzygnięta: ewolucja zbija chybienia z 6 (v5) do 4 na parzystych (zostają hapaksy, m na końcu wiersza, rozrzut średniej długości, związek końca słowa z początkiem następnego), ale sędzia nadal odróżnia (AUC 0,655; v5 0,658; prawdziwe–prawdziwe 0,531): to, co zdradza bełkot, nie siedzi w 22 miarach. `fields_lm` metoda niewiarygodna: rekordy syntetyczne zyskały 0,012 bitu zamiast ≥ 0,15, bo GPT z oknem 256 znaków i tak zna miejsce słowa w wierszu (liczy kropki), więc tokeny pozycji są zbędne; test źle pomyślany, nie powtarzać. `cohesion` metoda niewiarygodna: kontrola dodatnia 0,654 < 0,7; rękopis 0,526 wobec 0,500 po rozdaniu wierszy, czyli brak oparcia dla spójności strony |
-| `keystream` | odstępy jako klucz zapisany w tekście (`colab/Voynich_Klucz.ipynb`, CPU): 31 reguł cięcia, przesuwania i czytania strumienia glifów według ciągu długości słów (w glifach i w znakach EVA) na rękopisie i bełkocie v5; podział oceniany długością opisu (MDL), jednostki składnią na odległość i informacją sąsiadów; kontrole: łacina z odstępami przepisanymi regułą z rodziny i łacina czytana kolumnami odzyskane (F1 = 1,0), zwykła łacina i bełkot v5 nie zyskują na żadnej regule | lokalnie (szybki tryb, 1500 wierszy): nierozstrzygnięta formalnie (największa przewaga składni nad bełkotem +3,6 przy progu 2,5, szum małej próbki; pełny przebieg na Colabie), ale żadna reguła nie koduje rękopisu krócej niż odstępy EVA (najbliżej 4,707 wobec 4,709 bit/glif), a wszystkie cztery kontrole przechodzą; odstępy EVA są najlepszym podziałem w tej rodzinie. Dwa dowody uboczne: (1) sąsiednie słowa rękopisu niosą o sobie **mniej** informacji niż dwa losowe słowa tej samej linii (z = −24 na pełnym tekście, −7 do −32 działami), gdy v5 ma +11, v6 +1,5, łacina +47; diagnoza: efekt krawędzi wiersza, bo z pierwszym i ostatnim słowem trzymanym na miejscu nadwyżka jest dodatnia (+0,09 bitu jak u v5): pierwsze i ostatnie słowa wierszy są osobnym słownictwem jako całe słowa, nie tylko przez glify p/m/g, czego v5 nie odtwarza; dodane do karty jako 23. miara; (2) kawałki po 3 glify kodują rękopis i bełkot krócej niż ich słowa (3,32 wobec 3,90 bit/glif), łacinę dłużej (3,89 wobec 3,45): słowa rękopisu nie są oszczędnymi jednostkami |
-| `v6` jako v7 | generator v7 (`colab/Voynich_V7.ipynb`, A100 ok. 40 min): v6 plus zasób całych słów otwierających i zamykających wiersz (`p_edge`) i „unikanie sąsiada” (`neighbour_gamma`), oraz 23. miara karty `adjacent_mi_excess` (informacja sąsiednich słów ponad losowe słowa linii: rękopis −0,17 bitu, v5 +0,03, języki dodatnie); ewolucja 20 ustawień, finaliści na parzystych, sędzia-transformer | 27.10 (Colab, 25 pokoleń): nierozstrzygnięta. Najlepszy finalista chybia na parzystych tylko 2 z 23 miar (hapaksy, rozrzut średniej długości wiersza; v6: 4, v5: 7), zasób słów krawędzi weszło w użycie (`p_edge` 0,33–0,52), unikanie sąsiada ewolucja wyzerowała. Sędzia nadal odróżnia: AUC 0,642 (v6 0,655, v5 0,660, prawdziwe–prawdziwe 0,531). To, co zdradza bełkot, nadal nie siedzi w karcie; stały ślad to za mało hapaksów |
-| `lengthkey` | inny alfabet szyfru dla każdej długości słowa (`colab/Voynich_Klucz_Dlugosci.ipynb`, A100 ok. 1 h): glif w słowie o danej długości jako osobny symbol, wspinaczka homofoniczna szuka dziewięciu kluczy naraz; zysk rękopisu z kluczy po długości wobec zysku bełkotu v5 i glifów przemianowanych; kontrola: łacina zaszyfrowana dziewięcioma kluczami odzyskana | 26.10: metoda niewiarygodna w tej konfiguracji: dziewięć kluczy odzyskane w 18–44% (jeden klucz 94–100%), bo 9× więcej symboli przy tej samej liczbie kroków; z kluczami po długości każdy tekst czyta się gorzej niż z jednym (wspinaczka nie zbiega). Mimo to w żadnym z 6 języków zysk rękopisu nie przebił zysku bełkotu (max 0,01 bitu). Do poprawy: start z klucza jednokluczowego, kroki ×7 |
-| `brute_length` | brute force osobno na każdym zbiorze słów jednakowej długości (`colab/Voynich_Brute_Dlugosci.ipynb`, A100 ok. 30–40 min): zbiory 2–8 glifów i 9+, każdy jako osobny szyfr z własnym kluczem, trójka po trójce przeciw 6 leksykonom; tło i kontrola jak w `brute`, per zbiór | obalona (27.10, 563 s): 34 zbiory testowalne (kontrola dodatnia dla długości 4–8 odzyskuje klucz w 97–100%), w żadnym rękopis nie wygrywa z bełkotem; słowa o długości 5–8 pod własnym kluczem czytają się jako słowa języka w 0–8% (bełkot tyle samo, zaszyfrowany tekst 97–100%); dla długości 2–3 wysokie udziały (do 94%) są wspólne rękopisowi i bełkotowi, bo prawie każdy dwuliterowy ciąg jest słowem; zbiory 9+ za małe (209 słów) |
-| `plant_pairs` | ta sama roślina w dwóch miejscach (`colab/Voynich_Rosliny.ipynb`, CPU): 9 par „ta sama roślina” i 28 „podobna” (Zandbergen, Petersen) między działem farmaceutycznym a zielnikiem; wspólne słownictwo ważone rzadkością wobec losowych stron tego samego języka Curriera, ranga prawdziwego partnera; etykiety fragmentów w tekście zielnika; kontrole: słowa partnera wszczepione (z = 20), pary przełączone (z = −0,7) | obalona (lokalnie): pary „ta sama roślina” dzielą słów MNIEJ niż losowe strony (z = −1,8, mediana rangi 0,82), wszystkie pary z = −1,0 (ranga 0,61), etykiety z = −1,0; najbliższe słownictwem są sąsiedzi w tym samym zeszycie (f87–f90), nie pary tej samej rośliny: tekst nie mówi o tym, co jest narysowane |
-| `judge_probe` | co widzi sędzia (`colab/Voynich_Sedzia.ipynb`, A100 ok. 10 min): sędzia prawdziwe wobec v7 przepytany cechami wiersza (hapaksy, słowa nieobecne w drugim korpusie, długość, miejsce na stronie) i AUC po dopasowaniu słownictwa (same słowa wspólne) | potwierdzona (Colab 7.11, 35 s): sędzia AUC 0,690 (prawdziwe–prawdziwe 0,532, czułość 0,862); po dopasowaniu słownictwa 0,566; najsilniejsza pojedyncza cecha: hapaksy (AUC 0,58); korelacje wyniku sędziego z cechami w obrębie prawdziwych bliskie zera: ślad sędziego to słownictwo, nie szyk. Rada: kierunkowo tak, ale brak kontroli na danych przetasowanych i próba 247 wierszy; do powtórzenia na równych próbach |
-| `atoms`, `atoms_draft` | ontologia ilustracji (`data/atoms/`, `colab/Voynich_Atomy.ipynb`, CPU): rysunki rozebrane na atomy, jeden rekord na etykietę (853 loci na 51 stronach), cechy tylko obserwowalne ze słownika kontrolowanego (`vocab.json`), wpisywane przez ludzi (zgodność dwóch osób: kappa); test rebusu: informacja wzajemna każdej pary (cecha rysunku, cecha etykiety: pierwszy/drugi/ostatni glif, długość, gallows, prefiks) wobec etykiet przetasowanych w obrębie strony, poprawka na liczbę par; kontrole: podłożony pierwszy glif według cechy (z = 72), cechy przetasowane (bez związku); `atoms_draft`: model widzący (OpenRouter) opisuje nimfy zodiaku w tym schemacie jako szkic do poprawienia; `atoms_vision` (`colab/Voynich_Atomy_GPU.ipynb`, A100, bez API): Molmo2-8B wskazuje punktami środki kół, postaci i gwiazdy, geometria liczy kręgi i kolejność zgodnie z ruchem wskazówek zegara, Qwen3-VL-8B opisuje wycinek wokół każdej postaci, Grounding DINO liczy ramkami jako kontrola; PNG z numerami punktów do sprawdzenia kolejności; pierwszy przebieg (28.10, 321 s): modele działają, Molmo2 znalazł środki kół, ale na całych rozkładówkach wskazał mało postaci (Ryby 28/29, Baran 15/15, reszta 0–12/30) i rozpoznanie znaku zawiodło, 0 stron; poprawka: wycinek każdego koła osobno w pełnej rozdzielczości, trzy liczniki scalone, strony z tabeli paneli skanów (voynich.nu); drugi przebieg (696 s, 9 stron): punkty trafiają w nimfy, ale co drugi lądował przy x ≈ 0 przez błąd parsera współrzędnych Molmo2 (format „klatka, numer, x, y”), co psuło też środki kół; parser poprawiony według karty modelu, promień koła z szerokości panelu; trzeci przebieg (30.10, 1642 s, 12 stron): Ryby 28/29, Barany 15/15 i 15/15, Byki 16 i 18/15, Rak 30/30, ale strony z nimfami leżącymi słabo (Lew 12, Panna 2, Skorpion 11, Strzelec 8 z 30), Bliźnięta i Waga z nadmiarem (39, 37); na PNG kręgi i kolejność f71r poprawne; poprawka: wycinek koła wskazywany w 4 obrotach, wykluczenie środka (figura znaku), scalanie bliskich punktów; czwarty przebieg z obrotami (5.11, 2917 s): strony z nimfami leżącymi odzyskane (Skorpion 29, Strzelec 26, Panna 34, Lew 35 z 30), nadmiar z dubli między obrotami i jednego wybuchu halucynacji (60 „postaci” w jednym obrocie Lwa); poprawka: każdy punkt ma poparcie z 8 źródeł (2 pytania × 4 obroty), zostaje tyle najlepiej popartych, ile nimf ma strona; piąty przebieg (7.11, 2852 s): 10 z 12 kół z dokładną liczbą postaci (Strzelec 26, Skorpion 29 z 30), 11 stron (255 atomów) scalonych do `data/atoms` jako źródło „vision” | obalona na szkicu (7.11): 255 z 857 atomów opisanych (szkic z GPU na 11 stronach zodiaku, 10 z 12 kół z dokładną liczbą postaci); żadna z 54 par cecha rysunku × cecha etykiety nie przekracza tła (najlepsza z = +1,9); kontrole: podłożony glif z = 53, przetasowane bez związku. Zastrzeżenie: cechy ze szkicu modelu (pewność 1), werdykt do powtórzenia po poprawkach ludzi |
-| `catalog` | analiza przekrojowa (`data/catalog/pages.json`, `scripts/fetch_catalog.py`, CPU ok. 1 min): katalog stron Zandbergena (voynich.nu, 226 stron: dział, opis rysunku, cechy stylu rysunku roślin Gheuensa i Rapaport α/β na 109 stronach zielnika, język Curriera, ręka LFD, odsyłacze zielnik–farmacja); (1) styl rysunku β−α wobec języka i ręki (AUC z permutacjami); (2) strony o wspólnej cesze rysunku wobec losowych grup o tym samym składzie język+ręka, słownictwo ważone rzadkością, poprawka na 19 cech; (3) rejestr działów; kontrole: wspólny słowniczek grupy podłożony (z = 5,9), cechy przetasowane (z = 1,4) | obalona (lokalnie, 7.11): styl rysunku przewiduje skrybę niemal bez wyjątku (język B: AUC 0,99, z = +7,0; ręka 2: AUC 0,98), ale nie treść: żadna z 19 cech rysunku nie łączy stron słownictwem ponad język i rękę (najlepsza „dwa kształty liści” z = +2,5, p popr. 0,13); strony o wspólnym stylu dzielą słów tyle co losowe strony tego samego skryby |
-| `hapax_source` | skąd hapaksy (`colab/Voynich_Bomba.ipynb`, CPU ok. 1 min): (1) r* = stopa pomyłek kopisty (jeden glif zmieniony, dodany albo usunięty), przy której nomenklator tej samej wielkości i z tych samych słów kodowych ma udział hapaksów w tokenach jak rękopis (13,7%); (2) lokalność: jak często częsty sąsiad hapaksu stoi w 5 wierszach nad nim wobec innej strony, dla rękopisu, bełkotu v7 i nomenklatora przy r*; kontrole: kopie z 3 wierszy wyżej podłożone (z = 126), wiersze rozdane losowo na strony (z = 0,4) | nierozstrzygnięta (lokalnie, 7.11): r* = 0,21 w hebrajskim, arabskim i łacinie (co piąte słowo kodowe z błędem); lokalność rękopisu ×2,07 wobec ×1,79–1,96 dla pomyłek nomenklatora (z różnicy −0,4 do −2,4) i ×1,58 dla v7 (+2,4): hapaksy nie wykluczają nomenklatora, ale lokalność nie odróżnia pomyłek od kopiowania z sąsiedztwa |
-| `cribs` | ściągi z diagramów (`voynich/lab/cribs.py`, CPU ok. 8 min): 28 słów promienistych f69v wobec 28 stacji Księżyca (arabskie i łacińskie Agryppy), 12 słów kół f67r1, f67v1, f67r2 wobec znaków zodiaku (łacina, włoski, arabski, hebrajski) i miesięcy (łacina, francuski, oksytański, kataloński, włoski, niemiecki); każdy początek i kierunek listy, klucz glif → litera z twardego EM; null: te same nazwy w 1000 przetasowanych kolejnościach, Bonferroni po 32 parach; kontrola: lista zapisana w glifach rękopisu losowym kluczem z 10% szumu (z ≥ 9,6 dla każdej listy) | obalona (lokalnie, 7.11): żadna para nie wypada ponad przypadkową kolejność; f69v × stacje z = −0,1 (arabskie) i −0,5 (łacińskie); najlepsza f67v1 × miesiące katalońskie z = +3,8, p popr. 0,10 (jedno dokładne trafienie „maig”, reszta „jilill~juliol”, „mamg~marc”), tuż za nią ten sam krąg z miesiącami francuskimi (z = +3,0): do sprawdzenia, nie odkrycie |
-| `polybius` | Polibiusz w długościach słów (`voynich/lab/polybius.py`, CPU ok. 10 min): dwie kolejne długości słów akapitów (w glifach, 9+ = 9) to wiersz i kolumna litery; obie fazy (od pierwszego i od drugiego słowa); klucz pole → litera wyżarzaniem na trigramach liter + koszcie emisji; łacina, hebrajski, włoski, niemiecki; rękopis wobec tych samych długości przetasowanych (3×); kontrola: tekst języka zapisany długościami słów losową tablicą 5×5 | obalona (lokalnie, 9.11): kontrola odczytana w łacinie, włoskim i niemieckim w 100% (hebrajski 46%, poza oceną); rękopis czyta się tak samo jak przetasowany: łacina 4,70/4,69 i 4,78/4,71, włoski 5,20/5,18 i 5,18/5,18, niemiecki 5,12/5,15 i 5,16/5,12 bitu na literę (naturalnie 2,8–3,3) |
-| `master_card` | karta matka (`voynich/lab/card.py`, `colab/Voynich_Karta.ipynb`, A100 lub CPU ok. 23 min): czy słowa składano z jednej tabeli kawałków w 6 kolumnach od początku do końca słowa (z każdej kolumny co najwyżej jeden kawałek, n-gramy glifów n ≤ 3); najlepsza karta o 40, 80, 120 i 200 wpisach z ewolucji; rękopis wobec łaciny, włoskiego, bełkotu v7, rękopisu z glifami przetasowanymi w słowie; kontrola: tekst pisany znaną kartą 5 × 8 z 10% pomyłek (odtworzony: 0,93 wobec 0,91 prawdziwej karty); A wobec B Curriera | potwierdzona (lokalnie, 10.11): karta 120 wpisów składa 96% słów rękopisu (40 wpisów: 77%, 80: 93%), łaciny 70%, włoskiego 74%, rękopisu przetasowanego 74%, bełkotu v7 95%; języki A i B mieszczą się w jednej karcie (karta A na B 0,95, B na A 0,93; spadek 0,014 jak między losowymi połówkami stron, 0,004–0,012). Tabela karty: [`docs/karta_matka.md`](docs/karta_matka.md). Zastrzeżenie: to opis budowy słów, zgodny z kartą-przepisem, nie dowód, że karta fizycznie istniała; v7 składa się z karty tak samo dobrze |
-| `master_card_full` | karta matka na 100% słów (`voynich/lab/card.py`: `prune`, `shrink`; `colab/Voynich_Karta.ipynb`, GPU: L4 7,7 h, A100 szybciej; CPU ok. 66 min z mniejszą populacją): karta pełna (każdy kawałek w każdej z 6 kolumn) składa wszystko; 256 kart przycina ją naraz, każda w swojej kolejności, wpis znika, gdy bez niego nadal składa się 100% (i 99%) tokenów; potem ewolucja pod budżetem o jeden wpis mniejszym (do 40 rund); te same kroki dla łaciny, włoskiego, v7, rękopisu przetasowanego; kontrola: tekst pisany znaną kartą 40 wpisów (odtworzona karta: dokładnie 40 wpisów, także na 99%) | potwierdzona (Colab L4, przebieg 20261110-143915): każde słowo rękopisu składa się z karty 242 wpisów (99% słów: 132); łacina potrzebuje 639 (562), włoski 556 (422), rękopis z przetasowanymi glifami 563 (355), bełkot v7 211 (125). Lokalnie na CPU (4 karty przycinające): rękopis 264 (185), łacina 652, włoski 579, przetasowany 567, v7 215. Tabela: [`docs/karta_matka_100.md`](docs/karta_matka_100.md). Zastrzeżenia: hapaksy też dokładają wpisy; na 99% zmniejszanie zatrzymał limit 40 rund, więc te liczby to górne granice; przycinanie znajduje małą kartę, nie dowodzi, że mniejszej nie ma |
-| `card_choice` | wybory z karty matki (`voynich/lab/cardchoice.py`, CPU ok. 17 min): każde słowo rozbite na wybory z 6 kolumn własnej karty tekstu (przycięcie do 100% tokenów); ile wybory mówią o stronie ponad działem (wobec tasowania całych wierszy między strony działu) i czy na granicy strony jest skok (wiersze tej samej strony podobniejsze niż wiersze w tej samej odległości po dwóch stronach granicy; wiersze przy krawędziach stron pominięte, każdy wiersz przycięty do 8 wyborów); osobno granica recto→verso tej samej karty i granica między kartami; rękopis wobec bełkotu v7 i łaciny w tym samym układzie; kontrole: podłożony ulubiony wpis każdej strony (z = 80, skok z = 4,3), dryf ślepy na strony (z = 36, skok z = 1,2), czysty tekst (z = −0,1) | nierozstrzygnięta (lokalnie, 11.11): wybory niosą o stronie 2,6% swojej entropii (zielnik 3,6%), v7 0,7% (1,3%), łacina 2,0% (2,7%); skok na granicy stron rękopisu +0,10 (z = 4,4), v7 i łacina ok. 0. Ale skok siedzi na granicach między kartami (+0,15, z = 7,2, 84 granice), a między recto i verso tej samej karty jest słaby (+0,06, z = 1,9, 98 granic): to wygląda na karty pisane w różnym czasie i przeszyte potem w innej kolejności, nie na treść zmieniającą się z każdą rośliną. Zastrzeżenie: czysty tekst kontrolny daje skok z = 2,3, więc z skoku są raczej zawyżone; pomiar skoku dodany po pierwszym przebiegu |
-| `sheet_order` | kolejność pisania, dryf skryby jako zegar (`voynich/lab/bifolio.py`, CPU ok. 4 min): karty jednej składki, tej samej ręki i języka Curriera; czy dwie karty jednego arkusza (bifolium; daleko od siebie w księdze, np. f1 i f8) są podobniejsze w wyborach z karty matki niż inne pary kart składki, i czy podobniejsze są karty sąsiednie w księdze; 2000 zamian kart w obrębie (składka, ręka, język); kontrole na tekście pisanym znaną kartą przez skrybę z dryfem: arkuszami w losowej kolejności (arkusz z = 5,7, sąsiednie z = 0,0), strona po stronie w kolejności księgi (sąsiednie z = 6,1, arkusz z = −0,3), bez dryfu (0,3 i −0,2) | potwierdzona (lokalnie, 11.11): karty jednego arkusza z = 6,4 (34 pary), karty sąsiednie w księdze z = 0,5 (45 par): pisano arkuszami, zanim złożono składki. Strony jednego arkusza: ta sama karta 5,2, strona zewnętrzna 5,5, wewnętrzna 5,7, inna strona i karta 4,1 (z 1,7–2,0, za słabo, by powiedzieć, w jakiej kolejności zapisywano cztery strony). Składka nie jest jednostką: najbliższy arkusz leży w tej samej składce w 37% przypadków wobec 34% losowo (z = 0,6); w zielniku A najbliższe arkusze są zwykle w innych składkach. Tabela: [`docs/arkusze.md`](docs/arkusze.md). Zastrzeżenia: wspólna treść arkusza dałaby ten sam ślad co dryf; pełnej kolejności arkuszy nie odtwarzamy (na kontroli ρ 0,1–0,6), wiarygodny jest tylko najbliższy sąsiad (62% trafień na kontroli wobec 4% losowo) |
-| `card_stream` | jedno słowo = jedna litera? (`voynich/lab/cardstream.py`, `colab/Voynich_Strumien.ipynb`, GPU): karta matka 242 wpisów (`data/card/karta_matka.json`) rozbija słowo na wybory w 6 kolumnach; każda kolumna i każda para kolumn to strumień symboli, jeden na słowo (21 strumieni); etap 1: ile symbol mówi o następnym ponad tasowanie słów w wierszach; etap 2: łamacz homofoniczny (przejścia po symbolach, pełna wiarygodność: 4-gramy liter minus koszt zlepiania symboli w jedną literę) na strumieniach z największą pamięcią, po łacinie, włosku i niemiecku; rękopis wobec rękopisu ze słowami przetasowanymi w wierszach; kontrole: litery prawdziwego tekstu ukryte w tych samych strumieniach | obalona (lokalnie CPU, 11.11, wersja zmniejszona: 4 strumienie, łacina i włoski; pełny przebieg na GPU w notebooku): pamięć najlepszego strumienia 0,049 bitu (kolumny 1+3) wobec 0,40–0,51 bitu dla ukrytej łaciny; łamacz odczytuje ukryty tekst w 7 z 8 par język–strumień (96–100% klucza), a z rękopisu wyciąga ciąg 5,6–6,5 bitu na symbol wobec 3,1–3,2 dla języka; kolejność słów pomaga mu o −0,05 do +0,24 bitu (nawyk na styku słów). Zastrzeżenie: sprawdzone tylko litera w jednej kolumnie lub parze kolumn; nie sprawdzone: litera rozłożona na trzy i więcej kolumn, szyfr Naibbe, słowa-wypełniacze między literami |
-| `nomenclator2` | nomenklator z dwoma kluczami (język A i B Curriera) i pomyłkami kopisty, jedyna rodzina szyfrów otwarta po Zhang i Sheng (arXiv:2610.34499), w hebrajskim, arabskim i łacinie (`voynich/lab/nomen2.py`): rzadkie typy scalane z częstym typem o jeden glif dalej, klucz symbol → jednostka (200 słów całych, reszta literami) z próbkowania Gibbsa wieloma łańcuchami naraz (cupy na GPU, numpy na CPU) pod pełną wiarygodnością: bigram jednostek + koszt emisji homofonów (sam model języka wolał zły klucz od prawdziwego: 3,36 wobec 4,19 bitu); klucz na wierszach nieparzystych, bity na parzystych; kontrole tej samej wielkości co rękopis, zaszyfrowane 800 słowami rękopisu przy r = 0, r* i 0,5; rękopis wobec v7 i rękopisu przetasowanego w wierszu | obalona (lokalnie na CPU, 16 łańcuchów × 200 przebiegów, 654 s, 7.11): łamacz czyta kontrole (r = 0: hebrajski 0,81, arabski 0,83, łacina 0,91 tokenów; przy r* = 0,21: 0,54 / 0,64 / 0,81, Zhang i Sheng: 46% hebrajskich), a rękopis odczytany jako nomenklator ma 5,62 / 5,64 / 5,64 bitu na jednostkę, tyle co bełkot v7 (5,60 / 5,69 / 5,61) i 0,6–1,4 bitu więcej niż kontrola z tą samą stopą pomyłek (4,90 / 5,02 / 4,25); przetasowany 5,8–6,0. Reguła obalenia (lustro reguły tropu: ani 0,15 bitu lepiej od v7, ani w granicach 0,3 bitu od kontroli) ustalona po pierwszym przebiegu, w którym stara reguła (≥ v7 − 0,05) zostawiła arabski na granicy 0,05 bitu. Przebieg na A100 (256 łańcuchów × 600, `colab/Voynich_Bomba.ipynb`) zerwał się w nocy 7/8.11 (Colab rozłączony) i nie został powtórzony: wynik z CPU jest ostateczny |
-| przebieg zamykający | `colab/Voynich_Final.ipynb`: teorie z dopisanymi kontrolami (gatunki: rama wszczepiona i litania przetasowana; sędzia: czułość i trzy podziały; wspinaczka i NeuroDecipher: glify przemianowane w każdym wierszu; tarcza: tekst znanej tarczy) oraz `length_code`, `chronology`, `hands` na pełnych ustawieniach | do uruchomienia |
+| `numbers` | 5 number systems from before 1450; zodiac labels as days 1–30 | refuted |
+| `illustrations` | words next to drawings; CLIP + Mantel test; plant names from a vision model as cribs | parts B and C on Colab only |
+| `generative` | character-level transformer, missing pages, real/generated classifier; optionally SDXL+LoRA | Colab only |
+| `naibbe_cipher` | the Naibbe cipher (Greshko 2025), reconstructed from the description | undecided |
+| `cardan_grille` | gibberish from a Cardan grille (Rugg 2004) | refuted |
+| `hebrew_anagram` | Hebrew anagrams (Hauer and Kondrak 2016) with a specificity control | method unreliable |
+| `basque` | Basque under a substitution cipher: Leizarraga 1571 and the modern press | refuted (gap 0.96–0.99 bits) |
+| `nomenclator` | word-for-word code book, solver at the word level; the gain from word order decides | refuted for Latin, Italian, German (manuscript ±0.01 bits, encoded text +0.13–0.47) |
+| `hoax` | text without content from a scribe's rules (generator v5, “scribe's table”), rules from odd folios, check on even ones | undecided: v5 by section 16/22 measures, line classifier AUC 0.78–0.80 (real vs real 0.55; v4: 0.998); it reproduces the dynamics of word lengths (neighbour correlation +0.156 against +0.159), but not the repetitions within a line |
+| `syntax` | dependence between different words 2–7 words apart (mutual information above shuffling within the page and the position in the line), repetitions and variants separately | refuted: frequent words show no dependence (z = −1.2; 5 language texts z ≥ 3.7), but there is an excess of repetitions and variants (z ≈ 9), profile flat with distance |
+| `romance` | (proto-)Romance language (Cheshire 2019): Vulgar Latin (Egeria, c. 400), Old French (9th–13th c.), Bibles: Italian, Spanish, Portuguese, French, Romanian | refuted: gap 1.09–1.26 bits with controls at 99–100%; every Romance text has long-range syntax (z ≥ 11), the manuscript does not (z = −1.2) |
+| `lengths` | words replaced by their character counts: neighbour autocorrelation, short–long zigzag, DFA exponent, line effect; 20 language texts, generators, a random sequence | refuted: adjacent lengths are positively correlated (+0.16; negatively in 17 of 20 languages), the strongest long-range memory (DFA 0.60 against 0.47–0.58), whole lines “long” or “short” |
+| `brute` | brute force: each of the 4000 most frequent triples of consecutive words under one letter-for-glyph key in ~53 languages of the period (Bibles, UD historical corpora, medieval Latin, the Aramaic of Targum Onkelos, the Syriac Peshitta); agreement of keys between triples, a key from half of the lines checked on the other half | refuted (Colab A100, 51 lexicons, 4000 triples, 39 min): in no language does the manuscript beat v5 gibberish – at most 25% of words in the dictionary under a common key (Old French; gibberish 30%), encrypted real text 96–100%; 3 scripts untestable (Amharic, Hindi, Biblical Hebrew); Aramaic and Syriac (local run, 800 triples): manuscript 14% and 25% of words, gibberish 15% and 30%, encrypted text 98–100% |
+| `wheel`, `adversary`, `genres` | far-out medieval ideas: a Llull disc (volvelle) evolved on GPU on the manuscript and on control texts, the best disc writes a text that is scored like the generators; a judge transformer trained on GPU against every content-free generator; litany and barbarous names (Ars Notoria, Liber Iuratus) measured like the manuscript | to be run on Colab: `colab/Voynich_Kolo.ipynb` |
+| `transcriptions`, `cognate`, `hillclimb` | solvers from the literature: whether the manuscript's signature holds in the Currier, FSG, v101 and Takahashi transliterations; NeuroDecipher (Luo, Cao, Barzilay 2019): a soft glyph–letter key and optimal transport between the manuscript's vocabulary and the dictionary of each language, control on encrypted text with spelling noise; a homophonic attack as in AZdecrypt: thousands of hill climbers on GPU with a 4-gram model, a key from odd lines scored on even ones | to be run on Colab: `colab/Voynich_Lamacze.ipynb` |
+| `phonotactics` | whether the words are built like spoken words: Sukhotin's algorithm determines the “vowels” of the manuscript and of each of ~50 languages, words are replaced by consonant–vowel patterns, the distributions are compared by Jensen-Shannon divergence; control: glyphs shuffled within the word | undecided (local run): vowels o, a, e, y; C/V alternation 0.80 as in Latin; pattern distribution at a distance of 0.21 bits from the nearest language (Old French), while languages lie 0.13 (median) to 0.26 from each other; v5 gibberish scores the same |
+| `length_code` | content in word lengths: the sequence of glyph counts as a code for letters, digits or parity bits; capacity, structure against shuffles within the line, digit–letter reading by hill climbing with a 4-gram model of 8 languages, Bacon reading; control: Latin implanted as lengths | refuted (local run): 9 values, 2.7 bits/word, three lengths make up 75% of the sequence; the reading as letters does not beat the shuffled sequence in any language (≤ 0.06 bits), parity bits without structure; the control recovers the implanted Latin |
+| `chronology` | the arrow of time of copying: whether hapaxes have sources (neighbours one glyph away) on earlier leaves; background shuffling pages only within blocks of section and language, separately inside blocks; controls: synthetic copying (must show the arrow), Latin (must not) | refuted (local run): z = −12 when the whole codex is shuffled, but 0.0 within blocks and from −2.1 to +1.0 inside blocks; the global signal is the arrangement of the sections; controls z = +21 and +12, Latin −0.5 |
+| `hands` | whether the words are shaped by the scribe's hand (Davis 2020) or by the content: line classifier with held-out leaves, pairs of hands in the same section and language against a random deal of leaves; the effect of the section within the same hand | refuted (local run): the hands differ in herbal section B (AUC 0.72–0.90, z = +2.3 to +3.5), but the section within the same hand differentiates more strongly (0.73–0.97); the word rules follow the content or the mode of writing, not the scribe |
+| `notation` | non-linguistic notation: Gregorian chant from the Cantus database (63 thousand Volpiano melodies; text words, syllables, neumes), basse danse tablature (Brussels 9085), Python code as a contrast, Latin and v5 gibberish through the battery of the manuscript's signature (8 criteria, defining feature: no long-range syntax); separate notebook `colab/Voynich_Notacja.ipynb` | refuted (local run): chant and code have very strong long-range syntax (unrelated units z = 62–166, manuscript −1.3); they share with the manuscript only the length dynamics (positive neighbour correlation, DFA 0.67–0.71 against 0.60 for the manuscript and 0.52 for Latin) |
+| `labels`, `records`, `lists` | the “record notation” track (CPU part, `colab/Voynich_Rejestr.ipynb`, no GPU units): labels next to drawings as a sub-vocabulary of names, and their citation by the paragraphs of the page; the line as a record with fields (the position of the word read from the word alone, folios held out; mutual information of word class and position; predicting the field from the neighbours); the manuscript's signature against medieval lists (Usuard's martyrology, Apicius, the Alphita glossary, `data/lists/`) | local run (quick mode): the labels are a separate sub-vocabulary (hapaxes z = +12, o- +27, q- −12, length +11), but the paragraphs do not cite the labels of their page above background (z = +1.4); the rest to be run |
+| `fields_lm`, `v6`, `cohesion` | the “record notation” track (GPU part, `colab/Voynich_Rejestr_GPU.ipynb`): the gain of a small GPT from word-position tokens; generator v6 (v5 with damping of words already used, 18 settings evolved on CPU on the scorecard of the odd folios, finalists on the even ones, judge transformer on GPU); page cohesion (a judge of pairs of lines from the same page against pseudo-pages) | `v6` undecided: evolution brings the misses down from 6 (v5) to 4 on the even folios (what remains: hapaxes, m at the line end, the spread of mean length, the link between the end of a word and the start of the next), but the judge still tells them apart (AUC 0.655; v5 0.658; real–real 0.531): what gives the gibberish away does not sit in the 22 measures. `fields_lm` method unreliable: synthetic records gained 0.012 bits instead of ≥ 0.15, because a GPT with a 256-character window knows the word's position in the line anyway (it counts the dots), so the position tokens are redundant; the test was badly conceived, do not repeat. `cohesion` method unreliable: positive control 0.654 < 0.7; manuscript 0.526 against 0.500 after the lines are dealt out, so there is no support for page cohesion |
+| `keystream` | spaces as a key written into the text (`colab/Voynich_Klucz.ipynb`, CPU): 31 rules for cutting, shifting and reading the glyph stream according to the sequence of word lengths (in glyphs and in EVA characters) on the manuscript and on v5 gibberish; the segmentation is scored by description length (MDL), the units by long-range syntax and neighbour information; controls: Latin with spaces rewritten by a rule from the family and Latin read by columns are recovered (F1 = 1.0), plain Latin and v5 gibberish gain from no rule | local run (quick mode, 1500 lines): formally undecided (largest advantage of syntax over gibberish +3.6 at a threshold of 2.5, small-sample noise; full run on Colab), but no rule encodes the manuscript more briefly than the EVA spaces (closest 4.707 against 4.709 bit/glyph), and all four controls pass; the EVA spaces are the best segmentation in this family. Two pieces of side evidence: (1) adjacent words of the manuscript carry **less** information about each other than two random words of the same line (z = −24 on the full text, −7 to −32 by section), while v5 has +11, v6 +1.5, Latin +47; diagnosis: a line-edge effect, because with the first and last word held in place the excess is positive (+0.09 bits as in v5): the first and last words of lines are a separate vocabulary as whole words, not only through the glyphs p/m/g, which v5 does not reproduce; added to the scorecard as the 23rd measure; (2) pieces of 3 glyphs encode the manuscript and the gibberish more briefly than their words do (3.32 against 3.90 bit/glyph), and Latin at greater length (3.89 against 3.45): the manuscript's words are not economical units |
+| `v6` as v7 | generator v7 (`colab/Voynich_V7.ipynb`, A100 approx. 40 min): v6 plus a stock of whole words that open and close a line (`p_edge`) and “neighbour avoidance” (`neighbour_gamma`), and the 23rd scorecard measure `adjacent_mi_excess` (information of adjacent words above random words of the line: manuscript −0.17 bits, v5 +0.03, languages positive); evolution of 20 settings, finalists on the even folios, judge transformer | 27 Oct (Colab, 25 generations): undecided. The best finalist misses only 2 of 23 measures on the even folios (hapaxes, the spread of mean line length; v6: 4, v5: 7), the stock of edge words came into use (`p_edge` 0.33–0.52), neighbour avoidance was zeroed out by evolution. The judge still tells them apart: AUC 0.642 (v6 0.655, v5 0.660, real–real 0.531). What gives the gibberish away still does not sit in the scorecard; the constant trace is too few hapaxes |
+| `lengthkey` | a different cipher alphabet for each word length (`colab/Voynich_Klucz_Dlugosci.ipynb`, A100 approx. 1 h): a glyph in a word of a given length as a separate symbol, homophonic hill climbing searches for nine keys at once; the manuscript's gain from per-length keys against the gain of v5 gibberish and of renamed glyphs; control: Latin encrypted with nine keys recovered | 26 Oct: method unreliable in this configuration: the nine keys were recovered at 18–44% (one key 94–100%), because there are 9× more symbols for the same number of steps; with per-length keys every text reads worse than with one (the hill climbing does not converge). Even so, in none of the 6 languages did the manuscript's gain exceed the gibberish's gain (max 0.01 bits). To be fixed: start from the single-key key, steps ×7 |
+| `brute_length` | brute force separately on each set of words of equal length (`colab/Voynich_Brute_Dlugosci.ipynb`, A100 approx. 30–40 min): sets of 2–8 glyphs and 9+, each as a separate cipher with its own key, triple by triple against 6 lexicons; background and control as in `brute`, per set | refuted (27 Oct, 563 s): 34 testable sets (the positive control for lengths 4–8 recovers the key at 97–100%), in none does the manuscript beat the gibberish; words of length 5–8 under their own key read as words of the language in 0–8% of cases (gibberish the same, encrypted text 97–100%); for lengths 2–3 the high shares (up to 94%) are common to the manuscript and the gibberish, because almost every two-letter string is a word; the 9+ sets are too small (209 words) |
+| `plant_pairs` | the same plant in two places (`colab/Voynich_Rosliny.ipynb`, CPU): 9 “same plant” pairs and 28 “similar” ones (Zandbergen, Petersen) between the pharmaceutical section and the herbal section; shared vocabulary weighted by rarity against random pages of the same Currier language, rank of the true partner; labels of the fragments in the text of the herbal section; controls: the partner's words implanted (z = 20), pairs switched (z = −0.7) | refuted (local run): “same plant” pairs share FEWER words than random pages (z = −1.8, median rank 0.82), all pairs z = −1.0 (rank 0.61), labels z = −1.0; the closest in vocabulary are neighbours in the same quire (f87–f90), not pairs of the same plant: the text does not talk about what is drawn |
+| `judge_probe` | what the judge sees (`colab/Voynich_Sedzia.ipynb`, A100 approx. 10 min): the real-versus-v7 judge probed with line features (hapaxes, words absent from the other corpus, length, position on the page) and AUC after vocabulary matching (shared words only) | confirmed (Colab 7 Nov, 35 s): judge AUC 0.690 (real–real 0.532, sensitivity 0.862); after vocabulary matching 0.566; strongest single feature: hapaxes (AUC 0.58); the correlations of the judge's score with the features within the real lines are close to zero: the judge's trace is vocabulary, not word order. Council: directionally yes, but there is no control on shuffled data and the sample is 247 lines; to be repeated on equal samples |
+| `atoms`, `atoms_draft` | ontology of the illustrations (`data/atoms/`, `colab/Voynich_Atomy.ipynb`, CPU): drawings broken down into atoms, one record per label (853 loci on 51 pages), only observable features from a controlled vocabulary (`vocab.json`), entered by people (agreement of two people: kappa); rebus test: mutual information of each pair (drawing feature, label feature: first/second/last glyph, length, gallows, prefix) against labels shuffled within the page, correction for the number of pairs; controls: first glyph planted according to the feature (z = 72), features shuffled (no association); `atoms_draft`: a vision model (OpenRouter) describes the zodiac nymphs in this schema as a draft to be corrected; `atoms_vision` (`colab/Voynich_Atomy_GPU.ipynb`, A100, no API): Molmo2-8B marks with points the centres of the circles, the figures and the stars, geometry counts the rings and the clockwise order, Qwen3-VL-8B describes the crop around each figure, Grounding DINO counts with boxes as a control; PNGs with point numbers for checking the order; first run (28 Oct, 321 s): the models work, Molmo2 found the circle centres, but on whole spreads it pointed to few figures (Pisces 28/29, Aries 15/15, the rest 0–12/30) and the recognition of the sign failed, 0 pages; fix: a crop of each circle separately at full resolution, three counters merged, pages from the table of scan panels (voynich.nu); second run (696 s, 9 pages): the points hit the nymphs, but every other one landed at x ≈ 0 because of a bug in the Molmo2 coordinate parser (format “frame, number, x, y”), which also spoiled the circle centres; parser fixed according to the model card, circle radius from the panel width; third run (30 Oct, 1642 s, 12 pages): Pisces 28/29, Aries 15/15 and 15/15, Taurus 16 and 18/15, Cancer 30/30, but the pages with reclining nymphs are weak (Leo 12, Virgo 2, Scorpio 11, Sagittarius 8 of 30), Gemini and Libra in excess (39, 37); on the PNG the rings and the order of f71r are correct; fix: the circle crop is pointed at in 4 rotations, exclusion of the centre (the figure of the sign), merging of close points; fourth run with rotations (5 Nov, 2917 s): the pages with reclining nymphs recovered (Scorpio 29, Sagittarius 26, Virgo 34, Leo 35 of 30), excess from duplicates between rotations and from one burst of hallucination (60 “figures” in one rotation of Leo); fix: each point has support from 8 sources (2 questions × 4 rotations), as many of the best-supported points are kept as the page has nymphs; fifth run (7 Nov, 2852 s): 10 of 12 circles with the exact number of figures (Sagittarius 26, Scorpio 29 of 30), 11 pages (255 atoms) merged into `data/atoms` as the “vision” source | refuted on the draft (7 Nov): 255 of 857 atoms described (GPU draft on 11 zodiac pages, 10 of 12 circles with the exact number of figures); none of the 54 pairs drawing feature × label feature exceeds the background (best z = +1.9); controls: planted glyph z = 53, shuffled features no association. Caveat: features from the model's draft (confidence 1), verdict to be repeated after human corrections |
+| `catalog` | cross-sectional analysis (`data/catalog/pages.json`, `scripts/fetch_catalog.py`, CPU approx. 1 min): Zandbergen's page catalogue (voynich.nu, 226 pages: section, description of the drawing, the plant-drawing style features of Gheuens and Rapaport α/β on 109 pages of the herbal section, Currier language, LFD hand, herbal–pharmacy cross-references); (1) drawing style β−α against language and hand (AUC with permutations); (2) pages with a shared drawing feature against random groups with the same language+hand composition, vocabulary weighted by rarity, correction for 19 features; (3) register of sections; controls: a shared group glossary planted (z = 5.9), features shuffled (z = 1.4) | refuted (local run, 7 Nov): drawing style predicts the scribe almost without exception (language B: AUC 0.99, z = +7.0; hand 2: AUC 0.98), but not the content: none of the 19 drawing features links pages by vocabulary above language and hand (best “two leaf shapes” z = +2.5, corrected p 0.13); pages with a shared style share as many words as random pages by the same scribe |
+| `hapax_source` | where the hapaxes come from (`colab/Voynich_Bomba.ipynb`, CPU approx. 1 min): (1) r* = the copyist's error rate (one glyph changed, added or removed) at which a nomenclator of the same size and with the same code words has the same share of hapaxes among tokens as the manuscript (13.7%); (2) locality: how often a frequent neighbour of a hapax stands in the 5 lines above it compared with another page, for the manuscript, v7 gibberish and the nomenclator at r*; controls: copies from 3 lines above planted (z = 126), lines dealt at random to pages (z = 0.4) | undecided (local run, 7 Nov): r* = 0.21 in Hebrew, Arabic and Latin (every fifth code word with an error); locality of the manuscript ×2.07 against ×1.79–1.96 for nomenclator errors (z of the difference −0.4 to −2.4) and ×1.58 for v7 (+2.4): the hapaxes do not rule out a nomenclator, but locality does not distinguish errors from copying from the neighbourhood |
+| `cribs` | cribs from the diagrams (`voynich/lab/cribs.py`, CPU approx. 8 min): the 28 radial words of f69v against the 28 lunar mansions (Arabic, and Agrippa's Latin ones), the 12 words of the circles f67r1, f67v1, f67r2 against the signs of the zodiac (Latin, Italian, Arabic, Hebrew) and the months (Latin, French, Occitan, Catalan, Italian, German); every start and direction of the list, glyph → letter key from hard EM; null: the same names in 1000 shuffled orders, Bonferroni over 32 pairs; control: a list written in the manuscript's glyphs with a random key with 10% noise (z ≥ 9.6 for each list) | refuted (local run, 7 Nov): no pair scores above a random order; f69v × mansions z = −0.1 (Arabic) and −0.5 (Latin); best f67v1 × Catalan months z = +3.8, corrected p 0.10 (one exact hit “maig”, the rest “jilill~juliol”, “mamg~marc”), just behind it the same ring with the French months (z = +3.0): something to check, not a discovery |
+| `polybius` | Polybius in word lengths (`voynich/lab/polybius.py`, CPU approx. 10 min): two consecutive word lengths of the paragraphs (in glyphs, 9+ = 9) are the row and the column of a letter; both phases (from the first and from the second word); cell → letter key by annealing on letter trigrams + emission cost; Latin, Hebrew, Italian, German; the manuscript against the same lengths shuffled (3×); control: a text in the language written as word lengths with a random 5×5 table | refuted (local run, 9 Nov): the control is read in Latin, Italian and German at 100% (Hebrew 46%, excluded from the assessment); the manuscript reads the same as the shuffled one: Latin 4.70/4.69 and 4.78/4.71, Italian 5.20/5.18 and 5.18/5.18, German 5.12/5.15 and 5.16/5.12 bits per letter (naturally 2.8–3.3) |
+| `master_card` | master card (`voynich/lab/card.py`, `colab/Voynich_Karta.ipynb`, A100 or CPU approx. 23 min): whether the words were assembled from one table of pieces in 6 columns from the start to the end of the word (at most one piece from each column, glyph n-grams n ≤ 3); the best card of 40, 80, 120 and 200 entries from evolution; the manuscript against Latin, Italian, v7 gibberish, the manuscript with glyphs shuffled within the word; control: a text written with a known 5 × 8 card with 10% errors (recovered: 0.93 against 0.91 for the true card); Currier A against B | confirmed (local run, 10 Nov): a card of 120 entries assembles 96% of the manuscript's words (40 entries: 77%, 80: 93%), 70% of Latin, 74% of Italian, 74% of the shuffled manuscript, 95% of v7 gibberish; languages A and B fit in one card (card A on B 0.95, B on A 0.93; drop 0.014 as between random halves of the pages, 0.004–0.012). Card table: [`docs/karta_matka.en.md`](docs/karta_matka.en.md). Caveat: this is a description of how the words are built, consistent with a recipe card, not proof that the card physically existed; v7 is assembled from the card just as well |
+| `master_card_full` | master card for 100% of the words (`voynich/lab/card.py`: `prune`, `shrink`; `colab/Voynich_Karta.ipynb`, GPU: L4 7.7 h, A100 faster; CPU approx. 66 min with a smaller population): the full card (every piece in each of the 6 columns) assembles everything; 256 cards prune it at once, each in its own order, an entry disappears when 100% (and 99%) of the tokens can still be assembled without it; then evolution under a budget one entry smaller (up to 40 rounds); the same steps for Latin, Italian, v7, the shuffled manuscript; control: a text written with a known card of 40 entries (recovered card: exactly 40 entries, also at 99%) | confirmed (Colab L4, run 20261110-143915): every word of the manuscript can be assembled from a card of 242 entries (99% of the words: 132); Latin needs 639 (562), Italian 556 (422), the manuscript with shuffled glyphs 563 (355), v7 gibberish 211 (125). Locally on CPU (4 pruning cards): manuscript 264 (185), Latin 652, Italian 579, shuffled 567, v7 215. Table: [`docs/karta_matka_100.en.md`](docs/karta_matka_100.en.md). Caveats: hapaxes also add entries; at 99% the shrinking was stopped by the 40-round limit, so these numbers are upper bounds; pruning finds a small card, it does not prove that there is no smaller one |
+| `card_choice` | choices from the master card (`voynich/lab/cardchoice.py`, CPU approx. 17 min): each word broken down into choices from the 6 columns of the text's own card (pruned to 100% of the tokens); how much the choices say about the page beyond the section (against shuffling whole lines between the pages of the section) and whether there is a jump at the page boundary (lines of the same page more similar than lines at the same distance on the two sides of the boundary; lines at the page edges omitted, each line trimmed to 8 choices); separately the recto→verso boundary of the same leaf and the boundary between leaves; the manuscript against v7 gibberish and Latin in the same layout; controls: each page's favourite entry planted (z = 80, jump z = 4.3), drift blind to pages (z = 36, jump z = 1.2), clean text (z = −0.1) | undecided (local run, 11 Nov): the choices carry 2.6% of their entropy about the page (herbal section 3.6%), v7 0.7% (1.3%), Latin 2.0% (2.7%); the jump at the manuscript's page boundaries is +0.10 (z = 4.4), v7 and Latin approx. 0. But the jump sits at the boundaries between leaves (+0.15, z = 7.2, 84 boundaries), and between the recto and verso of the same leaf it is weak (+0.06, z = 1.9, 98 boundaries): this looks like leaves written at different times and later sewn together in a different order, not like content that changes with every plant. Caveat: the clean control text gives a jump of z = 2.3, so the z values of the jump are probably inflated; the jump measurement was added after the first run |
+| `sheet_order` | order of writing, the scribe's drift as a clock (`voynich/lab/bifolio.py`, CPU approx. 4 min): leaves of one quire, of the same hand and Currier language; whether two leaves of one sheet (bifolium; far apart in the book, e.g. f1 and f8) are more similar in their choices from the master card than other pairs of leaves of the quire, and whether leaves adjacent in the book are more similar; 2000 swaps of leaves within (quire, hand, language); controls on a text written with a known card by a scribe with drift: by sheets in random order (sheet z = 5.7, adjacent z = 0.0), page by page in book order (adjacent z = 6.1, sheet z = −0.3), without drift (0.3 and −0.2) | confirmed (local run, 11 Nov): leaves of one sheet z = 6.4 (34 pairs), leaves adjacent in the book z = 0.5 (45 pairs): the writing was done sheet by sheet, before the quires were put together. Pages of one sheet: same leaf 5.2, outer side 5.5, inner side 5.7, different side and leaf 4.1 (z 1.7–2.0, too weak to say in what order the four pages were written). The quire is not a unit: the nearest sheet lies in the same quire in 37% of cases against 34% at random (z = 0.6); in herbal section A the nearest sheets are usually in other quires. Table: [`docs/arkusze.en.md`](docs/arkusze.en.md). Caveats: shared content of a sheet would leave the same trace as drift; we do not reconstruct the full order of the sheets (on the control ρ 0.1–0.6), only the nearest neighbour is reliable (62% hits on the control against 4% at random) |
+| `card_stream` | one word = one letter? (`voynich/lab/cardstream.py`, `colab/Voynich_Strumien.ipynb`, GPU): the master card of 242 entries (`data/card/karta_matka.json`) breaks a word down into choices in 6 columns; each column and each pair of columns is a stream of symbols, one per word (21 streams); stage 1: how much a symbol says about the next one above the shuffling of words within lines; stage 2: a homophonic solver (passes over the symbols, full likelihood: letter 4-grams minus the cost of merging symbols into one letter) on the streams with the most memory, in Latin, Italian and German; the manuscript against the manuscript with words shuffled within lines; controls: the letters of a real text hidden in the same streams | refuted (local CPU run, 11 Nov, reduced version: 4 streams, Latin and Italian; full run on GPU in the notebook): memory of the best stream 0.049 bits (columns 1+3) against 0.40–0.51 bits for hidden Latin; the solver reads the hidden text in 7 of 8 language–stream pairs (96–100% of the key), while from the manuscript it extracts a sequence of 5.6–6.5 bits per symbol against 3.1–3.2 for language; word order helps it by −0.05 to +0.24 bits (a habit at the junction of words). Caveat: only a letter in one column or in a pair of columns was checked; not checked: a letter spread over three or more columns, the Naibbe cipher, filler words between letters |
+| `nomenclator2` | a nomenclator with two keys (Currier languages A and B) and copyist's errors, the only cipher family left open after Zhang and Sheng (arXiv:2610.34499), in Hebrew, Arabic and Latin (`voynich/lab/nomen2.py`): rare types merged with a frequent type one glyph away, symbol → unit key (200 whole words, the rest by letters) from Gibbs sampling with many chains at once (cupy on GPU, numpy on CPU) under the full likelihood: unit bigram + emission cost of homophones (the language model alone preferred a wrong key to the true one: 3.36 against 4.19 bits); key on odd lines, bits on even ones; controls of the same size as the manuscript, encrypted with 800 words of the manuscript at r = 0, r* and 0.5; the manuscript against v7 and the manuscript shuffled within the line | refuted (local run on CPU, 16 chains × 200 sweeps, 654 s, 7 Nov): the solver reads the controls (r = 0: Hebrew 0.81, Arabic 0.83, Latin 0.91 of tokens; at r* = 0.21: 0.54 / 0.64 / 0.81, Zhang and Sheng: 46% for Hebrew), while the manuscript read as a nomenclator has 5.62 / 5.64 / 5.64 bits per unit, the same as v7 gibberish (5.60 / 5.69 / 5.61) and 0.6–1.4 bits more than the control with the same error rate (4.90 / 5.02 / 4.25); shuffled 5.8–6.0. The refutation rule (the mirror of the lead rule: neither 0.15 bits better than v7 nor within 0.3 bits of the control) was fixed after the first run, in which the old rule (≥ v7 − 0.05) left Arabic on the 0.05-bit boundary. The run on A100 (256 chains × 600, `colab/Voynich_Bomba.ipynb`) broke off in the night of 7/8 Nov (Colab disconnected) and was not repeated: the CPU result is final |
+| closing run | `colab/Voynich_Final.ipynb`: theories with added controls (genres: frame implanted and litany shuffled; judge: sensitivity and three splits; hill climbing and NeuroDecipher: glyphs renamed in every line; disc: the text of a known disc) and `length_code`, `chronology`, `hands` at full settings | to be run |
 
-**Psy gończe** (`voynich/lab/hounds.py`, `voynich/lab/recipes.py`): rada przestaje tylko oceniać i sama poluje.
-Każdy model dostaje rolę (kryptolog, lingwista, sceptyk, „dziki pies”) i w kolejnych rundach wymyśla przepisy odczytu
-z klocków: klucze z π, e, √2, φ, liczb pierwszych, dat i słów (jak szyfr Vigenère'a), nulle, co n-te słowo lub glif,
-grupy glifów, odwracanie, akrostychy, usuwanie spacji, 15 języków docelowych, pismo bez samogłosek. Każdy klocek ma
-dokładną odwrotność, więc każdy przepis dostaje automatycznie kontrolę dodatnią (tekst w języku docelowym zaszyfrowany
-tym samym przepisem musi wrócić) i kontrole ujemne (bełkot z generatora v4, rękopis z przetasowanymi słowami).
-Trop liczy się tylko, gdy rękopis wyraźnie wygrywa z bełkotem, a odczyt jest prawie tak przewidywalny jak prawdziwy
-język; najlepsze tropy są powtarzane na innej części rękopisu. Pomysły spoza klocków trafiają na listę życzeń.
-W notebooku: `lab.hunt(rounds=4, per_hound=2)`.
+**Hounds** (`voynich/lab/hounds.py`, `voynich/lab/recipes.py`): the council stops merely judging and goes hunting itself.
+Each model gets a role (cryptologist, linguist, sceptic, “wild dog”) and in successive rounds invents reading recipes
+from building blocks: keys from π, e, √2, φ, prime numbers, dates and words (like the Vigenère cipher), nulls, every n-th word or glyph,
+glyph groups, reversal, acrostics, removal of spaces, 15 target languages, writing without vowels. Each block has
+an exact inverse, so each recipe automatically gets a positive control (a text in the target language encrypted
+with the same recipe must come back) and negative controls (gibberish from the v4 generator, the manuscript with shuffled words).
+A lead counts only when the manuscript clearly beats the gibberish and the reading is almost as predictable as a real
+language; the best leads are repeated on another part of the manuscript. Ideas from outside the blocks go onto the wish list.
+In the notebook: `lab.hunt(rounds=4, per_hound=2)`.
 
-Laboratorium porównuje z 17 językami Biblii (baskijski dołączył jako 13., hiszpański, portugalski, francuski i rumuński jako 14.–17.) oraz z łaciną średniowieczną, łaciną ludową (Egeria), starofrancuskim, a w brute force także z aramejskim (Targum Onkelos) i syryjskim (Peszitta); raport `docs/index.html` z etapów 1–2 liczono jeszcze na 12.
-`fetch_data.py` kończy się komunikatem „Dane kompletne.”, a laboratorium odmawia liczenia na niepełnych danych.
+The lab compares with 17 Bible languages (Basque joined as the 13th; Spanish, Portuguese, French and Romanian as the 14th–17th) and with medieval Latin, Vulgar Latin (Egeria), Old French, and in brute force also with Aramaic (Targum Onkelos) and Syriac (Peshitta); the report `docs/index.html` from stages 1–2 was still computed on 12.
+`fetch_data.py` ends with the message “Dane kompletne.”, and the lab refuses to compute on incomplete data.
 
-Sekrety Colaba: `GITHUB_TOKEN`, `OPENROUTER_API_KEY`. Wyniki trafiają na gałąź `lab-results`.
-Z wiersza poleceń: `python -m voynich.lab.runner --theories numbers,literature --quick --no-council`.
+Colab secrets: `GITHUB_TOKEN`, `OPENROUTER_API_KEY`. The results go to the `lab-results` branch.
+From the command line: `python -m voynich.lab.runner --theories numbers,literature --quick --no-council`.
 
-## Podsumowanie końcowe (8 listopada 2026)
+## Final summary (8 November 2026)
 
-Projekt zamykamy. Przez trzy tygodnie zamieniliśmy 44 hipotezy o rękopisie w testy z kontrolami: każdy test musiał
-najpierw znaleźć efekt, który sami podłożyliśmy, i nie znaleźć go w danych losowych. Żadna hipoteza, że tekst jest
-językiem, szyfrem, zapisem muzyki, tańca, programu albo listą nazw, nie przeszła. Ostatni i najmocniejszy atak, na
-nomenklator z dwoma kluczami i pomyłkami kopisty (jedyny szyfr, którego literatura jeszcze nie wykluczyła), czyta próbne
-szyfry po hebrajsku, arabsku i łacinie w 81–91%, a rękopis tak samo słabo jak bełkot wygenerowany komputerowo. Ilustracje
-też nic nie dały: styl rysunków zdradza skrybę, ale nie treść, a koła diagramów nie są zaszyfrowanymi nazwami stacji
-Księżyca, znaków ani miesięcy. Najlepiej wszystko tłumaczy tekst bez treści, pisany z nawyku przez przerabianie słów
-z sąsiednich wierszy; jedyna rzecz, której nasz generator nie naśladuje do końca, to liczba słów jednorazowych.
-To wniosek oparty na liczbach, nie dowód; kod, dane i wyniki (`lab-results`) są publiczne i powtarzalne.
+We are closing the project. Over three weeks we turned 44 hypotheses about the manuscript into tests with controls: each test first had
+to find an effect that we had planted ourselves, and not find it in random data. No hypothesis that the text is
+a language, a cipher, a notation of music, dance or a program, or a list of names, passed. The last and strongest attack, on
+a nomenclator with two keys and copyist errors (the only cipher that the literature had not yet ruled out), reads trial
+ciphers in Hebrew, Arabic and Latin at 81–91%, and the manuscript as poorly as computer-generated gibberish. The illustrations
+gave nothing either: the style of the drawings gives away the scribe, but not the content, and the diagram wheels are not enciphered names of lunar
+mansions, signs or months. What explains everything best is a text without content, written out of habit by reworking words
+from neighbouring lines; the only thing that our generator does not fully imitate is the number of words that occur only once.
+This is a conclusion based on numbers, not a proof; the code, data and results (`lab-results`) are public and reproducible.
 
-## Stan badań (8 listopada 2026)
+## State of research (8 November 2026)
 
-Trzy tygodnie, 48 teorii zamienionych w testy z kontrolami, 27 przebiegów na Colabie (A100 i CPU) na gałęzi `lab-results`
-i lokalne przebiegi ostatniego ataku, 131 testów kodu. Każdy test musi znaleźć efekt podłożony celowo i nie znajdować go w danych losowych; bez tego werdykt
-brzmi „metoda niewiarygodna”. Wiersze w tabeli wyżej mają liczby; tu streszczenie.
+Three weeks, 48 theories turned into tests with controls, 27 runs on Colab (A100 and CPU) on the `lab-results` branch
+and local runs of the last attack, 131 code tests. Each test must find an effect planted on purpose and not find it in random data; without that the verdict
+is "method unreliable". The rows in the table above give the numbers; here is a summary.
 
-**Wykluczone (kontrole przeszły):**
-- Szyfr podstawieniowy, prosty i homofoniczny, dla 53 języków i słowników epoki. Trzy łamacze (brute force trójek słów,
-  wspinaczka z modelem n-gramowym, NeuroDecipher) odzyskują klucz z tekstu kontrolnego w 94–100%, a z rękopisu wyciągają
-  tyle samo co z bełkotu. Dotyczy też kluczy innych dla każdej długości słowa (`brute_length`: słowa o 5–8 glifach czytane
-  jako słowa języka w 0–8%, tyle co bełkot; zaszyfrowany tekst 97–100%) i klucza zapisanego w odstępach (`keystream`:
-  żadne cięcie, przesunięcie ani odczyt strumienia glifów nie koduje rękopisu krócej niż odstępy EVA).
-- Zapis niejęzykowy ze składnią: chorał, tabulatura tańca, program (`notation`, z = 65–145 wobec −1 rękopisu); listy
-  średniowieczne: martyrologium, Apicius, glosariusz Alphita (`lists`, z = 64–113).
-- Daleka składnia: w czterech transliteracjach słowo nic nie mówi o słowie 2–7 miejsc dalej (z ≈ −1), czego nie ma żaden
-  język, szyfr zachowujący szyk, notacja ani lista.
-- Tekst opisujący obrazki: akapity nie cytują etykiet swojej strony (`labels`, z = +1,4), strony z tą samą rośliną dzielą
-  słów mniej niż losowe strony (`plant_pairs`, z = −2), podobieństwo rysunków nie idzie w parze z podobieństwem słów
-  (Mantel r = 0,08). Analiza przekrojowa katalogu Zandbergena (`catalog`, 7.11): styl rysunku roślin (cechy α/β Gheuensa
-  i Rapaport) przewiduje skrybę niemal bez wyjątku (język B: AUC 0,99), ale strony o wspólnym stylu nie dzielą słów ponad
-  to, co dzielą losowe strony tego samego skryby (19 cech, najlepsza z = +2,5 po poprawce nic). Rebus w parach rysunek–
-  etykieta (`atoms`, 255 nimf zodiaku ze szkicu GPU): żadna z 54 par cecha rysunku × cecha etykiety nie przekracza tła.
+**Ruled out (controls passed):**
+- Substitution cipher, simple and homophonic, for 53 languages and dictionaries of the period. Three solvers (brute force over word triples,
+  hill climbing with an n-gram model, NeuroDecipher) recover the key from the control text at 94–100%, and from the manuscript they extract
+  as much as from gibberish. This also covers keys that differ for each word length (`brute_length`: words of 5–8 glyphs read
+  as words of a language at 0–8%, the same as gibberish; enciphered text 97–100%) and a key written in the spaces (`keystream`:
+  no cutting, shifting or reading of the glyph stream encodes the manuscript more briefly than the EVA spaces).
+- Non-linguistic notation with syntax: plainchant, dance tablature, a program (`notation`, z = 65–145 against −1 for the manuscript);
+  medieval lists: a martyrology, Apicius, the Alphita glossary (`lists`, z = 64–113).
+- Long-range syntax: in four transliterations a word says nothing about the word 2–7 places further on (z ≈ −1), which is true of no
+  language, cipher that preserves word order, notation or list.
+- Text describing the pictures: paragraphs do not quote the labels of their own page (`labels`, z = +1.4), pages with the same plant share
+  fewer words than random pages (`plant_pairs`, z = −2), similarity of drawings does not go together with similarity of words
+  (Mantel r = 0.08). Cross-sectional analysis of Zandbergen's catalogue (`catalog`, 7 Nov): the drawing style of the plants (the α/β features of Gheuens
+  and Rapaport) predicts the scribe almost without exception (language B: AUC 0.99), but pages with a shared style do not share words beyond
+  what random pages by the same scribe share (19 features, the best z = +2.5, nothing after correction). Rebus in drawing–
+  label pairs (`atoms`, 255 zodiac nymphs from the GPU draft): none of the 54 pairs drawing feature × label feature exceeds the background.
 
-- Ostatni atak („bomba”, 7.11, `colab/Voynich_Bomba.ipynb`): nomenklator z dwoma kluczami i pomyłkami kopisty, jedyna
-  rodzina szyfrów, której Zhang i Sheng nie wykluczyli. Nowy łamacz czyta kontrole wielkości rękopisu po hebrajsku (81%),
-  arabsku (83%) i łacinie (91%), także przy stopie pomyłek rękopisu (54–81%), a rękopis czyta tak samo źle jak bełkot v7
-  (`nomenclator2`). Hapaksy nie wykluczają pomyłek kopisty (r* = 0,21), ale ich położenie nie odróżnia pomyłek od
-  kopiowania z sąsiedztwa (`hapax_source`). Koła diagramów nie czytają się jako stacje Księżyca, znaki ani miesiące
-  (`cribs`, 32 pary, najlepsza f67v1 × miesiące katalońskie z = +3,8, p popr. 0,10). Długości słów nie kryją
-  tekstu także jako pary współrzędnych w tablicy Polibiusza (`polybius`, 9.11): rękopis czyta się jak przetasowany.
-- Karta matka (`master_card`, 10.11): jedna tabela 120 kawałków słów w 6 kolumnach wystarcza, żeby złożyć 96% słów rękopisu,
-  wobec 70–74% dla łaciny, włoskiego i rękopisu z przetasowanymi glifami. Języki A i B Curriera mieszczą się w tej samej
-  karcie. To najprostszy mechanizm, który tłumaczy, jak pięciu skrybów pisało płynnie według wspólnych reguł:
-  [`docs/karta_matka.md`](docs/karta_matka.md). Karta, która składa każde słowo bez wyjątku (`master_card_full`), ma 242 wpisy (GPU):
-  2,6 raza mniej niż dla łaciny (639) i 2,3 raza mniej niż dla rękopisu z przetasowanymi glifami (563), ale tyle co
-  dla bełkotu v7 (211); na 99% słów: 132 wpisy wobec 562 dla łaciny. To, które kawałki skryba brał z karty, zależy od strony
-  mocniej niż w bełkocie v7, ale zmienia się skokowo głównie między kartami, a nie między recto i verso jednej karty: najprościej to
-  wyjaśnić kartami pisanymi w różnym czasie i przeszytymi potem w innej kolejności (`card_choice`, nierozstrzygnięta). Dryf nawyków jako zegar to potwierdza
-  (`sheet_order`): dwie karty jednego arkusza, odległe w oprawionej księdze, mają te same nawyki (z = 6,4), karty sąsiednie nie (z = 0,5).
-  Rękopis pisano arkuszami przed złożeniem składek, a arkusze jednej składki nie są sobie bliższe niż arkusze różnych składek:
-  [`docs/arkusze.md`](docs/arkusze.md). Jak taka karta mogła wyglądać na pulpicie skryby: [`docs/karta_matka_rekonstrukcja.jpg`](docs/karta_matka_rekonstrukcja.jpg)
-  (132 kawałki, 99% słów) i [`docs/karta_matka_rekonstrukcja_242.jpg`](docs/karta_matka_rekonstrukcja_242.jpg) (każde słowo); rysuje je
-  `scripts/render_card.py`. To rekonstrukcja komputerowa: kawałki są z testu, pergamin, liniowanie i układ to domysł: [`docs/karta_matka_100.md`](docs/karta_matka_100.md). Colab (przebieg 20261107-203642
-  na `lab-results`) powtórzył `hapax_source` i `cribs` z tymi samymi liczbami; `nomenclator2` na GPU zerwał się
-  i został na wyniku z CPU.
+- The last attack ("bomba", 7 Nov, `colab/Voynich_Bomba.ipynb`): a nomenclator with two keys and copyist errors, the only
+  family of ciphers that Zhang and Sheng did not rule out. The new solver reads manuscript-sized controls in Hebrew (81%),
+  Arabic (83%) and Latin (91%), also at the manuscript's error rate (54–81%), and it reads the manuscript as badly as v7 gibberish
+  (`nomenclator2`). The hapaxes do not rule out copyist errors (r* = 0.21), but their position does not distinguish errors from
+  copying from the neighbourhood (`hapax_source`). The diagram wheels do not read as lunar mansions, signs or months
+  (`cribs`, 32 pairs, the best f67v1 × Catalan months z = +3.8, corrected p 0.10). Nor do the word lengths hide
+  a text as pairs of coordinates in a Polybius square (`polybius`, 9 Nov): the manuscript reads like a shuffled one.
+- Master card (`master_card`, 10 Nov): a single table of 120 word pieces in 6 columns is enough to assemble 96% of the words of the manuscript,
+  against 70–74% for Latin, Italian and the manuscript with shuffled glyphs. Currier languages A and B fit in the same
+  card. This is the simplest mechanism that explains how five scribes wrote fluently by shared rules:
+  [`docs/karta_matka.en.md`](docs/karta_matka.en.md). The card that assembles every word without exception (`master_card_full`) has 242 entries (GPU):
+  2.6 times fewer than for Latin (639) and 2.3 times fewer than for the manuscript with shuffled glyphs (563), but as many as
+  for v7 gibberish (211); for 99% of the words: 132 entries against 562 for Latin. Which pieces the scribe took from the card depends on the page
+  more strongly than in v7 gibberish, but it changes abruptly mainly between leaves, and not between the recto and verso of one leaf: the simplest
+  explanation is leaves written at different times and later sewn in a different order (`card_choice`, undecided). The drift of habits used as a clock confirms this
+  (`sheet_order`): two leaves of one sheet, far apart in the bound book, have the same habits (z = 6.4), adjacent leaves do not (z = 0.5).
+  The manuscript was written sheet by sheet before the quires were assembled, and the sheets of one quire are no closer to each other than the sheets of different quires:
+  [`docs/arkusze.en.md`](docs/arkusze.en.md). What such a card could have looked like on the scribe's desk: [`docs/karta_matka_rekonstrukcja.en.jpg`](docs/karta_matka_rekonstrukcja.en.jpg)
+  (132 pieces, 99% of the words) and [`docs/karta_matka_rekonstrukcja_242.en.jpg`](docs/karta_matka_rekonstrukcja_242.en.jpg) (every word); they are drawn by
+  `scripts/render_card.py`. This is a computer reconstruction: the pieces come from the test, the parchment, ruling and layout are conjecture: [`docs/karta_matka_100.en.md`](docs/karta_matka_100.en.md). Colab (run 20261107-203642
+  on `lab-results`) repeated `hapax_source` and `cribs` with the same numbers; `nomenclator2` broke off on the GPU
+  and stays with the CPU result.
 
-**Niewyjaśnione:**
-- Generator bez treści v7 (kopiuj z sąsiedztwa i przerabiaj) trafia 21 z 23 miar statystycznych, ale sędzia-transformer
-  wciąż odróżnia go od rękopisu (AUC 0,642 wobec 0,531 dla rękopisu z samym sobą). Trwały ślad: rękopis ma więcej słów
-  jednorazowych, niż daje przerabianie sąsiadów. `judge_probe` (7.11) wskazuje, że sędzia widzi słownictwo, nie szyk:
-  po ograniczeniu do słów wspólnych obu korpusom AUC spada z 0,690 do 0,566, a najsilniejsza pojedyncza cecha to hapaksy.
-  Rada zastrzega: brak kontroli na danych przetasowanych i mała próba; do powtórzenia.
-- Etykiety przy rysunkach to osobny zasób nazw: inne początki, inne długości, połowa nigdy nie pada w akapitach.
-- Sąsiednie słowa niosą o sobie mniej informacji niż losowe słowa tego samego wiersza (z = −24; bełkot +11, łacina +47).
-  Tłumaczy to słownictwo krawędzi wiersza, ale sama cecha nie była wcześniej opisana.
-- Sztywne kawałki po 3 glify kodują rękopis krócej niż jego własne słowa (3,32 wobec 3,90 bitu na glif); w łacinie słowa
-  wygrywają z kawałkami.
+**Unexplained:**
+- The contentless generator v7 (copy from the neighbourhood and rework) hits 21 of 23 statistical measures, but the transformer judge
+  still tells it apart from the manuscript (AUC 0.642 against 0.531 for the manuscript against itself). A lasting trace: the manuscript has more words
+  that occur only once than reworking neighbours gives. `judge_probe` (7 Nov) indicates that the judge sees vocabulary, not word order:
+  after restricting to words common to both corpora the AUC falls from 0.690 to 0.566, and the strongest single feature is hapaxes.
+  The council adds a caveat: no control on shuffled data and a small sample; to be repeated.
+- The labels next to the drawings are a separate stock of names: different beginnings, different lengths, and half never occur in the paragraphs.
+- Adjacent words carry less information about each other than random words of the same line (z = −24; gibberish +11, Latin +47).
+  The line-edge vocabulary explains this, but the feature itself had not been described before.
+- Rigid pieces of 3 glyphs encode the manuscript more briefly than its own words (3.32 against 3.90 bits per glyph); in Latin, words
+  beat pieces.
 
-**Wniosek końcowy:** tekst nie niesie treści w żadnym sensie, w jakim niosą ją język, szyfr zachowujący szyk, notacja
-czy lista. Najbardziej prawdopodobny jest zapis bez treści z nawyku skryby, z możliwą domieszką prawdziwych nazw
-(etykiety). To opinia oparta na liczbach, nie dowód: wszystko jest publiczne i powtarzalne.
+**Final conclusion:** the text carries no content in any sense in which a language, a cipher that preserves word order, a notation
+or a list carries it. The most probable is writing without content, produced out of the scribe's habit, with a possible admixture of real names
+(the labels). This is an opinion based on numbers, not a proof: everything is public and reproducible.
 
-**Tor obraz–etykieta (atomy):** rysunki rozbierane na atomy, jeden rekord na etykietę (853 loci na 51 stronach),
-cechy tylko obserwowalne ze słownika kontrolowanego; szkic na własnym GPU otwartymi modelami (Molmo2, Qwen3-VL, Grounding
-DINO) z kolejnością nimf policzoną z geometrii. Po pięciu przebiegach 10 z 12 kół zodiaku ma dokładną liczbę postaci,
-255 atomów jest scalonych, a test `atoms` na tym szkicu wypada „obalona” (cechy modelu mają pewność 1, więc werdykt
-czeka na poprawki ludzi). Instrukcja dla osób wypełniających: [`data/atoms/README.md`](data/atoms/README.md).
+**Image–label track (atoms):** drawings broken down into atoms, one record per label (853 loci on 51 pages),
+only observable features from a controlled vocabulary; a draft made on our own GPU with open models (Molmo2, Qwen3-VL, Grounding
+DINO) with the order of the nymphs computed from geometry. After five runs 10 of the 12 zodiac wheels have the exact number of figures,
+255 atoms are merged, and the `atoms` test on this draft comes out "refuted" (the model's features have confidence 1, so the verdict
+awaits corrections by people). Instructions for the people filling it in: [`data/atoms/README.en.md`](data/atoms/README.en.md).
 
-## Uruchomienie
+## Running
 
 ```bash
-python scripts/fetch_data.py      # korpusy porównawcze (Biblia w 12 językach, łacina średniowieczna)
-python scripts/run_analysis.py    # eksperymenty etapu 1 -> docs/results.json (~10 min)
-python scripts/run_extended.py    # etap 2 -> docs/results_ext.json (~5 min)
+python scripts/fetch_data.py      # comparison corpora (the Bible in 12 languages, medieval Latin)
+python scripts/run_analysis.py    # stage 1 experiments -> docs/results.json (~10 min)
+python scripts/run_extended.py    # stage 2 -> docs/results_ext.json (~5 min)
 python scripts/build_report.py    # docs/index.html
-python -m unittest                # testy
+python -m unittest                # tests
 ```
 
-`run_analysis.py --quick` robi szybki przebieg (3 języki, mniej permutacji).
+`run_analysis.py --quick` does a quick run (3 languages, fewer permutations).
 
-## Struktura
+## Structure
 
-| plik | co robi |
+| file | what it does |
 |---|---|
-| `voynich/ivtff.py` | parser formatu IVTFF (strony, zmienne `$I $L $H`, loci) |
-| `voynich/eva.py` | czyszczenie EVA, podział na słowa i glify (`cth`, `ch`, `ii`… jako jeden znak) |
-| `voynich/corpus.py` | ładowanie rękopisu i korpusów porównawczych |
-| `voynich/stats.py` | entropie h₁–h₃, Zipf, gęstość słownika, powtórzenia |
-| `voynich/structure.py` | pozycje glifów, sztywność kolejności, testy permutacyjne, słowa kluczowe działów |
-| `voynich/selfcite.py` | generator samocytowania: reguły ręczne, edycje podpatrzone u skryby, gramatyka słowa |
-| `voynich/latin.py` | pisownia średniowieczna, podział na sylaby, skróty skrybów |
-| `voynich/syllabic.py` | hipotezy sylabiczne, kod sylabiczny, niezmienniki na poziomie słów |
-| `voynich/cipher.py` | łamacz szyfrów podstawieniowych (wyżarzanie, kryterium MDL) |
-| `voynich/lab/` | laboratorium: konfiguracja, klient OpenRouter, rada modeli, skany IIIF, teorie, raport i push |
-| `voynich/lab/recipes.py`, `hounds.py` | język przepisów (klocki z odwrotnościami, kontrole) i polowanie psów gończych |
-| `colab/` | notebook Colab i skrypt, który go generuje |
+| `voynich/ivtff.py` | parser of the IVTFF format (pages, the variables `$I $L $H`, loci) |
+| `voynich/eva.py` | EVA cleaning, splitting into words and glyphs (`cth`, `ch`, `ii`… as one character) |
+| `voynich/corpus.py` | loading the manuscript and the comparison corpora |
+| `voynich/stats.py` | entropies h₁–h₃, Zipf, vocabulary density, repetitions |
+| `voynich/structure.py` | glyph positions, rigidity of order, permutation tests, section keywords |
+| `voynich/selfcite.py` | self-citation generator: hand-written rules, edits observed in the scribe, word grammar |
+| `voynich/latin.py` | medieval spelling, splitting into syllables, scribal abbreviations |
+| `voynich/syllabic.py` | syllabic hypotheses, syllabic code, word-level invariants |
+| `voynich/cipher.py` | solver for substitution ciphers (annealing, MDL criterion) |
+| `voynich/lab/` | the lab: configuration, OpenRouter client, council of models, IIIF scans, theories, report and push |
+| `voynich/lab/recipes.py`, `hounds.py` | recipe language (blocks with inverses, controls) and the hunt of the hounds |
+| `colab/` | the Colab notebook and the script that generates it |
 
-## Dane i źródła
+## Data and sources
 
-- `data/raw/ZL3b-n.txt`: transliteracja Zandbergena–Landiniego, wersja 3b z 13.05.2025
+- `data/raw/ZL3b-n.txt`: the Zandbergen–Landini transliteration, version 3b of 13 May 2025
   (René Zandbergen, [voynich.nu](https://www.voynich.nu/transcr.html)), SHA-256 `bf5b6d4a…beccafc`.
-- Korpusy porównawcze: [christos-c/bible-corpus](https://github.com/christos-c/bible-corpus)
-  oraz łacina średniowieczna z The Latin Library ([cltk/lat_text_latin_library](https://github.com/cltk/lat_text_latin_library)),
-  pobierane przez `fetch_data.py` (nie są w repozytorium). Uwaga: „bacon” w tym zbiorze
-  to Francis Bacon (XVII w.), nie Roger Bacon, więc go pomijamy.
+- Comparison corpora: [christos-c/bible-corpus](https://github.com/christos-c/bible-corpus)
+  and medieval Latin from The Latin Library ([cltk/lat_text_latin_library](https://github.com/cltk/lat_text_latin_library)),
+  downloaded by `fetch_data.py` (they are not in the repository). Note: "bacon" in this collection
+  is Francis Bacon (17th century), not Roger Bacon, so we skip it.
 - T. Timm, A. Schinner, *A possible generating algorithm of the Voynich manuscript*, Cryptologia 44 (2020).
-- B. L. Monroe, M. P. Colaresi, K. M. Quinn, *Fightin' Words*, Political Analysis 16 (2008), dla słów kluczowych.
+- B. L. Monroe, M. P. Colaresi, K. M. Quinn, *Fightin' Words*, Political Analysis 16 (2008), for the keywords.
