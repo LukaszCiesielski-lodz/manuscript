@@ -167,14 +167,15 @@ def page_information(codes: np.ndarray, lay: Layout, permutations: int = 200, se
 
 
 def boundary_jump(codes: np.ndarray, lay: Layout, max_distance: int = 10, shifts: int = 200, seed: int = 0,
-                  min_distance: int = 3, items: int = 8) -> dict:
+                  min_distance: int = 3, items: int = 8, boundary_kind: dict | None = None) -> dict:
     """Is the page a unit, or do choices only drift? Lines at the same distance (1..max_distance lines apart, same
     section) are more alike when on the same page than across a page boundary if the page is a unit (one plant,
     one topic, one sitting); a smooth drift gives no jump. Similarity of two lines = shared (column, choice) items
     over the number of items, every line cut to the same random `items` (column, choice) items so that line length
     cannot matter (shorter lines left out). Jump = mean similarity within pages - across, at matched distances, relative to
     the mean similarity; null: the page boundaries shifted cyclically inside each section (same page sizes, wrong
-    places). The first and last line of every page and lines under `min_words` words never enter a pair: page edges
+    places). With `boundary_kind` ({page p: kind of the boundary between p and p + 1}), the jump is also given per kind
+    of boundary, against the same null. The first and last line of every page and lines under `min_words` words never enter a pair: page edges
     are paragraph edges (short last lines, paragraph-initial habits), which would fake a jump."""
     rng = np.random.default_rng(seed)
     ok = codes[:, 0] >= 0
@@ -210,12 +211,13 @@ def boundary_jump(codes: np.ndarray, lay: Layout, max_distance: int = 10, shifts
     dist = np.array(dist)
     mean_sim = float(sims.mean())
 
-    def jump(line_page: np.ndarray) -> float:
+    def jump(line_page: np.ndarray, cross_keep=None) -> float:
         same = line_page[pairs[:, 0]] == line_page[pairs[:, 1]]
+        cross = ~same if cross_keep is None else (~same & cross_keep)
         vals, weights = [], []
         for d in range(min_distance, max_distance + 1):
             m = dist == d
-            a, b = sims[m & same], sims[m & ~same]
+            a, b = sims[m & same], sims[m & cross]
             if len(a) and len(b):
                 vals.append(a.mean() - b.mean())
                 weights.append(min(len(a), len(b)))
@@ -233,7 +235,16 @@ def boundary_jump(codes: np.ndarray, lay: Layout, max_distance: int = 10, shifts
         null.append(jump(lp))
     null = np.array(null)
     sd = float(null.std()) or 1e-9
-    return {"jump": obs, "null": float(null.mean()), "sd": sd, "z": (obs - float(null.mean())) / sd, "mean_similarity": mean_sim}
+    out = {"jump": obs, "null": float(null.mean()), "sd": sd, "z": (obs - float(null.mean())) / sd, "mean_similarity": mean_sim}
+    if boundary_kind:
+        p0, p1 = lp0[pairs[:, 0]], lp0[pairs[:, 1]]
+        out["by_kind"] = {}
+        for kind in sorted(set(boundary_kind.values())):
+            keep = (p1 == p0 + 1) & np.array([boundary_kind.get(int(p)) == kind for p in p0])
+            v = jump(lp0, keep)
+            out["by_kind"][kind] = {"jump": v, "z": (v - float(null.mean())) / sd,
+                                    "boundaries": int(sum(1 for k in boundary_kind.values() if k == kind))}
+    return out
 
 
 def section_information(codes: np.ndarray, lay: Layout, permutations: int = 200, seed: int = 0) -> list[dict]:

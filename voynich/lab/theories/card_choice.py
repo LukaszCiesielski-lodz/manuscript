@@ -11,6 +11,7 @@ card, found the same way (pruning the full card to 100% of the tokens).
 
 from __future__ import annotations
 
+import re
 import time
 
 import numpy as np
@@ -37,7 +38,24 @@ def manuscript_layout(quick: bool = False):
     lay = C.Layout([len(l.words) for l in lines], [pages[(l.section, l.folio)] for l in lines],
                    [sections.index(k[0]) for k in sorted(pages, key=pages.get)])
     tokens = [tuple(eva.glyphs(w)) for l in lines for w in l.words]
-    return lay, tokens, sections, lines
+    return lay, tokens, sections, lines, sorted(pages, key=pages.get)
+
+
+def leaf(folio: str) -> str:
+    """The physical leaf of a page: f1r and f1v (and f67r1, f67v2) are one leaf."""
+    m = re.match(r"f(\d+)", folio)
+    return m.group(1) if m else folio
+
+
+def boundary_kinds(page_keys: list) -> dict:
+    """For every page followed by a page of the same section: "ta sama karta" (recto to verso of one leaf, written one
+    after the other) or "inna karta" (across leaves, whose order in the binding need not be the order of writing)."""
+    out = {}
+    for p in range(len(page_keys) - 1):
+        (s0, f0), (s1, f1) = page_keys[p], page_keys[p + 1]
+        if s0 == s1:
+            out[p] = "ta sama karta" if leaf(f0) == leaf(f1) else "inna karta"
+    return out
 
 
 def run(cfg: LabConfig) -> TheoryResult:
@@ -60,7 +78,8 @@ def run(cfg: LabConfig) -> TheoryResult:
                 "tekst bez ulubionych wpisów."),
         references=["Stolfi, crust–mantle–core paradigm of Voynichese words", "Montemurro & Zanette, PLoS ONE 8 (2013): keywords by section",
                     "Timm & Schinner, Cryptologia 44 (2020): self-citation"])
-    lay, ms, sections, _ = manuscript_layout(cfg.quick)
+    lay, ms, sections, _, page_keys = manuscript_layout(cfg.quick)
+    kinds = boundary_kinds(page_keys)
     chunks = K.chunk_inventory(ms)
 
     # controls: a known card, the choice in column 3 follows the page, drifts blind to pages, or neither
@@ -97,7 +116,7 @@ def run(cfg: LabConfig) -> TheoryResult:
         pi = C.page_information(codes, lay, perms, cfg.seed)
         si = C.section_information(codes, lay, perms, cfg.seed)
         hi = C.page_information(codes[hmask], hlay, perms, cfg.seed) if hlay is not None and len(herbal) > 3 else None
-        bj = C.boundary_jump(codes, lay, 10, perms, cfg.seed)
+        bj = C.boundary_jump(codes, lay, 10, perms, cfg.seed, boundary_kind=kinds)
         hj = C.boundary_jump(codes[hmask], hlay, 10, perms, cfg.seed) if hi else None
         out[name] = {"card": pr["size"], "page": pi, "section": si, "herbal": hi, "jump": bj, "herbal_jump": hj}
         cards[name] = (codes, names)
@@ -125,6 +144,10 @@ def run(cfg: LabConfig) -> TheoryResult:
                         "po dwóch stronach granicy, względem średniego podobieństwa; z wobec granic przesuniętych): " + "; ".join(
         f"{k} {v['jump']['jump']:+.3f} (z = {v['jump']['z']:.1f})" + (f", zielnik {v['herbal_jump']['jump']:+.3f} (z = {v['herbal_jump']['z']:.1f})"
                                                                      if v["herbal_jump"] else "") for k, v in out.items()) + ".")
+    res.evidence.append("Skok według rodzaju granicy (recto→verso tej samej karty, pisane po sobie, wobec granicy między kartami, "
+                        "których kolejność w oprawie nie musi być kolejnością pisania): " + "; ".join(
+        f"{k} " + ", ".join(f"{kk} {vv['jump']:+.3f} (z = {vv['z']:.1f}, {vv['boundaries']} granic)" for kk, vv in v["jump"].get("by_kind", {}).items())
+        for k, v in out.items()) + ".")
     res.evidence.append("Kolumny rękopisu (bity ponad tasowanie): " + cols("rękopis") + "; v7: " + cols("v7") + "; łacina: " + cols("łacina") + ".")
     res.evidence.append("Informacja o dziale (udział entropii, kolumny 1–6): " + "; ".join(
         f"{k} " + " ".join(f"{c['ratio']:.2f}" for c in v["section"]) for k, v in out.items()) + ".")
