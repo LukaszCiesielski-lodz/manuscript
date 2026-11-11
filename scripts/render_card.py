@@ -2,6 +2,7 @@
 
     python scripts/render_card.py                 # the 132-entry card (99% of the words) -> docs/karta_matka_rekonstrukcja.jpg
     python scripts/render_card.py --entries 242   # the card that writes every word
+    python scripts/render_card.py --lang en       # English caption -> docs/karta_matka_rekonstrukcja.en.jpg
 
 The pieces come from docs/karta_matka_100.md (theory master_card_full). The glyphs are Gabriel Landini's EVA
 Hand 1 font, downloaded from voynich.nu into data/cache (the font is free for private use, not for commercial
@@ -99,7 +100,7 @@ def ink_line(layer: Image.Image, p0: tuple[float, float], p1: tuple[float, float
         prev = (x, y)
 
 
-def render(cols: list[list[str]], out: Path, seed: int = 7, width: int = 2000):
+def render(cols: list[list[str]], out: Path, seed: int = 7, width: int = 2000, lang: str = "pl"):
     rng = np.random.default_rng(seed)
     r = random.Random(seed)
     w, h = width, int(width * 1.38)
@@ -152,12 +153,16 @@ def render(cols: list[list[str]], out: Path, seed: int = 7, width: int = 2000):
     except OSError:
         cf = ImageFont.load_default()
     n = sum(map(len, cols))
-    d.text((pad, h + 2 * pad + int(0.012 * w)),
-           f"Rekonstrukcja komputerowa (2026), nie zabytek. Karta matka: {n} kawałków w {len(cols)} kolumnach, z których składa się "
-           f"{'każde słowo' if n > 200 else '99% słów'} rękopisu Voynicha.", font=cf, fill=(196, 180, 150))
-    d.text((pad, h + 2 * pad + int(0.036 * w)),
-           "Kawałki: teoria master_card_full. Glify: krój EVA Hand 1 G. Landiniego (voynich.nu). Pergamin, liniowanie i układ: domysł.",
-           font=cf, fill=(150, 136, 112))
+    if lang == "en":
+        line1 = (f"Computer reconstruction (2026), not an artefact. Master card: {n} pieces in {len(cols)} columns that write "
+                 f"{'every word' if n > 200 else '99% of the words'} of the Voynich manuscript.")
+        line2 = "Pieces: theory master_card_full. Glyphs: EVA Hand 1 font by G. Landini (voynich.nu). Parchment, ruling and layout: conjecture."
+    else:
+        line1 = (f"Rekonstrukcja komputerowa (2026), nie zabytek. Karta matka: {n} kawałków w {len(cols)} kolumnach, z których składa się "
+                 f"{'każde słowo' if n > 200 else '99% słów'} rękopisu Voynicha.")
+        line2 = "Kawałki: teoria master_card_full. Glify: krój EVA Hand 1 G. Landiniego (voynich.nu). Pergamin, liniowanie i układ: domysł."
+    d.text((pad, h + 2 * pad + int(0.012 * w)), line1, font=cf, fill=(196, 180, 150))
+    d.text((pad, h + 2 * pad + int(0.036 * w)), line2, font=cf, fill=(150, 136, 112))
     out.parent.mkdir(parents=True, exist_ok=True)
     canvas.save(out, quality=90) if out.suffix.lower() in (".jpg", ".jpeg") else canvas.save(out, optimize=True)
     return out
@@ -170,6 +175,8 @@ if __name__ == "__main__":
     ap.add_argument("--out", type=Path, default=None)
     ap.add_argument("--seed", type=int, default=7)
     ap.add_argument("--width", type=int, default=2000)
+    ap.add_argument("--lang", choices=("pl", "en"), default="pl", help="language of the caption")
     a = ap.parse_args()
-    out = a.out or ROOT / "docs" / ("karta_matka_rekonstrukcja.jpg" if a.entries == 132 else f"karta_matka_rekonstrukcja_{a.entries}.jpg")
-    print(render(load_card(a.card, a.entries), out, a.seed, a.width))
+    suffix = ("" if a.entries == 132 else f"_{a.entries}") + (".en" if a.lang == "en" else "") + ".jpg"
+    out = a.out or ROOT / "docs" / ("karta_matka_rekonstrukcja" + suffix)
+    print(render(load_card(a.card, a.entries), out, a.seed, a.width, a.lang))
