@@ -84,6 +84,7 @@ THEORIES = {t.name: t for t in [
     Theory("master_card", "Karta matka: czy słowa składano z jednej tabeli kawałków", ("gpu",), "master_card:run"),
     Theory("master_card_full", "Karta matka na 100% słów: jak mała może być", ("gpu",), "master_card_full:run"),
     Theory("card_choice", "Wybory z karty matki: czy zależą od strony bardziej niż dryf skryby", (), "card_choice:run"),
+    Theory("sheet_order", "Kolejność pisania: arkuszami czy strona po stronie (dryf skryby jako zegar)", (), "sheet_order:run"),
     Theory("nomenclator2", "Nomenklator z dwoma kluczami i pomyłkami: hebrajski, arabski, łacina (Gibbs na GPU)", ("gpu",), "nomenclator2:run"),
 ]}
 ALIASES = {"literature": ["naibbe_cipher", "cardan_grille", "hebrew_anagram"], "rejestr": ["labels", "records", "lists"],

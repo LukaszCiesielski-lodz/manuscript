@@ -1328,3 +1328,58 @@ class CardChoiceTest(unittest.TestCase):
     def test_registry(self):
         from voynich.lab.registry import THEORIES
         self.assertTrue(callable(THEORIES["card_choice"].load()))
+
+
+class SheetOrderTest(unittest.TestCase):
+    """Sheets (bifolia) as units of writing: quire structure, and the pair test on planted ways of writing."""
+
+    def test_quire_structure(self):
+        from voynich.lab import bifolio as B
+        self.assertEqual(B.conjugate(1), 8)
+        self.assertEqual(B.conjugate(12), 13)             # f12 is lost; f13 is its sheet
+        self.assertEqual(B.conjugate(78), 81)
+        self.assertEqual(B.sheet(4), B.sheet(5))          # the central sheet of quire A
+        self.assertEqual(B.sheet(103), ("T", 0))
+        self.assertEqual(B.leaf_number("f67r2"), 67)
+        from voynich import corpus
+        for l in corpus.load_voynich():
+            if l.kind.startswith("P") and l.words:
+                self.assertEqual(B.quire_of(B.leaf_number(l.folio)), l.quire, l.folio)
+
+    def test_planted_ways_of_writing(self):
+        import random
+        import numpy as np
+        from voynich.lab import bifolio as B, cardchoice as C
+        # three quires of 8 leaves, 2 pages a leaf, 12 lines a page, 8 words a line
+        leaves = [n for n in range(1, 25) for _ in range(24)]
+        lay = C.Layout([8] * len(leaves), [i // 12 for i in range(len(leaves))], [0] * (len(leaves) // 12))
+        chunks = [(a,) for a in "abcdefgh"] + [(a, b) for a in "abcdefgh" for b in "abcdefgh"]
+        random.Random(0).shuffle(chunks)
+        stratum = {n: 0 for n in range(1, 25)}
+        sheets = {}
+        for i, n in enumerate(leaves):
+            sheets.setdefault(B.sheet(n), []).append(i)
+        order = [i for s in sorted(sheets, key=lambda s: random.Random(str(s)).random()) for i in sheets[s]]
+
+        def z(line_order, strength):
+            syn, true = B.synthetic_written(chunks, lay, line_order, 3, strength=strength, drift=0.01)
+            codes, _ = C.parse_tokens(true, chunks, syn)
+            X, valid = B.line_vectors(codes, lay, 8, 0)
+            Z = B.standardise(X, valid, np.zeros(len(leaves), int))
+            units, S = B.unit_similarity(Z, valid, leaves)
+            t = B.leaf_pair_test(units, S, stratum, 300, 0)
+            return t["sheet"]["z"], t["neighbour"]["z"]
+
+        sheet_z, neigh_z = z(order, 0.4)
+        self.assertGreater(sheet_z, 3)
+        self.assertLess(neigh_z, 2.5)
+        sheet_z, neigh_z = z(list(range(len(leaves))), 0.4)
+        self.assertGreater(neigh_z, 3)
+        self.assertLess(sheet_z, 2.5)
+        sheet_z, neigh_z = z(list(range(len(leaves))), 0.0)
+        self.assertLess(abs(sheet_z), 3)
+        self.assertLess(abs(neigh_z), 3)
+
+    def test_registered(self):
+        from voynich.lab.registry import THEORIES
+        self.assertTrue(callable(THEORIES["sheet_order"].load()))
