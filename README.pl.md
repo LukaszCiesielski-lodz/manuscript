@@ -136,22 +136,28 @@ Laboratorium porównuje z 17 językami Biblii (baskijski dołączył jako 13., h
 Sekrety Colaba: `GITHUB_TOKEN`, `OPENROUTER_API_KEY`. Wyniki trafiają na gałąź `lab-results`.
 Z wiersza poleceń: `python -m voynich.lab.runner --theories numbers,literature --quick --no-council`.
 
-## Podsumowanie końcowe (8 listopada 2026)
+## Podsumowanie końcowe (11 listopada 2026)
 
-Projekt zamykamy. Przez trzy tygodnie zamieniliśmy 44 hipotezy o rękopisie w testy z kontrolami: każdy test musiał
-najpierw znaleźć efekt, który sami podłożyliśmy, i nie znaleźć go w danych losowych. Żadna hipoteza, że tekst jest
-językiem, szyfrem, zapisem muzyki, tańca, programu albo listą nazw, nie przeszła. Ostatni i najmocniejszy atak, na
-nomenklator z dwoma kluczami i pomyłkami kopisty (jedyny szyfr, którego literatura jeszcze nie wykluczyła), czyta próbne
-szyfry po hebrajsku, arabsku i łacinie w 81–91%, a rękopis tak samo słabo jak bełkot wygenerowany komputerowo. Ilustracje
-też nic nie dały: styl rysunków zdradza skrybę, ale nie treść, a koła diagramów nie są zaszyfrowanymi nazwami stacji
-Księżyca, znaków ani miesięcy. Najlepiej wszystko tłumaczy tekst bez treści, pisany z nawyku przez przerabianie słów
+W nieco ponad trzy tygodnie zamieniliśmy 48 hipotez o rękopisie w testy z kontrolami: każdy test musiał najpierw znaleźć
+efekt, który sami podłożyliśmy, i nie znaleźć go w danych losowych. Żadna hipoteza, że tekst jest językiem, szyfrem,
+zapisem muzyki, tańca, programu albo listą nazw, nie przeszła. Najmocniejszy atak, na nomenklator z dwoma kluczami
+i pomyłkami kopisty (jedyny szyfr, którego literatura jeszcze nie wykluczyła), czyta próbne szyfry po hebrajsku, arabsku
+i łacinie w 81–91%, a rękopis tak samo słabo jak bełkot wygenerowany komputerowo. Ilustracje też nic nie dały: styl
+rysunków zdradza skrybę, ale nie treść, a koła diagramów nie są zaszyfrowanymi nazwami stacji Księżyca, znaków ani miesięcy.
+
+Po 8 listopada, kiedy projekt miał być zamknięty, doszły dwa wyniki dodatnie. Pierwszy: słowa rękopisu składają się
+z jednej małej tabeli, „karty matki”: 242 kawałki w 6 kolumnach składają każde słowo, a łacina potrzebuje 639. Drugi:
+nawyki skryby w wyborach z tej karty działają jak zegar i pokazują, że rękopis pisano arkuszami (bifoliami), zanim
+złożono składki. Sama karta nie niesie tekstu litera po literze (`card_stream`, przebieg wstępny).
+
+Najlepiej wszystko tłumaczy tekst bez treści, pisany z nawyku według wspólnej tabeli kawałków i przez przerabianie słów
 z sąsiednich wierszy; jedyna rzecz, której nasz generator nie naśladuje do końca, to liczba słów jednorazowych.
 To wniosek oparty na liczbach, nie dowód; kod, dane i wyniki (`lab-results`) są publiczne i powtarzalne.
 
-## Stan badań (8 listopada 2026)
+## Stan badań (11 listopada 2026)
 
-Trzy tygodnie, 48 teorii zamienionych w testy z kontrolami, 27 przebiegów na Colabie (A100 i CPU) na gałęzi `lab-results`
-i lokalne przebiegi ostatniego ataku, 131 testów kodu. Każdy test musi znaleźć efekt podłożony celowo i nie znajdować go w danych losowych; bez tego werdykt
+Nieco ponad trzy tygodnie, 48 teorii zamienionych w testy z kontrolami, 28 przebiegów na Colabie (A100, L4 i CPU) na gałęzi
+`lab-results` i lokalne przebiegi ostatnich testów, 131 testów kodu. Każdy test musi znaleźć efekt podłożony celowo i nie znajdować go w danych losowych; bez tego werdykt
 brzmi „metoda niewiarygodna”. Wiersze w tabeli wyżej mają liczby; tu streszczenie.
 
 **Wykluczone (kontrole przeszły):**
@@ -178,21 +184,30 @@ brzmi „metoda niewiarygodna”. Wiersze w tabeli wyżej mają liczby; tu stres
   kopiowania z sąsiedztwa (`hapax_source`). Koła diagramów nie czytają się jako stacje Księżyca, znaki ani miesiące
   (`cribs`, 32 pary, najlepsza f67v1 × miesiące katalońskie z = +3,8, p popr. 0,10). Długości słów nie kryją
   tekstu także jako pary współrzędnych w tablicy Polibiusza (`polybius`, 9.11): rękopis czyta się jak przetasowany.
+  Colab (przebieg 20261107-203642 na `lab-results`) powtórzył `hapax_source` i `cribs` z tymi samymi liczbami;
+  `nomenclator2` na GPU zerwał się i został na wyniku z CPU.
+- Jedno słowo = jedna litera (`card_stream`, 11.11, przebieg wstępny na CPU; pełny w `colab/Voynich_Strumien.ipynb`):
+  żadna kolumna karty matki ani para kolumn nie niesie tekstu litera po literze. Najlepszy strumień wyborów pamięta
+  0,049 bitu wobec 0,40–0,51 bitu dla ukrytej łaciny, a łamacz, który czyta ukryty tekst, z rękopisu wyciąga ciąg
+  5,6–6,5 bitu na symbol wobec 3,1–3,2 dla języka.
+
+**Znalezione (kontrole przeszły):**
 - Karta matka (`master_card`, 10.11): jedna tabela 120 kawałków słów w 6 kolumnach wystarcza, żeby złożyć 96% słów rękopisu,
   wobec 70–74% dla łaciny, włoskiego i rękopisu z przetasowanymi glifami. Języki A i B Curriera mieszczą się w tej samej
   karcie. To najprostszy mechanizm, który tłumaczy, jak pięciu skrybów pisało płynnie według wspólnych reguł:
-  [`docs/karta_matka.md`](docs/karta_matka.md). Karta, która składa każde słowo bez wyjątku (`master_card_full`), ma 242 wpisy (GPU):
-  2,6 raza mniej niż dla łaciny (639) i 2,3 raza mniej niż dla rękopisu z przetasowanymi glifami (563), ale tyle co
-  dla bełkotu v7 (211); na 99% słów: 132 wpisy wobec 562 dla łaciny. To, które kawałki skryba brał z karty, zależy od strony
-  mocniej niż w bełkocie v7, ale zmienia się skokowo głównie między kartami, a nie między recto i verso jednej karty: najprościej to
-  wyjaśnić kartami pisanymi w różnym czasie i przeszytymi potem w innej kolejności (`card_choice`, nierozstrzygnięta). Dryf nawyków jako zegar to potwierdza
-  (`sheet_order`): dwie karty jednego arkusza, odległe w oprawionej księdze, mają te same nawyki (z = 6,4), karty sąsiednie nie (z = 0,5).
-  Rękopis pisano arkuszami przed złożeniem składek, a arkusze jednej składki nie są sobie bliższe niż arkusze różnych składek:
-  [`docs/arkusze.md`](docs/arkusze.md). Jak taka karta mogła wyglądać na pulpicie skryby: [`docs/karta_matka_rekonstrukcja.jpg`](docs/karta_matka_rekonstrukcja.jpg)
-  (132 kawałki, 99% słów) i [`docs/karta_matka_rekonstrukcja_242.jpg`](docs/karta_matka_rekonstrukcja_242.jpg) (każde słowo); rysuje je
-  `scripts/render_card.py`. To rekonstrukcja komputerowa: kawałki są z testu, pergamin, liniowanie i układ to domysł: [`docs/karta_matka_100.md`](docs/karta_matka_100.md). Colab (przebieg 20261107-203642
-  na `lab-results`) powtórzył `hapax_source` i `cribs` z tymi samymi liczbami; `nomenclator2` na GPU zerwał się
-  i został na wyniku z CPU.
+  [`docs/karta_matka.md`](docs/karta_matka.md). Karta, która składa każde słowo bez wyjątku (`master_card_full`), ma
+  242 wpisy (GPU): 2,6 raza mniej niż dla łaciny (639) i 2,3 raza mniej niż dla rękopisu z przetasowanymi glifami (563),
+  ale tyle co dla bełkotu v7 (211); na 99% słów: 132 wpisy wobec 562 dla łaciny: [`docs/karta_matka_100.md`](docs/karta_matka_100.md).
+  Karta opisuje więc, jak budowano słowa, a nie czy coś znaczą. Jak mogła wyglądać na pulpicie skryby:
+  [`docs/karta_matka_rekonstrukcja.jpg`](docs/karta_matka_rekonstrukcja.jpg) (132 kawałki, 99% słów) i
+  [`docs/karta_matka_rekonstrukcja_242.jpg`](docs/karta_matka_rekonstrukcja_242.jpg) (każde słowo); rysuje je
+  `scripts/render_card.py`. To rekonstrukcja komputerowa: kawałki są z testu, pergamin, liniowanie i układ to domysł.
+- Pisanie arkuszami (`sheet_order`, 11.11): dryf nawyków skryby w wyborach z karty działa jak zegar. Dwie karty jednego
+  arkusza, odległe w oprawionej księdze, mają te same nawyki (z = 6,4), karty sąsiednie nie (z = 0,5). Rękopis pisano
+  arkuszami przed złożeniem składek, a arkusze jednej składki nie są sobie bliższe niż arkusze różnych składek:
+  [`docs/arkusze.md`](docs/arkusze.md). Zgadza się z tym `card_choice` (nierozstrzygnięta): to, które kawałki skryba brał
+  z karty, zależy od strony mocniej niż w bełkocie v7, ale zmienia się skokowo między kartami, a nie między recto i verso
+  jednej karty.
 
 **Niewyjaśnione:**
 - Generator bez treści v7 (kopiuj z sąsiedztwa i przerabiaj) trafia 21 z 23 miar statystycznych, ale sędzia-transformer
@@ -208,7 +223,8 @@ brzmi „metoda niewiarygodna”. Wiersze w tabeli wyżej mają liczby; tu stres
 
 **Wniosek końcowy:** tekst nie niesie treści w żadnym sensie, w jakim niosą ją język, szyfr zachowujący szyk, notacja
 czy lista. Najbardziej prawdopodobny jest zapis bez treści z nawyku skryby, z możliwą domieszką prawdziwych nazw
-(etykiety). To opinia oparta na liczbach, nie dowód: wszystko jest publiczne i powtarzalne.
+(etykiety). Słowa składano z jednej małej tabeli kawałków, a karty zapisywano arkuszami: to opisuje warsztat skrybów,
+nie treść. To opinia oparta na liczbach, nie dowód: wszystko jest publiczne i powtarzalne.
 
 **Tor obraz–etykieta (atomy):** rysunki rozbierane na atomy, jeden rekord na etykietę (853 loci na 51 stronach),
 cechy tylko obserwowalne ze słownika kontrolowanego; szkic na własnym GPU otwartymi modelami (Molmo2, Qwen3-VL, Grounding

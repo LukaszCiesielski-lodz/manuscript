@@ -136,22 +136,31 @@ The lab compares with 17 Bible languages (Basque joined as the 13th; Spanish, Po
 Colab secrets: `GITHUB_TOKEN`, `OPENROUTER_API_KEY`. The results go to the `lab-results` branch.
 From the command line: `python -m voynich.lab.runner --theories numbers,literature --quick --no-council`.
 
-## Final summary (8 November 2026)
+## Final summary (11 November 2026)
 
-We are closing the project. Over three weeks we turned 44 hypotheses about the manuscript into tests with controls: each test first had
-to find an effect that we had planted ourselves, and not find it in random data. No hypothesis that the text is
-a language, a cipher, a notation of music, dance or a program, or a list of names, passed. The last and strongest attack, on
-a nomenclator with two keys and copyist errors (the only cipher that the literature had not yet ruled out), reads trial
-ciphers in Hebrew, Arabic and Latin at 81–91%, and the manuscript as poorly as computer-generated gibberish. The illustrations
-gave nothing either: the style of the drawings gives away the scribe, but not the content, and the diagram wheels are not enciphered names of lunar
-mansions, signs or months. What explains everything best is a text without content, written out of habit by reworking words
-from neighbouring lines; the only thing that our generator does not fully imitate is the number of words that occur only once.
-This is a conclusion based on numbers, not a proof; the code, data and results (`lab-results`) are public and reproducible.
+In a little over three weeks we turned 48 hypotheses about the manuscript into tests with controls: each test first had
+to find an effect that we had planted ourselves, and not find it in random data. No hypothesis that the text is a
+language, a cipher, a notation of music, dance or a program, or a list of names, passed. The strongest attack, on a
+nomenclator with two keys and copyist errors (the only cipher that the literature had not yet ruled out), reads trial
+ciphers in Hebrew, Arabic and Latin at 81–91%, and the manuscript as poorly as computer-generated gibberish. The
+illustrations gave nothing either: the style of the drawings gives away the scribe, but not the content, and the diagram
+wheels are not enciphered names of lunar mansions, signs or months.
 
-## State of research (8 November 2026)
+After 8 November, when the project was to be closed, two positive results came. First: the words of the manuscript are
+assembled from one small table, the "master card": 242 pieces in 6 columns write every word, where Latin needs 639.
+Second: the scribe's habits in choosing from that card work as a clock and show that the manuscript was written sheet by
+sheet (bifolium by bifolium) before the quires were put together. The card itself does not carry a text letter by letter
+(`card_stream`, a preliminary run).
 
-Three weeks, 48 theories turned into tests with controls, 27 runs on Colab (A100 and CPU) on the `lab-results` branch
-and local runs of the last attack, 131 code tests. Each test must find an effect planted on purpose and not find it in random data; without that the verdict
+What explains everything best is a text without content, written out of habit from a shared table of pieces and by
+reworking words from neighbouring lines; the only thing that our generator does not fully imitate is the number of words
+that occur only once. This is a conclusion based on numbers, not a proof; the code, data and results (`lab-results`) are
+public and reproducible.
+
+## State of research (11 November 2026)
+
+A little over three weeks, 48 theories turned into tests with controls, 28 runs on Colab (A100, L4 and CPU) on the
+`lab-results` branch and local runs of the latest tests, 131 code tests. Each test must find an effect planted on purpose and not find it in random data; without that the verdict
 is "method unreliable". The rows in the table above give the numbers; here is a summary.
 
 **Ruled out (controls passed):**
@@ -178,21 +187,32 @@ is "method unreliable". The rows in the table above give the numbers; here is a 
   copying from the neighbourhood (`hapax_source`). The diagram wheels do not read as lunar mansions, signs or months
   (`cribs`, 32 pairs, the best f67v1 × Catalan months z = +3.8, corrected p 0.10). Nor do the word lengths hide
   a text as pairs of coordinates in a Polybius square (`polybius`, 9 Nov): the manuscript reads like a shuffled one.
-- Master card (`master_card`, 10 Nov): a single table of 120 word pieces in 6 columns is enough to assemble 96% of the words of the manuscript,
-  against 70–74% for Latin, Italian and the manuscript with shuffled glyphs. Currier languages A and B fit in the same
-  card. This is the simplest mechanism that explains how five scribes wrote fluently by shared rules:
-  [`docs/karta_matka.en.md`](docs/karta_matka.en.md). The card that assembles every word without exception (`master_card_full`) has 242 entries (GPU):
-  2.6 times fewer than for Latin (639) and 2.3 times fewer than for the manuscript with shuffled glyphs (563), but as many as
-  for v7 gibberish (211); for 99% of the words: 132 entries against 562 for Latin. Which pieces the scribe took from the card depends on the page
-  more strongly than in v7 gibberish, but it changes abruptly mainly between leaves, and not between the recto and verso of one leaf: the simplest
-  explanation is leaves written at different times and later sewn in a different order (`card_choice`, undecided). The drift of habits used as a clock confirms this
-  (`sheet_order`): two leaves of one sheet, far apart in the bound book, have the same habits (z = 6.4), adjacent leaves do not (z = 0.5).
-  The manuscript was written sheet by sheet before the quires were assembled, and the sheets of one quire are no closer to each other than the sheets of different quires:
-  [`docs/arkusze.en.md`](docs/arkusze.en.md). What such a card could have looked like on the scribe's desk: [`docs/karta_matka_rekonstrukcja.en.jpg`](docs/karta_matka_rekonstrukcja.en.jpg)
-  (132 pieces, 99% of the words) and [`docs/karta_matka_rekonstrukcja_242.en.jpg`](docs/karta_matka_rekonstrukcja_242.en.jpg) (every word); they are drawn by
-  `scripts/render_card.py`. This is a computer reconstruction: the pieces come from the test, the parchment, ruling and layout are conjecture: [`docs/karta_matka_100.en.md`](docs/karta_matka_100.en.md). Colab (run 20261107-203642
-  on `lab-results`) repeated `hapax_source` and `cribs` with the same numbers; `nomenclator2` broke off on the GPU
-  and stays with the CPU result.
+  Colab (run 20261107-203642 on `lab-results`) repeated `hapax_source` and `cribs` with the same numbers;
+  `nomenclator2` broke off on the GPU and stays with the CPU result.
+- One word = one letter (`card_stream`, 11 Nov, a preliminary run on CPU; the full one is in `colab/Voynich_Strumien.ipynb`):
+  no column of the master card and no pair of columns carries a text letter by letter. The best stream of choices
+  remembers 0.049 bits against 0.40–0.51 bits for hidden Latin, and the solver that reads the hidden text gets out of the
+  manuscript a sequence of 5.6–6.5 bits per symbol against 3.1–3.2 for a language.
+
+**Found (controls passed):**
+- Master card (`master_card`, 10 Nov): a single table of 120 word pieces in 6 columns is enough to assemble 96% of the
+  words of the manuscript, against 70–74% for Latin, Italian and the manuscript with shuffled glyphs. Currier languages A
+  and B fit in the same card. This is the simplest mechanism that explains how five scribes wrote fluently by shared
+  rules: [`docs/karta_matka.en.md`](docs/karta_matka.en.md). The card that assembles every word without exception
+  (`master_card_full`) has 242 entries (GPU): 2.6 times fewer than for Latin (639) and 2.3 times fewer than for the
+  manuscript with shuffled glyphs (563), but as many as for v7 gibberish (211); for 99% of the words: 132 entries against
+  562 for Latin: [`docs/karta_matka_100.en.md`](docs/karta_matka_100.en.md). So the card describes how the words were
+  built, not whether they mean anything. What it could have looked like on the scribe's desk:
+  [`docs/karta_matka_rekonstrukcja.en.jpg`](docs/karta_matka_rekonstrukcja.en.jpg) (132 pieces, 99% of the words) and
+  [`docs/karta_matka_rekonstrukcja_242.en.jpg`](docs/karta_matka_rekonstrukcja_242.en.jpg) (every word); they are drawn by
+  `scripts/render_card.py`. This is a computer reconstruction: the pieces come from the test; the parchment, ruling and
+  layout are conjecture.
+- Writing sheet by sheet (`sheet_order`, 11 Nov): the drift of the scribe's habits in choosing from the card works as a
+  clock. Two leaves of one sheet, far apart in the bound book, have the same habits (z = 6.4); adjacent leaves do not
+  (z = 0.5). The manuscript was written sheet by sheet before the quires were assembled, and the sheets of one quire are
+  no closer to each other than the sheets of different quires: [`docs/arkusze.en.md`](docs/arkusze.en.md). `card_choice`
+  (undecided) agrees: which pieces the scribe took from the card depends on the page more strongly than in v7 gibberish,
+  but it changes abruptly between leaves, and not between the recto and verso of one leaf.
 
 **Unexplained:**
 - The contentless generator v7 (copy from the neighbourhood and rework) hits 21 of 23 statistical measures, but the transformer judge
@@ -208,7 +228,8 @@ is "method unreliable". The rows in the table above give the numbers; here is a 
 
 **Final conclusion:** the text carries no content in any sense in which a language, a cipher that preserves word order, a notation
 or a list carries it. The most probable is writing without content, produced out of the scribe's habit, with a possible admixture of real names
-(the labels). This is an opinion based on numbers, not a proof: everything is public and reproducible.
+(the labels). The words were assembled from one small table of pieces, and the leaves were written sheet by sheet:
+that describes the scribes' workshop, not a content. This is an opinion based on numbers, not a proof: everything is public and reproducible.
 
 **Image–label track (atoms):** drawings broken down into atoms, one record per label (853 loci on 51 pages),
 only observable features from a controlled vocabulary; a draft made on our own GPU with open models (Molmo2, Qwen3-VL, Grounding
