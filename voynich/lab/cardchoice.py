@@ -166,6 +166,76 @@ def page_information(codes: np.ndarray, lay: Layout, permutations: int = 200, se
             "z": excess / (float(tot_null.std()) or 1e-9), "tokens": int(ok.sum()), "unwritten": int((~ok).sum())}
 
 
+def boundary_jump(codes: np.ndarray, lay: Layout, max_distance: int = 10, shifts: int = 200, seed: int = 0,
+                  min_distance: int = 3, items: int = 8) -> dict:
+    """Is the page a unit, or do choices only drift? Lines at the same distance (1..max_distance lines apart, same
+    section) are more alike when on the same page than across a page boundary if the page is a unit (one plant,
+    one topic, one sitting); a smooth drift gives no jump. Similarity of two lines = shared (column, choice) items
+    over the number of items, every line cut to the same random `items` (column, choice) items so that line length
+    cannot matter (shorter lines left out). Jump = mean similarity within pages - across, at matched distances, relative to
+    the mean similarity; null: the page boundaries shifted cyclically inside each section (same page sizes, wrong
+    places). The first and last line of every page and lines under `min_words` words never enter a pair: page edges
+    are paragraph edges (short last lines, paragraph-initial habits), which would fake a jump."""
+    rng = np.random.default_rng(seed)
+    ok = codes[:, 0] >= 0
+    bags: list[Counter] = [Counter() for _ in lay.line_lengths]
+    lists: list[list] = [[] for _ in lay.line_lengths]
+    for t in np.nonzero(ok)[0]:
+        line = lay.token_line[t]
+        for k, v in enumerate(codes[t]):
+            if v > 0:
+                lists[line].append((k, int(v)))
+    for line, its in enumerate(lists):
+        if len(its) >= items:
+            bags[line] = Counter(its[i] for i in rng.choice(len(its), items, replace=False))
+    sec = lay.page_section[lay.line_page]
+    lp0 = lay.line_page
+    n = len(bags)
+    edge = np.zeros(n, bool)
+    edge[0] = edge[-1] = True
+    edge[1:] |= lp0[1:] != lp0[:-1]
+    edge[:-1] |= lp0[1:] != lp0[:-1]
+    usable = ~edge & np.array([bool(b) for b in bags])
+    pairs, sims, dist = [], [], []
+    for d in range(min_distance, max_distance + 1):
+        for i in range(n - d):
+            j = i + d
+            if sec[i] != sec[j] or not usable[i] or not usable[j] or not bags[i] or not bags[j]:
+                continue
+            pairs.append((i, j))
+            sims.append(sum((bags[i] & bags[j]).values()) / items)
+            dist.append(d)
+    pairs = np.array(pairs)
+    sims = np.array(sims)
+    dist = np.array(dist)
+    mean_sim = float(sims.mean())
+
+    def jump(line_page: np.ndarray) -> float:
+        same = line_page[pairs[:, 0]] == line_page[pairs[:, 1]]
+        vals, weights = [], []
+        for d in range(min_distance, max_distance + 1):
+            m = dist == d
+            a, b = sims[m & same], sims[m & ~same]
+            if len(a) and len(b):
+                vals.append(a.mean() - b.mean())
+                weights.append(min(len(a), len(b)))
+        return float(np.average(vals, weights=weights)) / mean_sim if vals else 0.0
+
+    obs = jump(lay.line_page)
+    groups = [np.nonzero(sec == s)[0] for s in np.unique(sec)]
+    null = []
+    for _ in range(shifts):
+        lp = lay.line_page.copy()
+        for idx in groups:
+            if len(idx) > 2 * max_distance:
+                k = int(rng.integers(max_distance, len(idx) - max_distance))
+                lp[idx] = lay.line_page[idx[np.roll(np.arange(len(idx)), k)]]
+        null.append(jump(lp))
+    null = np.array(null)
+    sd = float(null.std()) or 1e-9
+    return {"jump": obs, "null": float(null.mean()), "sd": sd, "z": (obs - float(null.mean())) / sd, "mean_similarity": mean_sim}
+
+
 def section_information(codes: np.ndarray, lay: Layout, permutations: int = 200, seed: int = 0) -> list[dict]:
     """Per column: information of the choice about the section, against section labels shuffled among pages."""
     ok = codes[:, 0] >= 0
@@ -188,10 +258,11 @@ def section_information(codes: np.ndarray, lay: Layout, permutations: int = 200,
 
 
 def synthetic_pages(chunks: Sequence[Word], lay: Layout, seed: int, bias: float = 0.0, column: int = 2,
-                    columns: int = 5, per_column: int = 8) -> tuple[list[Word], np.ndarray]:
+                    columns: int = 5, per_column: int = 8, drift: float = 0.0) -> tuple[list[Word], np.ndarray]:
     """Control text written from a random true card into the given lines; with `bias` > 0, in column `column` every
-    page has its own favourite piece taken with that probability (a choice that follows the page). Returns the tokens
-    and the true card."""
+    page has its own favourite piece taken with that probability (a choice that follows the page). With `drift` > 0
+    the favourite changes instead after any line with that probability, blind to pages (a scribe's drift). Returns the
+    tokens and the true card."""
     r = random.Random(seed)
     pool = list(range(len(chunks)))
     r.shuffle(pool)
@@ -201,11 +272,17 @@ def synthetic_pages(chunks: Sequence[Word], lay: Layout, seed: int, bias: float 
         entries = pool[k * per_column:(k + 1) * per_column]
         cols.append(entries)
         true[entries, k] = True
-    n_pages = int(lay.line_page.max()) + 1
-    fav = [r.randrange(per_column) for _ in range(n_pages)]
+    if drift > 0:
+        unit, units = 0, []
+        for _ in lay.line_lengths:
+            units.append(unit)
+            unit += r.random() < drift
+    else:
+        units = list(lay.line_page)
+    fav = [r.randrange(per_column) for _ in range(max(units) + 1)]
     out = []
     for line, n in enumerate(lay.line_lengths):
-        page = lay.line_page[line]
+        page = units[line]
         made = 0
         while made < n:
             w = []

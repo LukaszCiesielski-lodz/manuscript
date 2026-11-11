@@ -63,17 +63,23 @@ def run(cfg: LabConfig) -> TheoryResult:
     lay, ms, sections, _ = manuscript_layout(cfg.quick)
     chunks = K.chunk_inventory(ms)
 
-    # controls: a known card, the choice in column 3 follows the page (or not)
+    # controls: a known card, the choice in column 3 follows the page, drifts blind to pages, or neither
     ctl = {}
-    for bias in (0.3, 0.0):
-        syn, true = C.synthetic_pages(chunks, lay, cfg.seed, bias=bias)
+    for name, kw in (("strona", {"bias": 0.3}), ("dryf", {"bias": 0.3, "drift": 0.15}), ("nic", {"bias": 0.0})):
+        syn, true = C.synthetic_pages(chunks, lay, cfg.seed, **kw)
         codes, _ = C.parse_tokens(true, chunks, syn)
-        ctl[bias] = C.page_information(codes, lay, perms, cfg.seed)
-    planted = ctl[0.3]
+        ctl[name] = (C.page_information(codes, lay, perms, cfg.seed), C.boundary_jump(codes, lay, 10, perms, cfg.seed))
+    planted, pj = ctl["strona"]
     best_col = max(planted["columns"], key=lambda c: c["z"])["column"]
-    res.control("kolumna z ulubionym wpisem każdej strony (30% wyborów) wykryta", "z ≥ 5 i najsilniejsza kolumna 3",
-                f"z = {planted['z']:.1f}, najsilniejsza kolumna {best_col}", planted["z"] >= 5 and best_col == 3)
-    res.control("ten sam tekst bez ulubionych wpisów", "|z| < 2,5", f"z = {ctl[0.0]['z']:.1f}", abs(ctl[0.0]["z"]) < 2.5)
+    res.control("kolumna z ulubionym wpisem każdej strony (30% wyborów) wykryta", "z ≥ 5, najsilniejsza kolumna 3, skok na granicy stron z ≥ 3",
+                f"z = {planted['z']:.1f}, najsilniejsza kolumna {best_col}, skok z = {pj['z']:.1f}",
+                planted["z"] >= 5 and best_col == 3 and pj["z"] >= 3)
+    dz, dj = ctl["dryf"]
+    res.control("ulubiony wpis dryfuje co kilka wierszy, ślepy na strony", "informacja o stronie z ≥ 5, skok |z| < 2,5",
+                f"z = {dz['z']:.1f}, skok z = {dj['z']:.1f}", dz["z"] >= 5 and abs(dj["z"]) < 2.5)
+    res.control("ten sam tekst bez ulubionych wpisów", "|z| < 2,5 (informacja i skok)",
+                f"z = {ctl['nic'][0]['z']:.1f}, skok z = {ctl['nic'][1]['z']:.1f}",
+                abs(ctl["nic"][0]["z"]) < 2.5 and abs(ctl["nic"][1]["z"]) < 2.5)
 
     g_lines, _, _ = v7(all_runs(), cfg.seed)
     texts = {"rękopis": ms,
@@ -91,17 +97,21 @@ def run(cfg: LabConfig) -> TheoryResult:
         pi = C.page_information(codes, lay, perms, cfg.seed)
         si = C.section_information(codes, lay, perms, cfg.seed)
         hi = C.page_information(codes[hmask], hlay, perms, cfg.seed) if hlay is not None and len(herbal) > 3 else None
-        out[name] = {"card": pr["size"], "page": pi, "section": si, "herbal": hi}
+        bj = C.boundary_jump(codes, lay, 10, perms, cfg.seed)
+        hj = C.boundary_jump(codes[hmask], hlay, 10, perms, cfg.seed) if hi else None
+        out[name] = {"card": pr["size"], "page": pi, "section": si, "herbal": hi, "jump": bj, "herbal_jump": hj}
         cards[name] = (codes, names)
         print(f"  {name}: karta {pr['size']} wpisów; informacja o stronie {pi['excess']:.3f} bitu/token "
               f"({pi['ratio']:.2%} entropii wyborów, z = {pi['z']:.1f})"
-              + (f"; zielnik {hi['ratio']:.2%} (z = {hi['z']:.1f})" if hi else ""), flush=True)
+              + (f"; zielnik {hi['ratio']:.2%} (z = {hi['z']:.1f})" if hi else "")
+              + f"; skok na granicy stron {bj['jump']:+.3f} (z = {bj['z']:.1f})", flush=True)
     res.metrics["texts"] = {k: {"card": v["card"], "page_ratio": v["page"]["ratio"], "page_excess": v["page"]["excess"],
                                 "page_z": v["page"]["z"], "columns": v["page"]["columns"],
                                 "section_ratio": [c["ratio"] for c in v["section"]],
                                 "herbal_ratio": v["herbal"]["ratio"] if v["herbal"] else None,
-                                "herbal_z": v["herbal"]["z"] if v["herbal"] else None} for k, v in out.items()}
-    res.metrics["controls"] = {"planted_z": planted["z"], "planted_column": best_col, "clean_z": ctl[0.0]["z"]}
+                                "herbal_z": v["herbal"]["z"] if v["herbal"] else None,
+                                "jump": v["jump"], "herbal_jump": v["herbal_jump"]} for k, v in out.items()}
+    res.metrics["controls"] = {k: {"page_z": a["z"], "jump_z": b["z"]} for k, (a, b) in ctl.items()}
 
     def cols(name):
         return ", ".join(f"{c['column']}: {c['excess']:.3f} (z {c['z']:.0f})" for c in out[name]["page"]["columns"])
@@ -111,6 +121,10 @@ def run(cfg: LabConfig) -> TheoryResult:
     if all(v["herbal"] for v in out.values()):
         res.evidence.append("Sam zielnik (strona = roślina): " + "; ".join(
             f"{k} {v['herbal']['ratio']:.2%} (z = {v['herbal']['z']:.1f})" for k, v in out.items()) + ".")
+    res.evidence.append("Skok na granicy stron (o ile wiersze tej samej strony są podobniejsze niż wiersze w tej samej odległości "
+                        "po dwóch stronach granicy, względem średniego podobieństwa; z wobec granic przesuniętych): " + "; ".join(
+        f"{k} {v['jump']['jump']:+.3f} (z = {v['jump']['z']:.1f})" + (f", zielnik {v['herbal_jump']['jump']:+.3f} (z = {v['herbal_jump']['z']:.1f})"
+                                                                     if v["herbal_jump"] else "") for k, v in out.items()) + ".")
     res.evidence.append("Kolumny rękopisu (bity ponad tasowanie): " + cols("rękopis") + "; v7: " + cols("v7") + "; łacina: " + cols("łacina") + ".")
     res.evidence.append("Informacja o dziale (udział entropii, kolumny 1–6): " + "; ".join(
         f"{k} " + " ".join(f"{c['ratio']:.2f}" for c in v["section"]) for k, v in out.items()) + ".")
@@ -137,23 +151,32 @@ def run(cfg: LabConfig) -> TheoryResult:
 
     ms_r, v7_r, lat_r = (out[k]["page"]["ratio"] for k in ("rękopis", "v7", "łacina"))
     ms_z = out["rękopis"]["page"]["z"]
+    mj, vj, lj = (out[k]["jump"] for k in ("rękopis", "v7", "łacina"))
+    more = ms_z >= 4 and ms_r >= 1.5 * v7_r and ms_r - v7_r >= 0.005
+    unit = mj["z"] >= 4 and mj["jump"] >= max(vj["jump"], lj["jump"]) + 0.03
+    base = (f"Wybory z karty niosą o stronie {ms_r:.2%} swojej entropii (v7 {v7_r:.2%}, łacina {lat_r:.2%}); skok na granicy stron: "
+            f"rękopis {mj['jump']:+.3f} (z = {mj['z']:.1f}), v7 {vj['jump']:+.3f}, łacina {lj['jump']:+.3f}. ")
     if cfg.quick:
         res.decide(None)
-        res.summary = f"Tryb szybki: wybory rękopisu niosą {ms_r:.2%} entropii o stronie, v7 {v7_r:.2%}, łacina {lat_r:.2%}."
-    elif ms_z >= 4 and ms_r >= 1.5 * v7_r and ms_r - v7_r >= 0.005:
+        res.summary = "Tryb szybki. " + base
+    elif more and unit:
         res.decide(True)
-        res.summary = (f"Wybory z karty zależą od strony wyraźnie bardziej niż w bełkocie v7 ({ms_r:.2%} wobec {v7_r:.2%} entropii "
-                       f"wyborów; łacina {lat_r:.2%}): strony różnią się wyborami ponad dryf skryby, czyli tam może siedzieć treść.")
-    elif ms_r <= 1.15 * v7_r + 0.001:
+        res.summary = base + ("Strony różnią się wyborami ponad dryf skryby i strona jest jednostką (zmiana na granicy strony): "
+                              "wybory idą za stroną, czyli za rysunkiem albo za posiedzeniem skryby.")
+    elif ms_r <= 1.15 * v7_r + 0.001 or mj["z"] < 2:
         res.decide(False)
-        res.summary = (f"Wybory z karty zależą od strony nie bardziej niż w bełkocie v7 ({ms_r:.2%} wobec {v7_r:.2%} entropii wyborów; "
-                       f"łacina {lat_r:.2%}): różnice między stronami tłumaczy sam dryf skryby.")
+        res.summary = base + ("Różnice między stronami tłumaczy dryf skryby: " +
+                              ("nie są większe niż w v7." if ms_r <= 1.15 * v7_r + 0.001 else "nie ma skoku na granicy stron, wybory zmieniają się płynnie."))
     else:
         res.decide(None)
-        res.summary = f"Wybory rękopisu niosą {ms_r:.2%} entropii o stronie, v7 {v7_r:.2%}, łacina {lat_r:.2%}: między progami."
+        res.summary = base + "Wynik między progami."
     res.caveats += ["v7 odtwarza dryf skryby tylko tak dobrze, jak dopasowano jego ustawienia (23 miary); nadmiar ponad v7 może być też "
                     "dryfem, którego v7 nie umie, a nie treścią.",
                     "Rozbiór słowa na kolumny nie zawsze jest jednoznaczny; wybieramy najbardziej prawdopodobny przy użyciu wpisów w tekście.",
+                    "Skok na granicy strony pokazuje, że strona jest jednostką; nie odróżnia treści (roślina) od posiedzenia skryby "
+                    "(jedna strona pisana naraz, z jednym zestawem nawyków).",
+                    "Pomiar skoku dodany po pierwszym przebiegu (rękopis 2,6% wobec v7 0,7% i łaciny 2,0%), żeby oddzielić dryf od strony "
+                    "jako jednostki; kontrola z dryfem ślepym na strony go uzasadnia.",
                     "Strona to jednostka, nie rysunek: w zielniku strona = roślina, w innych działach strona może mieć wiele rysunków."]
     res.seconds = time.time() - t0
     return res

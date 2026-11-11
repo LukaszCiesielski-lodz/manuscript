@@ -1314,6 +1314,13 @@ class CardChoiceTest(unittest.TestCase):
         syn, true = C.synthetic_pages(chunks, lay, 1, bias=0.0)
         codes, _ = C.parse_tokens(true, chunks, syn)
         self.assertLess(abs(C.page_information(codes, lay, 40, 0)["z"]), 3)
+        syn, true = C.synthetic_pages(chunks, lay, 1, bias=0.5)
+        codes, _ = C.parse_tokens(true, chunks, syn)
+        self.assertGreater(C.boundary_jump(codes, lay, 10, 60, 0)["z"], 2.5)
+        syn, true = C.synthetic_pages(chunks, lay, 1, bias=0.5, drift=0.15)
+        codes, _ = C.parse_tokens(true, chunks, syn)
+        self.assertGreater(C.page_information(codes, lay, 40, 0)["z"], 5)      # drift makes pages differ...
+        self.assertLess(abs(C.boundary_jump(codes, lay, 10, 60, 0)["z"]), 2.5)  # ...but gives no jump at page boundaries
         sub, mask = lay.subset({0, 1, 2})
         self.assertEqual(sub.n_tokens, int(mask.sum()))
         self.assertEqual(int(sub.line_page.max()), 2)
