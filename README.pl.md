@@ -116,7 +116,7 @@ Werdykt testu wynika tylko z liczb i kontroli; rada go komentuje. Przegląd lite
 | `master_card_full` | karta matka na 100% słów (`voynich/lab/card.py`: `prune`, `shrink`; `colab/Voynich_Karta.ipynb`, GPU: L4 7,7 h, A100 szybciej; CPU ok. 66 min z mniejszą populacją): karta pełna (każdy kawałek w każdej z 6 kolumn) składa wszystko; 256 kart przycina ją naraz, każda w swojej kolejności, wpis znika, gdy bez niego nadal składa się 100% (i 99%) tokenów; potem ewolucja pod budżetem o jeden wpis mniejszym (do 40 rund); te same kroki dla łaciny, włoskiego, v7, rękopisu przetasowanego; kontrola: tekst pisany znaną kartą 40 wpisów (odtworzona karta: dokładnie 40 wpisów, także na 99%) | potwierdzona (Colab L4, przebieg 20261110-143915): każde słowo rękopisu składa się z karty 242 wpisów (99% słów: 132); łacina potrzebuje 639 (562), włoski 556 (422), rękopis z przetasowanymi glifami 563 (355), bełkot v7 211 (125). Lokalnie na CPU (4 karty przycinające): rękopis 264 (185), łacina 652, włoski 579, przetasowany 567, v7 215. Tabela: [`docs/karta_matka_100.md`](docs/karta_matka_100.md). Zastrzeżenia: hapaksy też dokładają wpisy; na 99% zmniejszanie zatrzymał limit 40 rund, więc te liczby to górne granice; przycinanie znajduje małą kartę, nie dowodzi, że mniejszej nie ma |
 | `card_choice` | wybory z karty matki (`voynich/lab/cardchoice.py`, CPU ok. 17 min): każde słowo rozbite na wybory z 6 kolumn własnej karty tekstu (przycięcie do 100% tokenów); ile wybory mówią o stronie ponad działem (wobec tasowania całych wierszy między strony działu) i czy na granicy strony jest skok (wiersze tej samej strony podobniejsze niż wiersze w tej samej odległości po dwóch stronach granicy; wiersze przy krawędziach stron pominięte, każdy wiersz przycięty do 8 wyborów); osobno granica recto→verso tej samej karty i granica między kartami; rękopis wobec bełkotu v7 i łaciny w tym samym układzie; kontrole: podłożony ulubiony wpis każdej strony (z = 80, skok z = 4,3), dryf ślepy na strony (z = 36, skok z = 1,2), czysty tekst (z = −0,1) | nierozstrzygnięta (lokalnie, 11.11): wybory niosą o stronie 2,6% swojej entropii (zielnik 3,6%), v7 0,7% (1,3%), łacina 2,0% (2,7%); skok na granicy stron rękopisu +0,10 (z = 4,4), v7 i łacina ok. 0. Ale skok siedzi na granicach między kartami (+0,15, z = 7,2, 84 granice), a między recto i verso tej samej karty jest słaby (+0,06, z = 1,9, 98 granic): to wygląda na karty pisane w różnym czasie i przeszyte potem w innej kolejności, nie na treść zmieniającą się z każdą rośliną. Zastrzeżenie: czysty tekst kontrolny daje skok z = 2,3, więc z skoku są raczej zawyżone; pomiar skoku dodany po pierwszym przebiegu |
 | `sheet_order` | kolejność pisania, dryf skryby jako zegar (`voynich/lab/bifolio.py`, CPU ok. 4 min): karty jednej składki, tej samej ręki i języka Curriera; czy dwie karty jednego arkusza (bifolium; daleko od siebie w księdze, np. f1 i f8) są podobniejsze w wyborach z karty matki niż inne pary kart składki, i czy podobniejsze są karty sąsiednie w księdze; 2000 zamian kart w obrębie (składka, ręka, język); kontrole na tekście pisanym znaną kartą przez skrybę z dryfem: arkuszami w losowej kolejności (arkusz z = 5,7, sąsiednie z = 0,0), strona po stronie w kolejności księgi (sąsiednie z = 6,1, arkusz z = −0,3), bez dryfu (0,3 i −0,2) | potwierdzona (lokalnie, 11.11): karty jednego arkusza z = 6,4 (34 pary), karty sąsiednie w księdze z = 0,5 (45 par): pisano arkuszami, zanim złożono składki. Strony jednego arkusza: ta sama karta 5,2, strona zewnętrzna 5,5, wewnętrzna 5,7, inna strona i karta 4,1 (z 1,7–2,0, za słabo, by powiedzieć, w jakiej kolejności zapisywano cztery strony). Składka nie jest jednostką: najbliższy arkusz leży w tej samej składce w 37% przypadków wobec 34% losowo (z = 0,6); w zielniku A najbliższe arkusze są zwykle w innych składkach. Tabela: [`docs/arkusze.md`](docs/arkusze.md). Zastrzeżenia: wspólna treść arkusza dałaby ten sam ślad co dryf; pełnej kolejności arkuszy nie odtwarzamy (na kontroli ρ 0,1–0,6), wiarygodny jest tylko najbliższy sąsiad (62% trafień na kontroli wobec 4% losowo) |
-| `card_stream` | jedno słowo = jedna litera? (`voynich/lab/cardstream.py`, `colab/Voynich_Strumien.ipynb`, GPU): karta matka 242 wpisów (`data/card/karta_matka.json`) rozbija słowo na wybory w 6 kolumnach; każda kolumna i każda para kolumn to strumień symboli, jeden na słowo (21 strumieni); etap 1: ile symbol mówi o następnym ponad tasowanie słów w wierszach; etap 2: łamacz homofoniczny (przejścia po symbolach, pełna wiarygodność: 4-gramy liter minus koszt zlepiania symboli w jedną literę) na strumieniach z największą pamięcią, po łacinie, włosku i niemiecku; rękopis wobec rękopisu ze słowami przetasowanymi w wierszach; kontrole: litery prawdziwego tekstu ukryte w tych samych strumieniach | obalona (lokalnie CPU, 11.11, wersja zmniejszona: 4 strumienie, łacina i włoski; pełny przebieg na GPU w notebooku): pamięć najlepszego strumienia 0,049 bitu (kolumny 1+3) wobec 0,40–0,51 bitu dla ukrytej łaciny; łamacz odczytuje ukryty tekst w 7 z 8 par język–strumień (96–100% klucza), a z rękopisu wyciąga ciąg 5,6–6,5 bitu na symbol wobec 3,1–3,2 dla języka; kolejność słów pomaga mu o −0,05 do +0,24 bitu (nawyk na styku słów). Zastrzeżenie: sprawdzone tylko litera w jednej kolumnie lub parze kolumn; nie sprawdzone: litera rozłożona na trzy i więcej kolumn, szyfr Naibbe, słowa-wypełniacze między literami |
+| `card_stream` | jedno słowo = jedna litera? (`voynich/lab/cardstream.py`, `colab/Voynich_Strumien.ipynb`, GPU ok. 5 min): karta matka 242 wpisów (`data/card/karta_matka.json`) rozbija słowo na wybory w 6 kolumnach; każda kolumna i każda para kolumn to strumień symboli, jeden na słowo (21 strumieni); etap 1: ile symbol mówi o następnym ponad tasowanie słów w wierszach; etap 2: łamacz homofoniczny (przejścia po symbolach, pełna wiarygodność: 4-gramy liter minus koszt zlepiania symboli w jedną literę) na 6 strumieniach z największą pamięcią, po łacinie, włosku i niemiecku; rękopis wobec rękopisu ze słowami przetasowanymi w wierszach; kontrole: litery prawdziwego tekstu ukryte w tych samych strumieniach | obalona (Colab GPU, przebieg 20261111-123242; rada zgodna): pamięć najlepszego strumienia 0,049 bitu (kolumny 1+3) wobec 0,40–0,51 bitu dla ukrytej łaciny; łamacz odczytuje ukryty tekst we wszystkich 18 parach język–strumień (99–100% klucza), a z rękopisu wyciąga ciąg 5,7–6,5 bitu na symbol wobec 3,0–3,2 dla języka (co najmniej 2,6 bitu gorzej); kolejność słów pomaga mu o −0,24 do +0,34 bitu (nawyk na styku słów). Zastrzeżenie: sprawdzone tylko litera w jednej kolumnie lub parze kolumn; nie sprawdzone: litera rozłożona na trzy i więcej kolumn, szyfr Naibbe na całych słowach (to rada wskazuje jako następny eksperyment), słowa-wypełniacze między literami |
 | `nomenclator2` | nomenklator z dwoma kluczami (język A i B Curriera) i pomyłkami kopisty, jedyna rodzina szyfrów otwarta po Zhang i Sheng (arXiv:2610.34499), w hebrajskim, arabskim i łacinie (`voynich/lab/nomen2.py`): rzadkie typy scalane z częstym typem o jeden glif dalej, klucz symbol → jednostka (200 słów całych, reszta literami) z próbkowania Gibbsa wieloma łańcuchami naraz (cupy na GPU, numpy na CPU) pod pełną wiarygodnością: bigram jednostek + koszt emisji homofonów (sam model języka wolał zły klucz od prawdziwego: 3,36 wobec 4,19 bitu); klucz na wierszach nieparzystych, bity na parzystych; kontrole tej samej wielkości co rękopis, zaszyfrowane 800 słowami rękopisu przy r = 0, r* i 0,5; rękopis wobec v7 i rękopisu przetasowanego w wierszu | obalona (lokalnie na CPU, 16 łańcuchów × 200 przebiegów, 654 s, 7.11): łamacz czyta kontrole (r = 0: hebrajski 0,81, arabski 0,83, łacina 0,91 tokenów; przy r* = 0,21: 0,54 / 0,64 / 0,81, Zhang i Sheng: 46% hebrajskich), a rękopis odczytany jako nomenklator ma 5,62 / 5,64 / 5,64 bitu na jednostkę, tyle co bełkot v7 (5,60 / 5,69 / 5,61) i 0,6–1,4 bitu więcej niż kontrola z tą samą stopą pomyłek (4,90 / 5,02 / 4,25); przetasowany 5,8–6,0. Reguła obalenia (lustro reguły tropu: ani 0,15 bitu lepiej od v7, ani w granicach 0,3 bitu od kontroli) ustalona po pierwszym przebiegu, w którym stara reguła (≥ v7 − 0,05) zostawiła arabski na granicy 0,05 bitu. Przebieg na A100 (256 łańcuchów × 600, `colab/Voynich_Bomba.ipynb`) zerwał się w nocy 7/8.11 (Colab rozłączony) i nie został powtórzony: wynik z CPU jest ostateczny |
 | przebieg zamykający | `colab/Voynich_Final.ipynb`: teorie z dopisanymi kontrolami (gatunki: rama wszczepiona i litania przetasowana; sędzia: czułość i trzy podziały; wspinaczka i NeuroDecipher: glify przemianowane w każdym wierszu; tarcza: tekst znanej tarczy) oraz `length_code`, `chronology`, `hands` na pełnych ustawieniach | do uruchomienia |
 
@@ -148,7 +148,7 @@ rysunków zdradza skrybę, ale nie treść, a koła diagramów nie są zaszyfrow
 Po 8 listopada, kiedy projekt miał być zamknięty, doszły dwa wyniki dodatnie. Pierwszy: słowa rękopisu składają się
 z jednej małej tabeli, „karty matki”: 242 kawałki w 6 kolumnach składają każde słowo, a łacina potrzebuje 639. Drugi:
 nawyki skryby w wyborach z tej karty działają jak zegar i pokazują, że rękopis pisano arkuszami (bifoliami), zanim
-złożono składki. Sama karta nie niesie tekstu litera po literze (`card_stream`, przebieg wstępny).
+złożono składki. Sama karta nie niesie tekstu litera po literze (`card_stream`).
 
 Najlepiej wszystko tłumaczy tekst bez treści, pisany z nawyku według wspólnej tabeli kawałków i przez przerabianie słów
 z sąsiednich wierszy; jedyna rzecz, której nasz generator nie naśladuje do końca, to liczba słów jednorazowych.
@@ -156,7 +156,7 @@ To wniosek oparty na liczbach, nie dowód; kod, dane i wyniki (`lab-results`) s�
 
 ## Stan badań (11 listopada 2026)
 
-Nieco ponad trzy tygodnie, 48 teorii zamienionych w testy z kontrolami, 28 przebiegów na Colabie (A100, L4 i CPU) na gałęzi
+Nieco ponad trzy tygodnie, 48 teorii zamienionych w testy z kontrolami, 29 przebiegów na Colabie (A100, L4 i CPU) na gałęzi
 `lab-results` i lokalne przebiegi ostatnich testów, 131 testów kodu. Każdy test musi znaleźć efekt podłożony celowo i nie znajdować go w danych losowych; bez tego werdykt
 brzmi „metoda niewiarygodna”. Wiersze w tabeli wyżej mają liczby; tu streszczenie.
 
@@ -186,10 +186,10 @@ brzmi „metoda niewiarygodna”. Wiersze w tabeli wyżej mają liczby; tu stres
   tekstu także jako pary współrzędnych w tablicy Polibiusza (`polybius`, 9.11): rękopis czyta się jak przetasowany.
   Colab (przebieg 20261107-203642 na `lab-results`) powtórzył `hapax_source` i `cribs` z tymi samymi liczbami;
   `nomenclator2` na GPU zerwał się i został na wyniku z CPU.
-- Jedno słowo = jedna litera (`card_stream`, 11.11, przebieg wstępny na CPU; pełny w `colab/Voynich_Strumien.ipynb`):
-  żadna kolumna karty matki ani para kolumn nie niesie tekstu litera po literze. Najlepszy strumień wyborów pamięta
-  0,049 bitu wobec 0,40–0,51 bitu dla ukrytej łaciny, a łamacz, który czyta ukryty tekst, z rękopisu wyciąga ciąg
-  5,6–6,5 bitu na symbol wobec 3,1–3,2 dla języka.
+- Jedno słowo = jedna litera (`card_stream`, 11.11, `colab/Voynich_Strumien.ipynb`): żadna kolumna karty matki ani para
+  kolumn nie niesie tekstu litera po literze. Najlepszy strumień wyborów pamięta 0,049 bitu wobec 0,40–0,51 bitu dla
+  ukrytej łaciny, a łamacz, który czyta ukryty tekst we wszystkich 18 parach język–strumień (łacina, włoski, niemiecki),
+  z rękopisu wyciąga ciąg 5,7–6,5 bitu na symbol wobec 3,0–3,2 dla języka.
 
 **Znalezione (kontrole przeszły):**
 - Karta matka (`master_card`, 10.11): jedna tabela 120 kawałków słów w 6 kolumnach wystarcza, żeby złożyć 96% słów rękopisu,
@@ -231,6 +231,37 @@ cechy tylko obserwowalne ze słownika kontrolowanego; szkic na własnym GPU otwa
 DINO) z kolejnością nimf policzoną z geometrii. Po pięciu przebiegach 10 z 12 kół zodiaku ma dokładną liczbę postaci,
 255 atomów jest scalonych, a test `atoms` na tym szkicu wypada „obalona” (cechy modelu mają pewność 1, więc werdykt
 czeka na poprawki ludzi). Instrukcja dla osób wypełniających: [`data/atoms/README.md`](data/atoms/README.md).
+
+## Zamknięcie (11 listopada 2026, Święto Niepodległości)
+
+Na tym kończymy badania. Rękopisu nie odczytaliśmy i tego nie twierdzimy. Zostaje 48 testów z kontrolami, karta matka,
+wynik o pisaniu arkuszami i repozytorium, które każdy może uruchomić od nowa i sprawdzić. Pracę zostawiamy tym, którzy
+zechcą pójść dalej.
+
+### Dla kontynuatorów
+
+Otwarte pytania, od najbardziej obiecujących:
+
+1. **Szyfr Naibbe na całych słowach** (litera jako całe słowo z wieloma zamiennikami, słowa-wypełniacze). To jedyna rodzina,
+   której nie sprawdziliśmy do końca: `naibbe_cipher` jest nierozstrzygnięta, a rada modeli po `card_stream` wskazała ją
+   jako następny eksperyment. Potrzebna kontrola: tekst ukryty tym samym schematem i porównanie ze słowami przetasowanymi.
+2. **Słowa jednorazowe.** Generator v7 trafia 21 z 23 miar, ale daje za mało hapaksów i sędzia-transformer wciąż go
+   odróżnia (AUC 0,642). Mechanizm, który dokłada hapaksy, zamknąłby hipotezę tekstu bez treści albo ją podważył.
+3. **Etykiety przy rysunkach.** To osobny zasób nazw, którego połowa nie pada w akapitach. Szkic 255 atomów zodiaku czeka
+   na poprawki ludzi: [`data/atoms/README.md`](data/atoms/README.md).
+4. **Kolejność pisania arkuszy.** Wiarygodny jest tylko najbliższy sąsiad arkusza ([`docs/arkusze.md`](docs/arkusze.md));
+   pełnej kolejności nie odtworzyliśmy. Warto zestawić tabelę z danymi kodykologicznymi: rękami skrybów, zaciekami,
+   znakami składek. Kolejność zapisywania czterech stron arkusza jest nierozstrzygnięta (z około 2).
+5. **Wybory z karty a strona** (`card_choice`, nierozstrzygnięta): skok między recto i verso jednej karty jest słaby
+   (z = 1,9), ale nie zerowy. Ten sam test na innych transliteracjach powiedziałby, czy to szum.
+6. **Mniejsza karta.** Karta 132 wpisów na 99% słów to górna granica: zmniejszanie zatrzymał limit rund, nie brak lepszej
+   karty. Karty nie liczyliśmy też na innych transliteracjach ani przy innym podziale na glify.
+7. **Litera rozłożona na trzy i więcej kolumn karty** albo ze słowami-wypełniaczami: `card_stream` tego nie obejmuje.
+
+Jak zacząć: `python -m unittest` (131 testów), lista teorii w `voynich/lab/registry.py`, nowa teoria to jeden plik
+w `voynich/lab/theories/` z funkcją `run(cfg)`, która zwraca wynik z kontrolami. Bez kontroli dodatniej i ujemnej werdykt
+się nie liczy; tej zasady prosimy nie zmieniać. Notebooki do GPU są w `colab/`, wyniki wszystkich przebiegów na gałęzi
+`lab-results`. Kod jest na licencji MIT. Uwagi i poprawki: przez zgłoszenia (issues) w tym repozytorium.
 
 ## Uruchomienie
 

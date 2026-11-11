@@ -116,7 +116,7 @@ The verdict of a test follows only from the numbers and the controls; the counci
 | `master_card_full` | master card for 100% of the words (`voynich/lab/card.py`: `prune`, `shrink`; `colab/Voynich_Karta.ipynb`, GPU: L4 7.7 h, A100 faster; CPU approx. 66 min with a smaller population): the full card (every piece in each of the 6 columns) assembles everything; 256 cards prune it at once, each in its own order, an entry disappears when 100% (and 99%) of the tokens can still be assembled without it; then evolution under a budget one entry smaller (up to 40 rounds); the same steps for Latin, Italian, v7, the shuffled manuscript; control: a text written with a known card of 40 entries (recovered card: exactly 40 entries, also at 99%) | confirmed (Colab L4, run 20261110-143915): every word of the manuscript can be assembled from a card of 242 entries (99% of the words: 132); Latin needs 639 (562), Italian 556 (422), the manuscript with shuffled glyphs 563 (355), v7 gibberish 211 (125). Locally on CPU (4 pruning cards): manuscript 264 (185), Latin 652, Italian 579, shuffled 567, v7 215. Table: [`docs/karta_matka_100.en.md`](docs/karta_matka_100.en.md). Caveats: hapaxes also add entries; at 99% the shrinking was stopped by the 40-round limit, so these numbers are upper bounds; pruning finds a small card, it does not prove that there is no smaller one |
 | `card_choice` | choices from the master card (`voynich/lab/cardchoice.py`, CPU approx. 17 min): each word broken down into choices from the 6 columns of the text's own card (pruned to 100% of the tokens); how much the choices say about the page beyond the section (against shuffling whole lines between the pages of the section) and whether there is a jump at the page boundary (lines of the same page more similar than lines at the same distance on the two sides of the boundary; lines at the page edges omitted, each line trimmed to 8 choices); separately the recto→verso boundary of the same leaf and the boundary between leaves; the manuscript against v7 gibberish and Latin in the same layout; controls: each page's favourite entry planted (z = 80, jump z = 4.3), drift blind to pages (z = 36, jump z = 1.2), clean text (z = −0.1) | undecided (local run, 11 Nov): the choices carry 2.6% of their entropy about the page (herbal section 3.6%), v7 0.7% (1.3%), Latin 2.0% (2.7%); the jump at the manuscript's page boundaries is +0.10 (z = 4.4), v7 and Latin approx. 0. But the jump sits at the boundaries between leaves (+0.15, z = 7.2, 84 boundaries), and between the recto and verso of the same leaf it is weak (+0.06, z = 1.9, 98 boundaries): this looks like leaves written at different times and later sewn together in a different order, not like content that changes with every plant. Caveat: the clean control text gives a jump of z = 2.3, so the z values of the jump are probably inflated; the jump measurement was added after the first run |
 | `sheet_order` | order of writing, the scribe's drift as a clock (`voynich/lab/bifolio.py`, CPU approx. 4 min): leaves of one quire, of the same hand and Currier language; whether two leaves of one sheet (bifolium; far apart in the book, e.g. f1 and f8) are more similar in their choices from the master card than other pairs of leaves of the quire, and whether leaves adjacent in the book are more similar; 2000 swaps of leaves within (quire, hand, language); controls on a text written with a known card by a scribe with drift: by sheets in random order (sheet z = 5.7, adjacent z = 0.0), page by page in book order (adjacent z = 6.1, sheet z = −0.3), without drift (0.3 and −0.2) | confirmed (local run, 11 Nov): leaves of one sheet z = 6.4 (34 pairs), leaves adjacent in the book z = 0.5 (45 pairs): the writing was done sheet by sheet, before the quires were put together. Pages of one sheet: same leaf 5.2, outer side 5.5, inner side 5.7, different side and leaf 4.1 (z 1.7–2.0, too weak to say in what order the four pages were written). The quire is not a unit: the nearest sheet lies in the same quire in 37% of cases against 34% at random (z = 0.6); in herbal section A the nearest sheets are usually in other quires. Table: [`docs/arkusze.en.md`](docs/arkusze.en.md). Caveats: shared content of a sheet would leave the same trace as drift; we do not reconstruct the full order of the sheets (on the control ρ 0.1–0.6), only the nearest neighbour is reliable (62% hits on the control against 4% at random) |
-| `card_stream` | one word = one letter? (`voynich/lab/cardstream.py`, `colab/Voynich_Strumien.ipynb`, GPU): the master card of 242 entries (`data/card/karta_matka.json`) breaks a word down into choices in 6 columns; each column and each pair of columns is a stream of symbols, one per word (21 streams); stage 1: how much a symbol says about the next one above the shuffling of words within lines; stage 2: a homophonic solver (passes over the symbols, full likelihood: letter 4-grams minus the cost of merging symbols into one letter) on the streams with the most memory, in Latin, Italian and German; the manuscript against the manuscript with words shuffled within lines; controls: the letters of a real text hidden in the same streams | refuted (local CPU run, 11 Nov, reduced version: 4 streams, Latin and Italian; full run on GPU in the notebook): memory of the best stream 0.049 bits (columns 1+3) against 0.40–0.51 bits for hidden Latin; the solver reads the hidden text in 7 of 8 language–stream pairs (96–100% of the key), while from the manuscript it extracts a sequence of 5.6–6.5 bits per symbol against 3.1–3.2 for language; word order helps it by −0.05 to +0.24 bits (a habit at the junction of words). Caveat: only a letter in one column or in a pair of columns was checked; not checked: a letter spread over three or more columns, the Naibbe cipher, filler words between letters |
+| `card_stream` | one word = one letter? (`voynich/lab/cardstream.py`, `colab/Voynich_Strumien.ipynb`, GPU approx. 5 min): the master card of 242 entries (`data/card/karta_matka.json`) splits a word into choices in 6 columns; every column and every pair of columns is a stream of symbols, one per word (21 streams); stage 1: how much a symbol tells about the next one beyond the same with the words of every line shuffled; stage 2: a homophonic solver (sweeps over the symbols, full likelihood: letter 4-grams minus the cost of merging symbols into one letter) on the 6 streams with the most memory, in Latin, Italian and German; the manuscript against the manuscript with the words of every line shuffled; controls: the letters of a real text hidden in the same streams | refuted (Colab GPU, run 20261111-123242; the council agrees): memory of the best stream 0.049 bits (columns 1+3) against 0.40–0.51 bits for hidden Latin; the solver reads the hidden text in all 18 language–stream pairs (99–100% of the key), and gets out of the manuscript a sequence of 5.7–6.5 bits per symbol against 3.0–3.2 for a language (at least 2.6 bits worse); the order of the words helps it by −0.24 to +0.34 bits (the habit at word junctions). Caveat: checked only a letter in one column or a pair of columns; not checked: a letter spread over three or more columns, the Naibbe cipher on whole words (the council names it as the next experiment), filler words between letters |
 | `nomenclator2` | a nomenclator with two keys (Currier languages A and B) and copyist's errors, the only cipher family left open after Zhang and Sheng (arXiv:2610.34499), in Hebrew, Arabic and Latin (`voynich/lab/nomen2.py`): rare types merged with a frequent type one glyph away, symbol → unit key (200 whole words, the rest by letters) from Gibbs sampling with many chains at once (cupy on GPU, numpy on CPU) under the full likelihood: unit bigram + emission cost of homophones (the language model alone preferred a wrong key to the true one: 3.36 against 4.19 bits); key on odd lines, bits on even ones; controls of the same size as the manuscript, encrypted with 800 words of the manuscript at r = 0, r* and 0.5; the manuscript against v7 and the manuscript shuffled within the line | refuted (local run on CPU, 16 chains × 200 sweeps, 654 s, 7 Nov): the solver reads the controls (r = 0: Hebrew 0.81, Arabic 0.83, Latin 0.91 of tokens; at r* = 0.21: 0.54 / 0.64 / 0.81, Zhang and Sheng: 46% for Hebrew), while the manuscript read as a nomenclator has 5.62 / 5.64 / 5.64 bits per unit, the same as v7 gibberish (5.60 / 5.69 / 5.61) and 0.6–1.4 bits more than the control with the same error rate (4.90 / 5.02 / 4.25); shuffled 5.8–6.0. The refutation rule (the mirror of the lead rule: neither 0.15 bits better than v7 nor within 0.3 bits of the control) was fixed after the first run, in which the old rule (≥ v7 − 0.05) left Arabic on the 0.05-bit boundary. The run on A100 (256 chains × 600, `colab/Voynich_Bomba.ipynb`) broke off in the night of 7/8 Nov (Colab disconnected) and was not repeated: the CPU result is final |
 | closing run | `colab/Voynich_Final.ipynb`: theories with added controls (genres: frame implanted and litany shuffled; judge: sensitivity and three splits; hill climbing and NeuroDecipher: glyphs renamed in every line; disc: the text of a known disc) and `length_code`, `chronology`, `hands` at full settings | to be run |
 
@@ -150,7 +150,7 @@ After 8 November, when the project was to be closed, two positive results came. 
 assembled from one small table, the "master card": 242 pieces in 6 columns write every word, where Latin needs 639.
 Second: the scribe's habits in choosing from that card work as a clock and show that the manuscript was written sheet by
 sheet (bifolium by bifolium) before the quires were put together. The card itself does not carry a text letter by letter
-(`card_stream`, a preliminary run).
+(`card_stream`).
 
 What explains everything best is a text without content, written out of habit from a shared table of pieces and by
 reworking words from neighbouring lines; the only thing that our generator does not fully imitate is the number of words
@@ -159,7 +159,7 @@ public and reproducible.
 
 ## State of research (11 November 2026)
 
-A little over three weeks, 48 theories turned into tests with controls, 28 runs on Colab (A100, L4 and CPU) on the
+A little over three weeks, 48 theories turned into tests with controls, 29 runs on Colab (A100, L4 and CPU) on the
 `lab-results` branch and local runs of the latest tests, 131 code tests. Each test must find an effect planted on purpose and not find it in random data; without that the verdict
 is "method unreliable". The rows in the table above give the numbers; here is a summary.
 
@@ -189,10 +189,10 @@ is "method unreliable". The rows in the table above give the numbers; here is a 
   a text as pairs of coordinates in a Polybius square (`polybius`, 9 Nov): the manuscript reads like a shuffled one.
   Colab (run 20261107-203642 on `lab-results`) repeated `hapax_source` and `cribs` with the same numbers;
   `nomenclator2` broke off on the GPU and stays with the CPU result.
-- One word = one letter (`card_stream`, 11 Nov, a preliminary run on CPU; the full one is in `colab/Voynich_Strumien.ipynb`):
-  no column of the master card and no pair of columns carries a text letter by letter. The best stream of choices
-  remembers 0.049 bits against 0.40–0.51 bits for hidden Latin, and the solver that reads the hidden text gets out of the
-  manuscript a sequence of 5.6–6.5 bits per symbol against 3.1–3.2 for a language.
+- One word = one letter (`card_stream`, 11 Nov, `colab/Voynich_Strumien.ipynb`): no column of the master card and no pair
+  of columns carries a text letter by letter. The best stream of choices remembers 0.049 bits against 0.40–0.51 bits for
+  hidden Latin, and the solver that reads the hidden text in all 18 language–stream pairs (Latin, Italian, German) gets
+  out of the manuscript a sequence of 5.7–6.5 bits per symbol against 3.0–3.2 for a language.
 
 **Found (controls passed):**
 - Master card (`master_card`, 10 Nov): a single table of 120 word pieces in 6 columns is enough to assemble 96% of the
@@ -236,6 +236,41 @@ only observable features from a controlled vocabulary; a draft made on our own G
 DINO) with the order of the nymphs computed from geometry. After five runs 10 of the 12 zodiac wheels have the exact number of figures,
 255 atoms are merged, and the `atoms` test on this draft comes out "refuted" (the model's features have confidence 1, so the verdict
 awaits corrections by people). Instructions for the people filling it in: [`data/atoms/README.en.md`](data/atoms/README.en.md).
+
+## Closing (11 November 2026, Polish Independence Day)
+
+Here the research ends. We have not read the manuscript and we do not claim to. What stays is 48 tests with controls, the
+master card, the result on writing sheet by sheet, and a repository that anyone can run again and check. We leave the
+work to those who wish to go further.
+
+### For those who continue
+
+Open questions, the most promising first:
+
+1. **The Naibbe cipher on whole words** (a letter as a whole word with many substitutes, filler words). It is the only
+   family we did not test to the end: `naibbe_cipher` is undecided, and after `card_stream` the council of models named it
+   as the next experiment. It needs a control: a text hidden by the same scheme, and a comparison with shuffled words.
+2. **Words that occur only once.** The v7 generator hits 21 of 23 measures but gives too few hapaxes, and the transformer
+   judge still tells it apart (AUC 0.642). A mechanism that adds the hapaxes would close the hypothesis of a text without
+   content, or undermine it.
+3. **The labels next to the drawings.** They are a separate stock of names, half of which never occur in the paragraphs.
+   The draft of 255 zodiac atoms awaits corrections by people: [`data/atoms/README.en.md`](data/atoms/README.en.md).
+4. **The order in which the sheets were written.** Only the nearest neighbour of a sheet is reliable
+   ([`docs/arkusze.en.md`](docs/arkusze.en.md)); we did not recover the full order. The table is worth setting against
+   codicological evidence: the scribes' hands, water stains, quire marks. The order in which the four pages of a sheet
+   were written is undecided (z about 2).
+5. **Choices from the card and the page** (`card_choice`, undecided): the jump between the recto and verso of one leaf is
+   weak (z = 1.9) but not zero. The same test on other transliterations would tell whether it is noise.
+6. **A smaller card.** The card of 132 entries for 99% of the words is an upper bound: the shrinking was stopped by the
+   limit of rounds, not by the lack of a better card. Nor did we compute the card on other transliterations or with
+   another division into glyphs.
+7. **A letter spread over three or more columns of the card**, or with filler words: `card_stream` does not cover it.
+
+How to start: `python -m unittest` (131 tests), the list of theories in `voynich/lab/registry.py`; a new theory is one
+file in `voynich/lab/theories/` with a function `run(cfg)` that returns a result with controls. Without a positive and a
+negative control a verdict does not count; please keep that rule. The GPU notebooks are in `colab/`, the results of all
+runs on the `lab-results` branch. The code is under the MIT License. Remarks and corrections: through issues in this
+repository.
 
 ## Running
 
