@@ -1279,3 +1279,45 @@ class CatalogTest(unittest.TestCase):
         shuffled = C.feature_scan(C.shuffle_features(entries, 0), shuffles=60, seed=0)
         self.assertFalse(any(r["p_adj"] < 0.05 and r["z"] >= 4 for r in shuffled))
         self.assertTrue(any(r["section"] == "herbal" and r["pages"] >= 120 for r in C.ledger(entries)))
+
+
+class CardChoiceTest(unittest.TestCase):
+    """Choices from the master card: parsing into columns, and the page measure on planted and clean texts."""
+
+    def test_parse_tokens(self):
+        import numpy as np
+        from voynich.lab import cardchoice as C
+        chunks = [("q", "o"), ("k",), ("e", "e"), ("d", "y"), ("o",), ("e",)]
+        card = np.zeros((len(chunks), 4), dtype=bool)
+        card[[0, 4], 0] = True          # column 1: qo, o
+        card[1, 1] = True               # column 2: k
+        card[[2, 5], 2] = True          # column 3: ee, e
+        card[3, 3] = True               # column 4: dy
+        codes, names = C.parse_tokens(card, chunks, [("q", "o", "k", "e", "e", "d", "y"), ("o", "k", "e"), ("d", "y", "q")])
+        self.assertEqual([names[k][codes[0, k]] for k in range(4)], ["qo", "k", "ee", "dy"])
+        self.assertEqual([names[k][codes[1, k]] for k in range(4)], ["o", "k", "e", "–"])
+        self.assertEqual(list(codes[2]), [-1, -1, -1, -1])   # dy before qo: columns out of order
+
+    def test_page_measure_controls(self):
+        import random
+        from voynich.lab import cardchoice as C
+        r = random.Random(0)
+        lengths = [8] * 600
+        lay = C.Layout(lengths, [i // 15 for i in range(600)], [p // 10 for p in range(40)])
+        chunks = [(a,) for a in "abcdefgh"] + [(a, b) for a in "abcdefgh" for b in "abcdefgh"]
+        r.shuffle(chunks)
+        syn, true = C.synthetic_pages(chunks, lay, 1, bias=0.5)
+        codes, _ = C.parse_tokens(true, chunks, syn)
+        planted = C.page_information(codes, lay, 40, 0)
+        self.assertGreater(planted["z"], 5)
+        self.assertEqual(max(planted["columns"], key=lambda c: c["z"])["column"], 3)
+        syn, true = C.synthetic_pages(chunks, lay, 1, bias=0.0)
+        codes, _ = C.parse_tokens(true, chunks, syn)
+        self.assertLess(abs(C.page_information(codes, lay, 40, 0)["z"]), 3)
+        sub, mask = lay.subset({0, 1, 2})
+        self.assertEqual(sub.n_tokens, int(mask.sum()))
+        self.assertEqual(int(sub.line_page.max()), 2)
+
+    def test_registry(self):
+        from voynich.lab.registry import THEORIES
+        self.assertTrue(callable(THEORIES["card_choice"].load()))

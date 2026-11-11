@@ -71,6 +71,7 @@ class LabConfig:
     card_population: int = 512     # cards scored at once on the GPU (capped at 32 in numpy)
     card_generations: int = 600    # (capped at 150 in numpy)
     card_prune_population: int = 256  # cards pruning the full card at once, each in its own order (theory master_card_full)
+    card_choice_permutations: int = 200  # line shuffles among the pages of a section (theory card_choice)
 
     # The wheel (volvelle) search and the transformer judge (theories "wheel", "adversary").
     wheel_rings: int = 3
