@@ -182,10 +182,17 @@ def run(cfg: LabConfig) -> TheoryResult:
     if cfg.quick:
         res.decide(None)
         res.summary = "Tryb szybki. " + base
-    elif more and unit:
+    elif more and unit and mj.get("by_kind", {}).get("ta sama karta", {}).get("z", 0) >= 3:
         res.decide(True)
-        res.summary = base + ("Strony różnią się wyborami ponad dryf skryby i strona jest jednostką (zmiana na granicy strony): "
-                              "wybory idą za stroną, czyli za rysunkiem albo za posiedzeniem skryby.")
+        res.summary = base + ("Strony różnią się wyborami ponad dryf skryby, a skok jest także między recto i verso tej samej karty, "
+                              "pisanymi po sobie: wybory idą za stroną (rysunkiem), nie tylko za czasem pisania.")
+    elif more and unit:
+        bk = mj.get("by_kind", {})
+        res.decide(None)
+        res.summary = base + ("Strony różnią się wyborami ponad dryf skryby i strona jest jednostką, ale skok siedzi głównie na granicach "
+                              "między kartami" + (f" ({bk['inna karta']['jump']:+.3f}, z = {bk['inna karta']['z']:.1f}; recto→verso tej samej karty "
+                                                  f"{bk['ta sama karta']['jump']:+.3f}, z = {bk['ta sama karta']['z']:.1f})" if len(bk) == 2 else "")
+                              + ": to zgodne z kartami pisanymi w różnym czasie i przeszytymi potem w innej kolejności. Treści to nie wykazuje.")
     elif ms_r <= 1.15 * v7_r + 0.001 or mj["z"] < 2:
         res.decide(False)
         res.summary = base + ("Różnice między stronami tłumaczy dryf skryby: " +
