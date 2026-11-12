@@ -77,6 +77,12 @@ For each paper: what we take from it for the tests.
   → the `master_card` and `master_card_full` theories: the same structure, but a table found by search, writing every word,
   measured by the same procedure against Latin, Italian, shuffled glyphs and a text written from a known card.
 
+## Bifolia as units of the text
+
+- C. Layfield, L. F. Davis, *Singulion Structure and the Voynich Manuscript*, Digital Medievalist 19 (2026), [doi:10.4000/16k0a](https://journals.openedition.org/digitalmedievalist/2331): the pages of one bifolium are more alike than facing pages (LSA: 0.433 against 0.298); the singulion hypothesis and an attempt to recover the order.
+- T. Timm, *The Singulion and the Sequence: A Methodological Review of Layfield and Davis* (2026): the similarity inside a bifolium is real; the recovery of the order lacks a permutation null and a calibration.
+  → the `sheet_order` theory: the same on choices from the master card, inside one hand and language, with a permutation null and three controls.
+
 ## Other undeciphered scripts (methods)
 
 - Rao et al., *A Markov model of the Indus script*, PNAS 106 (2009); Yadav et al., PLoS ONE 5 (2010): n-grams for the Indus script.

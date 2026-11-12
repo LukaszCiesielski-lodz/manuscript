@@ -77,6 +77,12 @@ Przy każdej pracy: co z niej bierzemy do testów.
   → teorie `master_card`, `master_card_full`: ta sama budowa, ale tabela znaleziona przez wyszukiwanie, składająca każde słowo,
   zmierzona tą samą procedurą wobec łaciny, włoskiego, przetasowanych glifów i tekstu pisanego znaną kartą.
 
+## Bifolia jako jednostki tekstu
+
+- C. Layfield, L. F. Davis, *Singulion Structure and the Voynich Manuscript*, Digital Medievalist 19 (2026), [doi:10.4000/16k0a](https://journals.openedition.org/digitalmedievalist/2331): strony jednego bifolium podobniejsze niż strony sąsiadujące (LSA: 0,433 wobec 0,298); hipoteza singulionów i próba odtworzenia kolejności.
+- T. Timm, *The Singulion and the Sequence: A Methodological Review of Layfield and Davis* (2026): podobieństwo w obrębie bifolium jest prawdziwe; odtwarzaniu kolejności brakuje zera permutacyjnego i kalibracji.
+  → teoria `sheet_order`: to samo na wyborach z karty matki, w obrębie jednej ręki i języka, z zerem permutacyjnym i trzema kontrolami.
+
 ## Inne pisma nieodczytane (metody)
 
 - Rao i in., *A Markov model of the Indus script*, PNAS 106 (2009); Yadav i in., PLoS ONE 5 (2010): n-gramy dla pisma Indusu.

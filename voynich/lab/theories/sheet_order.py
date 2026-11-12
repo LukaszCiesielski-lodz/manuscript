@@ -122,7 +122,9 @@ def run(cfg: LabConfig) -> TheoryResult:
                 "jednego arkusza (ta sama karta, ta sama strona rozłożonego arkusza, strony naprzeciw siebie), składka jako jednostka, "
                 "najbliższy arkusz każdego arkusza. Kontrole na tekście pisanym znaną kartą przez skrybę z dryfem: arkuszami w losowej "
                 "kolejności, strona po stronie w kolejności księgi, bez dryfu."),
-        references=["Davis, Manuscript Studies 5 (2020): How many glyphs and how many scribes?", "Currier, Papers on the Voynich Manuscript (1976)",
+        references=["Layfield & Davis, Digital Medievalist 19 (2026): Singulion structure and the Voynich manuscript",
+                    "Timm (2026): The singulion and the sequence, a methodological review of Layfield and Davis",
+                    "Davis, Manuscript Studies 5 (2020): How many glyphs and how many scribes?", "Currier, Papers on the Voynich Manuscript (1976)",
                     "Pelling, The Curse of the Voynich (2006): misbound bifolia"])
     lay, ms, sections, lines, _ = manuscript_layout(False)
     leaf_of_line = [B.leaf_number(l.folio) for l in lines]
